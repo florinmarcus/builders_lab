@@ -19,3 +19,15 @@ One group at a time: what they sell, and why a Romanian builder would or wouldn'
 **Against us:** specialists, cheap or free; the output must be in English anyway for main contractors, CHAS and inspectors.
 **For us:** the builder must understand what they sign; the crew must understand the safety briefing.
 **View (agreed with Florin, 7 Nov 2026):** don't compete on writing RAMS. Sit next to these tools: explain an English RAMS in Romanian, check understanding, give the crew a Romanian toolbox talk. Or point users to RAMSReady or DocGen.
+
+## 3. AI quoting apps
+
+- **QuickPrice** (https://getquickprice.com/): text, voice note, up to 5 photos or video → priced line items → branded PDF quote with one-tap accept → invoice. Learns your rates from 5 old quotes. Auto-chases quotes, tracks payments, lead form, diary. iPhone, Android, web. Free: 3 AI quotes per 30 days; paid prices not on the main page. VAT per line; no CIS. Material price source not explained. No languages or WhatsApp mentioned.
+- **TradeQuoteAI** (https://tradequoteai.com/): type or speak line items → branded PDF quote and invoice, sent by WhatsApp or email. $12/month (20 quotes), $24 unlimited, $49 for 5 users with API. Prices in dollars. No CIS. No languages stated.
+- **ToolsDownAI** (https://toolsdown.uk/): quoting over WhatsApp, waitlist per earlier search; site down (503) on 7 Nov 2026.
+- Others seen only in search snippets: QuotePilot, Sleepless Tradesman (VAT and CIS), ToolBoxHQ, QuoteSmith.
+- **Wickes Trade guide, summer 2026** (https://www.wickes.co.uk/trade/ai-tools-for-tradespeople-summer-26): recommends Tradify, Powered Now, VioTrade for quoting; Xero, QuickBooks, FreeAgent (CIS) for invoicing; and ChatGPT, Claude, Gemini for customer emails, RAMS, T&Cs. Cites 7–8 hours a week of admin.
+
+**Against us:** very crowded, cheap, mobile apps already; a big merchant already tells trades which to use.
+**For us:** none mentions Romanian. A Romanian builder could describe the job in Romanian (voice) and get a clear English quote for a UK client. Untested whether these apps already accept Romanian voice.
+**View (proposed):** don't build a quoting app. Possible small angle: Romanian voice or text in, English quote text out, to paste into whichever quoting app they use.
