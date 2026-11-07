@@ -46,3 +46,12 @@ From `research_notes/Construction AI market and sources/construction_trades_soft
 **Against us:** they run the whole business (jobs, money, tax); the AI is being added inside the tool builders already pay for; switching cost is high once their data is in.
 **For us:** their AI is small helpers in English; none explains rules or duties; none speaks Romanian.
 **View (proposed):** don't compete with these. They are where the builder's data lives. Be a companion that works alongside them (Romanian explanations, English text to paste in), and maybe integrate later through their APIs (Tradify, Fergus and others connect to Xero, so APIs likely exist; not checked).
+
+## 5. AI receptionists
+
+- **Powered Now Receptionist** (https://powerednow.com/receptionist/): answers every call 24/7 on your existing number (call forwarding), takes the job details and texts them to your phone with a summary, recording and follow-up task. Texts callers who hang up. British voices to choose from. Urgent calls put through; family and regulars skip it. £29/month speech, £39 speech + text, £23.99 per extra teammate. No diary booking, quotes, WhatsApp or languages mentioned.
+- Many small UK agencies sell the same (call answering, missed-call text-back, WhatsApp enquiries), about £39–£149/month (search snippets only, vendor claims; see research notes).
+
+**Against us:** cheap, crowded, already inside a trades app; the caller is an English client, so Romanian isn't needed on that side.
+**For us:** the builder's side could be Romanian: an English call summarised in Romanian, with a suggested English reply.
+**View (proposed):** don't build a receptionist. At most, in direction B, a client message (call summary, email, WhatsApp) could land in the client folder with a Romanian summary and a draft English reply.
