@@ -8,6 +8,7 @@ Call by Florin, 7 Nov 2026. Notes written the same day from Florin's summary. An
 - Main client: the local council. Refurbishes council flats.
 - The council gives a budget (about 10,000, currency assumed GBP) to cover a batch of properties.
 - Uses QuickBooks for accounts. Says accounts are not the problem.
+- Mentioned complications with CIS (details not known yet).
 
 ## Pain point
 
@@ -29,4 +30,5 @@ Call by Florin, 7 Nov 2026. Notes written the same day from Florin's summary. An
 - How does he track spending against the council budget per property?
 - Does the council also use a portal?
 - Does his contract limit sharing council documents or using outside software?
+- What exactly is hard about CIS? Does QuickBooks or his accountant do it? (QuickBooks already calculates deductions and files returns.)
 - Could he share a few example documents with personal details removed, to build realistic mock data?
