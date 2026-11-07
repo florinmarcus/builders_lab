@@ -41,3 +41,21 @@ Language alone is not a moat. Competitors can add Romanian fast, and builders ma
 5. Talk to 5 to 10 Romanian builders (network event, Facebook groups) about pain points and willingness to pay.
 6. Check the unverified items: CDM construction phase plan rule, CIS 340, Scottish licence, warranty terms, Facebook group sizes.
 7. Get a short legal opinion on the OGL attribution text and on linking to copyrighted standards.
+
+## Council use case
+
+Checked 7 Nov 2026. Full report: `reports/Council refurbishment and asbestos.md`. Details: `domain/asbestos.md`, `domain/council-contracting.md`, `market/council-contractor-tools.md`.
+
+1. The asbestos check is the contractor's legal duty. Reg 5 of the Control of Asbestos Regulations 2012: no work that may disturb asbestos until it is ruled out or presumed.
+2. For a kitchen or bathroom refit, the key document is a refurbishment and demolition (R&D) survey for that room. A management survey is not enough. "No asbestos found" is valid only for rooms the survey covered.
+3. Surveys follow HSE's HSG264 (Open Government Licence). The results table has 12 fixed columns and a score from 2 to 12, so it suits extraction and mock data.
+4. Councils order work per property (works order, schedule of rates). Payment within 30 days by law. Roughly 10 to 20 documents per void flat (our estimate), by portal and email. Average void costs £2,400 to £2,850.
+5. Councils treat contractors as data processors. An AI tool on council email probably needs the council's written consent and UK hosting (needs legal review).
+6. The gap: no tool searches a small contractor's own emails and attachments by property and cites the survey page and date. Landlords own the asbestos software. Copilot (Romanian, about £16 per user per month) is the real rival.
+
+Open questions for Florin:
+- Did Builder 1 mean asbestos (not "arson")? Can he share 2 or 3 anonymised property email threads?
+- How many emails and attachments per property? Scanned or typed PDFs? Does his council use a portal?
+- What does his council contract say about data sharing and outside software?
+- Is the £10,000 budget per batch of properties, and how many properties per batch?
+- Does he use Gmail or Outlook / Microsoft 365?
