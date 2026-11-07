@@ -55,3 +55,18 @@ From `research_notes/Construction AI market and sources/construction_trades_soft
 **Against us:** cheap, crowded, already inside a trades app; the caller is an English client, so Romanian isn't needed on that side.
 **For us:** the builder's side could be Romanian: an English call summarised in Romanian, with a suggested English reply.
 **View (proposed):** don't build a receptionist. At most, in direction B, a client message (call summary, email, WhatsApp) could land in the client folder with a Romanian summary and a draft English reply.
+
+## 5b. QuickBooks (accounting)
+
+Added at Florin's request. Pages checked 7 Nov 2026: https://quickbooks.intuit.com/uk/pricing/ and https://quickbooks.intuit.com/uk/cis/
+
+- **Plans:** Sole Trader Plus (1 user), Simple Start (1), Essentials (3), Plus (5), Advanced (25). 30-day trial. Prices load by script and were not captured; check by hand.
+- **All plans:** invoices, quotes, CIS, MTD for Income Tax, receipt capture, mobile app, AI chat (limited, beta).
+- **CIS:** calculates deductions for contractors and subcontractors, files CIS returns to HMRC at no extra cost. Subcontractor verification with HMRC not mentioned.
+- **VAT:** reverse charge VAT codes (20% and 5%) flow to the VAT return. VAT submission not on Sole Trader Plus.
+- **Projects and job costing:** Plus and Advanced only.
+- **AI:** "Intuit Intelligence"; the page says AI outputs are currently English only.
+
+**Against us:** it already does the money and tax side well (CIS, VAT reverse charge, MTD); accountants push it; we must not try to replace it.
+**For us:** English only; it doesn't explain duties or rules; no client folders, documentation or methodology.
+**View (proposed):** QuickBooks (or Xero, FreeAgent) stays the money system. In either direction we explain in Romanian what the numbers and HMRC letters mean, and later pass invoices to QuickBooks through its API (not checked) instead of doing tax ourselves.
