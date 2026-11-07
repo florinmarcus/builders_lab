@@ -31,3 +31,18 @@ One group at a time: what they sell, and why a Romanian builder would or wouldn'
 **Against us:** very crowded, cheap, mobile apps already; a big merchant already tells trades which to use.
 **For us:** none mentions Romanian. A Romanian builder could describe the job in Romanian (voice) and get a clear English quote for a UK client. Untested whether these apps already accept Romanian voice.
 **View (proposed):** don't build a quoting app. Possible small angle: Romanian voice or text in, English quote text out, to paste into whichever quoting app they use.
+
+## 4. Trades apps with AI added
+
+From `research_notes/Construction AI market and sources/construction_trades_software.md` (vendor pricing pages checked 7 Nov 2026).
+
+- **Tradify** (https://www.tradifyhq.com/uk/pricing): jobs, scheduling, quotes, invoices, payments, Xero/Sage/QuickBooks sync, certificates. £34/£37/£44 per user per month. AI only on Plus: SmartRead (reads supplier bills), SmartWrite (job descriptions). Trustpilot 4.8 (625 reviews).
+- **Powered Now** (https://www.powerednow.com/pricing): UK-built. £23.33–£33.33 per user per month. Only one advertising HMRC Making Tax Digital and VAT submission (page says including CIS) inside the app. AI writing and receipt scanning on Premium; AI receptionist add-on £29–£39 ("natural British voice").
+- **Fergus** (https://fergus.com/uk/pricing/): from £39/£45 per month. Fergus Assistant (ask about your jobs and costs), Fergus Go (type or speak on site to update jobs), AI reading of supplier invoices from email.
+- **ServiceM8** (https://www.servicem8.com/uk/pricing): priced by jobs (£0–£269/month), AI writing helper, AI office agent.
+- **YourTradebase**: £29/month, no AI.
+- None lists Romanian. Most leave CIS to Xero or QuickBooks.
+
+**Against us:** they run the whole business (jobs, money, tax); the AI is being added inside the tool builders already pay for; switching cost is high once their data is in.
+**For us:** their AI is small helpers in English; none explains rules or duties; none speaks Romanian.
+**View (proposed):** don't compete with these. They are where the builder's data lives. Be a companion that works alongside them (Romanian explanations, English text to paste in), and maybe integrate later through their APIs (Tradify, Fergus and others connect to Xero, so APIs likely exist; not checked).
