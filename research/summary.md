@@ -59,3 +59,16 @@ Open questions for Florin:
 - What does his council contract say about data sharing and outside software?
 - Is the £10,000 budget per batch of properties, and how many properties per batch?
 - Does he use Gmail or Outlook / Microsoft 365?
+
+## Client and hosting costs
+
+Checked 18 Nov 2026, USD. Details: `reports/Claude app vs Bedrock costs.md` and `hosting-costs/claude-app-vs-bedrock.md`.
+
+1. **Own web app on Bedrock is cheaper.** About $25 a month on Haiku 5.5, $38 on Sonnet 5.5, for 2 users and about 500 questions. Most of it is the $24 Lightsail 4 GB server.
+2. **The Claude app costs more.** About $64–74 a month: the same server and ingestion, plus 2 Team seats ($40–50), plus an OAuth provider (not priced).
+3. **The Claude app only replaces the chat screen.** We would still build the backend, plus an MCP server on the public internet with per-user OAuth.
+4. **Bedrock is easier for a council to approve.** AWS DPA with UK Addendum applies automatically, no training, Anthropic never sees the data. Processing stays in the UK/EU (EU profile), not UK-only.
+5. **Claude Team means US processing** and Anthropic's sub-processors. **Pro/Max has no DPA:** mock data only.
+6. **Bedrock gaps:** no batch discount for 5.5 models, rerank only in Frankfurt.
+7. **Decision proposed:** London server, Claude on Bedrock, Haiku by default. Claude app for demos with mock data only.
+8. **To check:** AWS credits for Claude, real tokens per PDF page, council view on US processing.
