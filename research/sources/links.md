@@ -462,3 +462,85 @@ Links used by the council use case files. Checked 7 Nov 2026 by the research pas
 - https://itbrief.co.uk/story/housingai-launches-ai-knowledge-platform-for-social-housing
 - https://www.housing-technology.com/housingai-launched-by-healthy-homes-hub/
 - https://www.bdaily.co.uk/articles/2025/12/14/housingai-names-chief-executive-ahead-of-2026-launch
+
+## Claude app vs Bedrock costs (added 18 Nov 2026)
+
+Links used by the client and hosting cost research. Checked 18 Nov 2026 by the research pass, unless the notes mark an item as a search snippet or unverified. Links already listed above (the council schedule and RBKC DPIA) are not repeated.
+
+### research/reports/Claude app vs Bedrock costs.md and research/hosting-costs/claude-app-vs-bedrock.md (32 new links)
+
+- https://aws.amazon.com/lightsail/pricing/
+- https://b0.p.awsstatic.com/pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-ondemand-without-sec-sel/EU%20(London)/Linux/index.json
+- https://aws.amazon.com/vpc/pricing/
+- https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/current/eu-west-2/index.json
+- https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrockFoundationModels/current/eu-west-2/index.json
+- https://platform.claude.com/docs/en/about-claude/pricing
+- https://claude.com/pricing
+- https://aws.amazon.com/free/
+- https://claude.com/docs/connectors/building.md
+- https://support.claude.com/en/articles/11175166-getting-started-with-custom-connectors-using-remote-mcp
+- https://claude.com/blog/interactive-tools-in-claude
+- https://claude.com/docs/connectors/building/authentication.md
+- https://aws.amazon.com/compliance/gdpr-center/
+- https://aws.amazon.com/bedrock/faqs/
+- https://docs.aws.amazon.com/bedrock/latest/userguide/data-protection.html
+- https://platform.claude.com/docs/en/build-with-claude/claude-in-amazon-bedrock
+- https://aws.amazon.com/blogs/machine-learning/unlocking-ai-flexibility-in-europe-a-guide-to-cross-region-inference-for-eu-data-processing-and-model-access/
+- https://www.anthropic.com/legal/consumer-terms
+- https://www.anthropic.com/news/updates-to-our-consumer-terms
+- https://ico.org.uk/about-the-ico/what-we-do/our-work-on-artificial-intelligence/generative-ai-fifth-call-for-evidence
+- https://www.anthropic.com/legal/data-processing-addendum
+- https://www.anthropic.com/legal/commercial-terms
+- https://platform.claude.com/docs/en/manage-claude/data-residency
+- https://github.com/anthropics/claude-code/issues/40526
+- https://github.com/anthropics/claude-ai-mcp/issues/410
+- https://github.com/anthropics/claude-ai-mcp/issues/280
+- https://github.com/anthropics/claude-ai-mcp/issues/215
+- https://support.claude.com/en/articles/11647753-understanding-usage-and-length-limits
+- https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrockFoundationModels/current/eu-central-1/index.json
+- https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/current/eu-central-1/index.json
+- https://developers.openai.com/apps-sdk
+- https://claude.com/docs/connectors/building/mcp-apps/getting-started.md
+
+### research/research_notes/Claude app vs Bedrock costs/ (other 40 links)
+
+- https://platform.claude.com/docs/en/build-with-claude/claude-platform-on-aws
+- https://b0.p.awsstatic.com/pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-ondemand-without-sec-sel/EU%20(Frankfurt)/Linux/index.json
+- https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/eu-west-2/index.csv
+- https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/eu-central-1/index.csv
+- https://aws.amazon.com/ebs/pricing/
+- https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AWSDataTransfer/current/eu-west-2/index.csv
+- https://aws.amazon.com/ec2/pricing/on-demand/
+- https://b0.p.awsstatic.com/pricing/2.0/meteredUnitMaps/lightsail/USD/current/lightsail.json
+- https://support.claude.com/en/articles/11176164-pre-built-connectors-using-remote-mcp
+- https://skycloak.io/blog/keycloak-cimd-claude-ai-public-client-jwt-grant/
+- https://alpic.ai/blog/mcp-apps-goes-official-claude-chatgpt-support
+- https://claude.com/de/resources/articles/interactive-connectors-full-tool
+- https://support.claude.com/en/articles/13454812-use-interactive-connectors-in-claude
+- https://buttondown.com/verified/archive/anthropics-interactive-connectors-hit-claude
+- https://chudi.dev/blog/claude-usage-limits
+- https://sandlabs.com.au/blog/claude-usage-limits-explained
+- https://help.openai.com/en/articles/12584461-developer-mode-and-full-mcp-connectors-in-chatgpt
+- https://eseospace.com/blog/chatgpt-developer-mode-mcp/
+- https://help.boomi.com/docs/Atomsphere/Platform/Connect_chatgpt_setup
+- https://coworker.ai/blog/chatgpt-mcp
+- https://github.com/modelcontextprotocol/python-sdk
+- https://community.activepieces.com/t/claude-ai-custom-mcp-connector-fails-after-successful-activepieces-authorization/11856
+- https://dev.to/zhizhiarv/how-to-set-up-remote-mcp-on-claude-iosandroid-mobile-apps-3ce3
+- https://anthropic.com/legal
+- https://support.claude.com/en/articles/8325606-what-is-the-pro-plan
+- https://www.pro-manchester.co.uk/?p=111760
+- https://privacy.claude.com/en/articles/10023580-is-my-data-used-for-model-training
+- https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training
+- https://privacy.claude.com/en/articles/7996866-how-long-do-you-store-my-organization-s-data
+- https://privacy.claude.com/en/articles/7996862-how-do-i-view-and-sign-your-data-processing-addendum-dpa
+- https://trust.anthropic.com/subprocessors
+- https://conductatlas.com/platform/anthropic/anthropic-sub-processors/provision/CA-P-016516/international-subprocessor-nutun-south-africa-for-user-support/
+- https://aihub.hkuspace.hku.hk/2026/06/09/unlocking-ai-flexibility-in-europe-a-guide-to-cross-region-inference-for-eu-data-processing-and-model-access/
+- https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html
+- https://www.lewissilkin.com/insights/2026/01/22/ico-tech-futures-report-agentic-ai-102mdki
+- https://www.arnoldporter.com/en/perspectives/advisories/2026/08/the-icos-new-statutory-duty-to-produce-an-ai-code-of-practice
+- https://compound-website.pages.dev/en-DE/tools/claude-pro-privacy/
+- https://conductatlas.com/platform/anthropic/anthropic-sub-processors/provision/CA-P-066884/amazon-web-services-cloud-infrastructure-worldwide/
+- https://aihub.hkuspace.hku.hk/2026/08/07/enforcing-data-residency-with-single-region-claude-code-on-amazon-bedrock/
+- https://ico.org.uk/about-the-ico/research-reports-impact-and-evaluation/research-and-reports/technology-and-innovation/tech-horizons-and-ico-tech-futures/ico-tech-futures-agentic-ai
