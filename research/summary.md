@@ -72,3 +72,16 @@ Checked 18 Nov 2026, USD. Details: `reports/Claude app vs Bedrock costs.md` and 
 6. **Bedrock gaps:** no batch discount for 5.5 models, rerank only in Frankfurt.
 7. **Decision proposed:** London server, Claude on Bedrock, Haiku by default. Claude app for demos with mock data only.
 8. **To check:** AWS credits for Claude, real tokens per PDF page, council view on US processing.
+
+## AI regulation
+
+Checked 18 Nov 2026. Not legal advice. Full report: `reports/EU AI Act and UK rules.md`. Short version: `domain/ai-regulation.md`.
+
+1. EU AI Act: the Digital Omnibus (Reg. 2026/1744, in force 27 Jul 2026) delayed high-risk rules to 2 Dec 2027 (Annex III) and 2 Aug 2028 (Annex I). The duty to tell users it is AI and to mark AI text started on time, 2 Aug 2026.
+2. For the England pilot, the EU Act very likely does not apply (interpretation). The UK has no AI law (Nov 2026).
+3. What binds us now is UK GDPR: council = controller, contractor = processor, us = sub-processor. The council may need to approve us in writing. A DPIA is expected. This is the biggest risk.
+4. About 30% of councils ask suppliers to declare AI use (LGA). Prepare a one-page AI-use statement.
+5. Asbestos (CAR 2012 reg 5) and CDM duties stay with the contractor. HSE, 12 Jun 2026: existing law applies to AI. The tool finds what the survey says; it is never the assessment.
+6. If we serve Romania: we are a limited-risk provider (interpretation). We need an AI notice, machine marking of AI text and AI literacy. No EU representative needed. Regulator: ANCOM (law pending, unverified).
+7. Design rules: AI notice and AI-generated label from day one; cite source and date; never say "no asbestos"; no decisions about tenants or workers; AWS London.
+8. Open: read the EU transparency guidelines in full, get real council data clauses, check Romanian laws, get a solicitor and an insurer view.
