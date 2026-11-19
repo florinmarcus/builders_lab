@@ -1,6 +1,6 @@
 # System
 
-The application. Code only. Not started: waits for requirements and the hosting decision.
+The application. Code only. Demo build started 19 Nov 2026 (`requirements/prototype.md`).
 
 - `web/`: mobile-friendly website.
 - `api/`: backend.

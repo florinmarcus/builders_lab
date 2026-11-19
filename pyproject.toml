@@ -1,0 +1,25 @@
+[project]
+name = "builders-api"
+version = "0.1.0"
+description = "builders_lab demo backend: service layer, ingestion, MCP server"
+requires-python = ">=3.11"
+dependencies = [
+    "psycopg[binary]>=3.2",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["system/api"]
+
+[tool.setuptools.package-data]
+"builders_api.db" = ["migrations/*.sql"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["system/api"]
