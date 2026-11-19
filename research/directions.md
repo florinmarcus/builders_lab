@@ -1,6 +1,15 @@
 # Product directions
 
-Updated 7 Nov 2026.
+Updated 19 Nov 2026.
+
+## Positioning (agreed with Florin, 19 Nov 2026)
+
+- **Romanian is a secondary point, not the selling point.** Competitors already answer in Romanian because the models do (tested on RAMSReady, 19 Nov 2026).
+- **Modules, not one feature.** Core: email and documents (read, file by job or property, search with sources). Next: RAMS, built from the job's own documents (works order, asbestos survey) instead of a typed description. Quotes: lowest priority (crowded, less painful).
+- **What we sell:** a standard core plus a short setup per company (connecting their messy data), domain knowledge built into extraction and checks, and trust: tested answers with published accuracy, open security and data terms. Prompts and models are not the selling point: they are easy to copy and the same for everyone.
+- **Risk:** custom setup per company turns into consultancy. Keep a standard core; make setup short and repeatable.
+- **Input channels:** email first; WhatsApp next (builders get many messages and files there). See backlog.
+
 
 ## Chosen to explore first: council refurbishment contractors
 
