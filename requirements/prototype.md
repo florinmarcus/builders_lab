@@ -14,11 +14,11 @@ Builders of every size, mostly private clients and main contractors, some counci
 
 | # | The builder says | What happens | Needs |
 |---|---|---|---|
-| 1 | "What came in today?" | Lists new emails, filed by job | Email connector, filing by job |
+| 1 | "What came in today?" | Lists new emails, filed by job | Claude's Gmail connector + our job filing |
 | 2 | "Find the email where the client approved the extra work." | Finds it, quotes it, shows date and sender | Search over the firm's emails and attachments |
 | 3 | "What's still missing before I can finish the Smith job?" | Lists missing items (e.g. electrical certificate, final photos) from the job's documents | Structured records per job |
 | 4 | "Do I need building control to remove this wall?" | Answers from the regulations corpus, with document, section and date | Shared corpus (other session), hybrid search |
-| 5 | "Draft the reply to the client." | Writes an email draft for the builder to check | Email draft (Gmail draft in the lab account) |
+| 5 | "Draft the reply to the client." | Writes an email draft for the builder to check | Claude's Gmail connector (draft in the lab account) |
 | 6 | "Make the invoice in Xero." | Creates a draft invoice in the Xero UK demo company | Xero official MCP connector |
 
 ## Priority 2: after priority 1 works
@@ -28,14 +28,17 @@ Builders of every size, mostly private clients and main contractors, some counci
 
 ## Priority 3
 
-- Voice: check whether Claude voice mode on the phone can use custom connectors. Use it in the demo only if it works.
+- Voice: dictation already works with connectors. Check only whether spoken voice mode (Claude talks back) can use custom connectors.
 - Evening summary ("what came in, what's due tomorrow") sent by our server.
 
 ## How it is built
 
-- **Interface:** the normal Claude app (Florin's account), with two connectors: ours and Xero's official MCP server (UK demo company). ADR 0004.
-- **Our connector:** a small Python MCP server. Tools: `list_new_emails`, `search_documents`, `get_job`, `list_missing_items`, `search_regulations`, `create_email_draft`.
-- **Email:** a separate lab Gmail account (ADR 0002). A mock sender script fills it with emails and attachments for the jobs. Read on a schedule (every 15 minutes) or on request.
+- **Interface:** the normal Claude app (Florin's account). Voice by dictation works today with any connector. ADR 0004.
+- **Three connectors:**
+  1. **Claude's own Gmail connector** reads emails and creates drafts (moments 1, 2, 5). We don't build this.
+  2. **Xero's official MCP connector** with the UK demo company creates the draft invoice (moment 6). We don't build this.
+  3. **Our MCP server** (small, Python) does what nobody else does: files emails and attachments by job, keeps job facts and "what's missing", and searches the regulations corpus with history (moments 2, 3, 4). Tools: `list_jobs`, `get_job`, `list_missing_items`, `search_job_documents`, `search_regulations`, `sync_inbox`.
+- **Email:** a separate lab Gmail account (ADR 0002), connected to Claude's Gmail connector for the demo. A mock sender script fills it with emails and attachments for the jobs. Our server reads the same inbox through the Gmail API to file by job (on request via `sync_inbox`, or every 15 minutes).
 - **Firm store:** structured records per job (job, client, address, document type, dates, key facts) in Postgres; documents read whole when needed. No per-firm vector store (ADR 0004).
 - **Regulations:** from the corpus session (`corpus/`, `system/rag/`). Fallback if not ready: a few open documents loaded directly (e.g. Approved Document A, building control guidance on gov.uk).
 - **Hosting:** public HTTPS address. Lightsail in London (ADR 0003) or a tunnel from a laptop for the demo.
