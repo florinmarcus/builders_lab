@@ -114,3 +114,14 @@ Our inference (not sourced, not legal advice):
 9. IET general website terms (as opposed to platform licence terms) not found. NEC product pages and NHBC ToC visibility not checked today.
 10. BSI: no stated position on AI/RAG; ask copyright@bsigroup.com. PAS 2035 is free to download but licence terms of the free copy were not found.
 11. Meltwater and Infopaq points rely on snippets; get a solicitor's view before storing any third-party ToC.
+
+## Added 19 Nov 2026: construction contracts and payment
+
+Checked on legislation.gov.uk on 19 Nov 2026. OGL v3.0 (https://www.legislation.gov.uk/help).
+
+| id | title | URL | versions held | why |
+|---|---|---|---|---|
+| hgcra1996-p2 | Housing Grants, Construction and Regeneration Act 1996, Part II | https://www.legislation.gov.uk/ukpga/1996/53/part/II | 8: from 2010-06-01 (in force on 1 Oct 2010) to 2023-05-05. "Pay less notice" text appears from the 2011-10-01 version | Payment notices, pay less notices, suspension, adjudication |
+| scheme-cc-1998 | Scheme for Construction Contracts (England and Wales) Regulations 1998 (SI 1998/649) | https://www.legislation.gov.uk/uksi/1998/649/contents | 2: 1998-05-01 and 2011-10-01 | Default payment and adjudication terms where the contract falls short |
+
+Not added yet: the Local Democracy, Economic Development and Construction Act 2009 Part 8, which made the 2011 changes. Its effects are already in the two texts above.

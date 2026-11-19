@@ -4075,3 +4075,40 @@ sources:
   status: current
   checked: 2026-11-19
   fetch: {method: none}
+
+# ---------------------------------------------------------------------------
+# Construction contracts and payment (added 19 Nov 2026 for the demo: payment notices and pay less notices)
+
+- id: hgcra1996-p2
+  title: Housing Grants, Construction and Regeneration Act 1996, Part II (Construction Contracts)
+  publisher: legislation.gov.uk (The National Archives)
+  url: https://www.legislation.gov.uk/ukpga/1996/53/part/II
+  kind: legislation
+  nation: england-wales
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [payment, contracts, adjudication]
+  why: The legal basis for payment notices, pay less notices, the right to suspend work and adjudication in construction contracts. Demo questions ask about these.
+  in_force: 1998-05-01
+  status: current
+  notes: Payment notice and pay less notice rules (ss.110A, 110B, 111) came in for England from 1 Oct 2011 (point-in-time version 2011-10-01). History from the version in force on 1 Oct 2010 keeps the old "withholding notice" wording for comparison.
+  checked: 2026-11-19
+  fetch: {method: legislation, path: ukpga/1996/53/part/II, history: all}
+
+- id: scheme-cc-1998
+  title: The Scheme for Construction Contracts (England and Wales) Regulations 1998 (SI 1998/649)
+  publisher: legislation.gov.uk (The National Archives)
+  url: https://www.legislation.gov.uk/uksi/1998/649/contents
+  kind: legislation
+  nation: england-wales
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [payment, contracts, adjudication]
+  why: The default payment and adjudication terms that apply when a construction contract does not meet the Act. Small firms often work without written terms, so the Scheme decides due dates and notices.
+  in_force: 1998-05-01
+  status: current
+  notes: Two point-in-time versions, 1998-05-01 and 2011-10-01 (England changes from 1 Oct 2011).
+  checked: 2026-11-19
+  fetch: {method: legislation, path: uksi/1998/649, history: all}
