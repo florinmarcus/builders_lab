@@ -42,11 +42,12 @@ research/       domain knowledge, pain points, market, hosting and model costs, 
 requirements/   users, use cases, scope, non-functional needs (cost, language, privacy)
 presentation/   the deck and its notes
 decisions/      ADRs
+corpus/         shared regulations corpus: sources.yaml, version records, harvest report (raw files in S3, not git)
 system/         the application
   web/          website (frontend)
   api/          backend API
   agents/       agent logic and tools
-  rag/          ingestion, chunking, retrieval
+  rag/          harvesting, ingestion, chunking, retrieval
   data/mock/    mock businesses, documents and conversations
 tests/          unit and integration tests for system/
 evals/          retrieval and answer quality evals (test questions, expected answers, scoring)

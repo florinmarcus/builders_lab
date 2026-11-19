@@ -2,6 +2,8 @@
 
 Checked 7 Nov 2026. Not legal advice. Get legal advice before launch.
 
+Full document inventory (about 170 rows, checked 19 Nov 2026): `corpus-inventory/`. Storage and modes: ADR 0005.
+
 ## Rule of thumb
 
 - **Ingest in full:** Crown copyright under the Open Government Licence v3.0 (OGL). This covers legislation, Approved Documents, HSE guidance and HMRC guidance.
@@ -66,8 +68,7 @@ Default attribution: "Contains public sector information licensed under the Open
 
 ## Not yet checked
 
-- L153 current edition. Expected URL https://www.hse.gov.uk/pubns/books/l153.htm (not fetched).
-- CIS 340 page (expected at gov.uk/government/publications/construction-industry-scheme-cis-340, not fetched).
+- Done 19 Nov 2026: L153 (2015 edition, page updated 12 Feb 2026) and CIS 340 (updated 27 Aug 2026). See the full corpus inventory in `corpus-inventory/` and the list in `corpus/sources.yaml`.
 - gov.scot licence statement. Wales and NI sources.
 - LABC Warranty and Premier Guarantee terms. NHBC TRM end user licence. JCT terms. FMB template terms. Planning Portal terms.
 - HSE translated leaflets index (hse.gov.uk/languages). CITB Romanian material.

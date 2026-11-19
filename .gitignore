@@ -3,3 +3,7 @@
 __pycache__/
 node_modules/
 .cache/
+
+# Raw corpus files (PDF, HTML, XML) live in S3, never in git (ADR 0005)
+corpus/raw/
+.pytest_cache/

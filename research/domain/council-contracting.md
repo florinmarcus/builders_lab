@@ -35,7 +35,7 @@ Procurement Act 2023:
 - Existing DPSs must end by 27 Oct 2028 at the latest. ([Bevan Brittan](https://www.bevanbrittan.com/insights/articles/2024/can-dynamic-purchasing-systems-be-used-for-below-threshold-contracts/))
 - Below-threshold rules in Part 6 (ss. 84–88). No suitability assessment for regulated below-threshold contracts (s.85(1)). ([Bevan Brittan](https://www.bevanbrittan.com/insights/articles/2024/can-dynamic-purchasing-systems-be-used-for-below-threshold-contracts/); [Procurement Act 2023](https://www.legislation.gov.uk/ukpga/2023/54))
 - Pipeline notice for contracts over £2m (s.93). ([DLA Piper](https://dlapiperintelligence.com/procurement-act))
-- **Unverified**: works threshold around £5.4m including VAT. Not checked on GOV.UK.
+- Thresholds from 1 Jan 2026: works £5,193,000, council goods and services £207,720, both including VAT. Councils must publish below-threshold notices from £30,000. Councils may limit bids to local or UK firms (SI 2026/94). Source and links: `corpus-inventory/c-housing-damp-procurement.md` (checked 19 Nov 2026).
 
 ## Ordering
 
