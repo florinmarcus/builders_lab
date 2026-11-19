@@ -10,6 +10,16 @@ Updated 19 Nov 2026.
 - **Risk:** custom setup per company turns into consultancy. Keep a standard core; make setup short and repeatable.
 - **Input channels:** email first; WhatsApp next (builders get many messages and files there). See backlog.
 
+## Business model to test (agreed with Florin, 19 Nov 2026)
+
+- **Interface: the normal Claude app** (web, desktop, phone, with voice). Not Claude Code (developer tool, paid plan, permission prompts). The app gives compaction, memory, voice, file uploads and mobile for free; rebuilding that is hard.
+- **Each builder buys their own Claude plan:** Team for firms handling client or tenant personal data (Team includes Anthropic's DPA); possibly Pro for a sole trader with no personal data.
+- **They add our MCP connector:** email, documents, WhatsApp, Xero or QuickBooks, our UK storage behind it.
+- **We charge for the connector and the setup.** Price to test on 21 Nov 2026 (suggestion, not a fact): about £30–60 a month per firm plus a setup fee of a few hundred pounds. Benchmarks: trades apps £25–45 per user a month, RAMSReady £49, Copilot about £16 on top of Microsoft 365.
+- **Not:** reselling Team seats from one account (likely needs a reseller agreement; mixes customers' data under one admin).
+- **Later option:** our own app on the Claude Agent SDK or Managed Agents (same engine, our screens). No voice out of the box.
+- **To check:** whether Claude voice mode can use custom connectors; UK prices in GBP for Pro and Team.
+
 
 ## Chosen to explore first: council refurbishment contractors
 
