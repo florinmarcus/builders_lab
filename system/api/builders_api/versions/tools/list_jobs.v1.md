@@ -1,0 +1,1 @@
+List the firm's jobs with client, type and status, plus the emails received recently for each job and any recent emails not linked to a job. Use for "what came in today?" and to find a job's ref. `since_days` sets how far back "recent" goes (default 1).

@@ -5,6 +5,9 @@ description = "builders_lab demo backend: service layer, ingestion, MCP server"
 requires-python = ">=3.11"
 dependencies = [
     "psycopg[binary]>=3.2",
+    "psycopg-pool>=3.2",
+    "mcp>=2.3,<3",
+    "uvicorn>=0.30",
 ]
 
 [project.optional-dependencies]

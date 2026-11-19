@@ -1,0 +1,1 @@
+Check one job against the required-items list for its job type. Returns each item as present, missing, expired or expiring soon, with the document or fact that proves it. Use for "what's still missing before I can finish this job?". The list is the firm's own checklist, not a legal requirement.

@@ -1,0 +1,1 @@
+Full-text search over the firm's emails, attachments and chat exports. Optionally limited to one job. Returns matching emails and documents with sender, date, a highlighted snippet and the source to cite. Use to find a specific email or document ("the email where the client approved the extra work").
