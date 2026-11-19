@@ -884,3 +884,7 @@ Links used by the client and hosting cost research. Checked 18 Nov 2026 by the r
 - https://yourtradebase.com/blog/the-vat-reverse-charge-kicks-in-on-1-march-2021
 - https://zoftwarehub.com/products/commusoft/zoftware-analysis
 - https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/ (suggested in notes, not opened)
+
+## Accounting APIs (QuickBooks Online and Xero)
+
+File: `research/integrations/accounting-apis.md` (29 numbered sources, checked 19 Nov 2026). The full list with what each source supports is at the end of that file. Intuit forum threads and the HMRC CIS API page were seen as search snippets only.
