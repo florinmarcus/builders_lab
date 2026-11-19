@@ -2,6 +2,7 @@
 
     python -m system.rag.upload_s3 --dry-run
     CORPUS_BUCKET=<bucket> python -m system.rag.upload_s3
+    CORPUS_BUCKET=<bucket> python -m system.rag.upload_s3 --download   # fill corpus/raw from S3
 
 The bucket name comes from the CORPUS_BUCKET environment variable and is never
 written to the repo. Files are stored under their record's s3_key with
@@ -30,7 +31,10 @@ def records() -> list[dict]:
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--dry-run", action="store_true", help="list what would be uploaded")
+    ap.add_argument("--download", action="store_true", help="download missing raw files from S3 and check their hashes")
     a = ap.parse_args(argv)
+    if a.download:
+        return download()
 
     recs = records()
     root = CORPUS_DIR.parent
@@ -73,6 +77,41 @@ def main(argv: list[str] | None = None) -> int:
         uploaded += 1
     print(f"uploaded {uploaded}, already there {skipped}")
     return 0
+
+
+def download() -> int:
+    """Fetch raw files that are missing locally, and check each SHA-256 against its record."""
+    bucket = os.environ.get("CORPUS_BUCKET")
+    if not bucket:
+        print("Set CORPUS_BUCKET to the bucket name.")
+        return 2
+    import hashlib
+
+    import boto3
+
+    s3 = boto3.client("s3", region_name=REGION)
+    root = CORPUS_DIR.parent
+    got = have = bad = missing = 0
+    for r in records():
+        path = root / r["raw_path"]
+        if path.exists():
+            have += 1
+            continue
+        try:
+            body = s3.get_object(Bucket=bucket, Key=r["s3_key"])["Body"].read()
+        except s3.exceptions.NoSuchKey:
+            missing += 1
+            print(f"  not in S3: {r['s3_key']}")
+            continue
+        if hashlib.sha256(body).hexdigest() != r["sha256"]:
+            bad += 1
+            print(f"  hash mismatch, not saved: {r['s3_key']}")
+            continue
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(body)
+        got += 1
+    print(f"downloaded {got}, already here {have}, not in S3 {missing}, hash mismatch {bad}")
+    return 0 if not (bad or missing) else 1
 
 
 if __name__ == "__main__":
