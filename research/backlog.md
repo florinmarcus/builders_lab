@@ -6,7 +6,7 @@ Ordered by priority. Top first.
    - Follow-up questions for Builder 1 (`interviews/builder-1.md`), including 2–3 anonymised email threads.
    - Whether councils allow contractors to put council data into an AI tool (legal review).
    - Confirm the Nov 2026 asbestos regulation change and the Awaab's Law Phase 2 date.
-2. **Hosting and model costs** (for ADR 0003): small EC2 vs Lightsail in Frankfurt and London, Bedrock cost per question (Claude Haiku/Sonnet, Titan V2 embeddings, rerank), with dates. Re-check London model list.
+2. **Hosting and model costs:** done 18 Nov 2026 (`hosting-costs/claude-app-vs-bedrock.md`). Still open: AWS credits for Claude, real tokens per PDF page.
 3. **WhatsApp as an input channel:** WhatsApp Business Platform (Cloud API) limits: only a business number, no reading of personal chats or groups (to verify); options: forward messages and files to a business number, or upload exported chats. Costs and Meta rules.
 4. **What do Romanian builders use today?** More interviews (`interviews/interview-guide.md`), Romanian Builders Network event 21 Nov 2026.
 5. **Interfaces and access**: ChatGPT Apps SDK, Claude MCP apps (which plans users need, costs); Gmail and Microsoft 365 rules for reading mail and calendar (Google restricted/sensitive scopes, verification).
