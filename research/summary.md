@@ -85,3 +85,13 @@ Checked 18 Nov 2026. Not legal advice. Full report: `reports/EU AI Act and UK ru
 6. If we serve Romania: we are a limited-risk provider (interpretation). We need an AI notice, machine marking of AI text and AI literacy. No EU representative needed. Regulator: ANCOM (law pending, unverified).
 7. Design rules: AI notice and AI-generated label from day one; cite source and date; never say "no asbestos"; no decisions about tenants or workers; AWS London.
 8. Open: read the EU transparency guidelines in full, get real council data clauses, check Romanian laws, get a solicitor and an insurer view.
+
+## Trust check of existing tools (19 Nov 2026)
+
+1. No AI tool sold to UK builders publishes how often it is wrong: not the small tools, trades apps, big platforms or general assistants. "0% hallucination" (Struck) and "Assured Compliance" (BuildwellAI) have no evidence behind them.
+2. Every tool's terms put the risk on the builder. Most small tools cap what they owe at about 12 months of fees. A competent person still signs RAMS and quotes.
+3. Security evidence follows company size. Xero, Procore, Google and Anthropic publish certificates. Most small tools publish none, and five name no company number.
+4. Small is not always worse: Ramsgen and RAMSReady name their AI providers, publish a DPA and say they don't train on your data. Some well-known trades apps (Tradify, Jobber) say less.
+5. The biggest everyday risk is free ChatGPT or Claude: chats can train models and there is no DPA. Business plans fix most of this.
+6. Only QuickBooks, Xero and Powered Now are on HMRC's MTD for VAT list.
+7. Builder checklist (10 points) and scorecard: market/trust-check.md. Full report: reports/Builder AI tools trust check.md. No certificates were checked on a register.
