@@ -63,6 +63,13 @@ About 15–20 emails with PDF attachments. All names, addresses and companies in
 - No decisions about workers or tenants.
 - Mock data only. No real client data, no real council data.
 
+## Tracing, versions, quotas and errors (build in from the start)
+
+- **Tracing:** one row per model call and per tool call: trace id, firm, tool or model, model id, prompt version, input and output tokens, cost (USD), latency, status, sources returned. Postgres tables now; OpenTelemetry later.
+- **Versions:** every extraction prompt, MCP server instruction and tool description has a version id, stored in the repo and written into each trace row. Changing a prompt means a new version, never an in-place edit.
+- **Quotas per firm:** daily limits on documents ingested, tool calls and Bedrock spend; rate limiting on the public MCP endpoint. Answers run on the builder's own Claude plan; our costs are extraction (Haiku), embeddings (Titan) and the server.
+- **Retries and errors:** retries with exponential backoff and jitter only for retryable errors (throttling, timeouts, 5xx). Typed exceptions for the rest (validation, auth, not found). MCP tools return clear structured errors, never a stack trace. Failed ingestion is logged and can be re-run.
+
 ## Security (show as concept)
 
 - Each firm's data kept separate; UK storage; encryption at rest and in transit.
