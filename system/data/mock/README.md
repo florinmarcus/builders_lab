@@ -1,83 +1,103 @@
 # Mock data for the demo
 
-Agreed with Florin, 19 Nov 2026. All people, firms, addresses and numbers are invented.
+Agreed with Florin, 19 Nov 2026; jobs updated the same day to match `requirements/prototype.md`.
+All people, firms, addresses, numbers and contract terms are invented. No resemblance to real firms is intended.
 Outside parties use `*.example.com` addresses (reserved, cannot belong to anyone).
-Phone numbers use Ofcom's drama range `07700 900xxx`.
+Phone numbers use Ofcom's drama range `07700 900xxx`. "Today" means the day the today batch is run (demo day, 21 Nov 2026).
 
 ## Firm
 
 **Oakline Build Ltd**, a small general builder in the made-up town of Hollowell.
 
-| Person | Role | Persona alias |
-|---|---|---|
-| Dan Oakley | Owner (the builder in the demo) | – (the inbox owner) |
-| Mike Turner | Site lead | `+mike` |
-| Jamie Cole | Apprentice | `+jamie` |
+| Person | Role |
+|---|---|
+| Dan Oakley | Owner (the builder in the demo, inbox owner) |
+| Mike Turner | Site lead |
+| Jamie Cole | Apprentice |
 
-## Jobs
+## Job 1: Hartley house refurbishment, 22 Elm Avenue
 
-### 1. Smith bathroom, 14 Oak Street (private client, Sarah Smith)
-
-| # | When | From | What | Attachment |
-|---|---|---|---|---|
-| 1 | 14 Oct | Sarah Smith | Enquiry: bathroom refit | – |
-| 2 | 20 Oct | Dan | Quote sent | Quote Q-1042, £6,850 + VAT |
-| 3 | 22 Oct | Sarah Smith | Accepts quote, asks for start date | – |
-| 4 | 4 Nov | Dan | Rotten joists found, extra £640 | Variation VO-01 |
-| 5 | 4 Nov | Sarah Smith | "Yes, go ahead with the joists" (demo moment 2) | – |
-| 6 | 12 Nov | Aqua Flow Plumbing | Plumber's invoice | Invoice AF-339, £1,180 |
-| 7 | 17 Nov | Spark Right Electrical | "Certificate to follow" | – (stays missing) |
-| 8 | today | Sarah Smith | "When do you finish? Please send the final bill." | – (moments 5, 6) |
-
-### 2. Patel rear extension, 3 Mill Lane (Raj and Meera Patel)
+Private client, high-end, design and build. Client: Victoria Hartley. Architect: Lena Marsh, Marsh Studio.
 
 | # | When | From | What | Attachment |
 |---|---|---|---|---|
-| 9 | 16 Oct | Architect | Drawing issue sheet, rev C | Drawings note |
-| 10 | 23 Oct | Hollowell Building Control | Plans approved with conditions | Approval notice |
-| 11 | 6 Nov | Structural engineer | Beam for kitchen wall removal | Engineer's letter |
-| 12 | 13 Nov | Meera Patel | "Can we also take out the dining-room wall?" | – (sets up moment 4) |
-| 13 | today | Hollowell Building Control | Foundation inspection booked 24 Nov | – |
+| 1 | 6 Oct | Lena Marsh | Brief and drawing schedule | Drawing schedule (PDF) |
+| 2 | 10 Oct | Dan | Quote, contract sum £148,500 + VAT | Quote Q-2051 (PDF) |
+| 3 | 13 Oct | Victoria Hartley | Accepts the quote | – |
+| 4 | 27 Oct | Ashby Joinery | Kitchen joinery quote | Quote (PDF) |
+| 5 | 29 Oct | Stoneworks Hollowell | Stone flooring quote | Quote (PDF) |
+| 6 | 10 Nov | Victoria Hartley | "Here's our WhatsApp chat, as you asked" | WhatsApp chat export (`.txt`) |
+| 7 | 12 Nov | Lena Marsh | Client wants the kitchen–dining wall removed; engineer visit to book | – (sets up moment 4) |
+| 8 | 17 Nov | Spark Right Electrical | "Certificate to follow" | – (stays missing) |
+| 9 | today | Victoria Hartley | "Can you send the final account with the changes?" | – (moments 5, 6) |
 
-### 3. Flat 12, Riverside House (council void, Hollowell District Council)
+The WhatsApp export holds two clear approvals and one non-approval:
+
+- Underfloor heating in the kitchen, +£2,400: "Yes, go ahead."
+- Pocket door to the utility room, +£850: "Approved, thanks."
+- Garden lighting: "Sounds nice, let's talk next week." This is **not** an approval. It tests that we don't invent one.
+
+## Job 2: Unit 4 office refit, Kingsway Business Park
+
+Commercial, occupied building. Oakline is main contractor. Employer: Brightmoor Analytics Ltd. Employer's QS: Carter Cost Consulting. Facilities manager: Paul Reid.
 
 | # | When | From | What | Attachment |
 |---|---|---|---|---|
-| 14 | 28 Oct | Council repairs | Works order WO-2026-4471, schedule-of-rates lines, target 27 Nov | Works order |
-| 15 | 29 Oct | Council repairs | Asbestos survey (HSG264 layout) | R&D survey |
-| 16 | 5 Nov | Council repairs | Gas capped, keys at housing office | Gas capping note |
-| 17 | today | Council repairs | "Please confirm you will finish by 27 Nov" | – |
+| 10 | 1 Oct | Carter Cost Consulting | Signed contract particulars | Contract particulars (PDF): JCT Intermediate Building Contract 2016, dates and payment terms |
+| 11 | 5 Oct | Paul Reid (FM) | Working hours and permits: noisy work before 8:00 or after 18:00 only, hot works permit | – |
+| 12 | 8 Oct | Fenwick Drylining | Subcontractor documents | RAMS (PDF); insurance certificate, expires 30 Nov 2026 (PDF) |
+| 13 | 9 Oct | Volt Electrical | Subcontractor insurance | Insurance certificate, expired 31 Oct 2026 (PDF) |
+| 14 | 28 Oct | Dan | Interim application 2 to the QS | Application for payment (PDF) |
+| 15 | today | Fenwick Drylining | Subcontract application for payment 2, £18,240 | Application (PDF) (moment 7) |
+
+**Mock contract terms** (invented for the demo; the real rule text comes from the regulations corpus):
+
+- **Main contract:** monthly interim valuation date on the 28th. Due date is 7 days after the valuation date. Final date for payment is 14 days after the due date. Pay less notice no later than 5 days before the final date.
+- **Fenwick subcontract:** due date is the 25th of the month. Final date for payment is 21 days after the due date. Payment notice within 5 days of the due date. Pay less notice no later than 5 days before the final date.
+- **What moment 7 should give:** Fenwick application 2 has a due date of 25 Nov. Payment notice by 30 Nov. Final date for payment 16 Dec. Pay less notice by 11 Dec. Our code calculates these from the stored terms; the model does not do date sums.
+
+## Job 3: Flat 12, Riverside House (council void, Hollowell District Council)
+
+| # | When | From | What | Attachment |
+|---|---|---|---|---|
+| 16 | 28 Oct | Council repairs | Works order WO-2026-4471, schedule-of-rates lines, target date 27 Nov | Works order (PDF) |
+| 17 | 29 Oct | Council repairs | Asbestos survey, HSG264 layout | Refurbishment and demolition survey (PDF) |
+| 18 | 5 Nov | Council repairs | Gas capped, keys at the housing office | Gas capping note (PDF) |
+| 19 | today | Council repairs | "Please confirm you will finish by 27 Nov" | – |
 
 The survey is built to test "never say no asbestos":
-kitchen floor tiles, chrysotile found; hall textured ceiling, sampled, none found;
-bedroom 2 locked, not accessed, presumed. Scope: kitchen and bathroom only.
 
-### Not linked to a job
+- **Kitchen floor tiles:** chrysotile found.
+- **Hall textured ceiling:** sampled, none found.
+- **Bedroom 2:** locked, not accessed, presumed to contain asbestos.
+- **Scope:** kitchen and bathroom only.
+
+## Not linked to a job
 
 | # | When | From | What |
 |---|---|---|---|
-| 18 | 10 Nov | BuildMart Supplies | Order confirmation |
-| 19 | today | Trade newsletter | Newsletter |
+| 20 | 10 Nov | BuildMart Supplies | Order confirmation |
 
 ## Required items per job type (our mock list, not a legal rule)
 
-- **Bathroom refit:** signed quote, approved variations, electrical certificate, subcontractor invoices, final photos.
-- **Extension:** building control approval, structural calculations, foundation inspection, party wall agreement, completion certificate.
+- **Residential refurbishment:** signed quote, approved variations, electrical certificate, building control sign-off if notifiable, final photos.
+- **Commercial fit-out:** contract particulars, subcontractor RAMS, subcontractor insurance in date, payment notices issued, completion photos.
 - **Council void:** works order, asbestos survey covering the work area, gas capping or safety record, electrical test, completion photos.
 
 ## How it runs (ADR 0005)
 
 - **Inbox:** the builder's own Gmail. Address set in `.env` (`BUILDER_INBOX`), never in the repo.
-- **Label:** every mock or simulated email carries the Gmail label `oakline-demo`. Nothing outside it is touched.
-- **Reset:** delete everything labelled `oakline-demo` (emails and drafts), empty the database, re-import emails 1–18 except the "today" ones. Same start every time.
-- **Today batch:** import the "today" emails (8, 13, 17, 19), all at once or one by one.
-- **Live simulator:** send from the allowed sender address (`.env`, `SIMULATOR_SENDERS`) to `<inbox>+<persona>@gmail.com`. The simulator re-imports it with the persona as sender, labels it and deletes the original. Emails from any other sender are ignored.
+- **Label:** every mock or simulated email and every demo draft carries the Gmail label `oakline-demo`. Nothing outside it is touched.
+- **Reset:** delete everything labelled `oakline-demo`, empty the database, and re-import all emails except the "today" ones. Same start every time.
+- **Today batch:** import the "today" emails (9, 15, 19), all at once or one by one.
+- **Live simulator:** send from an allowed address (`.env`, `SIMULATOR_SENDERS`) to `<inbox>+<persona>@gmail.com`. The simulator re-imports the email with the persona as sender, labels it and deletes the original. Emails from other senders are ignored.
 
 | Alias | Shows as |
 |---|---|
-| `+sarah` | Sarah Smith (customer, Smith bathroom) |
-| `+meera` | Meera Patel (customer, Patel extension) |
+| `+hartley` | Victoria Hartley (client, Elm Avenue) |
+| `+architect` | Lena Marsh, Marsh Studio |
+| `+fm` | Paul Reid, facilities manager, Kingsway Business Park |
+| `+qs` | Carter Cost Consulting |
 | `+council` | Hollowell District Council repairs |
-| `+bc` | Hollowell Building Control |
 | `+mike` | Mike Turner (site lead) |
 | `+jamie` | Jamie Cole (apprentice) |
