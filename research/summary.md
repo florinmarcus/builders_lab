@@ -95,3 +95,15 @@ Checked 18 Nov 2026. Not legal advice. Full report: `reports/EU AI Act and UK ru
 5. The biggest everyday risk is free ChatGPT or Claude: chats can train models and there is no DPA. Business plans fix most of this.
 6. Only QuickBooks, Xero and Powered Now are on HMRC's MTD for VAT list.
 7. Builder checklist (10 points) and scorecard: market/trust-check.md. Full report: reports/Builder AI tools trust check.md. No certificates were checked on a register.
+
+## Builder tools and integrations
+
+Checked 19 Nov 2026. Full report: `reports/Builder tools and integrations.md`. Short version: `integrations/connector-map.md`.
+
+1. Small design-and-build firms and commercial contractors run on email, a shared drive with Excel and PDFs, Xero or Sage, and WhatsApp. Procore and similar platforms are mostly for bigger firms. Robert's and FDT name no software on their sites: ask them.
+2. Most of this connects to the Claude app today with no build: Gmail, Google Drive, Microsoft 365 (search only), Dropbox, Xero, QuickBooks, DocuSign.
+3. What nobody sells is knowing the job: which email is the variation, what is missing before handover, when the next payment notice is due. That is our MCP server.
+4. WhatsApp is where variations get agreed (a 2025 court case held WhatsApp messages to be a binding contract). It needs a new business number and Meta approval, and cannot read existing chats. Show it as "coming next" on 21 Nov.
+5. Build order: Gmail, our job server, Xero, file connectors, WhatsApp, DocuSign, QuickBooks. Skip Buildertrend, Houzz Pro, Tradify, Sage 50, CHAS, Constructionline.
+6. Six demo scenarios (our proposals): variation from a chat, payment notice deadlines, subcontractor pack check, missing items before handover, site diary, Xero invoice and chase.
+7. Open: ask the room which email, accounts and job apps they use. That decides ranks 5 to 9.
