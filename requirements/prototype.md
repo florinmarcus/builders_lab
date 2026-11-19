@@ -10,16 +10,17 @@ Show about 100 UK builders, live in the Claude app, an AI assistant that comes t
 
 Builders of every size, mostly private clients and main contractors, some council work. The demo follows one builder's day at a made-up firm.
 
-## Priority 1: six demo moments
+## Priority 1: seven demo moments
 
 | # | The builder says | What happens | Needs |
 |---|---|---|---|
 | 1 | "What came in today?" | Lists new emails, filed by job | Claude's Gmail connector + our job filing |
-| 2 | "Find the email where the client approved the extra work." | Finds it, quotes it, shows date and sender | Search over the firm's emails and attachments |
-| 3 | "What's still missing before I can finish the Smith job?" | Lists missing items (e.g. electrical certificate, final photos) from the job's documents | Structured records per job |
+| 2 | "Show me every change the client approved." | Finds approvals in emails and in a pasted WhatsApp chat export, quotes each with date and sender, builds a variation list | Search over emails, attachments and chat exports |
+| 3 | "What's still missing before I can finish the Elm Avenue job?" | Lists missing items (e.g. electrical certificate, final photos) from the job's documents | Structured records per job |
 | 4 | "Do I need building control to remove this wall?" | Answers from the regulations corpus, with document, section and date | Shared corpus (other session), hybrid search |
 | 5 | "Draft the reply to the client." | Writes an email draft for the builder to check | Claude's Gmail connector (draft in the lab account) |
 | 6 | "Make the invoice in Xero." | Creates a draft invoice in the Xero UK demo company | Xero official MCP connector |
+| 7 | "When is the next payment notice due on the office job, and what happens if I miss it?" | Gives the date from the job's contract dates and explains the pay less notice rule, with the source | Job contract dates + regulations corpus (Construction Act) |
 
 ## Priority 2: after priority 1 works
 
@@ -46,10 +47,10 @@ Builders of every size, mostly private clients and main contractors, some counci
 
 ## Mock data
 
-A made-up firm, "Oakline Build Ltd", and three jobs that cover the audience:
+A made-up firm, "Oakline Build Ltd", and three jobs that match the audience (all invented; no resemblance to real firms):
 
-1. **Smith bathroom, 14 Oak Street** (private client): quote, client approval of extra work by email, plumber invoice, missing electrical certificate.
-2. **Patel rear extension, 3 Mill Lane** (private client, building control): drawings note, building control email, structural engineer letter.
+1. **Hartley house refurbishment, 22 Elm Avenue** (private client, high-end, design and build): client and architect emails, a pasted WhatsApp chat export where the client approves two changes, supplier quotes, missing electrical certificate and final photos.
+2. **Unit 4 office refit, Kingsway Business Park** (commercial, occupied building, JCT contract, subcontractors): contract dates (valuation dates, payment terms), subcontractor documents (RAMS, insurance with expiry dates), an application for payment, facilities manager emails about working hours.
 3. **Flat 12, Riverside House** (council void): works order, asbestos survey (HSE HSG264 table), deadline.
 
 About 15–20 emails with PDF attachments. All names, addresses and companies invented.
@@ -83,4 +84,4 @@ Evals, production hosting, OAuth login, real customer data, QuickBooks (say "wor
 
 ## Demo script (5 minutes)
 
-1. "What came in today?" 2. "Find the approval email." 3. "What's missing on the Smith job?" 4. "Do I need building control to remove this wall?" 5. "Draft the reply." 6. "Make the invoice in Xero." Then: what it never does, and what comes next (RAMS, WhatsApp, QuickBooks, voice).
+1. "What came in today?" 2. "Show me every change the client approved" (email and WhatsApp export; mention the 2025 court case). 3. "What's missing on the Elm Avenue job?" 4. "Do I need building control to remove this wall?" 5. "Draft the reply." 6. "Make the invoice in Xero." 7. "When is the next payment notice due on the office job?" Then: what it never does, and what comes next (RAMS, WhatsApp, QuickBooks, voice).
