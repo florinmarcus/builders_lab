@@ -45,6 +45,23 @@ def sha256(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
 
 
+def content_hash(data: bytes, media_type: str) -> str:
+    """Hash used to detect real changes. For HTML it hashes the visible text only,
+    so random ids, tokens and markup changes do not count as a new version."""
+    if media_type.split(";")[0].strip().lower() in ("text/html", "application/xhtml+xml"):
+        try:
+            import lxml.html
+
+            doc = lxml.html.fromstring(data)
+            for bad in doc.xpath("//script|//style|//noscript"):
+                bad.drop_tree()
+            text = " ".join(doc.text_content().split())
+            return hashlib.sha256(text.encode("utf-8")).hexdigest()
+        except Exception:  # unparsable HTML: fall back to the bytes
+            pass
+    return sha256(data)
+
+
 def slugify(text: str, max_len: int = 60) -> str:
     s = re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")
     return s[:max_len].rstrip("-") or "main"
@@ -137,6 +154,11 @@ class Fetched:
     dedupe_on_date: bool = False
 
 
+def chain_order(r: dict) -> tuple:
+    """Sort versions oldest first. On the same start date, closed versions come first."""
+    return (r["valid_from"], r.get("valid_to") is None, r.get("valid_to") or "", r["fetched_at"])
+
+
 class Store:
     def __init__(self, corpus_dir: Path | None = None):
         self.corpus_dir = corpus_dir or CORPUS_DIR
@@ -158,7 +180,7 @@ class Store:
             rec["_file"] = p
             if part is None or rec["part"] == part:
                 out.append(rec)
-        out.sort(key=lambda r: (r["valid_from"], r["fetched_at"]))
+        out.sort(key=chain_order)
         return out
 
     def has_date(self, source_id: str, part: str, edition_date: str) -> bool:
@@ -174,16 +196,17 @@ class Store:
         sid = source["id"]
         existing = self.records(sid, f.part)
         digest = sha256(f.content)
+        chash = content_hash(f.content, f.media_type)
 
         if f.dedupe_on_date and f.edition_date and any(r.get("edition_date") == f.edition_date for r in existing):
             return None
         if not f.dedupe_on_date:
             current = [r for r in existing if r.get("valid_to") is None]
             latest = current[-1] if current else (existing[-1] if existing else None)
-            if latest and latest["sha256"] == digest:
+            if latest and chash in (latest.get("content_hash"), latest["sha256"]):
                 return None
             # The same content seen before under an older version: nothing new.
-            if any(r["sha256"] == digest for r in existing):
+            if any(chash in (r.get("content_hash"), r["sha256"]) for r in existing):
                 return None
 
         valid_from = f.valid_from
@@ -191,7 +214,7 @@ class Store:
         if not f.dedupe_on_date and existing:
             last_from = existing[-1]["valid_from"]
             if valid_from <= last_from:
-                valid_from = date.today().isoformat()
+                valid_from = max(date.today().isoformat(), last_from)
                 f.valid_from_basis = "first_seen"
 
         ext = ext_for(f.media_type)
@@ -218,6 +241,7 @@ class Store:
             "fetched_at": now_utc(),
             "fetched_url": f.fetched_url,
             "sha256": digest,
+            "content_hash": chash,
             "bytes": len(f.content),
             "media_type": f.media_type.split(";")[0].strip(),
             "raw_path": rel,
@@ -228,9 +252,11 @@ class Store:
         self._write(rec)
 
         # Close the version this one follows. That is the only edit to an old record.
-        earlier = [r for r in existing if r["valid_from"] < valid_from]
+        # A version replaced on the day it started gets an empty range [d, d).
+        earlier = [r for r in existing if r["valid_from"] < valid_from
+                   or (not f.dedupe_on_date and r["valid_from"] == valid_from)]
         if earlier:
-            prev = earlier[-1]
+            prev = next((r for r in reversed(earlier) if r.get("valid_to") is None), earlier[-1])
             if prev.get("valid_to") is None or prev["valid_to"] > valid_from:
                 prev["valid_to"] = valid_from
                 self._write(prev)
@@ -240,7 +266,7 @@ class Store:
 def check_chain(records: list[dict]) -> list[str]:
     """Check one part's records form an unbroken chain. Return problems."""
     problems = []
-    recs = sorted(records, key=lambda r: r["valid_from"])
+    recs = sorted(records, key=chain_order)
     for a, b in zip(recs, recs[1:]):
         if a.get("valid_to") != b["valid_from"]:
             problems.append(f"{a['version_id']} valid_to {a.get('valid_to')} != next valid_from {b['valid_from']}")

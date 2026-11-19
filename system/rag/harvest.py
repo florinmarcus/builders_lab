@@ -164,7 +164,16 @@ def fetch_legislation(http: Http, store: Store, source: dict, history_from: str,
 
 
 def govuk_json(http: Http, page: str) -> dict:
-    return http.get(GOVUK_API + page).json()
+    """Content API item. Follows GOV.UK redirects (moved or merged pages)."""
+    for _ in range(5):
+        d = http.get(GOVUK_API + page).json()
+        if d.get("schema_name") != "redirect":
+            return d
+        dest = (d.get("redirects") or [{}])[0].get("destination")
+        if not dest:
+            raise FetchError(f"redirect without destination on {page}")
+        page = dest.split("#")[0]
+    raise FetchError(f"too many redirects from {page}")
 
 
 def html_doc(title: str, url: str, body: str) -> bytes:
@@ -193,72 +202,127 @@ def iso_day(ts: str | None) -> str | None:
 
 
 def fetch_govuk(http: Http, store: Store, source: dict) -> list[Fetched]:
+    """A GOV.UK page through the Content API.
+
+    - Page text (body: true, or attachments: none).
+    - HMRC manuals and other pages with child sections: every section, walked as a tree.
+    - Document collections: every publication in the collection, with its files.
+    - Attachments (pdf, html or all), optionally filtered by a title regex.
+    """
     fetch = source["fetch"]
     page = fetch["page"]
     d = govuk_json(http, page)
-    published = iso_day(d.get("public_updated_at")) or date.today().isoformat()
-    in_force = str(source["in_force"]) if source.get("in_force") else None
     want = fetch.get("attachments", "none")
-    match = re.compile(fetch["match"], re.I) if fetch.get("match") else None
-    parts_map = {k: re.compile(v, re.I) for k, v in (fetch.get("parts") or {}).items()}
     out: list[Fetched] = []
-    page_url = "https://www.gov.uk" + page
+    used_parts: set[str] = set()
+    ctx = dict(http=http, store=store, source=source, fetch=fetch, out=out, used=used_parts)
 
     if fetch.get("body") or want == "none":
-        body = page_body(d)
-        if body.strip():
-            out.append(Fetched("page", d.get("title", source["title"]), html_doc(d.get("title", ""), page_url, body),
-                               "text/html", page_url, published, published, "published"))
-        # Manuals list their sections as child pages.
-        for grp in d.get("details", {}).get("child_section_groups", []) or []:
-            for sec in grp.get("child_sections", []) or []:
-                bp = sec.get("base_path")
-                if not bp:
-                    continue
-                sd = govuk_json(http, bp)
-                sb = page_body(sd)
-                if sb.strip():
-                    sp = iso_day(sd.get("public_updated_at")) or published
-                    out.append(Fetched(slugify(bp.rsplit("/", 1)[-1]), sd.get("title", bp),
-                                       html_doc(sd.get("title", ""), "https://www.gov.uk" + bp, sb),
-                                       "text/html", "https://www.gov.uk" + bp, sp, sp, "published"))
-
+        _page_text(ctx, d, page, "page")
+        _manual_sections(ctx, d, depth=0)
+        if d.get("schema_name") == "document_collection":
+            id_to_path = {x.get("content_id"): x.get("base_path") for x in d.get("links", {}).get("documents", []) or []}
+            for grp in d.get("details", {}).get("collection_groups", []) or []:
+                for doc in grp.get("documents", []) or []:
+                    bp = _doc_path(doc) or id_to_path.get(doc)
+                    if not bp:
+                        continue
+                    try:
+                        cd = govuk_json(http, bp)
+                    except FetchError as e:
+                        print(f"  skip collection item {bp}: {e}", flush=True)
+                        continue
+                    prefix = slugify(bp.rsplit("/", 1)[-1], 50)
+                    _page_text(ctx, cd, bp, prefix)
+                    _attachments(ctx, cd, "all", None, prefix)
     if want != "none":
-        for a in d.get("details", {}).get("attachments", []) or []:
-            title = a.get("title") or ""
-            atype = a.get("attachment_type")
-            if match and not match.search(title):
-                continue
-            is_pdf = (a.get("content_type") or "").endswith("pdf")
-            if atype == "external":
-                continue
-            if want == "pdf" and not is_pdf:
-                continue
-            if want == "html" and atype != "html":
-                continue
-            part = None
-            for k, rx in parts_map.items():
-                if rx.search(title):
-                    part = k
-                    break
-            if parts_map and part is None:
-                continue
-            part = part or part_key(title)
-            if atype == "html":
-                url = a.get("url", "")
-                path = url.replace("https://www.gov.uk", "")
-                hd = govuk_json(http, path)
-                content = html_doc(hd.get("title", title), "https://www.gov.uk" + path, page_body(hd))
-                mt, furl = "text/html", "https://www.gov.uk" + path
-            else:
-                furl = urljoin("https://www.gov.uk", a.get("url", ""))
-                r = http.get(furl)
-                content, mt = r.content, media_type(r, a.get("content_type") or "application/octet-stream")
-            vf, basis = (in_force, "in_force") if (in_force and not store.records(source["id"], part)) else (published, "published")
-            out.append(Fetched(part, title, content, mt, furl, published, vf, basis))
+        match = re.compile(fetch["match"], re.I) if fetch.get("match") else None
+        _attachments(ctx, d, want, match, None)
     if not out:
         raise FetchError(f"nothing matched on {page} (attachments={want}, match={fetch.get('match')})")
     return out
+
+
+def _doc_path(doc) -> str | None:
+    """Collection documents are content ids or dicts with base_path, depending on the API version."""
+    if isinstance(doc, dict):
+        return doc.get("base_path")
+    return None
+
+
+def _unique(ctx, part: str, suffix: str) -> str:
+    """Two files from one fetch must never share a part, or they would look like versions."""
+    if part in ctx["used"]:
+        part = f"{part}-{suffix}"
+    ctx["used"].add(part)
+    return part
+
+
+def _page_text(ctx, d: dict, path: str, part: str) -> None:
+    body = page_body(d)
+    if not body.strip():
+        return
+    url = "https://www.gov.uk" + path
+    published = iso_day(d.get("public_updated_at")) or date.today().isoformat()
+    ctx["out"].append(Fetched(_unique(ctx, part, slugify(path, 40)), d.get("title", ctx["source"]["title"]),
+                              html_doc(d.get("title", ""), url, body), "text/html", url, published, published, "published"))
+
+
+def _manual_sections(ctx, d: dict, depth: int, seen: set | None = None) -> None:
+    """Walk child sections (HMRC manuals, contents pages) depth first."""
+    seen = seen if seen is not None else set()
+    if depth > 6 or len(seen) > 2000:
+        return
+    for grp in d.get("details", {}).get("child_section_groups", []) or []:
+        for sec in grp.get("child_sections", []) or []:
+            bp = sec.get("base_path")
+            if not bp or bp in seen:
+                continue
+            seen.add(bp)
+            sd = govuk_json(ctx["http"], bp)
+            part = slugify(sec.get("section_id") or bp.rsplit("/", 1)[-1])
+            _page_text(ctx, sd, bp, part)
+            _manual_sections(ctx, sd, depth + 1, seen)
+
+
+def _attachments(ctx, d: dict, want: str, match, prefix: str | None) -> None:
+    http, store, source, fetch = ctx["http"], ctx["store"], ctx["source"], ctx["fetch"]
+    published = iso_day(d.get("public_updated_at")) or date.today().isoformat()
+    in_force = str(source["in_force"]) if source.get("in_force") and prefix is None else None
+    parts_map = {k: re.compile(v, re.I) for k, v in (fetch.get("parts") or {}).items()} if prefix is None else {}
+    for a in d.get("details", {}).get("attachments", []) or []:
+        title = a.get("title") or ""
+        atype = a.get("attachment_type")
+        if match and not match.search(title):
+            continue
+        if atype == "external":
+            continue
+        is_pdf = (a.get("content_type") or "").endswith("pdf")
+        if want == "pdf" and not is_pdf:
+            continue
+        if want == "html" and atype != "html":
+            continue
+        part = next((k for k, rx in parts_map.items() if rx.search(title)), None)
+        if parts_map and part is None:
+            continue
+        part = part or (slugify(title, 100) if fetch.get("keep_titles") else part_key(title))
+        if prefix:
+            part = f"{prefix}--{part}"[:110]
+        part = _unique(ctx, part, str(a.get("id") or len(ctx["used"])))
+        if atype == "html":
+            path = a.get("url", "").replace("https://www.gov.uk", "")
+            hd = govuk_json(http, path)
+            content = html_doc(hd.get("title", title), "https://www.gov.uk" + path, page_body(hd))
+            mt, furl = "text/html", "https://www.gov.uk" + path
+        else:
+            furl = urljoin("https://www.gov.uk", a.get("url", ""))
+            r = http.get(furl)
+            content, mt = r.content, media_type(r, a.get("content_type") or "application/octet-stream")
+        if in_force and not store.records(source["id"], part):
+            vf, basis = in_force, "in_force"
+        else:
+            vf, basis = published, "published"
+        ctx["out"].append(Fetched(part, title, content, mt, furl, published, vf, basis))
 
 
 # ---------------------------------------------------------------- plain URL
@@ -351,6 +415,7 @@ def write_report(doc: dict, store: Store, rows: list, partial: bool) -> None:
         f"- New versions this run: {sum(r[2] for r in rows)}.",
         f"- Stored in total: {total_recs} versions, {total_bytes / 1e6:.1f} MB of raw files (not in git).",
         f"- Version chain problems: {len(chain_problems)}.",
+        "- Known gaps (old editions, S3 upload, pending legislation changes): `corpus/README.md`.",
         "",
     ]
     if failed:

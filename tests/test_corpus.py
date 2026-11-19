@@ -68,6 +68,25 @@ def test_new_version_with_same_publish_date_starts_today(store):
     assert check_chain(store.records("demo")) == []
 
 
+def test_second_change_on_same_day_keeps_chain(store):
+    store.add(SRC, doc("2024-01-01", b"v1"))
+    store.add(SRC, doc("2024-01-01", b"v2"))
+    store.add(SRC, doc("2024-01-01", b"v3"))
+    recs = store.records("demo")
+    assert len(recs) == 3
+    assert check_chain(recs) == []
+
+
+def test_html_change_detection_ignores_markup_noise(store):
+    a = b'<html><body><div id="x1">Asbestos rules</div><script>t=1</script></body></html>'
+    b = b'<html><body><div id="x2">Asbestos rules</div><script>t=2</script></body></html>'
+    c = b'<html><body><div id="x2">Asbestos rules changed</div></body></html>'
+    page = lambda body: Fetched("main", "Page", body, "text/html", "https://x/p", None, "2024-01-01", "first_seen")
+    assert store.add(SRC, page(a))
+    assert store.add(SRC, page(b)) is None
+    assert store.add(SRC, page(c))
+
+
 def test_parts_have_separate_chains(store):
     store.add(SRC, doc("2024-01-01", b"a1", part="vol1"))
     store.add(SRC, doc("2024-01-01", b"b1", part="vol2"))
