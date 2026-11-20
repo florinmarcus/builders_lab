@@ -86,6 +86,15 @@ python -m pytest -q
 
 Add real-file tests for the document in `tests/test_parse_pdf.py` (or `test_parse_legislation.py`): counts taken from the document itself (numbered paragraphs, tables, figures, appendices), and "all checks settled by saved fixes". These tests skip where the raw file is missing.
 
+## 5b. Chunks, vectors and the search index
+
+```
+python -m system.rag.chunk            # corpus/chunks/ and corpus/chunk-report.md
+python -m system.rag.embed            # only new or changed chunks cost money
+python -m system.rag.search --build
+python -m system.rag.search "a builder question about this document"
+```
+
 ## 6. Record and commit
 
 - Any shortcut or known flaw goes into `requirements/parking-lot.md`.

@@ -36,6 +36,7 @@ def index(tmp_path, monkeypatch):
     ]
     (corpus / "chunks" / "demo" / "v1.jsonl").write_text("".join(json.dumps(r) + "\n" for r in rows))
     monkeypatch.setattr(S, "CORPUS_DIR", corpus)
+    monkeypatch.setattr(S, "_vectors", None)  # never reuse vectors cached from the real corpus
     monkeypatch.setenv("RAG_INDEX", str(tmp_path / "idx.sqlite"))
     assert S.build() == 5
     return corpus
@@ -69,3 +70,59 @@ def test_no_words_no_results_and_missing_index_is_an_error(index, tmp_path, monk
     monkeypatch.setenv("RAG_INDEX", str(tmp_path / "missing.sqlite"))
     with pytest.raises(FileNotFoundError):
         S.search("fire")
+
+
+# ---------------------------------------------------------------- hybrid: vectors, RRF, re-rank (fake models)
+
+def test_rrf_adds_one_over_k_plus_rank():
+    a = [("x", {}), ("y", {})]
+    b = [("y", {}), ("z", {})]
+    out = S.rrf(a, b, k=60)
+    assert [c for c, _, _ in out] == ["y", "x", "z"]
+    assert out[0][2] == pytest.approx(1 / 62 + 1 / 61)
+
+
+@pytest.fixture
+def vectors(index, monkeypatch):
+    np = pytest.importorskip("numpy")
+    vec_dir = index / "vectors" / "demo"
+    vec_dir.mkdir(parents=True)
+    ids = ["a", "b", "c", "d", "e"]
+    mat = np.eye(5, dtype=np.float32)  # chunk i points along axis i
+    np.save(vec_dir / "v1.npy", mat)
+    (vec_dir / "v1.ids.json").write_text(json.dumps([{"id": i, "fp": i} for i in ids]))
+    monkeypatch.setattr(S, "_vectors", None)
+    yield
+    S._vectors = None
+
+
+def fake_embed(axis):
+    return lambda text: ([1.0 if i == axis else 0.0 for i in range(5)], 3)
+
+
+def test_vector_mode_finds_a_paraphrase_keywords_miss(vectors):
+    # "money due" shares no word with chunk e ("payment notice"), but its vector points at e
+    assert S.search("money due", datetime.date(2027, 1, 1), mode="keyword", use_rerank=False) == []
+    got = S.search("money due", datetime.date(2027, 1, 1), mode="vector", use_rerank=False, embed=fake_embed(4))
+    assert got[0]["chunk_id"] == "e"
+
+
+def test_hybrid_keeps_filters_and_reranks(vectors):
+    calls = {}
+
+    def fake_rerank(question, texts, n):
+        calls["texts"] = texts
+        return [(len(texts) - 1, 0.9), (0, 0.5)]  # put the last candidate first
+
+    got = S.search("fire doorsets", datetime.date(2027, 1, 1), mode="hybrid", embed=fake_embed(3),
+                   use_rerank=True, rerank_fn=fake_rerank)
+    ids = [p["chunk_id"] for p in got]
+    assert "d" not in ids and "c" not in ids  # Wales-only and not yet in force, from either list
+    assert got[0]["score"] == 0.9 and len(got) == 2
+    assert all("›" in t for t in calls["texts"])  # the re-ranker sees breadcrumb + text
+
+
+def test_no_vectors_falls_back_to_keywords(index, monkeypatch):
+    monkeypatch.setattr(S, "_vectors", None)
+    got = S.search("fire doorsets FD30", datetime.date(2027, 1, 1), mode="hybrid", use_rerank=False)
+    assert got[0]["chunk_id"] == "a"
