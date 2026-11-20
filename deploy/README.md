@@ -106,6 +106,17 @@ dc exec -T app python -m builders_api.admin feed today          # demo morning: 
 Then in Claude: "check my emails" (sync_inbox, then save_facts per email).
 After a tool is added or changed, reconnect the connector in the Claude app so it sees the new tool list.
 
+## Demo reset (one command)
+
+```
+sudo /opt/builders-lab/repo/deploy/scripts/demo-reset.sh              # clean start + today's emails
+sudo /opt/builders-lab/repo/deploy/scripts/demo-reset.sh --no-today   # clean start only
+sudo /opt/builders-lab/repo/deploy/scripts/demo-reset.sh --save-baseline
+```
+
+Restores `/opt/builders-lab/demo-baseline.dump` (past emails ingested, facts saved), keeps current API keys and the
+kill switch, re-applies newer migrations, empties the mail folder and feeds the demo-day emails. A backup is taken first.
+
 ## Customer keys and the off switch
 
 ```
