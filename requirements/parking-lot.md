@@ -15,7 +15,7 @@ Started 20 Nov 2026. Status of the demo build: steps 1 (mock data plan), 2 (sche
 | N4 | ~~`save_facts` with server checks~~ Done 20 Nov 2026 (`service/facts.py`) | – | – |
 | N5 | ~~First AWS run~~ Done 20 Nov 2026: stack `builders-lab-prod` up, server installed itself, Let's Encrypt certificate, demo data and Florin's key loaded. Still open: turn on the GitHub deploy step (repository variables) and watch its first run | Repo variables need Florin | Pushes test but do not deploy |
 | N6 | OAuth login (Cognito) as the second auth layer (ADR 0007) | API keys first for the demo | One shared secret per firm |
-| N7 | App alerts (lockdown, IP blocks) to the email topic. Budget alarm and server-down alarm are in the CloudFormation template | `security.alert()` only logs | Attacks go unseen |
+| N7 | ~~App alerts (lockdown, IP blocks) to the email topic.~~ Done 20 Nov 2026: CloudWatch logs (90 days) and alarms for rejected keys, IP blocks, lockdown/alerts, scans and server errors (deploy/README.md). Old text: Budget alarm and server-down alarm are in the CloudFormation template | `security.alert()` only logs | Attacks go unseen |
 | N8 | Backups copied off the server's account and region (now: daily dumps on the disk + daily disk snapshots in the same region) | Pilot | Region or account loss loses data |
 | N9 | Evals and the Claude Code mini harness (subagents, hooks, LLM judge) | Out of scope for Saturday | No measure of answer quality |
 | N10 | Claude Code plugin for testers | After the demo | Manual setup per tester |

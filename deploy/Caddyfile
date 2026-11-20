@@ -1,7 +1,20 @@
 # HTTPS in front of the MCP server. Certificates from Let's Encrypt (TLS_DIRECTIVE = your email),
 # or Caddy's own local certificate for testing (TLS_DIRECTIVE = internal).
+# Logs: JSON on stdout (shipped to CloudWatch on the server). The MCP path secret and key headers
+# are masked in every log line, including errors from the reverse proxy.
 {
 	admin off
+	log default {
+		output stdout
+		format filter {
+			wrap json
+			fields {
+				request>uri regexp ^/mcp/[^/?]+ /mcp/<path-secret>
+				request>headers>Authorization delete
+				request>headers>X-Api-Key delete
+			}
+		}
+	}
 }
 
 {$DOMAIN} {
@@ -14,6 +27,17 @@
 		-Server
 		Strict-Transport-Security "max-age=31536000"
 		X-Content-Type-Options nosniff
+	}
+	log {
+		output stdout
+		format filter {
+			wrap json
+			fields {
+				request>uri regexp ^/mcp/[^/?]+ /mcp/<path-secret>
+				request>headers>Authorization delete
+				request>headers>X-Api-Key delete
+			}
+		}
 	}
 	reverse_proxy app:8000
 }

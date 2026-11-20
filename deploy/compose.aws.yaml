@@ -1,0 +1,23 @@
+# On the AWS server only (deploy/scripts/common.sh adds this file): send the app and Caddy logs
+# to CloudWatch, so they survive deploys. Log groups, retention (90 days) and alarms are in
+# cloudformation/server.yaml. `docker logs` still works (Docker keeps a local copy).
+# The MCP path secret is masked before it is written (app: logredact.py; Caddy: Caddyfile).
+services:
+  app:
+    logging:
+      driver: awslogs
+      options:
+        awslogs-region: eu-west-2
+        awslogs-group: ${LOG_GROUP_PREFIX:-/builders-lab/prod}/app
+        awslogs-stream: app
+        mode: non-blocking        # never slow the app down if CloudWatch is slow
+        max-buffer-size: 4m
+  caddy:
+    logging:
+      driver: awslogs
+      options:
+        awslogs-region: eu-west-2
+        awslogs-group: ${LOG_GROUP_PREFIX:-/builders-lab/prod}/caddy
+        awslogs-stream: caddy
+        mode: non-blocking
+        max-buffer-size: 4m

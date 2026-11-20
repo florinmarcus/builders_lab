@@ -15,8 +15,10 @@ log() { printf '%s  %s\n' "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "$*" >&2; }  # stderr
 die() { log "ERROR: $*"; exit 1; }
 
 dc() {  # docker compose with our env file, from the checked-out deploy folder
-  docker compose --project-directory "$REPO_DIR/deploy" -f "$REPO_DIR/deploy/compose.yaml" \
-    --env-file "$ENV_FILE" "$@"
+  local files=(-f "$REPO_DIR/deploy/compose.yaml")
+  # On the server, logs go to CloudWatch (compose.aws.yaml); local runs use compose.yaml alone.
+  if [[ -f "$REPO_DIR/deploy/compose.aws.yaml" ]]; then files+=(-f "$REPO_DIR/deploy/compose.aws.yaml"); fi
+  docker compose --project-directory "$REPO_DIR/deploy" "${files[@]}" --env-file "$ENV_FILE" "$@"
 }
 
 set_env() {  # set_env KEY VALUE: add or replace a line in the env file

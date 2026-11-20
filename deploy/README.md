@@ -73,6 +73,20 @@ aws iam attach-user-policy --user-name <deploy user> \
   aws ssm get-parameter --region eu-west-2 --with-decryption --name /builders-lab/prod/handover/florin_api_key --query Parameter.Value --output text
   ```
 
+## Logs and security alerts (20 Nov 2026)
+
+- **Logs survive deploys.** The app and Caddy log to CloudWatch (`compose.aws.yaml`, added by `scripts/common.sh` on the server): log groups `/builders-lab/prod/app` and `/builders-lab/prod/caddy`, kept 90 days. `docker logs` still works on the server. Before this, each deploy wiped the log.
+- **No secrets in logs.** The MCP path secret is masked as `<path-secret>` (app: `builders_api/mcp_server/logredact.py`; Caddy: `Caddyfile` log filter). Key headers are dropped from Caddy logs.
+- **Alarms (email via the alert topic):** 10+ rejected keys in 5 minutes; any IP block; any lockdown or security alert; 100+ wrong-path requests in 5 minutes (scanner); 5+ server errors in 5 minutes. Metric namespace `BuildersLab/Security`.
+- Read logs: CloudWatch console, Logs, the log group; or `aws logs tail /builders-lab/prod/app --since 1h --region eu-west-2` (in Git Bash put `MSYS_NO_PATHCONV=1` in front).
+
+## Stack updates: server protected (20 Nov 2026)
+
+- The server image is pinned (`ImageId` parameter). It used to resolve "latest Amazon Linux" at every stack update, so any update after Amazon published a new image would have **replaced the server and its database**.
+- A stack policy (`cloudformation/stack-policy.json`, set on the stack) denies replacing or deleting `Server` and `Ip`. An update that would do that fails and rolls back. Set it again after recreating the stack: `aws cloudformation set-stack-policy --stack-name builders-lab-prod --stack-policy-body file://deploy/cloudformation/stack-policy.json --region eu-west-2`.
+- Always preview a stack update as a change set and check that nothing says Replacement: True. Take a backup first (`scripts/backup.sh <label>`).
+- To upgrade the OS on purpose: back up, lift the stack policy for `Server`, set a new `ImageId`, restore data if needed.
+
 ## Run a command on the server
 
 No SSH. Use Session Manager:

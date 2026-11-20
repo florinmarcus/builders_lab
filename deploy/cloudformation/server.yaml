@@ -13,6 +13,13 @@ Parameters:
     Type: String
     Default: t4g.small
     AllowedValues: [t4g.small, t4g.medium]
+  ImageId:
+    Type: AWS::EC2::Image::Id
+    # Pinned on purpose (20 Nov 2026). It used to resolve "latest Amazon Linux 2023" at every stack
+    # update, so any update after Amazon published a new image REPLACED the server (and its database).
+    # To upgrade the OS: take a backup, then set the newest arm64 AL2023 image id here (replaces the server).
+    Default: ami-02ed47293ae4ec577
+    Description: Amazon Linux 2023 arm64 image for the server. Changing it replaces the server.
   DomainName:
     Type: String
     Default: ""
@@ -126,6 +133,12 @@ Resources:
                 Effect: Allow
                 Action: sns:Publish
                 Resource: !Ref AlertTopic
+              - Sid: ShipContainerLogs   # Docker's awslogs driver (deploy/compose.aws.yaml)
+                Effect: Allow
+                Action: [logs:CreateLogStream, logs:PutLogEvents, logs:DescribeLogStreams]
+                Resource:
+                  - !Sub "${AppLogGroup.Arn}"
+                  - !Sub "${CaddyLogGroup.Arn}"
   ServerProfile:
     Type: AWS::IAM::InstanceProfile
     Properties: { Roles: [!Ref ServerRole] }
@@ -158,7 +171,7 @@ Resources:
     Type: AWS::EC2::Instance
     DependsOn: [DomainParam, TlsParam, SupportParam, DefaultRoute]
     Properties:
-      ImageId: "{{resolve:ssm:/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-arm64}}"
+      ImageId: !Ref ImageId
       InstanceType: !Ref InstanceType
       SubnetId: !Ref Subnet
       SecurityGroupIds: [!Ref WebSg]
@@ -240,6 +253,116 @@ Resources:
       ComparisonOperator: GreaterThanOrEqualToThreshold
       AlarmActions:
         - !Ref AlertTopic   # auto-recover action needs a service-linked role the deploy user may not create
+
+  # ---------------------------------------------------------------- logs and security alarms
+  # Container logs survive deploys here (before, each deploy wiped them). The app masks the MCP
+  # path secret before writing (builders_api/mcp_server/logredact.py); Caddy masks it too.
+  AppLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub "/builders-lab/${Environment}/app"
+      RetentionInDays: 90
+  CaddyLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub "/builders-lab/${Environment}/caddy"
+      RetentionInDays: 90
+  # Metric filters match the exact text the app writes (builders_api/security.py, mcp_server/gateway.py).
+  RejectedKeysFilter:
+    Type: AWS::Logs::MetricFilter
+    Properties:
+      LogGroupName: !Ref AppLogGroup
+      FilterPattern: '"401 from"'
+      MetricTransformations: [{ MetricNamespace: BuildersLab/Security, MetricName: RejectedKeys, MetricValue: "1", DefaultValue: 0 }]
+  IpBlocksFilter:
+    Type: AWS::Logs::MetricFilter
+    Properties:
+      LogGroupName: !Ref AppLogGroup
+      FilterPattern: '"failed key checks"'
+      MetricTransformations: [{ MetricNamespace: BuildersLab/Security, MetricName: IpBlocks, MetricValue: "1", DefaultValue: 0 }]
+  AlertsFilter:   # lockdowns and every security.alert()
+    Type: AWS::Logs::MetricFilter
+    Properties:
+      LogGroupName: !Ref AppLogGroup
+      FilterPattern: '?"ALERT:" ?"LOCKDOWN"'
+      MetricTransformations: [{ MetricNamespace: BuildersLab/Security, MetricName: SecurityAlerts, MetricValue: "1", DefaultValue: 0 }]
+  NotFoundFilter:   # wrong paths: scanners probing the server
+    Type: AWS::Logs::MetricFilter
+    Properties:
+      LogGroupName: !Ref AppLogGroup
+      FilterPattern: '"404 Not Found"'
+      MetricTransformations: [{ MetricNamespace: BuildersLab/Security, MetricName: NotFound, MetricValue: "1", DefaultValue: 0 }]
+  ServerErrorsFilter:
+    Type: AWS::Logs::MetricFilter
+    Properties:
+      LogGroupName: !Ref AppLogGroup
+      FilterPattern: '?"500 Internal Server Error" ?"Traceback"'
+      MetricTransformations: [{ MetricNamespace: BuildersLab/Security, MetricName: ServerErrors, MetricValue: "1", DefaultValue: 0 }]
+  RejectedKeysAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmDescription: 10 or more requests with a missing or wrong API key in 5 minutes (someone guessing keys, or a client with an old key).
+      Namespace: BuildersLab/Security
+      MetricName: RejectedKeys
+      Statistic: Sum
+      Period: 300
+      EvaluationPeriods: 1
+      Threshold: 10
+      ComparisonOperator: GreaterThanOrEqualToThreshold
+      TreatMissingData: notBreaching
+      AlarmActions: [!Ref AlertTopic]
+  IpBlockAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmDescription: The server blocked an IP address after repeated failed key checks.
+      Namespace: BuildersLab/Security
+      MetricName: IpBlocks
+      Statistic: Sum
+      Period: 300
+      EvaluationPeriods: 1
+      Threshold: 1
+      ComparisonOperator: GreaterThanOrEqualToThreshold
+      TreatMissingData: notBreaching
+      AlarmActions: [!Ref AlertTopic]
+  SecurityAlertAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmDescription: The server went into lockdown or raised a security alert (see the app log group).
+      Namespace: BuildersLab/Security
+      MetricName: SecurityAlerts
+      Statistic: Sum
+      Period: 60
+      EvaluationPeriods: 1
+      Threshold: 1
+      ComparisonOperator: GreaterThanOrEqualToThreshold
+      TreatMissingData: notBreaching
+      AlarmActions: [!Ref AlertTopic]
+  ScanAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmDescription: 100 or more requests to wrong paths in 5 minutes (a scanner probing the server).
+      Namespace: BuildersLab/Security
+      MetricName: NotFound
+      Statistic: Sum
+      Period: 300
+      EvaluationPeriods: 1
+      Threshold: 100
+      ComparisonOperator: GreaterThanOrEqualToThreshold
+      TreatMissingData: notBreaching
+      AlarmActions: [!Ref AlertTopic]
+  ServerErrorAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmDescription: 5 or more server errors (HTTP 500 or Python tracebacks) in 5 minutes.
+      Namespace: BuildersLab/Security
+      MetricName: ServerErrors
+      Statistic: Sum
+      Period: 300
+      EvaluationPeriods: 1
+      Threshold: 5
+      ComparisonOperator: GreaterThanOrEqualToThreshold
+      TreatMissingData: notBreaching
+      AlarmActions: [!Ref AlertTopic]
   Budget:
     Type: AWS::Budgets::Budget
     Properties:
