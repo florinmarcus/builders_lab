@@ -1027,6 +1027,8 @@ sources:
   status: coming
   notes: Made 2 Nov 2026. Regs 2(3) and 2(4) from 25 Nov 2026; reg 2(2) (new reg 20) from 25 Nov 2027.
   checked: 2026-11-19
+  parser: {module: parse_legislation}
+  amending: true                  # findable from the day it was made; its regulation 1 says when it comes into force
   fetch: {method: legislation, path: uksi/2026/1153, history: made}
 
 - id: hse-car-consultation
@@ -2445,6 +2447,8 @@ sources:
   status: coming
   notes: Made 13 Nov 2026. Re-crawl after 30 Nov 2026.
   checked: 2026-11-19
+  parser: {module: parse_legislation}
+  amending: true                  # findable from the day it was made; its regulation 1 says when it comes into force
   fetch: {method: legislation, path: uksi/2026/1195, history: made}
 
 - id: awaab-consolidated
@@ -2633,6 +2637,8 @@ sources:
   status: current
   notes: Made 1 Jun 2026.
   checked: 2026-11-19
+  parser: {module: parse_legislation}
+  amending: true                  # findable from the day it was made; its regulation 1 says when it comes into force
   fetch: {method: legislation, path: uksi/2026/571, history: made}
 
 - id: hhsrs-operating
@@ -3119,6 +3125,8 @@ sources:
   status: current
   notes: Made date (12 Mar 2026) from a snippet only.
   checked: 2026-11-19
+  parser: {module: parse_legislation}
+  amending: true                  # findable from the day it was made; its regulation 1 says when it comes into force
   fetch: {method: legislation, path: uksi/2026/289, history: made}
 
 - id: hmrc-cis-fraud-2026

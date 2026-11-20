@@ -236,18 +236,18 @@ class Parser:
         if p1 is not None and p1.get("id") is None and holder.get("id"):
             p1.set("id", holder.get("id"))
         if p1 is None:
-            self.issues.append(f"{tag(holder)} without P1 under {parent['id']}")
+            self.issues.append(f"{tag(holder)} without P1 under {parent['id'] if parent else 'top level'}")
             return None
         title_el = holder.find(f"{L}Title") if holder is not p1 else None
         title = inline(title_el) if title_el is not None else None
         num_el = p1.find(f"{L}Pnumber")
         number = inline(num_el) if num_el is not None else ""
-        sid = (p1.get("id") or f"{parent['id']}-{number}") + suffix
+        sid = (p1.get("id") or f"{parent['id'] if parent else 'body'}-{number}") + suffix  # amending SIs: no Part above
         label = ("Section" if sid.startswith("section-") else "Regulation") if kind == "regulation" else "Paragraph"  # Acts have sections
         hp = [*path, heading(label, number, title)]
         st = status(p1)
         reg = self.add({
-            "id": sid, "parent_id": parent["id"], "type": kind, "number": number, "title": title,
+            "id": sid, "parent_id": parent["id"] if parent else None, "type": kind, "number": number, "title": title,
             "heading_path": hp, "applies_to": applies_to or extent(p1), "status": st,
             "text": "\n".join(lines(p1)), "amendments": self.amendments(holder), "references": self.references(p1),
             "url": p1.get("DocumentURI"),
@@ -308,9 +308,10 @@ class Parser:
             cells = [inline(c) for c in tr if c.tag in (f"{X}td", f"{X}th")]
             if any(cells):
                 rows.append(" | ".join(cells))
-        n = 1 + sum(1 for s in self.sections if s["parent_id"] == parent["id"] and s["type"] == "table")
+        pid = parent["id"] if parent else None
+        n = 1 + sum(1 for s in self.sections if s["parent_id"] == pid and s["type"] == "table")
         self.add({
-            "id": f"{parent['id']}-table-{n}", "parent_id": parent["id"], "type": "table", "number": str(n),
+            "id": f"{pid or 'body'}-table-{n}", "parent_id": pid, "type": "table", "number": str(n),
             "title": title, "heading_path": [*path, title or f"Table {n}"], "applies_to": extent(tab),
             "status": status(tab), "text": "\n".join(rows), "amendments": self.amendments(tab),
             "references": self.references(tab), "url": parent.get("url"),

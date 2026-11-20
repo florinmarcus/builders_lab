@@ -137,6 +137,9 @@ class Chunker:
 
     def base(self, s: dict) -> dict:
         valid_from = s.get("valid_from") or self.tree.get("valid_from")
+        if self.src.get("amending") and self.record.get("edition_date"):
+            # An amending instrument is news from the day it is made: findable then, with its in-force date kept.
+            valid_from = min(valid_from or self.record["edition_date"], self.record["edition_date"])
         valid_to = s.get("valid_to") or self.tree.get("valid_to")
         applies = s.get("applies_to") or NATION.get(self.src.get("nation", ""), None)
         if s.get("url"):
@@ -152,6 +155,7 @@ class Chunker:
                 s.get("status"), legal_weight(self.src)),
             "version_id": self.tree["version_id"], "edition_date": self.record.get("edition_date") or valid_from,
             "valid_from": valid_from, "valid_to": valid_to, "applies_to": applies,
+            "in_force": self.tree.get("valid_from") if self.src.get("amending") else None,
             "section_id": s["id"], "section_number": s.get("number"), "section_title": s.get("title"),
             "heading_path": s.get("heading_path") or [], "printed_page": s.get("printed_page"), "url": url,
         }
@@ -192,7 +196,7 @@ class Chunker:
     def legislation_section(self, s: dict) -> None:
         t = s["type"]
         if t == "regulation":
-            if s["id"] == "regulation-2":
+            if s["id"] == "regulation-2" and (s.get("title") or "").lower().startswith("interpretation"):
                 return  # one chunk per defined term instead (legislation_definitions)
             kids = [k for k in self.sections if k["parent_id"] == s["id"] and k["type"] == "paragraph"]
             if len(s["text"]) > MAX_CHARS and kids:
@@ -210,8 +214,8 @@ class Chunker:
 
     def legislation_definitions(self) -> None:
         reg2 = self.by_id.get("regulation-2")
-        if not reg2:
-            return
+        if not reg2 or not (reg2.get("title") or "").lower().startswith("interpretation"):
+            return  # amending instruments: regulation 2 is the amendment, chunked as a regulation
         seen: Counter = Counter()
         for d in self.tree.get("definitions", []):
             if d.get("section_id") != "regulation-2":

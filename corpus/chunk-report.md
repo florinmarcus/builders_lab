@@ -12,6 +12,15 @@ Made by `python -m system.rag.chunk` from the parsed trees (not in git). Rebuilt
   - para-17.7: 2575 characters, split into 2 parts
 - Unresolved references (most common): "paragraph 2.44" ×4, "Table 8.1" ×2, "paragraphs A26" ×1, "paragraphs A14" ×1, "paragraph A11" ×1, "paragraphs A12" ×1, "paragraphs F8" ×1, "Table A1" ×1, "Table 7.1" ×1, "Figure 2" ×1, "paragraph 2.46" ×1, "paragraph 5.46" ×1, "paragraph 8.14" ×1, "paragraph 13.16" ×1, "paragraph 13.22" ×1.
 
+## awaab-amd-2026 `main@2026-11-13-7c53c94f`
+
+- Chunks: 5 (regulation 5).
+- Text length: median 245, longest 1314 characters.
+- Open model checks in the tree: 0.
+- Cross-references: 3, resolved in this document 0, to another document 0, unresolved 3.
+- Splits: none.
+- Unresolved references (most common): "paragraph 2" ×2, "regulation 21" ×1.
+
 ## awaab-guidance-phase1 `awaab-s-law-guidance-for-social-landlords-timeframes-for-rep@2026-07-16-77d92c22`
 
 - Chunks: 81 (paragraph 80, table 1).
@@ -85,6 +94,15 @@ Made by `python -m system.rag.chunk` from the parsed trees (not in git). Rebuilt
   - regulation-38@W: 2620 characters, split into 6 paragraphs
 - Unresolved references (most common): "paragraph F1" ×5, "paragraph E1" ×4, "paragraph 2" ×3, "paragraph 3" ×3, "regulation 7A" ×2, "Section 67" ×2, "paragraph B1" ×1, "paragraph B3" ×1, "paragraph B4" ×1, "paragraph B5" ×1, "paragraphs G2" ×1, "paragraphs G1" ×1, "regulation 63" ×1, "Section 30" ×1, "paragraph 1" ×1.
 
+## car-amd-2026 `main@2026-11-02-445e60a4`
+
+- Chunks: 2 (regulation 2).
+- Text length: median 2472, longest 2472 characters.
+- Open model checks in the tree: 0.
+- Cross-references: 3, resolved in this document 0, to another document 0, unresolved 3.
+- Splits: none.
+- Unresolved references (most common): "regulation 20" ×1, "regulation 17" ×1, "regulation 31" ×1.
+
 ## car2012 `main@2020-12-31-6057ef64`
 
 - Chunks: 90 (clause 37, regulation 29, definition 18, paragraph 5, table 1).
@@ -109,6 +127,15 @@ Made by `python -m system.rag.chunk` from the parsed trees (not in git). Rebuilt
   - regulation-12: 2635 characters, split into 10 paragraphs
   - regulation-15: 3026 characters, split into 11 paragraphs
 - Unresolved references (most common): "paragraph 4" ×3, "regulation 2A" ×2, "paragraph 5" ×1, "paragraph 1" ×1.
+
+## cis-amd-2026 `main@2026-03-12-1b3dd9aa`
+
+- Chunks: 2 (regulation 2).
+- Text length: median 1146, longest 1146 characters.
+- Open model checks in the tree: 0.
+- Cross-references: 2, resolved in this document 0, to another document 0, unresolved 2.
+- Splits: none.
+- Unresolved references (most common): "regulation 4" ×1, "regulation 23" ×1.
 
 ## fser-fire-doors `fire-doors-checklist-accessible@2025-08-08-d2ee24c0`
 
@@ -137,6 +164,15 @@ Made by `python -m system.rag.chunk` from the parsed trees (not in git). Rebuilt
 - Splits (2):
   - section-105: 3351 characters, split into 4 paragraphs
   - section-111n1: 3179 characters, split into 11 paragraphs
+
+## hhsrs-amd-2026 `main@2026-06-01-4b5f8cc0`
+
+- Chunks: 10 (regulation 10).
+- Text length: median 262, longest 1524 characters.
+- Open model checks in the tree: 0.
+- Cross-references: 19, resolved in this document 4, to another document 0, unresolved 15.
+- Splits: none.
+- Unresolved references (most common): "paragraph 4" ×2, "Table 1" ×1, "Table 2" ×1, "paragraph 17" ×1, "Table 3" ×1, "paragraph 14" ×1, "paragraph 18" ×1, "paragraph 23" ×1, "paragraph 24" ×1, "paragraph 25" ×1, "paragraph 29" ×1, "paragraph 1" ×1, "paragraph 2" ×1, "paragraph 3" ×1.
 
 ## hmrc-cis-340 `construction-industry-scheme-a-guide-for-contractors-and-sub@2026-08-27-945a8f08`
 

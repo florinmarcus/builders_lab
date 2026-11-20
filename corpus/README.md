@@ -33,6 +33,7 @@ On a new machine, `corpus/raw/` is empty. Get the files with `CORPUS_BUCKET=<buc
   checked: 2026-11-19
   images: show                    # optional: show (default) | check-only (crops for model checks, never shown to users)
   parser: {module: parse_adoc, parts: [...]}   # optional: which parser, and which parts are parsed so far
+  amending: true                  # optional: an amending instrument; its chunks are findable from the day it was made
   fetch:
     method: legislation           # legislation | govuk | url | none
     path: uksi/2010/2214
@@ -81,7 +82,7 @@ Attribution is added from the publisher: OGL for GOV.UK and legislation.gov.uk, 
 - **17 raw files missing** (20 Nov 2026). The first harvest ran in a cloud session and its raw files were lost with it. On Florin's PC the harvester restored 815 of 832 files with matching SHA-256, and all 815 are in the S3 bucket (checked: size, hash, encryption). The other 17 now come back with different bytes, so they were not saved (list in `harvest-report.md`). 16 are exactly the same size as before, mostly legislation XML whose metadata attributes come in no fixed order. One (ess2020, 1 May 2026) is 35 KB bigger. Open: keep today's bytes with a note in the record, or leave them missing; and hash legislation XML with attributes sorted so reordering is not a change.
 - **Old editions of GOV.UK documents.** GOV.UK keeps only the current file, except AD B (back to 2006), AD L and F 2021 next to 2026, and the building regulations circulars (back to 2003). The National Archives web archive blocks automated downloads (HTTP 405). Older editions need a manual step, only if evals show we need them.
 - **HSE keeps only current editions** (L143 2013, HSG264 2012, L153 2015 and others). From now on our own records keep every change.
-- **Pending legislation changes.** legislation.gov.uk has not yet applied SI 2026/1153 (asbestos, reg 20 from 25 Nov 2027) or SI 2026/1195 (Awaab's Law phase 2, 30 Nov 2026) to the main texts. We hold the amending SIs as made. Re-run the harvester after they are applied.
+- **Pending legislation changes.** legislation.gov.uk has not yet applied SI 2026/1153 (asbestos, reg 20 from 25 Nov 2027) or SI 2026/1195 (Awaab's Law phase 2, 30 Nov 2026) to the main texts. We hold the amending SIs as made, and since 20 Nov 2026 parse and search them as their own documents (`amending: true`): SI 2026/1153 comes into force 25 Nov 2026, its new regulation 20 on 25 Nov 2027 (its regulation 1). Re-run the harvester after legislation.gov.uk applies them.
 - **England and Wales in one text.** The Building Regulations 2010 XML includes Welsh changes with extent markers. Filter to England when parsing.
 - **Licence checks.** AD A and AD C PDFs still carry the old Click-Use wording. Get legal confirmation before quoting them in full.
 - **Withdrawn or blocked.** HSE INDG223, INDG188 and INDG289 return 404. Gas Safe Register returned 403 (link only anyway).
