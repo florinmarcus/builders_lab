@@ -39,6 +39,7 @@ python -m builders_api.mcp_server  # MCP server on http://HOST:PORT/mcp (streama
 | `sync_inbox` | 1: fetch new email from the mail source, store, file by job, hand over emails needing facts |
 | `save_facts` | 1: record job, document types and facts for one email (server-checked) |
 | `verify_answer` | all: deterministic checks on a draft answer (`architecture/design/agent-contracts.md`) |
+| `lookup_terms` | Romanian questions: glossary lookup (`terminology/`, ADR 0012) |
 
 ## Security (ADR 0007)
 

@@ -143,6 +143,19 @@ These matter most for answers. A word-for-word translation would mislead.
 | 101 | canalizare | drainage / soil and waste |  | unverified |
 | **Supply** | | | | |
 | 102 | depozit de materiale / „Screwfix-ul" | builders' merchant / trade counter | Brand use as a common noun is colloquial and unverified. | formal term sourced; „Screwfix-ul" colloquial, unverified |
+| **Compliance, payments and paperwork (added 20 Nov 2026 for the demo)** | | | | |
+| 103 | azbest / materiale cu azbest | asbestos / asbestos-containing materials (ACMs) | Never say "fără azbest" (no asbestos): say what the survey covered and found. | unverified |
+| 104 | studiu de azbest / evaluare azbest | asbestos survey (management, or refurbishment and demolition) | HSG264 survey types. | unverified |
+| 105 | perete portant / perete de rezistență | load-bearing wall | Removing one is structural work: Building Regulations Part A. | unverified |
+| 106 | a sparge un perete / a scoate un perete / „knock-through" | knock-through / remove a wall |  | unverified |
+| 107 | notificare de plată | payment notice | Construction Act s110A. | unverified |
+| 108 | notificare de plată redusă / „pay less" | (no exact equivalent) pay less notice | Construction Act s111; no Romanian equivalent. | unverified |
+| 109 | termen de plată / data scadentă | due date / final date for payment | Two different dates in UK contracts. | unverified |
+| 110 | asigurare de răspundere civilă | public liability insurance |  | unverified |
+| 111 | certificat electric / „certificatul de la electrician" | electrical installation certificate (EIC) | Part P. | unverified |
+| 112 | comandă de lucrări | works order | Council repairs. | unverified |
+| 113 | locuință goală / „void" | void property (empty council home) |  | unverified |
+| 114 | aprobarea clientului / „a zis da" | client approval (in writing) | Count only the client's own words. | unverified |
 
 ## Next steps
 

@@ -44,7 +44,8 @@ Only `inbox-clerk` writes, and only through `save_facts`, which rejects anything
 
 ```mermaid
 stateDiagram-v2
-    [*] --> Route
+    [*] --> Language
+    Language --> Route: question in English (lookup_terms if Romanian)
     Route --> Refuse: decision about a person
     Route --> Specialist: kind found
     Specialist --> Draft: Findings JSON
@@ -61,12 +62,13 @@ stateDiagram-v2
 
 | Step | Who | Input | Output | Stops if |
 |---|---|---|---|---|
+| Language | main | question | language; English question via `lookup_terms` | — |
 | Route | main | question | `kind`, job | asked to rank, score or monitor people |
 | Specialist | sub-agent | SpecialistTask | Findings | tool error: reported in `gaps` |
 | Draft | main | Findings | Answer (text + claims) | no claims: says nothing was found |
 | Verify | server | Answer | Verdict | — |
 | Fix | main | Verdict problems | corrected Answer | 2 rounds used |
-| Reply | main | verified text | shown answer + draft offer | — |
+| Reply | main | verified text | chunk 1 in the user's language, then "next"; English version offered; drafts in English | — |
 
 ## 4. Flow per specialist
 
@@ -113,7 +115,8 @@ sequenceDiagram
 | Who may call, which firm | Gateway: API key, secret path, rate limits, lockdown | code |
 | No invented facts saved | `save_facts`: quote must be in the source | code |
 | No invented facts shown | `verify_answer`: quotes, sources, £ amounts, dates | code |
-| Banned wording ("no asbestos", "I have sent") | `verify_answer` + `shared/rules.md` | code + instruction |
+| Banned wording ("no asbestos", "fără azbest", "I have sent") | `verify_answer` + `shared/rules.md` | code + instruction |
+| Terms that differ between Romania and the UK | `lookup_terms` (`mismatch`) + rules | code + instruction |
 | Personal data | `verify_answer` flags; rules say minimise | code + instruction |
 | Email text is not instructions | `untrusted_content_notice` in tool results + rules | instruction |
 | No decisions about people | router step + rules | instruction |

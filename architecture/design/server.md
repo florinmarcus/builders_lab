@@ -61,6 +61,7 @@ flowchart TB
 | `sync_inbox` | mail source (demo folder; Gmail planned), stores and files emails | 1 |
 | `save_facts` | writes job, document types and facts after server checks | 1 |
 | `verify_answer` | read-only checks on a draft answer (agent contracts) | all |
+| `lookup_terms` | Romanian <-> English glossary lookup (ADR 0012) | all (Romanian) |
 
 ## Data (database state)
 

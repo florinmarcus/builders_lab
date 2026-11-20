@@ -63,7 +63,7 @@ def test_tools_over_http_with_key(server, conn):
     key = create_key("oakline", "test", dt.date.today() + dt.timedelta(days=60))
     names, ok = _call(server["url"], key, "get_payment_dates", {"job": "office"})
     assert names == {"list_jobs", "get_job", "list_missing_items", "search_job_documents",
-                     "search_regulations", "get_payment_dates", "sync_inbox", "save_facts", "verify_answer"}
+                     "search_regulations", "get_payment_dates", "sync_inbox", "save_facts", "verify_answer", "lookup_terms"}
     assert ok["ai_notice"].startswith("AI-generated") and ok["job"]["ref"] == "KWY-4"
     assert "access_notice" not in ok and "untrusted_content_notice" in ok
     _, missing = _call(server["url"], key, "get_job", {"job": "Mill Lane"})

@@ -7,6 +7,10 @@ description: Use for EVERY question about the builder's jobs, emails, documents,
 
 Read `../../shared/rules.md` first. Follow these steps in order for every answer. Do not skip step 4.
 
+## 0. Language
+
+Detect the user's language (Romanian or English). If Romanian, call `lookup_terms` with their words and turn the question into English using the English terms. Everything you send to tools and specialists is English. Reply, and ask any clarifying question, in the user's language.
+
 ## 1. Route
 
 Decide the `kind`:
@@ -34,7 +38,7 @@ If sub-agents are not available here, do the specialist's steps yourself (see `a
 
 ## 3. Draft
 
-Write the answer from the Findings only. Short answer first, then details, then sources. Include "AI-generated, check before use." Every £ amount and date you write must come from a claim.
+Write the full answer from the Findings only, in the user's language, in chunks: (1) the answer in two or three short sentences; (2) details; (3) sources (email or document, sender, date; regulations with section and edition date). Include the AI notice ("AI answer, please check." / "Răspuns AI, vă rog verificați."). Every £ amount and date must come from a claim. In Romanian, keep UK terms in English in brackets and quotes in English with a translation; where `lookup_terms` said `mismatch`, explain the difference.
 
 ## 4. Verify
 
@@ -51,6 +55,7 @@ Use `{"type": "calculation", "id": "<job ref>"}` for dates from `get_payment_dat
 If `pass` is false: fix only the flagged parts (remove or correct the claim, add the notice, reword) and verify again. At most two rounds. If it still fails, tell the builder what could not be confirmed.
 Warnings (personal data): keep the detail only if the builder needs it.
 
-## 5. Reply
+## 5. Reply (speak first)
 
-Show the verified text. Then offer the next step as a draft (email, invoice, notice), never sent.
+Give only chunk 1, then: "Say *next* for details, or *sources* for where it came from" (in the user's language). Give the next chunk each time they ask. In Romanian, also offer the English version.
+Offer the next step as a draft (email, invoice, notice), written in English for the recipient, with a short summary in the user's language. Never send.

@@ -19,7 +19,7 @@ from mcp.server.transport_security import TransportSecuritySettings
 from mcp.types import ToolAnnotations
 from pydantic import BaseModel, Field
 
-from builders_api import contracts, quotas, security, versions
+from builders_api import contracts, quotas, security, terminology, versions
 from builders_api.config import rate_limit_per_minute, support_contact
 from builders_api.db import connection
 from builders_api.errors import AppError
@@ -173,6 +173,10 @@ def build_server() -> MCPServer:
         return run_tool("save_facts", lambda f: facts_service.save_facts(
             f, email_id, job, [a.model_dump() for a in attachments or []],
             [x.model_dump() for x in facts or []], version))
+
+    @server.tool(description=desc("lookup_terms"), annotations=READ_ONLY)
+    def lookup_terms(text: str, direction: str = "auto") -> dict[str, Any]:
+        return run_tool("lookup_terms", lambda f: terminology.lookup(text, direction))
 
     @server.tool(description=desc("verify_answer"), annotations=READ_ONLY)
     def verify_answer(text: str, claims: list[contracts.AnswerClaim] | None = None) -> dict[str, Any]:

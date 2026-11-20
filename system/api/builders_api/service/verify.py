@@ -14,18 +14,29 @@ from builders_api.db import connection
 from builders_api.errors import ValidationError
 from builders_api.service import payments, regulations
 from builders_api.service.facts import _norm
+from builders_api.terminology import fold
 
 CONTRACT = "contracts.v1"
-AI_NOTICE = "ai-generated, check before use"
+AI_NOTICES = (  # long and short spoken forms, English and Romanian (ADR 0012); compared without diacritics
+    "ai-generated, check before use", "ai answer, please check",
+    "generat de ai, verificati inainte de folosire", "raspuns ai, va rog verificati",
+)
 MONTHS = {m: i for i, m in enumerate(
     ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"], 1)}
+RO_MONTHS = {"ianuarie": 1, "februarie": 2, "martie": 3, "aprilie": 4, "mai": 5, "iunie": 6, "iulie": 7,
+             "august": 8, "septembrie": 9, "octombrie": 10, "noiembrie": 11, "decembrie": 12}
 
 BANNED = [
     (r"\bno asbestos\b", "Never say \"no asbestos\": say what the survey covered and found."),
     (r"\basbestos[- ]free\b", "Never say \"asbestos-free\"."),
-    (r"\b(free of|does not contain|doesn't contain|contains no) asbestos\b", "Never state that asbestos is absent."),
-    (r"\bi(?: have|'ve)? (?:sent|emailed|paid|signed|submitted)\b", "Drafts only: never say something was sent, paid or signed."),
+    (r"\b(free of|does not contain|doesnt contain|contains no) asbestos\b", "Never state that asbestos is absent."),
+    (r"\bi(?: have|ve)? (?:sent|emailed|paid|signed|submitted)\b", "Drafts only: never say something was sent, paid or signed."),
     (r"\b(?:is|are) (?:fully )?compliant\b", "Never say work is compliant; say what the rules say."),
+    # Romanian, compared without diacritics
+    (r"\bfara azbest\b", "Niciodată „fără azbest”: spuneți ce a acoperit studiul și ce a găsit."),
+    (r"\bnu (?:contine|are|exista) azbest\b", "Niciodată nu afirmați că nu există azbest."),
+    (r"\bam (?:trimis|platit|semnat)\b", "Doar ciorne: nu spuneți că ați trimis, plătit sau semnat."),
+    (r"\beste (?:complet )?conform\b", "Nu spuneți că lucrarea este conformă; spuneți ce prevăd regulile."),
 ]
 PII = [
     (r"(?:\+44\s?7\d{3}|\b07\d{3})\s?\d{3}\s?\d{3}\b", "phone number"),
@@ -36,6 +47,7 @@ AMOUNT = re.compile(r"£\s?(\d{1,3}(?:,\d{3})+|\d+)(?:\.(\d{2}))?")
 ISO_DATE = re.compile(r"\b(20\d{2})-(\d{2})-(\d{2})\b")
 DMY = re.compile(r"\b(\d{1,2})(?:st|nd|rd|th)?\s+(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?(?:\s+(20\d{2}))?\b", re.I)
 SLASH = re.compile(r"\b(\d{1,2})/(\d{1,2})/(20\d{2})\b")
+RO_DMY = re.compile(r"\b(\d{1,2})\s+(ianuarie|februarie|martie|aprilie|mai|iunie|iulie|august|septembrie|octombrie|noiembrie|decembrie)(?:\s+(20\d{2}))?\b")
 
 
 def amounts(text: str) -> set[int]:
@@ -55,6 +67,8 @@ def dates(text: str) -> set[tuple[int, int, int | None]]:
         out.add((int(d), MONTHS[mon[:3].lower()], int(y) if y else None))
     for d, m, y in SLASH.findall(text):
         out.add((int(d), int(m), int(y)))
+    for d, mon, y in RO_DMY.findall(fold(text)):
+        out.add((int(d), RO_MONTHS[mon], int(y) if y else None))
     return out
 
 
@@ -100,9 +114,10 @@ def verify_answer(firm: uuid.UUID, text: str, claims: list[dict]) -> dict[str, A
     def add(code, message, claim=None, severity="error"):
         problems.append({"code": code, "severity": severity, "message": message, **({"claim": claim} if claim else {})})
 
-    lower = text.lower()
-    if AI_NOTICE not in lower:
-        add("MISSING_AI_NOTICE", 'Add "AI-generated, check before use."')
+    lower = fold(text)
+    if not any(n in lower for n in AI_NOTICES):
+        add("MISSING_AI_NOTICE", 'Add "AI-generated, check before use." (or "AI answer, please check"; '
+                                 'Romanian: "Răspuns AI, vă rog verificați").')
     for pattern, message in BANNED:
         if re.search(pattern, lower):
             add("BANNED_PHRASE", message)

@@ -4,7 +4,7 @@ An AI assistant for UK building firms, first for Romanian-run firms: Claude (the
 
 ## Where we are (20 Nov 2026)
 
-- **Live:** MCP server on AWS London behind API keys (`deploy/README.md`), 9 tools, mock firm "Oakline Build" (`system/data/mock/`), ingestion of demo email, deterministic answer checks (`verify_answer`).
+- **Live:** MCP server on AWS London behind API keys (`deploy/README.md`), 10 tools, mock firm "Oakline Build" (`system/data/mock/`), ingestion of demo email, deterministic answer checks (`verify_answer`).
 - **Built, not yet tried by users:** the Builders plugin (`plugin/`: skills, Haiku specialist agents, rules), the demo Gmail tool.
 - **Other session:** regulations corpus and search (`corpus/`, `system/rag/`, `.claude/skills/corpus-document/`).
 - **Gaps and shortcuts:** `requirements/parking-lot.md`. Read it before starting anything.
@@ -24,6 +24,7 @@ An AI assistant for UK building firms, first for Romanian-run firms: Claude (the
 | Mock data, demo emails, Gmail demo | `system/data/mock/README.md`, `decisions/0005-...md` |
 | Regulations corpus or search | `system/rag/README.md` (contract), `corpus/README.md`, `.claude/skills/corpus-document/` |
 | Research or requirements | `research/summary.md`, `requirements/prototype.md` |
+| Language, Romanian terms, spoken answers | `decisions/0012-language-and-voice.md`, `research/domain/glossary.md` (then `python -m builders_api.terminology --build`) |
 | Making a decision | `decisions/` (add an ADR) |
 
 ## Commands
