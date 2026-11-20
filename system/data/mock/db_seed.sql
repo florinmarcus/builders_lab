@@ -4,7 +4,7 @@
 -- generated emails later skips the ones already here.
 -- Load with: python -m builders_api.db.seed
 
-insert into firms (slug, name) values ('oakline', 'Oakline Build Ltd') on conflict (slug) do nothing;
+insert into firms (slug, name) values ('oakline', 'Marcus Limited') on conflict (slug) do update set name = excluded.name;
 delete from facts          where firm_id = (select id from firms where slug = 'oakline');
 delete from contract_terms where firm_id = (select id from firms where slug = 'oakline');
 delete from attachments    where firm_id = (select id from firms where slug = 'oakline');
@@ -46,9 +46,9 @@ select id, m, l from f, (values ('documents_ingested', 200), ('tool_calls', 500)
 
 insert into staff (firm_id, name, role, email)
 select id, n, r, e from f, (values
-  ('Dan Oakley',  'Owner',      null),
-  ('Mike Turner', 'Site lead',  'mike.turner@oakline-build.example.com'),
-  ('Jamie Cole',  'Apprentice', 'jamie.cole@oakline-build.example.com')) v(n, r, e);
+  ('Florin Marcus',  'Owner',      null),
+  ('Mike Turner', 'Site lead',  'mike.turner@marcus-ltd.example.com'),
+  ('Jamie Cole',  'Apprentice', 'jamie.cole@marcus-ltd.example.com')) v(n, r, e);
 
 insert into clients (firm_id, name, kind, email, phone)
 select id, n, k, e, p from f, (values
@@ -69,11 +69,11 @@ join clients c on c.name = v.client and c.firm_id = f.id;
 create temporary table e_in (k text, ref text, fn text, fa text, subj text, at timestamptz, body text) on commit drop;
 insert into e_in values
  ('e03', 'ELM-22', 'Victoria Hartley', 'victoria.hartley@mail.example.com', 'Re: Quote Q-2051, 22 Elm Avenue', '2026-10-13 19:05+01',
-  'Hi Dan, we are happy with quote Q-2051 for £148,500 + VAT and would like to go ahead. Please treat this email as our acceptance. Victoria'),
+  'Hi Florin, we are happy with quote Q-2051 for £148,500 + VAT and would like to go ahead. Please treat this email as our acceptance. Victoria'),
  ('e06', 'ELM-22', 'Victoria Hartley', 'victoria.hartley@mail.example.com', 'Our WhatsApp chat about the changes', '2026-11-10 21:14+00',
-  'Hi Dan, as you asked, here is our WhatsApp chat so you have the changes in writing. Victoria'),
+  'Hi Florin, as you asked, here is our WhatsApp chat so you have the changes in writing. Victoria'),
  ('e08', 'ELM-22', 'Spark Right Electrical', 'office@sparkright.example.com', '22 Elm Avenue: electrical works complete', '2026-11-17 16:20+00',
-  'Dan, first and second fix complete at 22 Elm Avenue. Testing done. Electrical installation certificate to follow next week once the paperwork is back from the office.'),
+  'Florin, first and second fix complete at 22 Elm Avenue. Testing done. Electrical installation certificate to follow next week once the paperwork is back from the office.'),
  ('e10', 'KWY-4', 'Carter Cost Consulting', 'qs@carter-cost.example.com', 'Unit 4 Kingsway: signed contract particulars', '2026-10-01 10:30+01',
   'Please find attached the signed contract particulars for the Unit 4 office refit. Interim valuations monthly on the 28th.'),
  ('e12', 'KWY-4', 'Fenwick Drylining', 'admin@fenwick-drylining.example.com', 'Unit 4 Kingsway: RAMS and insurance', '2026-10-08 08:45+01',
@@ -95,7 +95,7 @@ create temporary table e_ids (k text, id uuid) on commit drop;
 with ins as (
   insert into emails (firm_id, gmail_message_id, from_name, from_address, subject, sent_at, body_text, job_id,
                       filing_reason, ingest_status, ingested_at)
-  select f.id, e.k || '.oakline-demo@builders-lab.example.com', e.fn, e.fa, e.subj, e.at, e.body, j.id,
+  select f.id, e.k || '.mail@marcus-ltd.example.com', e.fn, e.fa, e.subj, e.at, e.body, j.id,
          case when j.id is null then 'no job matched' else 'seed data' end, 'done', now()
   from e_in e cross join f left join jobs j on j.ref = e.ref and j.firm_id = f.id
   returning id, gmail_message_id)
@@ -105,14 +105,14 @@ insert into e_ids select split_part(gmail_message_id, '.', 1), id from ins;
 create temporary table a_in (k text, ek text, fname text, mime text, dt text, dd date, exp date, pages int, txt text) on commit drop;
 insert into a_in values
  ('a06', 'e06', 'WhatsApp Chat with Victoria Hartley.txt', 'text/plain', 'chat_export', '2026-11-10', null, null,
-'03/11/2026, 18:02 - Dan Oakley: Hi Victoria, the plumber says underfloor heating in the kitchen is possible now the floor is up. Extra £2,400 + VAT.
+'03/11/2026, 18:02 - Florin Marcus: Hi Victoria, the plumber says underfloor heating in the kitchen is possible now the floor is up. Extra £2,400 + VAT.
 03/11/2026, 19:40 - Victoria Hartley: Yes, go ahead with the underfloor heating in the kitchen.
-06/11/2026, 08:15 - Dan Oakley: For the utility room we could fit a pocket door instead of the hinged door. £850 + VAT extra.
+06/11/2026, 08:15 - Florin Marcus: For the utility room we could fit a pocket door instead of the hinged door. £850 + VAT extra.
 06/11/2026, 12:31 - Victoria Hartley: Approved, thanks. Pocket door it is.
-08/11/2026, 17:05 - Dan Oakley: Also thinking about garden lighting along the path, roughly £1,900.
+08/11/2026, 17:05 - Florin Marcus: Also thinking about garden lighting along the path, roughly £1,900.
 08/11/2026, 20:12 - Victoria Hartley: Sounds nice, let''s talk next week.'),
  ('a10', 'e10', 'Unit 4 Kingsway - Contract Particulars.pdf', 'application/pdf', 'contract_particulars', '2026-10-01', null, 3,
-'Contract particulars. JCT Intermediate Building Contract 2016. Employer: Brightmoor Analytics Ltd. Contractor: Oakline Build Ltd. Works: office refit, Unit 4, Kingsway Business Park. Date of possession 12 October 2026. Completion date 18 December 2026. Interim valuation dates: the 28th of each month. Due date: 7 days after each interim valuation date. Final date for payment: 14 days from the due date. Pay less notice: not later than 5 days before the final date for payment. Working hours: building occupied; noisy work outside 08:00-18:00 only.'),
+'Contract particulars. JCT Intermediate Building Contract 2016. Employer: Brightmoor Analytics Ltd. Contractor: Marcus Limited. Works: office refit, Unit 4, Kingsway Business Park. Date of possession 12 October 2026. Completion date 18 December 2026. Interim valuation dates: the 28th of each month. Due date: 7 days after each interim valuation date. Final date for payment: 14 days from the due date. Pay less notice: not later than 5 days before the final date for payment. Working hours: building occupied; noisy work outside 08:00-18:00 only.'),
  ('a12a', 'e12', 'Fenwick Drylining - RAMS Unit 4.pdf', 'application/pdf', 'rams', '2026-10-07', null, 6,
 'Risk assessment and method statement. Fenwick Drylining Ltd. Partitions and suspended ceilings, Unit 4, Kingsway Business Park. Hazards: work at height (podium steps), manual handling of boards, dust from cutting (on-tool extraction, FFP3 masks), occupied building: segregate work area, noisy cutting outside office hours.'),
  ('a12b', 'e12', 'Fenwick Drylining - Public Liability Certificate.pdf', 'application/pdf', 'insurance_certificate', '2026-10-01', '2026-11-30', 1,
@@ -120,7 +120,7 @@ insert into a_in values
  ('a13', 'e13', 'Volt Electrical - Insurance Certificate.pdf', 'application/pdf', 'insurance_certificate', '2025-11-01', '2026-10-31', 1,
 'Certificate of insurance. Insured: Volt Electrical Ltd. Public liability limit £2,000,000. Period of insurance: 1 November 2025 to 31 October 2026.'),
  ('a15', 'e15', 'Fenwick Drylining - Application for Payment 2.pdf', 'application/pdf', 'application_for_payment', '2026-11-20', null, 2,
-'Application for payment no. 2. Subcontractor: Fenwick Drylining Ltd. Main contractor: Oakline Build Ltd. Project: Unit 4, Kingsway Business Park. Gross valuation to date £36,480.00. Less previous payments £18,240.00. Amount applied for £18,240.00 + VAT. Payment due date under the subcontract: 25 November 2026.'),
+'Application for payment no. 2. Subcontractor: Fenwick Drylining Ltd. Main contractor: Marcus Limited. Project: Unit 4, Kingsway Business Park. Gross valuation to date £36,480.00. Less previous payments £18,240.00. Amount applied for £18,240.00 + VAT. Payment due date under the subcontract: 25 November 2026.'),
  ('a16', 'e16', 'WO-2026-4471 Works Order.pdf', 'application/pdf', 'works_order', '2026-10-28', null, 2,
 'Works order WO-2026-4471. Hollowell District Council. Property: Flat 12, Riverside House. Void works to lettable standard. Lines: strip out and renew kitchen units; renew bathroom suite; full electrical test; redecorate throughout. Target completion date: 27 November 2026. Asbestos: see survey before starting work.'),
  ('a17', 'e17', 'Asbestos Survey - Flat 12 Riverside House.pdf', 'application/pdf', 'asbestos_survey', '2026-10-24', null, 8,

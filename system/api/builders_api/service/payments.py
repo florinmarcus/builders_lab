@@ -51,7 +51,7 @@ def _roles(party: str) -> dict[str, str]:
     if party == "subcontract":
         return {
             "we_are": "payer",
-            "payment_notice": "We (Oakline) must give it to the subcontractor.",
+            "payment_notice": "We (Marcus Limited) must give it to the subcontractor.",
             "pay_less_notice": "Only if we intend to pay less than the notified sum; we give it.",
         }
     return {

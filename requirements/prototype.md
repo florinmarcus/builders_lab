@@ -59,7 +59,7 @@ For Saturday, the connector alone is enough; show the plugin as the way builders
   1. **Claude's own Gmail connector** reads emails and creates drafts (moments 1, 2, 5). We don't build this.
   2. **Xero's official MCP connector** with the UK demo company creates the draft invoice (moment 6). We don't build this.
   3. **Our MCP server** (small, Python) does what nobody else does: files emails and attachments by job, keeps job facts and "what's missing", and searches the regulations corpus with history (moments 2, 3, 4). Tools: `list_jobs`, `get_job`, `list_missing_items`, `search_job_documents`, `search_regulations`, `get_payment_dates` (moment 7: our code does the date sums), `sync_inbox`, `save_facts` (Claude records job and facts for new emails, ADR 0006).
-- **Email:** Florin's own Gmail, with all demo mail under the label `oakline-demo` (ADR 0005). A loader imports past mock emails; a live simulator turns emails sent from his second address to `+hartley`, `+fm`, `+council`, `+mike` etc. into emails from those personas. One reset command restores the start state. Our server reads the label through the Gmail API to file by job (on request via `sync_inbox`, or every 15 minutes). Details: `system/data/mock/README.md`.
+- **Email:** Florin's own Gmail, with all demo mail under the label `marcus-limited` (ADR 0005). A loader imports past mock emails; a live simulator turns emails sent from his second address to `+hartley`, `+fm`, `+council`, `+mike` etc. into emails from those personas. One reset command restores the start state. Our server reads the label through the Gmail API to file by job (on request via `sync_inbox`, or every 15 minutes). Details: `system/data/mock/README.md`.
 - **Firm store:** structured records per job (job, client, address, document type, dates, key facts) in Postgres; documents read whole when needed. No per-firm vector store (ADR 0004).
 - **Regulations:** from the corpus session (`corpus/`, `system/rag/`). Fallback if not ready: a few open documents loaded directly (e.g. Approved Document A, building control guidance on gov.uk).
 - **Hosting:** live on AWS London since 20 Nov 2026: one EC2 server set up by CloudFormation and scripts, deployed by GitHub Actions (ADR 0009, `deploy/README.md`).
@@ -67,7 +67,7 @@ For Saturday, the connector alone is enough; show the plugin as the way builders
 
 ## Mock data
 
-A made-up firm, "Oakline Build Ltd", and three jobs that match the audience (all invented; no resemblance to real firms):
+A made-up firm, "Marcus Limited", and three jobs that match the audience (all invented; no resemblance to real firms):
 
 1. **Hartley house refurbishment, 22 Elm Avenue** (private client, high-end, design and build): client and architect emails, a pasted WhatsApp chat export where the client approves two changes, supplier quotes, missing electrical certificate and final photos.
 2. **Unit 4 office refit, Kingsway Business Park** (commercial, occupied building, JCT contract, subcontractors): contract dates (valuation dates, payment terms), subcontractor documents (RAMS, insurance with expiry dates), an application for payment, facilities manager emails about working hours.

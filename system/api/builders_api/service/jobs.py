@@ -27,6 +27,7 @@ def email_source(row: dict) -> dict[str, Any]:
         "type": "email",
         "id": str(row["email_id"] if "email_id" in row else row["id"]),
         "from": who,
+        "address": row.get("from_address"),  # so drafts can be addressed (reply goes to the sender)
         "date": when,
         "subject": row.get("subject"),
         "label": f"Email from {who}, {when}: \"{row.get('subject') or ''}\"",

@@ -6,13 +6,13 @@ Text of documents matches db_seed.sql, so seed data and ingested data agree.
 
 from __future__ import annotations
 
-FIRM = {"name": "Oakline Build Ltd", "owner": "Dan Oakley", "address": "dan@oakline-build.example.com"}
+FIRM = {"name": "Marcus Limited", "owner": "Florin Marcus", "address": "florin@marcus-ltd.example.com"}
 
 # alias -> (display name, address). The alias is also the plus-address used by the live simulator (ADR 0005).
 PERSONAS = {
-    "dan": ("Dan Oakley", "dan@oakline-build.example.com"),
-    "mike": ("Mike Turner", "mike.turner@oakline-build.example.com"),
-    "jamie": ("Jamie Cole", "jamie.cole@oakline-build.example.com"),
+    "florin": ("Florin Marcus", "florin@marcus-ltd.example.com"),
+    "mike": ("Mike Turner", "mike.turner@marcus-ltd.example.com"),
+    "jamie": ("Jamie Cole", "jamie.cole@marcus-ltd.example.com"),
     "hartley": ("Victoria Hartley", "victoria.hartley@mail.example.com"),
     "architect": ("Lena Marsh, Marsh Studio", "lena@marsh-studio.example.com"),
     "joinery": ("Ashby Joinery", "quotes@ashby-joinery.example.com"),
@@ -27,11 +27,11 @@ PERSONAS = {
     "buildmart": ("BuildMart Supplies", "orders@buildmart.example.com"),
 }
 
-WHATSAPP_CHAT = """03/11/2026, 18:02 - Dan Oakley: Hi Victoria, the plumber says underfloor heating in the kitchen is possible now the floor is up. Extra £2,400 + VAT.
+WHATSAPP_CHAT = """03/11/2026, 18:02 - Florin Marcus: Hi Victoria, the plumber says underfloor heating in the kitchen is possible now the floor is up. Extra £2,400 + VAT.
 03/11/2026, 19:40 - Victoria Hartley: Yes, go ahead with the underfloor heating in the kitchen.
-06/11/2026, 08:15 - Dan Oakley: For the utility room we could fit a pocket door instead of the hinged door. £850 + VAT extra.
+06/11/2026, 08:15 - Florin Marcus: For the utility room we could fit a pocket door instead of the hinged door. £850 + VAT extra.
 06/11/2026, 12:31 - Victoria Hartley: Approved, thanks. Pocket door it is.
-08/11/2026, 17:05 - Dan Oakley: Also thinking about garden lighting along the path, roughly £1,900.
+08/11/2026, 17:05 - Florin Marcus: Also thinking about garden lighting along the path, roughly £1,900.
 08/11/2026, 20:12 - Victoria Hartley: Sounds nice, let's talk next week.
 """
 
@@ -48,7 +48,7 @@ ATTACHMENTS = {
                       ["MS-120", "Sections A-A and B-B", "B"]]},
     "a02": {"filename": "Quote Q-2051 - 22 Elm Avenue.pdf", "kind": "pdf",
             "title": "Quote Q-2051",
-            "paras": ["Oakline Build Ltd. Client: Victoria Hartley, 22 Elm Avenue, Hollowell.",
+            "paras": ["Marcus Limited. Client: Victoria Hartley, 22 Elm Avenue, Hollowell.",
                       "Scope: full refurbishment of ground floor to drawing schedule rev C: strip out, new kitchen and utility, "
                       "electrics, plumbing, plastering, joinery, decoration.",
                       "Contract sum: £148,500 + VAT. Valid 30 days. Changes priced and agreed in writing before work."],
@@ -56,14 +56,14 @@ ATTACHMENTS = {
                       ["Electrics and plumbing", "38,400"], ["Plaster, joinery, decoration", "39,100"],
                       ["Total (ex VAT)", "148,500"]]},
     "a04": {"filename": "Ashby Joinery - Kitchen Quote AJ-771.pdf", "kind": "pdf", "title": "Quote AJ-771",
-            "paras": ["Ashby Joinery. For: Oakline Build Ltd, 22 Elm Avenue.",
+            "paras": ["Ashby Joinery. For: Marcus Limited, 22 Elm Avenue.",
                       "Bespoke painted shaker kitchen, oak worktops, larder unit. Supply and fit: £24,600 + VAT. Lead time 5 weeks."]},
     "a05": {"filename": "Stoneworks - Flooring Quote SW-3302.pdf", "kind": "pdf", "title": "Quote SW-3302",
-            "paras": ["Stoneworks Hollowell. For: Oakline Build Ltd, 22 Elm Avenue.",
+            "paras": ["Stoneworks Hollowell. For: Marcus Limited, 22 Elm Avenue.",
                       "Limestone floor tiles, 42 m2, kitchen and utility, supply only: £5,880 + VAT. Delivery 10 working days."]},
     "a06": {"filename": "WhatsApp Chat with Victoria Hartley.txt", "kind": "txt", "text": WHATSAPP_CHAT},
     "a10": {"filename": "Unit 4 Kingsway - Contract Particulars.pdf", "kind": "pdf", "title": "Contract particulars",
-            "paras": ["JCT Intermediate Building Contract 2016. Employer: Brightmoor Analytics Ltd. Contractor: Oakline Build Ltd.",
+            "paras": ["JCT Intermediate Building Contract 2016. Employer: Brightmoor Analytics Ltd. Contractor: Marcus Limited.",
                       "Works: office refit, Unit 4, Kingsway Business Park. Date of possession 12 October 2026. "
                       "Completion date 18 December 2026.",
                       "Interim valuation dates: the 28th of each month. Due date: 7 days after each interim valuation date. "
@@ -80,12 +80,12 @@ ATTACHMENTS = {
     "a13": {"filename": "Volt Electrical - Insurance Certificate.pdf", "kind": "pdf", "title": "Certificate of insurance",
             "paras": ["Insured: Volt Electrical Ltd. Public liability limit £2,000,000.",
                       "Period of insurance: 1 November 2025 to 31 October 2026."]},
-    "a14": {"filename": "Oakline - Interim Application 2 - Unit 4.pdf", "kind": "pdf", "title": "Interim application for payment no. 2",
-            "paras": ["Contractor: Oakline Build Ltd. Employer: Brightmoor Analytics Ltd. Project: Unit 4, Kingsway Business Park.",
+    "a14": {"filename": "Marcus Limited - Interim Application 2 - Unit 4.pdf", "kind": "pdf", "title": "Interim application for payment no. 2",
+            "paras": ["Contractor: Marcus Limited. Employer: Brightmoor Analytics Ltd. Project: Unit 4, Kingsway Business Park.",
                       "Valuation date: 28 October 2026. Gross valuation £96,400.00. Less previous £41,200.00. "
                       "Amount applied for £55,200.00 + VAT."]},
     "a15": {"filename": "Fenwick Drylining - Application for Payment 2.pdf", "kind": "pdf", "title": "Application for payment no. 2",
-            "paras": ["Subcontractor: Fenwick Drylining Ltd. Main contractor: Oakline Build Ltd. Project: Unit 4, Kingsway Business Park.",
+            "paras": ["Subcontractor: Fenwick Drylining Ltd. Main contractor: Marcus Limited. Project: Unit 4, Kingsway Business Park.",
                       "Gross valuation to date £36,480.00. Less previous payments £18,240.00. Amount applied for £18,240.00 + VAT.",
                       "Payment due date under the subcontract: 25 November 2026."]},
     "a16": {"filename": "WO-2026-4471 Works Order.pdf", "kind": "pdf", "title": "Works order WO-2026-4471",
@@ -110,33 +110,33 @@ ATTACHMENTS = {
 # Emails. when: ISO datetime for history, or "today HH:MM" (sent on demo day by the today batch).
 EMAILS = [
     {"id": "e01", "from": "architect", "when": "2026-10-06T09:12:00+01:00", "subject": "22 Elm Avenue: brief and drawing schedule",
-     "body": "Hi Dan,\n\nAttached is the drawing schedule (rev C) for the Hartley house. Victoria wants work to start before the end of October.\n\nLena", "attach": ["a01"]},
-    {"id": "e02", "from": "dan", "to": "hartley", "when": "2026-10-10T16:40:00+01:00", "subject": "Quote Q-2051, 22 Elm Avenue",
-     "body": "Dear Victoria,\n\nPlease find our quote Q-2051 attached: £148,500 + VAT.\n\nBest regards,\nDan", "attach": ["a02"]},
+     "body": "Hi Florin,\n\nAttached is the drawing schedule (rev C) for the Hartley house. Victoria wants work to start before the end of October.\n\nLena", "attach": ["a01"]},
+    {"id": "e02", "from": "florin", "to": "hartley", "when": "2026-10-10T16:40:00+01:00", "subject": "Quote Q-2051, 22 Elm Avenue",
+     "body": "Dear Victoria,\n\nPlease find our quote Q-2051 attached: £148,500 + VAT.\n\nBest regards,\nFlorin", "attach": ["a02"]},
     {"id": "e03", "from": "hartley", "when": "2026-10-13T19:05:00+01:00", "subject": "Re: Quote Q-2051, 22 Elm Avenue",
-     "body": "Hi Dan, we are happy with quote Q-2051 for £148,500 + VAT and would like to go ahead. Please treat this email as our acceptance. Victoria"},
+     "body": "Hi Florin, we are happy with quote Q-2051 for £148,500 + VAT and would like to go ahead. Please treat this email as our acceptance. Victoria"},
     {"id": "e04", "from": "joinery", "when": "2026-10-27T11:20:00+00:00", "subject": "Kitchen quote AJ-771, 22 Elm Avenue",
-     "body": "Dan, our quote for the kitchen is attached.\n\nAshby Joinery", "attach": ["a04"]},
+     "body": "Florin, our quote for the kitchen is attached.\n\nAshby Joinery", "attach": ["a04"]},
     {"id": "e05", "from": "stone", "when": "2026-10-29T14:02:00+00:00", "subject": "Flooring quote SW-3302",
-     "body": "Hello Dan, please see attached for the limestone floor tiles.\n\nStoneworks Hollowell", "attach": ["a05"]},
+     "body": "Hello Florin, please see attached for the limestone floor tiles.\n\nStoneworks Hollowell", "attach": ["a05"]},
     {"id": "e06", "from": "hartley", "when": "2026-11-10T21:14:00+00:00", "subject": "Our WhatsApp chat about the changes",
-     "body": "Hi Dan, as you asked, here is our WhatsApp chat so you have the changes in writing. Victoria", "attach": ["a06"]},
+     "body": "Hi Florin, as you asked, here is our WhatsApp chat so you have the changes in writing. Victoria", "attach": ["a06"]},
     {"id": "e07", "from": "architect", "when": "2026-11-12T10:30:00+00:00", "subject": "Kitchen-dining wall at 22 Elm Avenue",
-     "body": "Dan,\n\nVictoria now wants the wall between the kitchen and dining room taken out. We don't know yet if it is load-bearing. Can you book the structural engineer to look at it?\n\nLena"},
+     "body": "Florin,\n\nVictoria now wants the wall between the kitchen and dining room taken out. We don't know yet if it is load-bearing. Can you book the structural engineer to look at it?\n\nLena"},
     {"id": "e08", "from": "electrician", "when": "2026-11-17T16:20:00+00:00", "subject": "22 Elm Avenue: electrical works complete",
-     "body": "Dan, first and second fix complete at 22 Elm Avenue. Testing done. Electrical installation certificate to follow next week once the paperwork is back from the office."},
+     "body": "Florin, first and second fix complete at 22 Elm Avenue. Testing done. Electrical installation certificate to follow next week once the paperwork is back from the office."},
     {"id": "e09", "from": "hartley", "when": "today 08:05", "subject": "Final account?",
-     "body": "Morning Dan,\n\nNearly there! Can you send me the final account with the changes we agreed, so we can arrange payment?\n\nThanks, Victoria"},
+     "body": "Morning Florin,\n\nNearly there! Can you send me the final account with the changes we agreed, so we can arrange payment?\n\nThanks, Victoria"},
     {"id": "e10", "from": "qs", "when": "2026-10-01T10:30:00+01:00", "subject": "Unit 4 Kingsway: signed contract particulars",
      "body": "Please find attached the signed contract particulars for the Unit 4 office refit. Interim valuations monthly on the 28th.", "attach": ["a10"]},
     {"id": "e11", "from": "fm", "when": "2026-10-05T08:50:00+01:00", "subject": "Unit 4: working hours and permits",
-     "body": "Dan,\n\nThe building stays occupied. Noisy work only before 08:00 or after 18:00. Hot works need a permit from me 24 hours ahead. Fire alarm isolations through the front desk.\n\nPaul Reid\nFacilities, Kingsway Business Park"},
+     "body": "Florin,\n\nThe building stays occupied. Noisy work only before 08:00 or after 18:00. Hot works need a permit from me 24 hours ahead. Fire alarm isolations through the front desk.\n\nPaul Reid\nFacilities, Kingsway Business Park"},
     {"id": "e12", "from": "fenwick", "when": "2026-10-08T08:45:00+01:00", "subject": "Unit 4 Kingsway: RAMS and insurance",
      "body": "Attached our RAMS for partitions and ceilings at Unit 4, and our public liability insurance certificate.", "attach": ["a12a", "a12b"]},
     {"id": "e13", "from": "volt", "when": "2026-10-09T12:10:00+01:00", "subject": "Insurance certificate",
      "body": "As requested, our insurance certificate for the Kingsway job.", "attach": ["a13"]},
-    {"id": "e14", "from": "dan", "to": "qs", "when": "2026-10-28T17:00:00+00:00", "subject": "Unit 4: interim application 2",
-     "body": "Please find attached our interim application no. 2 for Unit 4.\n\nDan Oakley\nOakline Build Ltd", "attach": ["a14"]},
+    {"id": "e14", "from": "florin", "to": "qs", "when": "2026-10-28T17:00:00+00:00", "subject": "Unit 4: interim application 2",
+     "body": "Please find attached our interim application no. 2 for Unit 4.\n\nFlorin Marcus\nMarcus Limited", "attach": ["a14"]},
     {"id": "e15", "from": "fenwick", "when": "today 08:10", "subject": "Unit 4 Kingsway: application for payment 2",
      "body": "Please find attached our application for payment no. 2 for Unit 4, Kingsway Business Park: £18,240.00 + VAT.", "attach": ["a15"]},
     {"id": "e16", "from": "council", "when": "2026-10-28T09:00:00+00:00", "subject": "Works order WO-2026-4471, Flat 12 Riverside House",

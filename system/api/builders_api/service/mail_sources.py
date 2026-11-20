@@ -2,7 +2,7 @@
 
 MAIL_SOURCE settings (comma-separated for several, e.g. "eml:/data/mail,gmail"):
   eml:<folder>   .eml files in a folder (demo feed; tests)
-  gmail          the builder's Gmail, label `oakline-demo` only (token file in GMAIL_TOKEN_FILE).
+  gmail          the builder's Gmail, label `marcus-limited` only (token file in GMAIL_TOKEN_FILE).
                  With several sources, a missing or empty Gmail login is skipped, not an error.
 """
 
@@ -19,7 +19,7 @@ from pathlib import Path
 from builders_api.errors import NotConfiguredError, UpstreamError
 from builders_api.retry import with_retries
 
-GMAIL_LABEL = "oakline-demo"
+GMAIL_LABEL = "marcus-limited"
 log = logging.getLogger(__name__)
 
 

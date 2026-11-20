@@ -1,6 +1,6 @@
 """Admin commands for Florin, run on the server (ADR 0007).
 
-  python -m builders_api.admin keys create --firm oakline --label "Dan, Claude app" --expires 2026-12-31
+  python -m builders_api.admin keys create --firm oakline --label "Florin, Claude app" --expires 2026-12-31
   python -m builders_api.admin keys list [--firm oakline]
   python -m builders_api.admin keys extend --prefix 1a2b3c4d --expires 2027-01-31
   python -m builders_api.admin keys revoke --prefix 1a2b3c4d

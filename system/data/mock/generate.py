@@ -4,7 +4,7 @@ Usage (from the repo root):
   python system/data/mock/generate.py [--out system/data/mock/out] [--today 2026-11-21]
 
 Output: out/history/eNN.eml (past emails) and out/today/eNN.eml (sent on demo day).
-Every email carries `X-Oakline-Demo-Id: eNN` so loading is idempotent, and a stable Message-ID.
+Every email carries `X-Marcus-Mail-Id: eNN` so loading is idempotent, and a stable Message-ID.
 Re-running gives the same files (except today's dates).
 """
 
@@ -67,8 +67,8 @@ def build_email(e: dict, today: dt.date) -> EmailMessage:
     msg["To"] = formataddr((to_name, to_addr))
     msg["Subject"] = e["subject"]
     msg["Date"] = format_datetime(_when(e["when"], today))
-    msg["Message-ID"] = f"<{e['id']}.oakline-demo@builders-lab.example.com>"
-    msg["X-Oakline-Demo-Id"] = e["id"]
+    msg["Message-ID"] = f"<{e['id']}.mail@marcus-ltd.example.com>"
+    msg["X-Marcus-Mail-Id"] = e["id"]
     msg.set_content(e["body"] + "\n")
     for key in e.get("attach", []):
         spec = ATTACHMENTS[key]
@@ -77,7 +77,7 @@ def build_email(e: dict, today: dt.date) -> EmailMessage:
         else:
             msg.add_attachment(spec["text"], subtype="plain", filename=spec["filename"])
     if msg.is_multipart():
-        msg.set_boundary(f"==oakline-demo-{e['id']}==")  # fixed boundary: same bytes every run
+        msg.set_boundary(f"==marcus-limited-{e['id']}==")  # fixed boundary: same bytes every run
     return msg
 
 

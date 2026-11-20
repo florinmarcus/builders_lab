@@ -7,11 +7,11 @@ Phone numbers use Ofcom's drama range `07700 900xxx`. "Today" means the day the 
 
 ## Firm
 
-**Oakline Build Ltd**, a small general builder in the made-up town of Hollowell.
+**Marcus Limited**, a small general builder in the made-up town of Hollowell.
 
 | Person | Role |
 |---|---|
-| Dan Oakley | Owner (the builder in the demo, inbox owner) |
+| Florin Marcus | Owner (the builder in the demo, inbox owner) |
 | Mike Turner | Site lead |
 | Jamie Cole | Apprentice |
 
@@ -96,8 +96,8 @@ Scenario data: `scenario.py`. Document text matches `db_seed.sql`. Output is not
 ## How it runs (ADR 0005)
 
 - **Inbox:** the builder's own Gmail. Address set in `.env` (`BUILDER_INBOX`), never in the repo.
-- **Label:** every mock or simulated email and every demo draft carries the Gmail label `oakline-demo`. Nothing outside it is touched.
-- **Reset:** delete everything labelled `oakline-demo`, empty the database, and re-import all emails except the "today" ones. Same start every time.
+- **Label:** every mock or simulated email and every demo draft carries the Gmail label `marcus-limited`. Nothing outside it is touched.
+- **Reset:** delete everything labelled `marcus-limited`, empty the database, and re-import all emails except the "today" ones. Same start every time.
 - **Today batch:** import the "today" emails (9, 15, 19), all at once or one by one.
 - **Live simulator:** send from an allowed address (`.env`, `SIMULATOR_SENDERS`) to `<inbox>+<persona>@gmail.com`. The simulator re-imports the email with the persona as sender, labels it and deletes the original. Emails from other senders are ignored.
 
@@ -158,5 +158,5 @@ python system/data/mock/gmail_demo.py today        # the three morning emails ar
 python system/data/mock/gmail_demo.py simulate     # leave running; send from your second address to <gmail>+council@...
 ```
 
-What the tool touches: only emails labelled `oakline-demo`, drafts addressed only to `*.example.com`, and emails from
+What the tool touches: only emails labelled `marcus-limited`, drafts addressed only to `*.example.com`, and emails from
 `SIMULATOR_SENDERS` to your `+persona` addresses. Everything else in your inbox is left alone.

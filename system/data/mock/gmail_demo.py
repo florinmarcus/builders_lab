@@ -1,6 +1,6 @@
 """Demo inbox tool (ADR 0005): load, reset and the live email simulator, on the builder's own Gmail.
 
-Only touches messages with the label `oakline-demo`, demo drafts (to *.example.com), and emails from
+Only touches messages with the label `marcus-limited`, demo drafts (to *.example.com), and emails from
 the allowed simulator senders. Nothing else in the inbox is read or changed.
 
 Set up once (see README.md, "Gmail set-up"):
@@ -39,7 +39,7 @@ sys.path.insert(0, str(HERE))
 from generate import build_email  # noqa: E402
 from scenario import EMAILS, FIRM, PERSONAS  # noqa: E402
 
-LABEL = "oakline-demo"
+LABEL = "marcus-limited"
 SCOPES = ["https://www.googleapis.com/auth/gmail.modify"]
 TOKEN_FILE = Path(os.environ.get("GMAIL_TOKEN_FILE", Path.home() / ".config" / "builders-lab" / "gmail-token.json"))
 DEMO_DOMAIN = "example.com"
@@ -119,10 +119,10 @@ def _inbox() -> str:
 
 
 def scenario_raw(e: dict, today: dt.date, inbox: str) -> bytes:
-    """The scenario email with the real inbox as Dan's address, so Gmail shows it as received or sent."""
+    """The scenario email with the real inbox as Florin's address, so Gmail shows it as received or sent."""
     msg = build_email(e, today)
     dan = formataddr((FIRM["owner"], inbox))
-    if e["from"] == "dan":
+    if e["from"] == "florin":
         msg.replace_header("From", dan)
     else:
         msg.replace_header("To", dan)
@@ -132,10 +132,10 @@ def scenario_raw(e: dict, today: dt.date, inbox: str) -> bytes:
 def load_emails(svc, which: list[dict], today: dt.date) -> int:
     inbox, lab, added = _inbox(), label_id(svc), 0
     for e in which:
-        msgid = f"{e['id']}.oakline-demo@builders-lab.example.com"
+        msgid = f"{e['id']}.mail@marcus-ltd.example.com"
         if _search(svc, f"rfc822msgid:{msgid}"):
             continue
-        labels = [lab, "SENT"] if e["from"] == "dan" else [lab, "INBOX", "UNREAD"]
+        labels = [lab, "SENT"] if e["from"] == "florin" else [lab, "INBOX", "UNREAD"]
         import_raw(svc, scenario_raw(e, today, inbox), labels)
         added += 1
         print(f"  {e['id']}  {e['subject']}")
@@ -202,8 +202,8 @@ def rewrite_as_persona(raw: bytes, persona: str, inbox: str, now: dt.datetime) -
     msg["Date"] = format_datetime(now)
     original_id = (src.get("Message-ID") or "").strip("<> ") or f"{now.timestamp()}"
     digest = hashlib.sha1(original_id.encode()).hexdigest()[:16]
-    msg["Message-ID"] = f"<sim-{digest}.oakline-demo@builders-lab.example.com>"
-    msg["X-Oakline-Demo-Id"] = f"sim-{persona}"
+    msg["Message-ID"] = f"<sim-{digest}.mail@marcus-ltd.example.com>"
+    msg["X-Marcus-Mail-Id"] = f"sim-{persona}"
     body = src.get_body(preferencelist=("plain", "html"))
     msg.set_content(body.get_content() if body else "")
     for part in src.iter_attachments():
@@ -245,7 +245,7 @@ def simulate(svc, every: int = 10) -> None:
     local, _, domain = inbox.partition("@")
     print("Simulator running. Send to one of:")
     for alias, (name, _) in PERSONAS.items():
-        if alias != "dan":
+        if alias != "florin":
             print(f"  {local}+{alias}@{domain:<20}  -> {name}")
     while True:
         try:

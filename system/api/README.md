@@ -49,7 +49,7 @@ python -m builders_api.mcp_server  # MCP server on http://HOST:PORT/mcp (streama
 - Admin commands (on the server):
 
 ```
-python -m builders_api.admin keys create --firm oakline --label "Dan, Claude app" --expires 2026-12-31
+python -m builders_api.admin keys create --firm oakline --label "Florin, Claude app" --expires 2026-12-31
 python -m builders_api.admin keys list
 python -m builders_api.admin keys extend --prefix <prefix> --expires 2027-01-31   # renewal, same key
 python -m builders_api.admin keys revoke --prefix <prefix>
