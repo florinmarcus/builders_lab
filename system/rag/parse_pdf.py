@@ -36,7 +36,7 @@ from pathlib import Path
 from system.rag.corpus import CORPUS_DIR, slugify
 from system.rag.fixes import content_key, index, load_fixes
 
-PARSER = "guidance-pdf/0.2"
+PARSER = "guidance-pdf/0.3"
 SKIP_TITLES = {"contents"}
 BACK_MATTER = {"references": "references", "further information": "further-information"}
 CAPTION_RE = re.compile(r"^(Figure|Table)\s+(\d+)\b")
@@ -668,6 +668,82 @@ def build_tree(doc: dict, meta: dict, fixes: list[dict] | None = None) -> dict:
 
 # ---------------------------------------------------------------- images (pypdfium2, permissive licence)
 
+def _runs(flags: list[bool], min_gap: int) -> list[tuple[int, int]]:
+    """Runs of True in flags, joining runs split by fewer than min_gap False values. Returns (start, end) pairs."""
+    runs: list[list[int]] = []
+    for i, f in enumerate(flags):
+        if not f:
+            continue
+        if runs and i - runs[-1][1] <= min_gap:
+            runs[-1][1] = i
+        else:
+            runs.append([i, i])
+    return [(a, b) for a, b in runs]
+
+
+def photo_box(page_img, area: dict, caption: dict, scale: float, right_limit: float,
+              ink: int = 235, gap_pt: float = 4.0) -> dict:
+    """The photo's real box, from the rendered page. pdfplumber's image box can be wider or taller than the
+    photo that is drawn (white padding, soft edges), so a neighbour photo can fall inside it, and words printed
+    on the photo can fall outside it (HSG227 figures 3, 5, 6, 9). Find the block of non-white pixels that sits
+    directly above the caption and starts in the caption's column. right_limit is where the next caption on the
+    same line starts (or the page margin). Falls back to the image box if nothing is found."""
+    if caption["page"] != area["page"]:
+        return area
+    left = max(0.0, min(area["x0"], caption["x0"]) - 6)
+    right = max(area["x1"] + 6, right_limit - 4)
+    top = max(0.0, area["top"] - 6)
+    bottom = caption["top"] - 1
+    if bottom - top < 20:
+        return area
+    win = page_img.crop((int(left * scale), int(top * scale), int(right * scale), int(bottom * scale)))
+    mask = win.convert("L").point(lambda v: 255 if v < ink else 0)
+    w, h = mask.size
+    gap, tall = max(1, int(gap_pt * scale)), int(20 * scale)
+
+    def runs_x(y0, y1):
+        return [r for r in _runs([mask.crop((x, y0, x + 1, y1)).getbbox() is not None for x in range(w)], gap)
+                if r[1] - r[0] > tall]
+
+    def runs_y(x0, x1):
+        return [r for r in _runs([mask.crop((x0, y, x1, y + 1)).getbbox() is not None for y in range(h)], gap)
+                if r[1] - r[0] > tall]
+
+    # 1. Rows, from a narrow strip at the caption's left edge: the lowest tall block above the caption.
+    cap_x = int((max(caption["x0"], left) - left) * scale)
+    rows = runs_y(cap_x, min(w, cap_x + int(30 * scale)))
+    if not rows:
+        return area
+    y0, y1 = rows[-1]
+    # 2. Columns, only within those rows (so text above the photo cannot join two photos together).
+    cols = runs_x(y0, y1 + 1)
+    if not cols:
+        return area
+    # Everything from the caption's column up to the next caption: the photo plus words printed beside it
+    # ("BAD PRACTICE" in HSG227 figure 5). A neighbour photo to the left ends before the caption starts.
+    cols = [c for c in cols if c[1] >= cap_x - gap]
+    if not cols:
+        return area
+    x0, x1 = min(c[0] for c in cols), max(c[1] for c in cols)
+    # 3. Rows again, within that column, then trim.
+    rows = runs_y(x0, x1 + 1)
+    if rows:
+        y0, y1 = rows[-1]
+    box = mask.crop((x0, y0, x1 + 1, y1 + 1)).getbbox() or (0, 0, x1 - x0 + 1, y1 - y0 + 1)
+    return {"page": area["page"], "x0": round(left + (x0 + box[0]) / scale, 1),
+            "x1": round(left + (x0 + box[2]) / scale, 1),
+            "top": round(top + (y0 + box[1]) / scale, 1), "bottom": round(top + (y0 + box[3]) / scale, 1)}
+
+
+def _next_caption_x(tree: dict, fig: dict) -> float:
+    """Where the next figure caption on the same line starts, or the right page margin."""
+    cap = fig["caption_box"]
+    xs = [s["caption_box"]["x0"] for s in tree["sections"] if s["type"] == "figure" and s is not fig
+          and s["caption_box"]["page"] == cap["page"] and abs(s["caption_box"]["top"] - cap["top"]) < 6
+          and s["caption_box"]["x0"] > cap["x0"]]
+    return min(xs, default=tree.get("page_width", 595.0) - 36.0)
+
+
 def render_images(pdf_path, tree: dict, out_dir: Path, scale: float = 2.0) -> None:
     """Cut each figure out of its page, and render whole pages that hold tables (for the model check).
     Images go under corpus/parsed/ (not in git); their paths are written into the tree."""
@@ -687,6 +763,9 @@ def render_images(pdf_path, tree: dict, out_dir: Path, scale: float = 2.0) -> No
     for s in tree["sections"]:
         if s["type"] == "figure" and s.get("area"):
             a = s["area"]
+            if s.get("image_bbox"):
+                a = s["area"] = photo_box(page_image(a["page"]), a, s["caption_box"], scale,
+                                          _next_caption_x(tree, s))
             img = page_image(a["page"]).crop((int(a["x0"] * scale), int(a["top"] * scale),
                                               int(a["x1"] * scale), int(a["bottom"] * scale)))
             path = out_dir / "figures" / f"{s['id']}.png"

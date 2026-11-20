@@ -7,7 +7,7 @@ from pathlib import Path
 import pytest
 
 from system.rag.fixes import load_fixes
-from system.rag.parse_pdf import build_tree, read_pdf
+from system.rag.parse_pdf import build_tree, photo_box, read_pdf
 
 ROOT = Path(__file__).parent.parent
 META = {"source_id": "demo-guide", "version_id": "main@2024-01-01-abc", "valid_from": "2024-01-01",
@@ -300,6 +300,31 @@ def test_saved_figure_description():
     assert f2["description"] == "A lagged pipe." and f2["description_source"] == "model"
 
 
+def test_photo_box_finds_the_photo_inside_a_padded_image_box():
+    """The image box is wider than the photo and holds part of a neighbour photo; words printed beside the
+    photo belong to it (HSG227 figures 3 and 5)."""
+    from PIL import Image, ImageDraw
+    PIL_scale = 2.0
+    page = Image.new("RGB", (600, 400), "white")
+    d = ImageDraw.Draw(page)
+    d.rectangle([20, 20, 80, 120], fill="grey")      # neighbour photo, points 10-40
+    d.rectangle([100, 30, 200, 130], fill="black")   # the photo, points 50-100 x 15-65
+    d.rectangle([205, 100, 240, 115], fill="red")    # "BAD PRACTICE" beside it
+    d.rectangle([20, 0, 400, 8], fill="black")       # body text above, across both columns
+    area = {"page": 1, "top": 2.0, "bottom": 90.0, "x0": 30.0, "x1": 105.0}  # padded, overlaps the neighbour
+    caption = {"page": 1, "top": 70.0, "x0": 50.0}
+    box = photo_box(page, area, caption, PIL_scale, right_limit=150.0)
+    assert box["x0"] == pytest.approx(50, abs=1) and box["x1"] == pytest.approx(120.5, abs=1)
+    assert box["top"] == pytest.approx(15, abs=1) and box["bottom"] == pytest.approx(65.5, abs=1)
+
+
+def test_photo_box_keeps_the_image_box_when_nothing_is_drawn_above_the_caption():
+    from PIL import Image
+    area = {"page": 1, "top": 10.0, "bottom": 60.0, "x0": 50.0, "x1": 100.0}
+    assert photo_box(Image.new("RGB", (300, 200), "white"), area, {"page": 1, "top": 70.0, "x0": 50.0},
+                     2.0, right_limit=140.0) == area
+
+
 # ---------------------------------------------------------------- real file
 
 def _record(source_id):
@@ -393,3 +418,33 @@ def test_real_hsg227_all_checks_settled_by_saved_fixes(hsg227):
     t3 = next(s for s in hsg227["sections"] if s["id"] == "table-3")
     # 4 + 1 (occupant activity) + 12 (likelihood) + 12 (human exposure) + 8 (maintenance) score options
     assert t3["grid_source"] == "model" and len(t3["row_sentences"]) == 37
+
+
+def test_real_hsg227_worked_examples_share_one_layout(hsg227):
+    S = {s["id"]: s for s in hsg227["sections"]}
+    cols = S["table-4"]["columns"]
+    assert cols == ["Assessment factor", "Sub-factor", "Variable(s) selected", "Score for each variable", "Overall score"]
+    for n in range(4, 15):
+        t = S[f"table-{n}"]
+        assert t["columns"] == cols, n
+        overall = [r[4] for r in t["grid"] if r[0] == "Likelihood of disturbance"]
+        assert overall[:2] == ["", ""] and overall[2].startswith("average") and len(overall) == 3, (n, overall)  # once, as printed
+        assert all("was assessed as" in x or " is " in x for x in t["row_sentences"]), n
+
+
+def test_real_hsg227_photo_crops_do_not_overlap(hsg227):
+    pdfium = pytest.importorskip("pypdfium2")
+    from system.rag.parse_pdf import _next_caption_x
+    pdf = pdfium.PdfDocument(str(ROOT / _record("hse-hsg227")["raw_path"]))
+    tree = hsg227
+    A = {}
+    for s in tree["sections"]:
+        if s["type"] == "figure" and s.get("image_bbox"):
+            page = pdf[s["area"]["page"] - 1].render(scale=2.0).to_pil()
+            A[s["id"]] = photo_box(page, s["area"], s["caption_box"], 2.0, _next_caption_x(tree, s))
+    assert A["figure-3"]["x0"] > A["figure-2"]["x1"]
+    assert A["figure-9"]["x0"] > A["figure-8"]["x1"] and A["figure-10"]["x0"] > A["figure-9"]["x1"]
+    assert A["figure-5"]["x1"] > 340  # "BAD PRACTICE" printed beside the photo is kept
+    for n in (3, 5, 6, 9):  # nothing below the caption's top
+        cap = next(s for s in tree["sections"] if s["id"] == f"figure-{n}")["caption_box"]
+        assert A[f"figure-{n}"]["bottom"] < cap["top"], n

@@ -95,7 +95,7 @@ erDiagram
 | Regulation 2 | definition | Definition items, not one large chunk. |
 | AD B, HSG264, HSG227 | numbered paragraph (2.5, 47) | With its lettered lists and heading path. HSG264 boxes are their own chunks. |
 | Tables | table, plus one sentence per row | Model checks every table against the page image. |
-| Diagrams, photos | figure | Original image cut from the PDF; caption, labels and model description are searchable. No Mermaid redraw. |
+| Diagrams, photos | figure | Original image cut from the PDF (a photo is cut to its own pixels above its caption, since the PDF's image box can be padded); caption, labels and model description are searchable. No Mermaid redraw. |
 | AD B change notes | change note | Linked to the sections they mention. |
 
 ## Search
