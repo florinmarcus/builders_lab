@@ -221,7 +221,7 @@ Resources:
   ServerDownAlarm:
     Type: AWS::CloudWatch::Alarm
     Properties:
-      AlarmDescription: Server failed its health checks; AWS tries to recover it.
+      AlarmDescription: Server failed its system health check. Recover by hand (see deploy/README.md).
       Namespace: AWS/EC2
       MetricName: StatusCheckFailed_System
       Dimensions: [{ Name: InstanceId, Value: !Ref Server }]
@@ -231,8 +231,7 @@ Resources:
       Threshold: 1
       ComparisonOperator: GreaterThanOrEqualToThreshold
       AlarmActions:
-        - !Sub "arn:${AWS::Partition}:automate:${AWS::Region}:ec2:recover"
-        - !Ref AlertTopic
+        - !Ref AlertTopic   # auto-recover action needs a service-linked role the deploy user may not create
   Budget:
     Type: AWS::Budgets::Budget
     Properties:
@@ -288,12 +287,18 @@ Outputs:
   PublicIp:
     Value: !Ref Ip
   Domain:
-    Value: !GetAtt DomainParam.Value
+    Value: !If
+      - NoDomain
+      - !Join ["", [!Join ["-", !Split [".", !Ref Ip]], ".sslip.io"]]
+      - !Ref DomainName
   McpUrl:
     Description: Add the path secret from Parameter Store (secrets/mcp_path_secret).
     Value: !Sub
       - "https://${D}/mcp/<mcp_path_secret>"
-      - { D: !GetAtt DomainParam.Value }
+      - D: !If
+          - NoDomain
+          - !Join ["", [!Join ["-", !Split [".", !Ref Ip]], ".sslip.io"]]
+          - !Ref DomainName
   DeployRoleArn:
     Description: Set as the GitHub repository variable AWS_DEPLOY_ROLE_ARN.
     Value: !GetAtt DeployRole.Arn
