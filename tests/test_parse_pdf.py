@@ -258,6 +258,39 @@ def test_text_beside_a_caption_on_the_same_line_is_cut_off():
     assert sec(build_tree(d, META), "figure-9")["title"] == "Locations"
 
 
+def test_bold_caption_above_its_table_takes_the_rows_below():
+    d = doc()
+    d["lines"] += [
+        ln(5, 300, "Table 3 Priority assessment algorithm", 10.0, "HelveticaNeue-Bold", 54),
+        ln(5, 320, "Assessment factor Score Examples", 9.0, "HelveticaNeue-Bold", 54),
+        ln(5, 335, "Normal occupant activity 0 Rare disturbance", 9.0, "HelveticaNeue-Light", 54),
+        ln(5, 400, "3 They follow the plan."),
+    ]
+    tree = build_tree(d, META)
+    t = sec(tree, "table-3")
+    assert t["title"] == "Priority assessment algorithm"
+    assert "Normal occupant activity 0 Rare disturbance" in t["text"]
+    assert sec(tree, "appendix-1-para-3")["text"] == "They follow the plan."
+
+
+def test_bold_italic_callout_is_a_note_not_a_heading():
+    d = doc()
+    d["lines"] += [ln(5, 230, "Take care, these dates are only", 12.0, "HelveticaNeue-BoldItalic", 192),
+                   ln(5, 245, "a guideline.", 12.0, "HelveticaNeue-BoldItalic", 192)]
+    tree = build_tree(d, META)
+    assert not [s for s in tree["sections"] if s["type"] == "heading" and "Take care" in s["title"]]
+    notes = [s for s in tree["sections"] if s["type"] == "note"]
+    assert any(n["text"] == "Take care, these dates are only a guideline." for n in notes)
+
+
+def test_leading_dash_in_a_title_is_dropped():
+    d = doc()
+    for l in d["lines"]:
+        if l["text"] == "Appendix 1: Refurbishment and":
+            l["text"] = "Appendix 1 - Refurbishment and"
+    assert sec(build_tree(d, META), "appendix-1")["title"] == "Refurbishment and demolition surveys"
+
+
 def test_saved_figure_description():
     tree = build_tree(doc_with_grids(), META)
     key = next(c["key"] for c in tree["checks"] if c["section_id"] == "figure-2")
@@ -330,3 +363,26 @@ def test_real_text_is_clean(hsg264):
     assert p14["text"].startswith("To help comply with the legal requirements")
     assert p14["heading_path"][-2:] == ["Appointed person", "Paragraph 14"]
     assert p14["printed_page"] == "10"
+
+
+@pytest.fixture(scope="module")
+def hsg227():
+    pytest.importorskip("pdfplumber")
+    r = _record("hse-hsg227")
+    return build_tree(read_pdf(ROOT / r["raw_path"]), {**r, "title": "HSG227 A comprehensive guide to managing asbestos"},
+                      fixes=load_fixes("hse-hsg227"))
+
+
+def test_real_hsg227_structure(hsg227):
+    secs = hsg227["sections"]
+    paras = [s for s in secs if s["type"] == "paragraph"]
+    assert [int(s["number"]) for s in paras if s["id"].startswith("para-")] == list(range(1, 91))
+    for app, last in (("appendix-1", 24), ("appendix-2", 11), ("appendix-3", 9), ("appendix-5", 15), ("appendix-6", 21)):
+        assert [int(s["number"]) for s in paras if s["id"].startswith(app + "-para-")] == list(range(1, last + 1)), app
+    assert sorted(int(s["number"]) for s in secs if s["type"] == "table") == list(range(1, 16))
+    assert sorted(int(s["number"]) for s in secs if s["type"] == "figure") == list(range(1, 15))
+    assert not [s for s in secs if s["type"] in ("chapter", "appendix") and "sotsebsA" in s["title"]]  # mirrored text
+    assert next(s for s in secs if s["id"] == "appendix-3")["title"] == "Priority assessment and algorithm"
+    t3 = next(s for s in secs if s["id"] == "table-3")
+    assert t3["title"].startswith("Priority assessment algorithm") and t3.get("grid")
+    assert not [s for s in secs if s["type"] == "heading" and s["title"].startswith("Take care")]  # callout

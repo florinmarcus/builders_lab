@@ -94,6 +94,9 @@ def read_pdf(path) -> dict:
         for n, page in enumerate(pdf.pages, start=1):
             for l in page.extract_text_lines(return_chars=True):
                 first = l["chars"][0]
+                m = first.get("matrix") or (1, 0, 0, 1)
+                if not first.get("upright", True) or m[0] < 0 or m[3] < 0:  # sideways or upside-down text
+                    continue
                 lines.append({
                     "page": n, "top": round(l["top"], 1), "x0": round(l["x0"], 1),
                     "size": round(first["size"], 1), "font": first["fontname"].split("+")[-1],
@@ -121,6 +124,11 @@ def read_pdf(path) -> dict:
 
 
 # ---------------------------------------------------------------- building the tree
+
+def _caption_under(cap_top: float, im: dict) -> bool:
+    """A caption belongs under a photo if it starts below the photo's top and at most 40 points below its
+    bottom: some images have white space at the bottom, with the caption printed over it (HSG227)."""
+    return im["top"] < cap_top <= im["bottom"] + 40
 
 def _is_bold(font: str) -> bool:
     return any(k in font for k in ("Bold", "Heavy", "Black"))
@@ -226,13 +234,19 @@ class Builder:
         return None
 
     def is_caption(self, l) -> bool:
-        return bool(CAPTION_RE.match(l["text"])) and (l["size"] < self.body_size or (_is_bold(l["font"]) and l["size"] <= self.body_size - 1))
+        # Smaller than body text (HSG264), or bold at body size (HSG227, where captions sit above).
+        return bool(CAPTION_RE.match(l["text"])) and (l["size"] < self.body_size or
+                                                       (_is_bold(l["font"]) and l["size"] <= self.body_size))
+
+    def is_callout(self, l) -> bool:
+        """A key message in large bold italic (e.g. 'Take care, these dates are only a guideline'): a note."""
+        return _is_bold(l["font"]) and "Italic" in l["font"] and self.body_size + 0.5 <= l["size"] < 2 * self.body_size
 
     def is_small(self, l) -> bool:
         return l["size"] <= self.body_size - 1.5
 
     def is_heading(self, l) -> bool:
-        return (_is_bold(l["font"]) and self.body_size + 0.5 <= l["size"] < 2 * self.body_size
+        return (_is_bold(l["font"]) and "Italic" not in l["font"] and self.body_size + 0.5 <= l["size"] < 2 * self.body_size
                 and self.body_left - 6 <= l["x0"] <= self.body_left + 25)
 
     def is_body_line(self, l) -> bool:
@@ -245,6 +259,7 @@ class Builder:
         the figure's labels or the table's rows (captions here sit below their figure or table)."""
         areas: dict[int, list[int]] = {}
         self.area_tops: dict[int, float] = {}
+        self.area_below: set[int] = set()  # captions whose table or figure is below them
         # Second lines of captions: just below a caption line, same size (the font may differ: Light),
         # starting under one of the captions on that line (not text beside them, like a note box).
         cont: set[int] = set()
@@ -275,6 +290,21 @@ class Builder:
                     break
                 got.append(j)
                 j -= 1
+            photo_above = any(im["page"] == l["page"] and _caption_under(l["top"], im) for im in self.images)
+            if not got and not photo_above:  # nothing above: the caption may sit above its table or figure (HSG227)
+                j = k + 1
+                while j < len(self.lines) and self.lines[j]["page"] == l["page"]:
+                    x = self.lines[j]
+                    if j in cont:
+                        j += 1
+                        continue
+                    if self.is_body_line(x) or self.is_caption(x) or self.is_chapter(x) or self.is_heading(x) \
+                            or (self.rect_of(x) and not self.is_small(x)):
+                        break
+                    got.append(j)
+                    j += 1
+                if got:
+                    self.area_below.add(k)
             areas[k] = sorted(got)
             self.area_tops[k] = stop_bottom
         return areas
@@ -286,6 +316,7 @@ class Builder:
 
     def build(self) -> dict:
         mode = "skip"            # skip (cover, contents), content, back
+        self.lines_seen_contents = False
         chapter = heading = None  # current chapter and heading sections
         para = None              # current numbered paragraph or text section
         last_body = None         # last section that can take a footnote
@@ -317,6 +348,7 @@ class Builder:
                 heading = None
                 if l["page"] == 1 or low in SKIP_TITLES:
                     mode = "skip"
+                    self.lines_seen_contents = self.lines_seen_contents or low in SKIP_TITLES
                     continue
                 if low in BACK_MATTER:
                     mode = "back"
@@ -325,9 +357,9 @@ class Builder:
                     continue
                 mode = "content"
                 m_num = re.match(r"^(\d+)\s+(.*)$", title)
-                m_app = re.match(r"^Appendix\s+(\d+)\s*:?\s*(.*)$", title, flags=re.I)
+                m_app = re.match(r"^Appendix\s+(\d+)\s*[:\-–—]?\s*(.*)$", title, flags=re.I)
                 if m_app:
-                    n, t = m_app.group(1), m_app.group(2)
+                    n, t = m_app.group(1), m_app.group(2).lstrip(":-–— ")
                     chapter = self.new(f"appendix-{n}", "appendix", None, n, t, [self.title, f"Appendix {n} {t}"], l["page"])
                     counter_key = chapter["id"]
                 elif m_num:
@@ -341,7 +373,14 @@ class Builder:
             k_line = i
             i += 1
             if mode == "skip":
-                continue
+                # A captioned figure or table between the contents and chapter 1 is content (HSG227's flow chart).
+                if l["page"] > 1 and self.is_caption(l) and self.lines_seen_contents:
+                    mode = "content"
+                    chapter = self.new("front-matter", "chapter", None, None, "Front matter",
+                                       [self.title, "Front matter"], l["page"])
+                    heading = None
+                else:
+                    continue
             if k_line in consumed and mode == "content":
                 continue
             if mode == "back":
@@ -363,8 +402,11 @@ class Builder:
                 area_lines = [self.lines[j] for j in areas.get(k_line, [])]
                 area = [x["text"] for x in area_lines]
                 for c in prev_caption_line:
-                    self.span(c, l["page"], area_lines[0]["top"] if area_lines else self.area_tops.get(k_line, l["top"]),
-                              l["top"] + l["size"] + 2)
+                    if k_line in self.area_below:
+                        self.span(c, l["page"], l["top"], area_lines[-1]["top"] + area_lines[-1]["size"] + 2)
+                    else:
+                        self.span(c, l["page"], area_lines[0]["top"] if area_lines else self.area_tops.get(k_line, l["top"]),
+                                  l["top"] + l["size"] + 2)
                 if area and prev_caption_line:
                     first = prev_caption_line[0]
                     if first["type"] == "figure":
@@ -422,6 +464,19 @@ class Builder:
                 sec["colour"] = list(r["colour"])
                 last_body = sec
                 continue
+            # ---- callouts (key messages in large bold italic): notes
+            if self.is_callout(l):
+                text = l["text"]
+                last_top = l["top"]
+                while i < len(self.lines) and self.is_callout(self.lines[i]) and self.lines[i]["page"] == l["page"] \
+                        and self.lines[i]["top"] - last_top < 22:
+                    text = _join(text, self.lines[i]["text"])
+                    last_top = self.lines[i]["top"]
+                    i += 1
+                k = 1 + sum(1 for s in self.sections if s["type"] == "note")
+                last_body = self.new(f"note-{k}", "note", parent, None, None, [*parent["heading_path"], "Note"],
+                                     l["page"], text)
+                continue
             # ---- headings (merge wrapped heading lines)
             if self.is_heading(l):
                 title = l["text"]
@@ -476,7 +531,7 @@ class Builder:
     def split_captions(self, l) -> list[dict]:
         words = l.get("words") or [{"x0": l["x0"], "text": w} for w in l["text"].split()]
         starts = [k for k in range(len(words) - 1)
-                  if words[k]["text"] in ("Figure", "Table") and re.match(r"^\d+$", words[k + 1]["text"])]
+                  if words[k]["text"] in ("Figure", "Table") and re.match(r"^\d+[:.]?$", words[k + 1]["text"])]
         if not starts:  # words did not split as expected: fall back to the line's text
             m = CAPTION_RE.match(l["text"])
             self.issues.append(f"caption words not split on file page {l['page']}: {l['text'][:40]}")
@@ -486,8 +541,8 @@ class Builder:
         for a, k in enumerate(starts):
             end = starts[a + 1] if a + 1 < len(starts) else len(words)
             seg = _until_gap(words[k:end])
-            caps.append({"kind": seg[0]["text"].lower(), "number": seg[1]["text"],
-                         "title": " ".join(w["text"] for w in seg[2:]).strip(),
+            caps.append({"kind": seg[0]["text"].lower(), "number": seg[1]["text"].rstrip(":."),
+                         "title": " ".join(w["text"] for w in seg[2:]).strip().lstrip(":-–— "),
                          "x0": seg[0]["x0"], "x1": words[end]["x0"] if end < len(words) else 10_000})
         return caps
 
@@ -594,13 +649,13 @@ class Builder:
     def place_images(self, captions: list[dict]) -> None:
         for im in self.images:
             below = [c for c in captions if c["type"] == "figure" and c["caption_box"]["page"] == im["page"]
-                     and -10 <= c["caption_box"]["top"] - im["bottom"] <= 40
+                     and _caption_under(c["caption_box"]["top"], im)
                      and c["caption_box"]["x0"] <= im["x1"] and c["caption_box"]["x0"] >= im["x0"] - 10]
             if not below:
                 below = [c for c in captions if c["type"] == "figure" and c["caption_box"]["page"] == im["page"]
-                         and -10 <= c["caption_box"]["top"] - im["bottom"] <= 40]
+                         and _caption_under(c["caption_box"]["top"], im)]
             if below:
-                c = min(below, key=lambda c: abs(c["caption_box"]["x0"] - im["x0"]))
+                c = min(below, key=lambda c: (abs(c["caption_box"]["top"] - im["bottom"]), abs(c["caption_box"]["x0"] - im["x0"])))
                 if not c.get("image_bbox"):
                     c["image_bbox"] = {k: im[k] for k in ("page", "top", "bottom", "x0", "x1")}
             elif im["page"] != 1:
