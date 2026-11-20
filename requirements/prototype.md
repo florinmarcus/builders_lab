@@ -76,7 +76,7 @@ About 15–20 emails with PDF attachments. All names, addresses and companies in
 - Each firm's data kept separate; UK storage; encryption at rest and in transit.
 - Builder buys their own Claude plan: Team when handling client or tenant personal data (Anthropic DPA). Our connector stores only what it needs.
 - Log every tool call (who, what, when, which sources).
-- For the demo, the connector has no login (mock data only). Real use needs OAuth login.
+- Connector login: API key per firm now, OAuth per person next; server hardened against bots (ADR 0007).
 
 ## Out of scope for Saturday
 

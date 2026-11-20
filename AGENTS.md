@@ -33,6 +33,7 @@ When one is answered, move it into `requirements/` and delete it here.
 7. **Plain English.** Short sentences, common words, no marketing language.
 8. **Research stays outside the system.** `research/`, `requirements/` and `presentation/` are documents. `system/` is code only.
 9. **Not related to LSEG.** Nothing from Florin's employer goes here.
+10. **Park every shortcut.** Any corner cut, gap or thing not built goes into `requirements/parking-lot.md` in the same commit.
 
 ## Layout
 
