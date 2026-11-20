@@ -28,6 +28,8 @@ def _key_from_headers(headers: dict[bytes, bytes]) -> str | None:
     """Key from `Authorization: Bearer <key>`, `Authorization: <key>` or `X-API-Key: <key>`."""
     auth = headers.get(b"authorization", b"").decode(errors="replace").strip()
     if auth:
+        if auth[:9].lower() == "bearerbl_":  # "Bearer" typed without the space
+            auth = "Bearer " + auth[6:]
         word, _, rest = auth.partition(" ")
         key = rest.strip() if word.rstrip(":").lower() == "bearer" else auth
         if key:

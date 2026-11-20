@@ -58,4 +58,5 @@ def test_key_header_forms():
     assert _key_from_headers({b"authorization": f"bearer  {k} ".encode()}) == k
     assert _key_from_headers({b"authorization": k.encode()}) == k
     assert _key_from_headers({b"x-api-key": k.encode()}) == k
+    assert _key_from_headers({b"authorization": f"Bearer{k}".encode()}) == k
     assert _key_from_headers({b"authorization": b"Bearer "}) is None
