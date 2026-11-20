@@ -35,6 +35,17 @@ def test_without_a_secret_nothing_changes(monkeypatch):
     assert RedactSecret().filter(r) and r.getMessage() == "GET /healthz"
 
 
+def test_uvicorn_access_formatter_still_works(monkeypatch):
+    """uvicorn's AccessFormatter reads record.args: the filter must keep them (a bug found live)."""
+    from uvicorn.logging import AccessFormatter
+
+    monkeypatch.setenv("MCP_PATH_SECRET", SECRET)
+    r = record('%s - "%s %s HTTP/%s" %d', ("1.2.3.4:0", "POST", f"/mcp/{SECRET}", "1.1", 200))
+    RedactSecret().filter(r)
+    line = AccessFormatter('%(client_addr)s - "%(request_line)s" %(status_code)s', use_colors=False).format(r)
+    assert line == '1.2.3.4:0 - "POST /mcp/<path-secret> HTTP/1.1" 200 OK'
+
+
 def test_uvicorn_config_puts_the_filter_on_both_handlers():
     cfg = uvicorn_log_config()
     for h in ("default", "access"):

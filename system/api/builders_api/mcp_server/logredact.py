@@ -22,10 +22,13 @@ class RedactSecret(logging.Filter):
     def filter(self, record: logging.LogRecord) -> bool:
         if not self.secret:
             return True
-        message = record.getMessage()
-        if self.secret in message:
-            record.msg = message.replace(self.secret, MASK)
-            record.args = None
+        # Mask inside the arguments and keep them: uvicorn's access formatter reads record.args.
+        if isinstance(record.args, tuple):
+            record.args = tuple(a.replace(self.secret, MASK) if isinstance(a, str) else a for a in record.args)
+        elif isinstance(record.args, dict):
+            record.args = {k: v.replace(self.secret, MASK) if isinstance(v, str) else v for k, v in record.args.items()}
+        if isinstance(record.msg, str) and self.secret in record.msg:
+            record.msg = record.msg.replace(self.secret, MASK)
         return True
 
 
