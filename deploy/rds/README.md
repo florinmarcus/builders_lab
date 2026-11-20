@@ -48,3 +48,9 @@ existing RDS Postgres instance, next to the lab's database. The Builders server 
 3. **Switch on:** `MSYS_NO_PATHCONV=1 aws ssm put-parameter --region eu-west-2 --type String --overwrite --name /builders-lab/prod/rag_enabled --value on`
 4. **Redeploy** (any push to main, or run the pipeline by hand). Each upgrade re-reads Parameter Store
    (`upgrade.sh` runs `env-from-ssm.sh`). Back to the fallback: set `rag_enabled` to `off` and redeploy.
+
+## Live (20 Nov 2026, 19:53 UTC)
+
+Stack updated (role rights, hop limit 2), `rag_enabled=on`, two deploys (the first installs the `upgrade.sh` that
+re-reads Parameter Store). `search_regulations` returns `"backend": "corpus"`: the asbestos licence question finds
+HSG227 paragraph 21, Awaab's Law finds the 24-hour emergency sections, "best pizza in London" returns nothing.
