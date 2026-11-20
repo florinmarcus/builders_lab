@@ -18,7 +18,7 @@ demo = ["reportlab>=4.2"]
 # Demo Gmail loader, reset and live simulator (system/data/mock/gmail_demo.py), run on a laptop.
 gmail = ["google-api-python-client>=2.150", "google-auth-oauthlib>=1.2", "reportlab>=4.2"]
 # Corpus harvester and S3 copy (system/rag), run from the repo root.
-corpus = ["pyyaml>=6", "requests>=2.31", "lxml>=5", "boto3>=1.34", "pdfplumber>=0.11", "pypdfium2>=4"]
+corpus = ["pyyaml>=6", "requests>=2.31", "lxml>=5", "boto3>=1.34", "pdfplumber>=0.11", "pypdfium2>=4", "numpy>=1.26", "pillow>=10"]
 
 [build-system]
 requires = ["setuptools>=68"]
