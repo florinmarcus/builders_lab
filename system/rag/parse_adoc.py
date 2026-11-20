@@ -92,6 +92,7 @@ class AdocBuilder:
         self.printed: dict[int, str] = {}
         self.banner: dict[int, tuple[str, str]] = {}
         self.pages: dict[int, list[dict]] = defaultdict(list)
+        self._diagram_top: dict[tuple[int, int], float] = {}
         self._furniture(doc["lines"])
 
     # -------------------------------------------------- pages
@@ -139,8 +140,8 @@ class AdocBuilder:
         return kept
 
     def _ligatures(self) -> None:
-        """Some words lose letters of an "fi" or "fl" pair in these PDFs ("fre", "foor", "specifed", "Ofces"). Put
-        them back when
+        """Some words lose letters of an "fi" or "fl" pair in these PDFs ("fre", "foor", "specifed", "Ofces"), show
+        "ff" as a degree sign ("E°ective"), or split a capital from its word ("M easurement"). Put them back when
         the repaired word is more common in the same document than the broken one (and used at least 3 times). Every repair is counted."""
         vocab = Counter(re.sub(r"[^a-z]", "", w["text"].lower()) for ls in self.pages.values() for l in ls
                         for w in l.get("words") or [])
@@ -160,7 +161,25 @@ class AdocBuilder:
         for ls in self.pages.values():
             for l in ls:
                 changed = False
-                for w in l.get("words") or []:
+                ws = l.get("words") or []
+                for w in ws:  # "ff" printed as a degree sign: "E°ective"
+                    if re.search(r"[A-Za-z]°[a-z]", w["text"]):
+                        opts = [re.sub(r"(?<=[A-Za-z])°(?=[a-z])", x, w["text"]) for x in ("ff", "ffi", "ffl")]
+                        good = max(opts, key=lambda o: vocab.get(re.sub(r"[^a-z]", "", o.lower()), 0))
+                        self.repairs[f"{w['text']} -> {good}"] += 1
+                        w["text"], changed = good, True
+                k = 0
+                while k < len(ws) - 1:  # "M easurement": a capital split from the rest of its word
+                    a, b = ws[k]["text"], ws[k + 1]["text"]
+                    rest = re.sub(r"[^a-z]", "", b.lower())
+                    if re.fullmatch(r"[A-Z]", a) and re.match(r"^[a-z]{2,}", b) and vocab.get(rest, 0) == 0 \
+                            and vocab.get((a + re.match(r"^[a-z]+", b).group(0)).lower(), 0) >= 1:
+                        self.repairs[f"{a} {b} -> {a}{b}"] += 1
+                        ws[k] = {**ws[k], "text": a + b, "x1": ws[k + 1]["x1"]}
+                        del ws[k + 1]
+                        changed = True
+                    k += 1
+                for w in ws:
                     m = re.match(r"^([^A-Za-z]*)([A-Za-z]+)([^A-Za-z]*)$", w["text"])
                     if m and m.group(2).lower() in fixes:
                         good = fixes[m.group(2).lower()]
@@ -265,6 +284,7 @@ class AdocBuilder:
                 for k, m in enumerate(lines):
                     if k not in out and top_limit < m["top"] < l["top"] and (m["size"] < SMALL or "Medium" in m["font"]):
                         out[k] = ("diagram", n)
+                self._diagram_top[(page, n)] = top_limit
                 i = j
                 continue
             i += 1
@@ -327,6 +347,7 @@ class AdocBuilder:
                     continue
                 reg = {k: (reg[k] if reg.get(k, ("",))[0] == "caption" else ("diagram", caps[0][1]))
                        for k in range(len(lines))}
+                self._diagram_top[(page, caps[0][1])] = 0.0  # the picture fills the page
             for i, l in enumerate(lines):
                 ws = l.get("words") or []
                 t = l["text"].strip()
@@ -505,7 +526,7 @@ class AdocBuilder:
             # Close this page's diagrams.
             for n, r in region_secs.items():
                 if isinstance(r, dict) and "caption" in r and r["caption"]:
-                    self._diagram(page, r, h3 or h2 or h1 or self.chapter)
+                    self._diagram(page, r, h3 or h2 or h1 or self.chapter, self._diagram_top.get((page, n), 0.0))
         return self.finish()
 
     def _heading(self, t, page, parent, level, l) -> dict:
@@ -517,7 +538,7 @@ class AdocBuilder:
         sec["_size"] = l["size"]
         return sec
 
-    def _diagram(self, page, r, parent) -> None:
+    def _diagram(self, page, r, parent, above: float = 0.0) -> None:
         cap = " ".join(c["text"] for c in r["caption"])
         m = DIAGRAM_RE.match(cap)
         num, title = m.group(1), (m.group(2).strip())
@@ -525,8 +546,8 @@ class AdocBuilder:
         sec = self.add(f"diagram-{num.lower()}" + self.suffix(), "figure", parent, num, title, page, title)
         sec["kind_label"] = "diagram"
         sec["labels"] = labels
-        tops = [x["top"] for x in r["labels"]] + [x["top"] for x in r["caption"]]
-        top = min(tops) - 12
+        # The drawing can reach above its highest label: cut from just below the last text line above it.
+        top = above + 16 if above else 70.0
         bottom = max(x["top"] for x in r["caption"]) + 16
         sec["area"] = {"page": page, "top": max(70.0, top), "bottom": min(800.0, bottom), "x0": 28.0,
                        "x1": self.page_width - 28.0}
