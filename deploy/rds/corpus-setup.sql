@@ -19,6 +19,10 @@ ALTER ROLE builders_corpus_reader SET default_transaction_read_only = on;
 ALTER ROLE builders_corpus_reader SET statement_timeout = '5s';
 ALTER ROLE builders_corpus_reader SET idle_in_transaction_session_timeout = '10s';
 
+-- Postgres 16 on RDS: the master user is not a full superuser, so it must be a member of the owner role to
+-- create a schema owned by it and to set default privileges for it.
+GRANT builders_corpus_owner TO CURRENT_USER;
+
 CREATE DATABASE builders_corpus OWNER builders_corpus_owner;
 REVOKE ALL ON DATABASE builders_corpus FROM PUBLIC;
 GRANT CONNECT ON DATABASE builders_corpus TO builders_corpus_reader;
