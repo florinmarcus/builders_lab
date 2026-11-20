@@ -173,7 +173,9 @@ class Builder:
         self.issues: list[str] = []
         self.checks: list[dict] = []
         self.printed: dict[int, str] = {}
+        self.markers: list[tuple[int, float, str]] = []  # (page, top, status) from margin labels
         self._strip_furniture()
+        self._margin_labels()
         self._metrics()
 
     # -------------------------------------------------- page furniture
@@ -203,6 +205,38 @@ class Builder:
             kept.append(l)
         self.lines = kept
 
+    def _margin_labels(self) -> None:
+        """L143 prints "Regulation 2", "ACOP 2" or "Guidance 2" in the left margin: the text that follows is the
+        law itself, the Approved Code of Practice, or guidance (each has a different legal weight). Split these
+        labels off the lines they share and remember where each one starts."""
+        label_re = re.compile(r"^(Regulation|ACOP|Guidance)\s+\d+[A-Z]?$")
+        kept = []
+        for l in self.lines:
+            ws = l.get("words") or []
+            if ws and ws[0]["x0"] < 120:
+                k = 1
+                while k < len(ws) and ws[k]["x0"] < 150:
+                    k += 1
+                label = " ".join(w["text"] for w in ws[:k])
+                if label_re.match(label):
+                    self.markers.append((l["page"], l["top"], label.split()[0].lower()))
+                    rest = ws[k:]
+                    if not rest:
+                        continue
+                    l = {**l, "words": rest, "text": " ".join(w["text"] for w in rest), "x0": rest[0]["x0"]}
+            kept.append(l)
+        self.lines = kept
+
+    def status_at(self, page: int, top: float) -> str | None:
+        """regulation, acop or guidance: the last margin label at or before this point."""
+        last = None
+        for p, t, st in self.markers:
+            if (p, t) <= (page, top + 1):
+                last = st
+            else:
+                break
+        return last
+
     def _metrics(self) -> None:
         sizes = Counter(l["size"] for l in self.lines)
         self.body_size = sizes.most_common(1)[0][0] if sizes else 10.0
@@ -229,12 +263,17 @@ class Builder:
         a, b = sp.get(str(page), (top, bottom))
         sp[str(page)] = (min(a, top), max(b, bottom))
 
-    def new(self, sid, kind, parent, number, title, path, page, text="") -> dict:
-        return self.add({
+    def new(self, sid, kind, parent, number, title, path, page, text="", top: float | None = None) -> dict:
+        sec = {
             "id": sid, "parent_id": parent["id"] if parent else None, "type": kind, "number": number,
             "title": title, "heading_path": path, "text": text, "printed_page": self.page_label(page),
             "file_page": page, "applies_to": None,
-        })
+        }
+        if self.markers and top is not None:
+            st = self.status_at(page, top)
+            if st:
+                sec["status"] = st  # L143: regulation, acop or guidance
+        return self.add(sec)
 
     # -------------------------------------------------- classification helpers
 
@@ -321,7 +360,8 @@ class Builder:
         return areas
 
     def is_chapter(self, l) -> bool:
-        return l["size"] >= 2 * self.body_size
+        # HSG264/HSG227 chapters are at least twice the body size; L143 uses 16pt condensed on 10pt body.
+        return l["size"] >= 2 * self.body_size or (l["size"] >= 1.5 * self.body_size and "Cond" in l["font"])
 
     # -------------------------------------------------- main pass
 
@@ -509,13 +549,13 @@ class Builder:
                 n = m.group(1)
                 sid = f"para-{n}" if counter_key == "main" else f"{counter_key}-para-{n}"
                 para = self.new(sid, "paragraph", parent, n, None, [*parent["heading_path"], f"Paragraph {n}"],
-                                l["page"], _join("", m.group(2)))
+                                l["page"], _join("", m.group(2)), top=l["top"])
                 last_body = para
                 continue
             if para is None or para["parent_id"] != parent["id"] and para["type"] == "text":
                 k = 1 + sum(1 for s in self.sections if s["parent_id"] == parent["id"] and s["type"] == "text")
                 para = self.new(f"{parent['id']}-text-{k}", "text", parent, None, None,
-                                [*parent["heading_path"], "Text"], l["page"])
+                                [*parent["heading_path"], "Text"], l["page"], top=l["top"])
                 last_body = para
             para["text"] = _join(para["text"], l["text"])
         self.place_small(small_lines, captions_on_page)

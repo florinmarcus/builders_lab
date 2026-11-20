@@ -12,6 +12,23 @@ Made by `python -m system.rag.chunk` from the parsed trees (not in git). Rebuilt
   - para-17.7: 2574 characters, split into 2 parts
 - Unresolved references (most common): "paragraph 2.44" ×4, "Table 8.1" ×2, "paragraphs A26" ×1, "paragraphs A14" ×1, "paragraph A11" ×1, "paragraphs A12" ×1, "paragraphs F8" ×1, "Table A1" ×1, "Table 7.1" ×1, "Figure 2" ×1, "paragraph 2.46" ×1, "paragraph 5.46" ×1, "paragraph 8.14" ×1, "paragraph 13.16" ×1, "paragraph 13.22" ×1.
 
+## awaab-guidance-phase1 `awaab-s-law-guidance-for-social-landlords-timeframes-for-rep@2026-07-16-77d92c22`
+
+- Chunks: 81 (paragraph 80, table 1).
+- Text length: median 1218, longest 2484 characters.
+- Open model checks in the tree: 0.
+- Cross-references: 8, resolved in this document 0, to another document 0, unresolved 8.
+- Splits (8):
+  - para-1.4: 6775 characters, split into 3 parts
+  - para-2.2: 2602 characters, split into 2 parts
+  - para-3.5: 2990 characters, split into 2 parts
+  - para-4.1.1: 2630 characters, split into 2 parts
+  - para-4.1.2: 3235 characters, split into 2 parts
+  - para-8.1: 2861 characters, split into 2 parts
+  - para-13.1: 3239 characters, split into 2 parts
+  - para-13.2: 3717 characters, split into 2 parts
+- Unresolved references (most common): "Section 12" ×2, "Section 9" ×1, "Diagram 1" ×1, "regulation 5" ×1, "regulation 8" ×1, "Section 5" ×1, "regulation 4" ×1.
+
 ## br2010 `main@2026-11-06-9e455f6e`
 
 - Chunks: 759 (clause 386, regulation 148, definition 90, requirement 80, paragraph 52, table 3).
@@ -68,6 +85,76 @@ Made by `python -m system.rag.chunk` from the parsed trees (not in git). Rebuilt
   - regulation-38@W: 2620 characters, split into 6 paragraphs
 - Unresolved references (most common): "paragraph F1" ×5, "paragraph E1" ×4, "paragraph 2" ×3, "paragraph 3" ×3, "regulation 7A" ×2, "Section 67" ×2, "paragraph B1" ×1, "paragraph B3" ×1, "paragraph B4" ×1, "paragraph B5" ×1, "paragraphs G2" ×1, "paragraphs G1" ×1, "regulation 63" ×1, "Section 30" ×1, "paragraph 1" ×1.
 
+## car2012 `main@2020-12-31-6057ef64`
+
+- Chunks: 90 (clause 37, regulation 29, definition 18, paragraph 5, table 1).
+- Text length: median 433, longest 2267 characters.
+- Open model checks in the tree: 0.
+- Cross-references: 48, resolved in this document 43, to another document 0, unresolved 5.
+- Splits (5):
+  - regulation-3: 3268 characters, split into 5 paragraphs
+  - regulation-4: 3581 characters, split into 11 paragraphs
+  - regulation-11: 3415 characters, split into 6 paragraphs
+  - regulation-15: 2601 characters, split into 5 paragraphs
+  - regulation-22: 4297 characters, split into 10 paragraphs
+- Unresolved references (most common): "regulation 36" ×1, "paragraph 1" ×1, "paragraph 4" ×1, "paragraph 14" ×1, "paragraph 2" ×1.
+
+## cdm2015 `main@2018-01-01-d6380775`
+
+- Chunks: 112 (regulation 36, definition 31, paragraph 23, clause 21, table 1).
+- Text length: median 297, longest 3140 characters.
+- Open model checks in the tree: 0.
+- Cross-references: 59, resolved in this document 52, to another document 0, unresolved 7.
+- Splits (2):
+  - regulation-12: 2635 characters, split into 10 paragraphs
+  - regulation-15: 3026 characters, split into 11 paragraphs
+- Unresolved references (most common): "paragraph 4" ×3, "regulation 2A" ×2, "paragraph 5" ×1, "paragraph 1" ×1.
+
+## fser-fire-doors `fire-doors-checklist-accessible@2025-08-08-d2ee24c0`
+
+- Chunks: 4 (paragraph 4).
+- Text length: median 160, longest 484 characters.
+- Open model checks in the tree: 0.
+- Cross-references: 0, resolved in this document 0, to another document 0, unresolved 0.
+- Splits: none.
+
+## fser-fire-doors `fire-safety-england-regulations-2022-fire-door-guidance-acce@2025-08-08-cc46c3f4`
+
+- Chunks: 32 (paragraph 32).
+- Text length: median 405, longest 2275 characters.
+- Open model checks in the tree: 0.
+- Cross-references: 4, resolved in this document 0, to another document 0, unresolved 4.
+- Splits (1):
+  - para-6.7: 3951 characters, split into 2 parts
+- Unresolved references (most common): "regulation 10" ×4.
+
+## hgcra1996-p2 `main@2023-05-05-30c867c5`
+
+- Chunks: 31 (regulation 16, clause 15).
+- Text length: median 650, longest 2387 characters.
+- Open model checks in the tree: 0.
+- Cross-references: 0, resolved in this document 0, to another document 0, unresolved 0.
+- Splits (2):
+  - section-105: 3351 characters, split into 4 paragraphs
+  - section-111n1: 3179 characters, split into 11 paragraphs
+
+## hmrc-cis-340 `construction-industry-scheme-a-guide-for-contractors-and-sub@2026-08-27-945a8f08`
+
+- Chunks: 214 (paragraph 211, table 3).
+- Text length: median 382, longest 2197 characters.
+- Open model checks in the tree: 0.
+- Cross-references: 44, resolved in this document 38, to another document 0, unresolved 6.
+- Splits: none.
+- Unresolved references (most common): "Section 74" ×3, "Section 5" ×1, "Section 2" ×1, "Section 152" ×1.
+
+## hse-cdm-domestic-clients `main@2026-10-29-6cded968`
+
+- Chunks: 2 (paragraph 2).
+- Text length: median 1471, longest 1471 characters.
+- Open model checks in the tree: 0.
+- Cross-references: 0, resolved in this document 0, to another document 0, unresolved 0.
+- Splits: none.
+
 ## hse-hsg227 `main@2024-12-06-ef0a75ce`
 
 - Chunks: 464 (paragraph 208, table-row 204, note 23, table 15, figure 14).
@@ -87,3 +174,11 @@ Made by `python -m system.rag.chunk` from the parsed trees (not in git). Rebuilt
 - Cross-references: 39, resolved in this document 26, to another document 0, unresolved 13.
 - Splits: none.
 - Unresolved references (most common): "regulation 4" ×3, "regulation 7" ×2, "Section 3" ×1, "regulation 6" ×1, "regulation 10" ×1, "regulation 8" ×1, "regulation 9" ×1, "regulation 22" ×1, "regulation 3" ×1, "Section 2" ×1.
+
+## vat-drc-guide `page@2020-09-24-1a72fd30`
+
+- Chunks: 6 (paragraph 6).
+- Text length: median 546, longest 1497 characters.
+- Open model checks in the tree: 0.
+- Cross-references: 0, resolved in this document 0, to another document 0, unresolved 0.
+- Splits: none.

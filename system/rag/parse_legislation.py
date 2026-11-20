@@ -243,7 +243,7 @@ class Parser:
         num_el = p1.find(f"{L}Pnumber")
         number = inline(num_el) if num_el is not None else ""
         sid = (p1.get("id") or f"{parent['id']}-{number}") + suffix
-        label = "Regulation" if kind == "regulation" else "Paragraph"
+        label = ("Section" if sid.startswith("section-") else "Regulation") if kind == "regulation" else "Paragraph"  # Acts have sections
         hp = [*path, heading(label, number, title)]
         st = status(p1)
         reg = self.add({

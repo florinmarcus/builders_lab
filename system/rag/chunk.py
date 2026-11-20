@@ -146,7 +146,10 @@ class Chunker:
             url = (self.record.get("fetched_url") or self.src.get("url", "")) + (f"#page={page}" if page else "")
         return {
             "source_id": self.tree["source_id"], "source_title": self.src.get("title") or self.tree.get("title"),
-            "kind": self.src.get("kind"), "legal_weight": legal_weight(self.src),
+            "kind": self.src.get("kind"),
+            # L143 marks each passage: the regulation itself (law), the Approved Code of Practice, or guidance.
+            "legal_weight": {"regulation": "law", "acop": "approved-code", "guidance": "guidance"}.get(
+                s.get("status"), legal_weight(self.src)),
             "version_id": self.tree["version_id"], "edition_date": self.record.get("edition_date") or valid_from,
             "valid_from": valid_from, "valid_to": valid_to, "applies_to": applies,
             "section_id": s["id"], "section_number": s.get("number"), "section_title": s.get("title"),
