@@ -64,6 +64,22 @@ def access_state(expires_on: dt.date, grace_days: int, today: dt.date) -> str:
     return "ended"
 
 
+def key_failure_reason(key: str | None) -> str:
+    """Why a key was refused, for the log. Never includes the key itself."""
+    if not key:
+        return "no key header"
+    parts = key.split("_")
+    if len(parts) < 3 or parts[0] != "bl":
+        return f"bad format (length {len(key)}, starts {key[:3]!r})"
+    with connection() as conn:
+        row = conn.execute("select revoked_at from api_keys where key_prefix = %s", (parts[1],)).fetchone()
+    if not row:
+        return f"unknown prefix {parts[1]}"
+    if row["revoked_at"] is not None:
+        return f"revoked prefix {parts[1]}"
+    return f"wrong secret for prefix {parts[1]}"
+
+
 def check_key(key: str, today: dt.date | None = None) -> Caller | None:
     """Return the caller for a valid, unrevoked key, else None. Expired keys still return a Caller
     (with access 'grace' or 'ended') so tools can show a plain message instead of a technical error."""

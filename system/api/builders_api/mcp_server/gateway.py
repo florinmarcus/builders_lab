@@ -7,12 +7,15 @@ Strangers get short generic answers and never reach the MCP layer.
 from __future__ import annotations
 
 import json
+import logging
 import os
 
 import anyio.to_thread
 
 from builders_api import security
 from builders_api.mcp_server.ratelimit import TokenBucket
+
+log = logging.getLogger(__name__)
 
 
 def _client_ip(scope) -> str:
@@ -67,6 +70,10 @@ class Gateway:
         key = _key_from_headers(dict(scope.get("headers") or []))
         caller = await anyio.to_thread.run_sync(security.check_key, key) if key else None
         if caller is None:
+            headers = dict(scope.get("headers") or [])
+            reason = await anyio.to_thread.run_sync(security.key_failure_reason, key)
+            log.warning("401 from %s: %s (headers present: authorization=%s, x-api-key=%s)", ip, reason,
+                        b"authorization" in headers, b"x-api-key" in headers)
             self.guard.record_failure(ip)
             return await _reply(send, 401, "unauthorised", "Missing or invalid API key.")
         if not self.per_key.allow(caller.key_prefix):
