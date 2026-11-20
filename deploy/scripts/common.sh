@@ -11,7 +11,7 @@ STATE_DIR="$BASE/state"          # current_version, previous_version
 REPO_URL=${REPO_URL:-https://github.com/florinmarcus/builders_lab.git}
 SSM_PREFIX=${SSM_PREFIX:-/builders-lab/prod}
 
-log() { printf '%s  %s\n' "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "$*"; }
+log() { printf '%s  %s\n' "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "$*" >&2; }  # stderr: never mixes with captured values
 die() { log "ERROR: $*"; exit 1; }
 
 dc() {  # docker compose with our env file, from the checked-out deploy folder
