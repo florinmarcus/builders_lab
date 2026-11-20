@@ -39,7 +39,7 @@ sequenceDiagram
         S->>S: check quotes are really in the email
         S->>DB: save facts
     end
-    C-->>F: "2 new: Sam Price (council) asks you to confirm 27 Nov; Mike says the kitchen can't start..."
+    C-->>F: "2 new: Sam Price (council) asks you to confirm 27 Nov, Mike says the kitchen cannot start"
 ```
 
 ## A live email from the "council"
