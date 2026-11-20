@@ -14,6 +14,7 @@ flowchart LR
     subgraph claude["Claude (the agents live here, ADR 0006)"]
         app["Claude app"]
         code["Claude Code<br/>harness, subagents,<br/>scheduled sync"]
+        plugin["Builders plugin<br/>skills + shared rules"]
     end
 
     subgraph ours["Our system (AWS, London)"]
@@ -26,6 +27,8 @@ flowchart LR
     xero["Xero"]
 
     builder --> app
+    plugin -.-> app
+    plugin --> code
     dev --> code
     app -->|"Gmail connector"| gmail
     app -->|"Xero connector"| xero
@@ -80,5 +83,6 @@ flowchart LR
 | Design | [Server: MCP, security, data, deployment](design/server.md) |
 | Design | [Regulations corpus and search](design/regulations-corpus.md) (corpus session) |
 | Sequences | [Server flows](sequences/server.md) |
+| Plugin | [Builders plugin: skills + connectors](../plugin/README.md) (ADR 0011) |
 | Decisions | [ADRs](../decisions/) |
 | Gaps | [Parking lot](../requirements/parking-lot.md) |

@@ -68,6 +68,9 @@ Started 20 Nov 2026. Status of the demo build: steps 1 (mock data plan), 2 (sche
 | S37 | Job filing is plain word matching plus sender history; Claude can override with save_facts | `service/ingest.py` | Fine for small firms; review with real email |
 | S38 | Contract payment terms come only from the seed, not from ingested contract documents | `db_seed.sql` | Add a contract_terms step to save_facts |
 | S39 | Model checks: the session starts the subagents and collects their replies into answers.jsonl by hand, following the runbook; no script does it | `.claude/skills/corpus-document/SKILL.md` | Script the loop with the Agent SDK if hand runs drift or it gets slow |
+| S37 | Plugin skeleton built 20 Nov 2026 (`plugin/`, validates). Not yet tried: installing it, `${BUILDERS_API_KEY}` expansion in the plugin's connector headers, and whether plugins work in the Claude phone app | `plugin/` | Install in Claude Code and Cowork, run the six phrases |
+| S38 | Plugin has no icon, privacy policy URL or licence file (needed only to list it in Anthropic's directory) | `plugin/` | Add before any public listing |
+| S39 | Skill files are not under the version lock yet (tool descriptions are) | `plugin/skills/` | Extend `builders_api.versions` or version the plugin on every skill change |
 | S19 | Cost figures are first-pass, partly guesses, mostly US prices | `research/hosting-costs/connector-auth-options.md` | Review in detail; check London prices |
 | S28 | Postgres runs in Docker on the one server; no managed database, no read replica (raised by Florin 20 Nov 2026) | ADR 0009 | RDS, or a writer plus at least one reader, when traffic or customers need it |
 | S29 | 17 raw corpus files missing: the source now gives different bytes, so they were not restored (16 same size, legislation metadata order) | `corpus/harvest-report.md` | Decide: keep today's bytes with a note in the record, or fetch when evals need them |
