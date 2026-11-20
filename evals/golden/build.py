@@ -10,6 +10,7 @@ Outputs:
 - evals/golden/questions.jsonl: kept questions with expected_sections and split (dev or holdout).
 - evals/golden/dropped.jsonl: questions dropped by the copy filter (5+ words in a row shared with an expected
   section's text or heading), with the shared words.
+- evals/golden/removed.jsonl (input): ids the adversarial review removed, with the reason; skipped.
 - evals/golden/holdout-ids.txt: the holdout (about 20% per role, chosen by a stable hash of the id). Commit it
   before the first eval run; never tune on it.
 Fails on an unknown section id (a typo must not score as "not found"), duplicate ids, or unknown kinds.
@@ -78,8 +79,12 @@ def build(index: dict | None = None) -> dict:
     business = {q["id"]: q for p in sorted((GOLDEN / "business").glob("*.jsonl")) for q in read_jsonl(p)}
     labels = {l["id"]: l for p in sorted((GOLDEN / "labelled").glob("*.jsonl")) for l in read_jsonl(p)} \
         if (GOLDEN / "labelled").exists() else {}
+    removed_path = GOLDEN / "removed.jsonl"
+    removed = {r["id"] for r in read_jsonl(removed_path)} if removed_path.exists() else set()
     problems, kept, dropped = [], [], []
     for qid, q in business.items():
+        if qid in removed:  # taken out by the adversarial review, reason in removed.jsonl
+            continue
         if q.get("kind") not in KINDS:
             problems.append(f"{qid}: unknown kind {q.get('kind')}")
             continue
