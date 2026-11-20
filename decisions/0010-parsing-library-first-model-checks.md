@@ -31,6 +31,7 @@ The corpus is harvested (ADR 0008). Next is turning raw files into chunks for se
 ## Consequences
 
 - The parser needs a fix store and a step that runs model checks in Claude Code; both must log what they did.
+- Update 20 Nov 2026: the check step is built (`system/rag/checks.py`, runbook `.claude/skills/corpus-document/SKILL.md`). Checks go out as packets with fixed instructions and answer formats; answers are saved only if they pass rules, and every fix file is linted as a test. Reason: two helpers given a one-line question produced two layouts for the same kind of table (HSG227), and some HSG264 rows had no sentence.
 - Asbestos as the demo scenario rests on one builder's view so far (a guess to test with more builders).
 - A `country` argument, `get_section` and new passage keys (`section_id`, `applies_to`, `kind`, `legal_weight`, `printed_page`, `image_url`) change the contract in `system/rag/README.md`; agree them with the server session first.
 - Embedding model, hybrid search and re-ranking stay open until the evals.

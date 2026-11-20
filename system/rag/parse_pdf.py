@@ -633,6 +633,7 @@ class Builder:
             if f:
                 v = f["value"]
                 s["columns"], s["grid"], s["row_sentences"] = v.get("columns"), v.get("rows"), v.get("sentences", [])
+                s["heading_rows"] = v.get("heading_rows", [])
                 s["grid_source"] = "model"
                 return True
         else:

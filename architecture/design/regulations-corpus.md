@@ -45,6 +45,25 @@ flowchart TB
     model --> out["Document tree"]
 ```
 
+### The model-check step (built 20 Nov 2026)
+
+Same steps for every document. Runbook: `.claude/skills/corpus-document/SKILL.md`. Code: `system/rag/checks.py`.
+
+```mermaid
+flowchart LR
+    tree["Parsed tree<br/>open checks"] --> exp["checks export<br/>one packet per check:<br/>fixed instructions,<br/>answer format, images,<br/>family template"]
+    exp --> sub["One subagent per packet<br/>(Claude Code)"]
+    sub --> ans["answers.jsonl"]
+    ans --> save["checks save<br/>rules: row and sentence counts,<br/>heading rows, one layout<br/>per table family"]
+    save -->|"refused"| sub
+    save --> fixes[("corpus/fixes (git)")]
+    fixes --> lint["checks lint<br/>(also a test)"]
+    fixes --> reparse["Parse again:<br/>0 checks"]
+    reparse --> review["checks review<br/>sheet of figure crops"]
+```
+
+Tables in one family (same title before " for ", like the HSG227 worked examples) share one layout: the first one goes alone, and the rest get its saved fix as a template.
+
 A model answer can vary between runs, so every model fix is saved in `corpus/fixes/` (git) with a fingerprint of the content it is about, and reused. The parser lists what is still open as `checks`. Re-parsing gives the same result unless we choose to redo a fix. Counting fixes shows what the library should learn next.
 
 ## Data model

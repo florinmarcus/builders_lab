@@ -365,9 +365,20 @@
      "Flooring such as thermoplastic floor tiles (up to 25% asbestos), PVC vinyl floor tiles (normally 7% chrysotile) and asbestos paper-backed PVC floors is unlikely to be a fibre release hazard under normal services conditions, but there may be substantial release where flooring residue, particularly paper backing, is power-sanded.",
      "Reinforced PVC panels and cladding contain 1–10% chrysotile asbestos and fibre release is unlikely.",
      "Reinforced plastic and resin composites used for toilet cisterns, seats, banisters, window seals and lab bench tops usually contain 1-10% chrysotile asbestos (resins reinforced with woven chrysotile cloth usually contain 20–50% asbestos), and fibres are unlikely to be released, with limited emissions during cutting."
+    ],
+    "heading_rows": [
+     0,
+     2,
+     4,
+     6,
+     10,
+     12,
+     17,
+     20,
+     25
     ]
    },
-   "reason": "Grid checked against the page images; rows split by page breaks merged; merged first-column cells repeated so each row stands alone; one sentence per data row from the table's own words.",
+   "reason": "Grid checked against the page images; rows split by page breaks merged; merged first-column cells repeated so each row stands alone; one sentence per data row from the table's own words. heading_rows added by script on 2026-11-20 (sub-heading rows that have no sentence).",
    "evidence": "Rows split across page breaks were merged back into one row and the '(continued)' group rows dropped: Thermal insulation (p52-53), Paper, felt and cardboard (p53-54), Textured coatings (p55-56). The separate product-names row under Profiled sheets (only column 4 filled, p55) was merged into the Profiled sheets row; split it out again if you want strict printed rows. pdf_grid had stray 'u' characters (the blue continuation arrows) in the Thermal insulation row; removed. The Paper, felt and cardboard row has an empty 'Asbestos product' cell in print; kept empty. Line-wrap hyphens fixed: pre-formed, non-asbestos, damp-proof, power-sanded. 'chemical-/ weatherresistant' printed with a line break after the slash; written as 'chemical-/weatherresistant' ('weatherresistant' is spelled as printed). Odd quote marks kept as printed: 'Pax felt’', 'Everite’', 'Wondertex’', 'Emalie, Eflex’'; the image shows a double opening quote before Newtex, written as two single quotes from the pdf text. In the Fully compressed row, 'Up to 50% chrysotile' sits next to the 'Higher asbestos content sheets' paragraph; the sentence links them based on layout only. Re-keyed 20 Nov 2026: sideways arrow glyphs ('u') no longer in the raw text; grid unchanged.",
    "by": "model check, Claude Code subagent (page images and pdfplumber grid)",
    "confidence": "high",
@@ -504,9 +515,13 @@
      "In the material assessment, a total score of 7-9 means a medium potential to release asbestos fibres.",
      "In the material assessment, a total score of 5-6 means a low potential to release asbestos fibres.",
      "In the material assessment, a total score of 4 or less means a very low potential to release asbestos fibres."
+    ],
+    "heading_rows": [
+     14,
+     15
     ]
    },
-   "reason": "Grid checked against the page images; rows split by page breaks merged; merged first-column cells repeated so each row stands alone; one sentence per data row from the table's own words.",
+   "reason": "Grid checked against the page images; rows split by page breaks merged; merged first-column cells repeated so each row stands alone; one sentence per data row from the table's own words. heading_rows added by script on 2026-11-20 (sub-heading rows that have no sentence).",
    "evidence": "The main grid uses the 3 algorithm columns. The score band table (a separate 2-column table below it) is added at the end: its own header row ['Score', 'Potential to release asbestos fibres', ''] and then 4 band rows, with the third cell left empty. 'Total' is a blank row for the summed score; it is kept as a row and has no sentence. The merged first-column cells are repeated on each row. 'semi- rigid' fixed to 'semi-rigid'. Not in the grid: a boxed line below both tables, 'Non-asbestos materials have no potential to release asbestos fibres'.",
    "by": "model check, Claude Code subagent (page images and pdfplumber grid)",
    "confidence": "high",
