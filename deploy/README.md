@@ -93,6 +93,19 @@ If the new version is not healthy after about a minute, `upgrade.sh` restores th
   ```
 - **Whole disk:** restore a daily EBS snapshot (kept 7 days) from the EC2 console.
 
+## Demo mail feed
+
+The server reads new email from its demo mail folder (`MAIL_SOURCE=eml:/data/mail`) until it has a Gmail login.
+
+```
+cd /opt/builders-lab/repo/deploy && source scripts/common.sh
+dc exec -T app python -m builders_api.admin feed history        # past emails (done 20 Nov 2026)
+dc exec -T app python -m builders_api.admin feed today          # demo morning: the new emails arrive
+```
+
+Then in Claude: "check my emails" (sync_inbox, then save_facts per email).
+After a tool is added or changed, reconnect the connector in the Claude app so it sees the new tool list.
+
 ## Customer keys and the off switch
 
 ```
