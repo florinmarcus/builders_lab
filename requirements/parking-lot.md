@@ -46,6 +46,9 @@ Started 20 Nov 2026. Status of the demo build: steps 1 (mock data plan), 2 (sche
 | S16 | API keys are long-lived; rotation only on leak, staff leaving, or once a year | ADR 0007 | OAuth (N6) gives short-lived tokens |
 | S17 | Lockdown and IP blocking are in memory, per process | ADR 0007 | Fine for one server |
 | S18 | No CI yet: tests run by hand against a local Postgres | `tests/` | Run in the pipeline (N5) |
+| S20 | Lockdown can be triggered on purpose: many bad keys in a minute pause the service for everyone (a cheap denial of service). Scanner 404s don't count | `security.py` | Put AWS WAF or CloudFront in front; lockdown only as last resort |
+| S21 | Prompt injection defence is a notice in tool results plus a server instruction; no filtering of email text | `mcp_server/server.py`, instructions v2 | Add tests with poisoned emails in evals (N9) |
+| S22 | Database user for the app still has full rights (no least-privilege role yet) | deployment | Create a role without DROP or DDL when deploying (N5) |
 | S19 | Cost figures are first-pass, partly guesses, mostly US prices | `research/hosting-costs/connector-auth-options.md` | Review in detail; check London prices |
 
 ## Open questions
@@ -55,4 +58,5 @@ Started 20 Nov 2026. Status of the demo build: steps 1 (mock data plan), 2 (sche
 | Q1 | Can a Claude app connector send a header API key and use OAuth at the same time? | ADR 0007 |
 | Q2 | Does the Claude app have hooks? None found (20 Nov 2026) | `research/hosting-costs/connector-auth-options.md` |
 | Q3 | Can a connector reach files on an iPhone? | `research/backlog.md` item 12 |
+| Q5 | Which request header names does the Claude app accept for a custom connector? We accept `Authorization: Bearer` and `X-API-Key` | ADR 0007 |
 | Q4 | Is a Claude Code scheduled task reliable enough for regular inbox syncs, or do we need Haiku on the server? | ADR 0006 |

@@ -15,9 +15,9 @@ def database_url() -> str:
     return url
 
 
-def demo_firm_slug() -> str:
-    """The demo has no login: every call acts for this one mock firm (real use needs OAuth)."""
-    return os.environ.get("DEMO_FIRM_SLUG", "oakline")
+def support_contact() -> str:
+    """Who users contact to renew access (shown in plain messages)."""
+    return os.environ.get("SUPPORT_CONTACT", "Florin")
 
 
 def rate_limit_per_minute() -> int:

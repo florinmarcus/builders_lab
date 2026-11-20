@@ -1,8 +1,7 @@
-"""Per-client rate limit for the public endpoint (token bucket, in memory)."""
+"""Token bucket rate limiter (in memory, one server; parking lot S7)."""
 
 from __future__ import annotations
 
-import json
 import threading
 import time
 
@@ -27,26 +26,3 @@ class TokenBucket:
             if len(self._state) > 10_000:  # keep memory bounded
                 self._state.clear()
             return True
-
-
-class RateLimitMiddleware:
-    """ASGI middleware. Client key: first X-Forwarded-For address (tunnel), else the peer address."""
-
-    def __init__(self, app, per_minute: int) -> None:
-        self.app = app
-        self.bucket = TokenBucket(per_minute)
-
-    async def __call__(self, scope, receive, send):
-        if scope["type"] != "http":
-            return await self.app(scope, receive, send)
-        headers = dict(scope.get("headers") or [])
-        fwd = headers.get(b"x-forwarded-for", b"").decode().split(",")[0].strip()
-        key = fwd or (scope.get("client") or ("unknown",))[0]
-        if self.bucket.allow(key):
-            return await self.app(scope, receive, send)
-        body = json.dumps(
-            {"error": {"code": "rate_limited", "message": "Too many requests. Wait a minute and try again.", "retryable": True}}
-        ).encode()
-        await send({"type": "http.response.start", "status": 429,
-                    "headers": [(b"content-type", b"application/json"), (b"retry-after", b"60")]})
-        await send({"type": "http.response.body", "body": body})

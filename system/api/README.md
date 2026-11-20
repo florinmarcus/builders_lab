@@ -38,7 +38,20 @@ python -m builders_api.mcp_server  # MCP server on http://HOST:PORT/mcp (streama
 | `get_payment_dates` | 7: payment notice deadlines |
 | `sync_inbox` | 1: fetch new email (returns "not connected yet" until step 4) |
 
-Demo has no login: every call acts for `DEMO_FIRM_SLUG`. Real use needs OAuth.
+## Security (ADR 0007)
+
+- `mcp_server/gateway.py` runs before the MCP layer: `/healthz`, kill switch, lockdown, IP block, rate limits,
+  secret path (`/mcp/<MCP_PATH_SECRET>`, anything else is 404), API key (`Authorization: Bearer` or `X-API-Key`).
+- The key decides the firm. Expiring keys add a plain `access_notice`; ended keys get a plain `access_ended` message.
+- Admin commands (on the server):
+
+```
+python -m builders_api.admin keys create --firm oakline --label "Dan, Claude app" --expires 2026-12-31
+python -m builders_api.admin keys list
+python -m builders_api.admin keys extend --prefix <prefix> --expires 2027-01-31   # renewal, same key
+python -m builders_api.admin keys revoke --prefix <prefix>
+python -m builders_api.admin kill on|off|status                                  # manual off switch
+```
 
 ## Tests
 

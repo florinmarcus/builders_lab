@@ -1,0 +1,86 @@
+"""Front door for the public endpoint (ADR 0007). Runs before the MCP layer.
+
+Order: health check, kill switch, lockdown, IP block, per-IP limit, secret path, API key, per-key limit.
+Strangers get short generic answers and never reach the MCP layer.
+"""
+
+from __future__ import annotations
+
+import json
+import os
+
+import anyio.to_thread
+
+from builders_api import security
+from builders_api.mcp_server.ratelimit import TokenBucket
+
+
+def _client_ip(scope) -> str:
+    """Peer address. Behind our own proxy (Caddy or tunnel), uvicorn's proxy_headers sets it from
+    X-Forwarded-For for trusted proxies only, so a caller cannot fake it."""
+    return (scope.get("client") or ("unknown",))[0]
+
+
+def _key_from_headers(headers: dict[bytes, bytes]) -> str | None:
+    auth = headers.get(b"authorization", b"").decode()
+    if auth.lower().startswith("bearer "):
+        return auth[7:].strip() or None
+    key = headers.get(b"x-api-key", b"").decode().strip()
+    return key or None
+
+
+async def _reply(send, status: int, code: str, message: str, extra_headers=()) -> None:
+    body = json.dumps({"error": {"code": code, "message": message}}).encode()
+    headers = [(b"content-type", b"application/json"), *extra_headers]
+    await send({"type": "http.response.start", "status": status, "headers": headers})
+    await send({"type": "http.response.body", "body": body})
+
+
+class Gateway:
+    def __init__(self, app, *, mcp_path: str, guard: security.Guard | None = None,
+                 per_ip_per_minute: int = 60, per_key_per_minute: int = 120) -> None:
+        self.app = app
+        self.mcp_path = mcp_path.rstrip("/")
+        self.guard = guard or security.Guard()
+        self.per_ip = TokenBucket(per_ip_per_minute)
+        self.per_key = TokenBucket(per_key_per_minute)
+
+    async def __call__(self, scope, receive, send):
+        if scope["type"] != "http":  # lifespan events pass through
+            return await self.app(scope, receive, send)
+        path = scope.get("path", "").rstrip("/")
+        if path == "/healthz":
+            return await _reply(send, 200, "ok", "ok")
+        if await anyio.to_thread.run_sync(security.kill_switch_on):
+            return await _reply(send, 503, "switched_off", "Service paused. Please try again later.")
+        if self.guard.locked_down():
+            return await _reply(send, 503, "paused", "Service paused. Please try again later.", [(b"retry-after", b"900")])
+        ip = _client_ip(scope)
+        if self.guard.is_blocked(ip):
+            return await _reply(send, 403, "blocked", "Forbidden.")
+        self.guard.record_request()
+        if not self.per_ip.allow(ip):
+            return await _reply(send, 429, "rate_limited", "Too many requests. Wait a minute.", [(b"retry-after", b"60")])
+        if path != self.mcp_path:
+            self.guard.record_failure(ip, count_for_lockdown=False)
+            return await _reply(send, 404, "not_found", "Not found.")
+        key = _key_from_headers(dict(scope.get("headers") or []))
+        caller = await anyio.to_thread.run_sync(security.check_key, key) if key else None
+        if caller is None:
+            self.guard.record_failure(ip)
+            return await _reply(send, 401, "unauthorised", "Missing or invalid API key.")
+        if not self.per_key.allow(caller.key_prefix):
+            return await _reply(send, 429, "rate_limited", "Too many requests. Wait a minute.", [(b"retry-after", b"60")])
+        token = security.current_caller.set(caller)
+        try:
+            return await self.app(scope, receive, send)
+        finally:
+            security.current_caller.reset(token)
+
+
+def mcp_path_from_env() -> str:
+    """The MCP path includes a long random segment, e.g. /mcp/3f9c... (set MCP_PATH_SECRET)."""
+    secret = os.environ.get("MCP_PATH_SECRET", "").strip()
+    if len(secret) < 16:
+        raise RuntimeError("MCP_PATH_SECRET must be set to a random string of at least 16 characters.")
+    return f"/mcp/{secret}"
