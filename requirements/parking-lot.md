@@ -10,7 +10,7 @@ Started 20 Nov 2026. Status of the demo build: steps 1 (mock data plan), 2 (sche
 | # | What | Why parked | Risk if forgotten |
 |---|---|---|---|
 | N1 | ~~Mock email and PDF generator~~ Done 20 Nov 2026: `system/data/mock/generate.py` | – | – |
-| N2 | Gmail loader, reset and live simulator (ADR 0005) | Needs Google login on Florin's laptop | No live "email arrives" moment |
+| N2 | Gmail loader, reset and live simulator: code done 20 Nov 2026 (`system/data/mock/gmail_demo.py`, tested against a fake Gmail). Not yet run on the real inbox | Needs Florin's Google Cloud client and login | No live "email arrives" moment |
 | N3 | Real `sync_inbox` (Gmail fetch, PDF text) | After the simulator | Tool returns "not connected yet" |
 | N4 | `save_facts` with server checks (job exists, source exists, quote appears in source) (ADR 0006) | After `sync_inbox` | Facts only from seed data |
 | N5 | ~~First AWS run~~ Done 20 Nov 2026: stack `builders-lab-prod` up, server installed itself, Let's Encrypt certificate, demo data and Florin's key loaded. Still open: turn on the GitHub deploy step (repository variables) and watch its first run | Repo variables need Florin | Pushes test but do not deploy |
@@ -61,6 +61,8 @@ Started 20 Nov 2026. Status of the demo build: steps 1 (mock data plan), 2 (sche
 | S30 | Deploy user `builders-claude` holds a long-lived access key with the deploy policy | IAM | Remove the key after setup, or move to SSO / short-lived credentials |
 | S31 | Connector path secret was shown in a screenshot in chat (20 Nov 2026); the key was not | Parameter Store | Rotate the path secret (new value, restart, update the connector URL) |
 | S32 | Every push to main deploys (we work straight on main for now) | `ci-deploy.yml` | After the demo: work on branches with pull requests (tests on the PR), deploy only on version tags |
+| S33 | Reset moves demo emails to Gmail Trash (kept 30 days), not permanent delete: permanent delete needs the full mail scope | `gmail_demo.py` | Fine for the demo |
+| S34 | Simulator polls Gmail every 10 seconds from the laptop | `gmail_demo.py` | Gmail push notifications (Pub/Sub) if it becomes a product feature |
 | S19 | Cost figures are first-pass, partly guesses, mostly US prices | `research/hosting-costs/connector-auth-options.md` | Review in detail; check London prices |
 | S28 | Postgres runs in Docker on the one server; no managed database, no read replica (raised by Florin 20 Nov 2026) | ADR 0009 | RDS, or a writer plus at least one reader, when traffic or customers need it |
 | S29 | 17 raw corpus files missing: the source now gives different bytes, so they were not restored (16 same size, legislation metadata order) | `corpus/harvest-report.md` | Decide: keep today's bytes with a note in the record, or fetch when evals need them |

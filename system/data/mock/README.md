@@ -110,3 +110,32 @@ Scenario data: `scenario.py`. Document text matches `db_seed.sql`. Output is not
 | `+council` | Hollowell District Council repairs |
 | `+mike` | Mike Turner (site lead) |
 | `+jamie` | Jamie Cole (apprentice) |
+
+## Gmail set-up (once, on your laptop)
+
+1. **Google Cloud project:** open console.cloud.google.com, create a project (e.g. `builders-lab-demo`).
+2. **Turn on the Gmail API:** APIs & Services, Library, "Gmail API", Enable.
+3. **Consent screen:** Google Auth Platform (or "OAuth consent screen"): app name `Builders Lab demo`, user type External,
+   your email as support contact. Under Audience, add your Gmail as a **test user**. Leave it in Testing.
+4. **Client:** Clients, Create client, type **Desktop app**. Download the JSON file.
+5. **Log in and load** (Git Bash, from the repo root):
+   ```
+   pip install -e ".[gmail]"
+   export BUILDER_INBOX=<your gmail> SIMULATOR_SENDERS=<your second address>
+   python system/data/mock/gmail_demo.py auth --client-secret <path to the downloaded JSON>
+   python system/data/mock/gmail_demo.py load
+   python system/data/mock/gmail_demo.py status
+   ```
+   The browser opens once; Google warns the app is unverified (it is yours, in testing): continue.
+   The login is saved in `~/.config/builders-lab/gmail-token.json`. Testing-mode logins can expire after 7 days.
+
+## On demo day
+
+```
+python system/data/mock/gmail_demo.py reset        # clean start: trash demo emails and demo drafts, reload the past
+python system/data/mock/gmail_demo.py today        # the three morning emails arrive (or: today e09)
+python system/data/mock/gmail_demo.py simulate     # leave running; send from your second address to <gmail>+council@...
+```
+
+What the tool touches: only emails labelled `oakline-demo`, drafts addressed only to `*.example.com`, and emails from
+`SIMULATOR_SENDERS` to your `+persona` addresses. Everything else in your inbox is left alone.
