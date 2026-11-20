@@ -4,7 +4,7 @@ An AI assistant for UK building firms, first for Romanian-run firms: Claude (the
 
 ## Where we are (20 Nov 2026)
 
-- **Live:** MCP server on AWS London behind API keys (`deploy/README.md`), 11 tools, mock firm "Marcus Limited" (`system/data/mock/`), ingestion of demo email, deterministic answer checks (`verify_answer`).
+- **Live:** MCP server on AWS London behind API keys (`deploy/README.md`), 12 tools, mock firm "Marcus Limited" (`system/data/mock/`), ingestion of demo email, deterministic answer checks (`verify_answer`).
 - **Built, not yet tried by users:** the Builders plugin (`plugin/`: skills, Haiku specialist agents, rules), the demo Gmail tool.
 - **Other session:** regulations corpus and search (`corpus/`, `system/rag/`, `.claude/skills/corpus-document/`).
 - **Gaps and shortcuts:** `requirements/parking-lot.md`. Read it before starting anything.

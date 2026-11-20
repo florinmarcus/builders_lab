@@ -24,7 +24,7 @@ from builders_api.config import rate_limit_per_minute, support_contact
 from builders_api.db import connection
 from builders_api.errors import AppError
 from builders_api.mcp_server.gateway import Gateway, mcp_path_from_env
-from builders_api.service import documents, inbox, jobs, payments, regulations
+from builders_api.service import documents, inbox, jobs, payments, profile, regulations
 from builders_api.service import facts as facts_service
 from builders_api.service import verify as verify_service
 from builders_api.tracing import Span, traced
@@ -136,6 +136,10 @@ def build_server() -> MCPServer:
 
     def desc(name: str) -> str:
         return versions.get("tool_description", name).text
+
+    @server.tool(description=desc("get_firm_profile"), annotations=READ_ONLY)
+    def get_firm_profile() -> dict[str, Any]:
+        return run_tool("get_firm_profile", lambda f: profile.get_firm_profile(f))
 
     @server.tool(description=desc("list_jobs"), annotations=READ_ONLY)
     def list_jobs(since_days: int = 1) -> dict[str, Any]:

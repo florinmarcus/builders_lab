@@ -116,3 +116,17 @@ def test_timeline_shows_sent_and_received(firm):
     assert t["last_sent_by_us"]["source"]["subject"] == "Flat 12 Riverside House: progress"
     assert t["job"]["days_to_target"] == 6 and any(u["kind"] == "target_completion" for u in t["upcoming"])
     assert t["events"] == sorted(t["events"], key=lambda x: (x["date"] or "", x["kind"]))
+
+
+def test_firm_profile(firm):
+    from builders_api.service import profile
+    inbox.sync_inbox(firm)
+    p = profile.get_firm_profile(firm, today=dt.date(2026, 11, 21))
+    assert p["firm"]["name"] == "Marcus Limited"
+    assert any(x["name"] == "Florin Marcus" and x["role"] == "Owner" for x in p["people"])
+    riv = next(j for j in p["jobs"] if j["ref"] == "RIV-12")
+    assert riv["days_to_target"] == 6
+    assert any(c["email"] == "voids@hollowell-council.example.com" for c in riv["contacts"])
+    assert not any(c["email"].endswith("@marcus-ltd.example.com") for j in p["jobs"] for c in j["contacts"])
+    whats = [d["what"] for d in p["due_in_next_14_days"]]
+    assert "Target completion" in whats and any("payment notice" in w for w in whats)
