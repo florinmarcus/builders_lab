@@ -80,6 +80,21 @@ def apply_floor(reranked: list, floor: float) -> tuple[list, list, list]:
     return [r[0] for r in kept], [r[1] for r in kept], [r[2] for r in kept]
 
 
+def pooled(rows: list[dict], path: Path = GOLDEN) -> dict:
+    """Recall with the pooled labels: expected sections plus sections the pool judge graded as also answering
+    (golden questions.jsonl "also_acceptable", dev only). Strict numbers stay the headline next to these."""
+    acc = {q["id"]: q.get("also_acceptable") or [] for q in map(json.loads, path.read_text(encoding="utf-8").splitlines())}         if path.exists() else {}
+    scored = [r for r in rows if r.get("expected")]
+    if not scored:
+        return {"questions": 0}
+    ext = lambda r: r["expected"] + acc.get(r["id"], [])  # noqa: E731
+    mean = lambda f: round(sum(f(r) for r in scored) / len(scored), 4)  # noqa: E731
+    return {"questions": len(scored), "with_acceptable": sum(1 for r in scored if acc.get(r["id"])),
+            "recall@50": mean(lambda r: M.recall_at(ext(r), r["candidates"], 50)),
+            "recall@5": mean(lambda r: M.recall_at(ext(r), r["top5"], 5)),
+            "mrr@5": mean(lambda r: M.reciprocal_rank(ext(r), r["top5"]))}
+
+
 def rescore(name: str, split: str, floor: float) -> dict:
     """Recompute top 5 and metrics for another relevance floor from saved rows (no new calls)."""
     rows = [json.loads(l) for l in (RESULTS / f"{name}-{split}.jsonl").read_text(encoding="utf-8").splitlines() if l.strip()]
@@ -91,7 +106,8 @@ def rescore(name: str, split: str, floor: float) -> dict:
         by_kind_empty.setdefault(r.get("kind", "?"), []).append(not r["top5"])
     return {"run": name, "floor": floor, "empty_top5": empty, "rows": len(rows),
             "empty_by_kind": {k: round(sum(v) / len(v), 3) for k, v in sorted(by_kind_empty.items())},
-            **M.summarise(rows), "in_corpus": M.summarise([r for r in rows if r.get("in_corpus")])}
+            **M.summarise(rows), "in_corpus": M.summarise([r for r in rows if r.get("in_corpus")]),
+            "pooled": pooled(rows), "pooled_in_corpus": pooled([r for r in rows if r.get("in_corpus")])}
 
 
 # E3: the plugin's regulations specialist writes the search queries (ADR 0006: the model runs in Claude, not on

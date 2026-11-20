@@ -44,3 +44,20 @@ def test_build_drops_copies_and_fails_on_unknown_ids(tmp_path, monkeypatch):
     labs.append({"id": "a-003", "expected_sections": ["car2012:regulation-99"]})
     (g / "labelled" / "asbestos.jsonl").write_text("".join(json.dumps(l) + "\n" for l in labs))
     assert any("unknown section car2012:regulation-99" in p for p in B.build(index)["problems"])
+
+
+def test_pool_judge_grade_2_becomes_also_acceptable_on_dev_only(tmp_path, monkeypatch):
+    g = tmp_path / "golden"
+    for d in ("business", "labelled", "pooled"):
+        (g / d).mkdir(parents=True)
+    ids = [f"a-{i:03d}" for i in range(40)]
+    dev = next(i for i in ids if not B.is_holdout(i))
+    hold = next(i for i in ids if B.is_holdout(i))
+    (g / "business" / "a.jsonl").write_text("".join(json.dumps({"id": i, "kind": "answerable", "question": "Q?"}) + "\n" for i in (dev, hold)))
+    (g / "labelled" / "a.jsonl").write_text("".join(json.dumps({"id": i, "expected_sections": ["s:1"]}) + "\n" for i in (dev, hold)))
+    (g / "pooled" / "judgments.jsonl").write_text("".join(json.dumps({"id": i, "section": "s:2", "grade": 2}) + "\n" for i in (dev, hold))
+                                                  + json.dumps({"id": dev, "section": "s:3", "grade": 1}) + "\n")
+    monkeypatch.setattr(B, "GOLDEN", g)
+    r = B.build({"s:1": {"text": "x"}, "s:2": {"text": "y"}, "s:3": {"text": "z"}})
+    got = {q["id"]: q["also_acceptable"] for q in r["kept"]}
+    assert got[dev] == ["s:2"] and got[hold] == []

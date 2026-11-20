@@ -79,6 +79,12 @@ def build(index: dict | None = None) -> dict:
     business = {q["id"]: q for p in sorted((GOLDEN / "business").glob("*.jsonl")) for q in read_jsonl(p)}
     labels = {l["id"]: l for p in sorted((GOLDEN / "labelled").glob("*.jsonl")) for l in read_jsonl(p)} \
         if (GOLDEN / "labelled").exists() else {}
+    pool_path = GOLDEN / "pooled" / "judgments.jsonl"
+    acceptable: dict[str, list[str]] = {}
+    if pool_path.exists():  # pooled relevance judging (pool_judge.py): grade 2 = also answers the question
+        for j in read_jsonl(pool_path):
+            if j.get("grade") == 2 and j["section"] in index:
+                acceptable.setdefault(j["id"], []).append(j["section"])
     removed_path = GOLDEN / "removed.jsonl"
     removed = {r["id"] for r in read_jsonl(removed_path)} if removed_path.exists() else set()
     problems, kept, dropped = [], [], []
@@ -95,6 +101,7 @@ def build(index: dict | None = None) -> dict:
                 problems.append(f"{qid}: unknown section {e}")
         row = {**q, "expected_sections": expected, "label_confidence": lab.get("label_confidence"),
                "label_note": lab.get("label_note"), "labelled": qid in labels,
+               "also_acceptable": sorted(set(acceptable.get(qid, [])) - set(expected)) if not is_holdout(qid) else [],
                "split": "holdout" if is_holdout(qid) else "dev"}
         run = []
         for e in expected:
