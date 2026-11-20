@@ -64,3 +64,14 @@ def test_floor_keeps_rerank_order_and_drops_low_scores():
     assert R.apply_floor(rr, 0.05) == (["a:1"], [0.9], ["c1"])
     assert R.apply_floor(rr, 0.0)[0] == ["a:1", "a:2", "a:3"]
     assert R.apply_floor([["a:1", None, "c1"]], 0.05)[0] == ["a:1"]  # no re-rank: nothing to drop
+
+
+def test_merge_interleaves_candidates_and_keeps_best_score_per_section():
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "evals"))
+    import retrieval as R
+    a = (["s:1", "s:2", "s:3"], [["s:1", 0.2, "c1"], ["s:2", 0.1, "c2"]])
+    b = (["s:4", "s:1"], [["s:4", 0.5, "c4"], ["s:1", 0.3, "c1b"]])
+    cands, rr = R.merge([a, b])
+    assert cands == ["s:1", "s:4", "s:2", "s:3"]
+    assert [x[0] for x in rr] == ["s:4", "s:1", "s:2"] and rr[1][2] == "c1b"
+    assert R.merge([a]) == (a[0], a[1])

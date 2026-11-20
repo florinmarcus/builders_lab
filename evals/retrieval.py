@@ -55,6 +55,7 @@ def config(schema: str, search) -> dict:
     c = {k: v for k, v in search.cfg().items() if k != "url"}
     c["schema"] = schema
     c["hybrid"] = os.environ.get("RAG_HYBRID", "0")
+    c["rewrite"] = os.environ.get("EVAL_REWRITE", "0")
     c["golden_sha"] = hashlib.sha256(GOLDEN.read_bytes()).hexdigest()[:12] if GOLDEN.exists() else None
     return c
 
@@ -91,18 +92,71 @@ def rescore(name: str, split: str, floor: float) -> dict:
             **M.summarise(rows), "in_corpus": M.summarise([r for r in rows if r.get("in_corpus")])}
 
 
-def run_one(q: dict, search, url: str, top_k: int, rerank: bool, min_score: float) -> dict:
-    t0 = time.time()
-    rows = search.candidates(q["question"], url=url, n=top_k)
+# E3: the plugin's regulations specialist writes the search queries (ADR 0006: the model runs in Claude, not on
+# our server). Proposed instruction for plugin/agents/regulations.md, simulated with the eval answer model.
+REWRITE_PROMPT = """You are the regulations specialist of a UK builders' assistant. Before searching the regulations
+corpus (UK building law and HSE / GOV.UK guidance), write exactly two search queries for this builder's question:
+1. the question restated in plain, complete words, keeping its facts (who, what work, where);
+2. the same need in the words the law and official guidance use (for example "licensable work with asbestos",
+   "notifiable non-licensed work", "duty to manage", "competent person scheme", "construction phase plan").
+Do not answer the question. Reply with a JSON list of two strings only.
+
+Question: """
+REWRITE_MODEL = os.environ.get("EVAL_REWRITE_MODEL", "eu.anthropic.claude-haiku-4-5-20251001-v1:0")
+_rw_client = None
+
+
+def rewrite(question: str) -> tuple[list[str], int, int]:
+    global _rw_client
+    import anthropic
+
+    _rw_client = _rw_client or anthropic.AnthropicBedrock(aws_region="eu-west-2")
+    r = _rw_client.messages.create(model=REWRITE_MODEL, max_tokens=400,
+                                   messages=[{"role": "user", "content": REWRITE_PROMPT + question}])
+    text = "".join(b.text for b in r.content if b.type == "text")
+    try:
+        qs = [x for x in json.loads(text[text.index("["):text.rindex("]") + 1]) if isinstance(x, str) and x.strip()][:2]
+    except ValueError:
+        qs = []
+    return (qs or [question]), r.usage.input_tokens, r.usage.output_tokens
+
+
+def search_one(query: str, search, url: str, top_k: int, rerank: bool) -> tuple[list[str], list]:
+    rows = search.candidates(query, url=url, n=top_k)
     cands = [M.section_key(r["source_id"], r["section_id"]) for r in rows]
     reranked = [[cands[i], None, rows[i]["id"]] for i in range(min(5, len(rows)))]
     if rerank and rows:
-        order = search.rerank(q["question"], [r["embed_text"] for r in rows], 5)
+        order = search.rerank(query, [r["embed_text"] for r in rows], 5)
         reranked = [[cands[i], round(s, 6), rows[i]["id"]] for i, s in order]
+    return cands, reranked
+
+
+def merge(results: list[tuple[list[str], list]]) -> tuple[list[str], list]:
+    """Several searches: candidates interleaved (first, then second ...), re-ranked passages by score, one per section."""
+    cands, seen = [], set()
+    for i in range(max(len(c) for c, _ in results)):
+        for c, _ in results:
+            if i < len(c) and c[i] not in seen:
+                seen.add(c[i])
+                cands.append(c[i])
+    best: dict[str, list] = {}
+    for _, rr in results:
+        for x in rr:
+            if x[0] not in best or (x[1] or 0) > (best[x[0]][1] or 0):
+                best[x[0]] = x
+    return cands, sorted(best.values(), key=lambda x: -(x[1] or 0))[:5]
+
+
+def run_one(q: dict, search, url: str, top_k: int, rerank: bool, min_score: float) -> dict:
+    t0 = time.time()
+    queries, rw_in, rw_out = ([q["question"]], 0, 0)
+    if os.environ.get("EVAL_REWRITE") == "1":
+        queries, rw_in, rw_out = rewrite(q["question"])
+    cands, reranked = merge([search_one(x, search, url, top_k, rerank) for x in queries])
     top, scores, chunks = apply_floor(reranked, min_score)
     return {"id": q["id"], "role": q.get("role"), "kind": q.get("kind"), "multi_rule": q.get("multi_rule", False),
             "question": q["question"], "expected": q.get("expected_sections", []), "candidates": cands,
-            "reranked": reranked, "top5": top, "top5_chunks": chunks, "scores": scores, "latency_ms": int((time.time() - t0) * 1000)}
+            "queries": queries, "rewrite_tokens": [rw_in, rw_out], "reranked": reranked, "top5": top, "top5_chunks": chunks, "scores": scores, "latency_ms": int((time.time() - t0) * 1000)}
 
 
 def log_cost(run: str, n_questions: int, chars: int, reranks: int) -> float:
@@ -132,7 +186,7 @@ def run(name: str, schema: str, split: str, pace: float, limit: int | None) -> d
     done = {}
     if out_path.exists():  # resume a stopped run
         done = {r["id"]: r for r in (json.loads(l) for l in out_path.read_text(encoding="utf-8").splitlines() if l.strip())}
-    rows, chars, reranks = [], 0, 0
+    rows, chars, reranks, rw_tokens = [], 0, 0, [0, 0]
     with open(out_path, "a", encoding="utf-8") as f:
         for i, q in enumerate(qs, 1):
             if q["id"] in done:
@@ -150,14 +204,23 @@ def run(name: str, schema: str, split: str, pace: float, limit: int | None) -> d
                     print(f"  retry {q['id']}: {type(e).__name__}", flush=True)
             r["in_corpus"] = in_corpus(r["expected"], loaded)
             rows.append(r)
-            chars += len(q["question"])
-            reranks += 1 if cfg["rerank"] else 0
+            chars += sum(len(x) for x in r["queries"])
+            reranks += len(r["queries"]) if cfg["rerank"] else 0
+            rw_tokens[0] += r["rewrite_tokens"][0]
+            rw_tokens[1] += r["rewrite_tokens"][1]
             f.write(json.dumps(r, ensure_ascii=False) + "\n")
             f.flush()
             if i % 25 == 0:
                 print(f"  {i}/{len(qs)}", flush=True)
             time.sleep(pace)
     cost = log_cost(f"{name}-{split}", len(qs), chars, reranks)
+    if rw_tokens[0]:
+        rw_cost = rw_tokens[0] / 1e6 * 1.10 + rw_tokens[1] / 1e6 * 5.50  # Haiku 4.5 estimate, verify
+        cost += rw_cost
+        with open(RESULTS / "cost.jsonl", "a", encoding="utf-8") as f:
+            f.write(json.dumps({"time": datetime.datetime.now(datetime.UTC).replace(tzinfo=None).isoformat(timespec="seconds") + "Z",
+                                "run": f"{name}-{split}", "model": REWRITE_MODEL, "unit": "tokens", "in": rw_tokens[0],
+                                "out": rw_tokens[1], "cost_usd": round(rw_cost, 4), "price_note": "estimate, verify"}) + "\n")
     summary = {"run": name, "split": split, "time": datetime.datetime.now(datetime.UTC).replace(tzinfo=None).isoformat(timespec="seconds") + "Z",
                "config": cfg, "cost_usd_this_call": round(cost, 4), **M.summarise(rows),
                "in_corpus": M.summarise([r for r in rows if r.get("in_corpus")])}

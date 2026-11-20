@@ -1,0 +1,65 @@
+{
+ "run": "E1-baseline",
+ "split": "dev",
+ "time": "2026-11-20T22:09:59Z",
+ "config": {
+  "embed_region": "eu-west-2",
+  "embed_model": "amazon.titan-embed-text-v2:0",
+  "rerank": true,
+  "rerank_region": "eu-central-1",
+  "rerank_model": "amazon.rerank-v1:0",
+  "top_k": 50,
+  "min_score": 0.05,
+  "schema": "corpus_next",
+  "hybrid": "0",
+  "codes_weight": 2.0,
+  "golden_sha": "a159a9cc7843"
+ },
+ "cost_usd_this_call": 0.3429,
+ "questions": 273,
+ "recall@50": 0.7766,
+ "recall@5": 0.3223,
+ "recall@5_before_rerank": 0.5531,
+ "mrr@5": 0.2612,
+ "ndcg@5": 0.1754,
+ "all@5_multi": 0.0324,
+ "recall@5_by_kind": {
+  "answerable": 0.3136,
+  "negative": 0.4211,
+  "underspecified": 0.2
+ },
+ "recall@5_by_role": {
+  "asbestos": 0.3488,
+  "building-control": 0.1837,
+  "fire-safety": 0.5349,
+  "housing-repairs": 0.5682,
+  "money": 0.2885,
+  "site-safety": 0.0238
+ },
+ "latency_p50_ms": 1203,
+ "latency_p95_ms": 1610,
+ "in_corpus": {
+  "questions": 240,
+  "recall@50": 0.8125,
+  "recall@5": 0.3583,
+  "recall@5_before_rerank": 0.5792,
+  "mrr@5": 0.293,
+  "ndcg@5": 0.1949,
+  "all@5_multi": 0.0374,
+  "recall@5_by_kind": {
+   "answerable": 0.3523,
+   "negative": 0.4412,
+   "underspecified": 0.2308
+  },
+  "recall@5_by_role": {
+   "asbestos": 0.3488,
+   "building-control": 0.2258,
+   "fire-safety": 0.5349,
+   "housing-repairs": 0.5814,
+   "money": 0.2885,
+   "site-safety": 0.0357
+  },
+  "latency_p50_ms": 1210,
+  "latency_p95_ms": 1631
+ }
+}
