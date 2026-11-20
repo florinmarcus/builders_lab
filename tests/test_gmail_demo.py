@@ -71,11 +71,11 @@ class FakeGmail:
         self.labels_.append(lab)
         return Req(lambda: lab)
 
-    def import_(self, userId, body, media_body, **kw):
+    def import_(self, userId, body, media_body=None, **kw):
         def run():
             self.n += 1
             mid = f"m{self.n}"
-            self.msgs[mid] = {"raw": media_body.getbytes(0, media_body.size()), "labels": body["labelIds"], "trashed": False}
+            self.msgs[mid] = {"raw": base64.urlsafe_b64decode(body["raw"]), "labels": body["labelIds"], "trashed": False}
             return {"id": mid}
         return Req(run)
 

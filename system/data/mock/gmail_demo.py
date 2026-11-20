@@ -111,12 +111,11 @@ def _search(svc, q: str) -> list[str]:
 
 
 def import_raw(svc, raw: bytes, labels: list[str]) -> str:
-    from googleapiclient.http import MediaIoBaseUpload
-
-    media = MediaIoBaseUpload(io.BytesIO(raw), mimetype="message/rfc822", resumable=False)
+    """Import one RFC 822 message. Sent as base64url in the body (no multipart upload), which also works
+    on older Pythons where the upload path fails on non-ASCII text such as the £ sign."""
+    body = {"labelIds": labels, "raw": base64.urlsafe_b64encode(raw).decode("ascii")}
     resp = svc.users().messages().import_(
-        userId="me", body={"labelIds": labels}, media_body=media,
-        internalDateSource="dateHeader", neverMarkSpam=True, processForCalendar=False,
+        userId="me", body=body, internalDateSource="dateHeader", neverMarkSpam=True, processForCalendar=False,
     ).execute()
     return resp["id"]
 
