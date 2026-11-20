@@ -47,13 +47,13 @@ BULLET_RE = re.compile(r"^[■●•▪]+\s*")
 # ---------------------------------------------------------------- reading the PDF
 
 def _words(chars: list[dict]) -> list[dict]:
-    words, cur, x0 = [], "", None
+    words, cur, x0, x1 = [], "", None, None
     prev = None
     for c in chars:
         gap = prev is not None and c["x0"] - prev["x1"] > 1.5  # some PDFs have no space characters, only gaps
         if c["text"].isspace() or gap:
             if cur:
-                words.append({"x0": round(x0, 1), "text": cur})
+                words.append({"x0": round(x0, 1), "x1": round(x1, 1), "text": cur})
             cur, x0 = "", None
             if c["text"].isspace():
                 prev = c
@@ -61,10 +61,23 @@ def _words(chars: list[dict]) -> list[dict]:
         if not cur:
             x0 = c["x0"]
         cur += c["text"]
+        x1 = c["x1"]
         prev = c
     if cur:
-        words.append({"x0": round(x0, 1), "text": cur})
+        words.append({"x0": round(x0, 1), "x1": round(x1, 1), "text": cur})
     return words
+
+
+def _until_gap(words: list[dict], gap: float = 25.0) -> list[dict]:
+    """Words up to the first wide gap: text beside a caption on the same line is not part of it."""
+    out = words[:1]
+    for w in words[1:]:
+        prev = out[-1]
+        end = prev.get("x1", prev["x0"] + 5 * len(prev["text"]))
+        if w["x0"] - end > gap:
+            break
+        out.append(w)
+    return out
 
 
 def _colour(c):
@@ -231,19 +244,39 @@ class Builder:
         """For each caption line, the lines above it up to the first body line, heading or caption:
         the figure's labels or the table's rows (captions here sit below their figure or table)."""
         areas: dict[int, list[int]] = {}
+        self.area_tops: dict[int, float] = {}
+        # Second lines of captions: just below a caption line, same size (the font may differ: Light),
+        # starting under one of the captions on that line (not text beside them, like a note box).
+        cont: set[int] = set()
+        for k, l in enumerate(self.lines):
+            if not self.is_caption(l):
+                continue
+            words = l.get("words") or []
+            starts = [w["x0"] for w in words if w["text"] in ("Figure", "Table")] or [l["x0"]]
+            j, prev = k + 1, l
+            while j < len(self.lines) and self.lines[j]["page"] == l["page"] and \
+                    0 < self.lines[j]["top"] - prev["top"] < 15 and self.lines[j]["size"] == l["size"] and \
+                    self.lines[j]["x0"] <= max(starts) + 5 and not CAPTION_RE.match(self.lines[j]["text"]):
+                cont.add(j)
+                prev = self.lines[j]
+                j += 1
+        self.caption_continuations = cont
         for k, l in enumerate(self.lines):
             if not self.is_caption(l):
                 continue
             got = []
             j = k - 1
+            stop_bottom = 72.0  # below the page header if nothing stops the walk
             while j >= 0 and self.lines[j]["page"] == l["page"]:
                 x = self.lines[j]
                 if self.is_body_line(x) or self.is_caption(x) or self.is_chapter(x) or self.is_heading(x) \
-                        or (self.rect_of(x) and not self.is_small(x)):
+                        or j in cont or (self.rect_of(x) and not self.is_small(x)):
+                    stop_bottom = x["top"] + x["size"] + 2
                     break
                 got.append(j)
                 j -= 1
             areas[k] = sorted(got)
+            self.area_tops[k] = stop_bottom
         return areas
 
     def is_chapter(self, l) -> bool:
@@ -330,7 +363,8 @@ class Builder:
                 area_lines = [self.lines[j] for j in areas.get(k_line, [])]
                 area = [x["text"] for x in area_lines]
                 for c in prev_caption_line:
-                    self.span(c, l["page"], area_lines[0]["top"] if area_lines else l["top"], l["top"] + l["size"] + 2)
+                    self.span(c, l["page"], area_lines[0]["top"] if area_lines else self.area_tops.get(k_line, l["top"]),
+                              l["top"] + l["size"] + 2)
                 if area and prev_caption_line:
                     first = prev_caption_line[0]
                     if first["type"] == "figure":
@@ -339,8 +373,7 @@ class Builder:
                         first["text"] = "\n".join(x for x in [first["text"], *area] if x)
                 prev_caption_top = l["top"]
                 continue
-            if prev_caption_line and not self.is_small(l) and l["size"] < self.body_size and \
-                    l["top"] - prev_caption_top < 15 and not CAPTION_RE.match(l["text"]):
+            if prev_caption_line and k_line in self.caption_continuations:
                 self.continue_captions(prev_caption_line, l)
                 prev_caption_top = l["top"]
                 continue
@@ -452,7 +485,7 @@ class Builder:
         caps = []
         for a, k in enumerate(starts):
             end = starts[a + 1] if a + 1 < len(starts) else len(words)
-            seg = words[k:end]
+            seg = _until_gap(words[k:end])
             caps.append({"kind": seg[0]["text"].lower(), "number": seg[1]["text"],
                          "title": " ".join(w["text"] for w in seg[2:]).strip(),
                          "x0": seg[0]["x0"], "x1": words[end]["x0"] if end < len(words) else 10_000})
@@ -466,6 +499,7 @@ class Builder:
             owner["title"] = f"{owner['title']} {w['text']}".strip()
         for c in caps:
             c["heading_path"][-1] = f"{c['type'].capitalize()} {c['number']} {c['title']}"
+            self.span(c, l["page"], l["top"], l["top"] + l["size"] + 2)
 
     def place_small(self, small: list[dict], captions: list[dict]) -> None:
         """Group small-print lines into blocks; a block just above (or below) a caption belongs to that
@@ -529,8 +563,8 @@ class Builder:
             cap = s["caption_box"]
             if s.get("image_bbox"):
                 im = s["image_bbox"]
-                s["area"] = {"page": im["page"], "top": im["top"], "bottom": max(im["bottom"], cap["top"] + 12),
-                             "x0": im["x0"], "x1": im["x1"]}
+                # The photo only: its caption is kept as text.
+                s["area"] = {"page": im["page"], "top": im["top"], "bottom": im["bottom"], "x0": im["x0"], "x1": im["x1"]}
             else:
                 top, bottom = s.get("spans", {}).get(str(cap["page"]), (cap["top"] - 200, cap["top"] + 12))
                 s["area"] = {"page": cap["page"], "top": max(0.0, top - 6), "bottom": bottom,
@@ -560,11 +594,11 @@ class Builder:
     def place_images(self, captions: list[dict]) -> None:
         for im in self.images:
             below = [c for c in captions if c["type"] == "figure" and c["caption_box"]["page"] == im["page"]
-                     and 0 <= c["caption_box"]["top"] - im["bottom"] <= 40
+                     and -10 <= c["caption_box"]["top"] - im["bottom"] <= 40
                      and c["caption_box"]["x0"] <= im["x1"] and c["caption_box"]["x0"] >= im["x0"] - 10]
             if not below:
                 below = [c for c in captions if c["type"] == "figure" and c["caption_box"]["page"] == im["page"]
-                         and 0 <= c["caption_box"]["top"] - im["bottom"] <= 40]
+                         and -10 <= c["caption_box"]["top"] - im["bottom"] <= 40]
             if below:
                 c = min(below, key=lambda c: abs(c["caption_box"]["x0"] - im["x0"]))
                 if not c.get("image_bbox"):

@@ -6,6 +6,7 @@ from pathlib import Path
 
 import pytest
 
+from system.rag.fixes import load_fixes
 from system.rag.parse_pdf import build_tree, read_pdf
 
 ROOT = Path(__file__).parent.parent
@@ -239,6 +240,24 @@ def test_saved_table_fix_replaces_the_grid_and_adds_row_sentences():
     assert not [c for c in fixed["checks"] if c["section_id"] == "table-1"]
 
 
+def test_caption_second_lines_stay_with_their_caption():
+    d = doc()
+    words = [{"x0": 180.0, "x1": 186.0, "text": "passageway"}, {"x0": 360.0, "x1": 366.0, "text": "bend"}]
+    d["lines"].append(ln(4, 312, "passageway bend", 9.0, "HelveticaNeue-Light", 180, words))
+    tree = build_tree(d, META)
+    assert sec(tree, "figure-2")["title"] == "Lagged pipe passageway"
+    assert sec(tree, "figure-3")["title"] == "AIB panel bend"
+
+
+def test_text_beside_a_caption_on_the_same_line_is_cut_off():
+    d = doc()
+    words = [{"x0": 54.0, "x1": 80.0, "text": "Figure"}, {"x0": 83.0, "x1": 90.0, "text": "9"},
+             {"x0": 93.0, "x1": 130.0, "text": "Locations"}, {"x0": 340.0, "x1": 400.0, "text": "Note:"},
+             {"x0": 403.0, "x1": 440.0, "text": "survey"}]
+    d["lines"].append(ln(4, 700, "Figure 9 Locations Note: survey", 9.0, "HelveticaNeue", 54, words))
+    assert sec(build_tree(d, META), "figure-9")["title"] == "Locations"
+
+
 def test_saved_figure_description():
     tree = build_tree(doc_with_grids(), META)
     key = next(c["key"] for c in tree["checks"] if c["section_id"] == "figure-2")
@@ -262,7 +281,17 @@ def _record(source_id):
 def hsg264():
     pytest.importorskip("pdfplumber")
     r = _record("hse-hsg264")
-    return build_tree(read_pdf(ROOT / r["raw_path"]), {**r, "title": "HSG264 Asbestos: The survey guide"})
+    return build_tree(read_pdf(ROOT / r["raw_path"]), {**r, "title": "HSG264 Asbestos: The survey guide"},
+                      fixes=load_fixes("hse-hsg264"))
+
+
+def test_real_all_checks_settled_by_saved_fixes(hsg264):
+    assert hsg264["checks"] == []
+    S = {s["id"]: s for s in hsg264["sections"]}
+    assert all(S[f"figure-{n}"]["description_source"] == "model" for n in range(1, 53))
+    assert all(s["grid_source"] == "model" and s["row_sentences"] for s in S.values() if s["type"] == "table")
+    assert S["figure-8"]["title"] == "Sprayed coating on building passageway"
+    assert S["figure-52"]["title"] == "Typical locations for the most common asbestos material"
 
 
 def test_real_paragraph_numbering(hsg264):
@@ -288,8 +317,9 @@ def test_real_table_grids(hsg264):
     assert len(S["table-1"]["grid"][0]) == 11
     a4 = S["appendix-4-table-1"]["grid"]
     assert any(r and r[0].startswith("Product type") for r in a4)
-    a2 = S["appendix-2-table-1"]["grid"]
-    assert sum(1 for r in a2 if r and r[0] == "Asbestos product") == 1  # header kept once across 5 pages
+    a2 = S["appendix-2-table-1"]
+    assert a2["columns"][0] == "Asbestos product"
+    assert not [r for r in a2["grid"] if r and r[0] == "Asbestos product"]  # header not repeated across 5 pages
 
 
 def test_real_text_is_clean(hsg264):

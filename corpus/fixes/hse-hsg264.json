@@ -1,0 +1,1088 @@
+{
+ "source_id": "hse-hsg264",
+ "about": "Saved model fixes for the HSG264 PDF parser (system/rag/parse_pdf.py, ADR 0010): corrected table grids with one sentence per row, and figure descriptions. Keys are content fingerprints (system/rag/fixes.py).",
+ "fixes": [
+  {
+   "key": "9c43dd128a4dc694",
+   "kind": "table",
+   "target": "table-1: Summary of survey results and format for asbestos register",
+   "value": {
+    "columns": [
+     "Location",
+     "Product type",
+     "Extent",
+     "Accessibility",
+     "Condition",
+     "Surface treatment",
+     "Asbestos type",
+     "Sample no",
+     "Sampled/ presumed/ strongly presumed",
+     "Material assessment score and action",
+     "Priority score Action"
+    ],
+    "rows": [
+     [
+      "Store room 2, BC408 ceiling",
+      "AIB",
+      "Whole ceiling 120 m²",
+      "Medium",
+      "Good",
+      "Painted one face only",
+      "Amosite",
+      "1",
+      "Sampled 4 samples",
+      "5",
+      "12"
+     ],
+     [
+      "Store room 2, BC408 fire door",
+      "Asbestos board on door carcass (AIB)",
+      "21 m²",
+      "Medium",
+      "Good",
+      "Encapsulated by wood in door",
+      "Amosite",
+      "2",
+      "Sampled 1 sample",
+      "5",
+      "12"
+     ],
+     [
+      "Meeting room 2, BC412, ceiling",
+      "Asbestos ceiling tiles (AIB)",
+      "5 m²",
+      "Medium",
+      "Good",
+      "Painted one face only",
+      "Amosite",
+      "3",
+      "Sampled 1 sample",
+      "5",
+      "13"
+     ],
+     [
+      "Canteen, BC410, lino on floor",
+      "Cushion floor (paper)",
+      "5 m²",
+      "Easy",
+      "Good- damage to edge",
+      "Covered by vinyl",
+      "Chrysotile",
+      "4",
+      "Sampled 1 sample",
+      "4",
+      "11"
+     ],
+     [
+      "Corridor, BC411, electrical switch box",
+      "Woven cloth",
+      "Possibly 4 items",
+      "Medium",
+      "Medium",
+      "Unsealed",
+      "Chrysotile",
+      "5",
+      "Strongly presumed",
+      "8",
+      "14 remove during next campaign"
+     ],
+     [
+      "Plant room 2, BC416, lift motor",
+      "Brake shoes",
+      "2 items",
+      "Difficult",
+      "Medium",
+      "Unsealed",
+      "Chrysotile",
+      "6",
+      "Strongly presumed",
+      "4",
+      "10 ‘H’ Vac dust"
+     ],
+     [
+      "Plant room 2, BC416, pipe lagging",
+      "Pipe insulation",
+      "24 linear metres",
+      "Easy",
+      "Good",
+      "Sealed and labelled",
+      "Crocidolite Amosite Chrysotile",
+      "7",
+      "Sampled 6 samples",
+      "8",
+      "14 remove during next campaign"
+     ],
+     [
+      "Plant room 2, BC416, wall panels",
+      "Asbestos panels (AIB)",
+      "43 m²",
+      "Easy",
+      "Good",
+      "1 face sealed and labelled",
+      "Chrysotile",
+      "8",
+      "Sampled 4 samples",
+      "5",
+      "14 monitor weekly"
+     ]
+    ],
+    "sentences": [
+     "In the example asbestos register, the store room 2, BC408 ceiling has AIB over the whole ceiling (120 m²), medium accessibility, good condition, painted one face only, amosite, sample no 1, sampled with 4 samples, a material assessment score of 5 and a priority score of 12.",
+     "In the example asbestos register, the store room 2, BC408 fire door has asbestos board on the door carcass (AIB), 21 m², medium accessibility, good condition, encapsulated by wood in the door, amosite, sample no 2, sampled with 1 sample, a material assessment score of 5 and a priority score of 12.",
+     "In the example asbestos register, the meeting room 2, BC412 ceiling has asbestos ceiling tiles (AIB), 5 m², medium accessibility, good condition, painted one face only, amosite, sample no 3, sampled with 1 sample, a material assessment score of 5 and a priority score of 13.",
+     "In the example asbestos register, the lino on the floor in the canteen, BC410 is cushion floor (paper), 5 m², easy accessibility, good condition with damage to the edge, covered by vinyl, chrysotile, sample no 4, sampled with 1 sample, a material assessment score of 4 and a priority score of 11.",
+     "In the example asbestos register, the electrical switch box in corridor BC411 has woven cloth, possibly 4 items, medium accessibility, medium condition, unsealed, chrysotile, sample no 5, strongly presumed, a material assessment score of 8 and a priority score of 14 with the action remove during next campaign.",
+     "In the example asbestos register, the lift motor in plant room 2, BC416 has brake shoes, 2 items, difficult accessibility, medium condition, unsealed, chrysotile, sample no 6, strongly presumed, a material assessment score of 4 and a priority score of 10 with the action ‘H’ Vac dust.",
+     "In the example asbestos register, the pipe lagging in plant room 2, BC416 is pipe insulation, 24 linear metres, easy accessibility, good condition, sealed and labelled, crocidolite, amosite and chrysotile, sample no 7, sampled with 6 samples, a material assessment score of 8 and a priority score of 14 with the action remove during next campaign.",
+     "In the example asbestos register, the wall panels in plant room 2, BC416 are asbestos panels (AIB), 43 m², easy accessibility, good condition, 1 face sealed and labelled, chrysotile, sample no 8, sampled with 4 samples, a material assessment score of 5 and a priority score of 14 with the action monitor weekly."
+    ]
+   },
+   "reason": "Grid checked against the page images; rows split by page breaks merged; merged first-column cells repeated so each row stands alone; one sentence per data row from the table's own words.",
+   "evidence": "The header 'Priority score' and the word 'Action' are printed on separate lines in one header cell; joined as 'Priority score Action'. The last column holds the priority score plus any action in one cell, kept as printed. Areas use m² (superscript 2 in the image; pdf text shows 'm2'). 'Encapsul- ated' fixed to 'Encapsulated'. Not part of the grid: blank form fields 'Address:' and 'Date:' above the table, and the bold line under it 'Material scores above 10 have high potential to release fibres'.",
+   "by": "model check, Claude Code subagent (page images and pdfplumber grid)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "0ddad938572a961e",
+   "kind": "table",
+   "target": "appendix-2-table-1: ACMs in buildings listed in order of ease of fibre release",
+   "value": {
+    "columns": [
+     "Asbestos product",
+     "Location/use",
+     "Asbestos and type/date last used",
+     "Ease of fibre release and product names"
+    ],
+    "rows": [
+     [
+      "Loose insulation",
+      "",
+      "",
+      ""
+     ],
+     [
+      "Bulk loose fill, bulk fibre-filled mattresses, quilts and blankets. Also ‘jiffy bag’ type products used for sound insulation.",
+      "Bulk loose fill insulation is now rarely found but may be encountered unexpectedly, eg DIY loft insulation and fire-stop packing around cables between floors. Mattresses and quilts used for thermal insulation of industrial boilers were filled with loose asbestos. Paper bags/sacks were also loose-filled and used for sound insulation under floors and in walls.",
+      "Usually pure asbestos except for lining/bag. Mattresses and quilts usually contain crocidolite or chrysotile. Acoustic insulation may contain crocidolite or chrysotile.",
+      "Loose asbestos may readily become airborne if disturbed. If dry, these materials can give rise to high exposures. Covers may deteriorate or be easily damaged by repair work or accidental contact."
+     ],
+     [
+      "Sprayed coatings",
+      "",
+      "",
+      ""
+     ],
+     [
+      "Dry applied, wet applied and trowelled finish.",
+      "Thermal and anti-condensation insulation on underside of roofs and sometimes sides of industrial buildings and warehouses. Acoustic insulation in theatres, halls etc. Fire protection on steel and reinforced concrete beams/columns and on underside of floors. Overspray of target areas is common.",
+      "Sprayed coatings usually contain 55%–85% asbestos with a Portland cement binder. Crocidolite was the major type until 1962. Mixture of types including crocidolite until mid–1971. Asbestos spray applications were used up to 1974.",
+      "The surface hardness, texture and ease of fibre release will vary significantly depending on a number of factors. Sprays have a high potential for fibre release if unsealed, particularly if knocked or the surface is abraded or delaminates from the underlying surface. Dust released may then accumulate on false ceilings, wiring and ventilation systems. ‘Limpet’ (also used for non-asbestos sprays)."
+     ],
+     [
+      "Thermal insulation",
+      "",
+      "",
+      ""
+     ],
+     [
+      "Hand-applied thermal lagging, pipe and boiler lagging, pre-formed pipe sections, slabs, blocks. Also tape, rope, corrugated paper, quilts, felts, and blankets.",
+      "Thermal insulation of pipes, boilers, pressure vessels, calorifiers etc.",
+      "All types of asbestos have been used. Crocidolite used in lagging until 1970. Amosite was phased out by the manufacturers during the 1970s. Content varies 6-85%. Various ad hoc mixtures were hand-applied on joints and bends and pipe runs. Pre-formed sections were widely used, eg ‘85% magnesia’ contained 15% amosite, ‘Caposil’ calcium silicate slabs and blocks contained 8–30% amosite while ‘Caposite’ sections contained ~ 85% amosite. Blankets, felts, papers, tapes and ropes were usually ~100% chrysotile.",
+      "The ease of fibre release often depends on the type of lagging used and the surface treatment. Often it will be encapsulated with calico and painted (eg PVA, EVA, latex, bitumen or proprietary polymer emulsions or PVC, neoprene solutions), eg ‘Decadex’ finish is a proprietary polymer emulsion. A harder chemical-/weatherresistant finish is known as ‘Bulldog’."
+     ],
+     [
+      "Asbestos boards",
+      "",
+      "",
+      ""
+     ],
+     [
+      "‘Millboard’.",
+      "‘Millboard’ was used for general heat insulation and fire protection. Also used for insulation of electrical equipment and plant.",
+      "Crocidolite was used in some millboard manufacture between 1896 and 1965; usually chrysotile. Millboards may contain 37–97% asbestos, with a matrix of clay and starch.",
+      "Asbestos ‘Millboard’ has a high asbestos content and low density so is quite easy to break and the surface is subject to abrasion and wear."
+     ],
+     [
+      "Insulating board.",
+      "Used for fire protection, thermal and acoustic insulation, resistance to moisture movement and general building board. Found in service ducts, firebreaks, infill panels, partitions and ceilings (including ceiling tiles), roof underlay, wall linings, soffits, external canopies and porch linings.",
+      "Crocidolite used for some boards up to 1965, amosite up to 1980, when manufacture ceased. Usually 15–25% amosite or a mixture of amosite and chrysotile in calcium silicate. Older boards and some marine boards contain up to 40% asbestos.",
+      "AIB can be readily broken, giving significant fibre release. Also significant surface release is possible by abrasion, but surface is usually painted or plastered. Sawing and drilling will also give significant releases. ‘Asbestolux’, ‘Turnasbestos’, ‘LDR’, ‘asbestos wallboard’, ‘insulation board’. Marine boards known as ‘Marinite’ or ‘Shipboard’."
+     ],
+     [
+      "Insulating board in cores and linings of composite products.",
+      "Found in fire doors, cladding infill panels, domestic boiler casings, partition and ceiling panels, oven linings and suspended floor systems. Used as thermal insulation and sometimes as acoustic attenuators.",
+      "Crocidolite used for some boards up to 1965, amosite up to 1980, when manufacture ceased. 16–40% amosite or a mixture of amosite and chrysotile.",
+      "Can be broken by impact; significant surface release possible by abrasion, but usually painted or plastered. Sawing and drilling will also give significant releases. ‘Asbestolux’. Caposil."
+     ],
+     [
+      "Paper, felt and cardboard",
+      "",
+      "",
+      ""
+     ],
+     [
+      "",
+      "Used for electrical/heat insulation of electrical equipment. Also used in some air-conditioning systems as insulation and acoustic lining. Asbestos paper has also been used to reinforce bitumen and other products and as a facing/lining to flooring products, combustible boards, flame-resistant laminate. Corrugated cardboard has been used for duct and pipe insulation.",
+      "Asbestos paper can contain ~100% chrysotile asbestos but may be incorporated as a lining, facing or reinforcement for other products, eg roofing felt and damp-proof courses, steel composite wall cladding and roofing (see asbestos bitumen products below), vinyl flooring. Asbestos paper is also sometimes found under MMMF insulation on steam pipes.",
+      "Paper materials, if not encapsulated/combined within vinyl, bitumen, or bonded in some way, can easily be damaged and release fibres when subject to abrasion or wear (eg worn flooring surface with paper backing). Asbestos paper, asbestos felt, ‘Novilon’ flooring, Durasteel laminates, vinyl asbestos tile, roofing felt and damp-proof course etc. Pax felt’. ‘Viceroy’ (foil-coated paper). ‘Serval’."
+     ],
+     [
+      "Textiles",
+      "",
+      "",
+      ""
+     ],
+     [
+      "Ropes and yarns.",
+      "Used as lagging on pipes (see above), jointing and packing materials and as heat/fire-resistant boiler, oven and flue sealing. Caulking in brickwork. Plaited asbestos tubing in electric cable.",
+      "Crocidolite and chrysotile were widely used due to length and flexibility of fibres. Other types of asbestos have occasionally been used in the past. Chrysotile alone since at least 1970. Asbestos content approaching 100% unless combined with other fibres.",
+      "Weaving reduces fibre release from products, but abrading or cutting the materials will release fibres, likely to degrade if exposed, becoming more friable with age. If used with caulking, fibres will be encapsulated and less likely to be released."
+     ],
+     [
+      "Cloth.",
+      "Thermal insulation and lagging (see above), including fire-resisting blankets, mattresses, protective curtains, gloves aprons and overalls. Curtains, gloves etc were sometimes aluminised to reflect heat.",
+      "All types of asbestos were used. Since the mid-1960s the vast majority have been chrysotile. Asbestos content approaching 100%.",
+      "Fibres may be released if material is abraded."
+     ],
+     [
+      "Gaskets and washers.",
+      "Used widely in domestic and industrial plant and pipe systems ranging from hot water boilers to industrial power and chemical plant.",
+      "Variable but usually around 90% asbestos, crocidolite used for acid resistance and chrysotile for chlor-alkali. Some gasket materials continued to be used after asbestos prohibition in 1999 (through exemption).",
+      "May be dry and damage easily when removed. Mainly a problem for maintenance workers. ‘Klingerit’, ‘Lion jointing’, ‘Permanite’, ‘CAF’ – compressed asbestos fibre or ‘It’ in German gaskets."
+     ],
+     [
+      "Strings.",
+      "Used for sealing hot water radiators.",
+      "Strings have asbestos content approaching 100%.",
+      ""
+     ],
+     [
+      "Friction products",
+      "",
+      "",
+      ""
+     ],
+     [
+      "Resin-based materials.",
+      "Transport, machinery and lifts, used for brakes and clutch plates.",
+      "30–70% chrysotile asbestos bound in phenolic resins. Used up to November 1999.",
+      "Normal handling will produce low emissions. Minor emissions when braking. Dust may build up with friction debris. Grinding brake and clutch components to fit and brushing or blowing clean can produce significant peak airborne levels."
+     ],
+     [
+      "Drive belts/conveyor belts.",
+      "Engines, conveyors.",
+      "Chrysotile textiles encapsulated in rubber.",
+      "Low friability, except when worn to expose textile."
+     ],
+     [
+      "Cement products",
+      "",
+      "",
+      ""
+     ],
+     [
+      "Profiled sheets.",
+      "Roofing, wall cladding. Permanent shuttering, cooling tower elements.",
+      "10–15% asbestos (some flexible sheets contain a proportion of cellulose). Crocidolite (1950–1969) and amosite (1945–1980) have been used in the manufacture of asbestos cement, although chrysotile (used until November 1999) is by far the most common type found.",
+      "Likely to release increasing levels of fibres if abraded, hand sawn or worked on with power tools. Exposed surfaces and acid conditions will remove cement matrix and concentrate unbound fibres on surface and sheet laps. Cleaning asbestos-containing roofs may also release fibres. Asbestos cement, Trafford tile, ‘Bigsix’, ‘Doublesix’, ‘Supersix’, ‘Twin twelve’, ‘Combined sheet’, ‘Glen six’, ‘3’ and 6’ corrugated’, ‘Fort’, ‘Monad’, ‘Troughsec’, ‘Major tile and Canada tile’, ‘Panel sheet’, ‘Cavity decking’."
+     ],
+     [
+      "Semi-compressed flat sheet and partition board.",
+      "Partitioning in farm buildings and infill panels for housing, shuttering in industrial buildings, decorative panels for facings, bath panels, soffits, linings to walls and ceilings, portable buildings, propagation beds in horticulture, domestic structural uses, fire surrounds, composite panels for fire protection, weather boarding.",
+      "As for profiled sheets. Also 10–25% chrysotile and some amosite for asbestos wood used for fire doors etc. Composite panels contained ~ 4% chrysotile or crocidolite.",
+      "Release as for profiled sheets. Flat building sheets, partition board, ‘Poilite’."
+     ],
+     [
+      "Fully compressed flat sheet used for tiles, slates, board.",
+      "As above, but where stronger materials are required, and as slates, board cladding, decking and roof slates (eg roller-skating rinks, laboratory worktops). Higher asbestos content sheets produced for industrial applications as a high grade arc and heat-resistant material.",
+      "As for profiled sheets. Up to 50% chrysotile.",
+      "Release as for profiled sheets. Asbestos-containing roofing slate (eg ‘Eternit’, ‘Turners’, ‘Speakers’), Everite’, ‘Turnall’, ‘Diamond AC’, ‘JM slate’, ‘Glasal AC’, ‘Emalie, Eflex’, ‘Colourglaze’, ‘Thrutone’, ‘Weatherall’, ‘Sindanyo’."
+     ],
+     [
+      "Pre-formed moulded products and extruded products.",
+      "Cable troughs and conduits. Cisterns and tanks. Drains and sewer pressure pipes. Fencing. Flue pipes. Rainwater goods. Roofing components (fascias, soffits etc). Ventilators and ducts. Weather boarding. Window sills and boxes, bath panels, draining boards, extraction hoods, copings, promenade tiles etc.",
+      "As for profiled sheets.",
+      "Release as for profiled sheets. ‘Everite’, ‘Turnall’, ‘Promenade tiles’."
+     ],
+     [
+      "Other encapsulated materials",
+      "",
+      "",
+      ""
+     ],
+     [
+      "Textured coatings.",
+      "Decorative/flexible coatings on walls and ceilings.",
+      "3–5% chrysotile asbestos. Chrysotile added up to 1984 but old stock may have been used for several more years. Non-asbestos versions were available from the mid-1970s.",
+      "Generally fibres are well contained in the matrix but may be released when old coating is sanded down or scraped off. ‘Artex’, Wondertex’, ‘Suretex’, ‘‘Newtex’, ‘Pebblecoat’, ‘Marblecoat’."
+     ],
+     [
+      "Bitumen products.",
+      "Roofing felts and shingles, semi-rigid asbestos bitumen roofing. Gutter linings and flashings. Bitumen damp-proof courses (DPC). Asbestos/bitumen coatings on metals (eg car body underseals). Bitumen mastics and adhesives (used for floor tiles and wall coverings).",
+      "Chrysotile fibre or asbestos paper (approximately 100% asbestos) in bitumen matrix, usually 8% chrysotile. Used up to 1992. Adhesives may contain up to a few per cent chrysotile asbestos. Used up to 1992.",
+      "Fibre release unlikely during normal use. Roofing felts, DPC and bitumen-based sealants must not be burnt after removal. See felts and papers."
+     ],
+     [
+      "Flooring.",
+      "Thermoplastic floor tiles. PVC vinyl floor tiles and unbacked PVC flooring. Asbestos paper-backed PVC floors. Magnesium oxychloride flooring used in WCs, staircases and industrial flooring.",
+      "Up to 25% asbestos. Normally 7% chrysotile. Paper backing approximately 100% chrysotile asbestos. Used up to 1992. About 2% asbestos.",
+      "Fibre release is unlikely to be a hazard under normal services conditions. Fibre may be released when material is cut, and there may be substantial release where flooring residue, particularly paper backing, is power-sanded. ‘Novilon’, ‘Serval asbestos’. Very hard, fibre release unlikely."
+     ],
+     [
+      "Reinforced PVC.",
+      "Panels and cladding.",
+      "1–10% chrysotile asbestos.",
+      "Fibre release is unlikely."
+     ],
+     [
+      "Reinforced plastic and resin composites.",
+      "Used for toilet cisterns, seats, banisters, window seals, lab bench tops.",
+      "Plastics usually contain 1-10% chrysotile asbestos. Some amphiboles were used to give improved acid resistance, eg car batteries. Resins were reinforced with woven chrysotile cloth usually contain 20–50% asbestos.",
+      "Fibres unlikely to be released, limited emissions during cutting. ‘Siluminite’, ‘Feroasbestos’."
+     ]
+    ],
+    "sentences": [
+     "Bulk loose fill, bulk fibre-filled mattresses, quilts and blankets (loose insulation) are usually pure asbestos except for lining/bag, are now rarely found but may be encountered unexpectedly, eg DIY loft insulation and fire-stop packing around cables between floors, and loose asbestos may readily become airborne if disturbed.",
+     "Sprayed coatings (dry applied, wet applied and trowelled finish) were used for thermal and anti-condensation insulation, acoustic insulation and fire protection on steel and reinforced concrete beams/columns, usually contain 55%–85% asbestos, were used up to 1974, and have a high potential for fibre release if unsealed.",
+     "Thermal insulation such as hand-applied thermal lagging, pipe and boiler lagging and pre-formed pipe sections is found on pipes, boilers, pressure vessels and calorifiers, may contain all types of asbestos (content varies 6-85%), and its ease of fibre release often depends on the type of lagging used and the surface treatment.",
+     "Asbestos ‘Millboard’ was used for general heat insulation and fire protection, may contain 37–97% asbestos, and has a high asbestos content and low density so is quite easy to break.",
+     "Insulating board (AIB) was used for fire protection, thermal and acoustic insulation and general building board, usually contains 15–25% amosite or a mixture of amosite and chrysotile, and can be readily broken, giving significant fibre release; sawing and drilling will also give significant releases.",
+     "Insulating board in cores and linings of composite products is found in fire doors, cladding infill panels, domestic boiler casings and partition and ceiling panels, contains 16–40% amosite or a mixture of amosite and chrysotile, and can be broken by impact; sawing and drilling will also give significant releases.",
+     "Asbestos paper can contain ~100% chrysotile asbestos and was used for electrical/heat insulation of electrical equipment and as a facing/lining to flooring products, and paper materials, if not encapsulated/combined within vinyl, bitumen, or bonded in some way, can easily be damaged and release fibres when subject to abrasion or wear.",
+     "Asbestos ropes and yarns were used as lagging on pipes, jointing and packing materials and heat/fire-resistant boiler, oven and flue sealing, have an asbestos content approaching 100% unless combined with other fibres, and abrading or cutting the materials will release fibres.",
+     "Asbestos cloth was used for thermal insulation and lagging, including fire-resisting blankets, mattresses, protective curtains, gloves aprons and overalls, has an asbestos content approaching 100%, and fibres may be released if the material is abraded.",
+     "Asbestos gaskets and washers are used widely in domestic and industrial plant and pipe systems, are usually around 90% asbestos, and may be dry and damage easily when removed, mainly a problem for maintenance workers.",
+     "Asbestos strings were used for sealing hot water radiators and have an asbestos content approaching 100%.",
+     "Resin-based friction materials used for brakes and clutch plates in transport, machinery and lifts contain 30–70% chrysotile asbestos, were used up to November 1999, and grinding brake and clutch components to fit and brushing or blowing clean can produce significant peak airborne levels.",
+     "Drive belts/conveyor belts in engines and conveyors are chrysotile textiles encapsulated in rubber and have low friability, except when worn to expose textile.",
+     "Asbestos cement profiled sheets used for roofing and wall cladding contain 10–15% asbestos, chrysotile (used until November 1999) is by far the most common type found, and they are likely to release increasing levels of fibres if abraded, hand sawn or worked on with power tools.",
+     "Semi-compressed flat sheet and partition board (eg partitioning in farm buildings, bath panels, soffits, linings to walls and ceilings, fire surrounds) contains 10–25% chrysotile and some amosite for asbestos wood used for fire doors, and release is as for profiled sheets.",
+     "Fully compressed flat sheet used for tiles, slates and board where stronger materials are required is as for profiled sheets, with up to 50% chrysotile in higher asbestos content sheets for industrial applications, and release is as for profiled sheets.",
+     "Pre-formed moulded and extruded cement products such as cable troughs, cisterns and tanks, drains and sewer pressure pipes, flue pipes, rainwater goods and window sills are as for profiled sheets, and release is as for profiled sheets.",
+     "Textured coatings (decorative/flexible coatings on walls and ceilings) contain 3–5% chrysotile asbestos, chrysotile was added up to 1984, and fibres are generally well contained in the matrix but may be released when old coating is sanded down or scraped off.",
+     "Bitumen products such as roofing felts, gutter linings, bitumen damp-proof courses (DPC) and bitumen mastics and adhesives usually contain 8% chrysotile and were used up to 1992; fibre release is unlikely during normal use, and roofing felts, DPC and bitumen-based sealants must not be burnt after removal.",
+     "Flooring such as thermoplastic floor tiles (up to 25% asbestos), PVC vinyl floor tiles (normally 7% chrysotile) and asbestos paper-backed PVC floors is unlikely to be a fibre release hazard under normal services conditions, but there may be substantial release where flooring residue, particularly paper backing, is power-sanded.",
+     "Reinforced PVC panels and cladding contain 1–10% chrysotile asbestos and fibre release is unlikely.",
+     "Reinforced plastic and resin composites used for toilet cisterns, seats, banisters, window seals and lab bench tops usually contain 1-10% chrysotile asbestos (resins reinforced with woven chrysotile cloth usually contain 20–50% asbestos), and fibres are unlikely to be released, with limited emissions during cutting."
+    ]
+   },
+   "reason": "Grid checked against the page images; rows split by page breaks merged; merged first-column cells repeated so each row stands alone; one sentence per data row from the table's own words.",
+   "evidence": "Rows split across page breaks were merged back into one row and the '(continued)' group rows dropped: Thermal insulation (p52-53), Paper, felt and cardboard (p53-54), Textured coatings (p55-56). The separate product-names row under Profiled sheets (only column 4 filled, p55) was merged into the Profiled sheets row; split it out again if you want strict printed rows. pdf_grid had stray 'u' characters (the blue continuation arrows) in the Thermal insulation row; removed. The Paper, felt and cardboard row has an empty 'Asbestos product' cell in print; kept empty. Line-wrap hyphens fixed: pre-formed, non-asbestos, damp-proof, power-sanded. 'chemical-/ weatherresistant' printed with a line break after the slash; written as 'chemical-/weatherresistant' ('weatherresistant' is spelled as printed). Odd quote marks kept as printed: 'Pax felt’', 'Everite’', 'Wondertex’', 'Emalie, Eflex’'; the image shows a double opening quote before Newtex, written as two single quotes from the pdf text. In the Fully compressed row, 'Up to 50% chrysotile' sits next to the 'Higher asbestos content sheets' paragraph; the sentence links them based on layout only.",
+   "by": "model check, Claude Code subagent (page images and pdfplumber grid)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "3b3ad3330a38d506",
+   "kind": "table",
+   "target": "appendix-4-table-1: Material assessment algorithm",
+   "value": {
+    "columns": [
+     "Sample variable",
+     "Score",
+     "Examples of scores (see notes for more detail)"
+    ],
+    "rows": [
+     [
+      "Product type (or debris from product)",
+      "1",
+      "Asbestos-reinforced composites (plastics, resins, mastics, roofing felts, vinyl floor tiles, semi-rigid paints or decorative finishes, asbestos cement etc)."
+     ],
+     [
+      "Product type (or debris from product)",
+      "2",
+      "AIB, millboards, other low-density insulation boards, asbestos textiles, gaskets, ropes and woven textiles, asbestos paper and felt."
+     ],
+     [
+      "Product type (or debris from product)",
+      "3",
+      "Thermal insulation (eg pipe and boiler lagging), sprayed asbestos, loose asbestos, asbestos mattresses and packing."
+     ],
+     [
+      "Extent of damage/deterioration",
+      "0",
+      "Good condition: no visible damage."
+     ],
+     [
+      "Extent of damage/deterioration",
+      "1",
+      "Low damage: a few scratches or surface marks, broken edges on boards, tiles etc."
+     ],
+     [
+      "Extent of damage/deterioration",
+      "2",
+      "Medium damage: significant breakage of materials or several small areas where material has been damaged revealing loose asbestos fibres."
+     ],
+     [
+      "Extent of damage/deterioration",
+      "3",
+      "High damage or delamination of materials, sprays and thermal insulation. Visible asbestos debris."
+     ],
+     [
+      "Surface treatment",
+      "0",
+      "Composite materials containing asbestos: reinforced plastics, resins, vinyl tiles."
+     ],
+     [
+      "Surface treatment",
+      "1",
+      "Enclosed sprays and lagging, AIB (with exposed face painted or encapsulated) asbestos cement sheets etc."
+     ],
+     [
+      "Surface treatment",
+      "2",
+      "Unsealed AIB, or encapsulated lagging and sprays."
+     ],
+     [
+      "Surface treatment",
+      "3",
+      "Unsealed lagging and sprays."
+     ],
+     [
+      "Asbestos type",
+      "1",
+      "Chrysotile."
+     ],
+     [
+      "Asbestos type",
+      "2",
+      "Amphibole asbestos excluding crocidolite."
+     ],
+     [
+      "Asbestos type",
+      "3",
+      "Crocidolite."
+     ],
+     [
+      "Total",
+      "",
+      ""
+     ],
+     [
+      "Score",
+      "Potential to release asbestos fibres",
+      ""
+     ],
+     [
+      "10 or more",
+      "High",
+      ""
+     ],
+     [
+      "7-9",
+      "Medium",
+      ""
+     ],
+     [
+      "5-6",
+      "Low",
+      ""
+     ],
+     [
+      "4 or less",
+      "Very low",
+      ""
+     ]
+    ],
+    "sentences": [
+     "In the material assessment, a product type (or debris from product) of asbestos-reinforced composites (plastics, resins, mastics, roofing felts, vinyl floor tiles, semi-rigid paints or decorative finishes, asbestos cement etc) scores 1.",
+     "In the material assessment, a product type (or debris from product) of AIB, millboards, other low-density insulation boards, asbestos textiles, gaskets, ropes and woven textiles, asbestos paper and felt scores 2.",
+     "In the material assessment, a product type (or debris from product) of thermal insulation (eg pipe and boiler lagging), sprayed asbestos, loose asbestos, asbestos mattresses and packing scores 3.",
+     "In the material assessment, extent of damage/deterioration scores 0 for good condition: no visible damage.",
+     "In the material assessment, extent of damage/deterioration scores 1 for low damage: a few scratches or surface marks, broken edges on boards, tiles etc.",
+     "In the material assessment, extent of damage/deterioration scores 2 for medium damage: significant breakage of materials or several small areas where material has been damaged revealing loose asbestos fibres.",
+     "In the material assessment, extent of damage/deterioration scores 3 for high damage or delamination of materials, sprays and thermal insulation, or visible asbestos debris.",
+     "In the material assessment, surface treatment scores 0 for composite materials containing asbestos: reinforced plastics, resins, vinyl tiles.",
+     "In the material assessment, surface treatment scores 1 for enclosed sprays and lagging, AIB (with exposed face painted or encapsulated) and asbestos cement sheets etc.",
+     "In the material assessment, surface treatment scores 2 for unsealed AIB, or encapsulated lagging and sprays.",
+     "In the material assessment, surface treatment scores 3 for unsealed lagging and sprays.",
+     "In the material assessment, an asbestos type of chrysotile scores 1.",
+     "In the material assessment, an asbestos type of amphibole asbestos excluding crocidolite scores 2.",
+     "In the material assessment, an asbestos type of crocidolite scores 3.",
+     "In the material assessment, a total score of 10 or more means a high potential to release asbestos fibres.",
+     "In the material assessment, a total score of 7-9 means a medium potential to release asbestos fibres.",
+     "In the material assessment, a total score of 5-6 means a low potential to release asbestos fibres.",
+     "In the material assessment, a total score of 4 or less means a very low potential to release asbestos fibres."
+    ]
+   },
+   "reason": "Grid checked against the page images; rows split by page breaks merged; merged first-column cells repeated so each row stands alone; one sentence per data row from the table's own words.",
+   "evidence": "The main grid uses the 3 algorithm columns. The score band table (a separate 2-column table below it) is added at the end: its own header row ['Score', 'Potential to release asbestos fibres', ''] and then 4 band rows, with the third cell left empty. 'Total' is a blank row for the summed score; it is kept as a row and has no sentence. The merged first-column cells are repeated on each row. 'semi- rigid' fixed to 'semi-rigid'. Not in the grid: a boxed line below both tables, 'Non-asbestos materials have no potential to release asbestos fibres'.",
+   "by": "model check, Claude Code subagent (page images and pdfplumber grid)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "a134f60959750a7e",
+   "kind": "figure_description",
+   "target": "figure-1: Summary of the main steps in managing asbestos",
+   "value": "Flowchart of the main steps in managing asbestos in a building. First appoint a person to manage asbestos and find out if asbestos-containing materials (ACMs) are present by checking plans or drawings and carrying out a survey; if none are found, record it and take no further action. If they are found, prepare an asbestos register and plan or drawing, carry out a risk assessment (are ACMs likely to be disturbed, who could be exposed, what comes first), then prepare a management plan: monitor ACMs in good condition, repair or remove damaged ones, and manage maintenance work (train staff, manage contractors, check work against the plan, follow Asbestos essentials and CAR).",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg264/main@2024-12-06-179c858c/figures/figure-1.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "e13cd6c44d5b3a99",
+   "kind": "figure_description",
+   "target": "figure-2: Schematic diagram showing the link between the asbestos survey and the management plan",
+   "value": "Diagram showing how an asbestos survey leads to the management plan. A survey is either a management survey or a refurbishment or demolition survey, and both feed the asbestos register and plan or drawing. The register leads to a risk assessment, and the risk assessment leads to the management plan.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg264/main@2024-12-06-179c858c/figures/figure-2.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "f5ff4a511f8ac6b1",
+   "kind": "figure_description",
+   "target": "figure-3: Asbestos label",
+   "value": "The standard asbestos warning label: a black top with a large white lower-case 'a', above a red panel with white text reading 'WARNING CONTAINS ASBESTOS', 'Breathing asbestos dust is dangerous to health' and 'Follow safety instructions'.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg264/main@2024-12-06-179c858c/figures/figure-3.png",
+   "by": "model check, main Claude Code session (after the crop fix)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "fb9a52bd8ce1782e",
+   "kind": "figure_description",
+   "target": "figure-4: Pipe uncertainty: Top pipe is non-asbestos. All pipes should be sampled",
+   "value": "Photo of several cream-coloured insulated pipes running along a wall and ceiling, with a blue valve and black wheel handle on the lower pipe. The caption says the top pipe is non-asbestos and that all pipes should be sampled, because insulated pipes that look the same can be made of different materials.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg264/main@2024-12-06-179c858c/figures/figure-4.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "158c1de4446260a9",
+   "kind": "figure_description",
+   "target": "figure-5: Asbestos building plan",
+   "value": "Example floor plan from an asbestos survey report, with rooms labelled by name and code (BC401 to BC446). Red dots mark rooms that contain asbestos: Plant room 2, Store room 2, Meeting room 2, Corridor BC411, Canteen and Kitchens. Orange stripes mark areas not accessed and presumed to contain asbestos: both stairwells and the vestibule.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg264/main@2024-12-06-179c858c/figures/figure-5.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "2e20df841376564c",
+   "kind": "figure_description",
+   "target": "figure-6: Loose asbestos used as loft insulation",
+   "value": "Photo of a loft with loose, grey, fluffy asbestos insulation spread between and over the joists and boards. A power tool, a lamp and cables are lying on top of the loose material near a brick wall.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg264/main@2024-12-06-179c858c/figures/figure-6.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "23edb28bd47d01df",
+   "kind": "figure_description",
+   "target": "figure-7: Sprayed limpet on car park roof",
+   "value": "Photo inside a multi-storey car park, showing the underside of the concrete roof or deck, which has sprayed limpet asbestos coating on it. Cars are parked on the level and the coating looks like a rough grey surface across the ceiling.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg264/main@2024-12-06-179c858c/figures/figure-7.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "7da46bb2c6a4fc01",
+   "kind": "figure_description",
+   "target": "figure-8: Sprayed coating on building passageway",
+   "value": "Photo of a rough grey sprayed coating on the underside of a ceiling in a narrow space between yellow walls, above a barred gate. Part of the coating has come away, leaving a large patch of exposed smoother surface, so it is visibly damaged.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg264/main@2024-12-06-179c858c/figures/figure-8.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "7d870ddab7b69e31",
+   "kind": "figure_description",
+   "target": "figure-9: Lagged pipe in wall cavity",
+   "value": "Photo looking down into a narrow wall cavity, showing a vertical pipe wrapped in dark, dirty lagging that joins a bend at the top. The lagging looks worn and discoloured.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg264/main@2024-12-06-179c858c/figures/figure-9.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "1410413392b70b74",
+   "kind": "figure_description",
+   "target": "figure-10: Pipe insulation with coating",
+   "value": "Photo of a pipe bend covered in thick insulation with a smooth yellow or cream coating, next to a bolted flange. The coating looks intact.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg264/main@2024-12-06-179c858c/figures/figure-10.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "1320b15f7335a5b9",
+   "kind": "figure_description",
+   "target": "figure-11: Amosite lagging in very poor condition on steam pipe",
+   "value": "Photo of a large pipe with amosite asbestos lagging in very poor condition. White, crumbly lagging is broken up and falling away along the top, and the rusty pipe shows through underneath.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg264/main@2024-12-06-179c858c/figures/figure-11.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "314b86f32d0f4026",
+   "kind": "figure_description",
+   "target": "figure-12: Lagging on large petrochemical vessel",
+   "value": "Photo of a large horizontal petrochemical vessel covered in grey lagging, outdoors in an industrial plant with pipework around it. The lagging is in sections with bands and seams, and some areas look stained or patched.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg264/main@2024-12-06-179c858c/figures/figure-12.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "390485c24586dbac",
+   "kind": "figure_description",
+   "target": "figure-13: Amosite lagged boiler with hard plastic coating",
+   "value": "Photo of a boiler lagged with amosite asbestos and covered with a hard, smooth, yellow plastic coating. A metal burner unit sits on the front and pipes run around it in a plant room.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg264/main@2024-12-06-179c858c/figures/figure-13.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "3f8eaa9b9b8193a8",
+   "kind": "figure_description",
+   "target": "figure-14: Asbestos panels inside fire door",
+   "value": "Close-up photo of the edge of an opened fire door, showing grey asbestos panels inside it. Strips of lighter, rough material run along the panel faces.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg264/main@2024-12-06-179c858c/figures/figure-14.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "e306b708df7ab670",
+   "kind": "figure_description",
+   "target": "figure-15: AIB panel in porch",
+   "value": "Photo of a house porch canopy over a front door, where the flat white panel on the front face of the porch is asbestos insulating board (AIB). The panel looks painted and in good condition, set against a brick wall.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg264/main@2024-12-06-179c858c/figures/figure-15.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "b8cf1111f5893bcb",
+   "kind": "figure_description",
+   "target": "figure-16: AIB exterior painted panel",
+   "value": "Photo of a brick block of flats with bay windows, where the painted panels below and above the windows on the outside are asbestos insulating board (AIB). The panels are painted dark and white.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg264/main@2024-12-06-179c858c/figures/figure-16.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "31244e56166c773a",
+   "kind": "figure_description",
+   "target": "figure-17: AIB ceiling tiles",
+   "value": "Photo of white perforated ceiling tiles made of asbestos insulating board (AIB), seen from below. One tile is lowered or out of place, showing its plain edge.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg264/main@2024-12-06-179c858c/figures/figure-17.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "63a227d6af56ba26",
+   "kind": "figure_description",
+   "target": "figure-18: AIB exterior panel on open walkway",
+   "value": "Photo of a low-rise block with external walkways or balconies, where the light-coloured horizontal panels along the balcony fronts are asbestos insulating board (AIB). The building is brick with metal posts.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg264/main@2024-12-06-179c858c/figures/figure-18.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "46de81d55e676f4d",
+   "kind": "figure_description",
+   "target": "figure-19: AIB behind school radiator unit",
+   "value": "Photo of a grey asbestos insulating board (AIB) panel fixed to a wall behind a purple-painted heater or radiator casing in a school, below a window sill.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg264/main@2024-12-06-179c858c/figures/figure-19.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "37dde93db3d1df47",
+   "kind": "figure_description",
+   "target": "figure-20: AIB panel between radiator and window",
+   "value": "Photo of a grey asbestos insulating board (AIB) panel fitted under a wooden window sill, just above a white radiator. The panel sits in the gap between the radiator and the window.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg264/main@2024-12-06-179c858c/figures/figure-20.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "5ffc045362320f84",
+   "kind": "figure_description",
+   "target": "figure-21: AIB column fire protection in CLASP building",
+   "value": "Photo of fire protection around a steel column in a CLASP building, with grey asbestos insulating board (AIB) next to a red steel section and a wire-mesh panel. Torn wall covering is visible at the top left.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg264/main@2024-12-06-179c858c/figures/figure-21.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "ba83946837e12244",
+   "kind": "figure_description",
+   "target": "figure-22: AIB offcuts used as packers around column in CLASP building",
+   "value": "Photo of a gap around a red steel column in a CLASP building, where small offcuts of asbestos insulating board (AIB) have been used as packers. Light-coloured AIB pieces sit between the column and the panels next to it.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg264/main@2024-12-06-179c858c/figures/figure-22.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "b5187bc52d10cdb9",
+   "kind": "figure_description",
+   "target": "figure-23: AIB fascia panels with wood effect finish",
+   "value": "Photo of a flat-roofed building whose fascia panels around the top edge are asbestos insulating board (AIB) with a brown wood-effect finish. The panels look weathered, and a dark patch covers part of the wall.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg264/main@2024-12-06-179c858c/figures/figure-23.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "994afdac098b9275",
+   "kind": "figure_description",
+   "target": "figure-24: Chrysotile paper on fibreboard boxing",
+   "value": "Close-up photo of white chrysotile asbestos paper on fibreboard boxing. The surface is plain and off-white, with a joint or edge strip and a few small marks.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg264/main@2024-12-06-179c858c/figures/figure-24.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "5adbce911a20cff0",
+   "kind": "figure_description",
+   "target": "figure-25: Chrysotile paper on strawboard ceiling panels",
+   "value": "Photo of strawboard ceiling panels faced with white chrysotile asbestos paper, crossed by wooden battens. Some of the paper is torn, showing the strawboard underneath.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg264/main@2024-12-06-179c858c/figures/figure-25.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "f64d4299a3fb0ebd",
+   "kind": "figure_description",
+   "target": "figure-26: Asbestos rope seal on drying oven",
+   "value": "Photo of an open metal cabinet door with a thick white asbestos rope seal running around its edge. The rope looks fluffy and frayed.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg264/main@2024-12-06-179c858c/figures/figure-26.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "b25bf00cddad3db4",
+   "kind": "figure_description",
+   "target": "figure-27: Amosite asbestos rope packing on riser door frame",
+   "value": "Photo of a grey-white rope packing squeezed into the gap under a white painted frame or ledge, next to a rough concrete or block wall. The caption calls it amosite asbestos rope. The rope looks worn and frayed where it shows.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg264/main@2024-12-06-179c858c/figures/figure-27.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "b57e1a271aed9f14",
+   "kind": "figure_description",
+   "target": "figure-28: Asbestos rope lagging to boiler thermometer",
+   "value": "Photo of a frayed, mop-like bunch of white asbestos rope tied round the base of a gauge or thermometer stem, between pipes and a brick wall. The caption calls it asbestos rope lagging. The rope is loose and badly frayed.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg264/main@2024-12-06-179c858c/figures/figure-28.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "fb31e927fae74c5c",
+   "kind": "figure_description",
+   "target": "figure-29: Chrysotile cloth on pipes",
+   "value": "Photo of copper pipes running in a row in front of a brick wall, held to a metal bracket. Strips of white chrysotile asbestos cloth are wrapped round each pipe where it sits in the clip.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg264/main@2024-12-06-179c858c/figures/figure-29.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "219f5a9a060c0ba1",
+   "kind": "figure_description",
+   "target": "figure-30: Amosite and chrysotile packing on waste pipes",
+   "value": "Photo of a painted cast-iron waste pipe joint where a smaller pipe enters a larger fitting. The caption says the joint holds amosite and chrysotile asbestos packing. The joint is dirty, stained and rusty round the packing.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg264/main@2024-12-06-179c858c/figures/figure-30.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "4231fc005ec7582a",
+   "kind": "figure_description",
+   "target": "figure-31: Chrysotile string on skylights",
+   "value": "Photo of a pitched skylight on a flat roof, made of glass or plastic panels in metal glazing bars. The caption says chrysotile asbestos string is used in the joints. The string itself is not clearly visible.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg264/main@2024-12-06-179c858c/figures/figure-31.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "2b0369822d1232ce",
+   "kind": "figure_description",
+   "target": "figure-32: Asbestos cement roof and cladding",
+   "value": "Photo of a large shed or industrial building with a pitched roof of corrugated asbestos cement sheets and walls clad in the same corrugated sheet. The roof is dark and weathered with moss or lichen patches. The wall sheets are grey and stained.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg264/main@2024-12-06-179c858c/figures/figure-32.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "7dc770f8d207ba52",
+   "kind": "figure_description",
+   "target": "figure-33: Chrysotile pebble-dash exterior wall coating",
+   "value": "Close-up of an outside wall with a light grey pebble-dash, rough-cast finish, between blue-painted window and door frames with metal mesh. The caption says the coating contains chrysotile asbestos. It looks intact.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg264/main@2024-12-06-179c858c/figures/figure-33.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "90c6dc22f428683a",
+   "kind": "figure_description",
+   "target": "figure-34: Asbestos cement boiler flue",
+   "value": "Photo of a boiler room with a large grey asbestos cement flue pipe rising from the top of a boiler and bending sideways at a cowl. Yellow-painted pipes run round it. The flue has a white section near the boiler and looks dusty.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg264/main@2024-12-06-179c858c/figures/figure-34.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "eb92e32757db7249",
+   "kind": "figure_description",
+   "target": "figure-35: Asbestos cement downpipe",
+   "value": "Photo of a round grey asbestos cement downpipe with its hopper head, fixed to a building with corrugated asbestos cement cladding. The surfaces are weathered and streaked with dark lichen or dirt.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg264/main@2024-12-06-179c858c/figures/figure-35.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "0f7615252acb33cc",
+   "kind": "figure_description",
+   "target": "figure-36: Asbestos textured coating on ceiling",
+   "value": "Photo of a classroom-style room with a white ceiling finished in an asbestos textured coating, above yellow walls. Smoke detectors and a light fitting are fixed to the ceiling. The coating looks intact.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg264/main@2024-12-06-179c858c/figures/figure-36.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "a40d0fc25cec9c2f",
+   "kind": "figure_description",
+   "target": "figure-37: Asbestos textured coating on wall",
+   "value": "Photo of a room corner with a window. The plain white wall is finished in an asbestos textured coating. The coating looks smooth and intact, with only a light texture.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg264/main@2024-12-06-179c858c/figures/figure-37.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "ac2ad5604a195b85",
+   "kind": "figure_description",
+   "target": "figure-38: Chrysotile/bitumen coating under metal cladding",
+   "value": "Photo of an inside wall of white profiled metal cladding in an industrial building, with a fire extinguisher, a fire alarm point and signs. The caption says a chrysotile and bitumen coating sits under the metal cladding, so it is hidden from view.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg264/main@2024-12-06-179c858c/figures/figure-38.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "2e109c54ebc53211",
+   "kind": "figure_description",
+   "target": "figure-39: Asbestos-containing vinyl floor tiles",
+   "value": "Photo of a house hallway at the foot of the stairs with a floor of brown and cream vinyl tiles laid in a checkerboard pattern. The caption says the tiles contain asbestos. The tiles look worn and scuffed.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg264/main@2024-12-06-179c858c/figures/figure-39.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "bc1244e8d1cdcf44",
+   "kind": "figure_description",
+   "target": "figure-40: Asbestos-reinforced toilet cistern",
+   "value": "Photo of wooden shelves in a store holding several white toilet cisterns and other white fittings. The caption says the cisterns are reinforced with asbestos, which cannot be seen from the outside.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg264/main@2024-12-06-179c858c/figures/figure-40.png",
+   "by": "model check, main Claude Code session (after the crop fix)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "da32999940050f38",
+   "kind": "figure_description",
+   "target": "figure-41: Asbestos brake linings for quarry vehicles",
+   "value": "Photo of several curved asbestos brake shoes with riveted linings, laid out on a shelf or bench. The linings are grey with rows of rivet holes, and the steel shoes are rusty. They are heavy-vehicle brake parts.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg264/main@2024-12-06-179c858c/figures/figure-41.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "6c9721bf79e4e97d",
+   "kind": "figure_description",
+   "target": "figure-42: Asbestos brake lining on output shaft of AC motor",
+   "value": "Photo of a grey electric (AC) motor against a brick wall. A red arrow points to the brake unit on the output shaft, which holds an asbestos brake lining. An orange fan guard is beside it.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg264/main@2024-12-06-179c858c/figures/figure-42.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "4b68bdc2d55be0d6",
+   "kind": "figure_description",
+   "target": "figure-43: Metal clad gas flue containing chrysotile lining",
+   "value": "Close-up of a dark grey metal-clad gas flue pipe with a yellow label on it. The caption says the flue has a chrysotile asbestos lining inside. The lining cannot be seen from outside.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg264/main@2024-12-06-179c858c/figures/figure-43.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "5745180db4364ea9",
+   "kind": "figure_description",
+   "target": "figure-44: Chrysotile ‘scrim’ tapes",
+   "value": "Photo of two rolls of off-white woven chrysotile asbestos scrim tape, one with a pink-red core. The tape is used for jointing. The rolls look new and clean.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg264/main@2024-12-06-179c858c/figures/figure-44.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "f354aaf4ff79698b",
+   "kind": "figure_description",
+   "target": "figure-45: ‘Durasteel’ composite steel and asbestos fire door",
+   "value": "Photo of a dark steel door at the top of an outside metal-grille stair landing with a handrail, set in a white wall. The caption calls it a 'Durasteel' composite steel door containing asbestos. It looks painted and intact.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg264/main@2024-12-06-179c858c/figures/figure-45.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "76c23eda0d003d6f",
+   "kind": "figure_description",
+   "target": "figure-46: Asbestos tape flash guards in a fuse box",
+   "value": "Photo of an open fuse box with rows of white ceramic fuse carriers and many red and black wires. The caption says asbestos tape is used as flash guards. Pale tape pads sit between and behind the fuse carriers.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg264/main@2024-12-06-179c858c/figures/figure-46.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "fa94a0c6cc50dd0b",
+   "kind": "figure_description",
+   "target": "figure-47: Asbestos-containing commercial hairdryer",
+   "value": "Photo of a salon-style hood hairdryer with a cream top shell and a clear lower rim, against a red and white background. The caption says the dryer contains asbestos, so it is inside and not visible.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg264/main@2024-12-06-179c858c/figures/figure-47.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "fb2663f2fc2561c9",
+   "kind": "figure_description",
+   "target": "figure-48: Asbestos-insulated supply pipes",
+   "value": "Photo of large red-painted supply pipes with thick insulation, looping round in a plant room, with valves and a metal walkway rail. The caption says the insulation contains asbestos. The painted outer cover looks intact.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg264/main@2024-12-06-179c858c/figures/figure-48.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "a14079a6ddbb29a6",
+   "kind": "figure_description",
+   "target": "figure-49: Electrical switchgear with asbestos flash protection",
+   "value": "Close-up of old blue electrical switchgear with a row of switch units. A red arrow points to pale grey asbestos boards fitted between the contacts as flash protection. The parts look old and dusty.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg264/main@2024-12-06-179c858c/figures/figure-49.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "db8ac089729b2290",
+   "kind": "figure_description",
+   "target": "figure-50: Open electrical switchboard with asbestos flash guards",
+   "value": "Photo of the inside of an old open electrical switchboard, with copper bars, switch handles and fuses on a dark panel. The caption says it has asbestos flash guards: pale boards fitted between the live parts.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg264/main@2024-12-06-179c858c/figures/figure-50.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "fef328eb14b8849a",
+   "kind": "figure_description",
+   "target": "figure-51: Vessel clad in amosite insulation",
+   "value": "Photo of a large white-clad industrial vessel or tank under steel beams in a plant building. The caption says the cladding is amosite asbestos insulation. The cover looks whole from this view.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg264/main@2024-12-06-179c858c/figures/figure-51.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "714053d7f56e01ec",
+   "kind": "figure_description",
+   "target": "figure-52: Typical locations for the most common asbestos material",
+   "value": "Cut-away drawing of a two-storey building with numbered markers showing where asbestos is often found. Green markers are normally non-licensed: 1 asbestos cement roofs, gutters, downpipes and flues; 2 textured coatings; 3 floor tiles, textiles and composites. Red markers are normally licensed: 4 sprayed coatings in the roof space, 5 AIB in fire doors and panels, 6 lagging on pipes and boiler, 7 loose asbestos in floor and ceiling voids; a note says a full survey is still needed.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg264/main@2024-12-06-179c858c/figures/figure-52.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  }
+ ]
+}
