@@ -19,6 +19,18 @@ export BUILDERS_API_KEY=bl_...
 In the Claude app (web, desktop, phone), add the connector by hand instead: Settings, Connectors, Add custom connector,
 Authentication "No sign-in", header `Authorization: Bearer bl_...` (see `deploy/README.md`).
 
+## How an answer is made (contracts.v1)
+
+The `builders-workflow` skill runs every answer through fixed steps: route the question, hand it to a specialist
+sub-agent (`agents/`, on Haiku), draft from its Findings JSON, check the draft with `verify_answer` on our server
+(plain code), fix, then reply. Design: `architecture/design/agents.md`; JSON: `architecture/design/agent-contracts.md`.
+
+## Claude app on phone or web (no sub-agents)
+
+1. Create a project "Builders demo"; paste `claude-app/PROJECT_INSTRUCTIONS.md` as its instructions.
+2. Optional: run `./build-skill-zips.sh` and upload the ZIPs in Customize, Skills, Upload a skill.
+3. Switch the BuildersMCP connector on in that project's chats only.
+
 ## What you can say
 
 | Say | Skill |

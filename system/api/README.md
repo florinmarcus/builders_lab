@@ -17,7 +17,7 @@ python -m builders_api.mcp_server  # MCP server on http://HOST:PORT/mcp (streama
 - `db/`: connection pool, migrations (never edit an applied file; add the next number), seed loader.
 - `service/`: the logic. `jobs.py` (list, get, missing items), `documents.py` (Postgres full-text search),
   `payments.py` (payment notice dates from contract terms), `regulations.py` (corpus contract or fallback),
-  `inbox.py` (sync, step 4).
+  `inbox.py` (sync), `ingest.py` and `mail_sources.py` (parse, file, store), `facts.py` (save_facts), `verify.py` (verify_answer).
 - `mcp_server/`: tools over the service layer. Uses the official MCP SDK's `MCPServer` (FastMCP's successor in SDK 2.x).
   Every tool call: daily quota, one trace row, structured error. Rate limit per client on the HTTP endpoint.
 - `versions/`: server instructions, tool descriptions and prompts as `<name>.v<N>.md`. Highest N is active.
@@ -36,7 +36,9 @@ python -m builders_api.mcp_server  # MCP server on http://HOST:PORT/mcp (streama
 | `list_missing_items` | 3: what's missing (incl. expired insurance) |
 | `search_regulations` | 4, 7: rules with section and edition date |
 | `get_payment_dates` | 7: payment notice deadlines |
-| `sync_inbox` | 1: fetch new email (returns "not connected yet" until step 4) |
+| `sync_inbox` | 1: fetch new email from the mail source, store, file by job, hand over emails needing facts |
+| `save_facts` | 1: record job, document types and facts for one email (server-checked) |
+| `verify_answer` | all: deterministic checks on a draft answer (`architecture/design/agent-contracts.md`) |
 
 ## Security (ADR 0007)
 

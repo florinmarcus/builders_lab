@@ -131,6 +131,6 @@ sequenceDiagram
 
 ## 7. Not built yet
 
-- Hard tool limits per specialist (`tools:` lists): parking lot S40.
+- Hard tool limits per specialist (`tools:` lists): parking lot S51.
 - Evals of the whole flow with an LLM judge in Claude Code: N9.
 - Linking all calls of one answer under one trace id: S9.

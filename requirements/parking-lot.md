@@ -56,9 +56,9 @@ Started 20 Nov 2026. Status of the demo build: steps 1 (mock data plan), 2 (sche
 | S25 | Images built on the server, not in a registry; the pipeline runs the server's current copy of `upgrade.sh` before it checks out the new version | `upgrade.sh`, `ci-deploy.yml` | Build in GitHub, push to ECR |
 | S26 | Server role has no Bedrock or S3 rights yet (corpus embedder, re-ranker and files) | `server.yaml` | Add narrow rights when the corpus is wired in |
 | S27 | Upgrade rollback restores the whole database from the pre-upgrade dump; writes made during the failed minute are lost | `upgrade.sh` | Acceptable for the pilot |
-| S28 | Server-down alarm only emails; auto-recover was dropped (needs a service-linked role the deploy user may not create) | `server.yaml` | Allow `iam:CreateServiceLinkedRole` for CloudWatch Events, then add the recover action back |
-| S29 | Server disk survives stack deletion (`DeleteOnTermination: false`); a failed first create leaves an orphan disk to delete by hand | `server.yaml` | Keep for data safety; check for orphan volumes after failed creates |
-| S30 | Deploy user `builders-claude` holds a long-lived access key with the deploy policy | IAM | Remove the key after setup, or move to SSO / short-lived credentials |
+| S45 | Server-down alarm only emails; auto-recover was dropped (needs a service-linked role the deploy user may not create) | `server.yaml` | Allow `iam:CreateServiceLinkedRole` for CloudWatch Events, then add the recover action back |
+| S46 | Server disk survives stack deletion (`DeleteOnTermination: false`); a failed first create leaves an orphan disk to delete by hand | `server.yaml` | Keep for data safety; check for orphan volumes after failed creates |
+| S47 | Deploy user `builders-claude` holds a long-lived access key with the deploy policy | IAM | Remove the key after setup, or move to SSO / short-lived credentials |
 | S31 | Connector path secret was shown in a screenshot in chat (20 Nov 2026); the key was not | Parameter Store | Rotate the path secret (new value, restart, update the connector URL) |
 | S32 | Every push to main deploys (we work straight on main for now) | `ci-deploy.yml` | After the demo: work on branches with pull requests (tests on the PR), deploy only on version tags |
 | S33 | Reset moves demo emails to Gmail Trash (kept 30 days), not permanent delete: permanent delete needs the full mail scope | `gmail_demo.py` | Fine for the demo |
@@ -73,9 +73,14 @@ Started 20 Nov 2026. Status of the demo build: steps 1 (mock data plan), 2 (sche
 | S42 | AD B Appendices F and G (standards and documents referred to) are kept as text blocks under their headings, not one record per standard | `system/rag/parse_adoc.py` | Split per entry if evals ask "which standard covers X" |
 | S43 | Only AD B volume 1 is parsed; volume 2 and the amendment booklets are not | `corpus/sources.yaml` `parser.parts` | Parse volume 2 with the same parser when needed |
 | S44 | 6 AD B volume 1 model-check fixes are medium confidence: requirement boxes B2, B4 (boxes 2 and 3), B5, and the 2029 copies of Tables B1 and C1 (long tables with templates) | `corpus/fixes/adb.json` | A person checks these six against the PDF before the demo; redo with `checks` if wrong |
-| S37 | Plugin skeleton built 20 Nov 2026 (`plugin/`, validates). Not yet tried: installing it, `${BUILDERS_API_KEY}` expansion in the plugin's connector headers, and whether plugins work in the Claude phone app | `plugin/` | Install in Claude Code and Cowork, run the six phrases |
-| S38 | Plugin has no icon, privacy policy URL or licence file (needed only to list it in Anthropic's directory) | `plugin/` | Add before any public listing |
-| S39 | Skill files are not under the version lock yet (tool descriptions are) | `plugin/skills/` | Extend `builders_api.versions` or version the plugin on every skill change |
+| S48 | Plugin skeleton built 20 Nov 2026 (`plugin/`, validates). Not yet tried: installing it, `${BUILDERS_API_KEY}` expansion in the plugin's connector headers, and whether plugins work in the Claude phone app | `plugin/` | Install in Claude Code and Cowork, run the six phrases |
+| S49 | Plugin has no icon, privacy policy URL or licence file (needed only to list it in Anthropic's directory) | `plugin/` | Add before any public listing |
+| S50 | Skill files are not under the version lock yet (tool descriptions are) | `plugin/skills/` | Extend `builders_api.versions` or version the plugin on every skill change |
+| S51 | Specialist tool limits are written in each agent's instructions, not enforced with a `tools:` list (plugin tool names not yet confirmed) | `plugin/agents/` | Confirm plugin MCP tool names, then add `tools:` to each agent |
+| S52 | `model: haiku` for sub-agents is a Claude Code setting; not checked in Cowork | `plugin/agents/` | Check in Cowork |
+| S53 | verify_answer checks numbers and quotes, not meaning: a true quote can still be used for a wrong claim | `service/verify.py` | Evals with an LLM judge (N9) |
+| S54 | Agent contract JSON lives in prose and is copied into the agent files; no schema in code checks the examples | `architecture/design/agent-contracts.md`, `plugin/agents/` | Pydantic/JSON Schema in code as the source; test the examples |
+| S55 | Rules text exists three times (MCP server instructions, plugin rules, Claude app project instructions) | `versions/server/`, `plugin/shared/rules.md`, `plugin/claude-app/` | One source file; build or check the others from it |
 | S19 | Cost figures are first-pass, partly guesses, mostly US prices | `research/hosting-costs/connector-auth-options.md` | Review in detail; check London prices |
 | S28 | Postgres runs in Docker on the one server; no managed database, no read replica (raised by Florin 20 Nov 2026) | ADR 0009 | RDS, or a writer plus at least one reader, when traffic or customers need it |
 | S29 | 17 raw corpus files missing: the source now gives different bytes, so they were not restored (16 same size, legislation metadata order) | `corpus/harvest-report.md` | Decide: keep today's bytes with a note in the record, or fetch when evals need them |

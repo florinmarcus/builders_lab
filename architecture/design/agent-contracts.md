@@ -60,8 +60,8 @@ Where sub-agents are not available (Claude phone or web app), the main agent pla
 ```json
 {
   "Source": {
-    "type": "email | document | regulation",
-    "id": "uuid (email, document) or passage key (regulation)",
+    "type": "email | document | regulation | calculation",
+    "id": "uuid (email, document); passage key (regulation); job ref (calculation: dates from get_payment_dates, recomputed by the server)",
     "label": "Email from Victoria Hartley, 2026-11-10: \"Our WhatsApp chat\"",
     "date": "YYYY-MM-DD",
     "page": "int, optional",
@@ -160,6 +160,6 @@ Rules: one claim per fact; every claim has a source; quotes copied exactly; noth
 | Piece | Status |
 |---|---|
 | Tool envelope, Source, errors | built |
-| `verify_answer` | next |
-| Specialist sub-agents (Haiku) and router skill in `plugin/` | next |
-| Phone and web fallback (project instructions) | next |
+| `verify_answer` | built (`service/verify.py`), tested |
+| Specialist sub-agents (Haiku) and router skill in `plugin/` | built, validates; not yet run in Claude Code or Cowork |
+| Phone and web fallback (`plugin/claude-app/PROJECT_INSTRUCTIONS.md`, skill ZIPs) | built; not yet tried in the app |

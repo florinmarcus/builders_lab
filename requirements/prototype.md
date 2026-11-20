@@ -62,7 +62,7 @@ For Saturday, the connector alone is enough; show the plugin as the way builders
 - **Email:** Florin's own Gmail, with all demo mail under the label `oakline-demo` (ADR 0005). A loader imports past mock emails; a live simulator turns emails sent from his second address to `+hartley`, `+fm`, `+council`, `+mike` etc. into emails from those personas. One reset command restores the start state. Our server reads the label through the Gmail API to file by job (on request via `sync_inbox`, or every 15 minutes). Details: `system/data/mock/README.md`.
 - **Firm store:** structured records per job (job, client, address, document type, dates, key facts) in Postgres; documents read whole when needed. No per-firm vector store (ADR 0004).
 - **Regulations:** from the corpus session (`corpus/`, `system/rag/`). Fallback if not ready: a few open documents loaded directly (e.g. Approved Document A, building control guidance on gov.uk).
-- **Hosting:** public HTTPS address. Lightsail in London (ADR 0003) or a tunnel from a laptop for the demo.
+- **Hosting:** live on AWS London since 20 Nov 2026: one EC2 server set up by CloudFormation and scripts, deployed by GitHub Actions (ADR 0009, `deploy/README.md`).
 - **Models:** Claude in the Claude app answers and also extracts facts when filing emails, through our `save_facts` tool, on request or on a Claude Code schedule (ADR 0006). No chat model on our server.
 
 ## Mock data

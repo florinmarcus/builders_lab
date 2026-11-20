@@ -60,6 +60,7 @@ flowchart TB
 | `get_payment_dates` | contract terms | 7 |
 | `sync_inbox` | mail source (demo folder; Gmail planned), stores and files emails | 1 |
 | `save_facts` | writes job, document types and facts after server checks | 1 |
+| `verify_answer` | read-only checks on a draft answer (agent contracts) | all |
 
 ## Data (database state)
 
