@@ -43,7 +43,12 @@ def _fallback() -> list[dict]:
     return json.loads(FALLBACK_FILE.read_text())["passages"]
 
 
+MIN_MATCH_SHARE = 0.5  # a passage must contain at least half of the question's meaningful words
+
+
 def _search_fallback(question: str, as_of: dt.date | None, limit: int) -> list[dict]:
+    """Keyword search over the small fallback set. Returns [] rather than unrelated passages:
+    a passage counts only if it holds at least half of the question's words (stemmed, stop words dropped)."""
     passages = [p for p in _fallback() if not as_of or dt.date.fromisoformat(p["edition_date"]) <= as_of]
     if not passages:
         return []
@@ -51,16 +56,21 @@ def _search_fallback(question: str, as_of: dt.date | None, limit: int) -> list[d
         q = conn.execute("select plainto_tsquery('english', %s)::text as q", (question,)).fetchone()["q"]
         if not q:
             return []
+        lexemes = sorted({t.strip().strip("'") for t in q.split("&") if t.strip()})
+        need = max(1, -(-len(lexemes) * MIN_MATCH_SHARE // 1)) if len(lexemes) > 1 else 1
         rows = conn.execute(
             """select p->>'id' as id,
-                      ts_rank(to_tsvector('english', (p->>'section') || ' ' || (p->>'keywords') || ' ' || (p->>'text')),
-                              to_tsquery('english', %s)) as score
-               from jsonb_array_elements(%s::jsonb) p
-               order by score desc limit %s""",
-            (q.replace(" & ", " | "), json.dumps(passages), limit),
+                      ts_rank(doc, to_tsquery('english', %(q)s)) as score,
+                      (select count(*) from unnest(%(lex)s::text[]) l where doc @@ to_tsquery('english', quote_literal(l))) as hits
+               from jsonb_array_elements(%(p)s::jsonb) p,
+                    lateral to_tsvector('english', (p->>'section') || ' ' || (p->>'keywords') || ' ' || (p->>'text')) doc
+               order by score desc""",
+            {"q": q.replace(" & ", " | "), "lex": lexemes, "p": json.dumps(passages)},
         ).fetchall()
     by_id = {p["id"]: p for p in passages}
-    return [{**by_id[r["id"]], "score": round(float(r["score"]), 4)} for r in rows if r["score"] > 0]
+    good = [r for r in rows if r["hits"] >= need and r["score"] > 0]
+    return [{**by_id[r["id"]], "score": round(float(r["score"]), 4), "matched_words": f"{r['hits']}/{len(lexemes)}"}
+            for r in good[:limit]]
 
 
 def search_regulations(question: str, as_of_date: str | None = None, limit: int = 5) -> dict[str, Any]:

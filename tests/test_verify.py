@@ -68,3 +68,18 @@ def test_regulation_quote(firm):
         {"id": "c1", "quote": "the payer must pay the notified sum (to the extent not already paid) on or before the final date for payment",
          "source": {"type": "regulation", "id": "hgcra-111"}}])
     assert v["pass"], v["problems"]
+
+
+def test_dates_from_source_details_count(firm, conn):
+    chat = _chat(conn)
+    eid = str(conn.execute("select id from emails where subject like 'Our WhatsApp%'").fetchone()[0])
+    v = verify.verify_answer(firm, "In her email of 10 November, Victoria sent the chat.", [
+        {"id": "c1", "quote": "here is our WhatsApp chat", "source": {"type": "email", "id": eid}}])
+    assert v["pass"], v["problems"]
+
+
+def test_regulation_edition_date_counts(firm):
+    v = verify.verify_answer(firm, "Section 111 (edition of 5 October 2026) says the payer must pay the notified sum.", [
+        {"id": "c1", "quote": "the payer must pay the notified sum (to the extent not already paid) on or before the final date for payment",
+         "source": {"type": "regulation", "id": "s111"}}])
+    assert v["pass"], v["problems"]

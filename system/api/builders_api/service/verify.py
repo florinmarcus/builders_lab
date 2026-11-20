@@ -74,7 +74,8 @@ def _date_backed(d: tuple[int, int, int | None], known: set[tuple[int, int, int 
 
 
 def _source_text(conn, firm: uuid.UUID, source: dict) -> str | None:
-    """Text of a cited source, or None if it does not exist for this firm."""
+    """Text of a cited source plus its own dates (email date, document date), or None if it does not exist
+    for this firm. The dates let an answer say "email of 18 November" without the date being in the quote."""
     stype, sid = source.get("type"), str(source.get("id", ""))
     if stype in ("email", "document"):
         try:
@@ -82,11 +83,17 @@ def _source_text(conn, firm: uuid.UUID, source: dict) -> str | None:
         except ValueError:
             return None
         if stype == "email":
-            row = conn.execute("select subject, body_text from emails where id = %s and firm_id = %s", (uid, firm)).fetchone()
-            return None if not row else row["subject"] + "\n" + row["body_text"]
-        row = conn.execute("select filename, text_content from attachments where id = %s and firm_id = %s",
-                           (uid, firm)).fetchone()
-        return None if not row else row["filename"] + "\n" + row["text_content"]
+            row = conn.execute("select subject, body_text, sent_at from emails where id = %s and firm_id = %s",
+                               (uid, firm)).fetchone()
+            return None if not row else f"{row['subject']}\n{row['body_text']}\n[date {row['sent_at'].date().isoformat()}]"
+        row = conn.execute(
+            """select a.filename, a.text_content, a.document_date, a.expires_on, e.sent_at
+               from attachments a join emails e on e.id = a.email_id where a.id = %s and a.firm_id = %s""",
+            (uid, firm)).fetchone()
+        if not row:
+            return None
+        meta = " ".join(d.isoformat() for d in (row["document_date"], row["expires_on"], row["sent_at"].date()) if d)
+        return f"{row['filename']}\n{row['text_content']}\n[dates {meta}]"
     if stype == "calculation":  # id = job ref; recompute payment dates
         try:
             result = payments.get_payment_dates(firm, sid)
@@ -96,9 +103,10 @@ def _source_text(conn, firm: uuid.UUID, source: dict) -> str | None:
     return None
 
 
-def _regulation_has(quote: str) -> bool:
+def _regulation_passage(quote: str) -> dict | None:
+    """The regulations passage that contains the quote (its edition date also counts as a cited date)."""
     found = regulations.search_regulations(quote, limit=10)["passages"]
-    return any(_norm(quote) in _norm(p.get("text") or "") for p in found)
+    return next((p for p in found if _norm(quote) in _norm(p.get("text") or "")), None)
 
 
 def verify_answer(firm: uuid.UUID, text: str, claims: list[dict]) -> dict[str, Any]:
@@ -125,10 +133,12 @@ def verify_answer(firm: uuid.UUID, text: str, claims: list[dict]) -> dict[str, A
             if source.get("type") == "regulation":
                 if not quote:
                     add("QUOTE_NOT_IN_SOURCE", "Regulation claims need an exact quote.", cid)
-                elif not _regulation_has(quote):
-                    add("QUOTE_NOT_IN_SOURCE", "Quote not found in the regulations passages.", cid)
                 else:
-                    cited_texts.append(quote)
+                    passage = _regulation_passage(quote)
+                    if passage is None:
+                        add("QUOTE_NOT_IN_SOURCE", "Quote not found in the regulations passages.", cid)
+                    else:
+                        cited_texts.append(f"{quote} [edition {passage.get('edition_date') or ''}]")
                 continue
             src = _source_text(conn, firm, source)
             if src is None:

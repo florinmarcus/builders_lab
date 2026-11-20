@@ -94,3 +94,10 @@ def test_quota_blocks_at_limit(firm, conn):
     quotas.consume(firm, "tool_calls")
     with pytest.raises(QuotaExceededError):
         quotas.consume(firm, "tool_calls")
+
+
+def test_regulations_fallback_returns_nothing_for_unrelated_questions(seeded):
+    assert regulations.search_regulations("Control of Asbestos Regulations regulation 5 duty to assess")["passages"] == []
+    assert regulations.search_regulations("VAT domestic reverse charge for subcontractors")["passages"] == []
+    hits = regulations.search_regulations("what happens if I miss a pay less notice")["passages"]
+    assert hits and hits[0]["section"].startswith("s111")
