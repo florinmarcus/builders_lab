@@ -38,12 +38,12 @@ Builders of every size, mostly private clients and main contractors, some counci
 - **Three connectors:**
   1. **Claude's own Gmail connector** reads emails and creates drafts (moments 1, 2, 5). We don't build this.
   2. **Xero's official MCP connector** with the UK demo company creates the draft invoice (moment 6). We don't build this.
-  3. **Our MCP server** (small, Python) does what nobody else does: files emails and attachments by job, keeps job facts and "what's missing", and searches the regulations corpus with history (moments 2, 3, 4). Tools: `list_jobs`, `get_job`, `list_missing_items`, `search_job_documents`, `search_regulations`, `get_payment_dates` (moment 7: our code does the date sums), `sync_inbox`.
+  3. **Our MCP server** (small, Python) does what nobody else does: files emails and attachments by job, keeps job facts and "what's missing", and searches the regulations corpus with history (moments 2, 3, 4). Tools: `list_jobs`, `get_job`, `list_missing_items`, `search_job_documents`, `search_regulations`, `get_payment_dates` (moment 7: our code does the date sums), `sync_inbox`, `save_facts` (Claude records job and facts for new emails, ADR 0006).
 - **Email:** Florin's own Gmail, with all demo mail under the label `oakline-demo` (ADR 0005). A loader imports past mock emails; a live simulator turns emails sent from his second address to `+hartley`, `+fm`, `+council`, `+mike` etc. into emails from those personas. One reset command restores the start state. Our server reads the label through the Gmail API to file by job (on request via `sync_inbox`, or every 15 minutes). Details: `system/data/mock/README.md`.
 - **Firm store:** structured records per job (job, client, address, document type, dates, key facts) in Postgres; documents read whole when needed. No per-firm vector store (ADR 0004).
 - **Regulations:** from the corpus session (`corpus/`, `system/rag/`). Fallback if not ready: a few open documents loaded directly (e.g. Approved Document A, building control guidance on gov.uk).
 - **Hosting:** public HTTPS address. Lightsail in London (ADR 0003) or a tunnel from a laptop for the demo.
-- **Models:** Claude in the Claude app answers; Claude on Bedrock (Haiku) for extraction when filing emails.
+- **Models:** Claude in the Claude app answers and also extracts facts when filing emails, through our `save_facts` tool, on request or on a Claude Code schedule (ADR 0006). No chat model on our server.
 
 ## Mock data
 
@@ -68,7 +68,7 @@ About 15–20 emails with PDF attachments. All names, addresses and companies in
 
 - **Tracing:** one row per model call and per tool call: trace id, firm, tool or model, model id, prompt version, input and output tokens, cost (USD), latency, status, sources returned. Postgres tables now; OpenTelemetry later.
 - **Versions:** every extraction prompt, MCP server instruction and tool description has a version id, stored in the repo and written into each trace row. Changing a prompt means a new version, never an in-place edit.
-- **Quotas per firm:** daily limits on documents ingested, tool calls and Bedrock spend; rate limiting on the public MCP endpoint. Answers run on the builder's own Claude plan; our costs are extraction (Haiku), embeddings (Titan) and the server.
+- **Quotas per firm:** daily limits on documents ingested, tool calls and Bedrock spend; rate limiting on the public MCP endpoint. Answers and extraction run on the builder's own Claude plan; our costs are embeddings, re-ranking and the server (ADR 0006).
 - **Retries and errors:** retries with exponential backoff and jitter only for retryable errors (throttling, timeouts, 5xx). Typed exceptions for the rest (validation, auth, not found). MCP tools return clear structured errors, never a stack trace. Failed ingestion is logged and can be re-run.
 
 ## Security (show as concept)
