@@ -1,61 +1,106 @@
 # builders_lab
 
-A research lab that may become a product: an AI assistant (agentic RAG) for building and construction businesses, aimed first at the Romanian community.
+An AI assistant for UK building firms, first for Romanian-run firms: Claude (the user's own plan) does the thinking; our MCP server holds firm data, rules and guardrails. Research and requirements came first; a working demo with mock data is live.
 
-We don't know the domain yet. Research and requirements come first, then a presentation, then a cheap technical solution with mock data.
+## Where we are (20 Nov 2026)
 
-## Phases
+- **Live:** MCP server on AWS London behind API keys (`deploy/README.md`), 9 tools, mock firm "Oakline Build" (`system/data/mock/`), ingestion of demo email, deterministic answer checks (`verify_answer`).
+- **Built, not yet tried by users:** the Builders plugin (`plugin/`: skills, Haiku specialist agents, rules), the demo Gmail tool.
+- **Other session:** regulations corpus and search (`corpus/`, `system/rag/`, `.claude/skills/corpus-document/`).
+- **Gaps and shortcuts:** `requirements/parking-lot.md`. Read it before starting anything.
 
-1. **Research** (`research/`): learn the business domain, find the pain points, look at the market and competitors.
-2. **Requirements** (`requirements/`): who the users are, what problems we solve, what's in and out of scope.
-3. **Presentation** (`presentation/`): the first deliverable. It explains the domain, the pain points, the proposed solution and the costs.
-4. **Technical solution** (`system/`, `tests/`, `evals/`): a website (not a mobile app) with a backend, agentic RAG and mock data.
+## Read first, by task
 
-Don't start building in `system/` before the research and requirements that justify it exist.
+| If you are... | Read |
+|---|---|
+| Starting any work | this file, `requirements/parking-lot.md`, `architecture/ARCHITECTURE.md` |
+| Changing a server tool or the service layer | `architecture/design/server.md`, `system/api/README.md` |
+| Adding a new MCP tool | the "new tool" line in the definition of done below |
+| Changing agents, skills or answer flow | `architecture/design/agents.md`, `architecture/design/agent-contracts.md`, `plugin/README.md` |
+| Changing JSON passed between agents | `system/api/builders_api/contracts.py` (source of truth), then the design doc |
+| Changing the database | `system/api/builders_api/db/migrations/` (add a file, never edit one) |
+| Changing security | `decisions/0007-mcp-server-security.md`, `architecture/design/server.md` |
+| Deploying, upgrading, keys, kill switch | `deploy/README.md`, `decisions/0009-...md` |
+| Mock data, demo emails, Gmail demo | `system/data/mock/README.md`, `decisions/0005-...md` |
+| Regulations corpus or search | `system/rag/README.md` (contract), `corpus/README.md`, `.claude/skills/corpus-document/` |
+| Research or requirements | `research/summary.md`, `requirements/prototype.md` |
+| Making a decision | `decisions/` (add an ADR) |
 
-## Open questions (answer before going deep)
+## Commands
 
-- Which businesses exactly? Construction and renovation firms, sole-trader tradespeople, suppliers, or building management?
-- Where? Romanian-run businesses in the UK, businesses in Romania, or both?
-- Which language should users see: Romanian, English or both?
-- Who pays, and how much would they pay?
+```
+pip install -e ".[dev]"                                   # from the repo root
+TEST_DATABASE_URL=postgresql://postgres@localhost:5433/builders_test pytest -q   # that database is wiped
+python -m builders_api.versions                           # fails if a locked text was edited
+python -m builders_api.versions --lock                    # lock new .vN.md files
+python -m builders_api.db.migrate                         # needs DATABASE_URL
+python -m builders_api.mcp_server                         # local server, settings in .env.example
+claude plugin validate ./plugin                           # plugin check
+python system/data/mock/generate.py --today 2026-11-21    # demo emails as .eml
+```
 
-When one is answered, move it into `requirements/` and delete it here.
+No local Postgres? Any throwaway Postgres 16 works; CI starts one (`.github/workflows/ci-deploy.yml`). Every push to `main` runs the tests and then deploys to the live server.
+
+## Definition of done (every code change)
+
+1. Tests pass (`pytest -q`) and `python -m builders_api.versions` passes.
+2. Prompt, server instruction or tool description changed: add a new `.vN.md`, run `--lock`. Never edit a locked file.
+3. Schema changed: add a new migration file. Never edit an applied one.
+4. New or renamed tool: service function, `versions/tools/<name>.v1.md`, registration in `mcp_server/server.py`, the tool-name set in `tests/test_mcp_http.py`, the specialist in `plugin/agents/` and skill that use it, tool tables in `architecture/design/server.md` and `system/api/README.md`. Then reconnect the connector in the Claude app.
+5. Agent JSON changed: change `contracts.py`, bump the contract version, keep the examples in `plugin/agents/*.md` valid (`tests/test_contracts.py` checks them).
+6. Diagrams in `architecture/` updated in the same commit.
+7. Every shortcut goes into `requirements/parking-lot.md` with a new, unique ID.
+8. A decision changed: add or update an ADR.
 
 ## Rules
 
-1. **Never invent facts about the domain.** Every claim in `research/` needs a source (link, document or interview note) in `research/sources/`. Mark guesses as guesses.
+1. **Never invent facts about the domain.** Every claim in `research/` needs a source in `research/sources/`. Mark guesses as guesses.
 2. **Mock data only.** No real customer, personal or company data in this repo. Mock data lives in `system/data/mock/`.
-3. **Cost first.** Choose the cheapest hosting and models that do the job. Compare options in `research/hosting-costs/` (AWS, Azure AI Foundry, Google Cloud, others) and `research/models/`, with prices and the date checked. Prices change, so always date them.
-4. **We must be able to run models.** We already have model access. The hosting choice has to support it.
-5. **Website, not an app.** Assume a mobile-friendly website unless research shows a strong reason for an app.
-6. **Record decisions** as short ADRs in `decisions/` (`NNNN-title.md`: context, decision, options considered, consequences).
+3. **Cost first.** Cheapest hosting and models that do the job. Prices dated, in `research/hosting-costs/` and `research/models/`.
+4. **No model on our server** (ADR 0006). Model work runs in Claude on the user's plan. Server checks are plain code.
+5. **Secrets never in Git.** They live in AWS Parameter Store; never print them in chat or logs.
+6. **Record decisions** as short ADRs in `decisions/` (`NNNN-title.md`: context, decision, options considered, consequences). Check the next free number first.
 7. **Plain English.** Short sentences, common words, no marketing language.
-8. **Research stays outside the system.** `research/`, `requirements/` and `presentation/` are documents. `system/` is code only.
+8. **Documents stay outside the system.** `research/`, `requirements/`, `presentation/`, `architecture/` are documents. `system/` is code only.
 9. **Not related to LSEG.** Nothing from Florin's employer goes here.
-10. **Keep the architecture docs current.** Diagrams first (Mermaid), little text. Update `architecture/` in the same change as the design.
-11. **Park every shortcut.** Any corner cut, gap or thing not built goes into `requirements/parking-lot.md` in the same commit.
+10. **Keep the architecture docs current.** Diagrams first (Mermaid), little text. Link to the source of truth instead of copying lists.
+11. **Park every shortcut** in `requirements/parking-lot.md` in the same commit.
+
+## How Florin works
+
+- Small steps. Before each step, say in a few short lines what you will do and why, then wait for his yes.
+- He often listens to replies: short spoken sentences, small chunks, few tables.
+- For design questions, the `grill-me` skill in `.claude/skills/` helps.
 
 ## Layout
 
 ```
 AGENTS.md       this file (CLAUDE.md imports it)
-research/       domain knowledge, pain points, market, hosting and model costs, sources
-requirements/   users, use cases, scope, non-functional needs (cost, language, privacy)
+research/       domain, pain points, market, costs, sources
+requirements/   prototype.md (what we build), parking-lot.md (gaps and shortcuts)
 presentation/   the deck and its notes
 decisions/      ADRs
-architecture/   ARCHITECTURE.md (high level, diagrams), design/ (one per concern, incl. data model), sequences/ (flows)
-corpus/         shared regulations corpus: sources.yaml, version records, harvest report (raw files in S3, not git)
-system/         the application
-  web/          website (frontend)
-  api/          backend API
-  agents/       agent logic and tools
-  rag/          harvesting, ingestion, chunking, retrieval
-  data/mock/    mock businesses, documents and conversations
-tests/          unit and integration tests for system/
-evals/          retrieval and answer quality evals (test questions, expected answers, scoring)
+architecture/   ARCHITECTURE.md, design/ (server, agents, agent contracts, corpus), sequences/
+corpus/         regulations corpus records (raw files in S3, not git)
+plugin/         the Builders Claude plugin: skills, agents, shared rules, connectors, Claude app instructions
+deploy/         CloudFormation, Docker Compose, install/upgrade/rollback scripts, IAM policy
+system/
+  api/          builders_api: MCP server, service layer, ingestion, security, versions, migrations
+  rag/          regulations harvesting, parsing, search (other session)
+  data/mock/    mock scenario, email generator, demo Gmail tool, seed SQL
+tests/          tests for system/
+evals/          answer quality evals (not started; parking lot N9)
+.claude/skills/ runbooks for Claude Code (corpus-document, grill-me)
+.github/        CI and deploy pipeline
 ```
+
+## Open questions
+
+- How much will a firm pay us, on top of its own Claude plan?
+- Romanian answers: when, and for which users (ADR 0001)?
+
+Answered questions are in `requirements/README.md`.
 
 ## Commits
 
-Work on `main` and push to `main`. Keep research, requirements and decisions up to date in the same change as the work.
+Work on `main` and push to `main`. Pull before you push. Keep research, requirements, decisions and architecture up to date in the same change as the work.

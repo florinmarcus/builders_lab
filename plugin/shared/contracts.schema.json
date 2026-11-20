@@ -1,0 +1,787 @@
+{
+  "$comment": "Generated from system/api/builders_api/contracts.py. Do not edit by hand.",
+  "contract": "contracts.v1",
+  "definitions": {
+    "Answer": {
+      "$defs": {
+        "AnswerClaim": {
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "title": "Id",
+              "type": "string"
+            },
+            "quote": {
+              "default": "",
+              "title": "Quote",
+              "type": "string"
+            },
+            "source": {
+              "$ref": "#/$defs/ClaimSource"
+            }
+          },
+          "required": [
+            "id",
+            "source"
+          ],
+          "title": "AnswerClaim",
+          "type": "object"
+        },
+        "ClaimSource": {
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "title": "Id",
+              "type": "string"
+            },
+            "type": {
+              "enum": [
+                "email",
+                "document",
+                "regulation",
+                "calculation"
+              ],
+              "title": "Type",
+              "type": "string"
+            }
+          },
+          "required": [
+            "type",
+            "id"
+          ],
+          "title": "ClaimSource",
+          "type": "object"
+        }
+      },
+      "additionalProperties": false,
+      "properties": {
+        "claims": {
+          "items": {
+            "$ref": "#/$defs/AnswerClaim"
+          },
+          "title": "Claims",
+          "type": "array"
+        },
+        "contract": {
+          "const": "contracts.v1",
+          "default": "contracts.v1",
+          "title": "Contract",
+          "type": "string"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "text"
+      ],
+      "title": "Answer",
+      "type": "object"
+    },
+    "AnswerClaim": {
+      "$defs": {
+        "ClaimSource": {
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "title": "Id",
+              "type": "string"
+            },
+            "type": {
+              "enum": [
+                "email",
+                "document",
+                "regulation",
+                "calculation"
+              ],
+              "title": "Type",
+              "type": "string"
+            }
+          },
+          "required": [
+            "type",
+            "id"
+          ],
+          "title": "ClaimSource",
+          "type": "object"
+        }
+      },
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "quote": {
+          "default": "",
+          "title": "Quote",
+          "type": "string"
+        },
+        "source": {
+          "$ref": "#/$defs/ClaimSource"
+        }
+      },
+      "required": [
+        "id",
+        "source"
+      ],
+      "title": "AnswerClaim",
+      "type": "object"
+    },
+    "FindingClaim": {
+      "$defs": {
+        "Source": {
+          "additionalProperties": false,
+          "properties": {
+            "date": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "YYYY-MM-DD",
+              "title": "Date"
+            },
+            "edition_date": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Edition Date"
+            },
+            "id": {
+              "description": "email or document uuid; regulation passage key or section; job ref for calculation",
+              "title": "Id",
+              "type": "string"
+            },
+            "label": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Label"
+            },
+            "page": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Page"
+            },
+            "section": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Section"
+            },
+            "type": {
+              "enum": [
+                "email",
+                "document",
+                "regulation",
+                "calculation"
+              ],
+              "title": "Type",
+              "type": "string"
+            },
+            "url": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Url"
+            }
+          },
+          "required": [
+            "type",
+            "id"
+          ],
+          "title": "Source",
+          "type": "object"
+        }
+      },
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "quote": {
+          "default": "",
+          "description": "Exact words from the source; empty only for calculation sources",
+          "title": "Quote",
+          "type": "string"
+        },
+        "source": {
+          "$ref": "#/$defs/Source"
+        },
+        "status": {
+          "enum": [
+            "approved",
+            "not_approved",
+            "missing",
+            "present",
+            "expired",
+            "expiring_soon",
+            "deadline",
+            "rule",
+            "info"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
+        "values": {
+          "additionalProperties": true,
+          "title": "Values",
+          "type": "object"
+        }
+      },
+      "required": [
+        "id",
+        "text",
+        "status",
+        "source"
+      ],
+      "title": "FindingClaim",
+      "type": "object"
+    },
+    "Findings": {
+      "$defs": {
+        "FindingClaim": {
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "title": "Id",
+              "type": "string"
+            },
+            "quote": {
+              "default": "",
+              "description": "Exact words from the source; empty only for calculation sources",
+              "title": "Quote",
+              "type": "string"
+            },
+            "source": {
+              "$ref": "#/$defs/Source"
+            },
+            "status": {
+              "enum": [
+                "approved",
+                "not_approved",
+                "missing",
+                "present",
+                "expired",
+                "expiring_soon",
+                "deadline",
+                "rule",
+                "info"
+              ],
+              "title": "Status",
+              "type": "string"
+            },
+            "text": {
+              "title": "Text",
+              "type": "string"
+            },
+            "values": {
+              "additionalProperties": true,
+              "title": "Values",
+              "type": "object"
+            }
+          },
+          "required": [
+            "id",
+            "text",
+            "status",
+            "source"
+          ],
+          "title": "FindingClaim",
+          "type": "object"
+        },
+        "Source": {
+          "additionalProperties": false,
+          "properties": {
+            "date": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "YYYY-MM-DD",
+              "title": "Date"
+            },
+            "edition_date": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Edition Date"
+            },
+            "id": {
+              "description": "email or document uuid; regulation passage key or section; job ref for calculation",
+              "title": "Id",
+              "type": "string"
+            },
+            "label": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Label"
+            },
+            "page": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Page"
+            },
+            "section": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Section"
+            },
+            "type": {
+              "enum": [
+                "email",
+                "document",
+                "regulation",
+                "calculation"
+              ],
+              "title": "Type",
+              "type": "string"
+            },
+            "url": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Url"
+            }
+          },
+          "required": [
+            "type",
+            "id"
+          ],
+          "title": "Source",
+          "type": "object"
+        }
+      },
+      "additionalProperties": false,
+      "properties": {
+        "claims": {
+          "items": {
+            "$ref": "#/$defs/FindingClaim"
+          },
+          "title": "Claims",
+          "type": "array"
+        },
+        "contract": {
+          "const": "contracts.v1",
+          "default": "contracts.v1",
+          "title": "Contract",
+          "type": "string"
+        },
+        "gaps": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Gaps",
+          "type": "array"
+        },
+        "job": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Job"
+        },
+        "kind": {
+          "enum": [
+            "inbox",
+            "variations",
+            "payments",
+            "paperwork",
+            "regulations"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "tool_trace_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Tool Trace Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "kind",
+        "claims"
+      ],
+      "title": "Findings",
+      "type": "object"
+    },
+    "Problem": {
+      "additionalProperties": false,
+      "properties": {
+        "claim": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Claim"
+        },
+        "code": {
+          "enum": [
+            "SOURCE_NOT_FOUND",
+            "QUOTE_NOT_IN_SOURCE",
+            "NUMBER_NOT_IN_SOURCES",
+            "BANNED_PHRASE",
+            "PERSONAL_DATA",
+            "MISSING_AI_NOTICE",
+            "NO_CLAIMS"
+          ],
+          "title": "Code",
+          "type": "string"
+        },
+        "message": {
+          "title": "Message",
+          "type": "string"
+        },
+        "severity": {
+          "enum": [
+            "error",
+            "warning"
+          ],
+          "title": "Severity",
+          "type": "string"
+        }
+      },
+      "required": [
+        "code",
+        "severity",
+        "message"
+      ],
+      "title": "Problem",
+      "type": "object"
+    },
+    "Source": {
+      "additionalProperties": false,
+      "properties": {
+        "date": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "YYYY-MM-DD",
+          "title": "Date"
+        },
+        "edition_date": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Edition Date"
+        },
+        "id": {
+          "description": "email or document uuid; regulation passage key or section; job ref for calculation",
+          "title": "Id",
+          "type": "string"
+        },
+        "label": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Label"
+        },
+        "page": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Page"
+        },
+        "section": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Section"
+        },
+        "type": {
+          "enum": [
+            "email",
+            "document",
+            "regulation",
+            "calculation"
+          ],
+          "title": "Type",
+          "type": "string"
+        },
+        "url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Url"
+        }
+      },
+      "required": [
+        "type",
+        "id"
+      ],
+      "title": "Source",
+      "type": "object"
+    },
+    "SpecialistTask": {
+      "additionalProperties": false,
+      "properties": {
+        "as_of_date": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "As Of Date"
+        },
+        "contract": {
+          "const": "contracts.v1",
+          "default": "contracts.v1",
+          "title": "Contract",
+          "type": "string"
+        },
+        "job": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Job"
+        },
+        "kind": {
+          "enum": [
+            "inbox",
+            "variations",
+            "payments",
+            "paperwork",
+            "regulations"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "question": {
+          "title": "Question",
+          "type": "string"
+        }
+      },
+      "required": [
+        "question",
+        "kind"
+      ],
+      "title": "SpecialistTask",
+      "type": "object"
+    },
+    "Verdict": {
+      "$defs": {
+        "Problem": {
+          "additionalProperties": false,
+          "properties": {
+            "claim": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Claim"
+            },
+            "code": {
+              "enum": [
+                "SOURCE_NOT_FOUND",
+                "QUOTE_NOT_IN_SOURCE",
+                "NUMBER_NOT_IN_SOURCES",
+                "BANNED_PHRASE",
+                "PERSONAL_DATA",
+                "MISSING_AI_NOTICE",
+                "NO_CLAIMS"
+              ],
+              "title": "Code",
+              "type": "string"
+            },
+            "message": {
+              "title": "Message",
+              "type": "string"
+            },
+            "severity": {
+              "enum": [
+                "error",
+                "warning"
+              ],
+              "title": "Severity",
+              "type": "string"
+            }
+          },
+          "required": [
+            "code",
+            "severity",
+            "message"
+          ],
+          "title": "Problem",
+          "type": "object"
+        }
+      },
+      "additionalProperties": false,
+      "properties": {
+        "checked": {
+          "additionalProperties": {
+            "type": "integer"
+          },
+          "title": "Checked",
+          "type": "object"
+        },
+        "contract": {
+          "const": "contracts.v1",
+          "default": "contracts.v1",
+          "title": "Contract",
+          "type": "string"
+        },
+        "pass": {
+          "title": "Pass",
+          "type": "boolean"
+        },
+        "problems": {
+          "items": {
+            "$ref": "#/$defs/Problem"
+          },
+          "title": "Problems",
+          "type": "array"
+        }
+      },
+      "required": [
+        "pass",
+        "problems",
+        "checked"
+      ],
+      "title": "Verdict",
+      "type": "object"
+    }
+  }
+}

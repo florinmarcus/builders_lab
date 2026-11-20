@@ -79,7 +79,7 @@ Started 20 Nov 2026. Status of the demo build: steps 1 (mock data plan), 2 (sche
 | S51 | Specialist tool limits are written in each agent's instructions, not enforced with a `tools:` list (plugin tool names not yet confirmed) | `plugin/agents/` | Confirm plugin MCP tool names, then add `tools:` to each agent |
 | S52 | `model: haiku` for sub-agents is a Claude Code setting; not checked in Cowork | `plugin/agents/` | Check in Cowork |
 | S53 | verify_answer checks numbers and quotes, not meaning: a true quote can still be used for a wrong claim | `service/verify.py` | Evals with an LLM judge (N9) |
-| S54 | Agent contract JSON lives in prose and is copied into the agent files; no schema in code checks the examples | `architecture/design/agent-contracts.md`, `plugin/agents/` | Pydantic/JSON Schema in code as the source; test the examples |
+| S54 | ~~Agent contract JSON only in prose~~ Done 20 Nov 2026: `contracts.py` is the source, schema generated, examples tested | – | – |
 | S55 | Rules text exists three times (MCP server instructions, plugin rules, Claude app project instructions) | `versions/server/`, `plugin/shared/rules.md`, `plugin/claude-app/` | One source file; build or check the others from it |
 | S19 | Cost figures are first-pass, partly guesses, mostly US prices | `research/hosting-costs/connector-auth-options.md` | Review in detail; check London prices |
 | S28 | Postgres runs in Docker on the one server; no managed database, no read replica (raised by Florin 20 Nov 2026) | ADR 0009 | RDS, or a writer plus at least one reader, when traffic or customers need it |

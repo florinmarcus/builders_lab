@@ -3,7 +3,7 @@
 The mini harness inside Claude: every answer goes through fixed steps, and every step speaks JSON, so our server can check it with plain code. No model runs on our server (ADR 0006); all model work is on the user's Claude plan.
 Up: [architecture](../ARCHITECTURE.md). Server side: [server.md](server.md).
 
-Contract version: `contracts.v1` (20 Nov 2026). Any change to a schema below makes a new version.
+Contract version: `contracts.v1` (20 Nov 2026). **Source of truth: `system/api/builders_api/contracts.py`** (Pydantic). Generated schema: `plugin/shared/contracts.schema.json`. The JSON below explains it; `tests/test_contracts.py` checks the schema file is current and every example in `plugin/` is valid. Any change makes a new version.
 
 ## Pipeline
 

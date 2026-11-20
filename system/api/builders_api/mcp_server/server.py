@@ -19,7 +19,7 @@ from mcp.server.transport_security import TransportSecuritySettings
 from mcp.types import ToolAnnotations
 from pydantic import BaseModel, Field
 
-from builders_api import quotas, security, versions
+from builders_api import contracts, quotas, security, versions
 from builders_api.config import rate_limit_per_minute, support_contact
 from builders_api.db import connection
 from builders_api.errors import AppError
@@ -126,17 +126,6 @@ class FactIn(BaseModel):
     detail: dict[str, Any] | None = Field(None, description="Structured detail, e.g. amount_gbp, room, material, result")
 
 
-class ClaimSource(BaseModel):
-    type: str = Field(description="email | document | regulation | calculation")
-    id: str = Field(description="email or document id; job ref for calculation; any key for regulation")
-
-
-class Claim(BaseModel):
-    id: str
-    quote: str = Field("", description="Exact words from the source (not needed for calculation)")
-    source: ClaimSource
-
-
 def build_server() -> MCPServer:
     instructions = versions.get("server_instructions", "instructions")
     server = MCPServer(
@@ -186,7 +175,7 @@ def build_server() -> MCPServer:
             [x.model_dump() for x in facts or []], version))
 
     @server.tool(description=desc("verify_answer"), annotations=READ_ONLY)
-    def verify_answer(text: str, claims: list[Claim] | None = None) -> dict[str, Any]:
+    def verify_answer(text: str, claims: list[contracts.AnswerClaim] | None = None) -> dict[str, Any]:
         return run_tool("verify_answer", lambda f: verify_service.verify_answer(
             f, text, [c.model_dump() for c in claims or []]))
 

@@ -26,7 +26,7 @@ Refuse plainly (no specialist) if asked to rank, score or monitor workers or ten
 Start the specialist sub-agent with a SpecialistTask (JSON):
 
 ```json
-{"contract": "contracts.v1", "question": "<user's words>", "kind": "<kind>", "job": "<ref or words, optional>"}
+{"contract": "contracts.v1", "question": "Show every change the client approved on Elm Avenue", "kind": "variations", "job": "ELM-22"}
 ```
 
 It returns Findings JSON: `claims` (each with text, status, quote, source, values), `gaps`.
@@ -41,9 +41,11 @@ Write the answer from the Findings only. Short answer first, then details, then 
 Call `verify_answer` with:
 
 ```json
-{"text": "<the answer exactly as you will show it>",
- "claims": [{"id": "c1", "quote": "<exact words>", "source": {"type": "email|document|regulation|calculation", "id": "<id>"}}]}
+{"text": "Victoria approved underfloor heating (£2,400 + VAT). AI-generated, check before use.",
+ "claims": [{"id": "c1", "quote": "Yes, go ahead with the underfloor heating in the kitchen.", "source": {"type": "document", "id": "<attachment id>"}}]}
 ```
+
+Schemas: `../../shared/contracts.schema.json` (SpecialistTask, Findings, Answer, Verdict).
 
 Use `{"type": "calculation", "id": "<job ref>"}` for dates from `get_payment_dates`.
 If `pass` is false: fix only the flagged parts (remove or correct the claim, add the notice, reword) and verify again. At most two rounds. If it still fails, tell the builder what could not be confirmed.
