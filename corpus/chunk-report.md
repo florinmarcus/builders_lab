@@ -9,7 +9,7 @@ Made by `python -m system.rag.chunk` from the parsed trees (not in git). Rebuilt
 - Open model checks in the tree: 0.
 - Cross-references: 736, resolved in this document 653, to another document 60, unresolved 23.
 - Splits (1):
-  - para-17.7: 2574 characters, split into 2 parts
+  - para-17.7: 2575 characters, split into 2 parts
 - Unresolved references (most common): "paragraph 2.44" ×4, "Table 8.1" ×2, "paragraphs A26" ×1, "paragraphs A14" ×1, "paragraph A11" ×1, "paragraphs A12" ×1, "paragraphs F8" ×1, "Table A1" ×1, "Table 7.1" ×1, "Figure 2" ×1, "paragraph 2.46" ×1, "paragraph 5.46" ×1, "paragraph 8.14" ×1, "paragraph 13.16" ×1, "paragraph 13.22" ×1.
 
 ## awaab-guidance-phase1 `awaab-s-law-guidance-for-social-landlords-timeframes-for-rep@2026-07-16-77d92c22`

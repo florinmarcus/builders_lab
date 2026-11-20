@@ -15,11 +15,26 @@ existing RDS Postgres instance, next to the lab's database. The Builders server 
 3. **Store the connection strings** in Parameter Store (SecureString), London:
    - `/builders-lab/prod/secrets/corpus_reader_url` =
      `postgresql://builders_corpus_reader:<password>@<endpoint>:5432/builders_corpus?sslmode=require`
-   - `/builders-lab/prod/secrets/corpus_owner_url`, the same with the owner (for the loader; or keep it only on the laptop).
+   - `/builders-lab/admin/corpus_owner_url`, the same with the owner. Not under `/builders-lab/prod/`: the server
+     role can read everything there, and the server must never get the owner (least privilege). The deploy user
+     and admins can read `/builders-lab/admin/`.
 4. Optional, if the lab's database still lets any user connect: `REVOKE CONNECT ON DATABASE <lab db> FROM PUBLIC;`
    and grant it back to the lab's own user. The Builders users have no rights on the lab's tables either way.
 
 ## Then
 
-- Loader (owner): `python -m system.rag.load` (next step) creates the tables in `corpus` and loads chunks and vectors.
+- Rebuild and load from Git on any machine that can reach the database (your laptop: its IP is allowed):
+  `python -m system.rag.build --load` (raw files, parse, chunk, embed, local index, then `system.rag.load` as the
+  owner, URL from `/builders-lab/admin/corpus_owner_url`). The load replaces the corpus in one transaction.
 - Server (reader): reads `corpus_reader_url` from Parameter Store; `rag.search` connects only with it.
+
+## Done (20 Nov 2026)
+
+- Instance `rag-lab-db`, Frankfurt (`eu-central-1`), endpoint `rag-lab-db.ct624uuqgiy1.eu-central-1.rds.amazonaws.com`.
+- First run stopped at "must be able to SET ROLE builders_corpus_owner" (Postgres 16 on RDS: the master user is
+  not a full superuser). `corpus-setup-finish.sql` completed it; `corpus-setup.sql` now joins the role first.
+- Reader URL in `/builders-lab/prod/secrets/corpus_reader_url`, owner URL in `/builders-lab/admin/corpus_owner_url`.
+- Git Bash on Windows turns `/builders-lab/...` into a Windows path: run AWS and Docker commands with
+  `MSYS_NO_PATHCONV=1`.
+- The lab's `infra/provision.py` has `pause` (stops the instance) and `down` (deletes it, no backup): either
+  also stops or deletes this corpus. It can be rebuilt from Git with `python -m system.rag.build --load`.

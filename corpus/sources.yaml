@@ -27,6 +27,7 @@ sources:
   status: current
   notes: Text mixes in Welsh amendments; filter to England by extent. 33 unapplied effects (SI 2026/335, SI 2026/1094, WSI 2026/60).
   checked: 2026-11-19
+  parser: {module: parse_legislation}
   fetch: {method: legislation, path: uksi/2010/2214, history: all}
 
 - id: br-amd-2026-fhs
@@ -908,6 +909,7 @@ sources:
   status: current
   notes: New foreword 8 Aug 2025; PDF being updated, so use the HTML version.
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: govuk, page: /government/publications/fire-safety-england-regulations-2022-fire-door-guidance, attachments: html}
 
 - id: fso-s156
@@ -1007,6 +1009,7 @@ sources:
   status: current
   notes: Outstanding changes from SI 2026/1153 not yet applied.
   checked: 2026-11-19
+  parser: {module: parse_legislation}
   fetch: {method: legislation, path: uksi/2012/632, history: all}
 
 - id: car-amd-2026
@@ -1071,6 +1074,7 @@ sources:
   why: Defines survey types and what a contractor should be given before a refit.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_pdf}
   fetch: {method: url}
 
 - id: hse-hsg227
@@ -1087,6 +1091,7 @@ sources:
   status: current
   notes: Pre-dates CAR 2012 but HSE still lists it. Show the date with answers.
   checked: 2026-11-19
+  parser: {module: parse_pdf}
   fetch: {method: url}
 
 - id: hse-hsg247
@@ -1417,6 +1422,7 @@ sources:
   in_force: 2015-04-06
   status: current
   checked: 2026-11-19
+  parser: {module: parse_legislation}
   fetch: {method: legislation, path: uksi/2015/51, history: all}
 
 - id: hse-l153
@@ -1462,6 +1468,7 @@ sources:
   why: Who is the client on private homeowner jobs.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: url}
 
 - id: hse-indg411
@@ -2469,6 +2476,7 @@ sources:
   why: Explains the 24 hour / 10 working day / 5 day / 12 week timeframes and what contractors must report.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: govuk, page: /government/publications/awaabs-law-guidance-for-social-landlords, attachments: all}
 
 - id: awaab-guidance-phase2
@@ -3031,6 +3039,7 @@ sources:
   status: current
   notes: Includes the 6 Apr 2026 changes. gov.uk keeps only a change log, not old text.
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: govuk, page: /government/publications/construction-industry-scheme-cis-340, attachments: html}
 
 - id: govuk-cis-contractor
@@ -3190,6 +3199,7 @@ sources:
   status: current
   notes: Pre-2021 copies show wrong start dates.
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: govuk, page: /guidance/vat-domestic-reverse-charge-for-building-and-construction-services, attachments: none, body: true}
 
 - id: hmrc-vatrevcon
@@ -4096,6 +4106,7 @@ sources:
   status: current
   notes: Payment notice and pay less notice rules (ss.110A, 110B, 111) came in for England from 1 Oct 2011 (point-in-time version 2011-10-01). History from the version in force on 1 Oct 2010 keeps the old "withholding notice" wording for comparison.
   checked: 2026-11-19
+  parser: {module: parse_legislation}
   fetch: {method: legislation, path: ukpga/1996/53/part/II, history: all}
 
 - id: scheme-cc-1998

@@ -95,6 +95,9 @@ python -m system.rag.search --build
 python -m system.rag.search "a builder question about this document"
 ```
 
+Or all of it, for every source with a `parser:` in `sources.yaml`: `python -m system.rag.build` (add `--load` to
+load the corpus database, `deploy/rds/`). Add the new document's `parser:` entry to `sources.yaml` first.
+
 ## 6. Record and commit
 
 - Any shortcut or known flaw goes into `requirements/parking-lot.md`.
