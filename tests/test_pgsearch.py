@@ -77,3 +77,28 @@ def test_nearest_filters_by_date_and_country_in_the_database():
     later = P.nearest(v, datetime.date(2030, 1, 1), "E", 5, url)
     assert all(r["valid_to"] is None or r["valid_to"] >= datetime.date(2030, 1, 1) for r in later)
     assert later and all(r["source_id"] for r in later)
+
+
+def test_question_codes_match_the_loader():
+    from system.rag.localsearch import codes
+    q = "Does B1 or regulation 7(2) apply to FD30 doors, see para 2.5?"
+    assert P.question_codes(q) == sorted(set(codes(q).lower().split()))
+    assert "fd30" in P.question_codes(q) and "b1" in P.question_codes(q)
+
+
+def test_hybrid_fuses_keyword_and_vector_lists(monkeypatch):
+    monkeypatch.setenv("RAG_HYBRID", "1")
+    vec = [row(1), row(2), row(3)]
+    kw = [row(9), row(3), row(1)]
+    monkeypatch.setattr(P, "nearest", lambda v, d, c, n, url=None: vec)
+    monkeypatch.setattr(P, "keyword", lambda q, d, c, n, url=None: kw)
+    got = [r["id"] for r in P.candidates("FD30 doors", embed=lambda q: [0.0] * 1024)]
+    assert got[:2] == ["c1", "c3"] and set(got) == {"c1", "c2", "c3", "c9"}  # in both lists first
+    monkeypatch.setenv("RAG_HYBRID", "0")
+    assert [r["id"] for r in P.candidates("FD30 doors", embed=lambda q: [0.0] * 1024)] == ["c1", "c2", "c3"]
+
+
+def test_keyword_sql_names_the_schema():
+    assert "corpus_next.chunks" in P.keyword_sql("corpus_next") and "{schema}" not in P.keyword_sql("corpus")
+    with pytest.raises(ValueError):
+        P.keyword_sql("corpus; drop table x")

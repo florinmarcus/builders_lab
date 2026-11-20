@@ -6,11 +6,14 @@ package is imported as "rag", so this file uses no "system.rag" imports.
 
 Steps: embed the question (Titan V2, London) -> the 50 nearest chunks by cosine distance that apply on the
 date and to the country -> one per section -> Amazon Rerank (Frankfurt) -> drop passages below the relevance
-floor -> the best few. Keyword (BM25) search is not used yet (parking lot); the tables already hold it.
+floor -> the best few. With RAG_HYBRID=1 (off by default, evals first): BM25 keyword search over the same
+chunks (words with English stemming, plus codes such as B1, 7(2), FD30 kept whole and weighted higher) is fused
+with the vector list by reciprocal rank fusion (k=60) before the re-rank (ADR 0013).
 
 Settings (environment): CORPUS_READER_URL, RAG_EMBED_REGION (eu-west-2), RAG_EMBED_MODEL
 (amazon.titan-embed-text-v2:0), RAG_RERANK (1 or 0), RAG_RERANK_REGION (eu-central-1), RAG_RERANK_MODEL
-(amazon.rerank-v1:0), RAG_TOP_K (50), RAG_MIN_SCORE (re-rank score below which a passage is dropped, 0.05).
+(amazon.rerank-v1:0), RAG_TOP_K (50), RAG_MIN_SCORE (re-rank score below which a passage is dropped, 0.05),
+RAG_HYBRID (0 or 1), RAG_CODES_WEIGHT (2.0: a code match counts this many times a word match).
 """
 
 from __future__ import annotations
@@ -34,6 +37,8 @@ def cfg() -> dict:
         "top_k": int(os.environ.get("RAG_TOP_K", "50")),
         "min_score": float(os.environ.get("RAG_MIN_SCORE", "0.05")),
         "schema": _schema(os.environ.get("RAG_SCHEMA", "corpus")),
+        "hybrid": os.environ.get("RAG_HYBRID", "0") == "1",
+        "codes_weight": float(os.environ.get("RAG_CODES_WEIGHT", "2.0")),
     }
 
 
@@ -107,6 +112,78 @@ def nearest(vector: list[float], as_of: datetime.date, country: str, n: int, url
         return conn.execute(nearest_sql(schema or c["schema"]), {"v": v, "d": as_of, "c": country, "n": n}).fetchall()
 
 
+# Codes in a question, written as system/rag/localsearch.py writes them at load time ("7(2)" -> "7_2").
+# Copied, not imported: inside the container this package is "rag", not "system.rag".
+CODE_RE = re.compile(r"\b(?:[A-Z]{1,2}\d+(?:\.\d+)*(?:\(\d+\))?|\d+\.\d+(?:\.\d+)*[a-z]?|\d+[A-Z]?\(\d+\)|FD\s?\d+S?)\b")
+
+
+def question_codes(text: str) -> list[str]:
+    return sorted({c.replace(" ", "").replace(".", "_").replace("(", "_").replace(")", "").lower()
+                   for c in CODE_RE.findall(text)})
+
+
+# BM25 (k1 1.2, b 0.75) from the tables the loader fills: tsv (English stems of breadcrumb + text), codes_tsv,
+# doc_len, lexemes (document frequency per word and code) and stats (chunk count, average length).
+KEYWORD = """
+WITH st AS (SELECT chunk_count::float8 AS n, greatest(avg_len, 1)::float8 AS avgdl FROM {schema}.stats LIMIT 1),
+qw AS (SELECT tsvector_to_array(to_tsvector('english', %(q)s)) AS words),
+terms AS (
+  SELECT l.lexeme, l.field, ln(1 + ((SELECT n FROM st) - l.df + 0.5) / (l.df + 0.5))
+         * CASE WHEN l.field = 'codes' THEN %(wc)s ELSE 1 END AS idf
+  FROM {schema}.lexemes l, qw
+  WHERE (l.field = 'text' AND l.lexeme = ANY (qw.words))
+     OR (l.field = 'codes' AND l.lexeme = ANY (%(codes)s::text[]))
+),
+tq AS (SELECT (SELECT string_agg(quote_literal(w), ' | ') FROM unnest((SELECT words FROM qw)) w)::tsquery AS t,
+              (SELECT string_agg(quote_literal(w), ' | ') FROM unnest(%(codes)s::text[]) w)::tsquery AS c),
+scored AS (
+  SELECT ch.id, sum(terms.idf * t.tf * 2.2 / (t.tf + 1.2 * (0.25 + 0.75 * ch.doc_len / (SELECT avgdl FROM st)))) AS bm25
+  FROM {schema}.chunks ch
+  CROSS JOIN LATERAL (
+      SELECT u.lexeme, 'text' AS field, coalesce(array_length(u.positions, 1), 1) AS tf FROM unnest(ch.tsv) u
+      UNION ALL
+      SELECT u.lexeme, 'codes', coalesce(array_length(u.positions, 1), 1) FROM unnest(ch.codes_tsv) u) t
+  JOIN terms ON terms.lexeme = t.lexeme AND terms.field = t.field
+  WHERE (ch.tsv @@ (SELECT t FROM tq) OR ch.codes_tsv @@ (SELECT c FROM tq))
+    AND (ch.valid_from IS NULL OR ch.valid_from <= %(d)s) AND (ch.valid_to IS NULL OR ch.valid_to >= %(d)s)
+    AND (ch.applies_to IS NULL OR %(c)s = ANY (string_to_array(replace(ch.applies_to, '.', ''), '+')))
+  GROUP BY ch.id, ch.doc_len
+)
+SELECT c.id, c.source_id, c.source_title, c.legal_weight, c.edition_date, c.valid_from, c.valid_to, c.section_id,
+       c.section_title, c.heading_path, c.printed_page, c.url, c.text, c.embed_text, s.bm25
+FROM scored s JOIN {schema}.chunks c ON c.id = s.id
+ORDER BY s.bm25 DESC
+LIMIT %(n)s
+"""
+
+
+def keyword_sql(schema: str) -> str:
+    return KEYWORD.replace("{schema}", _schema(schema))
+
+
+def keyword(question: str, as_of: datetime.date, country: str, n: int, url: str | None = None,
+            schema: str | None = None) -> list[dict]:
+    import psycopg
+    from psycopg.rows import dict_row
+
+    c = cfg()
+    with psycopg.connect(url or c["url"], connect_timeout=5, row_factory=dict_row) as conn:
+        return conn.execute(keyword_sql(schema or c["schema"]), {
+            "q": question, "codes": question_codes(question), "wc": c["codes_weight"], "d": as_of,
+            "c": country, "n": n}).fetchall()
+
+
+def rrf(*lists: list[dict], k: int = 60) -> list[dict]:
+    """Reciprocal rank fusion by chunk id: each list adds 1 / (k + rank). k is fixed (ADR 0013)."""
+    score: dict[str, float] = {}
+    rows: dict[str, dict] = {}
+    for lst in lists:
+        for rank, r in enumerate(lst, start=1):
+            score[r["id"]] = score.get(r["id"], 0.0) + 1.0 / (k + rank)
+            rows.setdefault(r["id"], r)
+    return [rows[i] for i in sorted(score, key=lambda i: -score[i])]
+
+
 def one_per_section(rows: list[dict]) -> list[dict]:
     seen, out = set(), []
     for r in rows:
@@ -139,8 +216,13 @@ def candidates(question: str, as_of_date: datetime.date | None = None, country: 
     """The first stage: nearest chunks, one per section, in distance order (what search re-ranks; evals
     score Recall@50 on this)."""
     c = cfg()
+    as_of, n = as_of_date or datetime.date.today(), n or c["top_k"]
     vec = (embed or embed_question)(question)
-    return one_per_section(nearest(vec, as_of_date or datetime.date.today(), country, n or c["top_k"], url))
+    rows = one_per_section(nearest(vec, as_of, country, n, url))
+    if not c["hybrid"]:
+        return rows
+    kw = one_per_section(keyword(question, as_of, country, n, url))
+    return one_per_section(rrf(rows, kw))[:n]
 
 
 def search(question: str, as_of_date: datetime.date | None = None, country: str = "E", limit: int = 5,
