@@ -84,6 +84,15 @@ The survey is built to test "never say no asbestos":
 - **Commercial fit-out:** contract particulars, subcontractor RAMS, subcontractor insurance in date, payment notices issued, completion photos.
 - **Council void:** works order, asbestos survey covering the work area, gas capping or safety record, electrical test, completion photos.
 
+## Generate the emails
+
+```
+python system/data/mock/generate.py --today 2026-11-21
+```
+
+Writes `out/history/*.eml` (17 past emails) and `out/today/*.eml` (3 for demo day) with PDF and text attachments.
+Scenario data: `scenario.py`. Document text matches `db_seed.sql`. Output is not committed.
+
 ## How it runs (ADR 0005)
 
 - **Inbox:** the builder's own Gmail. Address set in `.env` (`BUILDER_INBOX`), never in the repo.

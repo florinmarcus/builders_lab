@@ -9,7 +9,7 @@ Started 20 Nov 2026. Status of the demo build: steps 1 (mock data plan), 2 (sche
 
 | # | What | Why parked | Risk if forgotten |
 |---|---|---|---|
-| N1 | Mock email and PDF generator (20 emails, PDFs, WhatsApp export) | MCP server first | Demo has only the small seed |
+| N1 | ~~Mock email and PDF generator~~ Done 20 Nov 2026: `system/data/mock/generate.py` | – | – |
 | N2 | Gmail loader, reset and live simulator (ADR 0005) | Needs Google login on Florin's laptop | No live "email arrives" moment |
 | N3 | Real `sync_inbox` (Gmail fetch, PDF text) | After the simulator | Tool returns "not connected yet" |
 | N4 | `save_facts` with server checks (job exists, source exists, quote appears in source) (ADR 0006) | After `sync_inbox` | Facts only from seed data |
