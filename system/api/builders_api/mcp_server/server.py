@@ -17,6 +17,7 @@ from typing import Any
 from mcp.server.mcpserver import MCPServer
 from mcp.server.transport_security import TransportSecuritySettings
 from mcp.types import ToolAnnotations
+from pydantic import BaseModel, Field
 
 from builders_api import quotas, security, versions
 from builders_api.config import rate_limit_per_minute, support_contact
@@ -24,6 +25,7 @@ from builders_api.db import connection
 from builders_api.errors import AppError
 from builders_api.mcp_server.gateway import Gateway, mcp_path_from_env
 from builders_api.service import documents, inbox, jobs, payments, regulations
+from builders_api.service import facts as facts_service
 from builders_api.tracing import Span, traced
 
 log = logging.getLogger(__name__)
@@ -106,6 +108,23 @@ def run_tool(name: str, call: Callable[[uuid.UUID], dict[str, Any]]) -> dict[str
         }
 
 
+class AttachmentInfo(BaseModel):
+    attachment_id: str
+    document_type: str
+    document_date: str | None = Field(None, description="YYYY-MM-DD")
+    expires_on: str | None = Field(None, description="YYYY-MM-DD, for insurance and certificates")
+
+
+class FactIn(BaseModel):
+    fact_type: str
+    summary: str
+    quote: str = Field(description="Exact words from the email or attachment")
+    date: str | None = Field(None, description="YYYY-MM-DD")
+    attachment_id: str | None = Field(None, description="Set when the quote comes from an attachment")
+    page: int | None = None
+    detail: dict[str, Any] | None = Field(None, description="Structured detail, e.g. amount_gbp, room, material, result")
+
+
 def build_server() -> MCPServer:
     instructions = versions.get("server_instructions", "instructions")
     server = MCPServer(
@@ -145,6 +164,14 @@ def build_server() -> MCPServer:
     @server.tool(description=desc("sync_inbox"), annotations=ToolAnnotations(readOnlyHint=False, idempotentHint=True))
     def sync_inbox() -> dict[str, Any]:
         return run_tool("sync_inbox", lambda f: inbox.sync_inbox(f))
+
+    @server.tool(description=desc("save_facts"), annotations=ToolAnnotations(readOnlyHint=False, idempotentHint=True))
+    def save_facts(email_id: str, job: str | None = None, attachments: list[AttachmentInfo] | None = None,
+                   facts: list[FactIn] | None = None) -> dict[str, Any]:
+        version = versions.get("tool_description", "save_facts").id
+        return run_tool("save_facts", lambda f: facts_service.save_facts(
+            f, email_id, job, [a.model_dump() for a in attachments or []],
+            [x.model_dump() for x in facts or []], version))
 
     return server
 

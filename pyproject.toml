@@ -13,6 +13,8 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = ["pytest>=8", "pyyaml>=6", "lxml>=5", "reportlab>=4.2"]
+# Demo email feed on the server (admin feed) needs the PDF generator.
+demo = ["reportlab>=4.2"]
 # Demo Gmail loader, reset and live simulator (system/data/mock/gmail_demo.py), run on a laptop.
 gmail = ["google-api-python-client>=2.150", "google-auth-oauthlib>=1.2", "reportlab>=4.2"]
 # Corpus harvester and S3 copy (system/rag), run from the repo root.

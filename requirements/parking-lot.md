@@ -11,8 +11,8 @@ Started 20 Nov 2026. Status of the demo build: steps 1 (mock data plan), 2 (sche
 |---|---|---|---|
 | N1 | ~~Mock email and PDF generator~~ Done 20 Nov 2026: `system/data/mock/generate.py` | – | – |
 | N2 | Gmail loader, reset and live simulator: code done 20 Nov 2026 (`system/data/mock/gmail_demo.py`, tested against a fake Gmail). Not yet run on the real inbox | Needs Florin's Google Cloud client and login | No live "email arrives" moment |
-| N3 | Real `sync_inbox` (Gmail fetch, PDF text) | After the simulator | Tool returns "not connected yet" |
-| N4 | `save_facts` with server checks (job exists, source exists, quote appears in source) (ADR 0006) | After `sync_inbox` | Facts only from seed data |
+| N3 | `sync_inbox` built 20 Nov 2026 with the demo mail folder (`MAIL_SOURCE=eml:`). Gmail source written but not yet run: needs a Gmail login stored on the server | Needs Florin's Google login | Demo uses the folder feed, not the real inbox |
+| N4 | ~~`save_facts` with server checks~~ Done 20 Nov 2026 (`service/facts.py`) | – | – |
 | N5 | ~~First AWS run~~ Done 20 Nov 2026: stack `builders-lab-prod` up, server installed itself, Let's Encrypt certificate, demo data and Florin's key loaded. Still open: turn on the GitHub deploy step (repository variables) and watch its first run | Repo variables need Florin | Pushes test but do not deploy |
 | N6 | OAuth login (Cognito) as the second auth layer (ADR 0007) | API keys first for the demo | One shared secret per firm |
 | N7 | App alerts (lockdown, IP blocks) to the email topic. Budget alarm and server-down alarm are in the CloudFormation template | `security.alert()` only logs | Attacks go unseen |
@@ -65,6 +65,8 @@ Started 20 Nov 2026. Status of the demo build: steps 1 (mock data plan), 2 (sche
 | S34 | Simulator polls Gmail every 10 seconds from the laptop | `gmail_demo.py` | Gmail push notifications (Pub/Sub) if it becomes a product feature |
 | S35 | Some figure crops in HSG227 are shifted (figures 3, 5, 6, 9): pdfplumber's image box does not match where the photo is drawn, so a crop shows part of a neighbour photo or cuts the photo short. Descriptions are right (the model saw the photos) | `system/rag/parse_pdf.py` render_images | Crop from the rendered page by finding the photo's pixels near its caption |
 | S36 | HSG227 worked-example tables (4-14) were rebuilt by two model checks with slightly different layouts (a Sub-factor column vs "Factor: Sub-factor"); row sentences are equivalent | `corpus/fixes/hse-hsg227.json` | Make one layout when the chunker uses table grids |
+| S35 | Job filing is plain word matching plus sender history; Claude can override with save_facts | `service/ingest.py` | Fine for small firms; review with real email |
+| S36 | Contract payment terms come only from the seed, not from ingested contract documents | `db_seed.sql` | Add a contract_terms step to save_facts |
 | S19 | Cost figures are first-pass, partly guesses, mostly US prices | `research/hosting-costs/connector-auth-options.md` | Review in detail; check London prices |
 | S28 | Postgres runs in Docker on the one server; no managed database, no read replica (raised by Florin 20 Nov 2026) | ADR 0009 | RDS, or a writer plus at least one reader, when traffic or customers need it |
 | S29 | 17 raw corpus files missing: the source now gives different bytes, so they were not restored (16 same size, legislation metadata order) | `corpus/harvest-report.md` | Decide: keep today's bytes with a note in the record, or fetch when evals need them |

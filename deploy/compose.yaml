@@ -39,6 +39,9 @@ services:
       SUPPORT_CONTACT: ${SUPPORT_CONTACT:-Florin}
       RATE_LIMIT_PER_MINUTE: ${RATE_LIMIT_PER_MINUTE:-60}
       LOG_LEVEL: ${LOG_LEVEL:-INFO}
+      MAIL_SOURCE: ${MAIL_SOURCE:-eml:/data/mail}   # demo feed folder; "gmail" once the server has a Gmail login
+    volumes:
+      - maildir:/data/mail
     read_only: true
     tmpfs: [/tmp]
     cap_drop: [ALL]
@@ -61,6 +64,7 @@ services:
     networks: [frontend]
 
 volumes:
+  maildir:
   pgdata:
   caddy_data:
   caddy_config:

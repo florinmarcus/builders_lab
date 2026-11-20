@@ -18,7 +18,7 @@ flowchart LR
         svc --> docs["documents<br/>(full-text)"]
         svc --> pay["payments<br/>(date sums)"]
         svc --> regs["regulations"]
-        svc -.-> inbox["inbox<br/>(sync, save facts)"]
+        svc --> inbox["inbox + facts<br/>(sync, save facts)"]
         ver["versions<br/>(texts + lock)"] --> mcp
         ver --> tools
     end
@@ -27,6 +27,7 @@ flowchart LR
     tools --> pg
     regs --> rag["rag.search<br/>(corpus)"]
     regs --> fb["fallback<br/>7 passages"]
+    inbox --> eml["demo mail folder"]
     inbox -.-> gmail["Gmail API"]
 ```
 
@@ -57,8 +58,8 @@ flowchart TB
 | `list_missing_items` | required items, attachments, facts | 3 |
 | `search_regulations` | corpus or fallback | 4, 7 |
 | `get_payment_dates` | contract terms | 7 |
-| `sync_inbox` | Gmail (planned) | 1 |
-| `save_facts` (planned) | writes facts | 1 |
+| `sync_inbox` | mail source (demo folder; Gmail planned), stores and files emails | 1 |
+| `save_facts` | writes job, document types and facts after server checks | 1 |
 
 ## Data (database state)
 

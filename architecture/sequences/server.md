@@ -30,7 +30,7 @@ sequenceDiagram
     C-->>U: answer with citations
 ```
 
-## 2. New emails: sync and save facts (planned, ADR 0006)
+## 2. New emails: sync and save facts (built 20 Nov 2026 with the demo mail folder; Gmail source not yet run; ADR 0006)
 
 ```mermaid
 sequenceDiagram

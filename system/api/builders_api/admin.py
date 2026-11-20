@@ -5,6 +5,7 @@
   python -m builders_api.admin keys extend --prefix 1a2b3c4d --expires 2027-01-31
   python -m builders_api.admin keys revoke --prefix 1a2b3c4d
   python -m builders_api.admin kill on|off|status
+  python -m builders_api.admin feed history|today [e09 ...]   # demo: drop generated emails into the mail folder
 """
 
 from __future__ import annotations
@@ -56,6 +57,32 @@ def revoke_key(prefix: str) -> bool:
         return cur.rowcount == 1
 
 
+def feed(group: str, ids: list[str]) -> list[str]:
+    """Write scenario emails as .eml files into the MAIL_SOURCE folder (eml:<folder>)."""
+    import os
+    from pathlib import Path
+
+    from builders_api.config import mock_dir
+
+    setting = os.environ.get("MAIL_SOURCE", "")
+    if not setting.startswith("eml:"):
+        raise SystemExit("MAIL_SOURCE must be eml:<folder> to use the demo feed.")
+    folder = Path(setting[4:])
+    folder.mkdir(parents=True, exist_ok=True)
+    sys.path.insert(0, str(mock_dir()))
+    from generate import build_email  # noqa: PLC0415
+    from scenario import EMAILS  # noqa: PLC0415
+
+    written = []
+    for e in EMAILS:
+        is_today = e["when"].startswith("today ")
+        if (group == "today") != is_today or (ids and e["id"] not in ids):
+            continue
+        (folder / f"{e['id']}.eml").write_bytes(bytes(build_email(e, dt.date.today())))
+        written.append(e["id"])
+    return written
+
+
 def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(prog="builders_api.admin")
     sub = p.add_subparsers(dest="area", required=True)
@@ -72,6 +99,9 @@ def main(argv: list[str] | None = None) -> int:
     e.add_argument("--expires", required=True, type=dt.date.fromisoformat)
     r = keys.add_parser("revoke")
     r.add_argument("--prefix", required=True)
+    fd = sub.add_parser("feed")
+    fd.add_argument("group", choices=["history", "today"])
+    fd.add_argument("ids", nargs="*")
     k = sub.add_parser("kill")
     k.add_argument("state", choices=["on", "off", "status"])
     a = p.parse_args(argv)
@@ -87,6 +117,8 @@ def main(argv: list[str] | None = None) -> int:
         print("extended" if extend_key(a.prefix, a.expires) else "no active key with that prefix")
     elif a.area == "keys" and a.cmd == "revoke":
         print("revoked" if revoke_key(a.prefix) else "no active key with that prefix")
+    elif a.area == "feed":
+        print("wrote:", ", ".join(feed(a.group, a.ids)) or "nothing")
     elif a.area == "kill":
         if a.state != "status":
             security.set_kill_switch(a.state == "on")

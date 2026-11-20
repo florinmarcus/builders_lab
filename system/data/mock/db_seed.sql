@@ -1,8 +1,19 @@
 -- Small test seed straight into Postgres, so the MCP tools work before Gmail ingestion exists.
--- Mock data only (see README.md in this folder). Re-runnable: it deletes the mock firm first.
+-- Mock data only (see README.md in this folder). Re-runnable: it replaces the mock firm's data but keeps
+-- the firm row, its API keys, traces and quota usage. Message ids match generate.py, so ingesting the
+-- generated emails later skips the ones already here.
 -- Load with: python -m builders_api.db.seed
 
-delete from firms where slug = 'oakline';
+insert into firms (slug, name) values ('oakline', 'Oakline Build Ltd') on conflict (slug) do nothing;
+delete from facts          where firm_id = (select id from firms where slug = 'oakline');
+delete from contract_terms where firm_id = (select id from firms where slug = 'oakline');
+delete from attachments    where firm_id = (select id from firms where slug = 'oakline');
+delete from emails         where firm_id = (select id from firms where slug = 'oakline');
+delete from jobs           where firm_id = (select id from firms where slug = 'oakline');
+delete from clients        where firm_id = (select id from firms where slug = 'oakline');
+delete from staff          where firm_id = (select id from firms where slug = 'oakline');
+delete from quota_limits   where firm_id = (select id from firms where slug = 'oakline');
+delete from gmail_sync_state where firm_id = (select id from firms where slug = 'oakline');
 
 insert into job_types (code, name) values
   ('residential_refurb', 'Residential refurbishment'),
@@ -27,8 +38,6 @@ insert into required_items (job_type_code, code, label, satisfied_by, sort_order
   ('council_void',       'gas',                 'Gas capping or gas safety record',       '{gas_capping_note,gas_safety_record}', 3),
   ('council_void',       'electrical_test',     'Electrical test',                        '{electrical_test}', 4),
   ('council_void',       'completion_photos',   'Completion photos',                      '{completion_photos}', 5);
-
-insert into firms (slug, name) values ('oakline', 'Oakline Build Ltd');
 
 create temporary table f on commit drop as select id from firms where slug = 'oakline';
 
@@ -86,11 +95,11 @@ create temporary table e_ids (k text, id uuid) on commit drop;
 with ins as (
   insert into emails (firm_id, gmail_message_id, from_name, from_address, subject, sent_at, body_text, job_id,
                       filing_reason, ingest_status, ingested_at)
-  select f.id, 'seed-' || e.k, e.fn, e.fa, e.subj, e.at, e.body, j.id,
+  select f.id, e.k || '.oakline-demo@builders-lab.example.com', e.fn, e.fa, e.subj, e.at, e.body, j.id,
          case when j.id is null then 'no job matched' else 'seed data' end, 'done', now()
   from e_in e cross join f left join jobs j on j.ref = e.ref and j.firm_id = f.id
   returning id, gmail_message_id)
-insert into e_ids select substr(gmail_message_id, 6), id from ins;
+insert into e_ids select split_part(gmail_message_id, '.', 1), id from ins;
 
 -- Attachments: (key, email key, filename, mime, doc type, doc date, expires, pages, text)
 create temporary table a_in (k text, ek text, fname text, mime text, dt text, dd date, exp date, pages int, txt text) on commit drop;
