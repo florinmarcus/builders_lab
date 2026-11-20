@@ -108,6 +108,60 @@ def test_legislation_history_chain_and_backfill(store):
     assert check_chain(recs) == []
 
 
+def _drop_raw(store, rec):
+    raw = store.rel_base / rec["raw_path"]
+    raw.unlink()
+    return raw
+
+
+def test_restore_writes_missing_raw_file_when_hash_matches(store):
+    rec = store.add(SRC, doc("2024-01-01", b"v1"))
+    raw = _drop_raw(store, rec)
+    assert store.add(SRC, doc("2024-01-01", b"v1")) is None  # no new version
+    assert raw.read_bytes() == b"v1"
+    assert store.restored == [rec["raw_path"]]
+    assert len(store.records("demo")) == 1
+
+
+def test_restore_old_version_too(store):
+    old = store.add(SRC, doc("2024-01-01", b"v1"))
+    store.add(SRC, doc("2024-06-01", b"v2"))
+    raw = _drop_raw(store, old)
+    assert store.add(SRC, doc("2024-01-01", b"v1")) is None
+    assert raw.read_bytes() == b"v1"
+    assert len(store.records("demo")) == 2
+
+
+def test_restore_legislation_date_with_same_bytes(store):
+    rec = store.add(SRC, leg("2015-01-01", b"b"))
+    raw = _drop_raw(store, rec)
+    assert store.needs_date("demo", "main", "2015-01-01")
+    assert store.add(SRC, leg("2015-01-01", b"b")) is None
+    assert raw.read_bytes() == b"b"
+    assert not store.needs_date("demo", "main", "2015-01-01")
+
+
+def test_restore_mismatch_writes_nothing_and_is_listed(store):
+    rec = store.add(SRC, leg("2015-01-01", b"b"))
+    raw = _drop_raw(store, rec)
+    assert store.add(SRC, leg("2015-01-01", b"b-changed")) is None
+    assert not raw.exists()
+    assert not list((store.raw_dir / "demo" / "main").iterdir())
+    assert store.mismatched == [rec["raw_path"]]
+    assert store.restored == []
+
+
+def test_present_raw_file_is_left_alone(store):
+    store.add(SRC, doc("2024-01-01", b"v1"))
+    assert store.add(SRC, doc("2024-01-01", b"v1")) is None
+    assert store.restored == [] and store.mismatched == []
+    assert not store.needs_date("demo", "main", "2024-01-01")
+
+
+def test_needs_date_for_unknown_date(store):
+    assert store.needs_date("demo", "main", "2015-01-01")
+
+
 def test_records_are_json_on_disk(store):
     rec = store.add(SRC, doc("2024-01-01", b"v1"))
     path = store.versions_dir / "demo" / f"{rec['version_id']}.json"

@@ -4,7 +4,8 @@
     python -m system.rag.harvest --only br2010   # some sources
     python -m system.rag.harvest --priority 1    # priority 1 only
 
-Fetches each source in corpus/sources.yaml, stores new versions (by hash) and
+Fetches each source in corpus/sources.yaml, stores new versions (by hash),
+writes back raw files that are missing for known versions (same SHA-256 only) and
 writes corpus/harvest-report.md. Never overwrites a stored version.
 """
 
@@ -150,7 +151,7 @@ def fetch_legislation(http: Http, store: Store, source: dict, history_from: str,
     if before:
         keep.insert(0, before[-1])  # the version already in force on the start date
     for d in keep:
-        if store.has_date(source["id"], part, d):
+        if not store.needs_date(source["id"], part, d):
             continue
         url = f"{LEG_BASE}{path}/{d}/data.xml"
         r = http.get(url)
@@ -390,6 +391,10 @@ def run(only: list[str] | None = None, priority: int | None = None, report: bool
                 traceback.print_exc()
             rows.append((s, "failed", len(new), msg))
             print(f"FAILED  {s['id']}: {msg}", flush=True)
+    if store.restored or store.mismatched:
+        print(f"raw files restored: {len(store.restored)}, mismatched (not saved): {len(store.mismatched)}", flush=True)
+        for m in store.mismatched:
+            print(f"  mismatch: {m}", flush=True)
     if report:
         write_report(doc, store, rows, partial=bool(only or priority))
     return 0 if not any(r[1] == "failed" for r in rows) else 1
@@ -415,6 +420,8 @@ def write_report(doc: dict, store: Store, rows: list, partial: bool) -> None:
         f"- New versions this run: {sum(r[2] for r in rows)}.",
         f"- Stored in total: {total_recs} versions, {total_bytes / 1e6:.1f} MB of raw files (not in git).",
         f"- Version chain problems: {len(chain_problems)}.",
+        f"- Raw files restored this run (record existed, file was missing, same SHA-256): {len(store.restored)}."
+        f" Missing files where the source now gives different bytes (not saved): {len(store.mismatched)}.",
         "- Known gaps (old editions, S3 upload, pending legislation changes): `corpus/README.md`.",
         "",
     ]
@@ -422,6 +429,9 @@ def write_report(doc: dict, store: Store, rows: list, partial: bool) -> None:
         lines += ["## Failed", "", "| id | reason |", "|---|---|"]
         lines += [f"| {s['id']} | {msg.replace('|', '/')} |" for s, _, _, msg in failed]
         lines.append("")
+    if store.mismatched:
+        lines += ["## Restore mismatches", "", "The record is kept; its raw file is still missing.", ""]
+        lines += [f"- `{m}`" for m in store.mismatched] + [""]
     if chain_problems:
         lines += ["## Version chain problems", ""] + [f"- {p}" for p in chain_problems] + [""]
     lines += ["## Fetched", "", "| id | new | stored |", "|---|---|---|"]

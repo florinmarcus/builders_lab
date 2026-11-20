@@ -166,6 +166,10 @@ class Store:
         self.raw_dir = self.corpus_dir / "raw"
         # raw_path in records is relative to the repo root, e.g. corpus/raw/...
         self.rel_base = self.corpus_dir.parent
+        # Raw files written again for records whose file was missing (this run).
+        self.restored: list[str] = []
+        # Records whose file is missing, where the source now gives different bytes.
+        self.mismatched: list[str] = []
 
     def _source_dir(self, source_id: str) -> Path:
         return self.versions_dir / source_id
@@ -186,6 +190,37 @@ class Store:
     def has_date(self, source_id: str, part: str, edition_date: str) -> bool:
         return any(r.get("edition_date") == edition_date for r in self.records(source_id, part))
 
+    def _raw_exists(self, rec: dict) -> bool:
+        return (self.rel_base / rec["raw_path"]).exists()
+
+    def needs_date(self, source_id: str, part: str, edition_date: str) -> bool:
+        """True if this dated version is not stored, or its raw file is missing."""
+        recs = [r for r in self.records(source_id, part) if r.get("edition_date") == edition_date]
+        return not recs or not all(self._raw_exists(r) for r in recs)
+
+    def _restore(self, existing: list[dict], f: Fetched, digest: str, chash: str) -> bool:
+        """Write back a missing raw file if the fetched bytes match a record exactly.
+
+        Returns True if the fetch was handled here (restored or listed as a mismatch).
+        """
+        same = [r for r in existing if r["sha256"] == digest]
+        if same:
+            for r in same:
+                if not self._raw_exists(r):
+                    raw = self.rel_base / r["raw_path"]
+                    raw.parent.mkdir(parents=True, exist_ok=True)
+                    raw.write_bytes(f.content)
+                    self.restored.append(r["raw_path"])
+            return True
+        # Same version by date or by content, but different bytes: never overwrite a record.
+        like = [r for r in existing
+                if (f.dedupe_on_date and f.edition_date and r.get("edition_date") == f.edition_date)
+                or (not f.dedupe_on_date and chash == r.get("content_hash"))]
+        missing = [r for r in like if not self._raw_exists(r)]
+        for r in missing:
+            self.mismatched.append(r["raw_path"])
+        return bool(missing)
+
     def _write(self, rec: dict) -> None:
         path = rec.pop("_file", None) or (self._source_dir(rec["source_id"]) / f"{rec['version_id']}.json")
         path.parent.mkdir(parents=True, exist_ok=True)
@@ -197,6 +232,8 @@ class Store:
         existing = self.records(sid, f.part)
         digest = sha256(f.content)
         chash = content_hash(f.content, f.media_type)
+        if self._restore(existing, f, digest, chash):
+            return None
 
         if f.dedupe_on_date and f.edition_date and any(r.get("edition_date") == f.edition_date for r in existing):
             return None

@@ -10,6 +10,8 @@ The shared regulations corpus: public rules and guidance that every customer use
 
 Code: `system/rag/harvest.py` (fetch and record), `system/rag/upload_s3.py` (copy raw files to S3). Run from the repo root: `python -m system.rag.harvest [--only ID ...]`.
 
+On a new machine, `corpus/raw/` is empty. Get the files with `CORPUS_BUCKET=<bucket> python -m system.rag.upload_s3 --download`. If S3 lacks them, run the harvester: when a record exists but its file is missing, it fetches the file again and saves it only if the SHA-256 matches the record. Files whose source now gives different bytes are listed as mismatches and not saved. Two old GOV.UK versions cannot be fetched again this way, because GOV.UK only serves the current file.
+
 ## sources.yaml
 
 ```yaml
@@ -72,7 +74,7 @@ Attribution is added from the publisher: OGL for GOV.UK and legislation.gov.uk, 
 
 ## Known gaps (19 Nov 2026)
 
-- **S3 upload not done.** This session has no working AWS credentials. Run `CORPUS_BUCKET=<bucket> python -m system.rag.upload_s3` where AWS works (eu-west-2, private bucket, encryption on).
+- **S3 upload not done yet** (20 Nov 2026). The first harvest ran in a cloud session and its raw files were lost with it; the bucket in eu-west-2 is empty. Plan: restore the files with the harvester on Florin's PC, then run `CORPUS_BUCKET=<bucket> python -m system.rag.upload_s3`.
 - **Old editions of GOV.UK documents.** GOV.UK keeps only the current file, except AD B (back to 2006), AD L and F 2021 next to 2026, and the building regulations circulars (back to 2003). The National Archives web archive blocks automated downloads (HTTP 405). Older editions need a manual step, only if evals show we need them.
 - **HSE keeps only current editions** (L143 2013, HSG264 2012, L153 2015 and others). From now on our own records keep every change.
 - **Pending legislation changes.** legislation.gov.uk has not yet applied SI 2026/1153 (asbestos, reg 20 from 25 Nov 2027) or SI 2026/1195 (Awaab's Law phase 2, 30 Nov 2026) to the main texts. We hold the amending SIs as made. Re-run the harvester after they are applied.
