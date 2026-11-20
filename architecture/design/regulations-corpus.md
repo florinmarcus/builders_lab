@@ -13,13 +13,14 @@ flowchart LR
     src["Source sites<br/>legislation.gov.uk,<br/>GOV.UK, HSE"] --> harvest["harvest.py<br/>versions by hash"]
     harvest --> raw[("corpus/raw<br/>+ S3 eu-west-2")]
     harvest --> rec["corpus/versions<br/>records (git)"]
-    raw --> lib["Parser: library pass<br/>lxml for XML,<br/>pdfplumber (parse_pdf, parse_adoc)"]
+    raw --> lib["Parser: library pass<br/>lxml for XML and HTML,<br/>pdfplumber (parse_pdf, parse_adoc)"]
     lib -.-> chk["Model check<br/>(Claude Code)<br/>tables, diagrams,<br/>unclear cases"]
     fixes[("Saved fixes (git)<br/>by content fingerprint")] -.-> chk
     chk -.-> fixes
     chk -.-> tree[("corpus/parsed<br/>document trees (JSON)<br/>not in git")]
     lib -.-> img[("Images<br/>diagrams, photos")]
     tree --> chunk["Chunker<br/>chunk.py → corpus/chunks<br/>+ chunk-report.md"]
+    chunk --> fts[("Keyword index<br/>SQLite FTS5, search.py<br/>(local, not yet on the server)")]
     chunk -.-> pg[("Postgres + pgvector<br/>on the server")]
     img -.-> pg
 ```
@@ -126,6 +127,9 @@ erDiagram
 `python -m system.rag.chunk` writes one JSON line per chunk to `corpus/chunks/<source>/<version>.jsonl` (not in git, rebuilt from the trees) and `corpus/chunk-report.md` (in git). Each chunk carries `id`, `chunk_type`, the filter fields above, `text`, `embed_text` (breadcrumb + text), `references` (resolved to a section id in the same document, to another document such as `br2010`, or unresolved), `terms` (key terms the text marks) and, for figures, `image_path` and `image_display`. Legal weight comes from `kind` in `sources.yaml` (legislation = law, Approved Documents = statutory guidance, HSE "L" books = approved code, the rest guidance), or from `legal_weight` if a source sets it. Regulations and paragraphs longer than 2,500 characters are split (regulations at (1), (2); guidance at list items), and every split is listed in the report.
 
 ## Search
+
+**Built 20 Nov 2026 (not wired to the server yet):** `system/rag/search.py` is keyword search over the chunks with SQLite FTS5 (Porter stemmer, codes such as "B1" and "7(2)" in their own column, bm25), filtered by date and country. It follows the server contract. First tries on the builder questions (`research/domain/builder-questions.md`) find the right documents for most questions, but miss where the builder's word differs from the document's ("licence" vs "licensable work"). Keyword only, vectors, or both: decide with evals, then record in an ADR.
+
 
 ```mermaid
 sequenceDiagram
