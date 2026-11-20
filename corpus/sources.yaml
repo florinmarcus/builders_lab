@@ -1,0 +1,4114 @@
+# Shared regulations corpus: one entry per document. Schema and fetch methods: corpus/README.md.
+# Built from research/domain/corpus-inventory/ (a, b, c, d), all checked 2026-11-19. Not legal advice.
+# mode: ingest = open licence (OGL); restricted = prototype only, private storage, never committed (ADR 0008);
+# link_only = paid or copyrighted, we store bibliographic facts and a link only (fetch method none).
+# Never invent URLs or dates: anything unknown is left out or explained in notes.
+
+defaults: {history_from: 2010-10-01}
+
+sources:
+
+# ---------------------------------------------------------------------------
+# Building Regulations and fire: legislation (inventory A)
+# ---------------------------------------------------------------------------
+
+- id: br2010
+  title: The Building Regulations 2010 (SI 2010/2214)
+  publisher: legislation.gov.uk (The National Archives)
+  url: https://www.legislation.gov.uk/uksi/2010/2214/contents
+  kind: legislation
+  nation: england-wales
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [building-regs]
+  why: Legal duties behind every Approved Document. Point-in-time versions answer "what applied when the job started".
+  in_force: 2010-10-01
+  status: current
+  notes: Text mixes in Welsh amendments; filter to England by extent. 33 unapplied effects (SI 2026/335, SI 2026/1094, WSI 2026/60).
+  checked: 2026-11-19
+  fetch: {method: legislation, path: uksi/2010/2214, history: all}
+
+- id: br-amd-2026-fhs
+  title: Building Regulations etc. (Amendment) (England) Regulations 2026 (SI 2026/335), Future Homes and Buildings Standards
+  publisher: legislation.gov.uk (The National Archives)
+  url: https://www.legislation.gov.uk/uksi/2026/335/made
+  kind: legislation
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [building-regs, energy]
+  why: Coming change to Part L and F for new homes, heat pumps and on-site renewables.
+  in_force: 2027-03-24
+  status: coming
+  notes: Made 23 Mar 2026. Higher-risk building work (regs 3, 4, 6-9) from 24 Sep 2027 (Circular 01/2026). No /contents/data.xml; use /made/data.xml.
+  checked: 2026-11-19
+  fetch: {method: legislation, path: uksi/2026/335, history: made}
+
+- id: br-charges-2026
+  title: Building (Local Authority Charges and Amendments Relating to Charging) (England) Regulations 2026 (SI 2026/1094)
+  publisher: legislation.gov.uk (The National Archives)
+  url: https://www.legislation.gov.uk/uksi/2026/1094/made
+  kind: legislation
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 3
+  topics: [building-regs, building-control]
+  why: Building control fees for building notice and full plans.
+  status: current
+  notes: Made 14 Oct 2026. In-force date not checked.
+  checked: 2026-11-19
+  fetch: {method: legislation, path: uksi/2026/1094, history: made}
+
+- id: br-amd-2023-dutyholders
+  title: Building Regulations etc. (Amendment) (England) Regulations 2023 (SI 2023/911), dutyholders and competence
+  publisher: legislation.gov.uk (The National Archives)
+  url: https://www.legislation.gov.uk/uksi/2023/911/contents
+  kind: legislation
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [building-regs, dutyholders]
+  why: Part 2A dutyholder and competence duties that apply to every small builder since Oct 2023.
+  in_force: 2023-10-01
+  status: current
+  notes: Amending SI but has its own revised versions (made, 2023-10-01, 2026-11-06), so current text is taken.
+  checked: 2026-11-19
+  fetch: {method: legislation, path: uksi/2023/911, history: current}
+
+- id: hrb-procedures-2023
+  title: Building (Higher-Risk Buildings Procedures) (England) Regulations 2023 (SI 2023/909)
+  publisher: legislation.gov.uk (The National Archives)
+  url: https://www.legislation.gov.uk/uksi/2023/909/contents
+  kind: legislation
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [building-regs, higher-risk-buildings]
+  why: Council stock includes higher-risk buildings; work there needs Building Safety Regulator approval.
+  in_force: 2023-10-01
+  status: current
+  checked: 2026-11-19
+  fetch: {method: legislation, path: uksi/2023/909, history: current}
+
+- id: hrb-descriptions-2023
+  title: Higher-Risk Buildings (Descriptions and Supplementary Provisions) Regulations 2023 (SI 2023/275)
+  publisher: legislation.gov.uk (The National Archives)
+  url: https://www.legislation.gov.uk/uksi/2023/275/contents
+  kind: legislation
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [higher-risk-buildings]
+  why: Height and storey counting rules for "is this block a higher-risk building?".
+  in_force: 2023-04-06
+  status: current
+  notes: Roof-garden rule being changed (MHCLG notice 28 May 2025); watch for an amending SI.
+  checked: 2026-11-19
+  fetch: {method: legislation, path: uksi/2023/275, history: current}
+
+- id: hrb-management-2023
+  title: Higher-Risk Buildings (Management of Safety Risks etc) (England) Regulations 2023 (SI 2023/907)
+  publisher: legislation.gov.uk (The National Archives)
+  url: https://www.legislation.gov.uk/uksi/2023/907/contents
+  kind: legislation
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 3
+  topics: [higher-risk-buildings, fire]
+  why: Duties of accountable persons in occupied higher-risk buildings, so contractors know who they deal with.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: legislation, path: uksi/2023/907, history: current}
+
+- id: rbca-2024
+  title: Building (Registered Building Control Approvers etc.) (England) Regulations 2024 (SI 2024/110)
+  publisher: legislation.gov.uk (The National Archives)
+  url: https://www.legislation.gov.uk/uksi/2024/110/contents
+  kind: legislation
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 3
+  topics: [building-control]
+  why: Rules for private building control bodies; replaced the Approved Inspectors Regulations.
+  in_force: 2024-04-06
+  status: current
+  checked: 2026-11-19
+  fetch: {method: legislation, path: uksi/2024/110, history: current}
+
+- id: bsa2022
+  title: Building Safety Act 2022
+  publisher: legislation.gov.uk (The National Archives)
+  url: https://www.legislation.gov.uk/ukpga/2022/30/contents
+  kind: legislation
+  nation: england-wales
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [building-regs, dutyholders, higher-risk-buildings, fire]
+  why: Parent Act for dutyholders, the Building Safety Regulator and section 156 fire duties.
+  status: current
+  notes: Commenced in stages from 28 Apr 2022; 15 unapplied effects.
+  checked: 2026-11-19
+  fetch: {method: legislation, path: ukpga/2022/30, history: current}
+
+- id: ba1984
+  title: Building Act 1984
+  publisher: legislation.gov.uk (The National Archives)
+  url: https://www.legislation.gov.uk/ukpga/1984/55/contents
+  kind: legislation
+  nation: england-wales
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [building-regs, building-control]
+  why: Parent Act of the Building Regulations; enforcement, notices and appeals.
+  status: current
+  notes: Revised versions start at the 1991-02-01 base date.
+  checked: 2026-11-19
+  fetch: {method: legislation, path: ukpga/1984/55, history: all}
+
+- id: fso2005
+  title: Regulatory Reform (Fire Safety) Order 2005 (SI 2005/1541)
+  publisher: legislation.gov.uk (The National Archives)
+  url: https://www.legislation.gov.uk/uksi/2005/1541/contents
+  kind: legislation
+  nation: england-wales
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [fire, social-housing]
+  why: Responsible person duties in common parts of council blocks; contractors must not break compartmentation.
+  status: current
+  notes: Start date 1 Oct 2006 is from memory in inventory A, not checked, so in_force is left out. 26 unapplied effects.
+  checked: 2026-11-19
+  fetch: {method: legislation, path: uksi/2005/1541, history: all}
+
+- id: fser2022
+  title: Fire Safety (England) Regulations 2022 (SI 2022/547)
+  publisher: legislation.gov.uk (The National Archives)
+  url: https://www.legislation.gov.uk/uksi/2022/547/contents
+  kind: legislation
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [fire, social-housing]
+  why: Fire door checks in blocks of flats; explains why landlords order fire door work.
+  in_force: 2023-01-23
+  status: current
+  checked: 2026-11-19
+  fetch: {method: legislation, path: uksi/2022/547, history: current}
+
+- id: fsa2021
+  title: Fire Safety Act 2021
+  publisher: legislation.gov.uk (The National Archives)
+  url: https://www.legislation.gov.uk/ukpga/2021/24/contents
+  kind: legislation
+  nation: england-wales
+  licence: OGL-3.0
+  mode: ingest
+  priority: 3
+  topics: [fire]
+  why: Puts external walls and flat entrance doors within the Fire Safety Order.
+  in_force: 2022-05-16
+  status: current
+  checked: 2026-11-19
+  fetch: {method: legislation, path: ukpga/2021/24, history: current}
+
+- id: scoar2015
+  title: Smoke and Carbon Monoxide Alarm (England) Regulations 2015 (SI 2015/1693)
+  publisher: legislation.gov.uk (The National Archives)
+  url: https://www.legislation.gov.uk/uksi/2015/1693/contents
+  kind: legislation
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [alarms, gas, social-housing, voids]
+  why: Social landlords must fit smoke and CO alarms; a common void and boiler-swap task.
+  in_force: 2015-10-01
+  status: current
+  notes: In inventories A, B and C. Versions made, 2015-10-01, 2022-07-01, 2022-10-01, 2023-11-06, 2026-05-01. What changed on 1 May 2026 was not read.
+  checked: 2026-11-19
+  fetch: {method: legislation, path: uksi/2015/1693, history: current}
+
+- id: scoar-amd-2022
+  title: Smoke and Carbon Monoxide Alarm (Amendment) Regulations 2022 (SI 2022/707)
+  publisher: legislation.gov.uk (The National Archives)
+  url: https://www.legislation.gov.uk/uksi/2022/707/contents
+  kind: legislation
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [alarms, social-housing]
+  why: Extended alarm duties to social housing (alarm per storey, CO alarm with fixed combustion appliance).
+  in_force: 2022-10-01
+  status: current
+  notes: Made 27 Jun 2022. Changes are folded into scoar2015.
+  checked: 2026-11-19
+  fetch: {method: legislation, path: uksi/2022/707, history: made}
+
+- id: bamd2018
+  title: Building (Amendment) Regulations 2018 (SI 2018/1230), combustible materials ban
+  publisher: legislation.gov.uk (The National Archives)
+  url: https://www.legislation.gov.uk/uksi/2018/1230/made
+  kind: legislation
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 3
+  topics: [building-regs, fire]
+  why: Explains regulation 7(2) on cladding and balconies on tall blocks.
+  status: current
+  notes: Made 28 Nov 2018. Effects already in br2010.
+  checked: 2026-11-19
+  fetch: {method: legislation, path: uksi/2018/1230, history: made}
+
+# ---------------------------------------------------------------------------
+# Approved Documents and Manual (inventory A)
+# ---------------------------------------------------------------------------
+
+- id: ada
+  title: Approved Document A - Structure (2004 edition incorporating 2004, 2010 and 2013 amendments)
+  publisher: MHCLG (GOV.UK)
+  url: https://www.gov.uk/government/publications/structure-approved-document-a
+  kind: approved-document
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [building-regs, structure]
+  why: Structural rules for knocking through walls, lintels and loft conversions.
+  status: current
+  notes: PDF carries Click-Use wording; legal check. match not set; harvester will take all PDFs.
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/publications/structure-approved-document-a, attachments: pdf}
+
+- id: adb
+  title: Approved Document B - Fire safety, Volume 1 Dwellings and Volume 2 Buildings other than dwellings (2019 edition incorporating 2020, 2022, 2025 and 2026 amendments)
+  publisher: MHCLG (GOV.UK)
+  url: https://www.gov.uk/government/publications/fire-safety-approved-document-b
+  kind: approved-document
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [building-regs, fire]
+  why: Fire doors, compartmentation, alarms and escape in houses and flats. Top priority for council flats.
+  in_force: 2026-09-30
+  status: current
+  notes: Two parts (Vol 1, Vol 2). PDFs are collated with 2029 amendments (in force 2 Sep 2029). Third-party images; ingest text only. match guessed from the inventory titles; check.
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/publications/fire-safety-approved-document-b, attachments: pdf, match: "(?i)volume"}
+
+- id: adb-amendments
+  title: Approved Document B amendment booklets (2020, 2022, Mar 2024, 2025, 2026, 2029)
+  publisher: MHCLG (GOV.UK)
+  url: https://www.gov.uk/government/publications/fire-safety-approved-document-b
+  kind: approved-document
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [building-regs, fire]
+  why: Shows what changed between AD B editions; useful change log for evals.
+  status: current
+  notes: Same page as adb. The Mar 2024 booklet is marked "No longer current". match guessed; check against attachment titles.
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/publications/fire-safety-approved-document-b, attachments: pdf, match: "(?i)amendment"}
+
+- id: adb-historical
+  title: Historical documents relating to Approved Document B (fire safety)
+  publisher: MHCLG (GOV.UK)
+  url: https://www.gov.uk/government/publications/historical-documents-relating-to-approved-document-b-fire-safety
+  kind: approved-document
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 3
+  topics: [building-regs, fire]
+  why: Older AD B editions back to 2006, for jobs started under an earlier edition.
+  status: out-of-date
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/publications/historical-documents-relating-to-approved-document-b-fire-safety, attachments: pdf, keep_titles: true}
+
+- id: adb-faq
+  title: Approved Document B (fire safety) frequently asked questions
+  publisher: MHCLG (GOV.UK)
+  url: https://www.gov.uk/guidance/approved-document-b-fire-safety-frequently-asked-questions
+  kind: guidance
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [building-regs, fire]
+  why: Plain-language Q&A on AD B.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /guidance/approved-document-b-fire-safety-frequently-asked-questions, attachments: none, body: true}
+
+- id: adc
+  title: Approved Document C - Site preparation and resistance to contaminants and moisture (2004 edition incorporating 2010 and 2013 amendments)
+  publisher: MHCLG (GOV.UK)
+  url: https://www.gov.uk/government/publications/site-preparation-and-resistance-to-contaminates-and-moisture-approved-document-c
+  kind: approved-document
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [building-regs, damp-mould]
+  why: Damp, condensation and damp-proof courses; very common in council repairs and voids.
+  status: current
+  notes: PDF carries Click-Use wording; legal check. match not set; harvester will take all PDFs.
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/publications/site-preparation-and-resistance-to-contaminates-and-moisture-approved-document-c, attachments: pdf}
+
+- id: add
+  title: Approved Document D - Toxic substances (2010 edition incorporating 2010 and 2013 amendments)
+  publisher: MHCLG (GOV.UK)
+  url: https://www.gov.uk/government/publications/toxic-substances-approved-document-d
+  kind: approved-document
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 3
+  topics: [building-regs]
+  why: Cavity wall foam insulation. Short.
+  status: current
+  notes: match not set; harvester will take all PDFs.
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/publications/toxic-substances-approved-document-d, attachments: pdf}
+
+- id: ade
+  title: Approved Document E - Resistance to the passage of sound (2003 edition incorporating 2004, 2010, 2013 and 2015 amendments)
+  publisher: MHCLG (GOV.UK)
+  url: https://www.gov.uk/government/publications/resistance-to-sound-approved-document-e
+  kind: approved-document
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [building-regs]
+  why: Sound rules for flat conversions and floors between flats.
+  status: current
+  notes: match not set; harvester will take all PDFs.
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/publications/resistance-to-sound-approved-document-e, attachments: pdf}
+
+- id: adf
+  title: Approved Document F - Ventilation, Volumes 1 and 2 (2021 edition)
+  publisher: MHCLG (GOV.UK)
+  url: https://www.gov.uk/government/publications/ventilation-approved-document-f
+  kind: approved-document
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [building-regs, ventilation, damp-mould]
+  why: Extract fans and trickle vents when replacing windows; behind many mould complaints.
+  in_force: 2022-06-15
+  status: current
+  notes: Two parts (Vol 1, Vol 2). Replaced by adf-2026 from 24 Mar 2027. match not set; harvester will take all PDFs.
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/publications/ventilation-approved-document-f, attachments: pdf}
+
+- id: adf-2026
+  title: Approved Document F (2026) Volume 1 Dwellings
+  publisher: MHCLG (GOV.UK)
+  url: https://www.gov.uk/government/publications/approved-document-f-2026
+  kind: approved-document
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [building-regs, ventilation]
+  why: Users will ask which AD F applies; future jobs.
+  in_force: 2027-03-24
+  status: coming
+  notes: Revised 8 Sep 2026 (Circular 04/2026). Higher-risk building work from 24 Sep 2027. match not set; harvester will take all PDFs.
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/publications/approved-document-f-2026, attachments: pdf}
+
+- id: adg
+  title: Approved Document G - Sanitation, hot water safety and water efficiency (2015 edition incorporating 2016 and 2024 amendments)
+  publisher: MHCLG (GOV.UK)
+  url: https://www.gov.uk/government/publications/sanitation-hot-water-safety-and-water-efficiency-approved-document-g
+  kind: approved-document
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [building-regs, sanitation]
+  why: Bathroom refits, unvented cylinders and TMVs in kitchen and bathroom programmes.
+  status: current
+  notes: 2024 amendment in-force date not checked. Page also has 2016 corrigenda and a May 2024 amendment booklet. match not set; harvester will take all PDFs.
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/publications/sanitation-hot-water-safety-and-water-efficiency-approved-document-g, attachments: pdf}
+
+- id: adh
+  title: Approved Document H - Drainage and waste disposal (2015 edition)
+  publisher: MHCLG (GOV.UK)
+  url: https://www.gov.uk/government/publications/drainage-and-waste-disposal-approved-document-h
+  kind: approved-document
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [building-regs, drainage]
+  why: Drains, soil stacks and building over sewers in repair work.
+  in_force: 2015-10-01
+  status: current
+  notes: match not set; harvester will take all PDFs.
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/publications/drainage-and-waste-disposal-approved-document-h, attachments: pdf}
+
+- id: adj
+  title: Approved Document J - Combustion appliances and fuel storage systems (2010 edition incorporating 2010, 2013 and 2022 amendments)
+  publisher: MHCLG (GOV.UK)
+  url: https://www.gov.uk/government/publications/combustion-appliances-and-fuel-storage-systems-approved-document-j
+  kind: approved-document
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [building-regs, gas, alarms]
+  why: Boiler swaps, CO alarms, flues and hearths; a very common void and repair task.
+  in_force: 2022-10-01
+  status: current
+  notes: match not set; harvester will take all PDFs.
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/publications/combustion-appliances-and-fuel-storage-systems-approved-document-j, attachments: pdf}
+
+- id: adk
+  title: Approved Document K - Protection from falling, collision and impact (2013 edition)
+  publisher: MHCLG (GOV.UK)
+  url: https://www.gov.uk/government/publications/protection-from-falling-collision-and-impact-approved-document-k
+  kind: approved-document
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [building-regs]
+  why: Stairs, balustrades and glazing in doors.
+  in_force: 2013-04-06
+  status: current
+  notes: match not set; harvester will take all PDFs.
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/publications/protection-from-falling-collision-and-impact-approved-document-k, attachments: pdf}
+
+- id: adl
+  title: Approved Document L - Conservation of fuel and power, Volumes 1 and 2 (2021 edition incorporating 2023 amendments)
+  publisher: MHCLG (GOV.UK)
+  url: https://www.gov.uk/government/publications/conservation-of-fuel-and-power-approved-document-l
+  kind: approved-document
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [building-regs, energy]
+  why: Most refurbishment touches Part L (windows, boilers, insulation, thermal elements).
+  in_force: 2022-06-15
+  status: current
+  notes: Two parts (Vol 1, Vol 2). Replaced by adl-2026 from 24 Mar 2027. Feb 2023 amendment booklet on page. match not set; harvester will take all PDFs.
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/publications/conservation-of-fuel-and-power-approved-document-l, attachments: pdf}
+
+- id: adl-2026
+  title: "Approved Document L: Energy and greenhouse gas emissions (2026), Volumes 1 and 2"
+  publisher: MHCLG (GOV.UK)
+  url: https://www.gov.uk/government/publications/approved-document-l-2026
+  kind: approved-document
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [building-regs, energy]
+  why: Needed side by side with the 2021 edition for future jobs.
+  in_force: 2027-03-24
+  status: coming
+  notes: Revised 8 Sep 2026. Higher-risk building work from 24 Sep 2027. Page also has a FAQ. match not set; harvester will take all PDFs.
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/publications/approved-document-l-2026, attachments: pdf}
+
+- id: adm
+  title: Approved Document M - Access to and use of buildings, Volume 1 Dwellings (2015 incorporating 2016 amendments) and Volume 2 Buildings other than dwellings (2015 incorporating 2020 and 2024 amendments)
+  publisher: MHCLG (GOV.UK)
+  url: https://www.gov.uk/government/publications/access-to-and-use-of-buildings-approved-document-m
+  kind: approved-document
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [building-regs, accessibility]
+  why: Adaptations (Disabled Facilities Grant) and level access; Vol 2 for common areas.
+  status: current
+  notes: Two parts. Vol 1 2016 amendments in force 1 Mar 2016; Vol 2 later amendment dates not checked. Corrigenda and booklets on page. match not set; harvester will take all PDFs.
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/publications/access-to-and-use-of-buildings-approved-document-m, attachments: pdf}
+
+- id: ado
+  title: Approved Document O - Overheating (2021 edition)
+  publisher: MHCLG (GOV.UK)
+  url: https://www.gov.uk/government/publications/overheating-approved-document-o
+  kind: approved-document
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 3
+  topics: [building-regs]
+  why: New residential only; low priority for refurbishment.
+  in_force: 2022-06-15
+  status: current
+  notes: match not set; harvester will take all PDFs.
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/publications/overheating-approved-document-o, attachments: pdf}
+
+- id: adp
+  title: Approved Document P - Electrical safety, dwellings (2013 edition)
+  publisher: MHCLG (GOV.UK)
+  url: https://www.gov.uk/government/publications/electrical-safety-approved-document-p
+  kind: approved-document
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [building-regs, electrical]
+  why: Answers "is this electrical job notifiable?", a very common question.
+  in_force: 2013-04-06
+  status: current
+  notes: In inventories A and B. match not set; harvester will take all PDFs.
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/publications/electrical-safety-approved-document-p, attachments: pdf}
+
+- id: adq
+  title: Approved Document Q - Security, dwellings (2015 edition)
+  publisher: MHCLG (GOV.UK)
+  url: https://www.gov.uk/government/publications/security-in-dwellings-approved-document-q
+  kind: approved-document
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 3
+  topics: [building-regs]
+  why: Users ask about replacement doors; Q applies to new dwellings only.
+  in_force: 2015-10-01
+  status: current
+  notes: FAQ added 22 Nov 2024. match not set; harvester will take all PDFs.
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/publications/security-in-dwellings-approved-document-q, attachments: pdf}
+
+- id: adr
+  title: Approved Document R - Infrastructure for electronic communications, Volumes 1 and 2 (2022 edition)
+  publisher: MHCLG (GOV.UK)
+  url: https://www.gov.uk/government/publications/infrastructure-for-electronic-communications-approved-document-r
+  kind: approved-document
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 3
+  topics: [building-regs]
+  why: Major renovation only; low priority.
+  in_force: 2022-12-26
+  status: current
+  notes: match not set; harvester will take all PDFs.
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/publications/infrastructure-for-electronic-communications-approved-document-r, attachments: pdf}
+
+- id: ads
+  title: Approved Document S - Infrastructure for charging electric vehicles (2021 edition)
+  publisher: MHCLG (GOV.UK)
+  url: https://www.gov.uk/government/publications/infrastructure-for-charging-electric-vehicles-approved-document-s
+  kind: approved-document
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 3
+  topics: [building-regs]
+  why: Major renovation with parking; low priority.
+  in_force: 2022-06-15
+  status: current
+  notes: match not set; harvester will take all PDFs.
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/publications/infrastructure-for-charging-electric-vehicles-approved-document-s, attachments: pdf}
+
+- id: adt
+  title: Approved Document T - Toilet accommodation (2024 edition, revised)
+  publisher: MHCLG (GOV.UK)
+  url: https://www.gov.uk/government/publications/toilet-accommodation-approved-document-t
+  kind: approved-document
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 3
+  topics: [building-regs, sanitation]
+  why: Non-dwellings only; low priority.
+  in_force: 2024-10-01
+  status: current
+  notes: Tables 4.1 and 6.1 revised, page updated 3 Nov 2025 (Circular 02/2025). match not set; harvester will take all PDFs.
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/publications/toilet-accommodation-approved-document-t, attachments: pdf}
+
+- id: ad7
+  title: Approved Document 7 - Materials and workmanship (2013 edition incorporating 2018 amendments)
+  publisher: MHCLG (GOV.UK)
+  url: https://www.gov.uk/government/publications/material-and-workmanship-approved-document-7
+  kind: approved-document
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [building-regs]
+  why: Applies to every job; "is this product OK?" and CE/UKCA marks.
+  status: current
+  notes: 2013 edition in force 1 Jul 2013; 2018 amendment date not extracted. match not set; harvester will take all PDFs.
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/publications/material-and-workmanship-approved-document-7, attachments: pdf}
+
+- id: ad-merged-2024
+  title: The merged Approved Documents (Oct 2024 edition)
+  publisher: MHCLG (GOV.UK)
+  url: https://www.gov.uk/guidance/building-regulations-and-approved-documents-index
+  kind: approved-document
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 3
+  topics: [building-regs]
+  why: Listed for completeness. Stale, so the single Approved Documents are used instead.
+  status: out-of-date
+  notes: Misses AD B 2025/2026, AD T 2025 revision and AD L/F 2026. 35.8 MB PDF. Not fetched on purpose.
+  checked: 2026-11-19
+  fetch: {method: none}
+
+- id: manual-br
+  title: Manual to the Building Regulations (July 2020)
+  publisher: MHCLG (GOV.UK)
+  url: https://www.gov.uk/government/publications/manual-to-the-building-regulations
+  kind: guidance
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 3
+  topics: [building-regs]
+  why: Plain-English overview of the regulations.
+  status: out-of-date
+  notes: Page says (Oct 2023) it is not updated for the Building Safety Act 2022; still talks about approved inspectors. Tag answers as out of date.
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/publications/manual-to-the-building-regulations, attachments: pdf}
+
+# ---------------------------------------------------------------------------
+# GOV.UK and BSR building and fire guidance (inventory A)
+# ---------------------------------------------------------------------------
+
+- id: bsa-secondary
+  title: "The Building Safety Act: secondary legislation (index page)"
+  publisher: MHCLG (GOV.UK)
+  url: https://www.gov.uk/guidance/the-building-safety-act-secondary-legislation
+  kind: guidance
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 3
+  topics: [building-regs, higher-risk-buildings]
+  why: Ready list of Building Safety Act SIs, to find the right one.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /guidance/the-building-safety-act-secondary-legislation, attachments: none, body: true}
+
+- id: bsr-dutyholder
+  title: "Design and building work: meeting building requirements (dutyholder and competence guide)"
+  publisher: Building Safety Regulator (GOV.UK)
+  url: https://www.gov.uk/guidance/design-and-building-work-meeting-building-requirements
+  kind: guidance
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [building-regs, dutyholders]
+  why: Plain guide to contractor and principal contractor duties under SI 2023/911. Key document for small builders.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /guidance/design-and-building-work-meeting-building-requirements, attachments: none, body: true}
+
+- id: br-approval
+  title: Building regulations approval
+  publisher: MHCLG (GOV.UK)
+  url: https://www.gov.uk/building-regulations-approval
+  kind: guidance
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [building-regs, building-control]
+  why: Entry-level guide to "do I need approval?" and building notice vs full plans.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /building-regulations-approval, attachments: none, body: true}
+
+- id: cps-schemes
+  title: "Competent person scheme: current schemes and how schemes are authorised"
+  publisher: MHCLG (GOV.UK)
+  url: https://www.gov.uk/guidance/competent-person-scheme-current-schemes-and-how-schemes-are-authorised
+  kind: guidance
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [building-regs, building-control]
+  why: Who can self-certify windows, boilers and electrics instead of using building control.
+  status: current
+  notes: In inventories A and D. Updated 17 Sep 2026 (CIGA replaced by Installation Assurance Authority).
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /guidance/competent-person-scheme-current-schemes-and-how-schemes-are-authorised, attachments: none, body: true}
+
+- id: bc-changes-2023
+  title: Building control changes for higher-risk buildings and wider changes to building regulations (circular letter and Q&A)
+  publisher: DLUHC (GOV.UK)
+  url: https://www.gov.uk/government/publications/building-control-changes-for-higher-risk-buildings-and-wider-changes-to-building-regulations
+  kind: guidance
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [building-regs, higher-risk-buildings, dutyholders]
+  why: Explains what changed on 1 Oct 2023 (SIs 2023/909, 911, 906, 908).
+  status: current
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/publications/building-control-changes-for-higher-risk-buildings-and-wider-changes-to-building-regulations, attachments: all}
+
+- id: br-circulars
+  title: "Building regulations: circulars (collection, 2003 to 2026)"
+  publisher: MHCLG (GOV.UK)
+  url: https://www.gov.uk/government/collections/building-regulations-circulars
+  kind: guidance
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [building-regs]
+  why: Best source of in-force and transition dates ("when did this change?").
+  status: current
+  notes: Collection page with 64 documents; body only stores the index. Add single circulars as their own entries when needed.
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/collections/building-regulations-circulars, attachments: none, body: true}
+
+- id: circ-01-2026
+  title: "The Future Homes and Buildings Standards: Building Circular 01/2026 (letter)"
+  publisher: MHCLG (GOV.UK)
+  url: https://www.gov.uk/government/publications/the-future-homes-and-buildings-standards-building-circular-012026/the-future-homes-and-buildings-standards-building-circular-012026-letter
+  kind: guidance
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [building-regs, energy]
+  why: Exact transition dates for Part L and F 2026.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/publications/the-future-homes-and-buildings-standards-building-circular-012026, attachments: html}
+
+- id: circ-01-2024
+  title: "Approved Document B 2024 amendments: circular letter (Circular 01/2024)"
+  publisher: DLUHC (GOV.UK)
+  url: https://www.gov.uk/government/publications/approved-document-b-2024-amendments-circular-012024/approved-document-b-2024-amendments-circular-letter
+  kind: guidance
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [building-regs, fire]
+  why: Second staircase rule and the "sufficiently progressed" transition test.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/publications/approved-document-b-2024-amendments-circular-012024, attachments: html}
+
+- id: circ-adb-2024
+  title: "Amendments to Approved Document B: circular and letter (Circulars 03, 04 and 05/2024)"
+  publisher: MHCLG (GOV.UK)
+  url: https://www.gov.uk/government/publications/amendments-to-approved-document-b-fire-safety-circular-and-letter
+  kind: guidance
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [building-regs, fire]
+  why: AD B dates (2 Mar 2025, 30 Sep 2026, 2 Sep 2029).
+  status: current
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/publications/amendments-to-approved-document-b-fire-safety-circular-and-letter, attachments: all}
+
+- id: hrb-existing
+  title: Criteria for determining whether an existing building is a higher-risk building during building work
+  publisher: MHCLG (GOV.UK)
+  url: https://www.gov.uk/guidance/criteria-for-determining-whether-an-existing-building-is-a-higher-risk-building-during-building-work
+  kind: guidance
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [higher-risk-buildings]
+  why: Small firms working in council towers need to know if their job is higher-risk building work.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /guidance/criteria-for-determining-whether-an-existing-building-is-a-higher-risk-building-during-building-work, attachments: none, body: true}
+
+- id: bsr-hrb-approval
+  title: Building control approval for higher-risk buildings
+  publisher: Building Safety Regulator (GOV.UK)
+  url: https://www.gov.uk/guidance/building-control-approval-for-higher-risk-buildings
+  kind: guidance
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [higher-risk-buildings, building-control]
+  why: How to apply to the Building Safety Regulator for higher-risk building jobs.
+  status: current
+  notes: Only the search API listing was read, not the page body.
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /guidance/building-control-approval-for-higher-risk-buildings, attachments: none, body: true}
+
+- id: fser-page
+  title: "Fire Safety (England) Regulations 2022: page with fact sheets"
+  publisher: Home Office (GOV.UK)
+  url: https://www.gov.uk/government/publications/fire-safety-england-regulations-2022
+  kind: guidance
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [fire, social-housing]
+  why: What landlords must check; context for fire door orders.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/publications/fire-safety-england-regulations-2022, attachments: all}
+
+- id: fser-fire-doors
+  title: "Fire Safety (England) Regulations 2022: fire doors guidance and checklist"
+  publisher: MHCLG and Home Office (GOV.UK)
+  url: https://www.gov.uk/government/publications/fire-safety-england-regulations-2022-fire-door-guidance
+  kind: guidance
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [fire, social-housing, repairs]
+  why: Fire door repair and replacement is a very common council job.
+  status: current
+  notes: New foreword 8 Aug 2025; PDF being updated, so use the HTML version.
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/publications/fire-safety-england-regulations-2022-fire-door-guidance, attachments: html}
+
+- id: fso-s156
+  title: Check your fire safety responsibilities under Section 156 of the Building Safety Act 2022
+  publisher: Home Office (GOV.UK)
+  url: https://www.gov.uk/government/publications/check-your-fire-safety-responsibilities-under-section-156-of-the-building-safety-act-2022
+  kind: guidance
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [fire]
+  why: Fire Safety Order duties from 1 Oct 2023 (Article 50 guidance).
+  status: current
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/publications/check-your-fire-safety-responsibilities-under-section-156-of-the-building-safety-act-2022, attachments: all}
+
+- id: fso-guidance-collection
+  title: "Fire safety: guidance for those with legal duties (collection)"
+  publisher: Home Office (GOV.UK)
+  url: https://www.gov.uk/government/collections/fire-safety-legislation-guidance-for-those-with-legal-duties
+  kind: guidance
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [fire]
+  why: Fire Safety Order background; includes the small block of flats guide and the 5-step checklist.
+  status: current
+  notes: Collection of 22 items; body only stores the index. Add the small blocks, 5-step checklist and sleeping accommodation items as their own entries.
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/collections/fire-safety-legislation-guidance-for-those-with-legal-duties, attachments: none, body: true}
+
+- id: fire-pbbf
+  title: Fire safety in purpose-built blocks of flats
+  publisher: Home Office (GOV.UK), originally LGA 2011
+  url: https://www.gov.uk/government/publications/fire-safety-in-purpose-built-blocks-of-flats
+  kind: guidance
+  nation: england
+  licence: unclear
+  mode: restricted
+  priority: 2
+  topics: [fire, social-housing]
+  why: Compartmentation guide widely used by housing officers in council blocks.
+  status: current
+  notes: Licence unclear (LGA 2011 origin, no OGL line in the PDF, third-party photos). Page says it is "no longer comprehensive"; a revision is planned.
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/publications/fire-safety-in-purpose-built-blocks-of-flats, attachments: pdf}
+
+- id: scoar-guidance
+  title: "Smoke and Carbon Monoxide Alarm (Amendment) Regulations 2022: guidance for landlords and tenants"
+  publisher: MHCLG (GOV.UK)
+  url: https://www.gov.uk/government/publications/smoke-and-carbon-monoxide-alarms-explanatory-booklet-for-landlords
+  kind: guidance
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [alarms, social-housing, voids]
+  why: Plain Q&A for void alarm checks.
+  status: current
+  notes: In inventories A and C.
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/publications/smoke-and-carbon-monoxide-alarms-explanatory-booklet-for-landlords, attachments: all}
+
+- id: fire-flats-residents
+  title: "Fire safety in flats in England: a guide for residents"
+  publisher: MHCLG (GOV.UK)
+  url: https://www.gov.uk/fire-safety-flats-england-residents
+  kind: guidance
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 3
+  topics: [fire]
+  why: Helps when talking to residents.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /fire-safety-flats-england-residents, attachments: none, body: true}
+
+# ---------------------------------------------------------------------------
+# Asbestos (inventory B)
+# ---------------------------------------------------------------------------
+
+- id: car2012
+  title: Control of Asbestos Regulations 2012 (SI 2012/632)
+  publisher: legislation.gov.uk (The National Archives)
+  url: https://www.legislation.gov.uk/uksi/2012/632/contents
+  kind: legislation
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [asbestos]
+  why: Core asbestos law (duty to manage, identify before work, notification, training, clearance).
+  in_force: 2012-04-06
+  status: current
+  notes: Outstanding changes from SI 2026/1153 not yet applied.
+  checked: 2026-11-19
+  fetch: {method: legislation, path: uksi/2012/632, history: all}
+
+- id: car-amd-2026
+  title: Control of Asbestos (Amendment etc.) Regulations 2026 (SI 2026/1153)
+  publisher: legislation.gov.uk (The National Archives)
+  url: https://www.legislation.gov.uk/uksi/2026/1153/made
+  kind: legislation
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [asbestos]
+  why: New reg 20 - the employer that cleaned the area cannot appoint the clearance analyst. Both old and new texts are needed with dates.
+  in_force: 2026-11-25
+  status: coming
+  notes: Made 2 Nov 2026. Regs 2(3) and 2(4) from 25 Nov 2026; reg 2(2) (new reg 20) from 25 Nov 2027.
+  checked: 2026-11-19
+  fetch: {method: legislation, path: uksi/2026/1153, history: made}
+
+- id: hse-car-consultation
+  title: "HSE consultation outcome: legislative and guidance proposals for CAR 2012"
+  publisher: HSE (Citizen Space)
+  url: https://consultations.hse.gov.uk/hse/proposals-control-of-asbestos-regs-2012/
+  kind: hse-guidance
+  nation: gb
+  licence: unclear
+  mode: restricted
+  priority: 2
+  topics: [asbestos]
+  why: Says which asbestos guidance (L143, HSG248) will soon change.
+  status: current
+  notes: Licence of consultations.hse.gov.uk not checked (OGL assumed but unverified). Response PDF linked from the page not opened.
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: hse-l143
+  title: L143 Managing and working with asbestos. Control of Asbestos Regulations 2012 ACoP and guidance (2nd edition, 2013)
+  publisher: HSE
+  url: https://www.hse.gov.uk/pubns/priced/l143.pdf
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [asbestos]
+  why: The Approved Code of Practice HSE enforces against; training, NNLW, plans of work.
+  status: current
+  notes: Landing page https://www.hse.gov.uk/pubns/books/l143.htm. New edition expected after SI 2026/1153; re-check monthly.
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: hse-hsg264
+  title: "HSG264 Asbestos: The survey guide (2nd edition, 2012)"
+  publisher: HSE
+  url: https://www.hse.gov.uk/pubns/priced/hsg264.pdf
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [asbestos]
+  why: Defines survey types and what a contractor should be given before a refit.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: hse-hsg227
+  title: HSG227 A comprehensive guide to managing asbestos in premises (2002)
+  publisher: HSE
+  url: https://www.hse.gov.uk/pubns/priced/hsg227.pdf
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [asbestos]
+  why: Council duty-to-manage questions.
+  status: current
+  notes: Pre-dates CAR 2012 but HSE still lists it. Show the date with answers.
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: hse-hsg247
+  title: "HSG247 Asbestos: The licensed contractors' guide (2006)"
+  publisher: HSE
+  url: https://www.hse.gov.uk/pubns/priced/hsg247.pdf
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [asbestos]
+  why: What a licensed contractor must do when users sub out removal.
+  status: current
+  notes: Old (2006). Show the date with answers.
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: hse-hsg248
+  title: "HSG248 Asbestos: The analysts' guide (2nd edition, 2021)"
+  publisher: HSE
+  url: https://www.hse.gov.uk/pubns/priced/hsg248.pdf
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [asbestos, voids]
+  why: Four-stage clearance and reoccupation certificates that councils ask for.
+  status: current
+  notes: 15 MB. HSE will update it after SI 2026/1153; re-check monthly.
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: hse-hsg210
+  title: HSG210 Asbestos essentials (4th edition, 2018)
+  publisher: HSE
+  url: https://www.hse.gov.uk/pubns/books/hsg210.htm
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [asbestos]
+  why: Landing page for the Asbestos essentials book; the task sheets are free.
+  status: current
+  notes: Bound book is paid; only the landing page is fetched.
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: hse-asbestos-essentials
+  title: Asbestos essentials task sheets index (A0, EM0 to EM10, A1 to A38)
+  publisher: HSE
+  url: https://www.hse.gov.uk/asbestos/essentials/index.htm
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [asbestos]
+  why: Best step-by-step task material for trades (drilling AIB, textured coatings, floor tiles).
+  status: current
+  notes: Index only (about 50 sheet PDFs). Only A0 and EM1 have URLs in the inventory; add other sheets (A1, A23, A26 ...) when their URLs are checked.
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: hse-asbestos-a0
+  title: Asbestos essentials task sheet A0 (introduction)
+  publisher: HSE
+  url: https://www.hse.gov.uk/pubns/guidance/a0.pdf
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [asbestos]
+  why: Entry sheet for the Asbestos essentials task sheets.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: hse-asbestos-em1
+  title: Asbestos essentials task sheet EM1 (accidental disturbance)
+  publisher: HSE
+  url: https://www.hse.gov.uk/pubns/guidance/em1.pdf
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [asbestos]
+  why: What to do when asbestos is disturbed by accident on a job.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: hse-nnlw
+  title: Notifiable non-licensed work (NNLW)
+  publisher: HSE
+  url: https://www.hse.gov.uk/asbestos/licensing/notifiable-non-licensed-work.htm
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [asbestos]
+  why: Decision table for licensed, NNLW or non-licensed asbestos work.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: hse-asbestos-licensing
+  title: Licensable work with asbestos
+  publisher: HSE
+  url: https://www.hse.gov.uk/asbestos/licensing/index.htm
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [asbestos]
+  why: When a licensed contractor must be called.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: hse-asbestos-training
+  title: Asbestos information, instruction and training
+  publisher: HSE
+  url: https://www.hse.gov.uk/asbestos/training.htm
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [asbestos]
+  why: What asbestos training workers need (awareness vs non-licensable).
+  status: current
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: hse-asbestos-duty
+  title: Duty to manage asbestos in buildings
+  publisher: HSE
+  url: https://www.hse.gov.uk/asbestos/duty/index.htm
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [asbestos, social-housing]
+  why: Plain explanation of the landlord's duty to manage.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: hse-asbestos-workers
+  title: Asbestos - worker's guide
+  publisher: HSE
+  url: https://www.hse.gov.uk/asbestos/workers.htm
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [asbestos]
+  why: Plain worker-level content.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: hse-asbestos-locations
+  title: Asbestos - locations of asbestos materials
+  publisher: HSE
+  url: https://www.hse.gov.uk/asbestos/location-materials.htm
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [asbestos]
+  why: Where asbestos is likely in an older council flat.
+  status: current
+  notes: Location images are probably not OGL-cleared; strip images.
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: hse-ms34
+  title: MS34 Medical surveillance for non-licensed work with asbestos
+  publisher: HSE
+  url: https://www.hse.gov.uk/pubns/ms34.htm
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [asbestos]
+  why: Medical rules for workers doing NNLW.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: hse-asbestos-information
+  title: HSE asbestos information and publications page
+  publisher: HSE
+  url: https://www.hse.gov.uk/asbestos/information.htm
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 3
+  topics: [asbestos]
+  why: Crawl seed listing asbestos publications.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: hse-asbestos-pubns-index
+  title: HSE asbestos publications index
+  publisher: HSE
+  url: https://www.hse.gov.uk/pubns/asbindex.htm
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 3
+  topics: [asbestos]
+  why: Lists ALAARG (hse50), MS31, MS34, EM series and AM1.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: hse-indg223
+  title: INDG223 Managing asbestos in buildings (leaflet)
+  publisher: HSE
+  url: https://www.hse.gov.uk/pubns/indg223.htm
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 3
+  topics: [asbestos]
+  why: Listed so we know it is gone; HSE now uses web pages and Asbestos essentials.
+  status: withdrawn
+  notes: 404 on 2026-11-19. URL built from the HSE pattern in inventory B. Internet Archive has a snapshot from Oct 2020 (not opened).
+  checked: 2026-11-19
+  fetch: {method: none}
+
+- id: hse-indg188
+  title: INDG188 (asbestos leaflet)
+  publisher: HSE
+  url: https://www.hse.gov.uk/pubns/indg188.htm
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 3
+  topics: [asbestos]
+  why: Listed so we know it is gone.
+  status: withdrawn
+  notes: 404 on 2026-11-19. URL built from the HSE pattern in inventory B.
+  checked: 2026-11-19
+  fetch: {method: none}
+
+- id: hse-indg289
+  title: INDG289 (asbestos leaflet)
+  publisher: HSE
+  url: https://www.hse.gov.uk/pubns/indg289.htm
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 3
+  topics: [asbestos]
+  why: Listed so we know it is gone.
+  status: withdrawn
+  notes: 404 on 2026-11-19. URL built from the HSE pattern in inventory B.
+  checked: 2026-11-19
+  fetch: {method: none}
+
+# ---------------------------------------------------------------------------
+# Construction health and safety (inventory B)
+# ---------------------------------------------------------------------------
+
+- id: hswa1974
+  title: Health and Safety at Work etc. Act 1974
+  publisher: legislation.gov.uk (The National Archives)
+  url: https://www.legislation.gov.uk/ukpga/1974/37/contents
+  kind: legislation
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [health-safety]
+  why: Base law for duties to workers and the public.
+  status: current
+  notes: Versions from the 1991-02-01 base date; has future changes.
+  checked: 2026-11-19
+  fetch: {method: legislation, path: ukpga/1974/37, history: all}
+
+- id: mhswr1999
+  title: Management of Health and Safety at Work Regulations 1999 (SI 1999/3242)
+  publisher: legislation.gov.uk (The National Archives)
+  url: https://www.legislation.gov.uk/uksi/1999/3242/contents
+  kind: legislation
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [health-safety]
+  why: Risk assessment duty (reg 3).
+  in_force: 1999-12-29
+  status: current
+  checked: 2026-11-19
+  fetch: {method: legislation, path: uksi/1999/3242, history: current}
+
+- id: cdm2015
+  title: Construction (Design and Management) Regulations 2015 (SI 2015/51)
+  publisher: legislation.gov.uk (The National Archives)
+  url: https://www.legislation.gov.uk/uksi/2015/51/contents
+  kind: legislation
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [cdm, health-safety]
+  why: Core duties on every job (principal contractor, construction phase plan).
+  in_force: 2015-04-06
+  status: current
+  checked: 2026-11-19
+  fetch: {method: legislation, path: uksi/2015/51, history: all}
+
+- id: hse-l153
+  title: L153 Managing health and safety in construction. CDM 2015 guidance
+  publisher: HSE
+  url: https://www.hse.gov.uk/pubns/priced/l153.pdf
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [cdm]
+  why: Main CDM explainer (roles, F10 notification, plans).
+  status: current
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: hse-cdm-pages
+  title: CDM 2015 web pages
+  publisher: HSE
+  url: https://www.hse.gov.uk/construction/cdm/2015/index.htm
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [cdm]
+  why: Web overview of CDM 2015.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: hse-cdm-domestic-clients
+  title: CDM 2015 - domestic clients
+  publisher: HSE
+  url: https://www.hse.gov.uk/construction/cdm/2015/domestic-clients.htm
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [cdm]
+  why: Who is the client on private homeowner jobs.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: hse-indg411
+  title: INDG411 Need building work done? A short guide for clients on CDM 2015
+  publisher: HSE
+  url: https://www.hse.gov.uk/pubns/indg411.pdf
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [cdm]
+  why: Short guide for explaining CDM to a client.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: hse-indg344
+  title: INDG344 The absolutely essential health and safety toolkit for the smaller construction contractor (rev2, 2008)
+  publisher: HSE
+  url: https://www.hse.gov.uk/pubns/indg344.pdf
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [health-safety]
+  why: Daily site checklist for small contractors.
+  status: current
+  notes: Pre-dates CDM 2015; show the date with answers.
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: hse-indg344-ro
+  title: INDG344 small construction contractor toolkit (Romanian)
+  publisher: HSE
+  url: https://www.hse.gov.uk/pubns/romanian/indg344.pdf
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [health-safety, romanian]
+  why: Official Romanian text for our users.
+  status: current
+  notes: Old (2008 English edition); show the date.
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: hse-cis-index
+  title: HSE construction information sheets index ("What you need to know as a busy builder")
+  publisher: HSE
+  url: https://www.hse.gov.uk/pubns/conindex.htm
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [health-safety]
+  why: Index of short sheets written for small builders.
+  status: current
+  notes: Index page dated 28 Apr 2021. CIS61, CIS60, CIS64, CIS81 and CIS76/77 are named in the inventory without URLs; add them when checked.
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: hse-cis80
+  title: CIS80 Construction phase plan (busy builder sheet)
+  publisher: HSE
+  url: https://www.hse.gov.uk/pubns/cis80.pdf
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [cdm]
+  why: Construction phase plan template for small jobs such as voids.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: hse-cis78
+  title: CIS78 Construction dust (busy builder sheet)
+  publisher: HSE
+  url: https://www.hse.gov.uk/pubns/cis78.pdf
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [health-safety, dust]
+  why: Dust control on small jobs.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: hse-cis79
+  title: CIS79 Old lead paint (busy builder sheet)
+  publisher: HSE
+  url: https://www.hse.gov.uk/pubns/cis79.pdf
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [health-safety]
+  why: Lead paint in old houses.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: hse-cis65
+  title: CIS65 Concealed services (busy builder sheet)
+  publisher: HSE
+  url: https://www.hse.gov.uk/pubns/cis65.pdf
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [health-safety, electrical, gas]
+  why: Hidden cables and pipes during refurbishment.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: hse-cis63
+  title: CIS63 Running a small site (busy builder sheet)
+  publisher: HSE
+  url: https://www.hse.gov.uk/pubns/cis63.pdf
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [health-safety, cdm]
+  why: Basics of running a small site.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: hse-cis62
+  title: CIS62 Welfare (busy builder sheet)
+  publisher: HSE
+  url: https://www.hse.gov.uk/pubns/cis62.pdf
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [health-safety, voids]
+  why: Welfare facilities on a void or small site.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: hse-hsg150
+  title: HSG150 Health and safety in construction (3rd edition, 2006)
+  publisher: HSE
+  url: https://www.hse.gov.uk/pubns/priced/hsg150.pdf
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 3
+  topics: [health-safety]
+  why: Broad site safety guide.
+  status: current
+  notes: Pre-dates CDM 2015 and work at height changes; lower retrieval priority.
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: wah2005
+  title: Work at Height Regulations 2005 (SI 2005/735)
+  publisher: legislation.gov.uk (The National Archives)
+  url: https://www.legislation.gov.uk/uksi/2005/735/contents
+  kind: legislation
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [health-safety, work-at-height]
+  why: Ladders, towers and scaffold inspection; falls are a top risk.
+  in_force: 2005-04-06
+  status: current
+  checked: 2026-11-19
+  fetch: {method: legislation, path: uksi/2005/735, history: current}
+
+- id: hse-indg401
+  title: "INDG401 Working at height: a brief guide (rev2, 2014)"
+  publisher: HSE
+  url: https://www.hse.gov.uk/pubns/indg401.pdf
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [work-at-height]
+  why: Short answer to "can I use a ladder for this?".
+  status: current
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: hse-hsg33
+  title: HSG33 Health and safety in roof work (5th edition, 2020)
+  publisher: HSE
+  url: https://www.hse.gov.uk/pubns/priced/hsg33.pdf
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [work-at-height, repairs]
+  why: Roof repairs are common responsive work on council houses.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: riddor2013
+  title: Reporting of Injuries, Diseases and Dangerous Occurrences Regulations 2013 (SI 2013/1471)
+  publisher: legislation.gov.uk (The National Archives)
+  url: https://www.legislation.gov.uk/uksi/2013/1471/contents
+  kind: legislation
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [health-safety, riddor]
+  why: Duty to report injuries.
+  in_force: 2013-10-01
+  status: current
+  checked: 2026-11-19
+  fetch: {method: legislation, path: uksi/2013/1471, history: current}
+
+- id: hse-indg453
+  title: INDG453 Reporting accidents and incidents at work (RIDDOR)
+  publisher: HSE
+  url: https://www.hse.gov.uk/pubns/indg453.pdf
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [riddor]
+  why: Plain guide to RIDDOR.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: coshh2002
+  title: Control of Substances Hazardous to Health Regulations 2002 (SI 2002/2677)
+  publisher: legislation.gov.uk (The National Archives)
+  url: https://www.legislation.gov.uk/uksi/2002/2677/contents
+  kind: legislation
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [health-safety, dust]
+  why: Rules for silica dust, wood dust and solvents.
+  in_force: 2002-11-21
+  status: current
+  checked: 2026-11-19
+  fetch: {method: legislation, path: uksi/2002/2677, history: current}
+
+- id: hse-l5
+  title: L5 COSHH Approved Code of Practice and guidance (6th edition, 2013)
+  publisher: HSE
+  url: https://www.hse.gov.uk/pubns/priced/l5.pdf
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [health-safety, dust]
+  why: COSHH Approved Code of Practice.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: hse-eh40
+  title: EH40/2005 Workplace exposure limits
+  publisher: HSE
+  url: https://www.hse.gov.uk/pubns/books/eh40.htm
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [health-safety, dust]
+  why: Legal limit values for silica and wood dust.
+  status: current
+  notes: Edition not read; check before ingest. Landing page only.
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: hse-indg136
+  title: "INDG136 Working with substances hazardous to health: a brief guide to COSHH (rev5)"
+  publisher: HSE
+  url: https://www.hse.gov.uk/pubns/indg136.pdf
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [health-safety]
+  why: COSHH basics for small firms.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: hse-cis36
+  title: CIS36 Construction dust (v3, 2020)
+  publisher: HSE
+  url: https://www.hse.gov.uk/pubns/cis36.htm
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [dust]
+  why: Masks and extraction when chasing walls or cutting blocks; silica is a top health risk.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: hse-indg463
+  title: INDG463 Control of exposure to silica dust (2024)
+  publisher: HSE
+  url: https://www.hse.gov.uk/pubns/indg463.htm
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [dust]
+  why: Silica dust controls.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: hse-cis69
+  title: CIS69 On-tool extraction (2013)
+  publisher: HSE
+  url: https://www.hse.gov.uk/pubns/cis69.htm
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [dust]
+  why: On-tool dust extraction.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: hse-cis54
+  title: CIS54 Dust control on cut-off saws
+  publisher: HSE
+  url: https://www.hse.gov.uk/pubns/cis54.pdf
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [dust]
+  why: Dust control when cutting blocks and slabs.
+  status: current
+  notes: Date not read.
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: hse-wood-dust
+  title: Wood dust
+  publisher: HSE
+  url: https://www.hse.gov.uk/woodworking/wooddust.htm
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 3
+  topics: [dust]
+  why: Sanding and cutting MDF and hardwood.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: noise2005
+  title: Control of Noise at Work Regulations 2005 (SI 2005/1643)
+  publisher: legislation.gov.uk (The National Archives)
+  url: https://www.legislation.gov.uk/uksi/2005/1643/contents
+  kind: legislation
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 3
+  topics: [noise]
+  why: Hearing protection with breakers and saws.
+  in_force: 2006-04-06
+  status: current
+  checked: 2026-11-19
+  fetch: {method: legislation, path: uksi/2005/1643, history: current}
+
+- id: hse-l108
+  title: L108 Controlling noise at work (3rd edition, 2021)
+  publisher: HSE
+  url: https://www.hse.gov.uk/pubns/priced/l108.pdf
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 3
+  topics: [noise]
+  why: Guidance on the noise regulations.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: vibration2005
+  title: Control of Vibration at Work Regulations 2005 (SI 2005/1093)
+  publisher: legislation.gov.uk (The National Archives)
+  url: https://www.legislation.gov.uk/uksi/2005/1093/contents
+  kind: legislation
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 3
+  topics: [vibration]
+  why: Hand-arm vibration from breakers and drills.
+  in_force: 2005-07-06
+  status: current
+  checked: 2026-11-19
+  fetch: {method: legislation, path: uksi/2005/1093, history: current}
+
+- id: hse-l140
+  title: L140 Hand-arm vibration (2nd edition, 2019)
+  publisher: HSE
+  url: https://www.hse.gov.uk/pubns/priced/l140.pdf
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 3
+  topics: [vibration]
+  why: Guidance on the vibration regulations.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: hse-romanian
+  title: HSE Romanian-language page
+  publisher: HSE
+  url: https://www.hse.gov.uk/languages/romanian.htm
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [health-safety, romanian]
+  why: Only official Romanian health and safety text we found.
+  status: current
+  notes: Lists INDG450, INDG410, INDG344, CIS57, CIS26, CIS59, INDG404 and others. No Romanian asbestos, gas or electrical material.
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: hse-ro-indg450
+  title: INDG450 Your health, your safety (Romanian)
+  publisher: HSE
+  url: https://www.hse.gov.uk/pubns/romanian/indg450-romanian.pdf
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [health-safety, romanian]
+  why: Romanian basic worker guide.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: hse-ro-indg410
+  title: INDG410 Working in Great Britain from overseas (Romanian)
+  publisher: HSE
+  url: https://www.hse.gov.uk/pubns/romanian/indg410-romanian.pdf
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [health-safety, romanian]
+  why: Romanian guide for workers new to GB.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: hse-ro-law
+  title: Health and safety law leaflet (Romanian)
+  publisher: HSE
+  url: https://www.hse.gov.uk/pubns/romanian/law-romanian.pdf
+  kind: hse-guidance
+  nation: gb
+  licence: proprietary
+  mode: link_only
+  priority: 3
+  topics: [health-safety, romanian]
+  why: Romanian version of the law leaflet; link only.
+  status: current
+  notes: HSE excludes the "Health and Safety Law - what you need to know" poster suite from OGL (hse.gov.uk/help/copyright.htm). Treated as part of that suite; confirm.
+  checked: 2026-11-19
+  fetch: {method: none}
+
+- id: hse-ro-watch-your-step
+  title: Watch your step - construction (Romanian)
+  publisher: HSE
+  url: https://www.hse.gov.uk/pubns/romanian/watch-your-step-construction.pdf
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [health-safety, romanian]
+  why: Romanian construction safety leaflet.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: hse-ro-cis26
+  title: CIS26 Cement (Romanian)
+  publisher: HSE
+  url: https://www.hse.gov.uk/pubns/romanian/cis26.pdf
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 3
+  topics: [health-safety, romanian]
+  why: Romanian sheet on cement hazards.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: hse-ro-cis59
+  title: CIS59 Welfare (Romanian, 2010)
+  publisher: HSE
+  url: https://www.hse.gov.uk/pubns/cis59r.htm
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 3
+  topics: [health-safety, romanian]
+  why: Romanian sheet on site welfare.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: hse-ro-migrant-workers
+  title: HSE migrant workers pages (Romanian, worker)
+  publisher: HSE
+  url: https://www.hse.gov.uk/migrantworkers/languages/romanian/worker/
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 3
+  topics: [health-safety, romanian]
+  why: Romanian pages for migrant workers.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: hse-hsg141
+  title: HSG141 Electrical safety on construction sites (2023)
+  publisher: HSE
+  url: https://www.hse.gov.uk/pubns/priced/hsg141.pdf
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [electrical, health-safety]
+  why: 110V tools and temporary supplies on a refurbishment.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: hse-hsg47
+  title: HSG47 Avoiding danger from underground services (3rd edition, 2014)
+  publisher: HSE
+  url: https://www.hse.gov.uk/pubns/books/hsg47.htm
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 3
+  topics: [health-safety]
+  why: Digging for drains or extensions.
+  status: current
+  notes: Landing page only; PDF URL not in the inventory.
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: hse-l74
+  title: L74 First aid at work (3rd edition, 2013, amended 2018 and 2024)
+  publisher: HSE
+  url: https://www.hse.gov.uk/pubns/books/l74.htm
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 3
+  topics: [first-aid]
+  why: First aid kit and first aider for a small crew.
+  status: current
+  notes: Landing page only; PDF URL not in the inventory.
+  checked: 2026-11-19
+  fetch: {method: url}
+
+# ---------------------------------------------------------------------------
+# Gas safety (inventory B)
+# ---------------------------------------------------------------------------
+
+- id: gsiur1998
+  title: Gas Safety (Installation and Use) Regulations 1998 (SI 1998/2451)
+  publisher: legislation.gov.uk (The National Archives)
+  url: https://www.legislation.gov.uk/uksi/1998/2451/contents
+  kind: legislation
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [gas, social-housing, voids]
+  why: Gas work only by Gas Safe registered people (reg 3); landlord annual check (reg 36).
+  in_force: 1998-10-31
+  status: current
+  notes: Versions start 3 Oct 1998.
+  checked: 2026-11-19
+  fetch: {method: legislation, path: uksi/1998/2451, history: all}
+
+- id: hse-l56
+  title: L56 Gas Safety (Installation and Use) Regulations ACoP and guidance (5th edition, 2018)
+  publisher: HSE
+  url: https://www.hse.gov.uk/pubns/priced/l56.pdf
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [gas]
+  why: Approved Code of Practice for gas regulations.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: hse-indg285
+  title: "INDG285 Landlords: a guide to landlords' duties (gas, 2018)"
+  publisher: HSE
+  url: https://www.hse.gov.uk/pubns/indg285.pdf
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [gas, social-housing]
+  why: What the council must do on gas and what is handed over at void end.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: hse-gas-landlords
+  title: Landlords' responsibility for gas safety
+  publisher: HSE
+  url: https://www.hse.gov.uk/gas/landlords/index.htm
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [gas, social-housing]
+  why: Web version of landlord gas duties.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: hse-gas-domestic
+  title: HSE domestic gas safety pages
+  publisher: HSE
+  url: https://www.hse.gov.uk/gas/domestic/index.htm
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 3
+  topics: [gas]
+  why: Domestic gas safety basics.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: igem-up-1b
+  title: IGEM/UP/1B Edition 4 Tightness testing and direct purging of small installations
+  publisher: IGEM
+  url: https://www.igem.org.uk/resource/igem-up-1b-edition-4-tightness-testing-and-direct-purging-of-small-liquefied-petroleum-gas-air-ng-and-lpg-installations.html
+  kind: standard
+  nation: uk
+  licence: proprietary
+  mode: link_only
+  priority: 2
+  topics: [gas, standards]
+  why: Gas tightness test after capping or reconnecting; referenced by gas engineers.
+  in_force: 2026-10-01
+  status: current
+  notes: Published March 2026. Edition 3 withdrawn 30 Sep 2026.
+  checked: 2026-11-19
+  fetch: {method: none}
+
+- id: bs-6891
+  title: BS 6891:2015+A1:2019 Low pressure gas pipework up to 35 mm
+  publisher: BSI
+  url: https://knowledge.bsigroup.com/products/specification-for-the-installation-and-maintenance-of-low-pressure-gas-installation-pipework-of-up-to-35-mm-r1-sup-1-sup-sub-4-sub-on-premises
+  kind: standard
+  nation: uk
+  licence: proprietary
+  mode: link_only
+  priority: 3
+  topics: [gas, standards]
+  why: Domestic gas pipework reference.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: none}
+
+- id: gas-safe-bulletins
+  title: Gas Safe Register technical bulletins (e.g. TB 159, TB 014(B))
+  publisher: Gas Safe Register
+  url: https://www.gassaferegister.co.uk/
+  kind: guidance
+  nation: gb
+  licence: proprietary
+  mode: link_only
+  priority: 3
+  topics: [gas]
+  why: Gas engineers' working rules.
+  status: current
+  notes: Site returned 403 to our fetch; for registered engineers only. Known gap.
+  checked: 2026-11-19
+  fetch: {method: none}
+
+# ---------------------------------------------------------------------------
+# Electrical safety (inventory B and C)
+# ---------------------------------------------------------------------------
+
+- id: eawr1989
+  title: Electricity at Work Regulations 1989 (SI 1989/635)
+  publisher: legislation.gov.uk (The National Archives)
+  url: https://www.legislation.gov.uk/uksi/1989/635/contents
+  kind: legislation
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [electrical]
+  why: Core law for electricians (dead working, competence).
+  in_force: 1990-04-01
+  status: current
+  checked: 2026-11-19
+  fetch: {method: legislation, path: uksi/1989/635, history: current}
+
+- id: hse-hsr25
+  title: HSR25 The Electricity at Work Regulations 1989. Guidance (3rd edition, 2015)
+  publisher: HSE
+  url: https://www.hse.gov.uk/pubns/priced/hsr25.pdf
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [electrical]
+  why: Guidance on the Electricity at Work Regulations.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: hse-hsg85
+  title: "HSG85 Electricity at work: safe working practices (3rd edition, 2013)"
+  publisher: HSE
+  url: https://www.hse.gov.uk/pubns/priced/hsg85.pdf
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [electrical]
+  why: Safe isolation practice.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: hse-indg231
+  title: INDG231 Electrical safety and you (rev1, 2012)
+  publisher: HSE
+  url: https://www.hse.gov.uk/pubns/indg231.htm
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 3
+  topics: [electrical]
+  why: Basic electrical safety.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: hse-indg236
+  title: INDG236 Maintaining portable electric equipment (rev3, 2013)
+  publisher: HSE
+  url: https://www.hse.gov.uk/pubns/indg236.htm
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 3
+  topics: [electrical]
+  why: PAT testing myths.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: ess2020
+  title: Electrical Safety Standards in the Private Rented Sector and Social Rented Sector (England) Regulations 2020 (SI 2020/312)
+  publisher: legislation.gov.uk (The National Archives)
+  url: https://www.legislation.gov.uk/uksi/2020/312/contents
+  kind: legislation
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [electrical, social-housing]
+  why: Five-yearly EICR on council homes; what the landlord must give tenants.
+  in_force: 2020-06-01
+  status: current
+  notes: Title changed in 2025 to add "and Social Rented Sector".
+  checked: 2026-11-19
+  fetch: {method: legislation, path: uksi/2020/312, history: current}
+
+- id: ess-social-2025
+  title: Electrical Safety Standards in the Private Rented Sector (England) (Amendment) (Extension to the Social Rented Sector) Regulations 2025 (SI 2025/1043)
+  publisher: legislation.gov.uk (The National Archives)
+  url: https://www.legislation.gov.uk/uksi/2025/1043/made
+  kind: legislation
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [electrical, social-housing]
+  why: Commencement for social landlords.
+  in_force: 2025-11-01
+  status: current
+  notes: In inventories B and C. Made 23 Sep 2025. 1 May 2026 for social tenancies granted before 1 Dec 2025 and for reg 7.
+  checked: 2026-11-19
+  fetch: {method: legislation, path: uksi/2025/1043, history: made}
+
+- id: ess-amd-2026
+  title: Electrical Safety Standards in the PRS and Social Rented Sector (England) (Amendment) Regulations 2026 (SI 2026/1196)
+  publisher: legislation.gov.uk (The National Archives)
+  url: https://www.legislation.gov.uk/uksi/2026/1196/made
+  kind: legislation
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [electrical, social-housing]
+  why: Latest change to the electrical safety standards; debated with the Awaab's Law Phase 2 SI.
+  status: current
+  notes: Made 13 Nov 2026. Content and in-force date not checked.
+  checked: 2026-11-19
+  fetch: {method: legislation, path: uksi/2026/1196, history: made}
+
+- id: ess-guidance
+  title: Electrical safety standards in the private and social rented sectors guidance
+  publisher: MHCLG (GOV.UK)
+  url: https://www.gov.uk/government/publications/electrical-safety-standards-in-the-private-and-social-rented-sectors-guidance
+  kind: guidance
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [electrical, social-housing]
+  why: Plain guide to EICR codes C1/C2/FI and 28-day remedial work.
+  status: current
+  notes: Old private-rented-only guide URL still loads (/government/publications/electrical-safety-standards-in-the-private-rented-sector-guidance-for-landlords-tenants-and-local-authorities).
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/publications/electrical-safety-standards-in-the-private-and-social-rented-sectors-guidance, attachments: all}
+
+- id: bs-7671
+  title: BS 7671:2018+A4:2026 IET Wiring Regulations
+  publisher: IET / BSI
+  url: https://electrical.theiet.org/amendment-4-updates-to-18th-edition
+  kind: standard
+  nation: uk
+  licence: proprietary
+  mode: link_only
+  priority: 1
+  topics: [electrical, standards]
+  why: Referenced by AD P and the electrical safety standards; basis of EICRs and consumer unit changes.
+  status: current
+  notes: In inventories A, B and D. A4 published 15 Apr 2026. Withdrawal of A2:2022+A3:2024 on 15 Oct 2026 per BSI shop page and a search snippet; not confirmed on IET page. BSI article https://knowledge.bsigroup.com/articles/bs-7671-2018-a4-2026-get-the-latest-amendment-to-the-uks-wiring-regulations.
+  checked: 2026-11-19
+  fetch: {method: none}
+
+- id: iet-onsite-guide
+  title: IET On-Site Guide and Guidance Notes
+  publisher: IET
+  url: https://electrical.theiet.org/bs-7671/
+  kind: standard
+  nation: uk
+  licence: proprietary
+  mode: link_only
+  priority: 3
+  topics: [electrical, standards]
+  why: Electricians use it daily for small jobs.
+  status: current
+  notes: Product page not opened; current edition not confirmed.
+  checked: 2026-11-19
+  fetch: {method: none}
+
+- id: iet-model-forms
+  title: IET Model Forms for BS 7671 (EIC, Minor Works, EICR)
+  publisher: IET
+  url: https://electrical.theiet.org/bs-7671-18th-edition-wiring-regulations/model-forms/
+  kind: standard
+  nation: uk
+  licence: proprietary
+  mode: link_only
+  priority: 2
+  topics: [electrical, standards]
+  why: Explain certificate fields only.
+  status: current
+  notes: Free download, but licence is "solely in connection with your electrical contracting business". Use in our product needs an ADR or IET permission.
+  checked: 2026-11-19
+  fetch: {method: none}
+
+# ---------------------------------------------------------------------------
+# Social housing, damp and mould, housing standards (inventory C)
+# ---------------------------------------------------------------------------
+
+- id: awaab-regs-2025
+  title: Hazards in Social Housing (Prescribed Requirements) (England) Regulations 2025 (SI 2025/1042), "Awaab's Law"
+  publisher: legislation.gov.uk (The National Archives)
+  url: https://www.legislation.gov.uk/uksi/2025/1042/contents
+  kind: legislation
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [awaab, damp-mould, social-housing, repairs]
+  why: Binding repair timeframes that councils and housing associations push down to contractors.
+  in_force: 2025-10-27
+  status: current
+  notes: Made 23 Sep 2025. Amendment by SI 2026/1195 (from 30 Nov 2026) not yet applied in the revised text; use awaab-consolidated until it is.
+  checked: 2026-11-19
+  fetch: {method: legislation, path: uksi/2025/1042, history: all}
+
+- id: awaab-amd-2026
+  title: Hazards in Social Housing (Prescribed Requirements) (England) (Amendment) Regulations 2026 (SI 2026/1195), Phase 2
+  publisher: legislation.gov.uk (The National Archives)
+  url: https://www.legislation.gov.uk/uksi/2026/1195/contents
+  kind: legislation
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [awaab, social-housing, repairs]
+  why: Extends Awaab's Law to excess cold and heat, falls, structural collapse, fire, electrical and domestic hygiene.
+  in_force: 2026-11-30
+  status: coming
+  notes: Made 13 Nov 2026. Re-crawl after 30 Nov 2026.
+  checked: 2026-11-19
+  fetch: {method: legislation, path: uksi/2026/1195, history: made}
+
+- id: awaab-consolidated
+  title: Awaab's Law Regulations as they apply from 30 November 2026 (consolidated PDF)
+  publisher: MHCLG (GOV.UK)
+  url: https://www.gov.uk/government/publications/awaabs-law-regulations
+  kind: guidance
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [awaab, social-housing]
+  why: Full Phase 1 and 2 rules in one place until legislation.gov.uk applies SI 2026/1195.
+  in_force: 2026-11-30
+  status: coming
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/publications/awaabs-law-regulations, attachments: pdf}
+
+- id: awaab-guidance-phase1
+  title: "Awaab's Law Phase 1: guidance for social landlords - timeframes for repairs in the social rented sector"
+  publisher: MHCLG (GOV.UK)
+  url: https://www.gov.uk/government/publications/awaabs-law-guidance-for-social-landlords
+  kind: guidance
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [awaab, damp-mould, social-housing, repairs]
+  why: Explains the 24 hour / 10 working day / 5 day / 12 week timeframes and what contractors must report.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/publications/awaabs-law-guidance-for-social-landlords, attachments: all}
+
+- id: awaab-guidance-phase2
+  title: "Awaab's Law Phase 2: guidance for social landlords"
+  publisher: MHCLG (GOV.UK)
+  url: https://www.gov.uk/government/publications/awaabs-law-phase-2-guidance-for-social-housing-landlords
+  kind: guidance
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [awaab, social-housing, repairs]
+  why: Records, photos before works, access attempts and competent persons; steps contractors should follow.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/publications/awaabs-law-phase-2-guidance-for-social-housing-landlords, attachments: all}
+
+- id: awaab-triage-phase2
+  title: "Awaab's Law Phase 2: guidance to support triaging of hazards"
+  publisher: MHCLG (GOV.UK)
+  url: https://www.gov.uk/government/publications/awaabs-law-phase-2-hazards-guidance-for-social-landlords
+  kind: guidance
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [awaab, social-housing, repairs]
+  why: Worked examples of significant vs emergency hazards; best plain examples for operatives.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/publications/awaabs-law-phase-2-hazards-guidance-for-social-landlords, attachments: all}
+
+- id: awaab-tenants
+  title: "Awaab's Law: guidance for tenants in social housing"
+  publisher: MHCLG (GOV.UK)
+  url: https://www.gov.uk/government/publications/awaabs-law-guidance-for-tenants-in-social-housing
+  kind: guidance
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [awaab, social-housing]
+  why: Plain summary for explaining to a tenant what will happen.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/publications/awaabs-law-guidance-for-tenants-in-social-housing, attachments: all}
+
+- id: awaab-collection
+  title: Awaab's Law in the social rented sector (collection)
+  publisher: MHCLG (GOV.UK)
+  url: https://www.gov.uk/government/collections/awaabs-law-in-the-social-rented-sector
+  kind: guidance
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 3
+  topics: [awaab]
+  why: One URL to watch for Phase 3.
+  status: current
+  notes: Collection page; body only stores the index.
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/collections/awaabs-law-in-the-social-rented-sector, attachments: none, body: true}
+
+- id: damp-mould-health
+  title: "Damp and mould: understanding and addressing the health risks for rented housing providers"
+  publisher: MHCLG, DHSC and UKHSA (GOV.UK)
+  url: https://www.gov.uk/government/publications/damp-and-mould-understanding-and-addressing-the-health-risks-for-rented-housing-providers
+  kind: guidance
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [damp-mould, social-housing]
+  why: Core damp and mould reference that landlords cite in specs.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/publications/damp-and-mould-understanding-and-addressing-the-health-risks-for-rented-housing-providers, attachments: all}
+
+- id: decent-home-2006
+  title: "A decent home: definition and guidance for implementation (June 2006 update)"
+  publisher: DCLG (now MHCLG) (GOV.UK)
+  url: https://www.gov.uk/government/publications/a-decent-home-definition-and-guidance
+  kind: guidance
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [decent-homes, social-housing]
+  why: Still the live standard behind Decent Homes programmes (until 1 Apr 2035).
+  status: current
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/publications/a-decent-home-definition-and-guidance, attachments: pdf}
+
+- id: decent-homes-new
+  title: "The New Decent Homes Standard: policy statement"
+  publisher: MHCLG (GOV.UK)
+  url: https://www.gov.uk/government/consultations/consultation-on-a-reformed-decent-homes-standard-for-social-and-privately-rented-homes/outcome/the-new-decent-homes-standard-policy-statement
+  kind: guidance
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [decent-homes, social-housing]
+  why: What is changing for future planned works.
+  status: current
+  notes: New standard applies from 2035 (social housing keeps the 2006 standard until 1 Apr 2035). match guessed; check.
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/consultations/consultation-on-a-reformed-decent-homes-standard-for-social-and-privately-rented-homes, attachments: html, match: "(?i)policy statement"}
+
+- id: housing-act-2004-p1
+  title: Housing Act 2004, Part 1 (HHSRS and enforcement)
+  publisher: legislation.gov.uk (The National Archives)
+  url: https://www.legislation.gov.uk/ukpga/2004/34/part/1
+  kind: legislation
+  nation: england-wales
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [hhsrs, social-housing]
+  why: Legal basis for HHSRS and the Awaab's Law hazard list.
+  status: current
+  notes: Part 1 only. s.6A civil penalties from 22 Jun 2026 for specified purposes. Exact Part 1 start date not verified.
+  checked: 2026-11-19
+  fetch: {method: legislation, path: ukpga/2004/34/part/1, history: all}
+
+- id: hhsrs-regs-2005
+  title: Housing Health and Safety Rating System (England) Regulations 2005 (SI 2005/3208)
+  publisher: legislation.gov.uk (The National Archives)
+  url: https://www.legislation.gov.uk/uksi/2005/3208/contents
+  kind: legislation
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [hhsrs]
+  why: Hazard list and scoring.
+  status: current
+  notes: In-force date not verified.
+  checked: 2026-11-19
+  fetch: {method: legislation, path: uksi/2005/3208, history: current}
+
+- id: hhsrs-amd-2026
+  title: Housing Health and Safety Rating System (England) (Amendment) Regulations 2026 (SI 2026/571)
+  publisher: legislation.gov.uk (The National Archives)
+  url: https://www.legislation.gov.uk/uksi/2026/571/contents
+  kind: legislation
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [hhsrs]
+  why: Revised HHSRS (29 to 21 hazards, new bands).
+  in_force: 2026-06-23
+  status: current
+  notes: Made 1 Jun 2026.
+  checked: 2026-11-19
+  fetch: {method: legislation, path: uksi/2026/571, history: made}
+
+- id: hhsrs-operating
+  title: HHSRS operating guidance, Parts 1 to 3
+  publisher: MHCLG (GOV.UK)
+  url: https://www.gov.uk/government/publications/housing-health-and-safety-rating-system-hhsrs-operating-guidance
+  kind: guidance
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [hhsrs]
+  why: Hazard profiles, so the assistant can tie a defect to a hazard class.
+  in_force: 2026-06-23
+  status: current
+  notes: Replaces the 2006 operating guidance.
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/publications/housing-health-and-safety-rating-system-hhsrs-operating-guidance, attachments: pdf}
+
+- id: hhsrs-enforcement
+  title: HHSRS enforcement guidance
+  publisher: MHCLG (GOV.UK)
+  url: https://www.gov.uk/government/publications/housing-health-and-safety-rating-system-hhsrs-enforcement-guidance
+  kind: guidance
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 3
+  topics: [hhsrs]
+  why: Council enforcement options; lower priority for contractors.
+  in_force: 2026-06-23
+  status: current
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/publications/housing-health-and-safety-rating-system-hhsrs-enforcement-guidance, attachments: pdf}
+
+- id: hhsrs-landlords
+  title: Landlord and agent guide to the HHSRS
+  publisher: MHCLG (GOV.UK)
+  url: https://www.gov.uk/government/publications/housing-health-and-safety-rating-system-guidance-for-landlords-and-property-related-professionals
+  kind: guidance
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [hhsrs]
+  why: Plain explanation of hazards, easier than the operating guidance.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/publications/housing-health-and-safety-rating-system-guidance-for-landlords-and-property-related-professionals, attachments: all}
+
+- id: lta1985-s11
+  title: Landlord and Tenant Act 1985, section 11 (repairing obligations)
+  publisher: legislation.gov.uk (The National Archives)
+  url: https://www.legislation.gov.uk/ukpga/1985/70/section/11
+  kind: legislation
+  nation: england-wales
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [repairs, social-housing]
+  why: Basic landlord repair duty behind responsive repairs.
+  status: current
+  notes: Section 11 only. Inventory also names s.9A-10 (fitness) and s.10A (Awaab's Law implied term); add as parts if needed.
+  checked: 2026-11-19
+  fetch: {method: legislation, path: ukpga/1985/70/section/11, history: current}
+
+- id: hfhh-act-2018
+  title: Homes (Fitness for Human Habitation) Act 2018
+  publisher: legislation.gov.uk (The National Archives)
+  url: https://www.legislation.gov.uk/ukpga/2018/34/contents
+  kind: legislation
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [repairs, social-housing]
+  why: Fitness standard tenants can sue on; disrepair claims drive urgent works.
+  in_force: 2019-03-20
+  status: current
+  checked: 2026-11-19
+  fetch: {method: legislation, path: ukpga/2018/34, history: current}
+
+- id: hfhh-guides
+  title: "Homes (Fitness for Human Habitation) Act 2018: guides for landlords, tenants and local authorities"
+  publisher: MHCLG (GOV.UK)
+  url: https://www.gov.uk/government/publications/homes-fitness-for-human-habitation-act-2018
+  kind: guidance
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 3
+  topics: [repairs]
+  why: Short, plain explanation.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/publications/homes-fitness-for-human-habitation-act-2018, attachments: all}
+
+- id: shra2023
+  title: Social Housing (Regulation) Act 2023
+  publisher: legislation.gov.uk (The National Archives)
+  url: https://www.legislation.gov.uk/ukpga/2023/36/contents
+  kind: legislation
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 3
+  topics: [social-housing, awaab]
+  why: Parent of Awaab's Law and RSH powers; why landlords are under pressure.
+  status: current
+  notes: Commencement dates not checked.
+  checked: 2026-11-19
+  fetch: {method: legislation, path: ukpga/2023/36, history: current}
+
+- id: rsh-safety-quality
+  title: RSH Safety and Quality Standard
+  publisher: Regulator of Social Housing (GOV.UK)
+  url: https://www.gov.uk/government/publications/safety-and-quality-standard
+  kind: guidance
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [social-housing, repairs]
+  why: Landlord outcome duties on repairs and safety that shape contractor KPIs.
+  in_force: 2024-04-01
+  status: current
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/publications/safety-and-quality-standard, attachments: all}
+
+- id: rsh-code-of-practice
+  title: RSH Consumer Standards Code of Practice
+  publisher: Regulator of Social Housing (GOV.UK)
+  url: https://www.gov.uk/government/publications/consumer-standards-code-of-practice
+  kind: guidance
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 3
+  topics: [social-housing]
+  why: Examples of how landlords meet the consumer standards.
+  in_force: 2026-10-01
+  status: current
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/publications/consumer-standards-code-of-practice, attachments: all}
+
+- id: rsh-competence-conduct
+  title: RSH Competence and Conduct Standard
+  publisher: Regulator of Social Housing (GOV.UK)
+  url: https://www.gov.uk/government/publications/competence-and-conduct-standard
+  kind: guidance
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 3
+  topics: [social-housing]
+  why: Context on landlord staff competence.
+  in_force: 2026-10-01
+  status: current
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/publications/competence-and-conduct-standard, attachments: all}
+
+- id: rra2025
+  title: Renters' Rights Act 2025 (c.26)
+  publisher: legislation.gov.uk (The National Archives)
+  url: https://www.legislation.gov.uk/ukpga/2025/26/contents
+  kind: legislation
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 3
+  topics: [awaab, decent-homes]
+  why: Future Awaab's Law and Decent Homes Standard for private rented jobs (s.60, s.100, Sch 4).
+  status: current
+  notes: Commenced in stages (s.145); not checked.
+  checked: 2026-11-19
+  fetch: {method: legislation, path: ukpga/2025/26, history: current}
+
+- id: ombudsman-chc
+  title: Housing Ombudsman Complaint Handling Code (2024)
+  publisher: Housing Ombudsman Service
+  url: https://www.housing-ombudsman.org.uk/landlords-info/complaint-handling-code/
+  kind: guidance
+  nation: england
+  licence: proprietary
+  mode: link_only
+  priority: 2
+  topics: [social-housing, repairs]
+  why: Complaint timelines drive repair urgency.
+  status: current
+  notes: No OGL statement; footer "© Housing Ombudsman Service 2026", no reuse terms found. Ask before ingesting.
+  checked: 2026-11-19
+  fetch: {method: none}
+
+- id: ombudsman-damp-mould
+  title: Housing Ombudsman Spotlight on damp and mould (2021, follow-up 2023) and related guidance
+  publisher: Housing Ombudsman Service
+  url: https://www.housing-ombudsman.org.uk/centre-for-learning/key-topics/damp-and-mould/
+  kind: guidance
+  nation: england
+  licence: proprietary
+  mode: link_only
+  priority: 2
+  topics: [damp-mould, social-housing]
+  why: Shows what landlord failure looks like (leaks, repeat visits, record keeping).
+  status: current
+  notes: Licence not stated (as ombudsman-chc). Report dates from search snippets only.
+  checked: 2026-11-19
+  fetch: {method: none}
+
+# ---------------------------------------------------------------------------
+# Procurement (inventory C)
+# ---------------------------------------------------------------------------
+
+- id: procurement-act-2023
+  title: Procurement Act 2023 (c.54)
+  publisher: legislation.gov.uk (The National Archives)
+  url: https://www.legislation.gov.uk/ukpga/2023/54/contents
+  kind: legislation
+  nation: uk
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [procurement]
+  why: Main law for council tenders, below-threshold rules and 30-day payment.
+  in_force: 2025-02-24
+  status: current
+  checked: 2026-11-19
+  fetch: {method: legislation, path: ukpga/2023/54, history: current}
+
+- id: procurement-regs-2024
+  title: Procurement Regulations 2024 (SI 2024/692)
+  publisher: legislation.gov.uk (The National Archives)
+  url: https://www.legislation.gov.uk/uksi/2024/692/contents
+  kind: legislation
+  nation: uk
+  licence: OGL-3.0
+  mode: ingest
+  priority: 3
+  topics: [procurement]
+  why: Notice content details.
+  in_force: 2025-02-24
+  status: current
+  checked: 2026-11-19
+  fetch: {method: legislation, path: uksi/2024/692, history: current}
+
+- id: procurement-thresholds-2025
+  title: Procurement Act 2023 (Threshold Amounts) (Amendment) Regulations 2025 (SI 2025/1200)
+  publisher: legislation.gov.uk (The National Archives)
+  url: https://www.legislation.gov.uk/uksi/2025/1200/made
+  kind: legislation
+  nation: uk
+  licence: OGL-3.0
+  mode: ingest
+  priority: 3
+  topics: [procurement]
+  why: Legal source for the 2026 threshold figures.
+  in_force: 2026-01-01
+  status: current
+  notes: Made 18 Nov 2025.
+  checked: 2026-11-19
+  fetch: {method: legislation, path: uksi/2025/1200, history: made}
+
+- id: ppn-023-2026
+  title: "PPN 023: 2026 Threshold Amounts"
+  publisher: Cabinet Office (GOV.UK)
+  url: https://www.gov.uk/government/publications/ppn-023-2026-threshold-amounts/ppn-023-2026-threshold-amounts-html
+  kind: guidance
+  nation: uk
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [procurement]
+  why: Answers "is this job above threshold?".
+  in_force: 2026-01-01
+  status: current
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/publications/ppn-023-2026-threshold-amounts, attachments: html}
+
+- id: below-threshold-guidance
+  title: "Guidance: Below-Threshold Contracts"
+  publisher: Cabinet Office (GOV.UK)
+  url: https://www.gov.uk/government/publications/procurement-act-2023-guidance-documents-define-phase/guidance-below-threshold-contracts-html
+  kind: guidance
+  nation: uk
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [procurement]
+  why: Exactly the tender route small firms use.
+  status: current
+  notes: Parent page holds many guidance documents; match guessed; check.
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/publications/procurement-act-2023-guidance-documents-define-phase, attachments: html, match: "(?i)below-threshold"}
+
+- id: reserving-below-threshold
+  title: Guidance on reserving competitions for below-threshold contracts (England local authorities)
+  publisher: MHCLG (GOV.UK)
+  url: https://www.gov.uk/government/publications/reserving-competitions-for-below-threshold-contracts/guidance-on-reserving-competitions-for-below-threshold-contracts
+  kind: guidance
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [procurement]
+  why: Councils may limit bids to local or UK firms, or SMEs; a real advantage for small local firms.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/publications/reserving-competitions-for-below-threshold-contracts, attachments: html}
+
+- id: lg-exclusion-order-2026
+  title: Local Government (Exclusion of Non-commercial Considerations) (England) Order 2026 (SI 2026/94)
+  publisher: legislation.gov.uk (The National Archives)
+  url: https://www.legislation.gov.uk/uksi/2026/94/made
+  kind: legislation
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 3
+  topics: [procurement]
+  why: Legal basis for reserving below-threshold competitions.
+  status: current
+  notes: Made 3 Feb 2026. In-force date (4 Feb 2026) from a secondary source, unverified.
+  checked: 2026-11-19
+  fetch: {method: legislation, path: uksi/2026/94, history: current}
+
+- id: procurement-supplier-guide
+  title: "The Procurement Act 2023: a short guide for suppliers"
+  publisher: Cabinet Office (GOV.UK)
+  url: https://www.gov.uk/government/publications/procurement-act-2023-short-guides/the-procurement-act-2023-a-short-guide-for-suppliers-html
+  kind: guidance
+  nation: uk
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [procurement]
+  why: Starting point for a first bid (Find a Tender registration).
+  status: current
+  notes: Parent page holds several short guides; match guessed; check.
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/publications/procurement-act-2023-short-guides, attachments: html, match: "(?i)suppliers"}
+
+- id: supplier-information
+  title: Information and guidance for suppliers (collection)
+  publisher: Government Commercial Function (GOV.UK)
+  url: https://www.gov.uk/government/collections/information-and-guidance-for-suppliers
+  kind: guidance
+  nation: uk
+  licence: OGL-3.0
+  mode: ingest
+  priority: 3
+  topics: [procurement]
+  why: Step-by-step registration guides.
+  status: current
+  notes: Collection page; body only stores the index.
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/collections/information-and-guidance-for-suppliers, attachments: none, body: true}
+
+- id: sme-hub
+  title: Small and Medium Business Hub
+  publisher: Cabinet Office (GOV.UK)
+  url: https://www.gov.uk/openforbusiness
+  kind: guidance
+  nation: uk
+  licence: OGL-3.0
+  mode: ingest
+  priority: 3
+  topics: [procurement]
+  why: Index of links on prompt payment and the Public Procurement Review Service.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /openforbusiness, attachments: none, body: true}
+
+- id: payments-compliance-notices
+  title: "Guidance: payments compliance notices"
+  publisher: Cabinet Office (GOV.UK)
+  url: https://www.gov.uk/government/publications/procurement-act-2023-guidance-documents-manage-phase/guidance-payments-compliance-notices-html
+  kind: guidance
+  nation: uk
+  licence: OGL-3.0
+  mode: ingest
+  priority: 3
+  topics: [procurement]
+  why: Check whether a council pays on time.
+  status: current
+  notes: Not re-fetched on 2026-11-19. Parent page holds many guidance documents; match guessed; check.
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/publications/procurement-act-2023-guidance-documents-manage-phase, attachments: html, match: "(?i)payments compliance"}
+
+# ---------------------------------------------------------------------------
+# Tax and business rules (inventory D)
+# ---------------------------------------------------------------------------
+
+- id: hmrc-cis-340
+  title: "Construction Industry Scheme: a guide for contractors and subcontractors (CIS 340)"
+  publisher: HMRC (GOV.UK)
+  url: https://www.gov.uk/government/publications/construction-industry-scheme-cis-340
+  kind: tax-guidance
+  nation: uk
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [cis]
+  why: Main plain-English CIS manual for contractors and subcontractors.
+  status: current
+  notes: Includes the 6 Apr 2026 changes. gov.uk keeps only a change log, not old text.
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/publications/construction-industry-scheme-cis-340, attachments: html}
+
+- id: govuk-cis-contractor
+  title: What you must do as a CIS contractor
+  publisher: HMRC (GOV.UK)
+  url: https://www.gov.uk/what-you-must-do-as-a-cis-contractor
+  kind: tax-guidance
+  nation: uk
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [cis]
+  why: Contractor checklist (register, verify, deduct, pay, file).
+  status: current
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /what-you-must-do-as-a-cis-contractor, attachments: none, body: true}
+
+- id: govuk-cis-subcontractor
+  title: What you must do as a CIS subcontractor
+  publisher: HMRC (GOV.UK)
+  url: https://www.gov.uk/what-you-must-do-as-a-cis-subcontractor
+  kind: tax-guidance
+  nation: uk
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [cis]
+  why: Most users are subcontractors (registration, deductions, gross payment status).
+  status: current
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /what-you-must-do-as-a-cis-subcontractor, attachments: none, body: true}
+
+- id: fa2004-cis
+  title: Finance Act 2004, Part 3, Chapter 3 "Construction industry scheme" (ss 57 to 77)
+  publisher: legislation.gov.uk (The National Archives)
+  url: https://www.legislation.gov.uk/ukpga/2004/12/part/3/chapter/3
+  kind: legislation
+  nation: uk
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [cis]
+  why: Primary CIS law, including the definition of "construction operations" (s 74).
+  status: current
+  notes: Latest change 18 Mar 2026 (ss 62A-62C, 72A-72C, from 6 Apr 2026). 13 versions from 2004-07-22.
+  checked: 2026-11-19
+  fetch: {method: legislation, path: ukpga/2004/12/part/3/chapter/3, history: all}
+
+- id: cis-regs-2005
+  title: The Income Tax (Construction Industry Scheme) Regulations 2005 (SI 2005/2045)
+  publisher: legislation.gov.uk (The National Archives)
+  url: https://www.legislation.gov.uk/uksi/2005/2045/contents
+  kind: legislation
+  nation: uk
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [cis]
+  why: Detailed CIS rules (returns, verification, gross payment tests, nil returns).
+  status: current
+  notes: In force on a day appointed by HMRC Gazette notice (not shown). Pre-2014 SI, so revised only selectively; check after each April change.
+  checked: 2026-11-19
+  fetch: {method: legislation, path: uksi/2005/2045, history: all}
+
+- id: cis-amd-2026
+  title: The Income Tax (Construction Industry Scheme) (Amendment) Regulations 2026 (SI 2026/289)
+  publisher: legislation.gov.uk (The National Archives)
+  url: https://www.legislation.gov.uk/uksi/2026/289/contents/made
+  kind: legislation
+  nation: uk
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [cis]
+  why: The April 2026 change (nil returns, payments to public bodies).
+  in_force: 2026-04-06
+  status: current
+  notes: Made date (12 Mar 2026) from a snippet only.
+  checked: 2026-11-19
+  fetch: {method: legislation, path: uksi/2026/289, history: made}
+
+- id: hmrc-cis-fraud-2026
+  title: Tackling Construction Industry Scheme fraud (policy paper)
+  publisher: HMRC (GOV.UK)
+  url: https://www.gov.uk/government/publications/construction-industry-scheme-tackling-fraud/tackling-construction-industry-scheme-fraud
+  kind: tax-guidance
+  nation: uk
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [cis]
+  why: When HMRC can cancel gross payment status; penalties from 6 Apr 2026.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/publications/construction-industry-scheme-tackling-fraud, attachments: html}
+
+- id: hmrc-cis-simplify-2026
+  title: Simplification and administrative improvements to the Construction Industry Scheme (policy paper)
+  publisher: HMRC (GOV.UK)
+  url: https://www.gov.uk/government/publications/simplifying-and-improving-construction-industry-scheme-administration/simplification-and-administrative-improvements-to-the-construction-industry-scheme
+  kind: tax-guidance
+  nation: uk
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [cis]
+  why: Explains the 2026 regulations (nil returns again required; public bodies out of CIS).
+  status: current
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/publications/simplifying-and-improving-construction-industry-scheme-administration, attachments: html}
+
+- id: hmrc-cis-consult-2026
+  title: CIS proposed simplification and administrative amendments (consultation)
+  publisher: HMRC (GOV.UK)
+  url: https://www.gov.uk/government/consultations/construction-industry-scheme-proposed-simplification-and-administrative-amendments
+  kind: tax-guidance
+  nation: uk
+  licence: OGL-3.0
+  mode: ingest
+  priority: 3
+  topics: [cis]
+  why: Background only; track for the outcome.
+  status: current
+  notes: Closed 3 Feb 2026; outcome not yet published.
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/consultations/construction-industry-scheme-proposed-simplification-and-administrative-amendments, attachments: all}
+
+- id: fa2026-cis
+  title: Finance Act 2026 (CIS sections 220 to 222)
+  publisher: legislation.gov.uk (The National Archives)
+  url: https://www.legislation.gov.uk/
+  kind: legislation
+  nation: uk
+  licence: OGL-3.0
+  mode: link_only
+  priority: 2
+  topics: [cis]
+  why: Legal basis of the CIS fraud measures.
+  in_force: 2026-04-06
+  status: current
+  notes: Not fetched; chapter number and URL unknown (Royal Assent 18 Mar 2026 from snippets). Find the URL, then switch to ingest with a legislation path.
+  checked: 2026-11-19
+  fetch: {method: none}
+
+- id: vat-drc-guide
+  title: Check when you must use the VAT domestic reverse charge for building and construction services
+  publisher: HMRC (GOV.UK)
+  url: https://www.gov.uk/guidance/vat-domestic-reverse-charge-for-building-and-construction-services
+  kind: tax-guidance
+  nation: uk
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [vat]
+  why: Main guide to "do I charge VAT or write reverse charge on this invoice?".
+  in_force: 2021-03-01
+  status: current
+  notes: Pre-2021 copies show wrong start dates.
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /guidance/vat-domestic-reverse-charge-for-building-and-construction-services, attachments: none, body: true}
+
+- id: hmrc-vatrevcon
+  title: VAT Reverse Charge for Building and Construction Services Manual (VATREVCON)
+  publisher: HMRC (GOV.UK)
+  url: https://www.gov.uk/hmrc-internal-manuals/vat-reverse-charge-for-building-and-construction-services-manual
+  kind: tax-guidance
+  nation: uk
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [vat]
+  why: Edge cases (end user, intermediary, mixed supplies).
+  in_force: 2021-03-01
+  status: current
+  notes: Manual has many section pages; body stores the root page only unless the harvester follows children.
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /hmrc-internal-manuals/vat-reverse-charge-for-building-and-construction-services-manual, attachments: none, body: true}
+
+- id: vat-notice-708
+  title: Buildings and construction (VAT Notice 708)
+  publisher: HMRC (GOV.UK)
+  url: https://www.gov.uk/guidance/buildings-and-construction-vat-notice-708
+  kind: tax-guidance
+  nation: uk
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [vat]
+  why: Core VAT rules for builders (zero rate new dwellings, 5% conversions and empty homes).
+  status: current
+  notes: Sections 18.1 and 18.2 certificates have force of law.
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /guidance/buildings-and-construction-vat-notice-708, attachments: none, body: true}
+
+- id: vat-s55a-order-2019
+  title: The Value Added Tax (Section 55A) (Specified Services and Excepted Supplies) Order 2019 (SI 2019/892)
+  publisher: legislation.gov.uk (The National Archives)
+  url: https://www.legislation.gov.uk/uksi/2019/892/contents
+  kind: legislation
+  nation: uk
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [vat]
+  why: Legal basis for the VAT domestic reverse charge (services in and out, end user exceptions).
+  status: current
+  notes: Art 1 says 1 Oct 2019; start was delayed in practice to 1 Mar 2021 by a later amendment (not fetched).
+  checked: 2026-11-19
+  fetch: {method: legislation, path: uksi/2019/892, history: current}
+
+- id: icaew-budget-2026-vat
+  title: Autumn Budget 2026 VAT changes (ICAEW summary)
+  publisher: ICAEW
+  url: https://www.icaew.com/insights/tax-news/2026/oct-2026/budget-nine-key-vat-changes-announced
+  kind: tax-guidance
+  nation: uk
+  licence: proprietary
+  mode: link_only
+  priority: 3
+  topics: [vat]
+  why: Watch list; none of the nine changes touch the construction DRC or CIS.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: none}
+
+- id: party-wall-act-1996
+  title: Party Wall etc. Act 1996 (c. 40)
+  publisher: legislation.gov.uk (The National Archives)
+  url: https://www.legislation.gov.uk/ukpga/1996/40/contents
+  kind: legislation
+  nation: england-wales
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [party-wall]
+  why: Notices before work on party walls; very common in terraced council housing.
+  status: current
+  notes: In-force date not verified.
+  checked: 2026-11-19
+  fetch: {method: legislation, path: ukpga/1996/40, history: current}
+
+- id: party-wall-booklet
+  title: "The Party Wall etc Act 1996: explanatory booklet"
+  publisher: MHCLG (GOV.UK)
+  url: https://www.gov.uk/government/publications/preventing-and-resolving-disputes-in-relation-to-party-walls/the-party-wall-etc-act-1996-explanatory-booklet
+  kind: guidance
+  nation: england-wales
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [party-wall]
+  why: Plain-English party wall steps and notice timings.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/publications/preventing-and-resolving-disputes-in-relation-to-party-walls, attachments: html}
+
+- id: party-wall-guidance
+  title: Preventing and resolving disputes in relation to party walls (guidance page)
+  publisher: MHCLG (GOV.UK)
+  url: https://www.gov.uk/guidance/party-wall-etc-act-1996-guidance
+  kind: guidance
+  nation: england-wales
+  licence: OGL-3.0
+  mode: ingest
+  priority: 3
+  topics: [party-wall]
+  why: Entry point for party wall guidance.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /guidance/party-wall-etc-act-1996-guidance, attachments: none, body: true}
+
+- id: gpdo-2015
+  title: Town and Country Planning (General Permitted Development) (England) Order 2015 (SI 2015/596)
+  publisher: legislation.gov.uk (The National Archives)
+  url: https://www.legislation.gov.uk/uksi/2015/596/contents
+  kind: legislation
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [planning]
+  why: Does this extension, loft or porch need planning permission (Sch 2 Part 1, Classes A to H).
+  in_force: 2015-04-15
+  status: current
+  notes: Sch 2 Part 1 (https://www.legislation.gov.uk/uksi/2015/596/schedule/2/part/1) has 11 versions to 2026-04-09.
+  checked: 2026-11-19
+  fetch: {method: legislation, path: uksi/2015/596, history: current}
+
+- id: pd-householder-guide
+  title: "Permitted development rights for householders: technical guidance"
+  publisher: MHCLG (GOV.UK)
+  url: https://www.gov.uk/government/publications/permitted-development-rights-for-householders-technical-guidance
+  kind: guidance
+  nation: england
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [planning]
+  why: Plain explanation with diagrams; always pair with the live GPDO.
+  status: current
+  notes: Last updated 10 Sep 2019; older than the 2020, 2021, 2022 and 2026 GPDO Part 1 amendments (may be out of date in places; our inference).
+  checked: 2026-11-19
+  fetch: {method: govuk, page: /government/publications/permitted-development-rights-for-householders-technical-guidance, attachments: pdf}
+
+- id: planning-portal
+  title: Planning Portal (England and Wales) guides
+  publisher: PortalPlanQuest Ltd
+  url: https://www.planningportal.co.uk/services/terms-and-disclaimer/terms-and-conditions
+  kind: guidance
+  nation: england-wales
+  licence: proprietary
+  mode: link_only
+  priority: 3
+  topics: [planning, building-regs]
+  why: Do-you-need-permission guides; link only.
+  status: current
+  notes: Terms forbid text and data mining and scraping. Use GOV.UK and legislation instead.
+  checked: 2026-11-19
+  fetch: {method: none}
+
+- id: ukgwa
+  title: UK Government Web Archive (old copies of gov.uk pages)
+  publisher: The National Archives
+  url: https://webarchive.nationalarchives.gov.uk/
+  kind: guidance
+  nation: uk
+  licence: unclear
+  mode: link_only
+  priority: 3
+  topics: [building-regs, cis, vat]
+  why: Only known source of old gov.uk text (older ADs, CIS 340, Notice 708).
+  status: current
+  notes: Scripted access blocked (WAF "Human Verification", HTTP 405). Known gap; manual download or TNA permission needed.
+  checked: 2026-11-19
+  fetch: {method: none}
+
+# ---------------------------------------------------------------------------
+# Paid and copyrighted material: link only, plus free previews kept restricted
+# ---------------------------------------------------------------------------
+
+- id: bs-5250
+  title: "BS 5250:2021 Management of moisture in buildings. Code of practice"
+  publisher: BSI
+  url: https://knowledge.bsigroup.com/products/management-of-moisture-in-buildings-code-of-practice-1
+  kind: standard
+  nation: uk
+  licence: proprietary
+  mode: link_only
+  priority: 1
+  topics: [damp-mould, standards]
+  why: Condensation and moisture code cited in AD L; central to damp and mould work.
+  in_force: 2021-07-31
+  status: current
+  notes: Shop status "Current, Under Review". Supersedes BS 5250:2011+A1:2016.
+  checked: 2026-11-19
+  fetch: {method: none}
+
+- id: bs-5250-preview
+  title: BS 5250:2021 free preview PDF (cover, copyright page and contents list)
+  publisher: BSI
+  url: https://middleware.accord.bsigroup.com/pdf-preview?path=Preview%2F000000000030442568.pdf
+  kind: standard
+  nation: uk
+  licence: proprietary
+  mode: restricted
+  priority: 2
+  topics: [damp-mould, standards]
+  why: Clause numbers and titles let answers point to the right BS 5250 clause.
+  status: current
+  notes: Prototype only, private storage, never committed. Each page "© BSI 2021 - all rights reserved"; BSI site terms restrict collecting product content.
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: pas-2035
+  title: PAS 2035:2023 Retrofitting dwellings for improved energy efficiency
+  publisher: BSI
+  url: https://knowledge.bsigroup.com/products/retrofitting-dwellings-for-improved-energy-efficiency-specification-and-guidance-4
+  kind: standard
+  nation: uk
+  licence: proprietary
+  mode: link_only
+  priority: 2
+  topics: [retrofit, energy, standards]
+  why: Retrofit jobs (ECO4, Warm Homes, SHDF).
+  in_force: 2025-03-30
+  status: current
+  notes: In inventories C and D. Free download (price £0) but BSI copyright. No direct PDF URL in the inventory, so link_only rather than restricted.
+  checked: 2026-11-19
+  fetch: {method: none}
+
+- id: pas-2030
+  title: PAS 2030:2023 Installation of energy efficiency measures in existing dwellings
+  publisher: BSI
+  url: https://shop-checkout.bsigroup.com/products/installation-of-energy-efficiency-measures-in-existing-dwellings-specification-18
+  kind: standard
+  nation: uk
+  licence: proprietary
+  mode: link_only
+  priority: 3
+  topics: [retrofit, standards]
+  why: Installer requirements for energy efficiency measures.
+  status: current
+  notes: Free download per a snippet only; page not fetched.
+  checked: 2026-11-19
+  fetch: {method: none}
+
+- id: trustmark-documents
+  title: TrustMark Code of Conduct, Customer Charter, Framework Operating Requirements and retrofit guides
+  publisher: TrustMark
+  url: https://trustmark.org.uk/business/documents
+  kind: guidance
+  nation: uk
+  licence: proprietary
+  mode: link_only
+  priority: 3
+  topics: [retrofit]
+  why: What customers can expect on retrofit and insulation jobs; summarise and link.
+  status: current
+  notes: Footer says "TrustMark © 2005-2026 - All Rights Reserved"; no reuse licence.
+  checked: 2026-11-19
+  fetch: {method: none}
+
+- id: m3nhf-sor
+  title: M3NHF Schedule of Rates (Responsive Maintenance and Void Property Works; Planned Maintenance)
+  publisher: M3 Housing Ltd / Rand Associates
+  url: https://www.m3h.co.uk
+  kind: contract
+  nation: uk
+  licence: proprietary
+  mode: link_only
+  priority: 2
+  topics: [contracts, repairs, voids]
+  why: SOR codes appear on works orders; store code structure and links only.
+  status: current
+  notes: Version conflict (repo says v8 2023; a Sell2Wales file is v7.2; M3 homepage mentions v8.1). Copies in tender packs must not be ingested.
+  checked: 2026-11-19
+  fetch: {method: none}
+
+- id: jct-mw-2024
+  title: JCT Minor Works Building Contract 2024
+  publisher: The Joint Contracts Tribunal
+  url: https://www.jctltd.co.uk/product/minor-works-building-contract-2024
+  kind: contract
+  nation: uk
+  licence: proprietary
+  mode: link_only
+  priority: 2
+  topics: [contracts]
+  why: Common small works contract; answers can cite clause numbers.
+  status: current
+  notes: £100 + VAT. Previous editions MW 2016, 2011, 2005 Rev 2 2009.
+  checked: 2026-11-19
+  fetch: {method: none}
+
+- id: jct-mw-2024-contents
+  title: JCT Minor Works Building Contract 2024 contents PDF
+  publisher: The Joint Contracts Tribunal
+  url: https://www.jctltd.co.uk/docs/MW-2024.pdf
+  kind: contract
+  nation: uk
+  licence: proprietary
+  mode: restricted
+  priority: 3
+  topics: [contracts]
+  why: Clause numbers and headings (e.g. 4.2 CIS) for pointing users to the right clause.
+  status: current
+  notes: Prototype only, private storage, never committed. "© The Joint Contracts Tribunal Limited 2024"; JCT terms bar storage in retrieval systems.
+  checked: 2026-11-19
+  fetch: {method: url}
+
+- id: nec-contracts
+  title: NEC contracts (NEC4, incl. Term Service)
+  publisher: Thomas Telford Ltd (NEC)
+  url: https://www.neccontract.com/copyright
+  kind: contract
+  nation: uk
+  licence: proprietary
+  mode: link_only
+  priority: 3
+  topics: [contracts]
+  why: Used by some councils for repairs and voids; link only.
+  status: current
+  notes: Site footer expressly excludes NEC material from AI, retrieval and indexing without written permission.
+  checked: 2026-11-19
+  fetch: {method: none}
+
+- id: nhbc-standards
+  title: NHBC Standards
+  publisher: NHBC
+  url: https://www.nhbc.co.uk/terms-of-use
+  kind: standard
+  nation: uk
+  licence: proprietary
+  mode: link_only
+  priority: 3
+  topics: [building-regs, standards]
+  why: Free to read online; widely used technical standard for new homes.
+  status: current
+  notes: Terms bar commercial use. URL is the terms page; the Standards page URL is not in the inventory.
+  checked: 2026-11-19
+  fetch: {method: none}
+
+# Paid British Standards cited in the Approved Documents. Bibliographic facts only.
+# Titles are short descriptions; status: current means "as cited in the AD"; current BSI status not checked.
+# Shop: https://knowledge.bsigroup.com/ (search by number).
+
+- id: bs-en-13501
+  title: BS EN 13501-1 to -5 Fire classification of construction products and building elements
+  publisher: BSI
+  url: https://knowledge.bsigroup.com/
+  kind: standard
+  nation: uk
+  licence: proprietary
+  mode: link_only
+  priority: 2
+  topics: [fire, standards]
+  why: Cited in AD B Vol 1; replaces national BS 476 classes.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: none}
+
+- id: bs-476
+  title: BS 476 Fire tests on building materials and structures (incl. Part 22)
+  publisher: BSI
+  url: https://knowledge.bsigroup.com/
+  kind: standard
+  nation: uk
+  licence: proprietary
+  mode: link_only
+  priority: 3
+  topics: [fire, standards]
+  why: Old national fire tests still in pre-2029 AD B text.
+  status: current
+  notes: Being withdrawn from AD B by the 2025 and 2029 amendments.
+  checked: 2026-11-19
+  fetch: {method: none}
+
+- id: bs-en-1634
+  title: BS EN 1634-1 and -3 Fire resistance and smoke control tests for door and shutter assemblies
+  publisher: BSI
+  url: https://knowledge.bsigroup.com/
+  kind: standard
+  nation: uk
+  licence: proprietary
+  mode: link_only
+  priority: 2
+  topics: [fire, standards]
+  why: Fire and smoke door tests cited in AD B Vol 1.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: none}
+
+- id: bs-8214
+  title: BS 8214 Timber-based fire door assemblies (installation)
+  publisher: BSI
+  url: https://knowledge.bsigroup.com/
+  kind: standard
+  nation: uk
+  licence: proprietary
+  mode: link_only
+  priority: 2
+  topics: [fire, standards]
+  why: Fire door installation, cited in AD B Vol 1.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: none}
+
+- id: bs-5839
+  title: BS 5839-1 and -6 Fire detection and fire alarm systems for buildings
+  publisher: BSI
+  url: https://knowledge.bsigroup.com/
+  kind: standard
+  nation: uk
+  licence: proprietary
+  mode: link_only
+  priority: 2
+  topics: [fire, alarms, standards]
+  why: Fire alarms in dwellings (-6) and other buildings (-1), cited in AD B.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: none}
+
+- id: bs-9991
+  title: BS 9991 Fire safety in the design, management and use of residential buildings
+  publisher: BSI
+  url: https://knowledge.bsigroup.com/
+  kind: standard
+  nation: uk
+  licence: proprietary
+  mode: link_only
+  priority: 3
+  topics: [fire, standards]
+  why: Fire design code cited in AD B Vol 1.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: none}
+
+- id: bs-9999
+  title: BS 9999 Fire safety in the design, management and use of buildings
+  publisher: BSI
+  url: https://knowledge.bsigroup.com/
+  kind: standard
+  nation: uk
+  licence: proprietary
+  mode: link_only
+  priority: 3
+  topics: [fire, standards]
+  why: Fire design code cited in AD B Vol 1.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: none}
+
+- id: bs-9251
+  title: BS 9251 Fire sprinkler systems for domestic and residential occupancies
+  publisher: BSI
+  url: https://knowledge.bsigroup.com/
+  kind: standard
+  nation: uk
+  licence: proprietary
+  mode: link_only
+  priority: 3
+  topics: [fire, standards]
+  why: Sprinklers, cited in AD B Vol 1.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: none}
+
+- id: bs-7273
+  title: BS 7273 Operation of fire protection measures (e.g. door release)
+  publisher: BSI
+  url: https://knowledge.bsigroup.com/
+  kind: standard
+  nation: uk
+  licence: proprietary
+  mode: link_only
+  priority: 3
+  topics: [fire, standards]
+  why: Door release and actuation, cited in AD B Vol 1.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: none}
+
+- id: bs-5440-1
+  title: BS 5440-1 Flueing and ventilation for gas appliances (flues)
+  publisher: BSI
+  url: https://knowledge.bsigroup.com/
+  kind: standard
+  nation: uk
+  licence: proprietary
+  mode: link_only
+  priority: 3
+  topics: [gas, standards]
+  why: Flues for gas appliances, cited in AD J.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: none}
+
+- id: bs-en-1856
+  title: BS EN 1856-1 and -2 Chimneys - metal chimneys and flue liners
+  publisher: BSI
+  url: https://knowledge.bsigroup.com/
+  kind: standard
+  nation: uk
+  licence: proprietary
+  mode: link_only
+  priority: 3
+  topics: [gas, standards]
+  why: Flues, cited in AD J.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: none}
+
+- id: bs-en-1443
+  title: BS EN 1443 Chimneys - general requirements
+  publisher: BSI
+  url: https://knowledge.bsigroup.com/
+  kind: standard
+  nation: uk
+  licence: proprietary
+  mode: link_only
+  priority: 3
+  topics: [gas, standards]
+  why: Chimneys, cited in AD J.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: none}
+
+- id: bs-en-15287-1
+  title: BS EN 15287-1 Chimneys - design, installation and commissioning (non-room-sealed appliances)
+  publisher: BSI
+  url: https://knowledge.bsigroup.com/
+  kind: standard
+  nation: uk
+  licence: proprietary
+  mode: link_only
+  priority: 3
+  topics: [gas, standards]
+  why: Chimneys, cited in AD J.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: none}
+
+- id: bs-5410-1
+  title: BS 5410-1 Oil firing installations
+  publisher: BSI
+  url: https://knowledge.bsigroup.com/
+  kind: standard
+  nation: uk
+  licence: proprietary
+  mode: link_only
+  priority: 3
+  topics: [standards]
+  why: Oil appliances, cited in AD J.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: none}
+
+- id: bs-en-50291-1
+  title: BS EN 50291-1 Carbon monoxide alarms for domestic premises
+  publisher: BSI
+  url: https://knowledge.bsigroup.com/
+  kind: standard
+  nation: uk
+  licence: proprietary
+  mode: link_only
+  priority: 2
+  topics: [alarms, gas, standards]
+  why: CO alarms, cited in AD J.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: none}
+
+- id: bs-en-iso-13788
+  title: BS EN ISO 13788 Hygrothermal performance of building components (condensation risk)
+  publisher: BSI
+  url: https://knowledge.bsigroup.com/
+  kind: standard
+  nation: uk
+  licence: proprietary
+  mode: link_only
+  priority: 2
+  topics: [damp-mould, standards]
+  why: Condensation calculation, cited in AD L Vol 1 2021.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: none}
+
+- id: bs-en-13141
+  title: BS EN 13141 series Ventilation for buildings - performance testing of components
+  publisher: BSI
+  url: https://knowledge.bsigroup.com/
+  kind: standard
+  nation: uk
+  licence: proprietary
+  mode: link_only
+  priority: 3
+  topics: [ventilation, standards]
+  why: Ventilation products, cited in AD F Vol 1.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: none}
+
+- id: bs-en-16798-1
+  title: BS EN 16798-1 Energy performance of buildings - ventilation (indoor environment input parameters)
+  publisher: BSI
+  url: https://knowledge.bsigroup.com/
+  kind: standard
+  nation: uk
+  licence: proprietary
+  mode: link_only
+  priority: 3
+  topics: [ventilation, standards]
+  why: Cited in AD F Vol 1.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: none}
+
+- id: bs-5925
+  title: BS 5925 Ventilation principles and designing for natural ventilation
+  publisher: BSI
+  url: https://knowledge.bsigroup.com/
+  kind: standard
+  nation: uk
+  licence: proprietary
+  mode: link_only
+  priority: 3
+  topics: [ventilation, standards]
+  why: Cited in AD F Vol 1.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: none}
+
+- id: bs-en-12600
+  title: BS EN 12600 Glass in building - pendulum impact test
+  publisher: BSI
+  url: https://knowledge.bsigroup.com/
+  kind: standard
+  nation: uk
+  licence: proprietary
+  mode: link_only
+  priority: 3
+  topics: [standards]
+  why: Safety glazing, cited in AD K.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: none}
+
+- id: bs-6180
+  title: BS 6180 Barriers in and about buildings
+  publisher: BSI
+  url: https://knowledge.bsigroup.com/
+  kind: standard
+  nation: uk
+  licence: proprietary
+  mode: link_only
+  priority: 3
+  topics: [standards]
+  why: Barriers and balustrades, cited in AD K.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: none}
+
+- id: bs-6206
+  title: BS 6206 Impact performance requirements for flat safety glass
+  publisher: BSI
+  url: https://knowledge.bsigroup.com/
+  kind: standard
+  nation: uk
+  licence: proprietary
+  mode: link_only
+  priority: 3
+  topics: [standards]
+  why: Glazing, cited in AD K.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: none}
+
+- id: bs-5395
+  title: BS 5395-2 and -3 Stairs
+  publisher: BSI
+  url: https://knowledge.bsigroup.com/
+  kind: standard
+  nation: uk
+  licence: proprietary
+  mode: link_only
+  priority: 3
+  topics: [standards]
+  why: Stairs, cited in AD K.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: none}
+
+- id: bs-en-12056
+  title: BS EN 12056 Gravity drainage systems inside buildings
+  publisher: BSI
+  url: https://knowledge.bsigroup.com/
+  kind: standard
+  nation: uk
+  licence: proprietary
+  mode: link_only
+  priority: 3
+  topics: [drainage, standards]
+  why: Cited in AD H.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: none}
+
+- id: bs-en-752
+  title: BS EN 752 Drain and sewer systems outside buildings
+  publisher: BSI
+  url: https://knowledge.bsigroup.com/
+  kind: standard
+  nation: uk
+  licence: proprietary
+  mode: link_only
+  priority: 3
+  topics: [drainage, standards]
+  why: Cited in AD H.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: none}
+
+- id: bs-en-1610
+  title: BS EN 1610 Construction and testing of drains and sewers
+  publisher: BSI
+  url: https://knowledge.bsigroup.com/
+  kind: standard
+  nation: uk
+  licence: proprietary
+  mode: link_only
+  priority: 3
+  topics: [drainage, standards]
+  why: Cited in AD H.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: none}
+
+- id: bs-en-1295
+  title: BS EN 1295 Structural design of buried pipelines
+  publisher: BSI
+  url: https://knowledge.bsigroup.com/
+  kind: standard
+  nation: uk
+  licence: proprietary
+  mode: link_only
+  priority: 3
+  topics: [drainage, standards]
+  why: Cited in AD H.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: none}
+
+- id: bs-6700
+  title: BS 6700 Water supply within buildings
+  publisher: BSI
+  url: https://knowledge.bsigroup.com/
+  kind: standard
+  nation: uk
+  licence: proprietary
+  mode: link_only
+  priority: 3
+  topics: [sanitation, standards]
+  why: Cited in AD G.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: none}
+
+- id: bs-8515
+  title: BS 8515 Rainwater harvesting systems
+  publisher: BSI
+  url: https://knowledge.bsigroup.com/
+  kind: standard
+  nation: uk
+  licence: proprietary
+  mode: link_only
+  priority: 3
+  topics: [sanitation, standards]
+  why: Cited in AD G.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: none}
+
+- id: bs-6465
+  title: BS 6465-1, -2 and -3 Sanitary installations
+  publisher: BSI
+  url: https://knowledge.bsigroup.com/
+  kind: standard
+  nation: uk
+  licence: proprietary
+  mode: link_only
+  priority: 3
+  topics: [sanitation, standards]
+  why: Cited in AD G.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: none}
+
+- id: bs-en-iso-717
+  title: BS EN ISO 717-1 and -2 Rating of sound insulation in buildings
+  publisher: BSI
+  url: https://knowledge.bsigroup.com/
+  kind: standard
+  nation: uk
+  licence: proprietary
+  mode: link_only
+  priority: 3
+  topics: [standards]
+  why: Sound testing, cited in AD E.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: none}
+
+- id: bs-en-iso-140
+  title: BS EN ISO 140 series Measurement of sound insulation
+  publisher: BSI
+  url: https://knowledge.bsigroup.com/
+  kind: standard
+  nation: uk
+  licence: proprietary
+  mode: link_only
+  priority: 3
+  topics: [standards]
+  why: Sound testing, cited in AD E.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: none}
+
+- id: pas-24
+  title: PAS 24 Enhanced security performance for doors and windows
+  publisher: BSI
+  url: https://knowledge.bsigroup.com/
+  kind: standard
+  nation: uk
+  licence: proprietary
+  mode: link_only
+  priority: 3
+  topics: [standards]
+  why: Doors and windows, cited in AD Q.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: none}
+
+- id: bs-3621
+  title: BS 3621 Thief resistant lock assemblies (key egress)
+  publisher: BSI
+  url: https://knowledge.bsigroup.com/
+  kind: standard
+  nation: uk
+  licence: proprietary
+  mode: link_only
+  priority: 3
+  topics: [standards]
+  why: Locks, cited in AD Q.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: none}
+
+- id: bs-8621
+  title: BS 8621 Thief resistant lock assemblies (keyless egress)
+  publisher: BSI
+  url: https://knowledge.bsigroup.com/
+  kind: standard
+  nation: uk
+  licence: proprietary
+  mode: link_only
+  priority: 3
+  topics: [standards]
+  why: Locks, cited in AD Q.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: none}
+
+- id: bs-10621
+  title: BS 10621 Thief resistant dual-mode lock assemblies
+  publisher: BSI
+  url: https://knowledge.bsigroup.com/
+  kind: standard
+  nation: uk
+  licence: proprietary
+  mode: link_only
+  priority: 3
+  topics: [standards]
+  why: Locks, cited in AD Q.
+  status: current
+  checked: 2026-11-19
+  fetch: {method: none}
+
+# ---------------------------------------------------------------------------
+# Construction contracts and payment (added 19 Nov 2026 for the demo: payment notices and pay less notices)
+
+- id: hgcra1996-p2
+  title: Housing Grants, Construction and Regeneration Act 1996, Part II (Construction Contracts)
+  publisher: legislation.gov.uk (The National Archives)
+  url: https://www.legislation.gov.uk/ukpga/1996/53/part/II
+  kind: legislation
+  nation: england-wales
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [payment, contracts, adjudication]
+  why: The legal basis for payment notices, pay less notices, the right to suspend work and adjudication in construction contracts. Demo questions ask about these.
+  in_force: 1998-05-01
+  status: current
+  notes: Payment notice and pay less notice rules (ss.110A, 110B, 111) came in for England from 1 Oct 2011 (point-in-time version 2011-10-01). History from the version in force on 1 Oct 2010 keeps the old "withholding notice" wording for comparison.
+  checked: 2026-11-19
+  fetch: {method: legislation, path: ukpga/1996/53/part/II, history: all}
+
+- id: scheme-cc-1998
+  title: The Scheme for Construction Contracts (England and Wales) Regulations 1998 (SI 1998/649)
+  publisher: legislation.gov.uk (The National Archives)
+  url: https://www.legislation.gov.uk/uksi/1998/649/contents
+  kind: legislation
+  nation: england-wales
+  licence: OGL-3.0
+  mode: ingest
+  priority: 1
+  topics: [payment, contracts, adjudication]
+  why: The default payment and adjudication terms that apply when a construction contract does not meet the Act. Small firms often work without written terms, so the Scheme decides due dates and notices.
+  in_force: 1998-05-01
+  status: current
+  notes: Two point-in-time versions, 1998-05-01 and 2011-10-01 (England changes from 1 Oct 2011).
+  checked: 2026-11-19
+  fetch: {method: legislation, path: uksi/1998/649, history: all}
