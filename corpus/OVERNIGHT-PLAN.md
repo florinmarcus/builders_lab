@@ -26,7 +26,7 @@ By the morning of 21 Nov 2026:
 
 Status: `todo`, `doing`, `done`, `blocked` (with reason). Each stage ends with its test passing and a log line.
 
-### S0. Harness and safety — `todo`
+### S0. Harness and safety — `done`
 - Loader writes to a chosen schema (`--schema corpus_next`); `pgsearch` can read a chosen schema (setting, default `corpus`); a promote/rollback script (swap `corpus_next` → `corpus`, keep `corpus_prev`).
 - Cost log helper used by embed, re-rank and judge calls.
 - **Test:** unit tests for the schema option; load the current 16-document corpus into `corpus_next`; live `corpus.stats` unchanged; the same question returns the same passages from both schemas.
@@ -96,3 +96,4 @@ When a stage is blocked or its test fails twice, spawn a **replanner** subagent 
 ## Log
 
 - 20 Nov 2026, evening: plan written. Starting state: 16 documents chunked (demo corpus, 3,141 chunks in the ADR 0013 note, more since), live server search on schema `corpus` (pgvector + Titan V2 + Amazon Rerank, BM25 tables loaded but unused). 197 ingest sources in the catalogue, 16 with a parser assigned.
+- 20 Nov 2026 20:25 — S0 done. `load --schema corpus_next`, `pgsearch` RAG_SCHEMA setting (default corpus) and `candidates()` for Recall@50, `system.rag.promote status|promote|rollback`. Test: unit tests green; current 5,325 chunks loaded into corpus_next in 1m41; live corpus untouched (load time 19:19 unchanged); 3 questions give identical passages from both schemas through the reader URL and server code. Cost log helper moved to S6 (first billed eval calls).

@@ -21,6 +21,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 import sys
 from pathlib import Path
 
@@ -30,6 +31,9 @@ from system.rag.localsearch import codes
 ROOT = CORPUS_DIR.parent
 SCHEMA_VERSION = 1
 OWNER_PARAM = "/builders-lab/admin/corpus_owner_url"
+
+READER_ROLE = "builders_corpus_reader"
+SCHEMA_RE = re.compile(r"^[a-z_][a-z0-9_]{0,40}$")
 
 DDL = f"""
 CREATE EXTENSION IF NOT EXISTS vector;
@@ -112,41 +116,63 @@ def owner_url() -> str:
         Name=OWNER_PARAM, WithDecryption=True)["Parameter"]["Value"]
 
 
-def load(url: str, chunks_dir: Path | None = None, vectors_dir: Path | None = None) -> dict:
-    """Replace the corpus in one transaction. Returns counts."""
+def check_schema(schema: str) -> str:
+    """Only plain lower-case names (corpus, corpus_next, corpus_prev): the name goes into SQL."""
+    if not SCHEMA_RE.match(schema or ""):
+        raise ValueError(f"bad schema name: {schema!r}")
+    return schema
+
+
+def ddl(schema: str = "corpus") -> str:
+    s = check_schema(schema)
+    return f"CREATE SCHEMA IF NOT EXISTS {s};" + "\n" + DDL.replace("corpus.", f"{s}.")
+
+
+def grants(schema: str = "corpus") -> str:
+    """Explicit grants: default privileges belong to a schema and do not follow a rename (promote.py)."""
+    s = check_schema(schema)
+    return (f"GRANT USAGE ON SCHEMA {s} TO {READER_ROLE};" + "\n"
+            + f"GRANT SELECT ON ALL TABLES IN SCHEMA {s} TO {READER_ROLE};")
+
+
+def load(url: str, chunks_dir: Path | None = None, vectors_dir: Path | None = None, schema: str = "corpus") -> dict:
+    """Replace the corpus in one schema (default: the live one) in one transaction. Returns counts."""
     import psycopg
 
+    s = check_schema(schema)
     data = list(rows(chunks_dir, vectors_dir))
     with psycopg.connect(url) as conn:
         with conn.transaction():
-            conn.execute(DDL)
-            conn.execute("TRUNCATE corpus.chunks, corpus.lexemes, corpus.stats")
+            conn.execute(ddl(s))
+            conn.execute(f"TRUNCATE {s}.chunks, {s}.lexemes, {s}.stats")
             cols = ", ".join(COLUMNS)
             params = ", ".join(f"%({c})s" for c in COLUMNS)
             with conn.cursor() as cur:
                 cur.executemany(
-                    f"INSERT INTO corpus.chunks ({cols}, embedding, tsv, codes_tsv) VALUES ({params}, "
+                    f"INSERT INTO {s}.chunks ({cols}, embedding, tsv, codes_tsv) VALUES ({params}, "
                     "%(embedding)s::vector, to_tsvector('english', %(title)s || ' ' || %(text)s), "
                     "to_tsvector('simple', %(codes)s))", data)
             # Document length for BM25: every word occurrence, not just distinct words.
-            conn.execute("UPDATE corpus.chunks c SET doc_len = (SELECT coalesce(sum(array_length(u.positions, 1)), 0) "
+            conn.execute(f"UPDATE {s}.chunks c SET doc_len = (SELECT coalesce(sum(array_length(u.positions, 1)), 0) "
                          "FROM unnest(c.tsv) u)")
-            conn.execute("INSERT INTO corpus.lexemes SELECT word, 'text', ndoc FROM ts_stat('SELECT tsv FROM corpus.chunks')")
-            conn.execute("INSERT INTO corpus.lexemes SELECT word, 'codes', ndoc FROM ts_stat("
-                         "'SELECT codes_tsv FROM corpus.chunks') ON CONFLICT DO NOTHING")
+            conn.execute(f"INSERT INTO {s}.lexemes SELECT word, 'text', ndoc FROM ts_stat('SELECT tsv FROM {s}.chunks')")
+            conn.execute(f"INSERT INTO {s}.lexemes SELECT word, 'codes', ndoc FROM ts_stat("
+                         f"'SELECT codes_tsv FROM {s}.chunks') ON CONFLICT DO NOTHING")
             sources = sorted({r["source_id"] for r in data})
-            conn.execute("INSERT INTO corpus.stats (schema_version, chunk_count, avg_len, avg_codes, sources) "
-                         "SELECT %s, count(*), avg(doc_len), avg(length(codes_tsv)), %s FROM corpus.chunks",
+            conn.execute(f"INSERT INTO {s}.stats (schema_version, chunk_count, avg_len, avg_codes, sources) "
+                         f"SELECT %s, count(*), avg(doc_len), avg(length(codes_tsv)), %s FROM {s}.chunks",
                          (SCHEMA_VERSION, json.dumps(sources)))
-            n, avg = conn.execute("SELECT chunk_count, avg_len FROM corpus.stats").fetchone()
+            conn.execute(grants(s))
+            n, avg = conn.execute(f"SELECT chunk_count, avg_len FROM {s}.stats").fetchone()
     return {"chunks": n, "avg_len": round(avg or 0, 1), "sources": len(sources)}
 
 
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.parse_args(argv)
-    r = load(owner_url())
-    print(f"loaded {r['chunks']} chunks from {r['sources']} sources (average {r['avg_len']} words) into schema corpus")
+    ap.add_argument("--schema", default="corpus", help="target schema: corpus (live) or corpus_next (staging)")
+    a = ap.parse_args(argv)
+    r = load(owner_url(), schema=a.schema)
+    print(f"loaded {r['chunks']} chunks from {r['sources']} sources (average {r['avg_len']} words) into schema {a.schema}")
     return 0
 
 

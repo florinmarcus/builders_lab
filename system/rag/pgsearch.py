@@ -33,7 +33,15 @@ def cfg() -> dict:
         "rerank_model": os.environ.get("RAG_RERANK_MODEL", "amazon.rerank-v1:0"),
         "top_k": int(os.environ.get("RAG_TOP_K", "50")),
         "min_score": float(os.environ.get("RAG_MIN_SCORE", "0.05")),
+        "schema": _schema(os.environ.get("RAG_SCHEMA", "corpus")),
     }
+
+
+def _schema(name: str) -> str:
+    """Which schema to read: corpus (live) or corpus_next (staging, for evals). The name goes into SQL."""
+    if not re.fullmatch(r"[a-z_][a-z0-9_]{0,40}", name or ""):
+        raise ValueError(f"bad RAG_SCHEMA: {name!r}")
+    return name
 
 
 class SearchError(RuntimeError):
@@ -76,7 +84,7 @@ def rerank(question: str, texts: list[str], n: int) -> list[tuple[int, float]]:
 NEAREST = """
 SELECT id, source_id, source_title, legal_weight, edition_date, valid_from, valid_to, section_id,
        section_title, heading_path, printed_page, url, text, embed_text, embedding <=> %(v)s::vector AS distance
-FROM corpus.chunks
+FROM {schema}.chunks
 WHERE (valid_from IS NULL OR valid_from <= %(d)s) AND (valid_to IS NULL OR valid_to >= %(d)s)
   AND (applies_to IS NULL OR %(c)s = ANY (string_to_array(replace(applies_to, '.', ''), '+')))
 ORDER BY embedding <=> %(v)s::vector
@@ -84,13 +92,19 @@ LIMIT %(n)s
 """
 
 
-def nearest(vector: list[float], as_of: datetime.date, country: str, n: int, url: str | None = None) -> list[dict]:
+def nearest_sql(schema: str) -> str:
+    return NEAREST.replace("{schema}", _schema(schema))
+
+
+def nearest(vector: list[float], as_of: datetime.date, country: str, n: int, url: str | None = None,
+            schema: str | None = None) -> list[dict]:
     import psycopg
     from psycopg.rows import dict_row
 
+    c = cfg()
     v = "[" + ",".join(f"{x:.7g}" for x in vector) + "]"
-    with psycopg.connect(url or cfg()["url"], connect_timeout=5, row_factory=dict_row) as conn:
-        return conn.execute(NEAREST, {"v": v, "d": as_of, "c": country, "n": n}).fetchall()
+    with psycopg.connect(url or c["url"], connect_timeout=5, row_factory=dict_row) as conn:
+        return conn.execute(nearest_sql(schema or c["schema"]), {"v": v, "d": as_of, "c": country, "n": n}).fetchall()
 
 
 def one_per_section(rows: list[dict]) -> list[dict]:
@@ -120,6 +134,15 @@ def passage(r: dict, score: float) -> dict:
             "printed_page": r.get("printed_page"), "section_id": r["section_id"], "chunk_id": r["id"]}
 
 
+def candidates(question: str, as_of_date: datetime.date | None = None, country: str = "E", embed=None,
+               url: str | None = None, n: int | None = None) -> list[dict]:
+    """The first stage: nearest chunks, one per section, in distance order (what search re-ranks; evals
+    score Recall@50 on this)."""
+    c = cfg()
+    vec = (embed or embed_question)(question)
+    return one_per_section(nearest(vec, as_of_date or datetime.date.today(), country, n or c["top_k"], url))
+
+
 def search(question: str, as_of_date: datetime.date | None = None, country: str = "E", limit: int = 5,
            embed=None, rerank_fn=None, url: str | None = None) -> list[dict]:
     """Best passages first (contract: system/rag/README.md). [] when nothing passes the relevance floor."""
@@ -128,8 +151,7 @@ def search(question: str, as_of_date: datetime.date | None = None, country: str 
         return []
     as_of = as_of_date or datetime.date.today()
     try:
-        vec = (embed or embed_question)(question)
-        rows = one_per_section(nearest(vec, as_of, country, c["top_k"], url))
+        rows = candidates(question, as_of, country, embed, url)
         if not rows:
             return []
         if not c["rerank"]:
