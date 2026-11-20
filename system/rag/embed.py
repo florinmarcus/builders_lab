@@ -54,12 +54,28 @@ def client():
     return _client
 
 
+TRUNCATED: list[tuple[int, int]] = []  # (original length, length sent) for inputs over Titan's token limit
+
+
 def embed_text(text: str) -> tuple[list[float], int]:
-    """One Titan call. Returns the normalised vector and the token count Bedrock reports."""
-    body = json.dumps({"inputText": text[:MAX_CHARS], "dimensions": DIMS, "normalize": True})
-    r = client().invoke_model(modelId=settings()["model"], body=body)
-    out = json.loads(r["body"].read())
-    return out["embedding"], out.get("inputTextTokenCount", 0)
+    """One Titan call. Returns the normalised vector and the token count Bedrock reports.
+
+    Titan V2 refuses more than 8,192 tokens; dense tables can pass the character cap, so on that error the
+    text is halved and sent again (recorded in TRUNCATED; the chunk check in S3 should split such chunks)."""
+    send = text[:MAX_CHARS]
+    while True:
+        body = json.dumps({"inputText": send, "dimensions": DIMS, "normalize": True})
+        try:
+            r = client().invoke_model(modelId=settings()["model"], body=body)
+        except Exception as e:  # botocore ValidationException: "Too many input tokens"
+            if "too many input tokens" in str(e).lower() and len(send) > 1000:
+                send = send[: len(send) // 2]
+                continue
+            raise
+        if len(send) < len(text):
+            TRUNCATED.append((len(text), len(send)))
+        out = json.loads(r["body"].read())
+        return out["embedding"], out.get("inputTextTokenCount", 0)
 
 
 def vector_paths(chunk_file: Path) -> tuple[Path, Path]:

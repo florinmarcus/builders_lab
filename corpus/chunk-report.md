@@ -38,6 +38,170 @@ Made by `python -m system.rag.chunk` from the parsed trees (not in git). Rebuilt
   - para-13.2: 3717 characters, split into 2 parts
 - Unresolved references (most common): "Section 12" ×2, "Section 9" ×1, "Diagram 1" ×1, "regulation 5" ×1, "regulation 8" ×1, "Section 5" ×1, "regulation 4" ×1.
 
+## br2010 `main@2026-07-01-1e14a9ae`
+
+- Chunks: 713 (clause 363, regulation 148, requirement 80, definition 67, paragraph 52, table 3).
+- Text length: median 321, longest 8177 characters.
+- Open model checks in the tree: 0.
+- Cross-references: 369, resolved in this document 335, to another document 7, unresolved 27.
+- Splits (45):
+  - regulation-4: 2861 characters, split into 9 paragraphs
+  - regulation-6: 3848 characters, split into 4 paragraphs
+  - regulation-7: 2592 characters, split into 5 paragraphs
+  - regulation-11D: 3492 characters, split into 10 paragraphs
+  - regulation-11E: 3348 characters, split into 8 paragraphs
+  - regulation-11O: 3358 characters, split into 8 paragraphs
+  - regulation-11Q: 2699 characters, split into 4 paragraphs
+  - regulation-11U: 3794 characters, split into 11 paragraphs
+  - regulation-11V: 3398 characters, split into 8 paragraphs
+  - regulation-11Z6: 3497 characters, split into 8 paragraphs
+  - regulation-12: 3877 characters, split into 10 paragraphs
+  - regulation-13: 4330 characters, split into 7 paragraphs
+  - regulation-14: 3766 characters, split into 4 paragraphs
+  - regulation-14A: 2960 characters, split into 10 paragraphs
+  - regulation-14D: 3131 characters, split into 10 paragraphs
+  - regulation-16: 8564 characters, split into 22 paragraphs
+  - regulation-18: 4721 characters, split into 9 paragraphs
+  - regulation-18E: 4432 characters, split into 16 paragraphs
+  - regulation-18I: 4768 characters, split into 17 paragraphs
+  - regulation-20: 2862 characters, split into 13 paragraphs
+  - regulation-25A: 3289 characters, split into 6 paragraphs
+  - regulation-27: 2757 characters, split into 6 paragraphs
+  - regulation-27A: 2824 characters, split into 6 paragraphs
+  - regulation-27B: 2645 characters, split into 6 paragraphs
+  - regulation-27C: 2784 characters, split into 6 paragraphs
+  - regulation-35: 2673 characters, split into 2 paragraphs
+  - regulation-37A: 2697 characters, split into 6 paragraphs
+  - regulation-38: 3701 characters, split into 10 paragraphs
+  - regulation-41: 2846 characters, split into 5 paragraphs
+  - regulation-44ZC: 3160 characters, split into 9 paragraphs
+  - regulation-44ZCn1: 3159 characters, split into 9 paragraphs
+  - regulation-44D: 2612 characters, split into 4 paragraphs
+  - regulation-44E: 4161 characters, split into 5 paragraphs
+  - regulation-44F: 3204 characters, split into 6 paragraphs
+  - regulation-44H: 2562 characters, split into 4 paragraphs
+  - regulation-6@W: 3650 characters, split into 4 paragraphs
+  - regulation-7@W: 3023 characters, split into 5 paragraphs
+  - regulation-12@W: 2708 characters, split into 10 paragraphs
+  - regulation-14@W: 3812 characters, split into 4 paragraphs
+  - regulation-16@W: 8614 characters, split into 23 paragraphs
+  - regulation-18@W: 4159 characters, split into 9 paragraphs
+  - regulation-25A@W: 3511 characters, split into 7 paragraphs
+  - regulation-27@W: 2592 characters, split into 6 paragraphs
+  - regulation-27A@W: 2610 characters, split into 6 paragraphs
+  - regulation-38@W: 2628 characters, split into 6 paragraphs
+- Unresolved references (most common): "paragraph F1" ×5, "paragraph E1" ×4, "paragraph 2" ×3, "paragraph 3" ×3, "regulation 7A" ×2, "Section 67" ×2, "paragraph B1" ×1, "paragraph B3" ×1, "paragraph B4" ×1, "paragraph B5" ×1, "paragraphs G2" ×1, "paragraphs G1" ×1, "Section 30" ×1, "paragraph 1" ×1.
+
+## br2010 `main@2026-07-20-3fcb6a45`
+
+- Chunks: 712 (clause 363, regulation 148, requirement 80, definition 66, paragraph 52, table 3).
+- Text length: median 321, longest 8177 characters.
+- Open model checks in the tree: 0.
+- Cross-references: 369, resolved in this document 335, to another document 7, unresolved 27.
+- Splits (45):
+  - regulation-4: 2861 characters, split into 9 paragraphs
+  - regulation-6: 3848 characters, split into 4 paragraphs
+  - regulation-7: 2592 characters, split into 5 paragraphs
+  - regulation-11D: 3492 characters, split into 10 paragraphs
+  - regulation-11E: 3348 characters, split into 8 paragraphs
+  - regulation-11O: 3358 characters, split into 8 paragraphs
+  - regulation-11Q: 2699 characters, split into 4 paragraphs
+  - regulation-11U: 3794 characters, split into 11 paragraphs
+  - regulation-11V: 3398 characters, split into 8 paragraphs
+  - regulation-11Z6: 3489 characters, split into 8 paragraphs
+  - regulation-12: 3877 characters, split into 10 paragraphs
+  - regulation-13: 4330 characters, split into 7 paragraphs
+  - regulation-14: 3766 characters, split into 4 paragraphs
+  - regulation-14A: 2960 characters, split into 10 paragraphs
+  - regulation-14D: 3127 characters, split into 10 paragraphs
+  - regulation-16: 8564 characters, split into 22 paragraphs
+  - regulation-18: 4721 characters, split into 9 paragraphs
+  - regulation-18E: 4432 characters, split into 16 paragraphs
+  - regulation-18I: 4747 characters, split into 17 paragraphs
+  - regulation-20: 2862 characters, split into 13 paragraphs
+  - regulation-25A: 3289 characters, split into 6 paragraphs
+  - regulation-27: 2757 characters, split into 6 paragraphs
+  - regulation-27A: 2824 characters, split into 6 paragraphs
+  - regulation-27B: 2669 characters, split into 6 paragraphs
+  - regulation-27C: 2784 characters, split into 6 paragraphs
+  - regulation-35: 2673 characters, split into 2 paragraphs
+  - regulation-37A: 2697 characters, split into 6 paragraphs
+  - regulation-38: 3701 characters, split into 10 paragraphs
+  - regulation-41: 2846 characters, split into 5 paragraphs
+  - regulation-44ZC: 3160 characters, split into 9 paragraphs
+  - regulation-44ZCn1: 3159 characters, split into 9 paragraphs
+  - regulation-44D: 2612 characters, split into 4 paragraphs
+  - regulation-44E: 4161 characters, split into 5 paragraphs
+  - regulation-44F: 3204 characters, split into 6 paragraphs
+  - regulation-44H: 2562 characters, split into 4 paragraphs
+  - regulation-6@W: 3650 characters, split into 4 paragraphs
+  - regulation-7@W: 3023 characters, split into 5 paragraphs
+  - regulation-12@W: 2708 characters, split into 10 paragraphs
+  - regulation-14@W: 3810 characters, split into 4 paragraphs
+  - regulation-16@W: 8606 characters, split into 23 paragraphs
+  - regulation-18@W: 4159 characters, split into 9 paragraphs
+  - regulation-25A@W: 3511 characters, split into 7 paragraphs
+  - regulation-27@W: 2592 characters, split into 6 paragraphs
+  - regulation-27A@W: 2610 characters, split into 6 paragraphs
+  - regulation-38@W: 2620 characters, split into 6 paragraphs
+- Unresolved references (most common): "paragraph F1" ×5, "paragraph E1" ×4, "paragraph 2" ×3, "paragraph 3" ×3, "regulation 7A" ×2, "Section 67" ×2, "paragraph B1" ×1, "paragraph B3" ×1, "paragraph B4" ×1, "paragraph B5" ×1, "paragraphs G2" ×1, "paragraphs G1" ×1, "Section 30" ×1, "paragraph 1" ×1.
+
+## br2010 `main@2026-10-01-50ec323f`
+
+- Chunks: 759 (clause 386, regulation 148, definition 90, requirement 80, paragraph 52, table 3).
+- Text length: median 318, longest 8177 characters.
+- Open model checks in the tree: 0.
+- Cross-references: 388, resolved in this document 353, to another document 7, unresolved 28.
+- Splits (47):
+  - regulation-4: 2861 characters, split into 9 paragraphs
+  - regulation-6: 3848 characters, split into 4 paragraphs
+  - regulation-7: 2592 characters, split into 5 paragraphs
+  - regulation-11D: 3492 characters, split into 10 paragraphs
+  - regulation-11E: 3348 characters, split into 8 paragraphs
+  - regulation-11O: 3358 characters, split into 8 paragraphs
+  - regulation-11Q: 2699 characters, split into 4 paragraphs
+  - regulation-11U: 3794 characters, split into 11 paragraphs
+  - regulation-11V: 3398 characters, split into 8 paragraphs
+  - regulation-11Z6: 3489 characters, split into 8 paragraphs
+  - regulation-12: 3877 characters, split into 10 paragraphs
+  - regulation-13: 4330 characters, split into 7 paragraphs
+  - regulation-14: 8922 characters, split into 9 paragraphs
+  - regulation-14ZA: 4395 characters, split into 5 paragraphs
+  - regulation-14A: 2960 characters, split into 10 paragraphs
+  - regulation-14D: 3127 characters, split into 10 paragraphs
+  - regulation-16: 15831 characters, split into 28 paragraphs
+  - regulation-16A: 3200 characters, split into 7 paragraphs
+  - regulation-18: 4721 characters, split into 9 paragraphs
+  - regulation-18E: 4432 characters, split into 16 paragraphs
+  - regulation-18I: 4747 characters, split into 17 paragraphs
+  - regulation-20: 2862 characters, split into 13 paragraphs
+  - regulation-25A: 3289 characters, split into 6 paragraphs
+  - regulation-27: 2757 characters, split into 6 paragraphs
+  - regulation-27A: 2824 characters, split into 6 paragraphs
+  - regulation-27B: 2669 characters, split into 6 paragraphs
+  - regulation-27C: 2784 characters, split into 6 paragraphs
+  - regulation-35: 2673 characters, split into 2 paragraphs
+  - regulation-37A: 2697 characters, split into 6 paragraphs
+  - regulation-38: 3701 characters, split into 10 paragraphs
+  - regulation-41: 2846 characters, split into 5 paragraphs
+  - regulation-44ZC: 3160 characters, split into 9 paragraphs
+  - regulation-44ZCn1: 3159 characters, split into 9 paragraphs
+  - regulation-44D: 2612 characters, split into 4 paragraphs
+  - regulation-44E: 4161 characters, split into 5 paragraphs
+  - regulation-44F: 3204 characters, split into 6 paragraphs
+  - regulation-44H: 2562 characters, split into 4 paragraphs
+  - regulation-6@W: 3650 characters, split into 4 paragraphs
+  - regulation-7@W: 3023 characters, split into 5 paragraphs
+  - regulation-12@W: 2708 characters, split into 10 paragraphs
+  - regulation-14@W: 3810 characters, split into 4 paragraphs
+  - regulation-16@W: 8606 characters, split into 23 paragraphs
+  - regulation-18@W: 4159 characters, split into 9 paragraphs
+  - regulation-25A@W: 3511 characters, split into 7 paragraphs
+  - regulation-27@W: 2592 characters, split into 6 paragraphs
+  - regulation-27A@W: 2610 characters, split into 6 paragraphs
+  - regulation-38@W: 2620 characters, split into 6 paragraphs
+- Unresolved references (most common): "paragraph F1" ×5, "paragraph E1" ×4, "paragraph 2" ×3, "paragraph 3" ×3, "regulation 7A" ×2, "Section 67" ×2, "paragraph B1" ×1, "paragraph B3" ×1, "paragraph B4" ×1, "paragraph B5" ×1, "paragraphs G2" ×1, "paragraphs G1" ×1, "regulation 63" ×1, "Section 30" ×1, "paragraph 1" ×1.
+
 ## br2010 `main@2026-11-06-9e455f6e`
 
 - Chunks: 759 (clause 386, regulation 148, definition 90, requirement 80, paragraph 52, table 3).
