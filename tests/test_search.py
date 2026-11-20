@@ -37,6 +37,9 @@ def index(tmp_path, monkeypatch):
     (corpus / "chunks" / "demo" / "v1.jsonl").write_text("".join(json.dumps(r) + "\n" for r in rows))
     monkeypatch.setattr(S, "CORPUS_DIR", corpus)
     monkeypatch.setattr(S, "_vectors", None)  # never reuse vectors cached from the real corpus
+    # Never call Bedrock from tests: CI has no AWS credentials, and each call costs money.
+    # The stand-in keeps the order it was given.
+    monkeypatch.setattr(S, "rerank", lambda question, texts, n: [(i, 1.0) for i in range(min(n, len(texts)))])
     monkeypatch.setenv("RAG_INDEX", str(tmp_path / "idx.sqlite"))
     assert S.build() == 5
     return corpus
