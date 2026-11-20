@@ -42,13 +42,24 @@ The parser for a source is named in `sources.yaml` (`parser:`). Read the `issues
 python -m system.rag.checks export --source <source_id>
 ```
 
-This writes one packet per open check to `corpus/parsed/<source_id>/checks/`. For each packet, start one subagent with exactly this prompt (fill in the path):
+This writes one packet per open check to `corpus/parsed/<source_id>/checks/`. Split the packet file names into batches of up to 6 (in name order) and start one subagent per batch, up to 8 at a time, with exactly this prompt (fill in the source, packet names and batch number):
 
-> Read the JSON packet at `<path>`. Open every image listed in `images`. Follow `instructions` exactly, and use `template` if there is one. Reply with one line of JSON in the shape of `answer_format`, and nothing else.
+> You are doing model checks for a regulations corpus. Work in the repo at `<repo>`. Do not change any file except the one answers file named below.
+>
+> For EACH packet below, separately and in order:
+> 1. Read the JSON packet at `<repo>/corpus/parsed/<source_id>/checks/<name>`.
+> 2. Open every image listed in its `images` (paths are relative to `<repo>`) with the Read tool.
+> 3. Follow the packet's `instructions` exactly, and use `template` if there is one.
+> 4. Produce one line of JSON in the shape of `answer_format` (copy `key` and `kind` exactly from the packet; `value` as the format shows; `reason`, `evidence`, `confidence`).
+>
+> Packets: `<names>`
+>
+> Write all answers, one JSON object per line, in packet order, to `<repo>/corpus/parsed/<source_id>/answers/batch_<NN>.jsonl` with the Write tool. Each line must be valid JSON on a single line. Then reply only with "done" and the number of lines written.
 
-Up to 8 subagents at a time. Put every reply, one per line, into `corpus/parsed/<source_id>/answers.jsonl`. Then:
+When all batches are done:
 
 ```
+cat corpus/parsed/<source_id>/answers/batch_*.jsonl > corpus/parsed/<source_id>/answers.jsonl
 python -m system.rag.checks save --source <source_id> --answers corpus/parsed/<source_id>/answers.jsonl --by "model check, Claude Code subagent (packet)"
 ```
 
