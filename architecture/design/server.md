@@ -138,15 +138,32 @@ erDiagram
 
 Also: `schema_migrations` (applied files and hashes), `server_flags` (kill switch).
 
-## Deployment and upgrade (planned, ADR 0008)
+## Deployment (ADR 0008; code in `deploy/`, not yet run in AWS)
+
+```mermaid
+flowchart TB
+    internet(["Internet"]) -->|"80, 443 only"| caddy
+    subgraph aws["AWS eu-west-2, own VPC"]
+        subgraph ec2["EC2 t4g.small, encrypted disk, no SSH"]
+            caddy["Caddy<br/>HTTPS"] --> app["MCP server<br/>non-root, read-only"]
+            app --> pg[("Postgres<br/>app user: no DDL")]
+        end
+        ssm["Parameter Store<br/>secrets"] --> ec2
+        dlm["Daily snapshots, 7 kept"] --> ec2
+        alarm["Alarm: auto-recover + email"] --> ec2
+        budget["Budget alarm"]
+    end
+    admin(["Florin"]) -->|"Session Manager"| ec2
+    gha["GitHub Actions"] -->|"OIDC role,<br/>Run Command"| ec2
+```
+
+## Upgrade
 
 ```mermaid
 flowchart LR
-    cf["CloudFormation<br/>(AWS side)"] --> ec2["EC2 server"]
-    install["install.sh<br/>(first time)"] --> ec2
-    upgrade["upgrade.sh<br/>backup → pull →<br/>migrate → restart →<br/>health check"] --> ec2
-    upgrade -->|"check fails"| rollback["roll back"]
-    ci["GitHub Actions"] -.-> upgrade
+    v["version"] --> b["build image<br/>(tag = commit)"] --> bk["backup"] --> m["migrate"] --> r["restart"] --> h{"healthy?"}
+    h -->|yes| done["record version"]
+    h -->|no| rb["restore DB if migrated,<br/>previous image back"]
 ```
 
 ## Rules this design keeps

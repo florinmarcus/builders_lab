@@ -1,0 +1,70 @@
+# Server stack: Postgres, MCP server, Caddy (HTTPS). Run from /opt/builders-lab/repo/deploy with --env-file ../../.env
+name: builders-lab
+
+services:
+  db:
+    image: public.ecr.aws/docker/library/postgres:16.6-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: builders
+      POSTGRES_USER: builders_owner
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD}
+      APP_DB_PASSWORD: ${APP_DB_PASSWORD:?set APP_DB_PASSWORD}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./db-init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U builders_owner -d builders"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    networks: [backend]
+    # no ports: the database is never reachable from outside
+
+  app:
+    image: ${APP_IMAGE:-builders-api:local}
+    build: { context: .., dockerfile: Dockerfile }
+    restart: unless-stopped
+    depends_on:
+      db: { condition: service_healthy }
+    environment:
+      DATABASE_URL: postgresql://builders_app:${APP_DB_PASSWORD}@db:5432/builders
+      MIGRATE_DATABASE_URL: postgresql://builders_owner:${POSTGRES_PASSWORD}@db:5432/builders
+      HOST: 0.0.0.0
+      PORT: "8000"
+      FORWARDED_ALLOW_IPS: "*"   # only Caddy can reach this port (internal network)
+      ALLOWED_HOSTS: ${DOMAIN:?set DOMAIN}
+      API_KEY_PEPPER: ${API_KEY_PEPPER:?set API_KEY_PEPPER}
+      MCP_PATH_SECRET: ${MCP_PATH_SECRET:?set MCP_PATH_SECRET}
+      SUPPORT_CONTACT: ${SUPPORT_CONTACT:-Florin}
+      RATE_LIMIT_PER_MINUTE: ${RATE_LIMIT_PER_MINUTE:-60}
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    networks: [backend, frontend]
+    # no ports: only Caddy talks to the app
+
+  caddy:
+    image: public.ecr.aws/docker/library/caddy:2.8.4-alpine
+    restart: unless-stopped
+    depends_on: [app]
+    ports: ["80:80", "443:443"]
+    environment:
+      DOMAIN: ${DOMAIN}
+      TLS_DIRECTIVE: ${TLS_DIRECTIVE:?set TLS_DIRECTIVE (an email for Let's Encrypt, or internal)}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    networks: [frontend]
+
+volumes:
+  pgdata:
+  caddy_data:
+  caddy_config:
+
+networks:
+  backend: { internal: true }
+  frontend: {}

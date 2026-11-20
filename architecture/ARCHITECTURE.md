@@ -45,8 +45,8 @@ flowchart TB
         ci["Actions pipeline"]
     end
 
-    subgraph aws["AWS eu-west-2 (planned, ADR 0003 + 0008)"]
-        subgraph ec2["One small server"]
+    subgraph aws["AWS eu-west-2 (code ready in deploy/, not yet run; ADR 0008)"]
+        subgraph ec2["EC2 server (Docker)"]
             caddy["Caddy<br/>HTTPS"] --> app["MCP server"] --> pg[("Postgres")]
         end
         ssm["Parameter Store<br/>secrets"]

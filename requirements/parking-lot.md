@@ -3,7 +3,7 @@
 Every corner we cut goes here, so nothing is forgotten after the demo. Use it for code, architecture and security reviews.
 Update it in the same commit as the shortcut. Remove an item only when it is done, and say where.
 
-Started 20 Nov 2026. Status of the demo build: steps 1 (mock data plan), 2 (schema) and 5 (MCP server) done; 3, 4 and 6 not yet.
+Started 20 Nov 2026. Status of the demo build: steps 1 (mock data plan), 2 (schema), 5 (MCP server), security layer and deploy code done; 3, 4 and the first AWS run not yet.
 
 ## Not built yet
 
@@ -13,10 +13,10 @@ Started 20 Nov 2026. Status of the demo build: steps 1 (mock data plan), 2 (sche
 | N2 | Gmail loader, reset and live simulator (ADR 0005) | Needs Google login on Florin's laptop | No live "email arrives" moment |
 | N3 | Real `sync_inbox` (Gmail fetch, PDF text) | After the simulator | Tool returns "not connected yet" |
 | N4 | `save_facts` with server checks (job exists, source exists, quote appears in source) (ADR 0006) | After `sync_inbox` | Facts only from seed data |
-| N5 | Deployment: AWS server, HTTPS, GitHub Actions pipeline with OIDC | Needs Florin's AWS setup | Server only runs locally |
+| N5 | First real run in AWS: CloudFormation stack, `install.sh` on Amazon Linux, the GitHub pipeline (code in `deploy/`, ADR 0008) | Needs Florin's AWS | CloudFormation, install and pipeline only linted, never run |
 | N6 | OAuth login (Cognito) as the second auth layer (ADR 0007) | API keys first for the demo | One shared secret per firm |
-| N7 | Email alerts (lockdown, failed logins, spikes) and AWS budget alarm | Come with deployment | Attacks or cost spikes go unseen |
-| N8 | Backups of Postgres | Come with deployment | Data loss |
+| N7 | App alerts (lockdown, IP blocks) to the email topic. Budget alarm and server-down alarm are in the CloudFormation template | `security.alert()` only logs | Attacks go unseen |
+| N8 | Backups copied off the server's account and region (now: daily dumps on the disk + daily disk snapshots in the same region) | Pilot | Region or account loss loses data |
 | N9 | Evals and the Claude Code mini harness (subagents, hooks, LLM judge) | Out of scope for Saturday | No measure of answer quality |
 | N10 | Claude Code plugin for testers | After the demo | Manual setup per tester |
 | N11 | Data deletion per property and at contract end (design rule 10) | Not needed for mock data | Fails UK GDPR expectations with real data |
@@ -45,10 +45,15 @@ Started 20 Nov 2026. Status of the demo build: steps 1 (mock data plan), 2 (sche
 | S15 | Claude's own model calls (in the app or Claude Code) have no token or cost rows in our traces | ADR 0006 | Accept, or estimate from the harness |
 | S16 | API keys are long-lived; rotation only on leak, staff leaving, or once a year | ADR 0007 | OAuth (N6) gives short-lived tokens |
 | S17 | Lockdown and IP blocking are in memory, per process | ADR 0007 | Fine for one server |
-| S18 | No CI yet: tests run by hand against a local Postgres | `tests/` | Run in the pipeline (N5) |
+| S18 | CI written (`.github/workflows/ci-deploy.yml`) but not yet run on GitHub | `.github/` | Check the first run |
 | S20 | Lockdown can be triggered on purpose: many bad keys in a minute pause the service for everyone (a cheap denial of service). Scanner 404s don't count | `security.py` | Put AWS WAF or CloudFront in front; lockdown only as last resort |
 | S21 | Prompt injection defence is a notice in tool results plus a server instruction; no filtering of email text | `mcp_server/server.py`, instructions v2 | Add tests with poisoned emails in evals (N9) |
-| S22 | Database user for the app still has full rights (no least-privilege role yet) | deployment | Create a role without DROP or DDL when deploying (N5) |
+| S22 | ~~App database user had full rights~~ Done 20 Nov 2026: `builders_app` has row rights only (`deploy/db-init/`). Local dev and tests still use one superuser | `deploy/db-init/01-app-role.sh` | – |
+| S23 | Demo host name is `<ip>.sslip.io` unless a domain is given; depends on a free outside service | `server.yaml` | Use our own domain |
+| S24 | One server, one availability zone; auto-recover only | `server.yaml` | Second server or managed services when customers pay |
+| S25 | Images built on the server, not in a registry; the pipeline runs the server's current copy of `upgrade.sh` before it checks out the new version | `upgrade.sh`, `ci-deploy.yml` | Build in GitHub, push to ECR |
+| S26 | Server role has no Bedrock or S3 rights yet (corpus embedder, re-ranker and files) | `server.yaml` | Add narrow rights when the corpus is wired in |
+| S27 | Upgrade rollback restores the whole database from the pre-upgrade dump; writes made during the failed minute are lost | `upgrade.sh` | Acceptable for the pilot |
 | S19 | Cost figures are first-pass, partly guesses, mostly US prices | `research/hosting-costs/connector-auth-options.md` | Review in detail; check London prices |
 
 ## Open questions

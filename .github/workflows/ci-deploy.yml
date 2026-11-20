@@ -1,0 +1,78 @@
+# Tests on every push and pull request. On main, after tests pass, deploy to the server
+# (only once the repository variables below are set; ADR 0008).
+#   AWS_DEPLOY_ROLE_ARN  output DeployRoleArn of deploy/cloudformation/server.yaml
+#   AWS_INSTANCE_ID      output InstanceId
+#   DEPLOY_ENABLED       "true"
+name: ci-deploy
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    services:
+      postgres:
+        image: postgres:16.6-alpine
+        env:
+          POSTGRES_PASSWORD: test
+          POSTGRES_DB: builders_test
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U postgres" --health-interval 5s --health-timeout 3s --health-retries 20
+    env:
+      TEST_DATABASE_URL: postgresql://postgres:test@localhost:5432/builders_test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.13" }
+      - run: pip install -e ".[dev]"
+      - run: python -m builders_api.versions          # fails if a locked text was edited
+      - run: pytest -q
+      - name: Lint deploy files
+        run: |
+          pip install cfn-lint shellcheck-py
+          cfn-lint deploy/cloudformation/server.yaml
+          shellcheck -x -S warning deploy/scripts/*.sh
+
+  deploy:
+    needs: test
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request' && vars.DEPLOY_ENABLED == 'true'
+    runs-on: ubuntu-24.04
+    environment: production
+    permissions:
+      id-token: write   # OIDC: short-lived AWS credentials, no stored keys
+      contents: read
+    steps:
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ vars.AWS_DEPLOY_ROLE_ARN }}
+          aws-region: eu-west-2
+      - name: Run upgrade.sh on the server
+        run: |
+          set -euo pipefail
+          cmd=$(aws ssm send-command \
+            --instance-ids "${{ vars.AWS_INSTANCE_ID }}" \
+            --document-name AWS-RunShellScript \
+            --timeout-seconds 600 \
+            --parameters "{\"commands\":[\"/opt/builders-lab/repo/deploy/scripts/upgrade.sh ${GITHUB_SHA}\"],\"executionTimeout\":[\"1200\"]}" \
+            --query Command.CommandId --output text)
+          echo "command $cmd"
+          for i in $(seq 1 120); do
+            status=$(aws ssm get-command-invocation --command-id "$cmd" --instance-id "${{ vars.AWS_INSTANCE_ID }}" \
+                     --query Status --output text 2>/dev/null || echo Pending)
+            case "$status" in Success|Failed|Cancelled|TimedOut) break ;; esac
+            sleep 10
+          done
+          aws ssm get-command-invocation --command-id "$cmd" --instance-id "${{ vars.AWS_INSTANCE_ID }}" \
+            --query '[StandardOutputContent,StandardErrorContent]' --output text | tail -40
+          [ "$status" = Success ] || { echo "deploy $status"; exit 1; }

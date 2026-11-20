@@ -21,7 +21,12 @@ build-backend = "setuptools.build_meta"
 where = ["system/api"]
 
 [tool.setuptools.package-data]
-"builders_api.db" = ["migrations/*.sql"]
+builders_api = [
+    "db/migrations/*.sql",
+    "versions/*/*.md",
+    "versions/versions.lock.json",
+    "regulations_fallback/*.json",
+]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

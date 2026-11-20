@@ -1,0 +1,19 @@
+# HTTPS in front of the MCP server. Certificates from Let's Encrypt (TLS_DIRECTIVE = your email),
+# or Caddy's own local certificate for testing (TLS_DIRECTIVE = internal).
+{
+	admin off
+}
+
+{$DOMAIN} {
+	tls {$TLS_DIRECTIVE}
+	encode gzip
+	request_body {
+		max_size 256KB
+	}
+	header {
+		-Server
+		Strict-Transport-Security "max-age=31536000"
+		X-Content-Type-Options nosniff
+	}
+	reverse_proxy app:8000
+}

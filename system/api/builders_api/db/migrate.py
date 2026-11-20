@@ -6,6 +6,7 @@ Usage: python -m builders_api.db.migrate
 from __future__ import annotations
 
 import hashlib
+import os
 from pathlib import Path
 
 import psycopg
@@ -26,7 +27,8 @@ def _migrations() -> list[Path]:
 def migrate(url: str | None = None) -> list[str]:
     """Apply pending migrations. Returns the names applied this run."""
     applied: list[str] = []
-    with psycopg.connect(url or database_url()) as conn:
+    # Migrations run as the database owner; the app itself uses a role without DDL rights.
+    with psycopg.connect(url or os.environ.get("MIGRATE_DATABASE_URL") or database_url()) as conn:
         conn.execute(
             """create table if not exists schema_migrations (
                    name text primary key,

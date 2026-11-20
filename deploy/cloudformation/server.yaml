@@ -1,0 +1,299 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: >
+  Builders Lab server (ADR 0008): one small EC2 server in its own network, HTTPS only, no SSH,
+  admin through Session Manager, encrypted disk, daily snapshots, alerts, budget alarm,
+  and a GitHub Actions deploy role (OIDC, no stored keys).
+
+Parameters:
+  Environment:
+    Type: String
+    Default: prod
+    AllowedPattern: "[a-z0-9-]+"
+  InstanceType:
+    Type: String
+    Default: t4g.small
+    AllowedValues: [t4g.small, t4g.medium]
+  DomainName:
+    Type: String
+    Default: ""
+    Description: Public host name. Leave empty to use <ip>.sslip.io (demo only).
+  AlertEmail:
+    Type: String
+    Description: Gets alerts, budget warnings and Let's Encrypt notices.
+  SupportContact:
+    Type: String
+    Default: Florin
+    Description: Shown to users in "contact ... to renew" messages.
+  MonthlyBudgetUsd:
+    Type: Number
+    Default: 30
+  GitHubRepo:
+    Type: String
+    Default: florinmarcus/builders_lab
+  CreateGitHubOidcProvider:
+    Type: String
+    Default: "true"
+    AllowedValues: ["true", "false"]
+    Description: "false if the account already has token.actions.githubusercontent.com"
+  RepoUrl:
+    Type: String
+    Default: https://github.com/florinmarcus/builders_lab.git
+  Version:
+    Type: String
+    Default: main
+    Description: Git commit, tag or branch to install at first boot.
+
+Conditions:
+  NoDomain: !Equals [!Ref DomainName, ""]
+  MakeOidc: !Equals [!Ref CreateGitHubOidcProvider, "true"]
+
+Resources:
+  # ---------------------------------------------------------------- network
+  Vpc:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: 10.20.0.0/16
+      EnableDnsHostnames: true
+      EnableDnsSupport: true
+      Tags: [{ Key: Name, Value: !Sub "builders-lab-${Environment}" }]
+  Subnet:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref Vpc
+      CidrBlock: 10.20.1.0/24
+      AvailabilityZone: !Select [0, !GetAZs ""]
+      MapPublicIpOnLaunch: true   # internet at first boot, before the fixed IP is attached
+      Tags: [{ Key: Name, Value: !Sub "builders-lab-${Environment}" }]
+  Igw:
+    Type: AWS::EC2::InternetGateway
+  IgwAttach:
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties: { VpcId: !Ref Vpc, InternetGatewayId: !Ref Igw }
+  RouteTable:
+    Type: AWS::EC2::RouteTable
+    Properties: { VpcId: !Ref Vpc }
+  DefaultRoute:
+    Type: AWS::EC2::Route
+    DependsOn: IgwAttach
+    Properties: { RouteTableId: !Ref RouteTable, DestinationCidrBlock: 0.0.0.0/0, GatewayId: !Ref Igw }
+  SubnetRoutes:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties: { SubnetId: !Ref Subnet, RouteTableId: !Ref RouteTable }
+
+  WebSg:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: HTTPS (443) and HTTP (80, certificate checks and redirect) only. No SSH.
+      VpcId: !Ref Vpc
+      SecurityGroupIngress:
+        - { IpProtocol: tcp, FromPort: 443, ToPort: 443, CidrIp: 0.0.0.0/0 }
+        - { IpProtocol: tcp, FromPort: 80, ToPort: 80, CidrIp: 0.0.0.0/0 }
+
+  # ---------------------------------------------------------------- server identity
+  ServerRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - { Effect: Allow, Principal: { Service: ec2.amazonaws.com }, Action: sts:AssumeRole }
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore   # Session Manager, Run Command
+      Policies:
+        - PolicyName: builders-lab-server
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Sid: OwnSettingsAndSecrets
+                Effect: Allow
+                Action: [ssm:GetParameter, ssm:GetParameters, ssm:GetParametersByPath, ssm:PutParameter]
+                Resource: !Sub "arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:parameter/builders-lab/${Environment}/*"
+              - Sid: SecureStringsWithDefaultKey
+                Effect: Allow
+                Action: [kms:Decrypt, kms:Encrypt]
+                Resource: "*"
+                Condition:
+                  StringEquals: { "kms:ViaService": !Sub "ssm.${AWS::Region}.amazonaws.com" }
+              - Sid: Alerts
+                Effect: Allow
+                Action: sns:Publish
+                Resource: !Ref AlertTopic
+  ServerProfile:
+    Type: AWS::IAM::InstanceProfile
+    Properties: { Roles: [!Ref ServerRole] }
+
+  # ---------------------------------------------------------------- settings (secrets are created by install.sh)
+  DomainParam:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Name: !Sub "/builders-lab/${Environment}/domain"
+      Type: String
+      Value: !If
+        - NoDomain
+        - !Join ["", [!Join ["-", !Split [".", !Ref Ip]], ".sslip.io"]]
+        - !Ref DomainName
+  TlsParam:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Name: !Sub "/builders-lab/${Environment}/tls_directive"
+      Type: String
+      Value: !Ref AlertEmail
+  SupportParam:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Name: !Sub "/builders-lab/${Environment}/support_contact"
+      Type: String
+      Value: !Ref SupportContact
+
+  # ---------------------------------------------------------------- server
+  Server:
+    Type: AWS::EC2::Instance
+    DependsOn: [DomainParam, TlsParam, SupportParam, DefaultRoute]
+    Properties:
+      ImageId: "{{resolve:ssm:/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-arm64}}"
+      InstanceType: !Ref InstanceType
+      SubnetId: !Ref Subnet
+      SecurityGroupIds: [!Ref WebSg]
+      IamInstanceProfile: !Ref ServerProfile
+      MetadataOptions: { HttpTokens: required, HttpEndpoint: enabled }   # IMDSv2 only
+      BlockDeviceMappings:
+        - DeviceName: /dev/xvda
+          Ebs: { VolumeSize: 30, VolumeType: gp3, Encrypted: true, DeleteOnTermination: false }
+      PropagateTagsToVolumeOnCreation: true
+      Tags:
+        - { Key: Name, Value: !Sub "builders-lab-${Environment}" }
+        - { Key: Backup, Value: !Sub "builders-lab-${Environment}" }
+      UserData:
+        Fn::Base64: !Sub |
+          #!/bin/bash
+          # First boot: fetch the code and run deploy/scripts/install.sh (see deploy/README.md).
+          set -euxo pipefail
+          exec > /var/log/builders-install.log 2>&1
+          for i in $(seq 1 30); do dnf install -y -q git && break; sleep 10; done
+          export BASE=/opt/builders-lab SSM_PREFIX=/builders-lab/${Environment} REPO_URL=${RepoUrl}
+          token=$(aws ssm get-parameter --region ${AWS::Region} --name "$SSM_PREFIX/secrets/github_token" --with-decryption --query Parameter.Value --output text 2>/dev/null || true)
+          url=$REPO_URL
+          if [ -n "$token" ] && [ "$token" != "None" ]; then url=$(echo "$REPO_URL" | sed "s#https://#https://x-access-token:$token@#"); fi
+          mkdir -p $BASE
+          [ -d $BASE/repo/.git ] || git clone --quiet "$url" $BASE/repo
+          export AWS_DEFAULT_REGION=${AWS::Region}
+          echo "AWS_DEFAULT_REGION=${AWS::Region}" >> /etc/environment
+          $BASE/repo/deploy/scripts/install.sh ${Version}
+
+  Ip:
+    Type: AWS::EC2::EIP
+    Properties: { Domain: vpc }
+  IpAttach:
+    Type: AWS::EC2::EIPAssociation
+    Properties: { AllocationId: !GetAtt Ip.AllocationId, InstanceId: !Ref Server }
+
+  # ---------------------------------------------------------------- backups: daily disk snapshots, keep 7
+  SnapshotRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - { Effect: Allow, Principal: { Service: dlm.amazonaws.com }, Action: sts:AssumeRole }
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSDataLifecycleManagerServiceRole
+  Snapshots:
+    Type: AWS::DLM::LifecyclePolicy
+    Properties:
+      Description: !Sub "builders-lab-${Environment} daily snapshots"
+      State: ENABLED
+      ExecutionRoleArn: !GetAtt SnapshotRole.Arn
+      PolicyDetails:
+        ResourceTypes: [VOLUME]
+        TargetTags: [{ Key: Backup, Value: !Sub "builders-lab-${Environment}" }]
+        Schedules:
+          - Name: daily
+            CreateRule: { Interval: 24, IntervalUnit: HOURS, Times: ["03:00"] }
+            RetainRule: { Count: 7 }
+            CopyTags: true
+
+  # ---------------------------------------------------------------- alerts and cost
+  AlertTopic:
+    Type: AWS::SNS::Topic
+    Properties:
+      KmsMasterKeyId: alias/aws/sns
+      Subscription: [{ Protocol: email, Endpoint: !Ref AlertEmail }]
+  ServerDownAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmDescription: Server failed its health checks; AWS tries to recover it.
+      Namespace: AWS/EC2
+      MetricName: StatusCheckFailed_System
+      Dimensions: [{ Name: InstanceId, Value: !Ref Server }]
+      Statistic: Maximum
+      Period: 60
+      EvaluationPeriods: 2
+      Threshold: 1
+      ComparisonOperator: GreaterThanOrEqualToThreshold
+      AlarmActions:
+        - !Sub "arn:${AWS::Partition}:automate:${AWS::Region}:ec2:recover"
+        - !Ref AlertTopic
+  Budget:
+    Type: AWS::Budgets::Budget
+    Properties:
+      Budget:
+        BudgetName: !Sub "builders-lab-${Environment}"
+        BudgetType: COST
+        TimeUnit: MONTHLY
+        BudgetLimit: { Amount: !Ref MonthlyBudgetUsd, Unit: USD }
+      NotificationsWithSubscribers:
+        - Notification: { NotificationType: ACTUAL, ComparisonOperator: GREATER_THAN, Threshold: 80 }
+          Subscribers: [{ SubscriptionType: EMAIL, Address: !Ref AlertEmail }]
+        - Notification: { NotificationType: FORECASTED, ComparisonOperator: GREATER_THAN, Threshold: 100 }
+          Subscribers: [{ SubscriptionType: EMAIL, Address: !Ref AlertEmail }]
+
+  # ---------------------------------------------------------------- GitHub Actions deploy (OIDC, no keys)
+  GitHubOidc:
+    Type: AWS::IAM::OIDCProvider
+    Condition: MakeOidc
+    Properties:
+      Url: https://token.actions.githubusercontent.com
+      ClientIdList: [sts.amazonaws.com]
+  DeployRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Federated: !Sub "arn:${AWS::Partition}:iam::${AWS::AccountId}:oidc-provider/token.actions.githubusercontent.com"
+            Action: sts:AssumeRoleWithWebIdentity
+            Condition:
+              StringEquals:
+                "token.actions.githubusercontent.com:aud": sts.amazonaws.com
+                "token.actions.githubusercontent.com:sub": !Sub "repo:${GitHubRepo}:ref:refs/heads/main"
+      Policies:
+        - PolicyName: run-upgrade-on-server
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action: ssm:SendCommand
+                Resource:
+                  - !Sub "arn:${AWS::Partition}:ec2:${AWS::Region}:${AWS::AccountId}:instance/${Server}"
+                  - !Sub "arn:${AWS::Partition}:ssm:${AWS::Region}::document/AWS-RunShellScript"
+              - Effect: Allow
+                Action: [ssm:GetCommandInvocation, ssm:ListCommandInvocations]
+                Resource: "*"
+
+Outputs:
+  InstanceId:
+    Value: !Ref Server
+  PublicIp:
+    Value: !Ref Ip
+  Domain:
+    Value: !GetAtt DomainParam.Value
+  McpUrl:
+    Description: Add the path secret from Parameter Store (secrets/mcp_path_secret).
+    Value: !Sub
+      - "https://${D}/mcp/<mcp_path_secret>"
+      - { D: !GetAtt DomainParam.Value }
+  DeployRoleArn:
+    Description: Set as the GitHub repository variable AWS_DEPLOY_ROLE_ARN.
+    Value: !GetAtt DeployRole.Arn
