@@ -15,7 +15,7 @@ An AI assistant for UK building firms, first for Romanian-run firms: Claude (the
 |---|---|
 | Starting any work | this file, `requirements/parking-lot.md`, `architecture/ARCHITECTURE.md` |
 | Changing a server tool or the service layer | `architecture/design/server.md`, `system/api/README.md` |
-| Adding a new MCP tool | the "new tool" line in the definition of done below |
+| Adding or changing an MCP tool | `.claude/skills/add-mcp-tool/SKILL.md` (runbook) |
 | Changing agents, skills or answer flow | `architecture/design/agents.md`, `architecture/design/agent-contracts.md`, `plugin/README.md` |
 | Changing JSON passed between agents | `system/api/builders_api/contracts.py` (source of truth), then the design doc |
 | Changing the database | `system/api/builders_api/db/migrations/` (add a file, never edit one) |
@@ -91,7 +91,7 @@ system/
   data/mock/    mock scenario, email generator, demo Gmail tool, seed SQL
 tests/          tests for system/
 evals/          answer quality evals (not started; parking lot N9)
-.claude/skills/ runbooks for Claude Code (corpus-document, grill-me)
+.claude/skills/ runbooks for Claude Code (add-mcp-tool, corpus-document, grill-me)
 .github/        CI and deploy pipeline
 ```
 
