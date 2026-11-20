@@ -112,4 +112,4 @@ dc exec -T app python -m builders_api.admin kill off
 | `upgrade.sh` first start, broken upgrade with rollback and database restore | Yes, locally |
 | `cloudformation/server.yaml` | Yes, in AWS (third attempt; two permission fixes) |
 | `install.sh`, `env-from-ssm.sh` | Yes, on the real server (one bug fixed: log lines mixed into secrets) |
-| `ci-deploy.yml` | Test job yes; deploy job waits for the repository variables |
+| `ci-deploy.yml` | Test job yes; deploy job switched on 20 Nov 2026 (repository variables set) |
