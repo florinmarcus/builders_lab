@@ -1094,3 +1094,28 @@ Files: `research/reports/Builder tools and integrations.md`, `research/integrati
 - https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html
 - https://markaicode.com/pricing/amazon-cognito-pricing/
 - https://thestack.technology/awss-new-cognito-pricing-complicated-potentially-costly
+
+## MCP servers and regulation portals (checked 20 Nov 2026)
+
+Used in `research/market/mcp-servers-and-regulation-portals.md`.
+
+- https://lobehub.com/mcp/leorickayzen-uk-building-code-mcp
+- https://github.com/LeoRickayzen/uk-building-code-mcp
+- https://github.com/valtomas/para-building-regs
+- https://lex.lab.i.ai.gov.uk
+- https://github.com/i-dot-ai/lex
+- https://pypi.org/project/uk-legal-mcp/
+- https://github.com/paulieb89/uk-legal-mcp
+- https://github.com/damankaur-dev/openlaw-mcp
+- https://mcpservers.org/servers/damankaur-dev/openlaw-mcp
+- https://github.com/Stealth-Labs-LTD/GovUK-MCP
+- https://pypi.org/project/construction_iso_19650_mcp/
+- https://glama.ai/mcp/servers/TylerIlunga/procore-mcp-server/tools/show_compliance_documents_for_a_contract_project
+- https://pypi.org/project/building-code-mcp/
+- https://glama.ai/mcp/servers/@DavidCho1999/Canada-AEC-Code-MCP
+- https://mcpservers.org/servers/normatia/normatia
+- https://pypi.org/project/mimari-ai-mcp/
+- https://mcpmarket.com/server/muni
+- https://my-research-marketing.pages.dev/uk/building-regulations
+- https://itbrief.co.uk/story/buildwellai-launches-compliance-platform-for-uk-construction
+- https://gov.uk/government/news/faster-planning-decisions-as-new-rules-and-ai-tackle-delays

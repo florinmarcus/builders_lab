@@ -50,6 +50,9 @@ What users complain about:
 | Buildwell AI | Custom GPT and web chat (snippet only) | Not checked | Not stated | [GPT](https://chatgpt.com/g/g-4zBHUMk2c-buildwell-ai-uk-construction-regs-assistant) |
 | para-building-regs | Free open-source, local, England | Free | English | [GitHub](https://github.com/valtomas/para-building-regs) |
 | Planner AI | Rules engine (not LLM) for which ADs apply (snippet only) | Not checked | Not stated | [site](https://plannerai.dev/) |
+| My Research.ai | ADs A–S, Wales, Scotland, NI, cited (added 20 Nov 2026) | Not on page read | Not stated | [site](https://my-research-marketing.pages.dev/uk/building-regulations) |
+
+MCP servers (other than ours) and newer portals: `mcp-servers-and-regulation-portals.md` (20 Nov 2026). No usable UK building-regulations MCP server found; government i.AI runs an experimental legislation MCP (Lex).
 
 General chatbots have given wrong or outdated AD citations (one vendor blog, not a test). [ArchAdemia](https://archademia.com/blog/how-architects-are-actually-using-ai-assistants-right-now-and-where-they-still-fall-short/)
 
