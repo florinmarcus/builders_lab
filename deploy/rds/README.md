@@ -38,3 +38,13 @@ existing RDS Postgres instance, next to the lab's database. The Builders server 
   `MSYS_NO_PATHCONV=1`.
 - The lab's `infra/provision.py` has `pause` (stops the instance) and `down` (deletes it, no backup): either
   also stops or deletes this corpus. It can be rebuilt from Git with `python -m system.rag.build --load`.
+
+## Switch the server to the corpus (go-live)
+
+1. **Stack update** (server role gets Bedrock rights; metadata hop limit 2). Same command as the first install,
+   with your usual parameters (`deploy/README.md`):
+   `aws cloudformation deploy --region eu-west-2 --stack-name builders-lab-prod --template-file deploy/cloudformation/server.yaml --capabilities CAPABILITY_IAM --parameter-overrides AlertEmail=<your email>`
+2. **Network:** the RDS security group must allow 5432 from the server's Elastic IP (step 2 of "Once").
+3. **Switch on:** `MSYS_NO_PATHCONV=1 aws ssm put-parameter --region eu-west-2 --type String --overwrite --name /builders-lab/prod/rag_enabled --value on`
+4. **Redeploy** (any push to main, or re-run the last pipeline). Back to the fallback: set `rag_enabled` to `off`
+   and redeploy.

@@ -10,7 +10,7 @@ Steps, each one the command the runbook (.claude/skills/corpus-document/SKILL.md
    model fixes in corpus/fixes/ make the result the same as on the machine that made them
 3. python -m system.rag.chunk
 4. python -m system.rag.embed      (Titan V2 in London; only new or changed chunks cost money)
-5. python -m system.rag.search --build   (the local index, for testing)
+5. python -m system.rag.localsearch --build   (the local index, for testing)
 6. with --load: python -m system.rag.load   (as builders_corpus_owner, deploy/rds/)
 
 Stops if any parsed tree still has open model checks: those need the check step in the runbook first.
@@ -76,7 +76,7 @@ def main(argv: list[str] | None = None) -> int:
         return 1
     run("system.rag.chunk")
     run("system.rag.embed")
-    run("system.rag.search", "--build")
+    run("system.rag.localsearch", "--build")
     if a.load:
         run("system.rag.load")
     print("done")

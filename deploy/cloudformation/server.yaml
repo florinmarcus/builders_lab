@@ -129,6 +129,16 @@ Resources:
                 Resource: "*"
                 Condition:
                   StringEquals: { "kms:ViaService": !Sub "ssm.${AWS::Region}.amazonaws.com" }
+              - Sid: RegulationsSearchEmbedLondonRerankFrankfurt   # ADR 0013: embed the question, re-rank passages
+                Effect: Allow
+                Action: bedrock:InvokeModel
+                Resource:
+                  - !Sub "arn:${AWS::Partition}:bedrock:eu-west-2::foundation-model/amazon.titan-embed-text-v2:0"
+                  - !Sub "arn:${AWS::Partition}:bedrock:eu-central-1::foundation-model/amazon.rerank-v1:0"
+              - Sid: RegulationsSearchRerankApi
+                Effect: Allow
+                Action: bedrock:Rerank
+                Resource: "*"
               - Sid: Alerts
                 Effect: Allow
                 Action: sns:Publish
@@ -176,7 +186,8 @@ Resources:
       SubnetId: !Ref Subnet
       SecurityGroupIds: [!Ref WebSg]
       IamInstanceProfile: !Ref ServerProfile
-      MetadataOptions: { HttpTokens: required, HttpEndpoint: enabled }   # IMDSv2 only
+      # IMDSv2 only; hop limit 2 so the app container can get the role's credentials (Bedrock for regulations search)
+      MetadataOptions: { HttpTokens: required, HttpEndpoint: enabled, HttpPutResponseHopLimit: 2 }
       BlockDeviceMappings:
         - DeviceName: /dev/xvda
           Ebs: { VolumeSize: 30, VolumeType: gp3, Encrypted: true, DeleteOnTermination: false }

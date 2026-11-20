@@ -1,8 +1,8 @@
 """Hybrid search over the corpus chunks (ADR 0013): BM25 keywords and Titan V2 vectors, top 50 each, merged with
 reciprocal rank fusion, then re-ranked in Frankfurt to the best few. Keyword-only works with no AWS access.
 
-    python -m system.rag.search --build                 # index every corpus/chunks/*/*.jsonl
-    python -m system.rag.search "do I need a licence to remove asbestos insulating board"
+    python -m system.rag.localsearch --build                 # index every corpus/chunks/*/*.jsonl
+    python -m system.rag.localsearch "do I need a licence to remove asbestos insulating board"
 
 The index is a single SQLite file (corpus/search.sqlite, not in git; RAG_INDEX overrides the path). search()
 follows the contract in system/rag/README.md and adds legal_weight, section_id and chunk_id to each passage.
@@ -207,7 +207,7 @@ def search(question: str, as_of_date: datetime.date | None = None, country: str 
     """Best passages first, as the server contract asks (system/rag/README.md)."""
     path = index_path()
     if not path.exists():
-        raise FileNotFoundError(f"search index not built: {path} (run python -m system.rag.search --build)")
+        raise FileNotFoundError(f"search index not built: {path} (run python -m system.rag.localsearch --build)")
     cfg = settings()
     mode = mode or cfg["mode"]
     if mode != "keyword" and load_vectors()[0] is None:

@@ -91,8 +91,8 @@ Add real-file tests for the document in `tests/test_parse_pdf.py` (or `test_pars
 ```
 python -m system.rag.chunk            # corpus/chunks/ and corpus/chunk-report.md
 python -m system.rag.embed            # only new or changed chunks cost money
-python -m system.rag.search --build
-python -m system.rag.search "a builder question about this document"
+python -m system.rag.localsearch --build
+python -m system.rag.localsearch "a builder question about this document"
 ```
 
 Or all of it, for every source with a `parser:` in `sources.yaml`: `python -m system.rag.build` (add `--load` to

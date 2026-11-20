@@ -25,6 +25,9 @@ set_env SUPPORT_CONTACT "$(param "$SSM_PREFIX/support_contact")"
 for s in POSTGRES_PASSWORD APP_DB_PASSWORD API_KEY_PEPPER MCP_PATH_SECRET; do
   set_env "$s" "$(secret "$(echo "$s" | tr 'A-Z' 'a-z')")"
 done
+# Regulations corpus (optional): read-only URL of the corpus database (deploy/rds/). Empty means fallback search.
+set_env CORPUS_READER_URL "$(param "$SSM_PREFIX/secrets/corpus_reader_url")"
+set_env RAG_ENABLED "$(param "$SSM_PREFIX/rag_enabled")"   # "on" once the server role has its Bedrock rights
 # Demo Gmail (optional): login token and addresses, stored once by Florin (system/data/mock/README.md).
 set_env BUILDER_INBOX "$(param "$SSM_PREFIX/secrets/builder_inbox")"
 set_env SIMULATOR_SENDERS "$(param "$SSM_PREFIX/secrets/simulator_senders")"

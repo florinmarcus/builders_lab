@@ -1,11 +1,11 @@
-"""Tests for keyword search (system/rag/search.py) on a small hand-made chunk set."""
+"""Tests for keyword search (system/rag/localsearch.py) on a small hand-made chunk set."""
 
 import datetime
 import json
 
 import pytest
 
-from system.rag import search as S
+from system.rag import localsearch as S
 
 
 def chunk(cid, text, path, **kw):

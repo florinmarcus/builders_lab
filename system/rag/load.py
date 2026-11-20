@@ -25,7 +25,7 @@ import sys
 from pathlib import Path
 
 from system.rag.corpus import CORPUS_DIR
-from system.rag.search import codes
+from system.rag.localsearch import codes
 
 ROOT = CORPUS_DIR.parent
 SCHEMA_VERSION = 1

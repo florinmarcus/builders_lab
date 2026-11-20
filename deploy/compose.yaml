@@ -29,6 +29,8 @@ services:
       db: { condition: service_healthy }
     environment:
       DATABASE_URL: postgresql://builders_app:${APP_DB_PASSWORD}@db:5432/builders
+      CORPUS_READER_URL: ${CORPUS_READER_URL:-}   # read-only regulations corpus (deploy/rds/)
+      RAG_ENABLED: ${RAG_ENABLED:-off}            # "on" = use it; anything else = fallback search
       MIGRATE_DATABASE_URL: postgresql://builders_owner:${POSTGRES_PASSWORD}@db:5432/builders
       HOST: 0.0.0.0
       PORT: "8000"

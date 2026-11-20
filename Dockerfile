@@ -11,7 +11,7 @@ COPY system/api ./system/api
 #   docker build --secret id=extra_ca,src=/path/ca.crt .
 RUN --mount=type=secret,id=extra_ca,required=false \
     if [ -f /run/secrets/extra_ca ]; then export PIP_CERT=/run/secrets/extra_ca; fi; \
-    pip install --no-cache-dir ".[demo,gmail]" && rm -rf /root/.cache
+    pip install --no-cache-dir ".[demo,gmail,search]" && rm -rf /root/.cache
 
 # Mock data (seed) and the corpus session's rag package, if present
 COPY system/data/mock ./system/data/mock

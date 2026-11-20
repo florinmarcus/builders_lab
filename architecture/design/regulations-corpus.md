@@ -21,7 +21,7 @@ flowchart LR
     lib -.-> img[("Images<br/>diagrams, photos")]
     tree --> chunk["Chunker<br/>chunk.py → corpus/chunks<br/>+ chunk-report.md"]
     chunk --> emb["embed.py<br/>Titan V2, London"]
-    emb --> fts[("Local index: BM25 (SQLite FTS5)<br/>+ vectors, search.py<br/>(not yet on the server)")]
+    emb --> fts[("Local index: BM25 (SQLite FTS5)<br/>+ vectors, localsearch.py<br/>(not yet on the server)")]
     chunk --> fts
     chunk -.-> pg[("Postgres + pgvector<br/>on the server")]
     img -.-> pg
@@ -130,7 +130,7 @@ erDiagram
 
 ## Search
 
-**Built 20 Nov 2026 (not wired to the server yet):** `system/rag/search.py` does the ADR 0013 hybrid search locally: Titan V2 vectors from `system/rag/embed.py` (exact cosine in memory), BM25 keywords, top 50 each, RRF (k = 60), one passage per section, Amazon Rerank in Frankfurt to 5. First tries: vectors find what keywords miss ("licence" finds CAR 2012 regulation 8). Earlier keyword-only notes: keyword search over the chunks with SQLite FTS5 (Porter stemmer, codes such as "B1" and "7(2)" in their own column, bm25), filtered by date and country. It follows the server contract. First tries on the builder questions (`research/domain/builder-questions.md`) find the right documents for most questions, but miss where the builder's word differs from the document's ("licence" vs "licensable work"). **Decided (ADR 0013):** hybrid search: Titan V2 vectors (London) and BM25 keywords, top 50 each, reciprocal rank fusion, then Amazon Rerank (Frankfurt) to 5. Evals compare the variants.
+**Built 20 Nov 2026 (not wired to the server yet):** `system/rag/localsearch.py` does the ADR 0013 hybrid search locally: Titan V2 vectors from `system/rag/embed.py` (exact cosine in memory), BM25 keywords, top 50 each, RRF (k = 60), one passage per section, Amazon Rerank in Frankfurt to 5. First tries: vectors find what keywords miss ("licence" finds CAR 2012 regulation 8). Earlier keyword-only notes: keyword search over the chunks with SQLite FTS5 (Porter stemmer, codes such as "B1" and "7(2)" in their own column, bm25), filtered by date and country. It follows the server contract. First tries on the builder questions (`research/domain/builder-questions.md`) find the right documents for most questions, but miss where the builder's word differs from the document's ("licence" vs "licensable work"). **Decided (ADR 0013):** hybrid search: Titan V2 vectors (London) and BM25 keywords, top 50 each, reciprocal rank fusion, then Amazon Rerank (Frankfurt) to 5. Evals compare the variants.
 
 
 ```mermaid
