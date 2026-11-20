@@ -221,11 +221,11 @@ def calendar_reset(cal) -> tuple[int, int]:
     """Delete our sample entries (marked marcus_sample) in the Marcus Limited calendar, then add them again."""
     cid, removed, token = calendar_id(cal), 0, None
     while True:
-        resp = cal.events().list(calendarId=cid, privateExtendedProperty="marcus_sample", pageToken=token,
-                                 showDeleted=False, maxResults=250).execute()
+        resp = cal.events().list(calendarId=cid, pageToken=token, showDeleted=False, maxResults=250).execute()
         for ev in resp.get("items", []):
-            cal.events().delete(calendarId=cid, eventId=ev["id"]).execute()
-            removed += 1
+            if "marcus_sample" in ev.get("extendedProperties", {}).get("private", {}):  # only our sample entries
+                cal.events().delete(calendarId=cid, eventId=ev["id"]).execute()
+                removed += 1
         token = resp.get("nextPageToken")
         if not token:
             break
