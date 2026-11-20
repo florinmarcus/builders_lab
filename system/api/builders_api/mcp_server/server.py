@@ -26,6 +26,7 @@ from builders_api.errors import AppError
 from builders_api.mcp_server.gateway import Gateway, mcp_path_from_env
 from builders_api.service import documents, inbox, jobs, payments, regulations
 from builders_api.service import facts as facts_service
+from builders_api.service import verify as verify_service
 from builders_api.tracing import Span, traced
 
 log = logging.getLogger(__name__)
@@ -125,6 +126,17 @@ class FactIn(BaseModel):
     detail: dict[str, Any] | None = Field(None, description="Structured detail, e.g. amount_gbp, room, material, result")
 
 
+class ClaimSource(BaseModel):
+    type: str = Field(description="email | document | regulation | calculation")
+    id: str = Field(description="email or document id; job ref for calculation; any key for regulation")
+
+
+class Claim(BaseModel):
+    id: str
+    quote: str = Field("", description="Exact words from the source (not needed for calculation)")
+    source: ClaimSource
+
+
 def build_server() -> MCPServer:
     instructions = versions.get("server_instructions", "instructions")
     server = MCPServer(
@@ -172,6 +184,11 @@ def build_server() -> MCPServer:
         return run_tool("save_facts", lambda f: facts_service.save_facts(
             f, email_id, job, [a.model_dump() for a in attachments or []],
             [x.model_dump() for x in facts or []], version))
+
+    @server.tool(description=desc("verify_answer"), annotations=READ_ONLY)
+    def verify_answer(text: str, claims: list[Claim] | None = None) -> dict[str, Any]:
+        return run_tool("verify_answer", lambda f: verify_service.verify_answer(
+            f, text, [c.model_dump() for c in claims or []]))
 
     return server
 
