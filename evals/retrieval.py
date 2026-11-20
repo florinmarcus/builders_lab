@@ -56,6 +56,8 @@ def config(schema: str, search) -> dict:
     c["schema"] = schema
     c["hybrid"] = os.environ.get("RAG_HYBRID", "0")
     c["rewrite"] = os.environ.get("EVAL_REWRITE", "0")
+    c["queries_from"] = os.environ.get("EVAL_QUERIES_FROM")
+    c["fuse"] = os.environ.get("EVAL_FUSE", "0")
     c["golden_sha"] = hashlib.sha256(GOLDEN.read_bytes()).hexdigest()[:12] if GOLDEN.exists() else None
     return c
 
@@ -147,12 +149,44 @@ def merge(results: list[tuple[list[str], list]]) -> tuple[list[str], list]:
     return cands, sorted(best.values(), key=lambda x: -(x[1] or 0))[:5]
 
 
+def fused_search(question: str, extra: list[str], search, url: str, top_k: int, rerank: bool) -> tuple[list[str], list]:
+    """E5: one search call with extra queries from the agent: candidates of the question and of each extra query,
+    fused by RRF, one per section, the first top_k re-ranked against the builder's ORIGINAL question."""
+    lists = [search.candidates(x, url=url, n=top_k) for x in [question] + extra]
+    rows = search.one_per_section(search.rrf(*lists))[:top_k]
+    cands = [M.section_key(r["source_id"], r["section_id"]) for r in rows]
+    reranked = [[cands[i], None, rows[i]["id"]] for i in range(min(5, len(rows)))]
+    if rerank and rows:
+        order = search.rerank(question, [r["embed_text"] for r in rows], 5)
+        reranked = [[cands[i], round(s, 6), rows[i]["id"]] for i, s in order]
+    return cands, reranked
+
+
+_saved_queries: dict[str, list[str]] = {}
+
+
+def saved_queries(run: str, qid: str) -> list[str] | None:
+    """Reuse the queries an earlier rewrite run wrote, so a new search setting costs no model calls."""
+    if run not in _saved_queries:
+        path = RESULTS / f"{run}-dev.jsonl"
+        _saved_queries[run] = {r["id"]: r.get("queries") for r in map(json.loads, path.read_text(encoding="utf-8").splitlines())}             if path.exists() else {}
+    return _saved_queries[run].get(qid)
+
+
 def run_one(q: dict, search, url: str, top_k: int, rerank: bool, min_score: float) -> dict:
     t0 = time.time()
     queries, rw_in, rw_out = ([q["question"]], 0, 0)
-    if os.environ.get("EVAL_REWRITE") == "1":
+    reuse = os.environ.get("EVAL_QUERIES_FROM")
+    if reuse and saved_queries(reuse, q["id"]):
+        queries = saved_queries(reuse, q["id"])
+    elif os.environ.get("EVAL_REWRITE") == "1":
         queries, rw_in, rw_out = rewrite(q["question"])
-    cands, reranked = merge([search_one(x, search, url, top_k, rerank) for x in queries])
+    if os.environ.get("EVAL_FUSE") == "1":
+        extra = [x for x in queries if x != q["question"]]
+        cands, reranked = fused_search(q["question"], extra, search, url, top_k, rerank)
+        queries = [q["question"]] + extra
+    else:
+        cands, reranked = merge([search_one(x, search, url, top_k, rerank) for x in queries])
     top, scores, chunks = apply_floor(reranked, min_score)
     return {"id": q["id"], "role": q.get("role"), "kind": q.get("kind"), "multi_rule": q.get("multi_rule", False),
             "question": q["question"], "expected": q.get("expected_sections", []), "candidates": cands,
@@ -205,7 +239,7 @@ def run(name: str, schema: str, split: str, pace: float, limit: int | None) -> d
             r["in_corpus"] = in_corpus(r["expected"], loaded)
             rows.append(r)
             chars += sum(len(x) for x in r["queries"])
-            reranks += len(r["queries"]) if cfg["rerank"] else 0
+            reranks += (1 if os.environ.get("EVAL_FUSE") == "1" else len(r["queries"])) if cfg["rerank"] else 0
             rw_tokens[0] += r["rewrite_tokens"][0]
             rw_tokens[1] += r["rewrite_tokens"][1]
             f.write(json.dumps(r, ensure_ascii=False) + "\n")
