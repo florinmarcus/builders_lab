@@ -210,3 +210,13 @@ def test_real_adb1_text_is_clean(adb1):
     S = {s["id"]: s for s in adb1["sections"]}
     assert S["para-2.6"]["text"].startswith("See Diagram 2.1d.")
     assert "protected stairway" in S["para-2.6"]["marked_terms"]
+
+
+def test_real_adb1_all_checks_settled_by_saved_fixes(adb1):
+    assert adb1["checks"] == []
+    S = adb1["sections"]
+    assert all(s.get("description_source") == "model" for s in S if s["type"] == "figure")
+    assert all(s.get("grid_source") == "model" and s.get("row_sentences") for s in S if s["type"] == "table")
+    old = next(s for s in S if s["id"] == "table-b1-until-2029-09-01")
+    new = next(s for s in S if s["id"] == "table-b1-from-2029-09-02")
+    assert old["columns"] == new["columns"]  # one family, one layout
