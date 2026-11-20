@@ -48,7 +48,7 @@ jobs:
     needs: test
     if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request' && vars.DEPLOY_ENABLED == 'true'
     runs-on: ubuntu-24.04
-    environment: production
+    # No GitHub 'environment' here: it would change the OIDC subject and break the AWS role's trust rule.
     permissions:
       id-token: write   # OIDC: short-lived AWS credentials, no stored keys
       contents: read
