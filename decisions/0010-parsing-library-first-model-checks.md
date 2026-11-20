@@ -17,6 +17,8 @@ The corpus is harvested (ADR 0008). Next is turning raw files into chunks for se
 - **Figures and photos** are saved as original images cut from the PDF, with caption, labels and a model description. No Mermaid redraw, because a wrong redraw of a safety drawing is worse than none.
 - **Links** use the documents' own marks for definitions (legislation `Term`, AD B green links), each scoped to its own document. Cross-references are found by pattern; unresolved ones are logged, not guessed.
 - **Citations** use the printed page number.
+- **Every chunk carries its filter fields**: source, `kind`, `legal_weight` (law, statutory guidance, approved code, guidance), version, dates, `applies_to`, breadcrumb, section, printed page, URL. The breadcrumb is also put in front of the text that is embedded. Cross-references are their own records (from chunk, to section, original words, resolved or not).
+- **Keyword search column from the start** (Postgres full-text, codes like "7.6.3" kept whole), so hybrid search needs no re-load. Search takes a country, England by default.
 - **Pilot:** Building Regulations 2010 (current and the four 2026 versions), AD B volume 1, HSG264 and HSG227 (for the asbestos priority assessment). Done when a checklist of counts taken from the documents passes as automatic tests.
 
 ## Options considered
@@ -30,5 +32,5 @@ The corpus is harvested (ADR 0008). Next is turning raw files into chunks for se
 
 - The parser needs a fix store and a step that runs model checks in Claude Code; both must log what they did.
 - Asbestos as the demo scenario rests on one builder's view so far (a guess to test with more builders).
-- `get_section` and new passage keys (`applies_to`, `printed_page`, `image_url`) change the contract in `system/rag/README.md`; agree them with the server session first.
+- A `country` argument, `get_section` and new passage keys (`section_id`, `applies_to`, `kind`, `legal_weight`, `printed_page`, `image_url`) change the contract in `system/rag/README.md`; agree them with the server session first.
 - Embedding model, hybrid search and re-ranking stay open until the evals.

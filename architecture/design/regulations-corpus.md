@@ -61,14 +61,16 @@ erDiagram
     FIGURE ||--o| CHUNK : "caption + description"
     VERSION ||--o{ DEFINITION : "defines"
     CHUNK }o--o{ DEFINITION : "uses (own marks)"
-    CHUNK }o--o{ SECTION : "refers to"
+    CHUNK ||--o{ REFERENCE : "cites"
+    REFERENCE }o--o| SECTION : "points to"
     SECTION ||--o{ AMENDMENT : "changed by"
     VERSION ||--o{ FIX : "model fixes"
 
-    SOURCE { string id "br2010, adb, hse-hsg264" string licence string mode }
+    SOURCE { string id "br2010, adb, hse-hsg264" string kind "legislation, approved-document, hse-guidance" string legal_weight "law, statutory-guidance, approved-code, guidance" string licence string mode }
     VERSION { string version_id date valid_from date valid_to string sha256 }
-    SECTION { string id "reg-7, B1, adb-2.5" string heading_path string printed_page string applies_to "E, W, E+W" date valid_from date valid_to text full_text }
-    CHUNK { string id string text vector embedding string kind "clause, paragraph, requirement, table-row, figure, change-note" }
+    SECTION { string id "reg-7, B1, adb-2.5" string parent_id string heading_path "breadcrumb" string printed_page string applies_to "E, W, E+W" date valid_from date valid_to text full_text }
+    CHUNK { string id string section_id "parent section" string chunk_type "clause, paragraph, requirement, table-row, figure, change-note" string source_id string kind string legal_weight string version_id date valid_from date valid_to string applies_to string heading_path "breadcrumb" string printed_page string url text text text embed_text "breadcrumb + text" vector embedding tsvector keywords "codes like 7.6.3 kept whole" }
+    REFERENCE { string from_chunk string to_section "empty if unresolved" string words "requirement B1" boolean resolved }
     DEFINITION { string term string text string scope "own document only" }
     FIGURE { string number string title string labels string description string image_path }
     TABLE { string number string grid_json }
@@ -76,7 +78,13 @@ erDiagram
     FIX { string file_sha256 string page string kind string result }
 ```
 
-Every chunk carries: source id, version, valid_from, valid_to, applies_to, section, heading path, printed page, URL, and its parent section.
+- **Two links between chunks and sections.** A section is *split into* its own chunks (one to many). A chunk *cites* other sections through REFERENCE (many to many). REFERENCE keeps the original words and whether code resolved them, so unresolved references are easy to list.
+- **Filter fields are copied onto every chunk**, so search filters without joins.
+- **The breadcrumb goes into the embedded text** (`embed_text`), for example "Building Regulations › Part B › B1 Means of warning and escape › ...". A short paragraph alone often does not say what it is about.
+- **Keyword search from the start.** Each chunk has a Postgres full-text column, so hybrid search can be added later without re-loading. Codes like "7.6.3", "B1" and "M4(1)" must stay whole.
+- **`kind` and `legal_weight`** come from `corpus/sources.yaml`. Answers must say "the law requires" (law) or "the guidance says" (approved documents are statutory guidance; HSE approved codes of practice such as L143 have special legal standing; other HSE documents are guidance).
+- **AMENDMENT** comes from the legislation's change notes: which later law changed a clause, and when.
+- **FIX** is a saved model correction, one per file and page.
 
 ## Chunk units
 
@@ -97,16 +105,17 @@ sequenceDiagram
     participant S as search_regulations (server)
     participant R as rag.search
     participant DB as Postgres
-    S->>R: question, as_of_date
-    R->>DB: chunks where applies_to includes E<br/>and valid on as_of_date
-    DB-->>R: best chunks
+    S->>R: question, as_of_date, country (default England)
+    R->>DB: chunks where applies_to includes the country<br/>and valid on as_of_date
+    DB-->>R: best chunks (vector now; keyword + re-rank after evals)
     R->>DB: definitions used, linked sections
     R-->>S: passages (text, source, section,<br/>edition_date, url)
     S-->>S: show up to 5
     Note over S,DB: Planned: get_section(section_id) returns the parent's full text<br/>("small to big"). Needs agreement with the server session.
 ```
 
-- Wales-only text is kept and marked. Search shows England by default; Wales is a filter, not a re-parse.
+- Wales-only text is kept and marked. Search takes a country, England by default; Wales is a filter, not a re-parse.
+- Each passage says its legal weight, so answers can tell law from guidance.
 - Dates come from the versions. AD B appendices B and C are split into "until 1 Sep 2029" and "from 2 Sep 2029".
 - Citations use the printed page number. The file page is internal only.
 - Embedding model, hybrid search and re-ranking are not decided yet. Evals decide them.
@@ -143,4 +152,8 @@ flowchart LR
     tool -.->|"if rag missing"| fb["fallback passages"]
 ```
 
-Contract: [system/rag/README.md](../../system/rag/README.md). Proposed additions, to agree with the server session: `get_section(section_id)`, and optional passage keys `applies_to`, `printed_page`, `image_url`.
+Contract: [system/rag/README.md](../../system/rag/README.md). Proposed additions, to agree with the server session:
+
+- `search(question, as_of_date, country="E")`: a country argument, England by default.
+- `get_section(section_id)`: the parent section's full text.
+- Optional passage keys: `section_id`, `applies_to`, `kind`, `legal_weight`, `printed_page`, `image_url`.
