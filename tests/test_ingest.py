@@ -97,3 +97,10 @@ def test_several_sources_skip_gmail_without_login(tmp_path, monkeypatch):
     monkeypatch.setenv("GMAIL_TOKEN_FILE", str(tmp_path / "token.json"))
     src = mail_sources.from_env()
     assert [m.source_id for m in src.fetch()] == ["a.eml"]
+
+
+def test_feed_uses_the_eml_folder_of_several_sources(tmp_path, monkeypatch):
+    from builders_api.admin import feed
+    monkeypatch.setenv("MAIL_SOURCE", f"eml:{tmp_path},gmail")
+    assert feed("today", []) == ["e09", "e15", "e19"]
+    assert sorted(p.name for p in tmp_path.glob("*.eml")) == ["e09.eml", "e15.eml", "e19.eml"]

@@ -64,10 +64,10 @@ def feed(group: str, ids: list[str]) -> list[str]:
 
     from builders_api.config import mock_dir
 
-    setting = os.environ.get("MAIL_SOURCE", "")
-    if not setting.startswith("eml:"):
-        raise SystemExit("MAIL_SOURCE must be eml:<folder> to use the demo feed.")
-    folder = Path(setting[4:])
+    folders = [s.strip()[4:] for s in os.environ.get("MAIL_SOURCE", "").split(",") if s.strip().startswith("eml:")]
+    if not folders:
+        raise SystemExit("MAIL_SOURCE must include eml:<folder> to use the demo feed.")
+    folder = Path(folders[0])
     folder.mkdir(parents=True, exist_ok=True)
     sys.path.insert(0, str(mock_dir()))
     from generate import build_email  # noqa: PLC0415
