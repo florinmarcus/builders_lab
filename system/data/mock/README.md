@@ -125,6 +125,7 @@ Scenario data: `scenario.py`. Document text matches `db_seed.sql`. Output is not
    python system/data/mock/gmail_demo.py auth --client-secret <path to the downloaded JSON>
    python system/data/mock/gmail_demo.py load
    python system/data/mock/gmail_demo.py status
+   python system/data/mock/gmail_demo.py calendar     # fills the "Marcus Limited" calendar with the planned work
    ```
    The browser opens once; Google warns the app is unverified (it is yours, in testing): continue.
    The login is saved in `~/.config/builders-lab/gmail-token.json`. Testing-mode logins can expire after 7 days.
@@ -155,8 +156,9 @@ dc logs -f simulator                           # watch it
 ```
 python system/data/mock/gmail_demo.py reset        # clean start: trash demo emails and demo drafts, reload the past
 python system/data/mock/gmail_demo.py today        # the three morning emails arrive (or: today e09)
+python system/data/mock/gmail_demo.py calendar     # put the work calendar back to its planned state
 python system/data/mock/gmail_demo.py simulate     # leave running; send from your second address to <gmail>+council@...
 ```
 
-What the tool touches: only emails labelled `marcus-limited`, drafts addressed only to `*.example.com`, and emails from
+What the tool touches: only the "Marcus Limited" calendar's sample entries, emails labelled `marcus-limited`, drafts addressed only to `*.example.com`, and emails from
 `SIMULATOR_SENDERS` to your `+persona` addresses. Everything else in your inbox is left alone.

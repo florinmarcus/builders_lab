@@ -15,6 +15,7 @@ Commands:
   simulate          watch for emails from SIMULATOR_SENDERS to BUILDER_INBOX+<persona>, re-import them
                     as that persona, trash the original. Ctrl+C to stop.
   status            count demo emails and drafts
+  calendar          reset the "Marcus Limited" calendar: remove our sample entries, add them again
 """
 
 from __future__ import annotations
@@ -37,10 +38,11 @@ from pathlib import Path
 HERE = Path(__file__).parent
 sys.path.insert(0, str(HERE))
 from generate import build_email  # noqa: E402
-from scenario import EMAILS, FIRM, PERSONAS  # noqa: E402
+from scenario import CALENDAR, EMAILS, FIRM, PERSONAS  # noqa: E402
 
 LABEL = "marcus-limited"
-SCOPES = ["https://www.googleapis.com/auth/gmail.modify"]
+SCOPES = ["https://www.googleapis.com/auth/gmail.modify", "https://www.googleapis.com/auth/calendar"]
+CALENDAR_NAME = "Marcus Limited"
 TOKEN_FILE = Path(os.environ.get("GMAIL_TOKEN_FILE", Path.home() / ".config" / "builders-lab" / "gmail-token.json"))
 DEMO_DOMAIN = "example.com"
 
@@ -48,10 +50,21 @@ DEMO_DOMAIN = "example.com"
 # ------------------------------------------------------------------ Gmail access
 
 
+def calendar_service():
+    from googleapiclient.discovery import build
+
+    return build("calendar", "v3", credentials=_creds(), cache_discovery=False)
+
+
 def gmail_service():
+    from googleapiclient.discovery import build
+
+    return build("gmail", "v1", credentials=_creds(), cache_discovery=False)
+
+
+def _creds():
     from google.auth.transport.requests import Request
     from google.oauth2.credentials import Credentials
-    from googleapiclient.discovery import build
 
     if not TOKEN_FILE.exists():
         raise SystemExit(f"No Gmail login yet. Run: python {Path(__file__).name} auth --client-secret <file>")
@@ -62,7 +75,7 @@ def gmail_service():
             TOKEN_FILE.write_text(creds.to_json())
         except OSError:
             pass  # read-only on the server: the refreshed token lives in memory
-    return build("gmail", "v1", credentials=creds, cache_discovery=False)
+    return creds
 
 
 def auth(client_secret: Path) -> None:
@@ -178,6 +191,50 @@ def reset(svc, today: dt.date) -> None:
     print(f"loaded {load_emails(svc, history(), today)} past emails")
 
 
+# ------------------------------------------------------------------ work calendar
+
+
+def calendar_id(cal) -> str:
+    """The "Marcus Limited" calendar in the user's account (created once). Their other calendars are not touched."""
+    token = None
+    while True:
+        resp = cal.calendarList().list(pageToken=token).execute()
+        for c in resp.get("items", []):
+            if c.get("summary") == CALENDAR_NAME:
+                return c["id"]
+        token = resp.get("nextPageToken")
+        if not token:
+            break
+    return cal.calendars().insert(body={"summary": CALENDAR_NAME, "timeZone": "Europe/London"}).execute()["id"]
+
+
+def event_body(e: dict) -> dict:
+    return {
+        "summary": e["title"],
+        "description": e["detail"],
+        "start": {"dateTime": f"{e['date']}T{e['start']}:00", "timeZone": "Europe/London"},
+        "end": {"dateTime": f"{e['date']}T{e['end']}:00", "timeZone": "Europe/London"},
+        "extendedProperties": {"private": {"marcus_sample": e["id"]}},
+    }
+
+
+def calendar_reset(cal) -> tuple[int, int]:
+    """Delete our sample entries (marked marcus_sample) in the Marcus Limited calendar, then add them again."""
+    cid, removed, token = calendar_id(cal), 0, None
+    while True:
+        resp = cal.events().list(calendarId=cid, privateExtendedProperty="marcus_sample", pageToken=token,
+                                 showDeleted=False, maxResults=250).execute()
+        for ev in resp.get("items", []):
+            cal.events().delete(calendarId=cid, eventId=ev["id"]).execute()
+            removed += 1
+        token = resp.get("nextPageToken")
+        if not token:
+            break
+    for e in CALENDAR:
+        cal.events().insert(calendarId=cid, body=event_body(e)).execute()
+    return removed, len(CALENDAR)
+
+
 # ------------------------------------------------------------------ live simulator
 
 
@@ -267,6 +324,7 @@ def main(argv: list[str] | None = None) -> None:
     s = sub.add_parser("simulate")
     s.add_argument("--every", type=int, default=10)
     sub.add_parser("status")
+    sub.add_parser("calendar")
     args = p.parse_args(argv)
     today = dt.date.today()
 
@@ -281,6 +339,9 @@ def main(argv: list[str] | None = None) -> None:
         reset(svc, today)
     elif args.cmd == "simulate":
         simulate(svc, args.every)
+    elif args.cmd == "calendar":
+        removed, added = calendar_reset(calendar_service())
+        print(f"calendar \"{CALENDAR_NAME}\": removed {removed} sample entries, added {added}")
     elif args.cmd == "status":
         print(f"demo emails: {len(_search(svc, f'label:{LABEL}'))}, demo drafts: {len(demo_drafts(svc))}")
 

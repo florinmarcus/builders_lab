@@ -152,3 +152,11 @@ def test_simulator_rewrites_only_allowed_senders(svc):
     parsed = email.message_from_bytes(new["raw"], policy=policy.default)
     assert "Hollowell Council Repairs" in parsed["From"] and parsed["Subject"] == "Finish date"
     assert next(parsed.iter_attachments()).get_filename() == "note.pdf"
+
+
+def test_calendar_entries_are_marked_and_timed():
+    from scenario import CALENDAR
+    bodies = [g.event_body(e) for e in CALENDAR]
+    assert all(b["extendedProperties"]["private"]["marcus_sample"] for b in bodies)
+    assert all(b["start"]["timeZone"] == "Europe/London" and b["start"]["dateTime"] < b["end"]["dateTime"] for b in bodies)
+    assert any("payment notice" in b["summary"].lower() for b in bodies)

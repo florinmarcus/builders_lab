@@ -172,3 +172,25 @@ EMAILS = [
     {"id": "e20", "from": "buildmart", "when": "2026-11-10T07:55:00+00:00", "subject": "Order confirmation BM-77812",
      "body": "Thank you for your order: 40 x plasterboard 12.5mm, 10 x jointing compound. Delivery Thursday."},
 ]
+
+# The firm's work calendar ("Marcus Limited"): planned work and deadlines. Times are UK local (GMT in November).
+CALENDAR = [
+    {"id": "c01", "date": "2026-11-23", "start": "09:00", "end": "10:00", "title": "Send quote: kitchen extension, Mr Ionescu, 14 Hawthorn Road",
+     "detail": "Quote promised after the site visit on 19 Nov."},
+    {"id": "c02", "date": "2026-11-24", "start": "10:00", "end": "11:00", "title": "Elm Avenue: electrical certificate due from Spark Right",
+     "detail": "Promised 'next week' in their email of 17 Nov."},
+    {"id": "c03", "date": "2026-11-24", "start": "18:00", "end": "21:00", "title": "Kingsway Unit 4: noisy work (after hours only)",
+     "detail": "Facilities manager's rule: noisy work before 08:00 or after 18:00."},
+    {"id": "c04", "date": "2026-11-25", "start": "08:00", "end": "16:00", "title": "Flat 12 Riverside: asbestos removal by council contractor",
+     "detail": "Moved from 19 Nov (council asbestos team, 18 Nov). Do not work in the kitchen before then."},
+    {"id": "c05", "date": "2026-11-26", "start": "08:00", "end": "17:00", "title": "Flat 12 Riverside: kitchen strip-out and refit",
+     "detail": "After the asbestos removal."},
+    {"id": "c06", "date": "2026-11-27", "start": "17:00", "end": "17:30", "title": "Flat 12 Riverside: council target completion",
+     "detail": "Works order WO-2026-4471."},
+    {"id": "c07", "date": "2026-11-28", "start": "09:00", "end": "09:30", "title": "Kingsway Unit 4: valuation date (main contract)",
+     "detail": "Interim valuation on the 28th of each month."},
+    {"id": "c08", "date": "2026-11-30", "start": "09:00", "end": "09:30", "title": "Kingsway Unit 4: payment notice to Fenwick Drylining",
+     "detail": "Within 5 days of the 25 Nov due date."},
+    {"id": "c09", "date": "2026-12-09", "start": "08:00", "end": "17:00", "title": "Elm Avenue: snagging and final photos", "detail": ""},
+    {"id": "c10", "date": "2026-12-11", "start": "10:00", "end": "12:00", "title": "Elm Avenue: handover to Victoria Hartley", "detail": ""},
+]
