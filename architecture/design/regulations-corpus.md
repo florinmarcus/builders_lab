@@ -128,7 +128,7 @@ erDiagram
 
 ## Search
 
-**Built 20 Nov 2026 (not wired to the server yet):** `system/rag/search.py` is keyword search over the chunks with SQLite FTS5 (Porter stemmer, codes such as "B1" and "7(2)" in their own column, bm25), filtered by date and country. It follows the server contract. First tries on the builder questions (`research/domain/builder-questions.md`) find the right documents for most questions, but miss where the builder's word differs from the document's ("licence" vs "licensable work"). Keyword only, vectors, or both: decide with evals, then record in an ADR.
+**Built 20 Nov 2026 (not wired to the server yet):** `system/rag/search.py` is keyword search over the chunks with SQLite FTS5 (Porter stemmer, codes such as "B1" and "7(2)" in their own column, bm25), filtered by date and country. It follows the server contract. First tries on the builder questions (`research/domain/builder-questions.md`) find the right documents for most questions, but miss where the builder's word differs from the document's ("licence" vs "licensable work"). **Decided (ADR 0013):** hybrid search: Titan V2 vectors (London) and BM25 keywords, top 50 each, reciprocal rank fusion, then Amazon Rerank (Frankfurt) to 5. Evals compare the variants.
 
 
 ```mermaid
@@ -138,7 +138,7 @@ sequenceDiagram
     participant DB as Postgres
     S->>R: question, as_of_date, country (default England)
     R->>DB: chunks where applies_to includes the country<br/>and valid on as_of_date
-    DB-->>R: best chunks (vector now; keyword + re-rank after evals)
+    DB-->>R: vector top 50 + BM25 top 50, merged (RRF)<br/>then re-rank to 5 (ADR 0013)
     R->>DB: definitions used, linked sections
     R-->>S: passages (text, source, section,<br/>edition_date, url)
     S-->>S: show up to 5
