@@ -16,7 +16,12 @@ Rules: `../../shared/rules.md` (read once per conversation). Steps in order; nev
    {"contract": "contracts.v4", "question": "Show every change the client approved on Elm Avenue", "kind": "variations", "job": "ELM-22"}
    ```
 
-   It returns Findings (claims with exact quotes and sources, plus gaps). No sub-agents: follow `../../agents/<name>.md` yourself.
+   It returns Findings (claims with exact quotes and sources, plus gaps).
+   **How to start it, in this order:**
+   - The plugin's agent (`builders:<name>`) if it is available (Cowork, Claude Code).
+   - Otherwise, if you can start a general sub-agent: start one **on Haiku**, with a prompt made of the full text of `../../agents/<name>.md` (after its front matter) followed by the SpecialistTask JSON. It has the same tools as you; it must use only the tools that file lists.
+   - Otherwise (no sub-agents at all): follow `../../agents/<name>.md` yourself.
+   The same applies to the `translator` in steps 2 and 5.
 5. **Draft and verify.** Write the answer in English from the Findings only, in chunks (see `references/answer-format.md`). Romanian user: `translator` with direction "out". Then call `verify_answer` with the final text and the claims:
 
    ```json

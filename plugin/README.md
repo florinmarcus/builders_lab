@@ -38,7 +38,7 @@ sub-agent (`agents/`, on Haiku), draft from its Findings JSON, check the draft w
 
 ## Claude app (plugin)
 
-Notes from testing in the app (20 Nov 2026): the specialist agents run only in Cowork and Claude Code; in chat, Claude follows the builders-workflow skill and does the specialist steps itself (verify_answer still checks every answer). The plugin is on in all chats, so every skill says it is for Marcus Limited work only; turn the plugin off for personal use if needed.
+Notes from testing in the app (20 Nov 2026): the specialist agents run only in Cowork and Claude Code; in chat, the builders-workflow skill starts a general sub-agent on Haiku with the specialist's instructions (from `agents/<name>.md`) when sub-agents are available, and otherwise does the steps itself (verify_answer still checks every answer). The plugin is on in all chats, so every skill says it is for Marcus Limited work only; turn the plugin off for personal use if needed.
 
 
 1. `./build-plugin-zip.sh` makes `dist/builders-plugin-app.zip` (skills, agents, commands, rules; no connectors file, because the app already has BuildersMCP, Gmail and Calendar connected).

@@ -152,7 +152,7 @@ flowchart LR
 |---|---|---|
 | Claude Code (plugin) | skill + Haiku sub-agents | yes |
 | Claude desktop / Cowork (plugin) | skill + sub-agents (Haiku to check) | yes |
-| Claude app phone / web | project instructions; main agent does the specialist steps | yes |
+| Claude app chat (phone / web) | plugin skills; specialists as general sub-agents on Haiku given the agent file's text, else the main agent does the steps | yes |
 
 ## 8. Not built yet
 
