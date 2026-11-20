@@ -85,6 +85,7 @@ flowchart LR
 | Design | [Agent contracts: JSON in, JSON out, verify step](design/agent-contracts.md) |
 | Design | [Regulations corpus and search](design/regulations-corpus.md) (corpus session) |
 | Sequences | [Server flows](sequences/server.md) |
+| Sequences | [How email reaches the assistant](sequences/email.md) |
 | Plugin | [Builders plugin: skills + connectors](../plugin/README.md) (ADR 0011) |
 | Decisions | [ADRs](../decisions/) |
 | Gaps | [Parking lot](../requirements/parking-lot.md) |
