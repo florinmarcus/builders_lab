@@ -1,69 +1,31 @@
 ---
 name: builders-workflow
-description: Use for EVERY question about the builder's jobs, emails, documents, payments, paperwork or regulations. Runs the fixed answer workflow (router, specialist, draft, verify, reply) from the agent contracts so every answer is grounded and checked.
+description: Use for EVERY question about the firm's jobs, emails, documents, payments, paperwork, delays or regulations, in Romanian or English. Loads the firm's live context, routes to a specialist, drafts, verifies with plain-code checks and replies in short spoken chunks.
 ---
 
 # Builders answer workflow (contracts.v4)
 
-Read `../../shared/rules.md` first. Follow these steps in order for every answer. Do not skip step 4.
+Rules: `../../shared/rules.md` (read once per conversation). Steps in order; never skip step 5.
 
-## 0. Language in (translator)
+1. **Firm context (once per conversation).** Call `get_firm_profile`. It tells you our people and addresses, the jobs (refs, clients, contacts with emails, contracts) and what is due in the next 14 days. Use job refs from it in every other call.
+2. **Language in.** Romanian or English? For Romanian, start the `translator` agent with `{"contract": "contracts.v4", "direction": "in", "text": "<user's words>"}` and use its `english_question`. If it returns a `clarifying_question`, ask it and stop. (No sub-agents: call `lookup_terms` yourself.)
+3. **Route** with `references/routing.md`: pick the kind and the specialist. Refuse decisions about workers or tenants.
+4. **Specialist.** Start it with a SpecialistTask:
 
-Start the `translator` sub-agent with `{"contract": "contracts.v4", "direction": "in", "text": "<user's words>"}`.
-It returns a TranslatedQuestion: `language`, `english_question`, `terms` (with `mismatch` notes) and maybe a `clarifying_question`.
-If there is a clarifying question, ask it (in the user's language) and stop. Otherwise use `english_question` from here on: everything sent to tools and specialists is English.
-No sub-agents here? Call `lookup_terms` yourself and write the English question.
+   ```json
+   {"contract": "contracts.v4", "question": "Show every change the client approved on Elm Avenue", "kind": "variations", "job": "ELM-22"}
+   ```
 
-## 1. Route
+   It returns Findings (claims with exact quotes and sources, plus gaps). No sub-agents: follow `../../agents/<name>.md` yourself.
+5. **Draft and verify.** Write the answer in English from the Findings only, in chunks (see `references/answer-format.md`). Romanian user: `translator` with direction "out". Then call `verify_answer` with the final text and the claims:
 
-Decide the `kind`:
+   ```json
+   {"text": "Victoria approved underfloor heating (£2,400 + VAT).",
+    "claims": [{"id": "c1", "quote": "Yes, go ahead with the underfloor heating in the kitchen.", "source": {"type": "document", "id": "<attachment id>"}}]}
+   ```
 
-| The builder asks about | kind | specialist sub-agent |
-|---|---|---|
-| new emails, what came in, filing | inbox | `inbox-clerk` |
-| approved changes, variations, final account | variations | `variations` |
-| payment notices, pay less, applications, final date | payments | `payments` |
-| what's missing, handover, subcontractor papers, insurance | paperwork | `paperwork` |
-| building regulations, building control, asbestos rules, CDM, the law | regulations | `regulations` |
-| running late, delays, extensions, damages, "what have I sent", who to tell | delays | `delays` |
+   Fix what it flags; at most two rounds. Payment dates: source `{"type": "calculation", "id": "<job ref>"}`.
+6. **Calendar (with a yes).** Deadlines or actions? Offer to add them to the "Marcus Limited" calendar; create or move entries only after the user agrees.
+7. **Reply, speak first.** Chunk 1 only, then "Say next for details, or sources for where it came from" in the user's language; offer the English version to Romanian users. Drafts for others: in English, addressed to the right person (email from the sources or the profile). Never send.
 
-Refuse plainly (no specialist) if asked to rank, score or monitor workers or tenants, or to decide about a person. If asked to send, pay or sign: you will prepare a draft only.
-
-## 2. Ask the specialist
-
-Start the specialist sub-agent with a SpecialistTask (JSON):
-
-```json
-{"contract": "contracts.v4", "question": "Show every change the client approved on Elm Avenue", "kind": "variations", "job": "ELM-22"}
-```
-
-It returns Findings JSON: `claims` (each with text, status, quote, source, values), `gaps`.
-If sub-agents are not available here, do the specialist's steps yourself (see `agents/<name>.md`) and build the same Findings.
-
-## 3. Draft (English), then language out
-
-Write the full answer in English from the Findings only. If the user's language is Romanian, then start the `translator` with a TranslationOut (`direction` "out", `language` "ro", the English `chunks`, and `keep_english`: every quote and official term) and use the TranslatedAnswer chunks as the text to verify and show. Chunks: (1) the answer in two or three short sentences; (2) details; (3) sources (email or document, sender, date; regulations with section and edition date). Every £ amount and date must come from a claim. In Romanian, keep UK terms in English in brackets and quotes in English with a translation; where `lookup_terms` said `mismatch`, explain the difference.
-
-## 4. Verify
-
-Call `verify_answer` with:
-
-```json
-{"text": "Victoria approved underfloor heating (£2,400 + VAT).",
- "claims": [{"id": "c1", "quote": "Yes, go ahead with the underfloor heating in the kitchen.", "source": {"type": "document", "id": "<attachment id>"}}]}
-```
-
-Schemas: `../../shared/contracts.schema.json` (SpecialistTask, Findings, Answer, Verdict).
-
-Use `{"type": "calculation", "id": "<job ref>"}` for dates from `get_payment_dates`.
-If `pass` is false: fix only the flagged parts (remove or correct the claim, add the notice, reword) and verify again. At most two rounds. If it still fails, tell the builder what could not be confirmed.
-Warnings (personal data): keep the detail only if the builder needs it.
-
-## 4b. Calendar (with the user's yes)
-
-If the answer has actions or deadlines (send a notice by a date, a quote due, a payment notice, an inspection, a moved site day), offer: "Shall I add this to your calendar?" Only after a yes, create or move the entry in the user's "Marcus Limited" calendar with the Google Calendar connector (title, date, one line of detail with the source). To see what is planned on a job, read that calendar first.
-
-## 5. Reply (speak first)
-
-Give only chunk 1, then: "Say *next* for details, or *sources* for where it came from" (in the user's language). Give the next chunk each time they ask. In Romanian, also offer the English version.
-Offer the next step as a draft (email, invoice, notice), written in English for the recipient, with a short summary in the user's language. Never send.
+Schemas: `../../shared/contracts.schema.json`.

@@ -35,7 +35,7 @@ flowchart TB
 
 | Agent | Triggered by | Actions (tools) | Writes data? | Returns |
 |---|---|---|---|---|
-| **Main agent** (`builders-workflow`) | every question | route; start one specialist; draft; `verify_answer`; reply | no | answer text |
+| **Main agent** (`builders-workflow`) | every question | `get_firm_profile` once per conversation; route; start one specialist; draft; `verify_answer`; reply | no | answer text |
 | **translator** | every Romanian turn (start and end) | `lookup_terms` | no | TranslatedQuestion (in) / TranslatedAnswer (out) |
 | **inbox-clerk** | "check my emails", schedule | `sync_inbox`, `save_facts`, `list_jobs` | yes: job, document types, facts (server-checked) | Findings: one claim per new email |
 | **variations** | approved changes, final account | `get_job`, `search_job_documents` | no | Findings: approved / not_approved claims |
@@ -135,7 +135,18 @@ sequenceDiagram
 | Cost | quotas per firm; no model on our server | code |
 | Every call logged | trace row per tool call with tool version | code |
 
-## 6. Surfaces
+## 6. Context layers
+
+```mermaid
+flowchart LR
+    pi["Project instructions<br/>~8 lines, always"] --> main["Main agent"]
+    prof["get_firm_profile<br/>live, once per chat"] --> main
+    sk["Skills + references<br/>on demand"] --> main
+    main --> sa["Haiku specialists<br/>task JSON + own tools only"]
+    main --> va["verify_answer<br/>plain code, every answer"]
+```
+
+## 7. Surfaces
 
 | Surface | Router + specialists | verify_answer |
 |---|---|---|
@@ -143,7 +154,7 @@ sequenceDiagram
 | Claude desktop / Cowork (plugin) | skill + sub-agents (Haiku to check) | yes |
 | Claude app phone / web | project instructions; main agent does the specialist steps | yes |
 
-## 7. Not built yet
+## 8. Not built yet
 
 - Hard tool limits per specialist (`tools:` lists): parking lot S51.
 - Evals of the whole flow with an LLM judge in Claude Code: N9.

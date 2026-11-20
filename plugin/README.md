@@ -19,15 +19,32 @@ export BUILDERS_API_KEY=bl_...
 In the Claude app (web, desktop, phone), add the connector by hand instead: Settings, Connectors, Add custom connector,
 Authentication "No sign-in", header `Authorization: Bearer bl_...` (see `deploy/README.md`).
 
+## Context layers
+
+| Layer | Where | Loaded |
+|---|---|---|
+| Who we are, language, "use the workflow" | project instructions (`claude-app/PROJECT_INSTRUCTIONS.md`, about 8 lines) | always |
+| Firm: people, jobs, contacts, what is due | `get_firm_profile` tool (live from the server) | once per conversation |
+| How to do each job | skills (`skills/*/SKILL.md`), with `references/` opened only when needed | on demand |
+| Specialist work | agents on Haiku (`agents/`), given only a task JSON and their tools | per question |
+| Checks | `verify_answer` on the server (plain code) | every answer |
+| Quick actions | commands `/emails`, `/delay`, `/missing`, `/plati`, `/changes` | when typed |
+
 ## How an answer is made (contracts.v4)
 
 The `builders-workflow` skill runs every answer through fixed steps: route the question, hand it to a specialist
 sub-agent (`agents/`, on Haiku), draft from its Findings JSON, check the draft with `verify_answer` on our server
 (plain code), fix, then reply. Design: `architecture/design/agents.md`; JSON: `architecture/design/agent-contracts.md`.
 
-## Claude app on phone or web (no sub-agents)
+## Claude app (plugin)
 
-1. Create a project "Marcus Limited"; paste `claude-app/PROJECT_INSTRUCTIONS.md` as its instructions and upload `claude-app/FIRM_CONTEXT.md` to its knowledge.
+1. `./build-plugin-zip.sh` makes `dist/builders-plugin-app.zip` (skills, agents, commands, rules; no connectors file, because the app already has BuildersMCP, Gmail and Calendar connected).
+2. In the Claude app: Customize, Plugins, upload the ZIP (or ask Claude in the app to install it).
+3. Project instructions: `claude-app/PROJECT_INSTRUCTIONS.md` (short).
+
+## Claude app on phone or web without the plugin
+
+1. Create a project "Marcus Limited"; paste `claude-app/PROJECT_INSTRUCTIONS_NO_PLUGIN.md` as its instructions (the firm context comes live from `get_firm_profile`).
 2. Optional: run `./build-skill-zips.sh` and upload the ZIPs in Customize, Skills, Upload a skill.
 3. Switch the BuildersMCP connector on in that project's chats only.
 

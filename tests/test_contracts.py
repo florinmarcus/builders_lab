@@ -12,7 +12,8 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def _json_blocks(path: Path) -> list[dict]:
-    return [json.loads(b) for b in re.findall(r"```json\n(.*?)\n```", path.read_text(), flags=re.S)]
+    blocks = re.findall(r"```json\n(.*?)\n[ \t]*```", path.read_text(), flags=re.S)  # also indented blocks
+    return [json.loads(b) for b in blocks]
 
 
 def test_schema_file_is_current():
