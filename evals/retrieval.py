@@ -71,25 +71,45 @@ def in_corpus(expected: list[str], loaded: set[str]) -> bool:
     return bool(expected) and all(e.split(":")[0] in loaded for e in expected)
 
 
+def apply_floor(reranked: list, floor: float) -> tuple[list, list, list]:
+    """The passages the server would return: re-ranked top 5 minus those under the relevance floor."""
+    kept = [r for r in reranked if r[1] is None or r[1] >= floor]
+    return [r[0] for r in kept], [r[1] for r in kept], [r[2] for r in kept]
+
+
+def rescore(name: str, split: str, floor: float) -> dict:
+    """Recompute top 5 and metrics for another relevance floor from saved rows (no new calls)."""
+    rows = [json.loads(l) for l in (RESULTS / f"{name}-{split}.jsonl").read_text(encoding="utf-8").splitlines() if l.strip()]
+    for r in rows:
+        r["top5"], r["scores"], r["top5_chunks"] = apply_floor(r["reranked"], floor)
+    empty = sum(1 for r in rows if not r["top5"])
+    by_kind_empty: dict[str, list] = {}
+    for r in rows:
+        by_kind_empty.setdefault(r.get("kind", "?"), []).append(not r["top5"])
+    return {"run": name, "floor": floor, "empty_top5": empty, "rows": len(rows),
+            "empty_by_kind": {k: round(sum(v) / len(v), 3) for k, v in sorted(by_kind_empty.items())},
+            **M.summarise(rows), "in_corpus": M.summarise([r for r in rows if r.get("in_corpus")])}
+
+
 def run_one(q: dict, search, url: str, top_k: int, rerank: bool, min_score: float) -> dict:
     t0 = time.time()
     rows = search.candidates(q["question"], url=url, n=top_k)
     cands = [M.section_key(r["source_id"], r["section_id"]) for r in rows]
-    top, scores = cands[:5], []
+    reranked = [[cands[i], None, rows[i]["id"]] for i in range(min(5, len(rows)))]
     if rerank and rows:
         order = search.rerank(q["question"], [r["embed_text"] for r in rows], 5)
-        kept = [(i, s) for i, s in order if s >= min_score]
-        top, scores = [cands[i] for i, _ in kept], [round(s, 4) for _, s in kept]
+        reranked = [[cands[i], round(s, 6), rows[i]["id"]] for i, s in order]
+    top, scores, chunks = apply_floor(reranked, min_score)
     return {"id": q["id"], "role": q.get("role"), "kind": q.get("kind"), "multi_rule": q.get("multi_rule", False),
             "question": q["question"], "expected": q.get("expected_sections", []), "candidates": cands,
-            "top5": top, "scores": scores, "latency_ms": int((time.time() - t0) * 1000)}
+            "reranked": reranked, "top5": top, "top5_chunks": chunks, "scores": scores, "latency_ms": int((time.time() - t0) * 1000)}
 
 
 def log_cost(run: str, n_questions: int, chars: int, reranks: int) -> float:
     titan = chars / 4 / 1000 * TITAN_USD_PER_1K
     rr = reranks * RERANK_USD_PER_QUERY
     with open(RESULTS / "cost.jsonl", "a", encoding="utf-8") as f:
-        now = datetime.datetime.utcnow().isoformat(timespec="seconds") + "Z"
+        now = datetime.datetime.now(datetime.UTC).replace(tzinfo=None).isoformat(timespec="seconds") + "Z"
         f.write(json.dumps({"time": now, "run": run, "model": "amazon.titan-embed-text-v2:0", "unit": "input tokens (est.)",
                             "in": chars // 4, "out": 0, "cost_usd": round(titan, 4)}) + "\n")
         f.write(json.dumps({"time": now, "run": run, "model": "amazon.rerank-v1:0", "unit": "rerank queries",
@@ -138,7 +158,7 @@ def run(name: str, schema: str, split: str, pace: float, limit: int | None) -> d
                 print(f"  {i}/{len(qs)}", flush=True)
             time.sleep(pace)
     cost = log_cost(f"{name}-{split}", len(qs), chars, reranks)
-    summary = {"run": name, "split": split, "time": datetime.datetime.utcnow().isoformat(timespec="seconds") + "Z",
+    summary = {"run": name, "split": split, "time": datetime.datetime.now(datetime.UTC).replace(tzinfo=None).isoformat(timespec="seconds") + "Z",
                "config": cfg, "cost_usd_this_call": round(cost, 4), **M.summarise(rows),
                "in_corpus": M.summarise([r for r in rows if r.get("in_corpus")])}
     (RESULTS / f"{name}-{split}.summary.json").write_text(json.dumps(summary, indent=1), encoding="utf-8")
@@ -166,7 +186,12 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--pace", type=float, default=3.2, help="seconds between questions (re-rank quota)")
     ap.add_argument("--limit", type=int)
     ap.add_argument("--compare", nargs=2)
+    ap.add_argument("--rescore", help="run name: recompute metrics for --floor from saved rows")
+    ap.add_argument("--floor", type=float, default=0.05)
     a = ap.parse_args(argv)
+    if a.rescore:
+        print(json.dumps(rescore(a.rescore, a.split, a.floor), indent=1))
+        return 0
     if a.compare:
         print(json.dumps(compare(*a.compare, split=a.split), indent=1))
         return 0

@@ -55,3 +55,12 @@ def test_in_corpus_needs_every_expected_source_loaded():
     assert R.in_corpus(["car2012:regulation-8", "hse-l143:para-1"], {"car2012", "hse-l143"})
     assert not R.in_corpus(["car2012:regulation-8", "hse-l143:para-1"], {"car2012"})
     assert not R.in_corpus([], {"car2012"})
+
+
+def test_floor_keeps_rerank_order_and_drops_low_scores():
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "evals"))
+    import retrieval as R
+    rr = [["a:1", 0.9, "c1"], ["a:2", 0.01, "c2"], ["a:3", 0.002, "c3"]]
+    assert R.apply_floor(rr, 0.05) == (["a:1"], [0.9], ["c1"])
+    assert R.apply_floor(rr, 0.0)[0] == ["a:1", "a:2", "a:3"]
+    assert R.apply_floor([["a:1", None, "c1"]], 0.05)[0] == ["a:1"]  # no re-rank: nothing to drop
