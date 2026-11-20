@@ -24,8 +24,8 @@ set_env APP_IMAGE "builders-api:$short"
 [ -d "$BASE/gmail-token.json" ] && rmdir "$BASE/gmail-token.json"   # left by an older deploy
 if [ ! -f "$BASE/gmail-token.json" ]; then
   printf '{}' > "$BASE/gmail-token.json"
-  chown root:10001 "$BASE/gmail-token.json" 2>/dev/null || true
-  chmod 640 "$BASE/gmail-token.json"
+  chown 10001 "$BASE/gmail-token.json" 2>/dev/null || true  # the app user (uid 10001) must read it
+  chmod 600 "$BASE/gmail-token.json"
 fi
 
 dc up -d db

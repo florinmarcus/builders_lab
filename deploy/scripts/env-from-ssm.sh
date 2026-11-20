@@ -31,7 +31,7 @@ set_env SIMULATOR_SENDERS "$(param "$SSM_PREFIX/secrets/simulator_senders")"
 token=$(param "$SSM_PREFIX/secrets/gmail_token")
 [ -n "$token" ] && [ "$token" != "None" ] || token="{}"
 printf '%s' "$token" > "$BASE/gmail-token.json"
-chown root:10001 "$BASE/gmail-token.json" 2>/dev/null || true
-chmod 640 "$BASE/gmail-token.json"
+chown 10001 "$BASE/gmail-token.json" 2>/dev/null || true  # the app user (uid 10001) must read it
+chmod 600 "$BASE/gmail-token.json"
 [ -n "$(get_env DOMAIN)" ] || die "no domain in $SSM_PREFIX/domain"
 log "wrote $ENV_FILE"
