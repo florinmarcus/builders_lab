@@ -49,3 +49,13 @@ def test_scanner_404s_do_not_trigger_lockdown():
 def test_keys_are_random_and_prefixed():
     (k1, p1), (k2, p2) = new_key(), new_key()
     assert k1 != k2 and k1.startswith(f"bl_{p1}_") and len(k1) > 40
+
+
+def test_key_header_forms():
+    from builders_api.mcp_server.gateway import _key_from_headers
+    k = "bl_abcd1234_secret"
+    assert _key_from_headers({b"authorization": f"Bearer {k}".encode()}) == k
+    assert _key_from_headers({b"authorization": f"bearer  {k} ".encode()}) == k
+    assert _key_from_headers({b"authorization": k.encode()}) == k
+    assert _key_from_headers({b"x-api-key": k.encode()}) == k
+    assert _key_from_headers({b"authorization": b"Bearer "}) is None

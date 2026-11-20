@@ -25,11 +25,25 @@ def _client_ip(scope) -> str:
 
 
 def _key_from_headers(headers: dict[bytes, bytes]) -> str | None:
-    auth = headers.get(b"authorization", b"").decode()
-    if auth.lower().startswith("bearer "):
-        return auth[7:].strip() or None
-    key = headers.get(b"x-api-key", b"").decode().strip()
+    """Key from `Authorization: Bearer <key>`, `Authorization: <key>` or `X-API-Key: <key>`."""
+    auth = headers.get(b"authorization", b"").decode(errors="replace").strip()
+    if auth:
+        word, _, rest = auth.partition(" ")
+        key = rest.strip() if word.rstrip(":").lower() == "bearer" else auth
+        if key:
+            return key
+    key = headers.get(b"x-api-key", b"").decode(errors="replace").strip()
     return key or None
+
+
+def _auth_shape(headers: dict[bytes, bytes]) -> str:
+    """Shape of the Authorization header for the log: first word and lengths only, never the key."""
+    auth = headers.get(b"authorization", b"").decode(errors="replace")
+    if not auth:
+        return "none"
+    word, _, rest = auth.strip().partition(" ")
+    first = word if word.rstrip(":").lower() in ("bearer", "basic", "token") else f"<{len(word)} chars>"
+    return f"first word {first!r}, then {len(rest.strip())} chars, total {len(auth)}"
 
 
 async def _reply(send, status: int, code: str, message: str, extra_headers=()) -> None:
@@ -72,8 +86,8 @@ class Gateway:
         if caller is None:
             headers = dict(scope.get("headers") or [])
             reason = await anyio.to_thread.run_sync(security.key_failure_reason, key)
-            log.warning("401 from %s: %s (headers present: authorization=%s, x-api-key=%s)", ip, reason,
-                        b"authorization" in headers, b"x-api-key" in headers)
+            log.warning("401 from %s: %s (authorization: %s; x-api-key present: %s)", ip, reason,
+                        _auth_shape(headers), b"x-api-key" in headers)
             self.guard.record_failure(ip)
             return await _reply(send, 401, "unauthorised", "Missing or invalid API key.")
         if not self.per_key.allow(caller.key_prefix):
