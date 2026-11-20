@@ -276,7 +276,8 @@ def simulate_once(svc, inbox: str, senders: list[str]) -> int:
     if not senders:
         raise SystemExit("Set SIMULATOR_SENDERS (comma-separated addresses allowed to send as personas).")
     local, _, domain = inbox.partition("@")
-    q = f"from:({' OR '.join(senders)}) to:{local}+*@{domain} -label:{LABEL} newer_than:1d"
+    # Gmail search has no wildcards in addresses: search by sender, then check the +persona address below
+    q = f"from:({' OR '.join(senders)}) -label:{LABEL} newer_than:1d"
     lab, done = label_id(svc), 0
     for mid in _search(svc, q):
         full = svc.users().messages().get(userId="me", id=mid, format="raw").execute()
