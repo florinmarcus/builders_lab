@@ -60,6 +60,7 @@ Started 20 Nov 2026. Status of the demo build: steps 1 (mock data plan), 2 (sche
 | S29 | Server disk survives stack deletion (`DeleteOnTermination: false`); a failed first create leaves an orphan disk to delete by hand | `server.yaml` | Keep for data safety; check for orphan volumes after failed creates |
 | S30 | Deploy user `builders-claude` holds a long-lived access key with the deploy policy | IAM | Remove the key after setup, or move to SSO / short-lived credentials |
 | S31 | Connector path secret was shown in a screenshot in chat (20 Nov 2026); the key was not | Parameter Store | Rotate the path secret (new value, restart, update the connector URL) |
+| S32 | Every push to main deploys (we work straight on main for now) | `ci-deploy.yml` | After the demo: work on branches with pull requests (tests on the PR), deploy only on version tags |
 | S19 | Cost figures are first-pass, partly guesses, mostly US prices | `research/hosting-costs/connector-auth-options.md` | Review in detail; check London prices |
 | S28 | Postgres runs in Docker on the one server; no managed database, no read replica (raised by Florin 20 Nov 2026) | ADR 0009 | RDS, or a writer plus at least one reader, when traffic or customers need it |
 | S29 | 17 raw corpus files missing: the source now gives different bytes, so they were not restored (16 same size, legislation metadata order) | `corpus/harvest-report.md` | Decide: keep today's bytes with a note in the record, or fetch when evals need them |
