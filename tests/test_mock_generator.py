@@ -22,9 +22,9 @@ def _load(path: Path):
 
 def test_generates_scenario(tmp_path):
     written = generate(tmp_path, dt.date(2026, 11, 21))
-    assert len(written["history"]) == 17 and len(written["today"]) == 3
+    assert len(written["history"]) == 21 and len(written["today"]) == 3
     ids = {_load(p)["X-Marcus-Mail-Id"] for p in written["history"] + written["today"]}
-    assert len(ids) == 20
+    assert len(ids) == 24
     today = _load(tmp_path / "today" / "e15.eml")
     assert today["Date"].datetime.date() == dt.date(2026, 11, 21)
 

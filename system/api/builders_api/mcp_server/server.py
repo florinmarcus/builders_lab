@@ -146,6 +146,10 @@ def build_server() -> MCPServer:
     def get_job(job: str) -> dict[str, Any]:
         return run_tool("get_job", lambda f: jobs.get_job(f, job))
 
+    @server.tool(description=desc("get_job_timeline"), annotations=READ_ONLY)
+    def get_job_timeline(job: str) -> dict[str, Any]:
+        return run_tool("get_job_timeline", lambda f: jobs.get_job_timeline(f, job))
+
     @server.tool(description=desc("list_missing_items"), annotations=READ_ONLY)
     def list_missing_items(job: str) -> dict[str, Any]:
         return run_tool("list_missing_items", lambda f: jobs.list_missing_items(f, job))

@@ -187,6 +187,70 @@ def _fact(f: dict) -> dict[str, Any]:
     }
 
 
+def own_addresses(conn, firm: uuid.UUID) -> set[str]:
+    """The firm's own email addresses (staff, plus the connected inbox): emails from these were sent by us."""
+    import os
+
+    rows = conn.execute("select lower(email) e from staff where firm_id = %s and email is not null", (firm,)).fetchall()
+    own = {r["e"] for r in rows}
+    inbox = os.environ.get("BUILDER_INBOX", "").strip().lower()
+    if inbox:
+        own.add(inbox)
+    return own
+
+
+def get_job_timeline(firm: uuid.UUID, job: str, today: dt.date | None = None) -> dict[str, Any]:
+    """Everything on one job in date order: emails received and sent, documents, key facts; plus what is coming up."""
+    j = resolve_job(firm, job)
+    today = today or dt.date.today()
+    with connection() as conn:
+        own = own_addresses(conn, firm)
+        emails = conn.execute(
+            """select id, from_name, from_address, to_addresses, subject, sent_at from emails
+               where job_id = %s order by sent_at""", (j["id"],)).fetchall()
+        docs = conn.execute(
+            """select a.id, a.filename, a.document_type, a.document_date, a.expires_on, e.sent_at
+               from attachments a join emails e on e.id = a.email_id where a.job_id = %s""", (j["id"],)).fetchall()
+        facts = conn.execute(
+            """select f.fact_type, f.summary, f.quote, f.fact_date, f.source_page,
+                      e.id as email_id, e.from_name, e.from_address, e.subject, e.sent_at,
+                      a.id as attachment_id, a.filename, a.document_type, a.document_date
+               from facts f left join emails e on e.id = f.email_id left join attachments a on a.id = f.attachment_id
+               where f.job_id = %s and f.fact_date is not null""", (j["id"],)).fetchall()
+    events = []
+    for e in emails:
+        sent = (e["from_address"] or "").lower() in own
+        src = email_source(e)
+        events.append({"date": _d(e["sent_at"]), "kind": "email_sent" if sent else "email_received",
+                       "summary": (f"We sent to {', '.join(e['to_addresses']) or 'unknown'}" if sent
+                                   else f"From {src['from']}") + f": {e['subject']}",
+                       "source": src})
+    for d in docs:
+        events.append({"date": _d(d["document_date"]) or _d(d["sent_at"]), "kind": "document",
+                       "summary": f"{d['document_type'] or 'document'}: {d['filename']}"
+                                  + (f" (expires {_d(d['expires_on'])})" if d["expires_on"] else ""),
+                       "source": attachment_source(d)})
+    for f in facts:
+        events.append({"date": _d(f["fact_date"]), "kind": f["fact_type"], "summary": f["summary"],
+                       "quote": f["quote"], "source": _fact({**f, "value": {}})["source"]})
+    events.sort(key=lambda x: (x["date"] or "", x["kind"]))
+    upcoming = [x for x in events if x["date"] and x["date"] >= today.isoformat() and x["kind"] not in ("email_received", "email_sent", "document")]
+    if j["target_date"] and j["target_date"] >= today:
+        upcoming.append({"date": _d(j["target_date"]), "kind": "target_completion", "summary": "Target completion date for the job",
+                         "source": {"type": "job", "id": j["ref"], "label": f"Job {j['ref']}"}})
+    upcoming.sort(key=lambda x: x["date"])
+    last_sent = next((x for x in reversed(events) if x["kind"] == "email_sent"), None)
+    return {
+        "job": {"ref": j["ref"], "title": j["title"], "target_date": _d(j["target_date"]),
+                "days_to_target": (j["target_date"] - today).days if j["target_date"] else None},
+        "today": today.isoformat(),
+        "events": events,
+        "upcoming": upcoming,
+        "last_sent_by_us": last_sent,
+        "note": "Events come from the job's filed emails, documents and saved facts. Unfiled emails are not included.",
+    }
+
+
 def list_missing_items(firm: uuid.UUID, job: str, today: dt.date | None = None) -> dict[str, Any]:
     j = resolve_job(firm, job)
     today = today or dt.date.today()

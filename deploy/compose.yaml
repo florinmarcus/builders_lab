@@ -41,6 +41,7 @@ services:
       LOG_LEVEL: ${LOG_LEVEL:-INFO}
       MAIL_SOURCE: ${MAIL_SOURCE:-eml:/data/mail,gmail}   # demo folder + Gmail label (skipped until a Gmail login is stored)
       GMAIL_TOKEN_FILE: /run/secrets/gmail-token.json
+      BUILDER_INBOX: ${BUILDER_INBOX:-}   # the firm's own inbox: emails from it count as sent by us
     volumes:
       - maildir:/data/mail
       - ${BASE:-/opt/builders-lab}/gmail-token.json:/run/secrets/gmail-token.json:ro

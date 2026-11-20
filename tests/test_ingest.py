@@ -31,7 +31,7 @@ def _email(conn, subject_part):
 
 def test_sync_is_idempotent_and_files_by_job(firm, conn):
     first = inbox.sync_inbox(firm)
-    assert first["counts"] == {"new": 9, "already_had": 11, "failed": 0}
+    assert first["counts"] == {"new": 13, "already_had": 11, "failed": 0}
     assert inbox.sync_inbox(firm)["counts"]["new"] == 0
     assert _email(conn, "brief and drawing schedule")[1] == "ELM-22"
     assert _email(conn, "Final account?")[1] == "ELM-22"          # by sender history
@@ -104,3 +104,15 @@ def test_feed_uses_the_eml_folder_of_several_sources(tmp_path, monkeypatch):
     monkeypatch.setenv("MAIL_SOURCE", f"eml:{tmp_path},gmail")
     assert feed("today", []) == ["e09", "e15", "e19"]
     assert sorted(p.name for p in tmp_path.glob("*.eml")) == ["e09.eml", "e15.eml", "e19.eml"]
+
+
+def test_timeline_shows_sent_and_received(firm):
+    inbox.sync_inbox(firm)
+    t = jobs.get_job_timeline(firm, "RIV-12", today=dt.date(2026, 11, 21))
+    kinds = [(e["kind"], e["summary"][:40]) for e in t["events"]]
+    sent = [e for e in t["events"] if e["kind"] == "email_sent"]
+    assert len(sent) == 2 and all("repairs@hollowell-council.example.com" in e["summary"] for e in sent)
+    assert any(e["kind"] == "email_received" and "asbestos removal moved" in e["summary"] for e in t["events"]), kinds
+    assert t["last_sent_by_us"]["source"]["subject"] == "Flat 12 Riverside House: progress"
+    assert t["job"]["days_to_target"] == 6 and any(u["kind"] == "target_completion" for u in t["upcoming"])
+    assert t["events"] == sorted(t["events"], key=lambda x: (x["date"] or "", x["kind"]))

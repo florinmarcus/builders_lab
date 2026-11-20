@@ -23,6 +23,8 @@ PERSONAS = {
     "fenwick": ("Fenwick Drylining", "admin@fenwick-drylining.example.com"),
     "volt": ("Volt Electrical", "jobs@volt-electrical.example.com"),
     "council": ("Hollowell Council Repairs", "repairs@hollowell-council.example.com"),
+    "contracts": ("Sam Price, Contract Manager, Hollowell Council", "voids@hollowell-council.example.com"),
+    "asbestosteam": ("Hollowell Council Asbestos Team", "asbestos@hollowell-council.example.com"),
     "bc": ("Hollowell Building Control", "buildingcontrol@hollowell-council.example.com"),
     "buildmart": ("BuildMart Supplies", "orders@buildmart.example.com"),
 }
@@ -103,6 +105,18 @@ ATTACHMENTS = {
                       ["Kitchen", "Vinyl floor tiles", "S01", "Chrysotile detected"],
                       ["Hall", "Textured coating, ceiling", "S02", "No asbestos detected"],
                       ["Bedroom 2", "Not accessed (locked)", "-", "Presumed"]]},
+    "a21": {"filename": "Hollowell Council - Void Works Call-off Terms 2026.pdf", "kind": "pdf",
+            "title": "Void works call-off terms (2026)",
+            "paras": ["Hollowell District Council. Responsive repairs and void works. Call-off terms for each works order.",
+                      "4.1 The Contractor shall complete each void by the target date in the works order.",
+                      "4.2 If the Contractor expects to miss a target date, it shall notify the Contract Manager in writing "
+                      "within 2 working days of becoming aware of the delay, giving the reason and a revised completion date.",
+                      "4.3 The Council may extend the target date for delays caused by the Council, its tenants or its other "
+                      "contractors, including late gas capping, asbestos removal by the Council and lack of access.",
+                      "4.4 If a void is completed late without an agreed extension, the Contractor shall pay liquidated damages "
+                      "of £50 per calendar day per void, deducted from payment.",
+                      "4.5 If the Contractor does not notify a delay under clause 4.2, the Council may refuse an extension.",
+                      "6.1 Contract Manager: Sam Price, voids@hollowell-council.example.com."]},
     "a18": {"filename": "Gas Capping Note - Flat 12.pdf", "kind": "pdf", "title": "Gas capping note",
             "paras": ["Flat 12, Riverside House. Gas supply capped at the meter on 4 November 2026 by the council's gas contractor."]},
 }
@@ -145,6 +159,14 @@ EMAILS = [
      "body": "Attached the refurbishment and demolition asbestos survey for Flat 12 (kitchen and bathroom).", "attach": ["a17"]},
     {"id": "e18", "from": "council", "when": "2026-11-05T14:00:00+00:00", "subject": "Flat 12 Riverside House: gas capped, keys",
      "body": "Gas supply capped, note attached. Keys can be collected from the housing office.", "attach": ["a18"]},
+    {"id": "e21", "from": "contracts", "when": "2026-10-28T09:05:00+00:00", "subject": "Call-off terms for void works, WO-2026-4471",
+     "body": "Florin,\n\nFor your records, the call-off terms that apply to works order WO-2026-4471 (Flat 12, Riverside House) are attached. Please read clause 4 on target dates and delays.\n\nSam Price\nContract Manager, Voids", "attach": ["a21"]},
+    {"id": "e22", "from": "florin", "to": "council", "when": "2026-11-06T08:40:00+00:00", "subject": "Flat 12 Riverside House: keys collected, works started",
+     "body": "Hello,\n\nWe collected the keys for Flat 12, Riverside House this morning and started the void works today. We will not disturb the kitchen floor tiles until the asbestos removal is done.\n\nFlorin Marcus\nMarcus Limited"},
+    {"id": "e23", "from": "florin", "to": "council", "when": "2026-11-14T16:10:00+00:00", "subject": "Flat 12 Riverside House: progress",
+     "body": "Hello,\n\nProgress at Flat 12: bathroom suite replaced, rewiring of the bedrooms done, decoration started. The kitchen is waiting for the removal of the asbestos floor tiles by the council's contractor, booked for 19 November.\n\nFlorin Marcus\nMarcus Limited"},
+    {"id": "e24", "from": "asbestosteam", "when": "2026-11-18T15:30:00+00:00", "subject": "Flat 12 Riverside House: asbestos removal moved",
+     "body": "Hello,\n\nThe removal of the kitchen floor tiles at Flat 12, Riverside House has moved from 19 November to 25 November because our licensed contractor is not available. Please do not start work in the kitchen before then.\n\nHollowell Council Asbestos Team"},
     {"id": "e19", "from": "council", "when": "today 09:15", "subject": "Flat 12 Riverside House: completion by 27 Nov?",
      "body": "Good morning,\n\nPlease confirm you will complete the works at Flat 12, Riverside House by 27 November 2026, so we can book the re-let inspection.\n\nHollowell Council Repairs"},
     {"id": "e20", "from": "buildmart", "when": "2026-11-10T07:55:00+00:00", "subject": "Order confirmation BM-77812",

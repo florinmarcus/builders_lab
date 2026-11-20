@@ -46,7 +46,7 @@ select id, m, l from f, (values ('documents_ingested', 200), ('tool_calls', 500)
 
 insert into staff (firm_id, name, role, email)
 select id, n, r, e from f, (values
-  ('Florin Marcus',  'Owner',      null),
+  ('Florin Marcus',  'Owner',      'florin@marcus-ltd.example.com'),
   ('Mike Turner', 'Site lead',  'mike.turner@marcus-ltd.example.com'),
   ('Jamie Cole',  'Apprentice', 'jamie.cole@marcus-ltd.example.com')) v(n, r, e);
 

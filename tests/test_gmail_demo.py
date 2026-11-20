@@ -112,10 +112,10 @@ def svc(monkeypatch):
 
 def test_load_is_idempotent_and_labels(svc):
     import datetime as dt
-    assert g.load_emails(svc, g.history(), dt.date(2026, 11, 21)) == 17
+    assert g.load_emails(svc, g.history(), dt.date(2026, 11, 21)) == 21
     assert g.load_emails(svc, g.history(), dt.date(2026, 11, 21)) == 0
     sent = [m for m in svc.msgs.values() if "SENT" in m["labels"]]
-    assert len(sent) == 2  # Dan's own emails go to Sent, not Inbox
+    assert len(sent) == 4  # our own emails go to Sent, not Inbox
     first = email.message_from_bytes(next(iter(svc.msgs.values()))["raw"], policy=policy.default)
     assert INBOX in first["To"]
 
@@ -130,7 +130,7 @@ def test_reset_touches_only_demo_items(svc):
     g.reset(svc, dt.date(2026, 11, 21))
     assert svc.msgs["real"]["trashed"] is False
     assert list(svc.drafts_) == ["d2"]
-    assert sum(not m["trashed"] for m in svc.msgs.values()) == 18  # real + 17 reloaded
+    assert sum(not m["trashed"] for m in svc.msgs.values()) == 22  # real + 21 reloaded
 
 
 def test_persona_from_plus_address():
