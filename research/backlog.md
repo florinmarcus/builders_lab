@@ -16,3 +16,4 @@ Ordered by priority. Top first.
 9. **Candidate feature: upload a RAMS, explain it in Romanian.** No integration or passwords.
 10. **Ask RAMSReady and DocGen about APIs or partnerships** (later, only if a pilot works). No logging in to their apps on users' behalf (agreed 7 Nov 2026).
 11. **Licences for copyrighted sources** (not urgent): BSI/IET (BS 7671), NHBC, JCT.
+12. **Phone files (iPhone) as an input** (side question, noted 20 Nov 2026, not urgent): can a builder give Claude access to photos and files on their phone through a connector? Guess, to check: our connector runs on our server, so it cannot read the phone directly; options are attaching files in the Claude app chat, or an upload page or share-sheet route into our store.
