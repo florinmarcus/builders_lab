@@ -20,7 +20,7 @@ Florin's own lab (`agentic-rag-lab`, ADRs 0010 and 0012, experiments E7, E9, E15
 - **Re-rank:** Amazon Rerank (`amazon.rerank-v1:0`) in **Frankfurt** (eu-central-1), 50 candidates down to 5. Cohere Rerank 3.5 is a setting, not a rebuild.
 - **Where vectors live:** Postgres with pgvector on our server (ADR 0009), loaded from the chunk files; one new migration. Until then, a local index for building and testing.
 - **Settings, not code:** region, models, top-k and the keyword switch are configuration, so evals can compare keyword only, vector only, hybrid, with and without re-rank.
-- **Permissions:** the deploy user (for building the index) and later the server role (for questions) get `bedrock:InvokeModel` on Titan V2 in London and on the re-rank model in Frankfurt, plus `bedrock:Rerank`. Policy in `deploy/iam/deployer-policy.json`; the server role change stays in parking lot S26.
+- **Permissions:** the deploy user (for building the index) and later the server role (for questions) get `bedrock:InvokeModel` on Titan V2 in London and on the re-rank model in Frankfurt, plus `bedrock:Rerank`. Managed policy `deploy/iam/corpus-bedrock-policy.json` (separate from the inline deployer policy, which is at the 2,048-byte limit); the server role change stays in parking lot S26.
 
 ## Options considered
 

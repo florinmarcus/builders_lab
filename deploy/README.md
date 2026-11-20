@@ -23,6 +23,16 @@ aws iam put-user-policy --user-name <deploy user> --policy-name builders-lab-dep
   --policy-document file://deploy/iam/deployer-policy.json
 ```
 
+For the regulations corpus (embeddings and re-rank, ADR 0013), attach a second, managed policy. It is separate
+because a user's inline policies may total only 2,048 bytes:
+
+```
+aws iam create-policy --policy-name builders-lab-corpus-bedrock \
+  --policy-document file://deploy/iam/corpus-bedrock-policy.json
+aws iam attach-user-policy --user-name <deploy user> \
+  --policy-arn arn:aws:iam::<account id>:policy/builders-lab-corpus-bedrock
+```
+
 1. **If the GitHub repo is private:** create a fine-grained GitHub token with read access to this repo only, then:
    ```
    aws ssm put-parameter --region eu-west-2 --type SecureString \
