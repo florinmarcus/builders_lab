@@ -47,3 +47,11 @@ def test_touches_the_section_rule():
     assert not M.touches("adb:para-1", "adb:para-12")
     assert not M.touches("car2012:regulation-7", "cdm2015:regulation-7")
     assert M.recall_at(["car2012:regulation-7"], ["x:y", "car2012:regulation-7-2"], 5) == 1.0
+
+
+def test_in_corpus_needs_every_expected_source_loaded():
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "evals"))
+    import retrieval as R
+    assert R.in_corpus(["car2012:regulation-8", "hse-l143:para-1"], {"car2012", "hse-l143"})
+    assert not R.in_corpus(["car2012:regulation-8", "hse-l143:para-1"], {"car2012"})
+    assert not R.in_corpus([], {"car2012"})

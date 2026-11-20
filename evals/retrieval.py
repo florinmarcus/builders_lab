@@ -59,6 +59,18 @@ def config(schema: str, search) -> dict:
     return c
 
 
+def loaded_sources(url: str, schema: str) -> set[str]:
+    import psycopg
+
+    with psycopg.connect(url, connect_timeout=5) as conn:
+        return set(conn.execute(f"SELECT sources FROM {schema}.stats LIMIT 1").fetchone()[0])
+
+
+def in_corpus(expected: list[str], loaded: set[str]) -> bool:
+    """Every expected section's source is loaded in the schema: a miss is then the search's fault, not a gap."""
+    return bool(expected) and all(e.split(":")[0] in loaded for e in expected)
+
+
 def run_one(q: dict, search, url: str, top_k: int, rerank: bool, min_score: float) -> dict:
     t0 = time.time()
     rows = search.candidates(q["question"], url=url, n=top_k)
@@ -91,6 +103,7 @@ def run(name: str, schema: str, split: str, pace: float, limit: int | None) -> d
 
     url = reader_url()
     cfg = config(schema, P)
+    loaded = loaded_sources(url, P._schema(schema))
     qs = load_questions(split)
     qs = [q for q in qs if q.get("expected_sections")] + [q for q in qs if not q.get("expected_sections")]
     qs = qs[:limit] if limit else qs
@@ -103,6 +116,7 @@ def run(name: str, schema: str, split: str, pace: float, limit: int | None) -> d
     with open(out_path, "a", encoding="utf-8") as f:
         for i, q in enumerate(qs, 1):
             if q["id"] in done:
+                done[q["id"]]["in_corpus"] = in_corpus(done[q["id"]]["expected"], loaded)
                 rows.append(done[q["id"]])
                 continue
             for attempt in range(4):
@@ -114,6 +128,7 @@ def run(name: str, schema: str, split: str, pace: float, limit: int | None) -> d
                         raise
                     time.sleep(10 * (attempt + 1))
                     print(f"  retry {q['id']}: {type(e).__name__}", flush=True)
+            r["in_corpus"] = in_corpus(r["expected"], loaded)
             rows.append(r)
             chars += len(q["question"])
             reranks += 1 if cfg["rerank"] else 0
@@ -124,7 +139,8 @@ def run(name: str, schema: str, split: str, pace: float, limit: int | None) -> d
             time.sleep(pace)
     cost = log_cost(f"{name}-{split}", len(qs), chars, reranks)
     summary = {"run": name, "split": split, "time": datetime.datetime.utcnow().isoformat(timespec="seconds") + "Z",
-               "config": cfg, "cost_usd_this_call": round(cost, 4), **M.summarise(rows)}
+               "config": cfg, "cost_usd_this_call": round(cost, 4), **M.summarise(rows),
+               "in_corpus": M.summarise([r for r in rows if r.get("in_corpus")])}
     (RESULTS / f"{name}-{split}.summary.json").write_text(json.dumps(summary, indent=1), encoding="utf-8")
     with open(RESULTS / "runs.jsonl", "a", encoding="utf-8") as f:
         f.write(json.dumps({k: summary[k] for k in ("run", "split", "time", "questions", "recall@50", "recall@5", "mrr@5", "ndcg@5")
