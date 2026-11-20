@@ -1,6 +1,7 @@
 """Offline tests for the corpus catalogue and version store."""
 
 import json
+import re
 from pathlib import Path
 
 import pytest
@@ -9,6 +10,7 @@ from system.rag.corpus import (
     Fetched,
     Store,
     check_chain,
+    content_hash,
     load_sources,
     part_key,
     sha256,
@@ -75,6 +77,50 @@ def test_second_change_on_same_day_keeps_chain(store):
     recs = store.records("demo")
     assert len(recs) == 3
     assert check_chain(recs) == []
+
+
+LEG_XML = """<?xml version="1.0" encoding="UTF-8"?>
+<Legislation xmlns="http://www.legislation.gov.uk/namespaces/legislation"
+  xmlns:ukm="http://www.legislation.gov.uk/namespaces/metadata"
+  xmlns:dc="http://purl.org/dc/elements/1.1/" RestrictStartDate="2010-10-01">
+<ukm:Metadata><dc:modified>{modified}</dc:modified><ukm:UnappliedEffects>{effects}</ukm:UnappliedEffects></ukm:Metadata>
+<Primary><P1 id="regulation-2" {attrs}><Text>{text}</Text></P1></Primary>
+</Legislation>"""
+
+
+def leg_xml(text="Building work means...", modified="2026-11-06",
+            effects='<ukm:UnappliedEffect A="1" B="2"/>', attrs='Status="valid" Extent="E+W"') -> bytes:
+    return LEG_XML.format(text=text, modified=modified, effects=effects, attrs=attrs).encode("utf-8")
+
+
+def test_xml_content_hash_ignores_metadata_and_attribute_order():
+    base = content_hash(leg_xml(), "application/xml")
+    # Metadata changes (dates, unapplied effects, their attribute order) are not a new version.
+    assert content_hash(leg_xml(modified="2026-11-20"), "application/xml") == base
+    assert content_hash(leg_xml(effects='<ukm:UnappliedEffect B="2" A="1"/><ukm:UnappliedEffect C="3"/>'),
+                        "application/xml") == base
+    # Attribute order in the law text is not a change either.
+    assert content_hash(leg_xml(attrs='Extent="E+W" Status="valid"'), "application/xml") == base
+    # A change to the law text, or its attributes, is.
+    assert content_hash(leg_xml(text="Building work means, in Wales..."), "application/xml") != base
+    assert content_hash(leg_xml(attrs='Status="repealed" Extent="E+W"'), "application/xml") != base
+    # The exact-file hash still sees every byte.
+    assert sha256(leg_xml(modified="2026-11-20")) != sha256(leg_xml())
+
+
+def test_xml_content_hash_falls_back_to_bytes_when_unparsable():
+    assert content_hash(b"<not xml", "application/xml") == sha256(b"<not xml")
+
+
+def test_xml_content_hash_on_real_building_regulations_file():
+    raws = sorted((Path(__file__).parent.parent / "corpus" / "raw" / "br2010" / "main").glob("*.xml"))
+    if not raws:
+        pytest.skip("raw files not on this machine")
+    data = raws[0].read_bytes()
+    restamped = re.sub(rb"<dc:modified>[^<]*</dc:modified>", b"<dc:modified>1999-01-01</dc:modified>", data)
+    assert restamped != data
+    assert content_hash(restamped, "application/xml") == content_hash(data, "application/xml")
+    assert content_hash(data, "application/xml") != sha256(data)
 
 
 def test_html_change_detection_ignores_markup_noise(store):

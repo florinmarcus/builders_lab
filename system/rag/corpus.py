@@ -45,9 +45,14 @@ def sha256(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
 
 
+LEG_META_NS = "http://www.legislation.gov.uk/namespaces/metadata"
+
+
 def content_hash(data: bytes, media_type: str) -> str:
     """Hash used to detect real changes. For HTML it hashes the visible text only,
-    so random ids, tokens and markup changes do not count as a new version."""
+    so random ids, tokens and markup changes do not count as a new version. For XML
+    it hashes canonical XML without legislation metadata, so attribute order and
+    metadata updates do not count either. Other files: the exact bytes."""
     if media_type.split(";")[0].strip().lower() in ("text/html", "application/xhtml+xml"):
         try:
             import lxml.html
@@ -58,6 +63,19 @@ def content_hash(data: bytes, media_type: str) -> str:
             text = " ".join(doc.text_content().split())
             return hashlib.sha256(text.encode("utf-8")).hexdigest()
         except Exception:  # unparsable HTML: fall back to the bytes
+            pass
+    if media_type.split(";")[0].strip().lower() in ("application/xml", "text/xml"):
+        try:
+            from lxml import etree
+
+            root = etree.fromstring(data, etree.XMLParser(resolve_entities=False, no_network=True))
+            # legislation.gov.uk metadata (modified dates, unapplied effects) changes without
+            # the law text changing, and its attributes come in no fixed order. Drop it.
+            for meta in root.findall(f".//{{{LEG_META_NS}}}Metadata"):
+                meta.getparent().remove(meta)
+            # Canonical XML (C14N) writes attributes in a fixed order.
+            return sha256(etree.tostring(root, method="c14n"))
+        except Exception:  # unparsable XML: fall back to the bytes
             pass
     return sha256(data)
 

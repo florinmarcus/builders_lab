@@ -70,6 +70,7 @@ Attribution is added from the publisher: OGL for GOV.UK and legislation.gov.uk, 
 
 - A source can have several parts, e.g. volume 1 and volume 2 of an Approved Document. Each part has its own chain of versions.
 - `valid_from_basis`: `point_in_time` (legislation version date), `in_force` (stated in-force date), `published` (GOV.UK publish or update date) or `first_seen` (the date we first fetched it, when nothing better exists).
+- `sha256` is the exact file (checks downloads and S3). `content_hash` decides new versions: visible text for HTML, canonical XML without legislation metadata for XML, bytes for the rest (ADR 0008).
 - `valid_to: null` means current. A new hash for the same part closes the old record's `valid_to`. That is the only edit ever made to an old record. Raw files are named by hash, so nothing is overwritten.
 
 ## Known gaps (19 Nov 2026)

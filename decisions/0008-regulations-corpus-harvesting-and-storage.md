@@ -27,3 +27,14 @@ ADR 0004 puts shared rules and guidance in one store. Users need the current tex
 - Get legal advice before any commercial use, and before ingesting AD A and AD C in full (their PDFs still carry the old Click-Use licence wording).
 - S3 upload needs working AWS credentials in the session. Until then, raw files exist only on the harvesting machine.
 - Re-running the harvester is safe and finds changes by hash. A weekly run would catch new editions.
+
+## Update, 20 Nov 2026: two fingerprints
+
+Every record has two hashes. `sha256` is the exact file: it checks downloads and S3 copies. `content_hash` is the content and decides whether a file is a new version, so noise does not fire false updates.
+
+- Legislation: a new version is a new point-in-time date. Fetching a known date again never makes a new version.
+- HTML: the visible text only.
+- XML (new from 20 Nov 2026): canonical XML without the legislation metadata block, so attribute order and metadata dates do not count. Older records keep their old `content_hash` (the file's hash); all of them are legislation, decided by date, so nothing fires.
+- PDF and other files: still the exact bytes. A text fingerprint for PDFs comes with the parser.
+
+Why: re-fetching on 20 Nov 2026 gave different bytes for 17 files (16 the same size, legislation metadata in no fixed order). They are left out for now; see `corpus/README.md`.
