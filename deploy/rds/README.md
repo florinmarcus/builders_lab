@@ -46,5 +46,5 @@ existing RDS Postgres instance, next to the lab's database. The Builders server 
    `aws cloudformation deploy --region eu-west-2 --stack-name builders-lab-prod --template-file deploy/cloudformation/server.yaml --capabilities CAPABILITY_IAM --parameter-overrides AlertEmail=<your email>`
 2. **Network:** the RDS security group must allow 5432 from the server's Elastic IP (step 2 of "Once").
 3. **Switch on:** `MSYS_NO_PATHCONV=1 aws ssm put-parameter --region eu-west-2 --type String --overwrite --name /builders-lab/prod/rag_enabled --value on`
-4. **Redeploy** (any push to main, or re-run the last pipeline). Back to the fallback: set `rag_enabled` to `off`
-   and redeploy.
+4. **Redeploy** (any push to main, or run the pipeline by hand). Each upgrade re-reads Parameter Store
+   (`upgrade.sh` runs `env-from-ssm.sh`). Back to the fallback: set `rag_enabled` to `off` and redeploy.

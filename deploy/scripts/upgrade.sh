@@ -15,6 +15,9 @@ prev=$(cat "$STATE_DIR/current_version" 2>/dev/null || true)
 log "upgrade: ${prev:-none} -> $short"
 
 git checkout --quiet --detach "$sha"
+# Settings and secrets from Parameter Store, every upgrade, so new ones (e.g. rag_enabled, corpus_reader_url) take
+# effect. Region from /etc/environment may be missing under SSM Run Command, hence the default.
+AWS_DEFAULT_REGION=${AWS_DEFAULT_REGION:-eu-west-2} "$REPO_DIR/deploy/scripts/env-from-ssm.sh"
 # DOCKER_BUILD_EXTRA: optional extra flags, e.g. for a build behind a proxy (empty on the server)
 # shellcheck disable=SC2086
 docker build --quiet ${DOCKER_BUILD_EXTRA:-} -t "builders-api:$short" "$REPO_DIR" >/dev/null
