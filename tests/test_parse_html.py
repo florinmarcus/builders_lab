@@ -246,3 +246,13 @@ def test_real_hse_cdm_domestic_clients():
         assert junk not in text, junk
     assert 1 <= len([s for s in tree["sections"] if s["type"] == "text"]) <= 5
     assert "principal contractor" in text
+
+
+def test_pages_of_a_multi_page_source_get_their_page_in_every_id():
+    html = govuk("<p>Intro text before any heading.</p><h2>Who pays</h2><p>The customer accounts for the VAT.</p>")
+    plain = parse_html(html, META)
+    multi = parse_html(html, {**META, "id_prefix": "vatrevcon05000"})
+    assert all(s["id"].startswith("vatrevcon05000-") for s in multi["sections"])
+    assert [s["id"] for s in multi["sections"]] == ["vatrevcon05000-" + s["id"] for s in plain["sections"]]
+    ids = {s["id"] for s in multi["sections"]}
+    assert all(s["parent_id"] is None or s["parent_id"] in ids for s in multi["sections"])

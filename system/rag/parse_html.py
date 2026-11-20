@@ -410,6 +410,12 @@ class Builder:
             elif k == "figure":
                 self.figure(b)
         self.sections = [s for s in self.sections if self.keep(s)]
+        prefix = self.meta.get("id_prefix")
+        if prefix:  # one page of a multi-page source: ids like "top-text-1" must not clash across pages
+            for s in self.sections:
+                s["id"] = f"{prefix}-{s['id']}"
+                if s["parent_id"]:
+                    s["parent_id"] = f"{prefix}-{s['parent_id']}"
         if not any(s["type"] not in ("chapter", "heading") for s in self.sections):
             self.issues.append("empty page: no text found")
         return {
@@ -580,6 +586,8 @@ def main(argv: list[str] | None = None) -> int:
             print(f"missing raw file: {r['raw_path']}")
             continue
         meta = {**r, "title": src["title"] if src else a.source, "url": src.get("url") if src else None}
+        if len(todo) > 1:  # several pages: each page's ids carry the page, so keys stay unique in the source
+            meta["id_prefix"] = slugify(r["version_id"].split("@")[0])
         tree = parse_html(raw.read_bytes(), meta)
         out = CORPUS_DIR / "parsed" / a.source / f"{r['version_id']}.json"
         out.parent.mkdir(parents=True, exist_ok=True)
