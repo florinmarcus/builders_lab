@@ -86,3 +86,14 @@ def test_reseed_keeps_api_keys(seeded):
     create_key("oakline", "keep me", dt.date(2027, 1, 1))
     seed(seeded)
     assert [k["label"] for k in list_keys("oakline")] == ["keep me"]
+
+
+def test_several_sources_skip_gmail_without_login(tmp_path, monkeypatch):
+    from builders_api.service import mail_sources
+    (tmp_path / "mail").mkdir()
+    (tmp_path / "mail" / "a.eml").write_bytes(b"From: a@example.com\nSubject: hi\nMessage-ID: <a@x>\n\nhello\n")
+    (tmp_path / "token.json").write_text("{}")
+    monkeypatch.setenv("MAIL_SOURCE", f"eml:{tmp_path / 'mail'},gmail")
+    monkeypatch.setenv("GMAIL_TOKEN_FILE", str(tmp_path / "token.json"))
+    src = mail_sources.from_env()
+    assert [m.source_id for m in src.fetch()] == ["a.eml"]

@@ -58,7 +58,10 @@ def gmail_service():
     creds = Credentials.from_authorized_user_file(str(TOKEN_FILE), SCOPES)
     if not creds.valid:
         creds.refresh(Request())
-        TOKEN_FILE.write_text(creds.to_json())
+        try:
+            TOKEN_FILE.write_text(creds.to_json())
+        except OSError:
+            pass  # read-only on the server: the refreshed token lives in memory
     return build("gmail", "v1", credentials=creds, cache_discovery=False)
 
 

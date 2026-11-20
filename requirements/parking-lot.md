@@ -11,7 +11,7 @@ Started 20 Nov 2026. Status of the demo build: steps 1 (mock data plan), 2 (sche
 |---|---|---|---|
 | N1 | ~~Mock email and PDF generator~~ Done 20 Nov 2026: `system/data/mock/generate.py` | – | – |
 | N2 | Gmail loader, reset and live simulator: code done 20 Nov 2026 (`system/data/mock/gmail_demo.py`, tested against a fake Gmail). Not yet run on the real inbox | Needs Florin's Google Cloud client and login | No live "email arrives" moment |
-| N3 | `sync_inbox` built 20 Nov 2026 with the demo mail folder (`MAIL_SOURCE=eml:`). Gmail source written but not yet run: needs a Gmail login stored on the server | Needs Florin's Google login | Demo uses the folder feed, not the real inbox |
+| N3 | `sync_inbox` reads the demo mail folder and, once a Gmail login is stored on the server, the Gmail label too (`MAIL_SOURCE=eml:/data/mail,gmail`). Gmail path written and unit-tested, not yet run against the real inbox | Needs Florin's Google login | Live emails would not reach our tools |
 | N4 | ~~`save_facts` with server checks~~ Done 20 Nov 2026 (`service/facts.py`) | – | – |
 | N5 | ~~First AWS run~~ Done 20 Nov 2026: stack `builders-lab-prod` up, server installed itself, Let's Encrypt certificate, demo data and Florin's key loaded. Still open: turn on the GitHub deploy step (repository variables) and watch its first run | Repo variables need Florin | Pushes test but do not deploy |
 | N6 | OAuth login (Cognito) as the second auth layer (ADR 0007) | API keys first for the demo | One shared secret per firm |
@@ -87,6 +87,7 @@ Started 20 Nov 2026. Status of the demo build: steps 1 (mock data plan), 2 (sche
 | S59 | Only regulation 2's definitions get their own chunks; terms defined in other regulations are found inside those regulations' chunks | `system/rag/chunk.py` | Add if evals ask for them |
 | S60 | Glossary rows mostly "unverified", incl. 12 added for the demo; Romanian word-ending match is simple | `research/domain/glossary.md`, `terminology/` | Native-speaker tradesperson review; collect real phrasing at the event |
 | S61 | Speak-first chunking is instructions only; nothing checks chunk length | rules, workflow, server instructions v3 | Eval for spoken style (N9) |
+| S62 | Gmail token on the server is a long-lived refresh token in Parameter Store and a file readable by the app user; testing-mode logins can expire after 7 days | `env-from-ssm.sh`, compose | Move to a verified Google app or forwarding (ADR 0002 fallback) for real users |
 | S19 | Cost figures are first-pass, partly guesses, mostly US prices | `research/hosting-costs/connector-auth-options.md` | Review in detail; check London prices |
 | S28 | Postgres runs in Docker on the one server; no managed database, no read replica (raised by Florin 20 Nov 2026) | ADR 0009 | RDS, or a writer plus at least one reader, when traffic or customers need it |
 | S29 | 17 raw corpus files missing: the source now gives different bytes, so they were not restored (16 same size, legislation metadata order) | `corpus/harvest-report.md` | Decide: keep today's bytes with a note in the record, or fetch when evals need them |

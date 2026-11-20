@@ -1,13 +1,16 @@
 """Where new emails come from. Plain code, no model (ADR 0006).
 
-MAIL_SOURCE settings:
+MAIL_SOURCE settings (comma-separated for several, e.g. "eml:/data/mail,gmail"):
   eml:<folder>   .eml files in a folder (demo feed; tests)
-  gmail          the builder's Gmail, label `oakline-demo` only (token file in GMAIL_TOKEN_FILE)
+  gmail          the builder's Gmail, label `oakline-demo` only (token file in GMAIL_TOKEN_FILE).
+                 With several sources, a missing or empty Gmail login is skipped, not an error.
 """
 
 from __future__ import annotations
 
 import base64
+import json
+import logging
 import os
 from collections.abc import Iterator
 from dataclasses import dataclass
@@ -17,6 +20,7 @@ from builders_api.errors import NotConfiguredError, UpstreamError
 from builders_api.retry import with_retries
 
 GMAIL_LABEL = "oakline-demo"
+log = logging.getLogger(__name__)
 
 
 @dataclass(frozen=True)
@@ -42,6 +46,12 @@ class GmailLabel:
     def __init__(self, token_file: Path, label: str = GMAIL_LABEL) -> None:
         self.token_file = token_file
         self.label = label
+
+    def configured(self) -> bool:
+        try:
+            return bool(json.loads(self.token_file.read_text()).get("refresh_token"))
+        except (OSError, ValueError):
+            return False
 
     def _service(self):
         try:
@@ -78,10 +88,30 @@ class GmailLabel:
                 return
 
 
-def from_env():
-    setting = os.environ.get("MAIL_SOURCE", "").strip()
+class Several:
+    def __init__(self, sources: list) -> None:
+        self.sources = sources
+
+    def fetch(self) -> Iterator[RawMail]:
+        for src in self.sources:
+            if isinstance(src, GmailLabel) and not src.configured():
+                log.info("Gmail source skipped: no Gmail login on the server")
+                continue
+            yield from src.fetch()
+
+
+def _one(setting: str):
     if setting.startswith("eml:"):
         return EmlFolder(Path(setting[4:]))
     if setting == "gmail":
-        return GmailLabel(Path(os.environ.get("GMAIL_TOKEN_FILE", "/data/gmail-token.json")))
-    raise NotConfiguredError("No mail source is set on the server (MAIL_SOURCE).")
+        return GmailLabel(Path(os.environ.get("GMAIL_TOKEN_FILE", "/run/secrets/gmail-token.json")))
+    raise NotConfiguredError(f"Unknown mail source '{setting}'.")
+
+
+def from_env():
+    settings = [s.strip() for s in os.environ.get("MAIL_SOURCE", "").split(",") if s.strip()]
+    if not settings:
+        raise NotConfiguredError("No mail source is set on the server (MAIL_SOURCE).")
+    if len(settings) == 1:
+        return _one(settings[0])
+    return Several([_one(s) for s in settings])

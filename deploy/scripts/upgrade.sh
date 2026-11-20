@@ -20,6 +20,13 @@ git checkout --quiet --detach "$sha"
 docker build --quiet ${DOCKER_BUILD_EXTRA:-} -t "builders-api:$short" "$REPO_DIR" >/dev/null
 set_env APP_IMAGE "builders-api:$short"
 
+# The Gmail token file must exist before compose starts, or Docker creates a folder in its place.
+if [ ! -f "$BASE/gmail-token.json" ]; then
+  printf '{}' > "$BASE/gmail-token.json"
+  chown root:10001 "$BASE/gmail-token.json" 2>/dev/null || true
+  chmod 640 "$BASE/gmail-token.json"
+fi
+
 dc up -d db
 dc exec -T db sh -c 'until pg_isready -q -U builders_owner -d builders; do sleep 1; done'
 

@@ -25,5 +25,13 @@ set_env SUPPORT_CONTACT "$(param "$SSM_PREFIX/support_contact")"
 for s in POSTGRES_PASSWORD APP_DB_PASSWORD API_KEY_PEPPER MCP_PATH_SECRET; do
   set_env "$s" "$(secret "$(echo "$s" | tr 'A-Z' 'a-z')")"
 done
+# Demo Gmail (optional): login token and addresses, stored once by Florin (system/data/mock/README.md).
+set_env BUILDER_INBOX "$(param "$SSM_PREFIX/secrets/builder_inbox")"
+set_env SIMULATOR_SENDERS "$(param "$SSM_PREFIX/secrets/simulator_senders")"
+token=$(param "$SSM_PREFIX/secrets/gmail_token")
+[ -n "$token" ] && [ "$token" != "None" ] || token="{}"
+printf '%s' "$token" > "$BASE/gmail-token.json"
+chown root:10001 "$BASE/gmail-token.json" 2>/dev/null || true
+chmod 640 "$BASE/gmail-token.json"
 [ -n "$(get_env DOMAIN)" ] || die "no domain in $SSM_PREFIX/domain"
 log "wrote $ENV_FILE"

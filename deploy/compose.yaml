@@ -39,15 +39,36 @@ services:
       SUPPORT_CONTACT: ${SUPPORT_CONTACT:-Florin}
       RATE_LIMIT_PER_MINUTE: ${RATE_LIMIT_PER_MINUTE:-60}
       LOG_LEVEL: ${LOG_LEVEL:-INFO}
-      MAIL_SOURCE: ${MAIL_SOURCE:-eml:/data/mail}   # demo feed folder; "gmail" once the server has a Gmail login
+      MAIL_SOURCE: ${MAIL_SOURCE:-eml:/data/mail,gmail}   # demo folder + Gmail label (skipped until a Gmail login is stored)
+      GMAIL_TOKEN_FILE: /run/secrets/gmail-token.json
     volumes:
       - maildir:/data/mail
+      - ${BASE:-/opt/builders-lab}/gmail-token.json:/run/secrets/gmail-token.json:ro
     read_only: true
     tmpfs: [/tmp]
     cap_drop: [ALL]
     security_opt: ["no-new-privileges:true"]
     networks: [backend, frontend]
     # no ports: only Caddy talks to the app
+
+  # Live email simulator (ADR 0005), off by default: docker compose --profile simulator up -d simulator
+  simulator:
+    image: ${APP_IMAGE:-builders-api:local}
+    profiles: ["simulator"]
+    restart: unless-stopped
+    command: ["python", "/app/system/data/mock/gmail_demo.py", "simulate"]
+    environment:
+      BUILDER_INBOX: ${BUILDER_INBOX:-}
+      SIMULATOR_SENDERS: ${SIMULATOR_SENDERS:-}
+      GMAIL_TOKEN_FILE: /run/secrets/gmail-token.json
+      PYTHONUNBUFFERED: "1"
+    volumes:
+      - ${BASE:-/opt/builders-lab}/gmail-token.json:/run/secrets/gmail-token.json:ro
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    networks: [frontend]
 
   caddy:
     image: public.ecr.aws/docker/library/caddy:2.8.4-alpine

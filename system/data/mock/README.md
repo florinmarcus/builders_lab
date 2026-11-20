@@ -129,6 +129,27 @@ Scenario data: `scenario.py`. Document text matches `db_seed.sql`. Output is not
    The browser opens once; Google warns the app is unverified (it is yours, in testing): continue.
    The login is saved in `~/.config/builders-lab/gmail-token.json`. Testing-mode logins can expire after 7 days.
 
+### 6. Give the server the Gmail login (so "check my emails" sees live email, and the simulator can run there)
+
+Git Bash on your laptop (MSYS_NO_PATHCONV stops Git Bash from mangling the /builders-lab paths):
+
+```
+export MSYS_NO_PATHCONV=1
+aws ssm put-parameter --region eu-west-2 --type SecureString --overwrite --name /builders-lab/prod/secrets/gmail_token --value "$(cat ~/.config/builders-lab/gmail-token.json)"
+aws ssm put-parameter --region eu-west-2 --type SecureString --overwrite --name /builders-lab/prod/secrets/builder_inbox --value <your gmail>
+aws ssm put-parameter --region eu-west-2 --type SecureString --overwrite --name /builders-lab/prod/secrets/simulator_senders --value <your second address>
+```
+
+Then on the server (or ask Claude to run it):
+
+```
+sudo BASE=/opt/builders-lab SSM_PREFIX=/builders-lab/prod /opt/builders-lab/repo/deploy/scripts/env-from-ssm.sh
+cd /opt/builders-lab/repo/deploy && source scripts/common.sh
+dc up -d app                                   # app now also reads the Gmail label
+dc --profile simulator up -d simulator         # live simulator on the server (no laptop needed)
+dc logs -f simulator                           # watch it
+```
+
 ## On demo day
 
 ```
