@@ -31,12 +31,12 @@ Status: `todo`, `doing`, `done`, `blocked` (with reason). Each stage ends with i
 - Cost log helper used by embed, re-rank and judge calls.
 - **Test:** unit tests for the schema option; load the current 16-document corpus into `corpus_next`; live `corpus.stats` unchanged; the same question returns the same passages from both schemas.
 
-### S1. Coverage audit — `todo`
+### S1. Coverage audit — `done`
 - For every ingest source (197, minus restricted): current version(s), media type, which parser fits (legislation XML, GOV.UK HTML, guidance PDF, Approved Document PDF), raw file present, parse result.
 - Output `corpus/coverage.md`: a table with one row per source and a status.
 - **Test:** every in-scope source has a row with parser and status; nothing silently missing.
 
-### S2. Parsers for the whole corpus — `todo`
+### S2. Parsers for the whole corpus — `doing`
 Work through families by priority (sources.yaml `priority`, 1 first), using the `corpus-document` runbook per document:
 - S2a legislation XML (Acts, SIs, amending SIs): `parse_legislation`.
 - S2b Approved Documents and their amendment booklets: `parse_adoc`.
@@ -97,3 +97,4 @@ When a stage is blocked or its test fails twice, spawn a **replanner** subagent 
 
 - 20 Nov 2026, evening: plan written. Starting state: 16 documents chunked (demo corpus, 3,141 chunks in the ADR 0013 note, more since), live server search on schema `corpus` (pgvector + Titan V2 + Amazon Rerank, BM25 tables loaded but unused). 197 ingest sources in the catalogue, 16 with a parser assigned.
 - 20 Nov 2026 20:25 — S0 done. `load --schema corpus_next`, `pgsearch` RAG_SCHEMA setting (default corpus) and `candidates()` for Recall@50, `system.rag.promote status|promote|rollback`. Test: unit tests green; current 5,325 chunks loaded into corpus_next in 1m41; live corpus untouched (load time 19:19 unchanged); 3 questions give identical passages from both schemas through the reader URL and server code. Cost log helper moved to S6 (first billed eval calls).
+- 20 Nov 2026 20:35 — S1 done: `python -m system.rag.coverage` writes `corpus/coverage.md`. 193 sources in scope: 12 chunked, 175 to parse (priority 1: 53 = 16 legislation, 20 HTML, 9 guidance PDF, 8 Approved Documents; priority 2: 82; priority 3: 46), 6 blocked. **Blocked (raw missing):** ba1984, ess2020, gpdo-2015, riddor2013, rbca-2024, rra2025: their current raw file is among the 17 the source now serves with different bytes (Florin: leave out for now). The replanner may revisit. **S2 order:** priority 1 in every family first, then 2, then 3; parser fields assigned up front so parallel work does not collide on sources.yaml.
