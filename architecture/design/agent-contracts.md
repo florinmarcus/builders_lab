@@ -3,7 +3,7 @@
 The mini harness inside Claude: every answer goes through fixed steps, and every step speaks JSON, so our server can check it with plain code. No model runs on our server (ADR 0006); all model work is on the user's Claude plan.
 Up: [architecture](../ARCHITECTURE.md). Server side: [server.md](server.md).
 
-Contract version: `contracts.v2` (20 Nov 2026; v2 added the translator messages). **Source of truth: `system/api/builders_api/contracts.py`** (Pydantic). Generated schema: `plugin/shared/contracts.schema.json`. The JSON below explains it; `tests/test_contracts.py` checks the schema file is current and every example in `plugin/` is valid. Any change makes a new version.
+Contract version: `contracts.v3` (20 Nov 2026; v2 added the translator messages). **Source of truth: `system/api/builders_api/contracts.py`** (Pydantic). Generated schema: `plugin/shared/contracts.schema.json`. The JSON below explains it; `tests/test_contracts.py` checks the schema file is current and every example in `plugin/` is valid. Any change makes a new version.
 
 ## Pipeline
 
@@ -54,6 +54,8 @@ Where sub-agents are not available (Claude phone or web app), the main agent pla
 | `payments` | haiku | `get_payment_dates`, `search_regulations`, `get_job` | payment and pay less notices |
 | `paperwork` | haiku | `list_missing_items`, `get_job` | missing items, subcontractor papers |
 | `regulations` | haiku | `search_regulations`, `get_job` | building regs, asbestos rules, CDM |
+| `delays` | haiku | `get_job_timeline`, `get_job`, `search_job_documents`, `search_regulations` | running late, extensions, damages, what was sent |
+| `translator` | haiku | `lookup_terms` | Romanian in and out |
 
 ## Common types
 
@@ -88,9 +90,9 @@ Error: `{ "error": { "code": "not_found | invalid_input | quota_exceeded | not_c
 
 ```json
 {
-  "contract": "contracts.v2",
+  "contract": "contracts.v3",
   "question": "user's words",
-  "kind": "inbox | variations | payments | paperwork | regulations",
+  "kind": "inbox | variations | payments | paperwork | regulations | delays",
   "job": "job ref or words, optional",
   "as_of_date": "YYYY-MM-DD, optional"
 }
@@ -100,7 +102,7 @@ Error: `{ "error": { "code": "not_found | invalid_input | quota_exceeded | not_c
 
 ```json
 {
-  "contract": "contracts.v2",
+  "contract": "contracts.v3",
   "kind": "variations",
   "job": "ELM-22",
   "claims": [
@@ -124,7 +126,7 @@ Rules: one claim per fact; every claim has a source; quotes copied exactly; noth
 
 ```json
 {
-  "contract": "contracts.v2",
+  "contract": "contracts.v3",
   "text": "The answer as it will be shown, including the AI notice",
   "claims": [ { "id": "c1", "quote": "exact words", "source": { "type": "document", "id": "uuid" } } ]
 }
@@ -134,7 +136,7 @@ Rules: one claim per fact; every claim has a source; quotes copied exactly; noth
 
 ```json
 {
-  "contract": "contracts.v2",
+  "contract": "contracts.v3",
   "pass": false,
   "problems": [
     { "code": "QUOTE_NOT_IN_SOURCE", "claim": "c2", "message": "Quote not found in the cited source." }

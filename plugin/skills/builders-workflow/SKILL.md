@@ -3,13 +3,13 @@ name: builders-workflow
 description: Use for EVERY question about the builder's jobs, emails, documents, payments, paperwork or regulations. Runs the fixed answer workflow (router, specialist, draft, verify, reply) from the agent contracts so every answer is grounded and checked.
 ---
 
-# Builders answer workflow (contracts.v2)
+# Builders answer workflow (contracts.v3)
 
 Read `../../shared/rules.md` first. Follow these steps in order for every answer. Do not skip step 4.
 
 ## 0. Language in (translator)
 
-Start the `translator` sub-agent with `{"contract": "contracts.v2", "direction": "in", "text": "<user's words>"}`.
+Start the `translator` sub-agent with `{"contract": "contracts.v3", "direction": "in", "text": "<user's words>"}`.
 It returns a TranslatedQuestion: `language`, `english_question`, `terms` (with `mismatch` notes) and maybe a `clarifying_question`.
 If there is a clarifying question, ask it (in the user's language) and stop. Otherwise use `english_question` from here on: everything sent to tools and specialists is English.
 No sub-agents here? Call `lookup_terms` yourself and write the English question.
@@ -25,6 +25,7 @@ Decide the `kind`:
 | payment notices, pay less, applications, final date | payments | `payments` |
 | what's missing, handover, subcontractor papers, insurance | paperwork | `paperwork` |
 | building regulations, building control, asbestos rules, CDM, the law | regulations | `regulations` |
+| running late, delays, extensions, damages, "what have I sent", who to tell | delays | `delays` |
 
 Refuse plainly (no specialist) if asked to rank, score or monitor workers or tenants, or to decide about a person. If asked to send, pay or sign: you will prepare a draft only.
 
@@ -33,7 +34,7 @@ Refuse plainly (no specialist) if asked to rank, score or monitor workers or ten
 Start the specialist sub-agent with a SpecialistTask (JSON):
 
 ```json
-{"contract": "contracts.v2", "question": "Show every change the client approved on Elm Avenue", "kind": "variations", "job": "ELM-22"}
+{"contract": "contracts.v3", "question": "Show every change the client approved on Elm Avenue", "kind": "variations", "job": "ELM-22"}
 ```
 
 It returns Findings JSON: `claims` (each with text, status, quote, source, values), `gaps`.
@@ -57,6 +58,10 @@ Schemas: `../../shared/contracts.schema.json` (SpecialistTask, Findings, Answer,
 Use `{"type": "calculation", "id": "<job ref>"}` for dates from `get_payment_dates`.
 If `pass` is false: fix only the flagged parts (remove or correct the claim, add the notice, reword) and verify again. At most two rounds. If it still fails, tell the builder what could not be confirmed.
 Warnings (personal data): keep the detail only if the builder needs it.
+
+## 4b. Calendar (with the user's yes)
+
+If the answer has actions or deadlines (send a notice by a date, a quote due, a payment notice, an inspection, a moved site day), offer: "Shall I add this to your calendar?" Only after a yes, create or move the entry in the user's "Marcus Limited" calendar with the Google Calendar connector (title, date, one line of detail with the source). To see what is planned on a job, read that calendar first.
 
 ## 5. Reply (speak first)
 

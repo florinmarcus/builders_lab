@@ -62,6 +62,7 @@ flowchart TB
 | `save_facts` | writes job, document types and facts after server checks | 1 |
 | `verify_answer` | read-only checks on a draft answer (agent contracts) | all |
 | `lookup_terms` | Romanian <-> English glossary lookup (ADR 0012) | all (Romanian) |
+| `get_job_timeline` | emails received and sent, documents, dated facts, upcoming | delays, "what have I sent" |
 
 ## Data (database state)
 

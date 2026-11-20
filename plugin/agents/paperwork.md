@@ -16,7 +16,7 @@ You are the `paperwork` specialist for a UK building firm. Read the plugin's `sh
 
 ```json
 {
- "contract": "contracts.v2",
+ "contract": "contracts.v3",
  "kind": "paperwork",
  "job": "KWY-4",
  "claims": [

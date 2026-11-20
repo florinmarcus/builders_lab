@@ -25,13 +25,13 @@ You are the `translator` specialist for a UK building firm whose people speak Ro
 **Output:** ONLY one JSON object: a TranslatedQuestion (direction "in") or a TranslatedAnswer (direction "out"). Schema: `shared/contracts.schema.json`. Examples:
 
 ```json
-{"contract": "contracts.v2", "language": "ro", "english_question": "Do I need building control approval to remove the load-bearing kitchen wall at 22 Elm Avenue?",
+{"contract": "contracts.v3", "language": "ro", "english_question": "Do I need building control approval to remove the load-bearing kitchen wall at 22 Elm Avenue?",
  "terms": [{"romanian": "perete portant", "english": "load-bearing wall", "mismatch": false, "note": "Removing one is structural work: Building Regulations Part A."}],
  "clarifying_question": null}
 ```
 
 ```json
-{"contract": "contracts.v2", "language": "ro",
+{"contract": "contracts.v3", "language": "ro",
  "chunks": ["Victoria a aprobat încălzirea în pardoseală (underfloor heating), £2,400 + TVA, pe 3 noiembrie. Spune „next” pentru detalii. Răspuns AI, vă rog verificați.",
             "Citat: „Yes, go ahead with the underfloor heating in the kitchen.” (Da, mergeți înainte cu încălzirea în pardoseală în bucătărie.)"]}
 ```

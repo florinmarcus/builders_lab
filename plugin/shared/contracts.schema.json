@@ -1,6 +1,6 @@
 {
   "$comment": "Generated from system/api/builders_api/contracts.py. Do not edit by hand.",
-  "contract": "contracts.v2",
+  "contract": "contracts.v3",
   "definitions": {
     "Answer": {
       "$defs": {
@@ -63,8 +63,8 @@
           "type": "array"
         },
         "contract": {
-          "const": "contracts.v2",
-          "default": "contracts.v2",
+          "const": "contracts.v3",
+          "default": "contracts.v3",
           "title": "Contract",
           "type": "string"
         },
@@ -256,7 +256,8 @@
             "expiring_soon",
             "deadline",
             "rule",
-            "info"
+            "info",
+            "action"
           ],
           "title": "Status",
           "type": "string"
@@ -308,7 +309,8 @@
                 "expiring_soon",
                 "deadline",
                 "rule",
-                "info"
+                "info",
+                "action"
               ],
               "title": "Status",
               "type": "string"
@@ -442,8 +444,8 @@
           "type": "array"
         },
         "contract": {
-          "const": "contracts.v2",
-          "default": "contracts.v2",
+          "const": "contracts.v3",
+          "default": "contracts.v3",
           "title": "Contract",
           "type": "string"
         },
@@ -472,7 +474,8 @@
             "variations",
             "payments",
             "paperwork",
-            "regulations"
+            "regulations",
+            "delays"
           ],
           "title": "Kind",
           "type": "string"
@@ -656,8 +659,8 @@
           "title": "As Of Date"
         },
         "contract": {
-          "const": "contracts.v2",
-          "default": "contracts.v2",
+          "const": "contracts.v3",
+          "default": "contracts.v3",
           "title": "Contract",
           "type": "string"
         },
@@ -679,7 +682,8 @@
             "variations",
             "payments",
             "paperwork",
-            "regulations"
+            "regulations",
+            "delays"
           ],
           "title": "Kind",
           "type": "string"
@@ -737,8 +741,8 @@
           "type": "array"
         },
         "contract": {
-          "const": "contracts.v2",
-          "default": "contracts.v2",
+          "const": "contracts.v3",
+          "default": "contracts.v3",
           "title": "Contract",
           "type": "string"
         },
@@ -807,8 +811,8 @@
           "title": "Clarifying Question"
         },
         "contract": {
-          "const": "contracts.v2",
-          "default": "contracts.v2",
+          "const": "contracts.v3",
+          "default": "contracts.v3",
           "title": "Contract",
           "type": "string"
         },
@@ -844,8 +848,8 @@
       "description": "Main agent to translator, start of a turn: the user's own words.",
       "properties": {
         "contract": {
-          "const": "contracts.v2",
-          "default": "contracts.v2",
+          "const": "contracts.v3",
+          "default": "contracts.v3",
           "title": "Contract",
           "type": "string"
         },
@@ -879,8 +883,8 @@
           "type": "array"
         },
         "contract": {
-          "const": "contracts.v2",
-          "default": "contracts.v2",
+          "const": "contracts.v3",
+          "default": "contracts.v3",
           "title": "Contract",
           "type": "string"
         },
@@ -976,8 +980,8 @@
           "type": "object"
         },
         "contract": {
-          "const": "contracts.v2",
-          "default": "contracts.v2",
+          "const": "contracts.v3",
+          "default": "contracts.v3",
           "title": "Contract",
           "type": "string"
         },

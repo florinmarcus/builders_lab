@@ -18,15 +18,17 @@ flowchart TB
         main --> pay["payments<br/>Haiku"]
         main --> paper["paperwork<br/>Haiku"]
         main --> regs["regulations<br/>Haiku"]
+        main --> dly["delays<br/>Haiku"]
     end
     subgraph server["Our MCP server (plain code)"]
         tools["data tools"]
         guard["verify_answer"]
     end
-    inbox & var & pay & paper & regs --> tools
+    inbox & var & pay & paper & regs & dly --> tools
     tr --> tools
     main --> guard
     sched["Claude Code schedule"] -.->|"check my emails"| main
+    main -.->|"with user's yes"| cal["Google Calendar<br/>(Claude connector)"]
 ```
 
 ## 2. Agents and their actions
@@ -39,6 +41,7 @@ flowchart TB
 | **variations** | approved changes, final account | `get_job`, `search_job_documents` | no | Findings: approved / not_approved claims |
 | **payments** | payment, pay less, final dates, the law | `get_payment_dates`, `search_regulations`, `get_job` | no | Findings: deadline claims (calculation) + rule claims |
 | **paperwork** | missing items, subcontractor papers | `list_missing_items`, `get_job` | no | Findings: missing / present / expired / expiring_soon |
+| **delays** | running late, extensions, damages, what was sent | `get_job_timeline`, `get_job`, `search_job_documents`, `search_regulations` | no | Findings: deadline, action, rule, info claims with contract clauses |
 | **regulations** | building regs, asbestos, CDM | `search_regulations`, `get_job` | no | Findings: rule claims with section and edition date |
 
 Only `inbox-clerk` writes, and only through `save_facts`, which rejects anything it cannot match to the source.

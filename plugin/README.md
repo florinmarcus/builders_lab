@@ -19,7 +19,7 @@ export BUILDERS_API_KEY=bl_...
 In the Claude app (web, desktop, phone), add the connector by hand instead: Settings, Connectors, Add custom connector,
 Authentication "No sign-in", header `Authorization: Bearer bl_...` (see `deploy/README.md`).
 
-## How an answer is made (contracts.v2)
+## How an answer is made (contracts.v3)
 
 The `builders-workflow` skill runs every answer through fixed steps: route the question, hand it to a specialist
 sub-agent (`agents/`, on Haiku), draft from its Findings JSON, check the draft with `verify_answer` on our server

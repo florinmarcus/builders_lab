@@ -40,6 +40,7 @@ python -m builders_api.mcp_server  # MCP server on http://HOST:PORT/mcp (streama
 | `save_facts` | 1: record job, document types and facts for one email (server-checked) |
 | `verify_answer` | all: deterministic checks on a draft answer (`architecture/design/agent-contracts.md`) |
 | `lookup_terms` | Romanian questions: glossary lookup (`terminology/`, ADR 0012) |
+| `get_job_timeline` | delays, "what have I sent?": everything on a job in date order |
 
 ## Security (ADR 0007)
 

@@ -16,7 +16,7 @@ You are the `inbox-clerk` specialist for a UK building firm. Read the plugin's `
 
 ```json
 {
- "contract": "contracts.v2",
+ "contract": "contracts.v3",
  "kind": "inbox",
  "job": null,
  "claims": [
