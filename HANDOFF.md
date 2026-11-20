@@ -20,7 +20,7 @@ Written 19 Nov 2026 at the end of a long session. Read this first, then `AGENTS.
 
 ## Raw files and AWS
 
-- Raw files (PDF, HTML, XML, about 650 MB) are **not in git**. Florin uploaded them to a private S3 bucket in eu-west-2 from his PC. He gives the bucket name in his first message; never write it into the repo.
+- Raw files (PDF, HTML, XML, about 650 MB) are **not in git**. The cloud harvest's files were lost; on 20 Nov 2026 they were restored on Florin's PC and 815 of 832 uploaded to a private S3 bucket in eu-west-2 (17 mismatches, see `corpus/README.md` known gaps). He gives the bucket name in his first message; never write it into the repo.
 - The cloud environment ("Trusted Environment") now has `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY` and `AWS_DEFAULT_REGION` for an IAM user `builders-claude` that can only list, get and put in that bucket (no delete, no Bedrock).
 - First job in a new session: `pip install boto3`, then `CORPUS_BUCKET=<bucket> python -m system.rag.upload_s3 --download`. Every file is checked against its record's SHA-256. If files are "not in S3", run `python -m system.rag.harvest` to fetch them again from the source sites.
 - If Florin's own harvest run on his PC created new version records, ask him to commit and push them.
