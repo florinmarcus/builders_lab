@@ -81,6 +81,7 @@ flowchart LR
 | Level | Document |
 |---|---|
 | Design | [Server: MCP, security, data, deployment](design/server.md) |
+| Design | [Agents: who does what, the flow, guardrails](design/agents.md) |
 | Design | [Agent contracts: JSON in, JSON out, verify step](design/agent-contracts.md) |
 | Design | [Regulations corpus and search](design/regulations-corpus.md) (corpus session) |
 | Sequences | [Server flows](sequences/server.md) |
