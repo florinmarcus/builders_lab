@@ -1,0 +1,1951 @@
+{
+ "source_id": "hse-hsg227",
+ "about": "Saved model fixes for the HSG227 PDF parser (system/rag/parse_pdf.py, ADR 0010): table grids rebuilt from page images with one sentence per row (including Table 3, the priority assessment, and the worked examples), and figure descriptions. Keys are content fingerprints (system/rag/fixes.py).",
+ "fixes": [
+  {
+   "key": "7e6cf6667ab990f1",
+   "kind": "table",
+   "target": "table-1: Some common errors and outcomes in asbestos management with some solutions",
+   "value": {
+    "columns": [
+     "Common error",
+     "Outcome",
+     "Possible solutions"
+    ],
+    "rows": [
+     [
+      "Not all ACMs are identified",
+      "People may work on an ACM exposing themselves and others, perhaps significantly",
+      "A thorough survey"
+     ],
+     [
+      "ACM is identified as unlikely to release asbestos fibres when it could do so (because of its type or state)",
+      "Potential release of airborne fibres underestimated",
+      "Consult guidance and/or trained personnel"
+     ],
+     [
+      "ACM is identified as likely to release asbestos fibres when this is unlikely",
+      "Unnecessary and costly action may be taken to prevent an insignificant risk\nPeople’s concerns and worries may be raised unnecessarily\nMaintenance and other work may be unnecessarily disrupted",
+      "Consult guidance and/or trained personnel"
+     ],
+     [
+      "Poor liaison and discussion between surveyor and premises manager or owner",
+      "(1) ACM is missed; or (2) Potential disturbance is underestimated and therefore not taken into account by yourself and the surveyor (Result – potential risk is underestimated); or (3) Potential disturbance is overestimated by the surveyor when, in fact, it is unlikely (Result – potential risk is overestimated).",
+      "Make sure liaison and communications between yourself and the surveyor are clear and appropriately detailed\nDevelop the final risk assessment together as you know the type and level of occupancy of your premises"
+     ],
+     [
+      "ACM identified but presence not communicated effectively to contractors or maintenance personnel",
+      "ACM is disturbed possibly resulting in significant exposure",
+      "Make sure liaison and communications between yourself and the contractor or maintenance personnel is clear and effective"
+     ],
+     [
+      "People become concerned because of the presence of an ACM, even though in good condition",
+      "Unnecessary and costly action may be taken to prevent an insignificant risk\nPeople’s concerns and worries may be raised unnecessarily\nMaintenance and other work may be unnecessarily disrupted",
+      "Consult guidance and or trained personnel"
+     ],
+     [
+      "People do not appreciate how energetic work (eg drilling, hammering etc) near damaged ACM may release airborne fibres",
+      "People may work close to the ACM exposing themselves and others, perhaps significantly",
+      "All maintenance and other workers should receive training and instruction as should supervisors"
+     ],
+     [
+      "People work on or near ACM but don’t follow the correct procedures",
+      "People may expose themselves and others, perhaps significantly",
+      "Follow HSE’s Asbestos essentials task guidance sheets or other good practice guidance (see paragraphs 19 to 23)"
+     ],
+     [
+      "Labels obscured or not easily visible",
+      "People may be exposed and/or expose others",
+      "Make labelling policy clear and inspect labels on a regular basis"
+     ],
+     [
+      "Location plan used names of people or other transient identifying factors",
+      "Locations of asbestos no longer known",
+      "Use room numbers or other permanent identifying factors"
+     ],
+     [
+      "Complete a survey but do nothing else",
+      "People may be exposed and/or expose others",
+      "Inform others of survey findings and develop management plan"
+     ],
+     [
+      "Maintenance staff work on ACM inadvertently",
+      "Maintenance staff exposed",
+      "Maintenance operatives should be given basic training on what they should do before working on the fabric of the building"
+     ]
+    ],
+    "sentences": [
+     "A common error in asbestos management is that not all ACMs are identified; people may then work on an ACM exposing themselves and others, perhaps significantly, and the possible solution is a thorough survey.",
+     "A common error is that an ACM is identified as unlikely to release asbestos fibres when it could do so (because of its type or state); the potential release of airborne fibres is then underestimated, and the possible solution is to consult guidance and/or trained personnel.",
+     "A common error is that an ACM is identified as likely to release asbestos fibres when this is unlikely; unnecessary and costly action may be taken to prevent an insignificant risk, people's concerns and worries may be raised unnecessarily, and maintenance and other work may be unnecessarily disrupted, so the possible solution is to consult guidance and/or trained personnel.",
+     "A common error is poor liaison and discussion between surveyor and premises manager or owner; an ACM may be missed, or potential disturbance may be underestimated (potential risk underestimated) or overestimated by the surveyor (potential risk overestimated), so make sure liaison and communications between yourself and the surveyor are clear and appropriately detailed, and develop the final risk assessment together as you know the type and level of occupancy of your premises.",
+     "A common error is that an ACM is identified but its presence is not communicated effectively to contractors or maintenance personnel; the ACM is disturbed, possibly resulting in significant exposure, so make sure liaison and communications between yourself and the contractor or maintenance personnel are clear and effective.",
+     "A common error is that people become concerned because of the presence of an ACM even though it is in good condition; unnecessary and costly action may be taken to prevent an insignificant risk, people's concerns and worries may be raised unnecessarily, and maintenance and other work may be unnecessarily disrupted, so the possible solution is to consult guidance and or trained personnel.",
+     "A common error is that people do not appreciate how energetic work (eg drilling, hammering) near damaged ACM may release airborne fibres; people may work close to the ACM exposing themselves and others, perhaps significantly, so all maintenance and other workers should receive training and instruction, as should supervisors.",
+     "A common error is that people work on or near ACM but don't follow the correct procedures; people may expose themselves and others, perhaps significantly, so follow HSE's Asbestos essentials task guidance sheets or other good practice guidance (see paragraphs 19 to 23).",
+     "A common error is that labels are obscured or not easily visible; people may be exposed and/or expose others, so make the labelling policy clear and inspect labels on a regular basis.",
+     "A common error is that the location plan used names of people or other transient identifying factors; the locations of asbestos are then no longer known, so use room numbers or other permanent identifying factors.",
+     "A common error is to complete a survey but do nothing else; people may be exposed and/or expose others, so inform others of the survey findings and develop a management plan.",
+     "A common error is that maintenance staff work on ACM inadvertently and are exposed; maintenance operatives should be given basic training on what they should do before working on the fabric of the building."
+    ]
+   },
+   "reason": "Grid rebuilt from the page images; merged cells repeated so each row stands alone; one sentence per data row from the table's own words.",
+   "evidence": "Cells with several separate printed paragraphs are joined with a newline (\\n). Missing spaces fixed: 'clear andappropriately' -> 'clear and appropriately', 'together asyou' -> 'together as you', 'guidancesheets' -> 'guidance sheets'. Row 6 prints 'Consult guidance and or trained personnel' (no slash), kept as printed. Sentences lightly smooth grammar (eg 'is clear' -> 'are clear').",
+   "by": "model check, Claude Code subagent (page images and pdfplumber grid)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "2746c3340f3bece7",
+   "kind": "table",
+   "target": "table-2: Material assessment algorithm",
+   "value": {
+    "columns": [
+     "Sample variable",
+     "Score",
+     "Examples of scores"
+    ],
+    "rows": [
+     [
+      "Product type (or debris from product)",
+      "1",
+      "Asbestos reinforced composites (plastics, resins, mastics, roofing felts, vinyl floor tiles, semi-rigid paints or decorative finishes, asbestos cement etc)"
+     ],
+     [
+      "Product type (or debris from product)",
+      "2",
+      "Asbestos insulating board, mill boards, other low density insulation boards, asbestos textiles, gaskets, ropes and woven textiles, asbestos paper and felt"
+     ],
+     [
+      "Product type (or debris from product)",
+      "3",
+      "Thermal insulation (eg pipe and boiler lagging), sprayed asbestos, loose asbestos, asbestos mattresses and packing"
+     ],
+     [
+      "Extent of damage/deterioration",
+      "0",
+      "Good condition: no visible damage"
+     ],
+     [
+      "Extent of damage/deterioration",
+      "1",
+      "Low damage: a few scratches or surface marks; broken edges on boards, tiles etc"
+     ],
+     [
+      "Extent of damage/deterioration",
+      "2",
+      "Medium damage: significant breakage of materials or several small areas where material has been damaged revealing loose asbestos fibres"
+     ],
+     [
+      "Extent of damage/deterioration",
+      "3",
+      "High damage or delamination of materials, sprays and thermal insulation. Visible asbestos debris"
+     ],
+     [
+      "Surface treatment",
+      "0",
+      "Composite materials containing asbestos: reinforced plastics, resins, vinyl tiles"
+     ],
+     [
+      "Surface treatment",
+      "1",
+      "Enclosed sprays and lagging, asbestos insulating board (with exposed face painted or encapsulated), asbestos cement sheets etc"
+     ],
+     [
+      "Surface treatment",
+      "2",
+      "Unsealed asbestos insulating board, or encapsulated lagging and sprays"
+     ],
+     [
+      "Surface treatment",
+      "3",
+      "Unsealed laggings and sprays"
+     ],
+     [
+      "Asbestos type",
+      "1",
+      "Chrysotile"
+     ],
+     [
+      "Asbestos type",
+      "2",
+      "Amphibole asbestos excluding crocidolite"
+     ],
+     [
+      "Asbestos type",
+      "3",
+      "Crocidolite"
+     ],
+     [
+      "Total score",
+      "",
+      ""
+     ]
+    ],
+    "sentences": [
+     "In the material assessment, product type (or debris from product) scores 1: Asbestos reinforced composites (plastics, resins, mastics, roofing felts, vinyl floor tiles, semi-rigid paints or decorative finishes, asbestos cement etc).",
+     "In the material assessment, product type (or debris from product) scores 2: Asbestos insulating board, mill boards, other low density insulation boards, asbestos textiles, gaskets, ropes and woven textiles, asbestos paper and felt.",
+     "In the material assessment, product type (or debris from product) scores 3: Thermal insulation (eg pipe and boiler lagging), sprayed asbestos, loose asbestos, asbestos mattresses and packing.",
+     "In the material assessment, extent of damage/deterioration scores 0: Good condition: no visible damage.",
+     "In the material assessment, extent of damage/deterioration scores 1: Low damage: a few scratches or surface marks; broken edges on boards, tiles etc.",
+     "In the material assessment, extent of damage/deterioration scores 2: Medium damage: significant breakage of materials or several small areas where material has been damaged revealing loose asbestos fibres.",
+     "In the material assessment, extent of damage/deterioration scores 3: High damage or delamination of materials, sprays and thermal insulation. Visible asbestos debris.",
+     "In the material assessment, surface treatment scores 0: Composite materials containing asbestos: reinforced plastics, resins, vinyl tiles.",
+     "In the material assessment, surface treatment scores 1: Enclosed sprays and lagging, asbestos insulating board (with exposed face painted or encapsulated), asbestos cement sheets etc.",
+     "In the material assessment, surface treatment scores 2: Unsealed asbestos insulating board, or encapsulated lagging and sprays.",
+     "In the material assessment, surface treatment scores 3: Unsealed laggings and sprays.",
+     "In the material assessment, asbestos type scores 1: Chrysotile.",
+     "In the material assessment, asbestos type scores 2: Amphibole asbestos excluding crocidolite.",
+     "In the material assessment, asbestos type scores 3: Crocidolite.",
+     "The material assessment table ends with a row for the total score, which is left blank to be filled in."
+    ]
+   },
+   "reason": "Grid rebuilt from the page images; merged cells repeated so each row stands alone; one sentence per data row from the table's own words.",
+   "evidence": "Last row 'Total score' has empty Score and Examples cells in the print. Missing space fixed: 'mastics,roofing felts' -> 'mastics, roofing felts'.",
+   "by": "model check, Claude Code subagent (page images and pdfplumber grid)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "c827612e650a8bd0",
+   "kind": "table",
+   "target": "table-3: Priority assessment algorithm (read page 60, paragraph 7 on score averaging before using this algorithm)",
+   "value": {
+    "columns": [
+     "Assessment factor",
+     "Sub-factor",
+     "Score",
+     "Examples of score variables"
+    ],
+    "rows": [
+     [
+      "Normal occupant activity",
+      "Main type of activity in area",
+      "0",
+      "Rare disturbance activity (eg little used store room)"
+     ],
+     [
+      "Normal occupant activity",
+      "Main type of activity in area",
+      "1",
+      "Low disturbance activities (eg office type activity)"
+     ],
+     [
+      "Normal occupant activity",
+      "Main type of activity in area",
+      "2",
+      "Periodic disturbance (eg industrial or vehicular activity which may contact ACMs)"
+     ],
+     [
+      "Normal occupant activity",
+      "Main type of activity in area",
+      "3",
+      "High levels of disturbance, (eg fire door with asbestos insulating board sheet in constant use)"
+     ],
+     [
+      "Normal occupant activity",
+      "Secondary activities for area",
+      "As above",
+      "As above"
+     ],
+     [
+      "Likelihood of disturbance",
+      "Location",
+      "0",
+      "Outdoors"
+     ],
+     [
+      "Likelihood of disturbance",
+      "Location",
+      "1",
+      "Large rooms or well-ventilated areas"
+     ],
+     [
+      "Likelihood of disturbance",
+      "Location",
+      "2",
+      "Rooms up to 100 m2"
+     ],
+     [
+      "Likelihood of disturbance",
+      "Location",
+      "3",
+      "Confined spaces"
+     ],
+     [
+      "Likelihood of disturbance",
+      "Accessibility",
+      "0",
+      "Usually inaccessible or unlikely to be disturbed"
+     ],
+     [
+      "Likelihood of disturbance",
+      "Accessibility",
+      "1",
+      "Occasionally likely to be disturbed"
+     ],
+     [
+      "Likelihood of disturbance",
+      "Accessibility",
+      "2",
+      "Easily disturbed"
+     ],
+     [
+      "Likelihood of disturbance",
+      "Accessibility",
+      "3",
+      "Routinely disturbed"
+     ],
+     [
+      "Likelihood of disturbance",
+      "Extent/amount",
+      "0",
+      "Small amounts or items (eg strings, gaskets)"
+     ],
+     [
+      "Likelihood of disturbance",
+      "Extent/amount",
+      "1",
+      "≤10 m2 or ≤10 m pipe run."
+     ],
+     [
+      "Likelihood of disturbance",
+      "Extent/amount",
+      "2",
+      ">10 m2 to ≤50 m2 or >10 m to ≤50 m pipe run"
+     ],
+     [
+      "Likelihood of disturbance",
+      "Extent/amount",
+      "3",
+      ">50 m2 or >50 m pipe run"
+     ],
+     [
+      "Human exposure potential",
+      "Number of occupants",
+      "0",
+      "None"
+     ],
+     [
+      "Human exposure potential",
+      "Number of occupants",
+      "1",
+      "1 to 3"
+     ],
+     [
+      "Human exposure potential",
+      "Number of occupants",
+      "2",
+      "4 to 10"
+     ],
+     [
+      "Human exposure potential",
+      "Number of occupants",
+      "3",
+      ">10"
+     ],
+     [
+      "Human exposure potential",
+      "Frequency of use of area",
+      "0",
+      "Infrequent"
+     ],
+     [
+      "Human exposure potential",
+      "Frequency of use of area",
+      "1",
+      "Monthly"
+     ],
+     [
+      "Human exposure potential",
+      "Frequency of use of area",
+      "2",
+      "Weekly"
+     ],
+     [
+      "Human exposure potential",
+      "Frequency of use of area",
+      "3",
+      "Daily"
+     ],
+     [
+      "Human exposure potential",
+      "Average time area is in use",
+      "0",
+      "<1 hour"
+     ],
+     [
+      "Human exposure potential",
+      "Average time area is in use",
+      "1",
+      ">1 to <3 hours"
+     ],
+     [
+      "Human exposure potential",
+      "Average time area is in use",
+      "2",
+      ">3 to <6 hours"
+     ],
+     [
+      "Human exposure potential",
+      "Average time area is in use",
+      "3",
+      ">6 hours"
+     ],
+     [
+      "Maintenance activity",
+      "Type of maintenance activity",
+      "0",
+      "Minor disturbance (eg possibility of contact when gaining access)"
+     ],
+     [
+      "Maintenance activity",
+      "Type of maintenance activity",
+      "1",
+      "Low disturbance (eg changing light bulbs in asbestos insulating board ceiling)"
+     ],
+     [
+      "Maintenance activity",
+      "Type of maintenance activity",
+      "2",
+      "Medium disturbance (eg lifting one or two asbestos insulating board ceiling tiles to access a valve)"
+     ],
+     [
+      "Maintenance activity",
+      "Type of maintenance activity",
+      "3",
+      "High levels of disturbance (eg removing a number of asbestos insulating board ceiling tiles to replace a valve or for recabling)"
+     ],
+     [
+      "Maintenance activity",
+      "Frequency of maintenance activity",
+      "0",
+      "ACM unlikely to be disturbed for maintenance"
+     ],
+     [
+      "Maintenance activity",
+      "Frequency of maintenance activity",
+      "1",
+      "≤1 per year"
+     ],
+     [
+      "Maintenance activity",
+      "Frequency of maintenance activity",
+      "2",
+      ">1 per year"
+     ],
+     [
+      "Maintenance activity",
+      "Frequency of maintenance activity",
+      "3",
+      ">1 per month"
+     ]
+    ],
+    "sentences": [
+     "In the priority assessment (normal occupant activity), main type of activity in area scores 0 for: Rare disturbance activity (eg little used store room).",
+     "In the priority assessment (normal occupant activity), main type of activity in area scores 1 for: Low disturbance activities (eg office type activity).",
+     "In the priority assessment (normal occupant activity), main type of activity in area scores 2 for: Periodic disturbance (eg industrial or vehicular activity which may contact ACMs).",
+     "In the priority assessment (normal occupant activity), main type of activity in area scores 3 for: High levels of disturbance, (eg fire door with asbestos insulating board sheet in constant use).",
+     "In the priority assessment (normal occupant activity), secondary activities for area is scored as above, using the same scores and examples as the main type of activity in area.",
+     "In the priority assessment (likelihood of disturbance), location scores 0 for: Outdoors.",
+     "In the priority assessment (likelihood of disturbance), location scores 1 for: Large rooms or well-ventilated areas.",
+     "In the priority assessment (likelihood of disturbance), location scores 2 for: Rooms up to 100 m2.",
+     "In the priority assessment (likelihood of disturbance), location scores 3 for: Confined spaces.",
+     "In the priority assessment (likelihood of disturbance), accessibility scores 0 for: Usually inaccessible or unlikely to be disturbed.",
+     "In the priority assessment (likelihood of disturbance), accessibility scores 1 for: Occasionally likely to be disturbed.",
+     "In the priority assessment (likelihood of disturbance), accessibility scores 2 for: Easily disturbed.",
+     "In the priority assessment (likelihood of disturbance), accessibility scores 3 for: Routinely disturbed.",
+     "In the priority assessment (likelihood of disturbance), extent/amount scores 0 for: Small amounts or items (eg strings, gaskets).",
+     "In the priority assessment (likelihood of disturbance), extent/amount scores 1 for: ≤10 m2 or ≤10 m pipe run..",
+     "In the priority assessment (likelihood of disturbance), extent/amount scores 2 for: >10 m2 to ≤50 m2 or >10 m to ≤50 m pipe run.",
+     "In the priority assessment (likelihood of disturbance), extent/amount scores 3 for: >50 m2 or >50 m pipe run.",
+     "In the priority assessment (human exposure potential), number of occupants scores 0 for: None.",
+     "In the priority assessment (human exposure potential), number of occupants scores 1 for: 1 to 3.",
+     "In the priority assessment (human exposure potential), number of occupants scores 2 for: 4 to 10.",
+     "In the priority assessment (human exposure potential), number of occupants scores 3 for: >10.",
+     "In the priority assessment (human exposure potential), frequency of use of area scores 0 for: Infrequent.",
+     "In the priority assessment (human exposure potential), frequency of use of area scores 1 for: Monthly.",
+     "In the priority assessment (human exposure potential), frequency of use of area scores 2 for: Weekly.",
+     "In the priority assessment (human exposure potential), frequency of use of area scores 3 for: Daily.",
+     "In the priority assessment (human exposure potential), average time area is in use scores 0 for: <1 hour.",
+     "In the priority assessment (human exposure potential), average time area is in use scores 1 for: >1 to <3 hours.",
+     "In the priority assessment (human exposure potential), average time area is in use scores 2 for: >3 to <6 hours.",
+     "In the priority assessment (human exposure potential), average time area is in use scores 3 for: >6 hours.",
+     "In the priority assessment (maintenance activity), type of maintenance activity scores 0 for: Minor disturbance (eg possibility of contact when gaining access).",
+     "In the priority assessment (maintenance activity), type of maintenance activity scores 1 for: Low disturbance (eg changing light bulbs in asbestos insulating board ceiling).",
+     "In the priority assessment (maintenance activity), type of maintenance activity scores 2 for: Medium disturbance (eg lifting one or two asbestos insulating board ceiling tiles to access a valve).",
+     "In the priority assessment (maintenance activity), type of maintenance activity scores 3 for: High levels of disturbance (eg removing a number of asbestos insulating board ceiling tiles to replace a valve or for recabling).",
+     "In the priority assessment (maintenance activity), frequency of maintenance activity scores 0 for: ACM unlikely to be disturbed for maintenance.",
+     "In the priority assessment (maintenance activity), frequency of maintenance activity scores 1 for: ≤1 per year.",
+     "In the priority assessment (maintenance activity), frequency of maintenance activity scores 2 for: >1 per year.",
+     "In the priority assessment (maintenance activity), frequency of maintenance activity scores 3 for: >1 per month."
+    ]
+   },
+   "reason": "Grid rebuilt from the page images; merged cells repeated so each row stands alone; one sentence per data row from the table's own words.",
+   "evidence": "Added a 'Sub-factor' column: the printed 'Assessment factor' column holds a bold group heading (eg 'Likelihood of disturbance') with sub-factors under it (eg 'Accessibility'); the group goes in 'Assessment factor', the sub-factor in 'Sub-factor'. The ≤ sign is printed as a garbled glyph in Extent/amount score 1 ('I 10 m2 oΛI 10 m pipe run.', read as '≤10 m2 or ≤10 m pipe run.') and in Frequency of maintenance activity score 1 ('I 1 per year', read as '≤1 per year'). In the print the Maintenance activity block is misaligned: 'for recabling)' ends the score 3 example of Type of maintenance activity, and the Frequency of maintenance activity labels 0-3 sit one line above their texts; rows here pair 0 = ACM unlikely to be disturbed for maintenance, 1 = ≤1 per year, 2 = >1 per year, 3 = >1 per month (this pairing matches the worked examples in Tables 7 and 8). Superscript m² written as 'm2'. The title's pointer to page 60, paragraph 7 on score averaging is outside the grid.",
+   "by": "model check, Claude Code subagent (page images and pdfplumber grid)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "899e506f75344fce",
+   "kind": "table",
+   "target": "table-4: Priority assessment algorithm for lagging on the boiler and associated pipework in the boiler room",
+   "value": {
+    "columns": [
+     "Assessment factor",
+     "Sub-factor",
+     "Variable(s) selected",
+     "Score for each variable",
+     "Overall score"
+    ],
+    "rows": [
+     [
+      "Normal occupant activity",
+      "Main type of activity in area",
+      "Low disturbance activities (checking safety controls on boiler once per day)",
+      "1",
+      "1"
+     ],
+     [
+      "Likelihood of disturbance",
+      "Location",
+      "Rooms up to 100 m2 - boiler room 6 m x 7 m",
+      "2",
+      ""
+     ],
+     [
+      "Likelihood of disturbance",
+      "Accessibility",
+      "Occasionally likely to be disturbed - don’t need to disturb ACM to carry out checks but may inadvertently disturb",
+      "1",
+      ""
+     ],
+     [
+      "Likelihood of disturbance",
+      "Extent/amount",
+      "small boiler and single 10 m pipe run",
+      "2",
+      "average = 2"
+     ],
+     [
+      "Human exposure potential",
+      "Number of occupants",
+      "None",
+      "0",
+      ""
+     ],
+     [
+      "Human exposure potential",
+      "Frequency of use of area",
+      "Daily – daily safety control checks",
+      "3",
+      ""
+     ],
+     [
+      "Human exposure potential",
+      "Average time area is in use",
+      "<1 hour – few minutes once a day",
+      "0",
+      "average = 1"
+     ],
+     [
+      "Maintenance activity",
+      "Type of maintenance activity",
+      "Minor disturbance – potential for disturbance during annual servicing of boiler",
+      "0",
+      ""
+     ],
+     [
+      "Maintenance activity",
+      "Frequency of maintenance activity",
+      ">1 per year – annual service + 1 breakdown visit per year",
+      "2",
+      "average = 1"
+     ],
+     [
+      "Total priority assessment score",
+      "",
+      "",
+      "",
+      "5"
+     ],
+     [
+      "Material assessment score (supplied by surveyor)",
+      "",
+      "",
+      "",
+      "11"
+     ],
+     [
+      "Total of material and priority assessment scores",
+      "",
+      "",
+      "",
+      "16"
+     ]
+    ],
+    "sentences": [
+     "In the worked example for lagging on the boiler and associated pipework in the boiler room, main type of activity in area (normal occupant activity) was assessed as \"Low disturbance activities (checking safety controls on boiler once per day)\" and scored 1; the overall score for normal occupant activity is 1.",
+     "In the worked example for lagging on the boiler and associated pipework in the boiler room, location (likelihood of disturbance) was assessed as \"Rooms up to 100 m2 - boiler room 6 m x 7 m\" and scored 2.",
+     "In the worked example for lagging on the boiler and associated pipework in the boiler room, accessibility (likelihood of disturbance) was assessed as \"Occasionally likely to be disturbed - don’t need to disturb ACM to carry out checks but may inadvertently disturb\" and scored 1.",
+     "In the worked example for lagging on the boiler and associated pipework in the boiler room, extent/amount (likelihood of disturbance) was assessed as \"small boiler and single 10 m pipe run\" and scored 2; the overall score for likelihood of disturbance is average = 2.",
+     "In the worked example for lagging on the boiler and associated pipework in the boiler room, number of occupants (human exposure potential) was assessed as \"None\" and scored 0.",
+     "In the worked example for lagging on the boiler and associated pipework in the boiler room, frequency of use of area (human exposure potential) was assessed as \"Daily – daily safety control checks\" and scored 3.",
+     "In the worked example for lagging on the boiler and associated pipework in the boiler room, average time area is in use (human exposure potential) was assessed as \"<1 hour – few minutes once a day\" and scored 0; the overall score for human exposure potential is average = 1.",
+     "In the worked example for lagging on the boiler and associated pipework in the boiler room, type of maintenance activity (maintenance activity) was assessed as \"Minor disturbance – potential for disturbance during annual servicing of boiler\" and scored 0.",
+     "In the worked example for lagging on the boiler and associated pipework in the boiler room, frequency of maintenance activity (maintenance activity) was assessed as \">1 per year – annual service + 1 breakdown visit per year\" and scored 2; the overall score for maintenance activity is average = 1.",
+     "In the worked example for lagging on the boiler and associated pipework in the boiler room, the total priority assessment score is 5.",
+     "In the worked example for lagging on the boiler and associated pipework in the boiler room, the material assessment score (supplied by surveyor) is 11.",
+     "In the worked example for lagging on the boiler and associated pipework in the boiler room, the total of material and priority assessment scores is 16."
+    ]
+   },
+   "reason": "Grid rebuilt from the page images; merged cells repeated so each row stands alone; one sentence per data row from the table's own words.",
+   "evidence": "Added a 'Sub-factor' column: the printed 'Assessment factor' column holds a group heading (eg 'Likelihood of disturbance') with sub-factors under it; the group goes in 'Assessment factor'. The banner row 'Priority assessment algorithm' above the column headers is not a data row. Overall score is given only on the row where it is printed (last row of each group); other rows have ''. The three total rows span the first two printed columns and are put in 'Assessment factor' with their value in 'Overall score'. Superscript m² written as 'm2'.",
+   "by": "model check, Claude Code subagent (page images and pdfplumber grid)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "3d210cdc4a4e5cd2",
+   "kind": "table",
+   "target": "table-5: Priority assessment algorithm for asbestos insulating board panelling on the inside walls of a temporary classroom",
+   "value": {
+    "columns": [
+     "Assessment factor",
+     "Sub-factor",
+     "Variable(s) selected",
+     "Score for each variable",
+     "Overall score"
+    ],
+    "rows": [
+     [
+      "Normal occupant activity",
+      "Main type of activity in area",
+      "High levels of disturbance, children running in and out of classroom, knocking wall panels, wall displays",
+      "3",
+      "3"
+     ],
+     [
+      "Likelihood of disturbance",
+      "Location",
+      "Rooms up to 100 m2 – classroom 10 m x 9 m",
+      "2",
+      ""
+     ],
+     [
+      "Likelihood of disturbance",
+      "Accessibility",
+      "Routinely disturbered – easily accessible to young children",
+      "3",
+      ""
+     ],
+     [
+      "Likelihood of disturbance",
+      "Extent/amount",
+      "57 m2 area of wall paneling",
+      "3",
+      "average = 3"
+     ],
+     [
+      "Human exposure potential",
+      "Number of occupants",
+      ">10–30 children, 1 teacher and 1 classroom assistant",
+      "3",
+      ""
+     ],
+     [
+      "Human exposure potential",
+      "Frequency of use of area",
+      "Daily",
+      "3",
+      ""
+     ],
+     [
+      "Human exposure potential",
+      "Average time area is in use",
+      ">6 hours",
+      "3",
+      "average = 3"
+     ],
+     [
+      "Maintenance activity",
+      "Type of maintenance activity",
+      "Low disturbance – occassional redecoration",
+      "1",
+      ""
+     ],
+     [
+      "Maintenance activity",
+      "Frequency of maintenance activity",
+      "≤1 per year",
+      "1",
+      "average = 1"
+     ],
+     [
+      "Total priority assessment score",
+      "",
+      "",
+      "",
+      "10"
+     ],
+     [
+      "Material assessment score (supplied by surveyor)",
+      "",
+      "",
+      "",
+      "7"
+     ],
+     [
+      "Total of material and priority assessment scores",
+      "",
+      "",
+      "",
+      "17"
+     ]
+    ],
+    "sentences": [
+     "In the worked example for asbestos insulating board panelling on the inside walls of a temporary classroom, main type of activity in area (normal occupant activity) was assessed as \"High levels of disturbance, children running in and out of classroom, knocking wall panels, wall displays\" and scored 3; the overall score for normal occupant activity is 3.",
+     "In the worked example for asbestos insulating board panelling on the inside walls of a temporary classroom, location (likelihood of disturbance) was assessed as \"Rooms up to 100 m2 – classroom 10 m x 9 m\" and scored 2.",
+     "In the worked example for asbestos insulating board panelling on the inside walls of a temporary classroom, accessibility (likelihood of disturbance) was assessed as \"Routinely disturbered – easily accessible to young children\" and scored 3.",
+     "In the worked example for asbestos insulating board panelling on the inside walls of a temporary classroom, extent/amount (likelihood of disturbance) was assessed as \"57 m2 area of wall paneling\" and scored 3; the overall score for likelihood of disturbance is average = 3.",
+     "In the worked example for asbestos insulating board panelling on the inside walls of a temporary classroom, number of occupants (human exposure potential) was assessed as \">10–30 children, 1 teacher and 1 classroom assistant\" and scored 3.",
+     "In the worked example for asbestos insulating board panelling on the inside walls of a temporary classroom, frequency of use of area (human exposure potential) was assessed as \"Daily\" and scored 3.",
+     "In the worked example for asbestos insulating board panelling on the inside walls of a temporary classroom, average time area is in use (human exposure potential) was assessed as \">6 hours\" and scored 3; the overall score for human exposure potential is average = 3.",
+     "In the worked example for asbestos insulating board panelling on the inside walls of a temporary classroom, type of maintenance activity (maintenance activity) was assessed as \"Low disturbance – occassional redecoration\" and scored 1.",
+     "In the worked example for asbestos insulating board panelling on the inside walls of a temporary classroom, frequency of maintenance activity (maintenance activity) was assessed as \"≤1 per year\" and scored 1; the overall score for maintenance activity is average = 1.",
+     "In the worked example for asbestos insulating board panelling on the inside walls of a temporary classroom, the total priority assessment score is 10.",
+     "In the worked example for asbestos insulating board panelling on the inside walls of a temporary classroom, the material assessment score (supplied by surveyor) is 7.",
+     "In the worked example for asbestos insulating board panelling on the inside walls of a temporary classroom, the total of material and priority assessment scores is 17."
+    ]
+   },
+   "reason": "Grid rebuilt from the page images; merged cells repeated so each row stands alone; one sentence per data row from the table's own words.",
+   "evidence": "Added a 'Sub-factor' column: the printed 'Assessment factor' column holds a group heading (eg 'Likelihood of disturbance') with sub-factors under it; the group goes in 'Assessment factor'. The banner row 'Priority assessment algorithm' above the column headers is not a data row. Overall score is given only on the row where it is printed (last row of each group); other rows have ''. The three total rows span the first two printed columns and are put in 'Assessment factor' with their value in 'Overall score'. Superscript m² written as 'm2'. Spelling kept as printed: 'disturbered', 'paneling', 'occassional'. 'I 1 per year' in the print is the ≤ sign: '≤1 per year'.",
+   "by": "model check, Claude Code subagent (page images and pdfplumber grid)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "70295687fd27e2d4",
+   "kind": "table",
+   "target": "table-6: Priority assessment algorithm for asbestos cement roof on a temporary classroom building erected in the 1970s",
+   "value": {
+    "columns": [
+     "Assessment factor",
+     "Sub-factor",
+     "Variable(s) selected",
+     "Score for each variable",
+     "Overall score"
+    ],
+    "rows": [
+     [
+      "Normal occupant activity",
+      "Main type of activity in area",
+      "Rare disturbance activity (eg little used store room)",
+      "0",
+      "0"
+     ],
+     [
+      "Likelihood of disturbance",
+      "Location",
+      "Outdoors",
+      "0",
+      ""
+     ],
+     [
+      "Likelihood of disturbance",
+      "Accessibility",
+      "Unusually inaccessible or unlikely to be disturbed",
+      "0",
+      ""
+     ],
+     [
+      "Likelihood of disturbance",
+      "Extent/amount",
+      ">50 m2",
+      "3",
+      "average = 1"
+     ],
+     [
+      "Human exposure potential",
+      "Number of occupants",
+      "None",
+      "0",
+      ""
+     ],
+     [
+      "Human exposure potential",
+      "Frequency of use of area",
+      "Infrequent",
+      "0",
+      ""
+     ],
+     [
+      "Human exposure potential",
+      "Average time area is in use",
+      "<1 hour",
+      "0",
+      "average =0"
+     ],
+     [
+      "Maintenance activity",
+      "Type of maintenance activity",
+      "Minor disturbance (eg possibility of contact when gaining access)",
+      "0",
+      ""
+     ],
+     [
+      "Maintenance activity",
+      "Frequency of maintenance activity",
+      "ACM unlikely to be disturbed for maintenance",
+      "0",
+      "average = 0"
+     ],
+     [
+      "Total priority assessment score",
+      "",
+      "",
+      "",
+      "1"
+     ],
+     [
+      "Material assessment score (supplied by surveyor)",
+      "",
+      "",
+      "",
+      "4"
+     ],
+     [
+      "Total of material and priority assessment scores",
+      "",
+      "",
+      "",
+      "5"
+     ]
+    ],
+    "sentences": [
+     "In the worked example for an asbestos cement roof on a temporary classroom building erected in the 1970s, main type of activity in area (normal occupant activity) was assessed as \"Rare disturbance activity (eg little used store room)\" and scored 0; the overall score for normal occupant activity is 0.",
+     "In the worked example for an asbestos cement roof on a temporary classroom building erected in the 1970s, location (likelihood of disturbance) was assessed as \"Outdoors\" and scored 0.",
+     "In the worked example for an asbestos cement roof on a temporary classroom building erected in the 1970s, accessibility (likelihood of disturbance) was assessed as \"Unusually inaccessible or unlikely to be disturbed\" and scored 0.",
+     "In the worked example for an asbestos cement roof on a temporary classroom building erected in the 1970s, extent/amount (likelihood of disturbance) was assessed as \">50 m2\" and scored 3; the overall score for likelihood of disturbance is average = 1.",
+     "In the worked example for an asbestos cement roof on a temporary classroom building erected in the 1970s, number of occupants (human exposure potential) was assessed as \"None\" and scored 0.",
+     "In the worked example for an asbestos cement roof on a temporary classroom building erected in the 1970s, frequency of use of area (human exposure potential) was assessed as \"Infrequent\" and scored 0.",
+     "In the worked example for an asbestos cement roof on a temporary classroom building erected in the 1970s, average time area is in use (human exposure potential) was assessed as \"<1 hour\" and scored 0; the overall score for human exposure potential is average =0.",
+     "In the worked example for an asbestos cement roof on a temporary classroom building erected in the 1970s, type of maintenance activity (maintenance activity) was assessed as \"Minor disturbance (eg possibility of contact when gaining access)\" and scored 0.",
+     "In the worked example for an asbestos cement roof on a temporary classroom building erected in the 1970s, frequency of maintenance activity (maintenance activity) was assessed as \"ACM unlikely to be disturbed for maintenance\" and scored 0; the overall score for maintenance activity is average = 0.",
+     "In the worked example for an asbestos cement roof on a temporary classroom building erected in the 1970s, the total priority assessment score is 1.",
+     "In the worked example for an asbestos cement roof on a temporary classroom building erected in the 1970s, the material assessment score (supplied by surveyor) is 4.",
+     "In the worked example for an asbestos cement roof on a temporary classroom building erected in the 1970s, the total of material and priority assessment scores is 5."
+    ]
+   },
+   "reason": "Grid rebuilt from the page images; merged cells repeated so each row stands alone; one sentence per data row from the table's own words.",
+   "evidence": "Added a 'Sub-factor' column: the printed 'Assessment factor' column holds a group heading (eg 'Likelihood of disturbance') with sub-factors under it; the group goes in 'Assessment factor'. The banner row 'Priority assessment algorithm' above the column headers is not a data row. Overall score is given only on the row where it is printed (last row of each group); other rows have ''. The three total rows span the first two printed columns and are put in 'Assessment factor' with their value in 'Overall score'. Superscript m² written as 'm2'. Accessibility prints 'Unusually inaccessible' (Table 3 says 'Usually inaccessible'); kept as printed, probably a typo (guess).",
+   "by": "model check, Claude Code subagent (page images and pdfplumber grid)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "3ca4d23085f7d1b8",
+   "kind": "table",
+   "target": "table-7: Priority assessment algorithm for lagging on pipework on an overhead pipe bridge over an internal road",
+   "value": {
+    "columns": [
+     "Assessment factor",
+     "Sub-factor",
+     "Variable(s) selected",
+     "Score for each variable",
+     "Overall score"
+    ],
+    "rows": [
+     [
+      "Normal occupant activity",
+      "Main type of activity in area",
+      "Rare disturbance activity",
+      "0",
+      "0"
+     ],
+     [
+      "Likelihood of disturbance",
+      "Location",
+      "Outdoors",
+      "0",
+      ""
+     ],
+     [
+      "Likelihood of disturbance",
+      "Accessibility",
+      "Occasionally likely to be disturbed",
+      "1",
+      ""
+     ],
+     [
+      "Likelihood of disturbance",
+      "Extent/amount",
+      ">10 m to ≤50 m pipe run",
+      "2",
+      "average = 1"
+     ],
+     [
+      "Human exposure potential",
+      "Number of occupants",
+      "None",
+      "0",
+      ""
+     ],
+     [
+      "Human exposure potential",
+      "Frequency of use of area",
+      "Daily",
+      "3",
+      ""
+     ],
+     [
+      "Human exposure potential",
+      "Average time area is in use",
+      ">6 hours",
+      "3",
+      "average =2"
+     ],
+     [
+      "Maintenance activity",
+      "Type of maintenance activity",
+      "Minor disturbance",
+      "0",
+      ""
+     ],
+     [
+      "Maintenance activity",
+      "Frequency of maintenance activity",
+      "≤1 per year",
+      "1",
+      "average = 1"
+     ],
+     [
+      "Total priority assessment score",
+      "",
+      "",
+      "",
+      "4"
+     ],
+     [
+      "Material assessment score (supplied by surveyor)",
+      "",
+      "",
+      "",
+      "10"
+     ],
+     [
+      "Total of material and priority assessment scores",
+      "",
+      "",
+      "",
+      "14"
+     ]
+    ],
+    "sentences": [
+     "In the worked example for lagging on pipework on an overhead pipe bridge over an internal road, main type of activity in area (normal occupant activity) was assessed as \"Rare disturbance activity\" and scored 0; the overall score for normal occupant activity is 0.",
+     "In the worked example for lagging on pipework on an overhead pipe bridge over an internal road, location (likelihood of disturbance) was assessed as \"Outdoors\" and scored 0.",
+     "In the worked example for lagging on pipework on an overhead pipe bridge over an internal road, accessibility (likelihood of disturbance) was assessed as \"Occasionally likely to be disturbed\" and scored 1.",
+     "In the worked example for lagging on pipework on an overhead pipe bridge over an internal road, extent/amount (likelihood of disturbance) was assessed as \">10 m to ≤50 m pipe run\" and scored 2; the overall score for likelihood of disturbance is average = 1.",
+     "In the worked example for lagging on pipework on an overhead pipe bridge over an internal road, number of occupants (human exposure potential) was assessed as \"None\" and scored 0.",
+     "In the worked example for lagging on pipework on an overhead pipe bridge over an internal road, frequency of use of area (human exposure potential) was assessed as \"Daily\" and scored 3.",
+     "In the worked example for lagging on pipework on an overhead pipe bridge over an internal road, average time area is in use (human exposure potential) was assessed as \">6 hours\" and scored 3; the overall score for human exposure potential is average =2.",
+     "In the worked example for lagging on pipework on an overhead pipe bridge over an internal road, type of maintenance activity (maintenance activity) was assessed as \"Minor disturbance\" and scored 0.",
+     "In the worked example for lagging on pipework on an overhead pipe bridge over an internal road, frequency of maintenance activity (maintenance activity) was assessed as \"≤1 per year\" and scored 1; the overall score for maintenance activity is average = 1.",
+     "In the worked example for lagging on pipework on an overhead pipe bridge over an internal road, the total priority assessment score is 4.",
+     "In the worked example for lagging on pipework on an overhead pipe bridge over an internal road, the material assessment score (supplied by surveyor) is 10.",
+     "In the worked example for lagging on pipework on an overhead pipe bridge over an internal road, the total of material and priority assessment scores is 14."
+    ]
+   },
+   "reason": "Grid rebuilt from the page images; merged cells repeated so each row stands alone; one sentence per data row from the table's own words.",
+   "evidence": "Added a 'Sub-factor' column: the printed 'Assessment factor' column holds a group heading (eg 'Likelihood of disturbance') with sub-factors under it; the group goes in 'Assessment factor'. The banner row 'Priority assessment algorithm' above the column headers is not a data row. Overall score is given only on the row where it is printed (last row of each group); other rows have ''. The three total rows span the first two printed columns and are put in 'Assessment factor' with their value in 'Overall score'. Superscript m² written as 'm2'.",
+   "by": "model check, Claude Code subagent (page images and pdfplumber grid)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "f58f95e3136720d0",
+   "kind": "table",
+   "target": "table-8: Priority assessment algorithm for asbestos insulating board ceiling tiles in the control room",
+   "value": {
+    "columns": [
+     "Assessment factor",
+     "Sub-factor",
+     "Variable(s) selected",
+     "Score for each variable",
+     "Overall score"
+    ],
+    "rows": [
+     [
+      "Normal occupant activity",
+      "Main type of activity in area",
+      "Low disturbance activities",
+      "1",
+      "1"
+     ],
+     [
+      "Likelihood of disturbance",
+      "Location",
+      "Room up to 100 m2",
+      "2",
+      ""
+     ],
+     [
+      "Likelihood of disturbance",
+      "Accessibility",
+      "Occasionally likely to be disturbed",
+      "1",
+      ""
+     ],
+     [
+      "Likelihood of disturbance",
+      "Extent/amount",
+      ">50 m2",
+      "3",
+      "average = 2"
+     ],
+     [
+      "Human exposure potential",
+      "Number of occupants",
+      "1–3",
+      "1",
+      ""
+     ],
+     [
+      "Human exposure potential",
+      "Frequency of use of area",
+      "Daily",
+      "3",
+      ""
+     ],
+     [
+      "Human exposure potential",
+      "Average time area is in use",
+      ">6 hours",
+      "3",
+      "average =2"
+     ],
+     [
+      "Maintenance activity",
+      "Type of maintenance activity",
+      "Low disturbance",
+      "1",
+      ""
+     ],
+     [
+      "Maintenance activity",
+      "Frequency of maintenance",
+      ">1 per year",
+      "2",
+      "average = 2"
+     ],
+     [
+      "Total priority assessment score",
+      "",
+      "",
+      "",
+      "7"
+     ],
+     [
+      "Material assessment score (supplied by surveyor)",
+      "",
+      "",
+      "",
+      "6"
+     ],
+     [
+      "Total of material and priority assessment scores",
+      "",
+      "",
+      "",
+      "13"
+     ]
+    ],
+    "sentences": [
+     "In the worked example for asbestos insulating board ceiling tiles in the control room, main type of activity in area (normal occupant activity) was assessed as \"Low disturbance activities\" and scored 1; the overall score for normal occupant activity is 1.",
+     "In the worked example for asbestos insulating board ceiling tiles in the control room, location (likelihood of disturbance) was assessed as \"Room up to 100 m2\" and scored 2.",
+     "In the worked example for asbestos insulating board ceiling tiles in the control room, accessibility (likelihood of disturbance) was assessed as \"Occasionally likely to be disturbed\" and scored 1.",
+     "In the worked example for asbestos insulating board ceiling tiles in the control room, extent/amount (likelihood of disturbance) was assessed as \">50 m2\" and scored 3; the overall score for likelihood of disturbance is average = 2.",
+     "In the worked example for asbestos insulating board ceiling tiles in the control room, number of occupants (human exposure potential) was assessed as \"1–3\" and scored 1.",
+     "In the worked example for asbestos insulating board ceiling tiles in the control room, frequency of use of area (human exposure potential) was assessed as \"Daily\" and scored 3.",
+     "In the worked example for asbestos insulating board ceiling tiles in the control room, average time area is in use (human exposure potential) was assessed as \">6 hours\" and scored 3; the overall score for human exposure potential is average =2.",
+     "In the worked example for asbestos insulating board ceiling tiles in the control room, type of maintenance activity (maintenance activity) was assessed as \"Low disturbance\" and scored 1.",
+     "In the worked example for asbestos insulating board ceiling tiles in the control room, frequency of maintenance (maintenance activity) was assessed as \">1 per year\" and scored 2; the overall score for maintenance activity is average = 2.",
+     "In the worked example for asbestos insulating board ceiling tiles in the control room, the total priority assessment score is 7.",
+     "In the worked example for asbestos insulating board ceiling tiles in the control room, the material assessment score (supplied by surveyor) is 6.",
+     "In the worked example for asbestos insulating board ceiling tiles in the control room, the total of material and priority assessment scores is 13."
+    ]
+   },
+   "reason": "Grid rebuilt from the page images; merged cells repeated so each row stands alone; one sentence per data row from the table's own words.",
+   "evidence": "Added a 'Sub-factor' column: the printed 'Assessment factor' column holds a group heading (eg 'Likelihood of disturbance') with sub-factors under it; the group goes in 'Assessment factor'. The banner row 'Priority assessment algorithm' above the column headers is not a data row. Overall score is given only on the row where it is printed (last row of each group); other rows have ''. The three total rows span the first two printed columns and are put in 'Assessment factor' with their value in 'Overall score'. Superscript m² written as 'm2'. The last sub-factor is printed 'Frequency of maintenance' (not '... activity') in this table.",
+   "by": "model check, Claude Code subagent (page images and pdfplumber grid)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "d8fbc5583d3453b6",
+   "kind": "table",
+   "target": "table-9: Priority assessment algorithm for spray on the underside of the roof of a redundant warehouse",
+   "value": {
+    "columns": [
+     "Assessment factor",
+     "Variable(s) selected",
+     "Score for each variable",
+     "Overall score"
+    ],
+    "rows": [
+     [
+      "Normal occupant activity: Main type of activity in area",
+      "Rare disturbance",
+      "0",
+      "0"
+     ],
+     [
+      "Likelihood of disturbance: Location",
+      "Large room or well-ventilated area",
+      "1",
+      "average = 1"
+     ],
+     [
+      "Likelihood of disturbance: Accessibility",
+      "Unusually inaccessible or unlikely to be disturbed",
+      "0",
+      "average = 1"
+     ],
+     [
+      "Likelihood of disturbance: Extent/amount",
+      ">50 m²",
+      "3",
+      "average = 1"
+     ],
+     [
+      "Human exposure potential: Number of occupants",
+      "None",
+      "0",
+      "average = 0"
+     ],
+     [
+      "Human exposure potential: Frequency of use of area",
+      "Infrequent",
+      "0",
+      "average = 0"
+     ],
+     [
+      "Human exposure potential: Average time area is in use",
+      "<1 hour",
+      "0",
+      "average = 0"
+     ],
+     [
+      "Maintenance activity: Type of maintenance activity",
+      "Minor disturbance",
+      "0",
+      "average = 0"
+     ],
+     [
+      "Maintenance activity: Frequency of maintenance activity",
+      "ACM unlikely to be disturbed for maintenance",
+      "0",
+      "average = 0"
+     ],
+     [
+      "Total priority assessment score",
+      "",
+      "",
+      "1"
+     ],
+     [
+      "Material assessment score (supplied by surveyor)",
+      "",
+      "",
+      "12"
+     ],
+     [
+      "Total of material and priority assessment scores",
+      "",
+      "",
+      "13"
+     ]
+    ],
+    "sentences": [
+     "In the worked example for spray on the underside of the roof of a redundant warehouse, under normal occupant activity, the main type of activity in area is \"Rare disturbance\", which scores 0; the overall score for normal occupant activity is 0.",
+     "In the worked example for spray on the underside of the roof of a redundant warehouse, under likelihood of disturbance, the location is \"Large room or well-ventilated area\", which scores 1; the overall score for likelihood of disturbance is average = 1.",
+     "In the worked example for spray on the underside of the roof of a redundant warehouse, under likelihood of disturbance, the accessibility is \"Unusually inaccessible or unlikely to be disturbed\", which scores 0; the overall score for likelihood of disturbance is average = 1.",
+     "In the worked example for spray on the underside of the roof of a redundant warehouse, under likelihood of disturbance, the extent/amount is \">50 m²\", which scores 3; the overall score for likelihood of disturbance is average = 1.",
+     "In the worked example for spray on the underside of the roof of a redundant warehouse, under human exposure potential, the number of occupants is \"None\", which scores 0; the overall score for human exposure potential is average = 0.",
+     "In the worked example for spray on the underside of the roof of a redundant warehouse, under human exposure potential, the frequency of use of area is \"Infrequent\", which scores 0; the overall score for human exposure potential is average = 0.",
+     "In the worked example for spray on the underside of the roof of a redundant warehouse, under human exposure potential, the average time area is in use is \"<1 hour\", which scores 0; the overall score for human exposure potential is average = 0.",
+     "In the worked example for spray on the underside of the roof of a redundant warehouse, under maintenance activity, the type of maintenance activity is \"Minor disturbance\", which scores 0; the overall score for maintenance activity is average = 0.",
+     "In the worked example for spray on the underside of the roof of a redundant warehouse, under maintenance activity, the frequency of maintenance activity is \"ACM unlikely to be disturbed for maintenance\", which scores 0; the overall score for maintenance activity is average = 0.",
+     "In the worked example for spray on the underside of the roof of a redundant warehouse, the total priority assessment score is 1.",
+     "In the worked example for spray on the underside of the roof of a redundant warehouse, the material assessment score (supplied by surveyor) is 12.",
+     "In the worked example for spray on the underside of the roof of a redundant warehouse, the total of material and priority assessment scores is 13."
+    ]
+   },
+   "reason": "Grid rebuilt from the page images; merged cells repeated so each row stands alone; one sentence per data row from the table's own words.",
+   "evidence": "Each variable row's 'Assessment factor' cell is written as '<group heading>: <factor>'; the group headings (Normal occupant activity, Likelihood of disturbance, Human exposure potential, Maintenance activity) are printed as sub-heading lines in the first column. The overall score (a single value or 'average = n') is printed once per group, on the group's last row; it is repeated on every row of the group here. The table has a banner row 'Priority assessment algorithm' above the column headers. Total rows have no variable or per-variable score. 'Unusually inaccessible' is printed as such (Table 14 prints 'Usually inaccessible'); kept as printed. The likelihood scores 1, 0, 3 are printed with 'average = 1'.",
+   "by": "model check, Claude Code subagent (page images and pdfplumber grid)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "e5ce05883d382f68",
+   "kind": "table",
+   "target": "table-10: Priority assessment algorithm for lagging on a reaction vessel",
+   "value": {
+    "columns": [
+     "Assessment factor",
+     "Variable(s) selected",
+     "Score for each variable",
+     "Overall score"
+    ],
+    "rows": [
+     [
+      "Normal occupant activity: Main type of activity in area",
+      "Periodic disturbance",
+      "2",
+      "2"
+     ],
+     [
+      "Likelihood of disturbance: Location",
+      "Large room or well-ventilated area",
+      "1",
+      "average = 2"
+     ],
+     [
+      "Likelihood of disturbance: Accessibility",
+      "Occasionally likely to be disturbed",
+      "1",
+      "average = 2"
+     ],
+     [
+      "Likelihood of disturbance: Extent/amount",
+      ">50 m²",
+      "3",
+      "average = 2"
+     ],
+     [
+      "Human exposure potential: Number of occupants",
+      "1–3",
+      "1",
+      "average = 2"
+     ],
+     [
+      "Human exposure potential: Frequency of use of area",
+      "Daily",
+      "3",
+      "average = 2"
+     ],
+     [
+      "Human exposure potential: Average time area is in use",
+      ">6 hours",
+      "3",
+      "average = 2"
+     ],
+     [
+      "Maintenance activity: Type of maintenance activity",
+      "Medium disturbance",
+      "2",
+      "average = 2"
+     ],
+     [
+      "Maintenance activity: Frequency of maintenance",
+      ">1 per year",
+      "2",
+      "average = 2"
+     ],
+     [
+      "Total priority assessment score",
+      "",
+      "",
+      "8"
+     ],
+     [
+      "Material assessment score (supplied by surveyor)",
+      "",
+      "",
+      "9"
+     ],
+     [
+      "Total of material and priority assessment scores",
+      "",
+      "",
+      "17"
+     ]
+    ],
+    "sentences": [
+     "In the worked example for lagging on a reaction vessel, under normal occupant activity, the main type of activity in area is \"Periodic disturbance\", which scores 2; the overall score for normal occupant activity is 2.",
+     "In the worked example for lagging on a reaction vessel, under likelihood of disturbance, the location is \"Large room or well-ventilated area\", which scores 1; the overall score for likelihood of disturbance is average = 2.",
+     "In the worked example for lagging on a reaction vessel, under likelihood of disturbance, the accessibility is \"Occasionally likely to be disturbed\", which scores 1; the overall score for likelihood of disturbance is average = 2.",
+     "In the worked example for lagging on a reaction vessel, under likelihood of disturbance, the extent/amount is \">50 m²\", which scores 3; the overall score for likelihood of disturbance is average = 2.",
+     "In the worked example for lagging on a reaction vessel, under human exposure potential, the number of occupants is \"1–3\", which scores 1; the overall score for human exposure potential is average = 2.",
+     "In the worked example for lagging on a reaction vessel, under human exposure potential, the frequency of use of area is \"Daily\", which scores 3; the overall score for human exposure potential is average = 2.",
+     "In the worked example for lagging on a reaction vessel, under human exposure potential, the average time area is in use is \">6 hours\", which scores 3; the overall score for human exposure potential is average = 2.",
+     "In the worked example for lagging on a reaction vessel, under maintenance activity, the type of maintenance activity is \"Medium disturbance\", which scores 2; the overall score for maintenance activity is average = 2.",
+     "In the worked example for lagging on a reaction vessel, under maintenance activity, the frequency of maintenance is \">1 per year\", which scores 2; the overall score for maintenance activity is average = 2.",
+     "In the worked example for lagging on a reaction vessel, the total priority assessment score is 8.",
+     "In the worked example for lagging on a reaction vessel, the material assessment score (supplied by surveyor) is 9.",
+     "In the worked example for lagging on a reaction vessel, the total of material and priority assessment scores is 17."
+    ]
+   },
+   "reason": "Grid rebuilt from the page images; merged cells repeated so each row stands alone; one sentence per data row from the table's own words.",
+   "evidence": "Each variable row's 'Assessment factor' cell is written as '<group heading>: <factor>'; the group headings (Normal occupant activity, Likelihood of disturbance, Human exposure potential, Maintenance activity) are printed as sub-heading lines in the first column. The overall score (a single value or 'average = n') is printed once per group, on the group's last row; it is repeated on every row of the group here. The table has a banner row 'Priority assessment algorithm' above the column headers. Total rows have no variable or per-variable score. In this table the last factor is printed 'Frequency of maintenance' (without 'activity'). Raw text has a broken glyph in '1–3'; the image shows an en dash. Likelihood scores 1, 1, 3 are printed with 'average = 2' and human exposure scores 1, 3, 3 with 'average = 2'.",
+   "by": "model check, Claude Code subagent (page images and pdfplumber grid)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "bba27004a7baab45",
+   "kind": "table",
+   "target": "table-11: Priority assessment algorithm for lagging on pipes in underfloor ducts",
+   "value": {
+    "columns": [
+     "Assessment factor",
+     "Variable(s) selected",
+     "Score for each variable",
+     "Overall score"
+    ],
+    "rows": [
+     [
+      "Normal occupant activity: Main type of activity in area",
+      "Rare disturbance activity",
+      "0",
+      "0"
+     ],
+     [
+      "Likelihood of disturbance: Location",
+      "Room up to 100 m²",
+      "2",
+      "average = 2"
+     ],
+     [
+      "Likelihood of disturbance: Accessibility",
+      "Unusually inaccessible or unlikely to be disturbed",
+      "0",
+      "average = 2"
+     ],
+     [
+      "Likelihood of disturbance: Extent/amount",
+      ">50 m pipe run",
+      "3",
+      "average = 2"
+     ],
+     [
+      "Human exposure potential: Number of occupants",
+      "None",
+      "0",
+      "average = 0"
+     ],
+     [
+      "Human exposure potential: Frequency of use of area",
+      "Infrequent",
+      "0",
+      "average = 0"
+     ],
+     [
+      "Human exposure potential: Average time area is in use",
+      "<1 hour",
+      "0",
+      "average = 0"
+     ],
+     [
+      "Maintenance activity: Type of maintenance activity",
+      "Medium disturbance",
+      "2",
+      "average = 2"
+     ],
+     [
+      "Maintenance activity: Frequency of maintenance activity",
+      ">1 per year",
+      "2",
+      "average = 2"
+     ],
+     [
+      "Total priority assessment score",
+      "",
+      "",
+      "4"
+     ],
+     [
+      "Material assessment score (supplied by surveyor)",
+      "",
+      "",
+      "10"
+     ],
+     [
+      "Total of material and priority assessment scores",
+      "",
+      "",
+      "14"
+     ]
+    ],
+    "sentences": [
+     "In the worked example for lagging on pipes in underfloor ducts, under normal occupant activity, the main type of activity in area is \"Rare disturbance activity\", which scores 0; the overall score for normal occupant activity is 0.",
+     "In the worked example for lagging on pipes in underfloor ducts, under likelihood of disturbance, the location is \"Room up to 100 m²\", which scores 2; the overall score for likelihood of disturbance is average = 2.",
+     "In the worked example for lagging on pipes in underfloor ducts, under likelihood of disturbance, the accessibility is \"Unusually inaccessible or unlikely to be disturbed\", which scores 0; the overall score for likelihood of disturbance is average = 2.",
+     "In the worked example for lagging on pipes in underfloor ducts, under likelihood of disturbance, the extent/amount is \">50 m pipe run\", which scores 3; the overall score for likelihood of disturbance is average = 2.",
+     "In the worked example for lagging on pipes in underfloor ducts, under human exposure potential, the number of occupants is \"None\", which scores 0; the overall score for human exposure potential is average = 0.",
+     "In the worked example for lagging on pipes in underfloor ducts, under human exposure potential, the frequency of use of area is \"Infrequent\", which scores 0; the overall score for human exposure potential is average = 0.",
+     "In the worked example for lagging on pipes in underfloor ducts, under human exposure potential, the average time area is in use is \"<1 hour\", which scores 0; the overall score for human exposure potential is average = 0.",
+     "In the worked example for lagging on pipes in underfloor ducts, under maintenance activity, the type of maintenance activity is \"Medium disturbance\", which scores 2; the overall score for maintenance activity is average = 2.",
+     "In the worked example for lagging on pipes in underfloor ducts, under maintenance activity, the frequency of maintenance activity is \">1 per year\", which scores 2; the overall score for maintenance activity is average = 2.",
+     "In the worked example for lagging on pipes in underfloor ducts, the total priority assessment score is 4.",
+     "In the worked example for lagging on pipes in underfloor ducts, the material assessment score (supplied by surveyor) is 10.",
+     "In the worked example for lagging on pipes in underfloor ducts, the total of material and priority assessment scores is 14."
+    ]
+   },
+   "reason": "Grid rebuilt from the page images; merged cells repeated so each row stands alone; one sentence per data row from the table's own words.",
+   "evidence": "Each variable row's 'Assessment factor' cell is written as '<group heading>: <factor>'; the group headings (Normal occupant activity, Likelihood of disturbance, Human exposure potential, Maintenance activity) are printed as sub-heading lines in the first column. The overall score (a single value or 'average = n') is printed once per group, on the group's last row; it is repeated on every row of the group here. The table has a banner row 'Priority assessment algorithm' above the column headers. Total rows have no variable or per-variable score.",
+   "by": "model check, Claude Code subagent (page images and pdfplumber grid)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "3f22624a2366d0fc",
+   "kind": "table",
+   "target": "table-12: Priority assessment algorithm for asbestos insulating board panels on fire doors in the corridors",
+   "value": {
+    "columns": [
+     "Assessment factor",
+     "Variable(s) selected",
+     "Score for each variable",
+     "Overall score"
+    ],
+    "rows": [
+     [
+      "Normal occupant activity: Main type of activity in area",
+      "High levels of disturbance",
+      "3",
+      "3"
+     ],
+     [
+      "Likelihood of disturbance: Location",
+      "Room up to 100 m²",
+      "2",
+      "average = 2"
+     ],
+     [
+      "Likelihood of disturbance: Accessibility",
+      "Routinely disturbed",
+      "3",
+      "average = 2"
+     ],
+     [
+      "Likelihood of disturbance: Extent/amount",
+      "<10 m²",
+      "1",
+      "average = 2"
+     ],
+     [
+      "Human exposure potential: Number of occupants",
+      ">10",
+      "3",
+      "average = 3"
+     ],
+     [
+      "Human exposure potential: Frequency of use of area",
+      "Daily",
+      "3",
+      "average = 3"
+     ],
+     [
+      "Human exposure potential: Average time area is in use",
+      ">6 hours",
+      "3",
+      "average = 3"
+     ],
+     [
+      "Maintenance activity: Type of maintenance activity",
+      "Minor disturbance",
+      "0",
+      "average = 1"
+     ],
+     [
+      "Maintenance activity: Frequency of maintenance activity",
+      "≤1 per year",
+      "1",
+      "average = 1"
+     ],
+     [
+      "Total priority assessment score",
+      "",
+      "",
+      "9"
+     ],
+     [
+      "Material assessment score (supplied by surveyor)",
+      "",
+      "",
+      "7"
+     ],
+     [
+      "Total of material and priority assessment scores",
+      "",
+      "",
+      "16"
+     ]
+    ],
+    "sentences": [
+     "In the worked example for asbestos insulating board panels on fire doors in the corridors, under normal occupant activity, the main type of activity in area is \"High levels of disturbance\", which scores 3; the overall score for normal occupant activity is 3.",
+     "In the worked example for asbestos insulating board panels on fire doors in the corridors, under likelihood of disturbance, the location is \"Room up to 100 m²\", which scores 2; the overall score for likelihood of disturbance is average = 2.",
+     "In the worked example for asbestos insulating board panels on fire doors in the corridors, under likelihood of disturbance, the accessibility is \"Routinely disturbed\", which scores 3; the overall score for likelihood of disturbance is average = 2.",
+     "In the worked example for asbestos insulating board panels on fire doors in the corridors, under likelihood of disturbance, the extent/amount is \"<10 m²\", which scores 1; the overall score for likelihood of disturbance is average = 2.",
+     "In the worked example for asbestos insulating board panels on fire doors in the corridors, under human exposure potential, the number of occupants is \">10\", which scores 3; the overall score for human exposure potential is average = 3.",
+     "In the worked example for asbestos insulating board panels on fire doors in the corridors, under human exposure potential, the frequency of use of area is \"Daily\", which scores 3; the overall score for human exposure potential is average = 3.",
+     "In the worked example for asbestos insulating board panels on fire doors in the corridors, under human exposure potential, the average time area is in use is \">6 hours\", which scores 3; the overall score for human exposure potential is average = 3.",
+     "In the worked example for asbestos insulating board panels on fire doors in the corridors, under maintenance activity, the type of maintenance activity is \"Minor disturbance\", which scores 0; the overall score for maintenance activity is average = 1.",
+     "In the worked example for asbestos insulating board panels on fire doors in the corridors, under maintenance activity, the frequency of maintenance activity is \"≤1 per year\", which scores 1; the overall score for maintenance activity is average = 1.",
+     "In the worked example for asbestos insulating board panels on fire doors in the corridors, the total priority assessment score is 9.",
+     "In the worked example for asbestos insulating board panels on fire doors in the corridors, the material assessment score (supplied by surveyor) is 7.",
+     "In the worked example for asbestos insulating board panels on fire doors in the corridors, the total of material and priority assessment scores is 16."
+    ]
+   },
+   "reason": "Grid rebuilt from the page images; merged cells repeated so each row stands alone; one sentence per data row from the table's own words.",
+   "evidence": "Each variable row's 'Assessment factor' cell is written as '<group heading>: <factor>'; the group headings (Normal occupant activity, Likelihood of disturbance, Human exposure potential, Maintenance activity) are printed as sub-heading lines in the first column. The overall score (a single value or 'average = n') is printed once per group, on the group's last row; it is repeated on every row of the group here. The table has a banner row 'Priority assessment algorithm' above the column headers. Total rows have no variable or per-variable score. Maintenance scores 0 and 1 are printed with 'average = 1'.",
+   "by": "model check, Claude Code subagent (page images and pdfplumber grid)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "6da60795c3aca785",
+   "kind": "table",
+   "target": "table-13: Priority assessment algorithm for vinyl floor tiles throughout the block",
+   "value": {
+    "columns": [
+     "Assessment factor",
+     "Variable(s) selected",
+     "Score for each variable",
+     "Overall score"
+    ],
+    "rows": [
+     [
+      "Normal occupant activity: Main type of activity in area",
+      "Low disturbance",
+      "1",
+      "1"
+     ],
+     [
+      "Likelihood of disturbance: Location",
+      "Large rooms or well-ventilated areas",
+      "1",
+      "average = 1"
+     ],
+     [
+      "Likelihood of disturbance: Accessibility",
+      "Unlikely to be disturbed",
+      "0",
+      "average = 1"
+     ],
+     [
+      "Likelihood of disturbance: Extent/amount",
+      ">50 m²",
+      "3",
+      "average = 1"
+     ],
+     [
+      "Human exposure potential: Number of occupants",
+      ">10",
+      "3",
+      "average = 3"
+     ],
+     [
+      "Human exposure potential: Frequency of use of area",
+      "Daily",
+      "3",
+      "average = 3"
+     ],
+     [
+      "Human exposure potential: Average time area is in use",
+      ">6 hours",
+      "3",
+      "average = 3"
+     ],
+     [
+      "Maintenance activity: Type of maintenance activity",
+      "Minor disturbance",
+      "0",
+      "average = 1"
+     ],
+     [
+      "Maintenance activity: Frequency of maintenance activity",
+      "Annual polishing of floor tiles",
+      "1",
+      "average = 1"
+     ],
+     [
+      "Total priority assessment score",
+      "",
+      "",
+      "6"
+     ],
+     [
+      "Material assessment score (supplied by surveyor)",
+      "",
+      "",
+      "1"
+     ],
+     [
+      "Total of material and priority assessment scores",
+      "",
+      "",
+      "7"
+     ]
+    ],
+    "sentences": [
+     "In the worked example for vinyl floor tiles throughout the block, under normal occupant activity, the main type of activity in area is \"Low disturbance\", which scores 1; the overall score for normal occupant activity is 1.",
+     "In the worked example for vinyl floor tiles throughout the block, under likelihood of disturbance, the location is \"Large rooms or well-ventilated areas\", which scores 1; the overall score for likelihood of disturbance is average = 1.",
+     "In the worked example for vinyl floor tiles throughout the block, under likelihood of disturbance, the accessibility is \"Unlikely to be disturbed\", which scores 0; the overall score for likelihood of disturbance is average = 1.",
+     "In the worked example for vinyl floor tiles throughout the block, under likelihood of disturbance, the extent/amount is \">50 m²\", which scores 3; the overall score for likelihood of disturbance is average = 1.",
+     "In the worked example for vinyl floor tiles throughout the block, under human exposure potential, the number of occupants is \">10\", which scores 3; the overall score for human exposure potential is average = 3.",
+     "In the worked example for vinyl floor tiles throughout the block, under human exposure potential, the frequency of use of area is \"Daily\", which scores 3; the overall score for human exposure potential is average = 3.",
+     "In the worked example for vinyl floor tiles throughout the block, under human exposure potential, the average time area is in use is \">6 hours\", which scores 3; the overall score for human exposure potential is average = 3.",
+     "In the worked example for vinyl floor tiles throughout the block, under maintenance activity, the type of maintenance activity is \"Minor disturbance\", which scores 0; the overall score for maintenance activity is average = 1.",
+     "In the worked example for vinyl floor tiles throughout the block, under maintenance activity, the frequency of maintenance activity is \"Annual polishing of floor tiles\", which scores 1; the overall score for maintenance activity is average = 1.",
+     "In the worked example for vinyl floor tiles throughout the block, the total priority assessment score is 6.",
+     "In the worked example for vinyl floor tiles throughout the block, the material assessment score (supplied by surveyor) is 1.",
+     "In the worked example for vinyl floor tiles throughout the block, the total of material and priority assessment scores is 7."
+    ]
+   },
+   "reason": "Grid rebuilt from the page images; merged cells repeated so each row stands alone; one sentence per data row from the table's own words.",
+   "evidence": "Each variable row's 'Assessment factor' cell is written as '<group heading>: <factor>'; the group headings (Normal occupant activity, Likelihood of disturbance, Human exposure potential, Maintenance activity) are printed as sub-heading lines in the first column. The overall score (a single value or 'average = n') is printed once per group, on the group's last row; it is repeated on every row of the group here. The table has a banner row 'Priority assessment algorithm' above the column headers. Total rows have no variable or per-variable score. Maintenance scores 0 and 1 are printed with 'average = 1'.",
+   "by": "model check, Claude Code subagent (page images and pdfplumber grid)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "cd96a9d8de9d9209",
+   "kind": "table",
+   "target": "table-14: Priority assessment algorithm for asbestos insulating board ceiling tiles throughout the block",
+   "value": {
+    "columns": [
+     "Assessment factor",
+     "Variable(s) selected",
+     "Score for each variable",
+     "Overall score"
+    ],
+    "rows": [
+     [
+      "Normal occupant activity: Main type of activity in area",
+      "Low disturbance activities",
+      "1",
+      "1"
+     ],
+     [
+      "Likelihood of disturbance: Location",
+      "Large rooms or well-ventilated areas",
+      "1",
+      "average = 1"
+     ],
+     [
+      "Likelihood of disturbance: Accessibility",
+      "Usually inaccessible or unlikely to be disturbed",
+      "0",
+      "average = 1"
+     ],
+     [
+      "Likelihood of disturbance: Extent/amount",
+      ">50 m²",
+      "3",
+      "average = 1"
+     ],
+     [
+      "Human exposure potential: Number of occupants",
+      ">10",
+      "3",
+      "average = 3"
+     ],
+     [
+      "Human exposure potential: Frequency of use of area",
+      "Daily",
+      "3",
+      "average = 3"
+     ],
+     [
+      "Human exposure potential: Average time area is in use",
+      ">6 hours",
+      "3",
+      "average = 3"
+     ],
+     [
+      "Maintenance activity: Type of maintenance activity",
+      "Low disturbance",
+      "1",
+      "average = 1"
+     ],
+     [
+      "Maintenance activity: Frequency of maintenance activity",
+      "≤1 per year",
+      "1",
+      "average = 1"
+     ],
+     [
+      "Total priority assessment score",
+      "",
+      "",
+      "6"
+     ],
+     [
+      "Material assessment score (supplied by surveyor)",
+      "",
+      "",
+      "6"
+     ],
+     [
+      "Total of material and priority assessment scores",
+      "",
+      "",
+      "12"
+     ]
+    ],
+    "sentences": [
+     "In the worked example for asbestos insulating board ceiling tiles throughout the block, under normal occupant activity, the main type of activity in area is \"Low disturbance activities\", which scores 1; the overall score for normal occupant activity is 1.",
+     "In the worked example for asbestos insulating board ceiling tiles throughout the block, under likelihood of disturbance, the location is \"Large rooms or well-ventilated areas\", which scores 1; the overall score for likelihood of disturbance is average = 1.",
+     "In the worked example for asbestos insulating board ceiling tiles throughout the block, under likelihood of disturbance, the accessibility is \"Usually inaccessible or unlikely to be disturbed\", which scores 0; the overall score for likelihood of disturbance is average = 1.",
+     "In the worked example for asbestos insulating board ceiling tiles throughout the block, under likelihood of disturbance, the extent/amount is \">50 m²\", which scores 3; the overall score for likelihood of disturbance is average = 1.",
+     "In the worked example for asbestos insulating board ceiling tiles throughout the block, under human exposure potential, the number of occupants is \">10\", which scores 3; the overall score for human exposure potential is average = 3.",
+     "In the worked example for asbestos insulating board ceiling tiles throughout the block, under human exposure potential, the frequency of use of area is \"Daily\", which scores 3; the overall score for human exposure potential is average = 3.",
+     "In the worked example for asbestos insulating board ceiling tiles throughout the block, under human exposure potential, the average time area is in use is \">6 hours\", which scores 3; the overall score for human exposure potential is average = 3.",
+     "In the worked example for asbestos insulating board ceiling tiles throughout the block, under maintenance activity, the type of maintenance activity is \"Low disturbance\", which scores 1; the overall score for maintenance activity is average = 1.",
+     "In the worked example for asbestos insulating board ceiling tiles throughout the block, under maintenance activity, the frequency of maintenance activity is \"≤1 per year\", which scores 1; the overall score for maintenance activity is average = 1.",
+     "In the worked example for asbestos insulating board ceiling tiles throughout the block, the total priority assessment score is 6.",
+     "In the worked example for asbestos insulating board ceiling tiles throughout the block, the material assessment score (supplied by surveyor) is 6.",
+     "In the worked example for asbestos insulating board ceiling tiles throughout the block, the total of material and priority assessment scores is 12."
+    ]
+   },
+   "reason": "Grid rebuilt from the page images; merged cells repeated so each row stands alone; one sentence per data row from the table's own words.",
+   "evidence": "Each variable row's 'Assessment factor' cell is written as '<group heading>: <factor>'; the group headings (Normal occupant activity, Likelihood of disturbance, Human exposure potential, Maintenance activity) are printed as sub-heading lines in the first column. The overall score (a single value or 'average = n') is printed once per group, on the group's last row; it is repeated on every row of the group here. The table has a banner row 'Priority assessment algorithm' above the column headers. Total rows have no variable or per-variable score.",
+   "by": "model check, Claude Code subagent (page images and pdfplumber grid)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "dd3e19df6fd87dfb",
+   "kind": "table",
+   "target": "table-15: Typical exposures during work with asbestos lagging, coating and asbestos insulating board (AIB)",
+   "value": {
+    "columns": [
+     "Technique",
+     "Typical exposure f/ml",
+     "Comments"
+    ],
+    "rows": [
+     [
+      "Controlled wet stripping of lagging and sprayed coatings",
+      "Up to 1",
+      "Thorough soaking of lagging with a wetting agent followed by careful removal"
+     ],
+     [
+      "Uncontrolled dry stripping of lagging",
+      "1–100",
+      "Stripping dry or where dry patches are encountered"
+     ],
+     [
+      "Uncontrolled dry stripping of sprayed coatings",
+      "Up to 1000",
+      "Stripping dry or where dry patches are encountered"
+     ],
+     [
+      "Careful removal of whole AIB boards",
+      "Up to 3",
+      "Unscrewing (with shadow vacuuming) with the spray application of a wetting agent on unsealed surfaces"
+     ],
+     [
+      "Breaking and ripping out AIB",
+      "5–20",
+      "Carried out with no unscrewing"
+     ],
+     [
+      "Drilling AIB overhead",
+      "5–10",
+      "No local exhaust ventilation (LEV"
+     ],
+     [
+      "Drilling vertical columns",
+      "2–5",
+      "No LEV"
+     ],
+     [
+      "Use of a jigsaw on AIB",
+      "5–20",
+      "No LEV"
+     ],
+     [
+      "Hand sawing AIB",
+      "5–10",
+      "No LEV"
+     ]
+    ],
+    "sentences": [
+     "For controlled wet stripping of lagging and sprayed coatings (thorough soaking of lagging with a wetting agent followed by careful removal), the typical exposure is up to 1 f/ml.",
+     "For uncontrolled dry stripping of lagging (stripping dry or where dry patches are encountered), the typical exposure is 1–100 f/ml.",
+     "For uncontrolled dry stripping of sprayed coatings (stripping dry or where dry patches are encountered), the typical exposure is up to 1000 f/ml.",
+     "For careful removal of whole AIB boards (unscrewing, with shadow vacuuming, with the spray application of a wetting agent on unsealed surfaces), the typical exposure is up to 3 f/ml.",
+     "For breaking and ripping out AIB (carried out with no unscrewing), the typical exposure is 5–20 f/ml.",
+     "For drilling AIB overhead with no local exhaust ventilation (LEV), the typical exposure is 5–10 f/ml.",
+     "For drilling vertical columns with no LEV, the typical exposure is 2–5 f/ml.",
+     "For use of a jigsaw on AIB with no LEV, the typical exposure is 5–20 f/ml.",
+     "For hand sawing AIB with no LEV, the typical exposure is 5–10 f/ml."
+    ]
+   },
+   "reason": "Grid rebuilt from the page images; merged cells repeated so each row stands alone; one sentence per data row from the table's own words.",
+   "evidence": "The comment for 'Drilling AIB overhead' is printed 'No local exhaust ventilation (LEV' with no closing bracket; kept as printed in the row (the sentence closes it). AIB is asbestos insulating board (from the table title). Paragraph 12 above the table and the 'Asbestos removal methods' section below it are not part of the table.",
+   "by": "model check, Claude Code subagent (page images and pdfplumber grid)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "a9da504e0fd05fb1",
+   "kind": "figure_description",
+   "target": "figure-1: Flow chart",
+   "value": "Flow chart of the seven steps to manage asbestos-containing materials (ACMs) in premises. Step 1: confirm what you already know about the ACMs and how you manage them. Step 2: stop work that may disturb the building fabric until risk controls are in place; Step 3: do an initial inspection for damage and act at once to control it. Steps 4 to 7: develop a strategy for compliance, do a risk assessment to set priorities, develop a long-term management plan, then monitor and review the plan.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg227/main@2024-12-06-ef0a75ce/figures/figure-1.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "a7ec161614054280",
+   "kind": "figure_description",
+   "target": "figure-2: Asbestos cement: Work with this material does not require a licence",
+   "value": "Photo of a large corrugated asbestos cement roof seen from above, with rows of fixing bolts. The sheets look weathered and grey, with lighter patches and some dark marks. The caption says work with asbestos cement does not need a licence.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg227/main@2024-12-06-ef0a75ce/figures/figure-2.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "f5ff4a511f8ac6b1",
+   "kind": "figure_description",
+   "target": "figure-3: Sprayed asbestos insulation: work with this material requires a licence",
+   "value": "Photo of sprayed asbestos insulation: a rough, beige coating on a ceiling or wall, with old pipes and a fitting running over it. The coating has a ragged bottom edge where some appears to have broken away. The caption says work with this material needs a licence.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg227/main@2024-12-06-ef0a75ce/figures/figure-3.png Note: crop placement off (pdfplumber image box shifted); parking lot S33: Crop includes a strip of the Figure 2 roof photo on the left, body text above and a cut-off caption below.",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "fb9a52bd8ce1782e",
+   "kind": "figure_description",
+   "target": "figure-4: Asbestos fibres viewed down a microscope",
+   "value": "Microscope image of asbestos fibres. It shows many thin, straight, needle-like light fibres crossing each other on a dark blue background.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg227/main@2024-12-06-ef0a75ce/figures/figure-4.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "aae35faa490bd5d0",
+   "kind": "figure_description",
+   "target": "figure-5: Maintenance worker, working on asbestos insulating board without adequate controls",
+   "value": "Photo marked 'BAD PRACTICE' of a maintenance worker in a yellow hard hat hitting asbestos insulating board on a wall with a hammer. He has no mask or other visible controls, and the board is broken around the strike point. It shows how not to work on asbestos insulating board.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg227/main@2024-12-06-ef0a75ce/figures/figure-5.png Note: crop placement off (pdfplumber image box shifted); parking lot S33: Right side is cut off (the BAD PRACTICE stamp and caption are truncated) and body text from above and below is included.",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "2e20df841376564c",
+   "kind": "figure_description",
+   "target": "figure-6: Asbestos building (see page 19)",
+   "value": "Collage of photos of common asbestos products found in buildings, set on a background of fibres. It includes a lagged pipe, corrugated cement roof sheets, a board panel, a ceiling, a round gasket or rope seal, a column or pipe in a room, and a folded asbestos textile or blanket. It gives an overview of where asbestos can be found in a building.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg227/main@2024-12-06-ef0a75ce/figures/figure-6.png Note: crop placement off (pdfplumber image box shifted); parking lot S33: Includes a line of body text above the image (about asbestos cement installation).",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "23edb28bd47d01df",
+   "kind": "figure_description",
+   "target": "figure-7: Asbestos insulating board wall panels badly damaged",
+   "value": "Photo of badly damaged asbestos insulating board wall panels in a run-down room. Large pieces of board are broken out of a timber frame, leaving holes, and loose board leans against the wall. There is debris on the floor.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg227/main@2024-12-06-ef0a75ce/figures/figure-7.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "7e484045f6abf133",
+   "kind": "figure_description",
+   "target": "figure-8: Carrying out a Type 1 survey",
+   "value": "Photo of a surveyor in a yellow hard hat writing on a clipboard form while looking at a tiled wall and ceiling. It shows a Type 1 asbestos survey being carried out, which is a visual inspection with notes and no sampling shown.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg227/main@2024-12-06-ef0a75ce/figures/figure-8.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "7d870ddab7b69e31",
+   "kind": "figure_description",
+   "target": "figure-9: Taking a sample with a corer for a Type 2/3 survey",
+   "value": "Photo of a surveyor in a yellow hard hat and white protective suit taking a sample from pipe insulation with a corer tool. It shows sampling for a Type 2 or Type 3 asbestos survey.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg227/main@2024-12-06-ef0a75ce/figures/figure-9.png Note: crop placement off (pdfplumber image box shifted); parking lot S33: Left edge includes a strip of the Figure 8 photo (part of a hard hat).",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "1410413392b70b74",
+   "kind": "figure_description",
+   "target": "figure-10: Removing panels to gain complete access for a Type 3 survey",
+   "value": "Photo of a person in a full white protective suit with hood and mask lifting a ceiling panel to look into the void above, where ducting is visible. It shows panels being removed to get full access for a Type 3 asbestos survey.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg227/main@2024-12-06-ef0a75ce/figures/figure-10.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "b8f2b0c318e54ed9",
+   "kind": "figure_description",
+   "target": "figure-11: Materials suspected of containing asbestos",
+   "value": "Decision flow chart for materials suspected of containing asbestos. If the material has no asbestos, record it as non-asbestos; if it has asbestos and is in good condition, record, manage and monitor it. If it is not in good condition, the chart sends you to Figure 12 for spray or pipe lagging, Figure 13 for insulating board or blocks, and Figure 14 for other asbestos materials.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg227/main@2024-12-06-ef0a75ce/figures/figure-11.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "ec592ef806ec7fc0",
+   "kind": "figure_description",
+   "target": "figure-12: Sprayed asbestos coatings and pipe and vessel insulation",
+   "value": "Decision flow chart for managing sprayed asbestos coatings and pipe and vessel insulation. It asks if the material can be repaired, if it is accessible, if the damage is extensive, if there is loose friable material and if enclosure is feasible. The outcomes are repair, seal or encapsulate, enclose, or remove, and in each case record, manage and monitor. Notes explain accessibility, that slight damage in a hard-to-reach place may just be monitored, how to judge superficial against extensive damage, and that sound material may be sealed.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg227/main@2024-12-06-ef0a75ce/figures/figure-12.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "aafb5b6feed21f53",
+   "kind": "figure_description",
+   "target": "figure-13: Asbestos insulating board and insulating blocks",
+   "value": "Decision flow chart for managing asbestos insulating board (AIB) and insulating blocks. It asks if the material can be repaired, if it is readily accessible, if the damage is extensive and if sealing or enclosure is feasible. The outcomes are repair, seal or enclose, or remove, then record, manage and monitor. Notes say damage that is hard to reach may only need monitoring, explain superficial against extensive damage, and say debris must be cleared with proper precautions.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg227/main@2024-12-06-ef0a75ce/figures/figure-13.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "43489c811a16f9dc",
+   "kind": "figure_description",
+   "target": "figure-14: Other asbestos materials (Read Notes 1 and 2 first)",
+   "value": "Decision flow chart for other asbestos materials not covered by Figures 12 and 13, such as asbestos cement, textiles, gaskets, ropes, vinyl and thermoplastic floor tiles and roofing felts. It asks if the material can be repaired, if it is accessible, if the damage is extensive and if sealing or enclosure is feasible, leading to repair, seal or enclose, or remove, then record, manage and monitor. Notes say materials locked in a firm matrix (plastics, vinyls, resins, bitumen, paints, mastics) release few fibres unless degraded or cut with power tools, so they can usually be managed and removed at end of life or before refurbishment or demolition. Less well bound products like textiles and gaskets release fibres more easily and may need controlled methods, sealing or enclosure.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg227/main@2024-12-06-ef0a75ce/figures/figure-14.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  }
+ ]
+}

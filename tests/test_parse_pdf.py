@@ -386,3 +386,10 @@ def test_real_hsg227_structure(hsg227):
     t3 = next(s for s in secs if s["id"] == "table-3")
     assert t3["title"].startswith("Priority assessment algorithm") and t3.get("grid")
     assert not [s for s in secs if s["type"] == "heading" and s["title"].startswith("Take care")]  # callout
+
+
+def test_real_hsg227_all_checks_settled_by_saved_fixes(hsg227):
+    assert hsg227["checks"] == []
+    t3 = next(s for s in hsg227["sections"] if s["id"] == "table-3")
+    # 4 + 1 (occupant activity) + 12 (likelihood) + 12 (human exposure) + 8 (maintenance) score options
+    assert t3["grid_source"] == "model" and len(t3["row_sentences"]) == 37
