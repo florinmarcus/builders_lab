@@ -58,7 +58,8 @@ def doc():
           ln(2, 464, bold("travel", "distance"), 12.0, "Agenda-Bold"),
           ln(2, 480, ["Escape", "in", "one", "direction"], 10.0),
           ln(2, 494, ["7.5m"], 10.0),
-          ln(2, 520, ["Fire", "fire", "fire", "Fire", "the", "end."])]
+          ln(2, 520, ["Fire", "fire", "fire", "Fire", "the", "end."]),
+          ln(2, 540, ["defnition", "defnition", "defnition", "definition", "often", "oftn", "often"])]
     L += page_furniture(3, "2")
     L += [ln(3, 73.7, bold("Effective", "until", "1", "September", "2029", "–", "see", "2029", "amendment"), 12.0, "Agenda-Bold"),
           ln(3, 94, bold("Appendix", "B:", "Performance"), 26.0, "Agenda-Bold"),
@@ -122,6 +123,13 @@ def test_a_long_number_touching_its_first_word_is_split(tree):
 def test_dropped_letters_of_fi_are_put_back_and_counted(tree):
     assert "fire alarm" in sec(tree, "para-2.5")["text"]
     assert tree["repairs"]["fre -> fire"] >= 2
+
+
+def test_broken_word_more_common_than_the_good_one_is_repaired_after_a_rare_f_pair(tree):
+    # "fn" almost never occurs in English: "defnition" is fixed although it outnumbers "definition" here.
+    assert tree["repairs"]["defnition -> definition"] == 3
+    # "ft" is a normal pair: "often" is never touched, and "oftn" (no fi/fl candidate in the text) stays.
+    assert not [k for k in tree["repairs"] if k.startswith(("often", "oftn"))]
 
 
 def test_diagram_caption_labels_and_area(tree):
@@ -205,7 +213,7 @@ def test_real_adb1_chapters_diagrams_tables_terms(adb1):
 
 def test_real_adb1_text_is_clean(adb1):
     for s in adb1["sections"]:
-        for bad in ("O N L I N E", "Approved Document B Volume 1, 2019 edition", " fre ", "T he "):
+        for bad in ("O N L I N E", "Approved Document B Volume 1, 2019 edition", " fre ", "T he ", "defnition", "specifc"):
             assert bad not in s["text"], (s["id"], bad)
     S = {s["id"]: s for s in adb1["sections"]}
     assert S["para-2.6"]["text"].startswith("See Diagram 2.1d.")

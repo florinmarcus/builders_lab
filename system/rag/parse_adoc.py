@@ -43,6 +43,7 @@ from system.rag.parse_pdf import read_pdf, render_images
 PARSER = "approved-document-pdf/0.1"
 BODY = 12.0
 SMALL = 10.6  # below this: diagram labels, table text, requirement boxes (some list items are 11pt)
+RARE_AFTER_F = set("bcdgjkmnpqsvwxz")  # letters that almost never follow "f" in English words
 NUM_RE = re.compile(r"^(\d{1,2}\.\d{1,3}|[A-G]\d{1,3})$")
 LIST_RE = re.compile(r"^(?:[a-z]|[ivx]{1,4})\.\s|^•\s|^\(\w{1,4}\)\s")
 TABLE_RE = re.compile(r"^Table ([A-Z]?\d+(?:\.\d+)?)\b\s*(.*)$")
@@ -155,6 +156,15 @@ class AdocBuilder:
             for cand in cands:
                 if vocab.get(cand, 0) >= 3 and n < vocab[cand] and (best is None or vocab[cand] > vocab[best]):
                     best = cand
+            if not best:
+                # "f" followed by a letter that almost never follows it in English ("defnition", "roofng"): the
+                # broken form may be the more common one (the index repeats it), so a single correct use is enough.
+                for i in range(len(word) - 1):
+                    if word[i] == "f" and word[i + 1] in RARE_AFTER_F:
+                        for x in ("i", "l"):
+                            cand = word[:i + 1] + x + word[i + 1:]
+                            if vocab.get(cand, 0) >= 1 and (best is None or vocab[cand] > vocab[best]):
+                                best = cand
             if best:
                 fixes[word] = best
         self.repairs: Counter = Counter()
