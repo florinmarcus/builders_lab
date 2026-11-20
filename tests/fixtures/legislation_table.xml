@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Hand-made sample (mock text): a table inside a regulation, and an equation image version block. -->
+<Legislation xmlns="http://www.legislation.gov.uk/namespaces/legislation"
+  xmlns:ukm="http://www.legislation.gov.uk/namespaces/metadata"
+  xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  RestrictExtent="E">
+<ukm:Metadata><dc:title>The Demo Hazard Regulations 2005</dc:title></ukm:Metadata>
+<Secondary>
+<Body>
+  <P1group><Title>Hazard ratings</Title>
+    <P1 id="regulation-7" DocumentURI="http://www.legislation.gov.uk/uksi/2005/9999/regulation/7/2026-06-01">
+      <Pnumber>7</Pnumber>
+      <P1para><Text>The hazard band is given by the following table—</Text>
+        <Tabular><Title>Hazard bands</Title><xhtml:table><xhtml:tbody>
+          <xhtml:tr><xhtml:th>Score</xhtml:th><xhtml:th>Band</xhtml:th></xhtml:tr>
+          <xhtml:tr><xhtml:td>5,000 or more</xhtml:td><xhtml:td>A</xhtml:td></xhtml:tr>
+          <xhtml:tr><xhtml:td>2,000 to 4,999</xhtml:td><xhtml:td>B</xhtml:td></xhtml:tr>
+        </xhtml:tbody></xhtml:table></Tabular>
+        <Text>Bands A to C are category 1 hazards.</Text>
+      </P1para>
+    </P1>
+  </P1group>
+  <P1group><Title>Calculation</Title>
+    <P1 id="regulation-8"><Pnumber>8</Pnumber>
+      <P1para><Text>The score is worked out with the formula in the Schedule.</Text></P1para>
+    </P1>
+  </P1group>
+</Body>
+<Schedules>
+  <Schedule id="schedule-1">
+    <Number>SCHEDULE 1</Number><TitleBlock><Title>Existing enactments</Title></TitleBlock>
+    <ScheduleBody>
+      <Tabular><xhtml:table><xhtml:tbody>
+        <xhtml:tr><xhtml:th>Chapter</xhtml:th><xhtml:th>Short title</xhtml:th></xhtml:tr>
+        <xhtml:tr><xhtml:td>1961 c. 34</xhtml:td><xhtml:td>The Demo Factories Act 1961</xhtml:td></xhtml:tr>
+      </xhtml:tbody></xhtml:table></Tabular>
+    </ScheduleBody>
+  </Schedule>
+</Schedules>
+</Secondary>
+<Versions>
+  <Version id="v00000" Description="Equation graphical version"><Figure><Image ResourceRef="r1"/></Figure></Version>
+</Versions>
+</Legislation>

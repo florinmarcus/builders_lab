@@ -318,3 +318,36 @@ def test_real_all_checks_settled_by_saved_fixes(br2010):
     labelled = [s for s in br2010["sections"] if s["type"] == "schedule-part" and s.get("label_source")]
     assert labelled and all(s["label_source"] == "model" for s in labelled)
     assert next(s for s in br2010["sections"] if s["id"] == "schedule-1-T1")["code_source"] == "model"
+
+
+# ---------------------------------------------------------------- tables inside provisions, equation versions (S2)
+
+TABLE_FIXTURE = Path(__file__).parent / "fixtures" / "legislation_table.xml"
+
+
+@pytest.fixture(scope="module")
+def table_tree():
+    meta = {**META, "source_id": "demo-hazard", "title": "The Demo Hazard Regulations 2005"}
+    return parse_legislation(TABLE_FIXTURE.read_bytes(), meta)
+
+
+def test_table_inside_a_regulation_is_text_and_a_table_section(table_tree):
+    reg = sec(table_tree, "regulation-7")
+    assert reg["text"] == ("The hazard band is given by the following table—\nScore | Band\n5,000 or more | A\n"
+                           "2,000 to 4,999 | B\nBands A to C are category 1 hazards.")
+    tables = [s for s in table_tree["sections"] if s["type"] == "table" and s["parent_id"] == "regulation-7"]
+    assert len(tables) == 1 and tables[0]["title"] == "Hazard bands"
+    assert tables[0]["text"].splitlines()[1] == "5,000 or more | A"
+    assert not [i for i in table_tree["issues"] if "Tabular" in i]
+
+
+def test_equation_image_versions_are_skipped_quietly(table_tree):
+    assert not [i for i in table_tree["issues"] if "version block" in i]
+    assert [s["number"] for s in table_tree["sections"] if s["type"] == "regulation"] == ["7", "8"]
+
+
+def test_a_schedule_1_that_is_not_a_requirements_table_is_an_ordinary_table(table_tree):
+    assert not table_tree["checks"]
+    assert not [s for s in table_tree["sections"] if s["type"] in ("requirement", "schedule-part")]
+    t = [s for s in table_tree["sections"] if s["type"] == "table" and s["parent_id"] == "schedule-1"]
+    assert len(t) == 1 and "1961 c. 34 | The Demo Factories Act 1961" in t[0]["text"]

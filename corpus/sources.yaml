@@ -45,6 +45,7 @@ sources:
   status: coming
   notes: Made 23 Mar 2026. Higher-risk building work (regs 3, 4, 6-9) from 24 Sep 2027 (Circular 01/2026). No /contents/data.xml; use /made/data.xml.
   checked: 2026-11-19
+  parser: {module: parse_legislation}
   fetch: {method: legislation, path: uksi/2026/335, history: made}
 
 - id: br-charges-2026
@@ -61,6 +62,7 @@ sources:
   status: current
   notes: Made 14 Oct 2026. In-force date not checked.
   checked: 2026-11-19
+  parser: {module: parse_legislation}
   fetch: {method: legislation, path: uksi/2026/1094, history: made}
 
 - id: br-amd-2023-dutyholders
@@ -78,6 +80,7 @@ sources:
   status: current
   notes: Amending SI but has its own revised versions (made, 2023-10-01, 2026-11-06), so current text is taken.
   checked: 2026-11-19
+  parser: {module: parse_legislation}
   fetch: {method: legislation, path: uksi/2023/911, history: current}
 
 - id: hrb-procedures-2023
@@ -94,6 +97,7 @@ sources:
   in_force: 2023-10-01
   status: current
   checked: 2026-11-19
+  parser: {module: parse_legislation}
   fetch: {method: legislation, path: uksi/2023/909, history: current}
 
 - id: hrb-descriptions-2023
@@ -111,6 +115,7 @@ sources:
   status: current
   notes: Roof-garden rule being changed (MHCLG notice 28 May 2025); watch for an amending SI.
   checked: 2026-11-19
+  parser: {module: parse_legislation}
   fetch: {method: legislation, path: uksi/2023/275, history: current}
 
 - id: hrb-management-2023
@@ -126,6 +131,7 @@ sources:
   why: Duties of accountable persons in occupied higher-risk buildings, so contractors know who they deal with.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_legislation}
   fetch: {method: legislation, path: uksi/2023/907, history: current}
 
 - id: rbca-2024
@@ -142,6 +148,7 @@ sources:
   in_force: 2024-04-06
   status: current
   checked: 2026-11-19
+  parser: {module: parse_legislation}
   fetch: {method: legislation, path: uksi/2024/110, history: current}
 
 - id: bsa2022
@@ -158,6 +165,7 @@ sources:
   status: current
   notes: Commenced in stages from 28 Apr 2022; 15 unapplied effects.
   checked: 2026-11-19
+  parser: {module: parse_legislation}
   fetch: {method: legislation, path: ukpga/2022/30, history: current}
 
 - id: ba1984
@@ -174,6 +182,7 @@ sources:
   status: current
   notes: Revised versions start at the 1991-02-01 base date.
   checked: 2026-11-19
+  parser: {module: parse_legislation}
   fetch: {method: legislation, path: ukpga/1984/55, history: all}
 
 - id: fso2005
@@ -190,6 +199,7 @@ sources:
   status: current
   notes: Start date 1 Oct 2006 is from memory in inventory A, not checked, so in_force is left out. 26 unapplied effects.
   checked: 2026-11-19
+  parser: {module: parse_legislation}
   fetch: {method: legislation, path: uksi/2005/1541, history: all}
 
 - id: fser2022
@@ -206,6 +216,7 @@ sources:
   in_force: 2023-01-23
   status: current
   checked: 2026-11-19
+  parser: {module: parse_legislation}
   fetch: {method: legislation, path: uksi/2022/547, history: current}
 
 - id: fsa2021
@@ -222,6 +233,7 @@ sources:
   in_force: 2022-05-16
   status: current
   checked: 2026-11-19
+  parser: {module: parse_legislation}
   fetch: {method: legislation, path: ukpga/2021/24, history: current}
 
 - id: scoar2015
@@ -239,6 +251,7 @@ sources:
   status: current
   notes: In inventories A, B and C. Versions made, 2015-10-01, 2022-07-01, 2022-10-01, 2023-11-06, 2026-05-01. What changed on 1 May 2026 was not read.
   checked: 2026-11-19
+  parser: {module: parse_legislation}
   fetch: {method: legislation, path: uksi/2015/1693, history: current}
 
 - id: scoar-amd-2022
@@ -256,6 +269,7 @@ sources:
   status: current
   notes: Made 27 Jun 2022. Changes are folded into scoar2015.
   checked: 2026-11-19
+  parser: {module: parse_legislation}
   fetch: {method: legislation, path: uksi/2022/707, history: made}
 
 - id: bamd2018
@@ -272,6 +286,7 @@ sources:
   status: current
   notes: Made 28 Nov 2018. Effects already in br2010.
   checked: 2026-11-19
+  parser: {module: parse_legislation}
   fetch: {method: legislation, path: uksi/2018/1230, history: made}
 
 # ---------------------------------------------------------------------------
@@ -292,6 +307,7 @@ sources:
   status: current
   notes: PDF carries Click-Use wording; legal check. match not set; harvester will take all PDFs.
   checked: 2026-11-19
+  parser: {module: parse_adoc, parts: [approved-document-a-structure, frequently-asked-questions]}
   fetch: {method: govuk, page: /government/publications/structure-approved-document-a, attachments: pdf}
 
 - id: adb
@@ -327,6 +343,7 @@ sources:
   status: current
   notes: Same page as adb. The Mar 2024 booklet is marked "No longer current". match guessed; check against attachment titles.
   checked: 2026-11-19
+  parser: {module: parse_adoc, parts: [2025-amendments-to-approved-document-b-volume-1-and-volume-2, 2026-amendments-to-approved-document-b-volume-1-and-volume-2, 2029-amendments-to-approved-document-b-volume-1-and-volume-2, approved-document-b-fire-safety-volume-1-dwellings, approved-document-b-fire-safety-volume-2-buildings-other-tha, june-2022-amendments-to-approved-document-b-volume-1-and-vol, march-2024-amendments-to-approved-document-b-volume-1-and-vo, may-2020-amendments-to-approved-document-b-volume-1-and-volu]}
   fetch: {method: govuk, page: /government/publications/fire-safety-approved-document-b, attachments: pdf, match: "(?i)amendment"}
 
 - id: adb-historical
@@ -342,6 +359,7 @@ sources:
   why: Older AD B editions back to 2006, for jobs started under an earlier edition.
   status: out-of-date
   checked: 2026-11-19
+  parser: {module: parse_adoc, parts: [2013-amendments-to-approved-documents, approved-document-b-fire-safety-volume-1-dwellinghouses-2006-edition-incorporating-amendments-up-to, approved-document-b-fire-safety-volume-1-dwellinghouses-2006-edition-incorporating-the-2010-and-2013, approved-document-b-fire-safety-volume-1-dwellings-2019-edition, approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-amendments, approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen, approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631, approved-document-b-fire-safety-volume-2-buildings-other-than-dwellinghouses-2006-edition-incorporat, approved-document-b-fire-safety-volume-2-buildings-other-than-dwellinghouses-2006-edition-incorporat-8507458, approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition, approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2, approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507446, approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629, approved-document-b-frequently-asked-questions-no-longer-current, december-2018-amendments-to-approved-document-b-volume-1-and-volume-2, november-2018-amendment-to-approved-document-b-fire-safety-volume-2-buildings-other-than-dwellinghou, november-2018-to-april-2019-amendments-to-approved-document-b-volume-1-and-volume-2]}
   fetch: {method: govuk, page: /government/publications/historical-documents-relating-to-approved-document-b-fire-safety, attachments: pdf, keep_titles: true}
 
 - id: adb-faq
@@ -357,6 +375,7 @@ sources:
   why: Plain-language Q&A on AD B.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: govuk, page: /guidance/approved-document-b-fire-safety-frequently-asked-questions, attachments: none, body: true}
 
 - id: adc
@@ -373,6 +392,7 @@ sources:
   status: current
   notes: PDF carries Click-Use wording; legal check. match not set; harvester will take all PDFs.
   checked: 2026-11-19
+  parser: {module: parse_adoc, parts: [approved-document-c-site-preparation-and-resistance-to-conta, frequently-asked-questions]}
   fetch: {method: govuk, page: /government/publications/site-preparation-and-resistance-to-contaminates-and-moisture-approved-document-c, attachments: pdf}
 
 - id: add
@@ -389,6 +409,7 @@ sources:
   status: current
   notes: match not set; harvester will take all PDFs.
   checked: 2026-11-19
+  parser: {module: parse_adoc, parts: [approved-document-d-toxic-substances]}
   fetch: {method: govuk, page: /government/publications/toxic-substances-approved-document-d, attachments: pdf}
 
 - id: ade
@@ -405,6 +426,7 @@ sources:
   status: current
   notes: match not set; harvester will take all PDFs.
   checked: 2026-11-19
+  parser: {module: parse_adoc, parts: [approved-document-e-resistance-to-the-passage-of-sound, frequently-asked-questions]}
   fetch: {method: govuk, page: /government/publications/resistance-to-sound-approved-document-e, attachments: pdf}
 
 - id: adf
@@ -422,6 +444,7 @@ sources:
   status: current
   notes: Two parts (Vol 1, Vol 2). Replaced by adf-2026 from 24 Mar 2027. match not set; harvester will take all PDFs.
   checked: 2026-11-19
+  parser: {module: parse_adoc, parts: [approved-document-f-volume-1-applies-to-dwellings, approved-document-f-volume-2-applies-to-buildings-other-than]}
   fetch: {method: govuk, page: /government/publications/ventilation-approved-document-f, attachments: pdf}
 
 - id: adf-2026
@@ -439,6 +462,7 @@ sources:
   status: coming
   notes: Revised 8 Sep 2026 (Circular 04/2026). Higher-risk building work from 24 Sep 2027. match not set; harvester will take all PDFs.
   checked: 2026-11-19
+  parser: {module: parse_adoc, parts: [approved-document-f-volume-1-dwellings]}
   fetch: {method: govuk, page: /government/publications/approved-document-f-2026, attachments: pdf}
 
 - id: adg
@@ -455,6 +479,7 @@ sources:
   status: current
   notes: 2024 amendment in-force date not checked. Page also has 2016 corrigenda and a May 2024 amendment booklet. match not set; harvester will take all PDFs.
   checked: 2026-11-19
+  parser: {module: parse_adoc, parts: [approved-document-g-sanitation-hot-water-safety-and-water-ef, corrections-to-approved-document-g, frequently-asked-questions, may-2024-amendments-to-approved-document-g-sanitation-hot-wa]}
   fetch: {method: govuk, page: /government/publications/sanitation-hot-water-safety-and-water-efficiency-approved-document-g, attachments: pdf}
 
 - id: adh
@@ -472,6 +497,7 @@ sources:
   status: current
   notes: match not set; harvester will take all PDFs.
   checked: 2026-11-19
+  parser: {module: parse_adoc, parts: [approved-document-h-drainage-and-waste-disposal]}
   fetch: {method: govuk, page: /government/publications/drainage-and-waste-disposal-approved-document-h, attachments: pdf}
 
 - id: adj
@@ -489,6 +515,7 @@ sources:
   status: current
   notes: match not set; harvester will take all PDFs.
   checked: 2026-11-19
+  parser: {module: parse_adoc, parts: [approved-document-j-combustion-appliances-and-fuel-storage-s]}
   fetch: {method: govuk, page: /government/publications/combustion-appliances-and-fuel-storage-systems-approved-document-j, attachments: pdf}
 
 - id: adk
@@ -506,6 +533,7 @@ sources:
   status: current
   notes: match not set; harvester will take all PDFs.
   checked: 2026-11-19
+  parser: {module: parse_adoc, parts: [approved-document-k-protection-from-falling-collision-and-im]}
   fetch: {method: govuk, page: /government/publications/protection-from-falling-collision-and-impact-approved-document-k, attachments: pdf}
 
 - id: adl
@@ -523,6 +551,7 @@ sources:
   status: current
   notes: Two parts (Vol 1, Vol 2). Replaced by adl-2026 from 24 Mar 2027. Feb 2023 amendment booklet on page. match not set; harvester will take all PDFs.
   checked: 2026-11-19
+  parser: {module: parse_adoc, parts: [approved-document-l-conservation-of-fuel-and-power-volume-1, approved-document-l-conservation-of-fuel-and-power-volume-2, february-2023-amendments-to-approved-document-l-volume-1-and]}
   fetch: {method: govuk, page: /government/publications/conservation-of-fuel-and-power-approved-document-l, attachments: pdf}
 
 - id: adl-2026
@@ -540,6 +569,7 @@ sources:
   status: coming
   notes: Revised 8 Sep 2026. Higher-risk building work from 24 Sep 2027. Page also has a FAQ. match not set; harvester will take all PDFs.
   checked: 2026-11-19
+  parser: {module: parse_adoc, parts: [approved-document-l-volume-1-dwellings, approved-document-l-volume-2-buildings-other-than-dwellings]}
   fetch: {method: govuk, page: /government/publications/approved-document-l-2026, attachments: pdf}
 
 - id: adm
@@ -556,6 +586,7 @@ sources:
   status: current
   notes: Two parts. Vol 1 2016 amendments in force 1 Mar 2016; Vol 2 later amendment dates not checked. Corrigenda and booklets on page. match not set; harvester will take all PDFs.
   checked: 2026-11-19
+  parser: {module: parse_adoc, parts: [approved-document-m-access-to-and-use-of-buildings-volume-1, approved-document-m-access-to-and-use-of-buildings-volume-2, corrections-to-approved-document-m, frequently-asked-questions, july-2020-amendments-to-approved-document-m-access-to-and-us, may-2024-amendments-to-approved-document-m-access-to-and-use]}
   fetch: {method: govuk, page: /government/publications/access-to-and-use-of-buildings-approved-document-m, attachments: pdf}
 
 - id: ado
@@ -573,6 +604,7 @@ sources:
   status: current
   notes: match not set; harvester will take all PDFs.
   checked: 2026-11-19
+  parser: {module: parse_adoc, parts: [overheating-approved-document-o]}
   fetch: {method: govuk, page: /government/publications/overheating-approved-document-o, attachments: pdf}
 
 - id: adp
@@ -590,6 +622,7 @@ sources:
   status: current
   notes: In inventories A and B. match not set; harvester will take all PDFs.
   checked: 2026-11-19
+  parser: {module: parse_adoc, parts: [approved-document-p-electrical-safety-dwellings]}
   fetch: {method: govuk, page: /government/publications/electrical-safety-approved-document-p, attachments: pdf}
 
 - id: adq
@@ -607,6 +640,7 @@ sources:
   status: current
   notes: FAQ added 22 Nov 2024. match not set; harvester will take all PDFs.
   checked: 2026-11-19
+  parser: {module: parse_adoc, parts: [approved-document-q-security-dwellings]}
   fetch: {method: govuk, page: /government/publications/security-in-dwellings-approved-document-q, attachments: pdf}
 
 - id: adr
@@ -624,6 +658,7 @@ sources:
   status: current
   notes: match not set; harvester will take all PDFs.
   checked: 2026-11-19
+  parser: {module: parse_adoc, parts: [approved-document-r-volume-1-physical-infrastructure-and-net, approved-document-r-volume-2-physical-infrastructure-for-hig]}
   fetch: {method: govuk, page: /government/publications/infrastructure-for-electronic-communications-approved-document-r, attachments: pdf}
 
 - id: ads
@@ -641,6 +676,7 @@ sources:
   status: current
   notes: match not set; harvester will take all PDFs.
   checked: 2026-11-19
+  parser: {module: parse_adoc, parts: [approved-document-s-infrastructure-for-charging-electric-veh]}
   fetch: {method: govuk, page: /government/publications/infrastructure-for-charging-electric-vehicles-approved-document-s, attachments: pdf}
 
 - id: adt
@@ -658,6 +694,7 @@ sources:
   status: current
   notes: Tables 4.1 and 6.1 revised, page updated 3 Nov 2025 (Circular 02/2025). match not set; harvester will take all PDFs.
   checked: 2026-11-19
+  parser: {module: parse_adoc, parts: [toilet-accommodation-approved-document-t]}
   fetch: {method: govuk, page: /government/publications/toilet-accommodation-approved-document-t, attachments: pdf}
 
 - id: ad7
@@ -674,6 +711,7 @@ sources:
   status: current
   notes: 2013 edition in force 1 Jul 2013; 2018 amendment date not extracted. match not set; harvester will take all PDFs.
   checked: 2026-11-19
+  parser: {module: parse_adoc, parts: [2018-amendment-to-approved-document-7-material-and-workmansh, approved-document-7-material-and-workmanship]}
   fetch: {method: govuk, page: /government/publications/material-and-workmanship-approved-document-7, attachments: pdf}
 
 - id: ad-merged-2024
@@ -706,6 +744,7 @@ sources:
   status: out-of-date
   notes: Page says (Oct 2023) it is not updated for the Building Safety Act 2022; still talks about approved inspectors. Tag answers as out of date.
   checked: 2026-11-19
+  parser: {module: parse_pdf}
   fetch: {method: govuk, page: /government/publications/manual-to-the-building-regulations, attachments: pdf}
 
 # ---------------------------------------------------------------------------
@@ -725,6 +764,7 @@ sources:
   why: Ready list of Building Safety Act SIs, to find the right one.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: govuk, page: /guidance/the-building-safety-act-secondary-legislation, attachments: none, body: true}
 
 - id: bsr-dutyholder
@@ -740,6 +780,7 @@ sources:
   why: Plain guide to contractor and principal contractor duties under SI 2023/911. Key document for small builders.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: govuk, page: /guidance/design-and-building-work-meeting-building-requirements, attachments: none, body: true}
 
 - id: br-approval
@@ -755,6 +796,7 @@ sources:
   why: Entry-level guide to "do I need approval?" and building notice vs full plans.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: govuk, page: /building-regulations-approval, attachments: none, body: true}
 
 - id: cps-schemes
@@ -771,6 +813,7 @@ sources:
   status: current
   notes: In inventories A and D. Updated 17 Sep 2026 (CIGA replaced by Installation Assurance Authority).
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: govuk, page: /guidance/competent-person-scheme-current-schemes-and-how-schemes-are-authorised, attachments: none, body: true}
 
 - id: bc-changes-2023
@@ -786,6 +829,7 @@ sources:
   why: Explains what changed on 1 Oct 2023 (SIs 2023/909, 911, 906, 908).
   status: current
   checked: 2026-11-19
+  parser: {module: parse_pdf}
   fetch: {method: govuk, page: /government/publications/building-control-changes-for-higher-risk-buildings-and-wider-changes-to-building-regulations, attachments: all}
 
 - id: br-circulars
@@ -802,6 +846,7 @@ sources:
   status: current
   notes: Collection page with 64 documents; body only stores the index. Add single circulars as their own entries when needed.
   checked: 2026-11-19
+  parser: {module: parse_pdf}
   fetch: {method: govuk, page: /government/collections/building-regulations-circulars, attachments: none, body: true}
 
 - id: circ-01-2026
@@ -817,6 +862,7 @@ sources:
   why: Exact transition dates for Part L and F 2026.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: govuk, page: /government/publications/the-future-homes-and-buildings-standards-building-circular-012026, attachments: html}
 
 - id: circ-01-2024
@@ -832,6 +878,7 @@ sources:
   why: Second staircase rule and the "sufficiently progressed" transition test.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: govuk, page: /government/publications/approved-document-b-2024-amendments-circular-012024, attachments: html}
 
 - id: circ-adb-2024
@@ -847,6 +894,7 @@ sources:
   why: AD B dates (2 Mar 2025, 30 Sep 2026, 2 Sep 2029).
   status: current
   checked: 2026-11-19
+  parser: {module: parse_pdf}
   fetch: {method: govuk, page: /government/publications/amendments-to-approved-document-b-fire-safety-circular-and-letter, attachments: all}
 
 - id: hrb-existing
@@ -862,6 +910,7 @@ sources:
   why: Small firms working in council towers need to know if their job is higher-risk building work.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: govuk, page: /guidance/criteria-for-determining-whether-an-existing-building-is-a-higher-risk-building-during-building-work, attachments: none, body: true}
 
 - id: bsr-hrb-approval
@@ -878,6 +927,7 @@ sources:
   status: current
   notes: Only the search API listing was read, not the page body.
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: govuk, page: /guidance/building-control-approval-for-higher-risk-buildings, attachments: none, body: true}
 
 - id: fser-page
@@ -893,6 +943,7 @@ sources:
   why: What landlords must check; context for fire door orders.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_pdf}
   fetch: {method: govuk, page: /government/publications/fire-safety-england-regulations-2022, attachments: all}
 
 - id: fser-fire-doors
@@ -925,6 +976,7 @@ sources:
   why: Fire Safety Order duties from 1 Oct 2023 (Article 50 guidance).
   status: current
   checked: 2026-11-19
+  parser: {module: parse_pdf}
   fetch: {method: govuk, page: /government/publications/check-your-fire-safety-responsibilities-under-section-156-of-the-building-safety-act-2022, attachments: all}
 
 - id: fso-guidance-collection
@@ -941,6 +993,7 @@ sources:
   status: current
   notes: Collection of 22 items; body only stores the index. Add the small blocks, 5-step checklist and sleeping accommodation items as their own entries.
   checked: 2026-11-19
+  parser: {module: parse_pdf}
   fetch: {method: govuk, page: /government/collections/fire-safety-legislation-guidance-for-those-with-legal-duties, attachments: none, body: true}
 
 - id: fire-pbbf
@@ -973,6 +1026,7 @@ sources:
   status: current
   notes: In inventories A and C.
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: govuk, page: /government/publications/smoke-and-carbon-monoxide-alarms-explanatory-booklet-for-landlords, attachments: all}
 
 - id: fire-flats-residents
@@ -988,6 +1042,7 @@ sources:
   why: Helps when talking to residents.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: govuk, page: /fire-safety-flats-england-residents, attachments: none, body: true}
 
 # ---------------------------------------------------------------------------
@@ -1061,6 +1116,7 @@ sources:
   status: current
   notes: Landing page https://www.hse.gov.uk/pubns/books/l143.htm. New edition expected after SI 2026/1153; re-check monthly.
   checked: 2026-11-19
+  parser: {module: parse_pdf}
   fetch: {method: url}
 
 - id: hse-hsg264
@@ -1110,6 +1166,7 @@ sources:
   status: current
   notes: Old (2006). Show the date with answers.
   checked: 2026-11-19
+  parser: {module: parse_pdf}
   fetch: {method: url}
 
 - id: hse-hsg248
@@ -1126,6 +1183,7 @@ sources:
   status: current
   notes: 15 MB. HSE will update it after SI 2026/1153; re-check monthly.
   checked: 2026-11-19
+  parser: {module: parse_pdf}
   fetch: {method: url}
 
 - id: hse-hsg210
@@ -1142,6 +1200,7 @@ sources:
   status: current
   notes: Bound book is paid; only the landing page is fetched.
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: url}
 
 - id: hse-asbestos-essentials
@@ -1158,6 +1217,7 @@ sources:
   status: current
   notes: Index only (about 50 sheet PDFs). Only A0 and EM1 have URLs in the inventory; add other sheets (A1, A23, A26 ...) when their URLs are checked.
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: url}
 
 - id: hse-asbestos-a0
@@ -1173,6 +1233,7 @@ sources:
   why: Entry sheet for the Asbestos essentials task sheets.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_pdf}
   fetch: {method: url}
 
 - id: hse-asbestos-em1
@@ -1188,6 +1249,7 @@ sources:
   why: What to do when asbestos is disturbed by accident on a job.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_pdf}
   fetch: {method: url}
 
 - id: hse-nnlw
@@ -1203,6 +1265,7 @@ sources:
   why: Decision table for licensed, NNLW or non-licensed asbestos work.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: url}
 
 - id: hse-asbestos-licensing
@@ -1218,6 +1281,7 @@ sources:
   why: When a licensed contractor must be called.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: url}
 
 - id: hse-asbestos-training
@@ -1233,6 +1297,7 @@ sources:
   why: What asbestos training workers need (awareness vs non-licensable).
   status: current
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: url}
 
 - id: hse-asbestos-duty
@@ -1248,6 +1313,7 @@ sources:
   why: Plain explanation of the landlord's duty to manage.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: url}
 
 - id: hse-asbestos-workers
@@ -1263,6 +1329,7 @@ sources:
   why: Plain worker-level content.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: url}
 
 - id: hse-asbestos-locations
@@ -1279,6 +1346,7 @@ sources:
   status: current
   notes: Location images are probably not OGL-cleared; strip images.
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: url}
 
 - id: hse-ms34
@@ -1294,6 +1362,7 @@ sources:
   why: Medical rules for workers doing NNLW.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: url}
 
 - id: hse-asbestos-information
@@ -1309,6 +1378,7 @@ sources:
   why: Crawl seed listing asbestos publications.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: url}
 
 - id: hse-asbestos-pubns-index
@@ -1324,6 +1394,7 @@ sources:
   why: Lists ALAARG (hse50), MS31, MS34, EM series and AM1.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: url}
 
 - id: hse-indg223
@@ -1392,6 +1463,7 @@ sources:
   status: current
   notes: Versions from the 1991-02-01 base date; has future changes.
   checked: 2026-11-19
+  parser: {module: parse_legislation}
   fetch: {method: legislation, path: ukpga/1974/37, history: all}
 
 - id: mhswr1999
@@ -1408,6 +1480,7 @@ sources:
   in_force: 1999-12-29
   status: current
   checked: 2026-11-19
+  parser: {module: parse_legislation}
   fetch: {method: legislation, path: uksi/1999/3242, history: current}
 
 - id: cdm2015
@@ -1440,6 +1513,7 @@ sources:
   why: Main CDM explainer (roles, F10 notification, plans).
   status: current
   checked: 2026-11-19
+  parser: {module: parse_pdf}
   fetch: {method: url}
 
 - id: hse-cdm-pages
@@ -1455,6 +1529,7 @@ sources:
   why: Web overview of CDM 2015.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: url}
 
 - id: hse-cdm-domestic-clients
@@ -1486,6 +1561,7 @@ sources:
   why: Short guide for explaining CDM to a client.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_pdf}
   fetch: {method: url}
 
 - id: hse-indg344
@@ -1502,6 +1578,7 @@ sources:
   status: current
   notes: Pre-dates CDM 2015; show the date with answers.
   checked: 2026-11-19
+  parser: {module: parse_pdf}
   fetch: {method: url}
 
 - id: hse-indg344-ro
@@ -1518,6 +1595,7 @@ sources:
   status: current
   notes: Old (2008 English edition); show the date.
   checked: 2026-11-19
+  parser: {module: parse_pdf}
   fetch: {method: url}
 
 - id: hse-cis-index
@@ -1534,6 +1612,7 @@ sources:
   status: current
   notes: Index page dated 28 Apr 2021. CIS61, CIS60, CIS64, CIS81 and CIS76/77 are named in the inventory without URLs; add them when checked.
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: url}
 
 - id: hse-cis80
@@ -1549,6 +1628,7 @@ sources:
   why: Construction phase plan template for small jobs such as voids.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_pdf}
   fetch: {method: url}
 
 - id: hse-cis78
@@ -1564,6 +1644,7 @@ sources:
   why: Dust control on small jobs.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_pdf}
   fetch: {method: url}
 
 - id: hse-cis79
@@ -1579,6 +1660,7 @@ sources:
   why: Lead paint in old houses.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_pdf}
   fetch: {method: url}
 
 - id: hse-cis65
@@ -1594,6 +1676,7 @@ sources:
   why: Hidden cables and pipes during refurbishment.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_pdf}
   fetch: {method: url}
 
 - id: hse-cis63
@@ -1609,6 +1692,7 @@ sources:
   why: Basics of running a small site.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_pdf}
   fetch: {method: url}
 
 - id: hse-cis62
@@ -1624,6 +1708,7 @@ sources:
   why: Welfare facilities on a void or small site.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_pdf}
   fetch: {method: url}
 
 - id: hse-hsg150
@@ -1640,6 +1725,7 @@ sources:
   status: current
   notes: Pre-dates CDM 2015 and work at height changes; lower retrieval priority.
   checked: 2026-11-19
+  parser: {module: parse_pdf}
   fetch: {method: url}
 
 - id: wah2005
@@ -1656,6 +1742,7 @@ sources:
   in_force: 2005-04-06
   status: current
   checked: 2026-11-19
+  parser: {module: parse_legislation}
   fetch: {method: legislation, path: uksi/2005/735, history: current}
 
 - id: hse-indg401
@@ -1671,6 +1758,7 @@ sources:
   why: Short answer to "can I use a ladder for this?".
   status: current
   checked: 2026-11-19
+  parser: {module: parse_pdf}
   fetch: {method: url}
 
 - id: hse-hsg33
@@ -1686,6 +1774,7 @@ sources:
   why: Roof repairs are common responsive work on council houses.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_pdf}
   fetch: {method: url}
 
 - id: riddor2013
@@ -1702,6 +1791,7 @@ sources:
   in_force: 2013-10-01
   status: current
   checked: 2026-11-19
+  parser: {module: parse_legislation}
   fetch: {method: legislation, path: uksi/2013/1471, history: current}
 
 - id: hse-indg453
@@ -1717,6 +1807,7 @@ sources:
   why: Plain guide to RIDDOR.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_pdf}
   fetch: {method: url}
 
 - id: coshh2002
@@ -1733,6 +1824,7 @@ sources:
   in_force: 2002-11-21
   status: current
   checked: 2026-11-19
+  parser: {module: parse_legislation}
   fetch: {method: legislation, path: uksi/2002/2677, history: current}
 
 - id: hse-l5
@@ -1748,6 +1840,7 @@ sources:
   why: COSHH Approved Code of Practice.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_pdf}
   fetch: {method: url}
 
 - id: hse-eh40
@@ -1764,6 +1857,7 @@ sources:
   status: current
   notes: Edition not read; check before ingest. Landing page only.
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: url}
 
 - id: hse-indg136
@@ -1779,6 +1873,7 @@ sources:
   why: COSHH basics for small firms.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_pdf}
   fetch: {method: url}
 
 - id: hse-cis36
@@ -1794,6 +1889,7 @@ sources:
   why: Masks and extraction when chasing walls or cutting blocks; silica is a top health risk.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: url}
 
 - id: hse-indg463
@@ -1809,6 +1905,7 @@ sources:
   why: Silica dust controls.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: url}
 
 - id: hse-cis69
@@ -1824,6 +1921,7 @@ sources:
   why: On-tool dust extraction.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: url}
 
 - id: hse-cis54
@@ -1840,6 +1938,7 @@ sources:
   status: current
   notes: Date not read.
   checked: 2026-11-19
+  parser: {module: parse_pdf}
   fetch: {method: url}
 
 - id: hse-wood-dust
@@ -1855,6 +1954,7 @@ sources:
   why: Sanding and cutting MDF and hardwood.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: url}
 
 - id: noise2005
@@ -1871,6 +1971,7 @@ sources:
   in_force: 2006-04-06
   status: current
   checked: 2026-11-19
+  parser: {module: parse_legislation}
   fetch: {method: legislation, path: uksi/2005/1643, history: current}
 
 - id: hse-l108
@@ -1886,6 +1987,7 @@ sources:
   why: Guidance on the noise regulations.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_pdf}
   fetch: {method: url}
 
 - id: vibration2005
@@ -1902,6 +2004,7 @@ sources:
   in_force: 2005-07-06
   status: current
   checked: 2026-11-19
+  parser: {module: parse_legislation}
   fetch: {method: legislation, path: uksi/2005/1093, history: current}
 
 - id: hse-l140
@@ -1917,6 +2020,7 @@ sources:
   why: Guidance on the vibration regulations.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_pdf}
   fetch: {method: url}
 
 - id: hse-romanian
@@ -1933,6 +2037,7 @@ sources:
   status: current
   notes: Lists INDG450, INDG410, INDG344, CIS57, CIS26, CIS59, INDG404 and others. No Romanian asbestos, gas or electrical material.
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: url}
 
 - id: hse-ro-indg450
@@ -1948,6 +2053,7 @@ sources:
   why: Romanian basic worker guide.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_pdf}
   fetch: {method: url}
 
 - id: hse-ro-indg410
@@ -1963,6 +2069,7 @@ sources:
   why: Romanian guide for workers new to GB.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_pdf}
   fetch: {method: url}
 
 - id: hse-ro-law
@@ -1994,6 +2101,7 @@ sources:
   why: Romanian construction safety leaflet.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_pdf}
   fetch: {method: url}
 
 - id: hse-ro-cis26
@@ -2009,6 +2117,7 @@ sources:
   why: Romanian sheet on cement hazards.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_pdf}
   fetch: {method: url}
 
 - id: hse-ro-cis59
@@ -2024,6 +2133,7 @@ sources:
   why: Romanian sheet on site welfare.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: url}
 
 - id: hse-ro-migrant-workers
@@ -2039,6 +2149,7 @@ sources:
   why: Romanian pages for migrant workers.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: url}
 
 - id: hse-hsg141
@@ -2054,6 +2165,7 @@ sources:
   why: 110V tools and temporary supplies on a refurbishment.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_pdf}
   fetch: {method: url}
 
 - id: hse-hsg47
@@ -2070,6 +2182,7 @@ sources:
   status: current
   notes: Landing page only; PDF URL not in the inventory.
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: url}
 
 - id: hse-l74
@@ -2086,6 +2199,7 @@ sources:
   status: current
   notes: Landing page only; PDF URL not in the inventory.
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: url}
 
 # ---------------------------------------------------------------------------
@@ -2107,6 +2221,7 @@ sources:
   status: current
   notes: Versions start 3 Oct 1998.
   checked: 2026-11-19
+  parser: {module: parse_legislation}
   fetch: {method: legislation, path: uksi/1998/2451, history: all}
 
 - id: hse-l56
@@ -2122,6 +2237,7 @@ sources:
   why: Approved Code of Practice for gas regulations.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_pdf}
   fetch: {method: url}
 
 - id: hse-indg285
@@ -2137,6 +2253,7 @@ sources:
   why: What the council must do on gas and what is handed over at void end.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_pdf}
   fetch: {method: url}
 
 - id: hse-gas-landlords
@@ -2152,6 +2269,7 @@ sources:
   why: Web version of landlord gas duties.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: url}
 
 - id: hse-gas-domestic
@@ -2167,6 +2285,7 @@ sources:
   why: Domestic gas safety basics.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: url}
 
 - id: igem-up-1b
@@ -2235,6 +2354,7 @@ sources:
   in_force: 1990-04-01
   status: current
   checked: 2026-11-19
+  parser: {module: parse_legislation}
   fetch: {method: legislation, path: uksi/1989/635, history: current}
 
 - id: hse-hsr25
@@ -2250,6 +2370,7 @@ sources:
   why: Guidance on the Electricity at Work Regulations.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_pdf}
   fetch: {method: url}
 
 - id: hse-hsg85
@@ -2265,6 +2386,7 @@ sources:
   why: Safe isolation practice.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_pdf}
   fetch: {method: url}
 
 - id: hse-indg231
@@ -2280,6 +2402,7 @@ sources:
   why: Basic electrical safety.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: url}
 
 - id: hse-indg236
@@ -2295,6 +2418,7 @@ sources:
   why: PAT testing myths.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: url}
 
 - id: ess2020
@@ -2312,6 +2436,7 @@ sources:
   status: current
   notes: Title changed in 2025 to add "and Social Rented Sector".
   checked: 2026-11-19
+  parser: {module: parse_legislation}
   fetch: {method: legislation, path: uksi/2020/312, history: current}
 
 - id: ess-social-2025
@@ -2329,6 +2454,7 @@ sources:
   status: current
   notes: In inventories B and C. Made 23 Sep 2025. 1 May 2026 for social tenancies granted before 1 Dec 2025 and for reg 7.
   checked: 2026-11-19
+  parser: {module: parse_legislation}
   fetch: {method: legislation, path: uksi/2025/1043, history: made}
 
 - id: ess-amd-2026
@@ -2345,6 +2471,7 @@ sources:
   status: current
   notes: Made 13 Nov 2026. Content and in-force date not checked.
   checked: 2026-11-19
+  parser: {module: parse_legislation}
   fetch: {method: legislation, path: uksi/2026/1196, history: made}
 
 - id: ess-guidance
@@ -2361,6 +2488,7 @@ sources:
   status: current
   notes: Old private-rented-only guide URL still loads (/government/publications/electrical-safety-standards-in-the-private-rented-sector-guidance-for-landlords-tenants-and-local-authorities).
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: govuk, page: /government/publications/electrical-safety-standards-in-the-private-and-social-rented-sectors-guidance, attachments: all}
 
 - id: bs-7671
@@ -2430,6 +2558,7 @@ sources:
   status: current
   notes: Made 23 Sep 2025. Amendment by SI 2026/1195 (from 30 Nov 2026) not yet applied in the revised text; use awaab-consolidated until it is.
   checked: 2026-11-19
+  parser: {module: parse_legislation}
   fetch: {method: legislation, path: uksi/2025/1042, history: all}
 
 - id: awaab-amd-2026
@@ -2465,6 +2594,7 @@ sources:
   in_force: 2026-11-30
   status: coming
   checked: 2026-11-19
+  parser: {module: parse_pdf}
   fetch: {method: govuk, page: /government/publications/awaabs-law-regulations, attachments: pdf}
 
 - id: awaab-guidance-phase1
@@ -2496,6 +2626,7 @@ sources:
   why: Records, photos before works, access attempts and competent persons; steps contractors should follow.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: govuk, page: /government/publications/awaabs-law-phase-2-guidance-for-social-housing-landlords, attachments: all}
 
 - id: awaab-triage-phase2
@@ -2511,6 +2642,7 @@ sources:
   why: Worked examples of significant vs emergency hazards; best plain examples for operatives.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: govuk, page: /government/publications/awaabs-law-phase-2-hazards-guidance-for-social-landlords, attachments: all}
 
 - id: awaab-tenants
@@ -2526,6 +2658,7 @@ sources:
   why: Plain summary for explaining to a tenant what will happen.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_pdf}
   fetch: {method: govuk, page: /government/publications/awaabs-law-guidance-for-tenants-in-social-housing, attachments: all}
 
 - id: awaab-collection
@@ -2542,6 +2675,7 @@ sources:
   status: current
   notes: Collection page; body only stores the index.
   checked: 2026-11-19
+  parser: {module: parse_pdf}
   fetch: {method: govuk, page: /government/collections/awaabs-law-in-the-social-rented-sector, attachments: none, body: true}
 
 - id: damp-mould-health
@@ -2557,6 +2691,7 @@ sources:
   why: Core damp and mould reference that landlords cite in specs.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: govuk, page: /government/publications/damp-and-mould-understanding-and-addressing-the-health-risks-for-rented-housing-providers, attachments: all}
 
 - id: decent-home-2006
@@ -2572,6 +2707,7 @@ sources:
   why: Still the live standard behind Decent Homes programmes (until 1 Apr 2035).
   status: current
   checked: 2026-11-19
+  parser: {module: parse_pdf}
   fetch: {method: govuk, page: /government/publications/a-decent-home-definition-and-guidance, attachments: pdf}
 
 - id: decent-homes-new
@@ -2588,6 +2724,7 @@ sources:
   status: current
   notes: New standard applies from 2035 (social housing keeps the 2006 standard until 1 Apr 2035). match guessed; check.
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: govuk, page: /government/consultations/consultation-on-a-reformed-decent-homes-standard-for-social-and-privately-rented-homes, attachments: html, match: "(?i)policy statement"}
 
 - id: housing-act-2004-p1
@@ -2604,6 +2741,7 @@ sources:
   status: current
   notes: Part 1 only. s.6A civil penalties from 22 Jun 2026 for specified purposes. Exact Part 1 start date not verified.
   checked: 2026-11-19
+  parser: {module: parse_legislation}
   fetch: {method: legislation, path: ukpga/2004/34/part/1, history: all}
 
 - id: hhsrs-regs-2005
@@ -2620,6 +2758,7 @@ sources:
   status: current
   notes: In-force date not verified.
   checked: 2026-11-19
+  parser: {module: parse_legislation}
   fetch: {method: legislation, path: uksi/2005/3208, history: current}
 
 - id: hhsrs-amd-2026
@@ -2656,6 +2795,7 @@ sources:
   status: current
   notes: Replaces the 2006 operating guidance.
   checked: 2026-11-19
+  parser: {module: parse_pdf}
   fetch: {method: govuk, page: /government/publications/housing-health-and-safety-rating-system-hhsrs-operating-guidance, attachments: pdf}
 
 - id: hhsrs-enforcement
@@ -2672,6 +2812,7 @@ sources:
   in_force: 2026-06-23
   status: current
   checked: 2026-11-19
+  parser: {module: parse_pdf}
   fetch: {method: govuk, page: /government/publications/housing-health-and-safety-rating-system-hhsrs-enforcement-guidance, attachments: pdf}
 
 - id: hhsrs-landlords
@@ -2687,6 +2828,7 @@ sources:
   why: Plain explanation of hazards, easier than the operating guidance.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: govuk, page: /government/publications/housing-health-and-safety-rating-system-guidance-for-landlords-and-property-related-professionals, attachments: all}
 
 - id: lta1985-s11
@@ -2703,6 +2845,7 @@ sources:
   status: current
   notes: Section 11 only. Inventory also names s.9A-10 (fitness) and s.10A (Awaab's Law implied term); add as parts if needed.
   checked: 2026-11-19
+  parser: {module: parse_legislation}
   fetch: {method: legislation, path: ukpga/1985/70/section/11, history: current}
 
 - id: hfhh-act-2018
@@ -2719,6 +2862,7 @@ sources:
   in_force: 2019-03-20
   status: current
   checked: 2026-11-19
+  parser: {module: parse_legislation}
   fetch: {method: legislation, path: ukpga/2018/34, history: current}
 
 - id: hfhh-guides
@@ -2734,6 +2878,7 @@ sources:
   why: Short, plain explanation.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: govuk, page: /government/publications/homes-fitness-for-human-habitation-act-2018, attachments: all}
 
 - id: shra2023
@@ -2750,6 +2895,7 @@ sources:
   status: current
   notes: Commencement dates not checked.
   checked: 2026-11-19
+  parser: {module: parse_legislation}
   fetch: {method: legislation, path: ukpga/2023/36, history: current}
 
 - id: rsh-safety-quality
@@ -2766,6 +2912,7 @@ sources:
   in_force: 2024-04-01
   status: current
   checked: 2026-11-19
+  parser: {module: parse_pdf}
   fetch: {method: govuk, page: /government/publications/safety-and-quality-standard, attachments: all}
 
 - id: rsh-code-of-practice
@@ -2782,6 +2929,7 @@ sources:
   in_force: 2026-10-01
   status: current
   checked: 2026-11-19
+  parser: {module: parse_pdf}
   fetch: {method: govuk, page: /government/publications/consumer-standards-code-of-practice, attachments: all}
 
 - id: rsh-competence-conduct
@@ -2798,6 +2946,7 @@ sources:
   in_force: 2026-10-01
   status: current
   checked: 2026-11-19
+  parser: {module: parse_pdf}
   fetch: {method: govuk, page: /government/publications/competence-and-conduct-standard, attachments: all}
 
 - id: rra2025
@@ -2814,6 +2963,7 @@ sources:
   status: current
   notes: Commenced in stages (s.145); not checked.
   checked: 2026-11-19
+  parser: {module: parse_legislation}
   fetch: {method: legislation, path: ukpga/2025/26, history: current}
 
 - id: ombudsman-chc
@@ -2866,6 +3016,7 @@ sources:
   in_force: 2025-02-24
   status: current
   checked: 2026-11-19
+  parser: {module: parse_legislation}
   fetch: {method: legislation, path: ukpga/2023/54, history: current}
 
 - id: procurement-regs-2024
@@ -2882,6 +3033,7 @@ sources:
   in_force: 2025-02-24
   status: current
   checked: 2026-11-19
+  parser: {module: parse_legislation}
   fetch: {method: legislation, path: uksi/2024/692, history: current}
 
 - id: procurement-thresholds-2025
@@ -2899,6 +3051,7 @@ sources:
   status: current
   notes: Made 18 Nov 2025.
   checked: 2026-11-19
+  parser: {module: parse_legislation}
   fetch: {method: legislation, path: uksi/2025/1200, history: made}
 
 - id: ppn-023-2026
@@ -2915,6 +3068,7 @@ sources:
   in_force: 2026-01-01
   status: current
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: govuk, page: /government/publications/ppn-023-2026-threshold-amounts, attachments: html}
 
 - id: below-threshold-guidance
@@ -2931,6 +3085,7 @@ sources:
   status: current
   notes: Parent page holds many guidance documents; match guessed; check.
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: govuk, page: /government/publications/procurement-act-2023-guidance-documents-define-phase, attachments: html, match: "(?i)below-threshold"}
 
 - id: reserving-below-threshold
@@ -2946,6 +3101,7 @@ sources:
   why: Councils may limit bids to local or UK firms, or SMEs; a real advantage for small local firms.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: govuk, page: /government/publications/reserving-competitions-for-below-threshold-contracts, attachments: html}
 
 - id: lg-exclusion-order-2026
@@ -2962,6 +3118,7 @@ sources:
   status: current
   notes: Made 3 Feb 2026. In-force date (4 Feb 2026) from a secondary source, unverified.
   checked: 2026-11-19
+  parser: {module: parse_legislation}
   fetch: {method: legislation, path: uksi/2026/94, history: current}
 
 - id: procurement-supplier-guide
@@ -2978,6 +3135,7 @@ sources:
   status: current
   notes: Parent page holds several short guides; match guessed; check.
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: govuk, page: /government/publications/procurement-act-2023-short-guides, attachments: html, match: "(?i)suppliers"}
 
 - id: supplier-information
@@ -2994,6 +3152,7 @@ sources:
   status: current
   notes: Collection page; body only stores the index.
   checked: 2026-11-19
+  parser: {module: parse_pdf}
   fetch: {method: govuk, page: /government/collections/information-and-guidance-for-suppliers, attachments: none, body: true}
 
 - id: sme-hub
@@ -3009,6 +3168,7 @@ sources:
   why: Index of links on prompt payment and the Public Procurement Review Service.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: govuk, page: /openforbusiness, attachments: none, body: true}
 
 - id: payments-compliance-notices
@@ -3025,6 +3185,7 @@ sources:
   status: current
   notes: Not re-fetched on 2026-11-19. Parent page holds many guidance documents; match guessed; check.
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: govuk, page: /government/publications/procurement-act-2023-guidance-documents-manage-phase, attachments: html, match: "(?i)payments compliance"}
 
 # ---------------------------------------------------------------------------
@@ -3061,6 +3222,7 @@ sources:
   why: Contractor checklist (register, verify, deduct, pay, file).
   status: current
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: govuk, page: /what-you-must-do-as-a-cis-contractor, attachments: none, body: true}
 
 - id: govuk-cis-subcontractor
@@ -3076,6 +3238,7 @@ sources:
   why: Most users are subcontractors (registration, deductions, gross payment status).
   status: current
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: govuk, page: /what-you-must-do-as-a-cis-subcontractor, attachments: none, body: true}
 
 - id: fa2004-cis
@@ -3092,6 +3255,7 @@ sources:
   status: current
   notes: Latest change 18 Mar 2026 (ss 62A-62C, 72A-72C, from 6 Apr 2026). 13 versions from 2004-07-22.
   checked: 2026-11-19
+  parser: {module: parse_legislation}
   fetch: {method: legislation, path: ukpga/2004/12/part/3/chapter/3, history: all}
 
 - id: cis-regs-2005
@@ -3108,6 +3272,7 @@ sources:
   status: current
   notes: In force on a day appointed by HMRC Gazette notice (not shown). Pre-2014 SI, so revised only selectively; check after each April change.
   checked: 2026-11-19
+  parser: {module: parse_legislation}
   fetch: {method: legislation, path: uksi/2005/2045, history: all}
 
 - id: cis-amd-2026
@@ -3142,6 +3307,7 @@ sources:
   why: When HMRC can cancel gross payment status; penalties from 6 Apr 2026.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: govuk, page: /government/publications/construction-industry-scheme-tackling-fraud, attachments: html}
 
 - id: hmrc-cis-simplify-2026
@@ -3157,6 +3323,7 @@ sources:
   why: Explains the 2026 regulations (nil returns again required; public bodies out of CIS).
   status: current
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: govuk, page: /government/publications/simplifying-and-improving-construction-industry-scheme-administration, attachments: html}
 
 - id: hmrc-cis-consult-2026
@@ -3173,6 +3340,7 @@ sources:
   status: current
   notes: Closed 3 Feb 2026; outcome not yet published.
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: govuk, page: /government/consultations/construction-industry-scheme-proposed-simplification-and-administrative-amendments, attachments: all}
 
 - id: fa2026-cis
@@ -3225,6 +3393,7 @@ sources:
   status: current
   notes: Manual has many section pages; body stores the root page only unless the harvester follows children.
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: govuk, page: /hmrc-internal-manuals/vat-reverse-charge-for-building-and-construction-services-manual, attachments: none, body: true}
 
 - id: vat-notice-708
@@ -3241,6 +3410,7 @@ sources:
   status: current
   notes: Sections 18.1 and 18.2 certificates have force of law.
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: govuk, page: /guidance/buildings-and-construction-vat-notice-708, attachments: none, body: true}
 
 - id: vat-s55a-order-2019
@@ -3257,6 +3427,7 @@ sources:
   status: current
   notes: Art 1 says 1 Oct 2019; start was delayed in practice to 1 Mar 2021 by a later amendment (not fetched).
   checked: 2026-11-19
+  parser: {module: parse_legislation}
   fetch: {method: legislation, path: uksi/2019/892, history: current}
 
 - id: icaew-budget-2026-vat
@@ -3288,6 +3459,7 @@ sources:
   status: current
   notes: In-force date not verified.
   checked: 2026-11-19
+  parser: {module: parse_legislation}
   fetch: {method: legislation, path: ukpga/1996/40, history: current}
 
 - id: party-wall-booklet
@@ -3303,6 +3475,7 @@ sources:
   why: Plain-English party wall steps and notice timings.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: govuk, page: /government/publications/preventing-and-resolving-disputes-in-relation-to-party-walls, attachments: html}
 
 - id: party-wall-guidance
@@ -3318,6 +3491,7 @@ sources:
   why: Entry point for party wall guidance.
   status: current
   checked: 2026-11-19
+  parser: {module: parse_html}
   fetch: {method: govuk, page: /guidance/party-wall-etc-act-1996-guidance, attachments: none, body: true}
 
 - id: gpdo-2015
@@ -3335,6 +3509,7 @@ sources:
   status: current
   notes: Sch 2 Part 1 (https://www.legislation.gov.uk/uksi/2015/596/schedule/2/part/1) has 11 versions to 2026-04-09.
   checked: 2026-11-19
+  parser: {module: parse_legislation}
   fetch: {method: legislation, path: uksi/2015/596, history: current}
 
 - id: pd-householder-guide
@@ -3351,6 +3526,7 @@ sources:
   status: current
   notes: Last updated 10 Sep 2019; older than the 2020, 2021, 2022 and 2026 GPDO Part 1 amendments (may be out of date in places; our inference).
   checked: 2026-11-19
+  parser: {module: parse_pdf}
   fetch: {method: govuk, page: /government/publications/permitted-development-rights-for-householders-technical-guidance, attachments: pdf}
 
 - id: planning-portal
@@ -4132,4 +4308,5 @@ sources:
   status: current
   notes: Two point-in-time versions, 1998-05-01 and 2011-10-01 (England changes from 1 Oct 2011).
   checked: 2026-11-19
+  parser: {module: parse_legislation}
   fetch: {method: legislation, path: uksi/1998/649, history: all}

@@ -75,6 +75,28 @@ def inline(e) -> str:
     return " ".join("".join(parts).split())
 
 
+def requirement_tables(body) -> bool:
+    """Schedule 1 of the Building Regulations: tables of requirements ("Requirement | Limits on application"
+    headers, "PART A ..." titles). Other laws' Schedule 1 (HSWA's enactments, procurement tables) are ordinary."""
+    for tab in body.iter(f"{L}Tabular"):
+        title = tab.find(f"{L}Title")
+        if title is not None and re.match(r"^PART\s+[A-Z]{1,2}\b", inline(title)):
+            return True
+        if any(inline(th) in HEADER_CELLS for th in tab.iter(f"{X}th")):
+            return True
+    return False
+
+
+def table_rows(tab) -> list[str]:
+    """A table as text lines, cells joined by ' | ' (header row included)."""
+    rows = []
+    for tr in tab.iter(f"{X}tr"):
+        cells = [inline(c) for c in tr if c.tag in (f"{X}td", f"{X}th")]
+        if any(cells):
+            rows.append(" | ".join(cells))
+    return rows
+
+
 def lines(e) -> list[str]:
     """Block text of a provision as numbered lines: '(1) ...', '(a) ...'."""
     out: list[str] = []
@@ -86,6 +108,8 @@ def lines(e) -> list[str]:
             s = inline(c)
             if s:
                 out.append(s)
+        elif t == "Tabular":  # e.g. the HHSRS hazard bands in a regulation
+            out.extend(table_rows(c))
         elif c.tag in P_LEVELS:
             num = c.find(f"{L}Pnumber")
             sub = lines(c)
@@ -266,8 +290,10 @@ class Parser:
                     "url": p2.get("DocumentURI") or reg["url"],
                 })
             for odd in para_block:
-                if tag(odd) in ("Tabular", "Figure"):
-                    self.issues.append(f"{tag(odd)} inside {sid}: not parsed yet")
+                if tag(odd) == "Tabular":  # its rows are already in the text; also a table section
+                    self.table(odd, reg, hp)
+                elif tag(odd) == "Figure":
+                    self.issues.append(f"Figure inside {sid}: not parsed yet")
         self.collect_definitions(p1, sid)
         for x in (holder, p1):
             for v in (x.get("AltVersionRefs") or "").split():
@@ -286,7 +312,7 @@ class Parser:
                 s = self.container(c, "schedule", parent, path)
                 body = c.find(f"{L}ScheduleBody")
                 if body is not None:
-                    if c.get("id") == "schedule-1":
+                    if c.get("id") == "schedule-1" and requirement_tables(body):
                         self.schedule_1(body, s)
                     else:
                         self.walk(body, s, s["heading_path"], in_schedule=True)
@@ -303,11 +329,7 @@ class Parser:
         """A table in a Schedule other than Schedule 1: rows as text, cells joined by ' | '."""
         title_el = tab.find(f"{L}Title")
         title = inline(title_el) if title_el is not None else None
-        rows = []
-        for tr in tab.iter(f"{X}tr"):
-            cells = [inline(c) for c in tr if c.tag in (f"{X}td", f"{X}th")]
-            if any(cells):
-                rows.append(" | ".join(cells))
+        rows = table_rows(tab)
         pid = parent["id"] if parent else None
         n = 1 + sum(1 for s in self.sections if s["parent_id"] == pid and s["type"] == "table")
         self.add({
@@ -469,6 +491,8 @@ class Parser:
         if vs is None:
             return
         for v in vs.findall(f"{L}Version"):
+            if "equation" in (v.get("Description") or "").lower():
+                continue  # an image of a formula whose text is in the provision, not a country copy
             owner_id = self.alt_owner.get(v.get("id"))
             holder = v.find(f"{L}P1group")
             if holder is None:
