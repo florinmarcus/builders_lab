@@ -8,7 +8,7 @@ The shared regulations corpus: public rules and guidance that every customer use
 - `harvest-report.md`: what the last run fetched, what failed and why.
 - Inventory and licence research: `research/domain/corpus-inventory/`.
 
-Code: `system/rag/harvest.py` (fetch and record), `system/rag/upload_s3.py` (copy raw files to S3). Run from the repo root: `python -m system.rag.harvest [--only ID ...]`.
+Code: `system/rag/harvest.py` (fetch and record), `system/rag/upload_s3.py` (copy raw files to S3). Run from the repo root: `python -m system.rag.harvest [--only ID ...]`. Parse legislation into document trees (`corpus/parsed/`, not in git): `python -m system.rag.parse_legislation --source br2010 --current [--since YYYY-MM-DD]` (ADR 0010; Schedules not yet).
 
 On a new machine, `corpus/raw/` is empty. Get the files with `CORPUS_BUCKET=<bucket> python -m system.rag.upload_s3 --download`. If S3 lacks them, run the harvester: when a record exists but its file is missing, it fetches the file again and saves it only if the SHA-256 matches the record. Files whose source now gives different bytes are listed as mismatches and not saved. Two old GOV.UK versions cannot be fetched again this way, because GOV.UK only serves the current file.
 

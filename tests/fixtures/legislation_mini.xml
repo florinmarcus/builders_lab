@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Hand-made sample shaped like legislation.gov.uk data.xml (mock text, not real law). -->
+<Legislation xmlns="http://www.legislation.gov.uk/namespaces/legislation"
+  xmlns:ukm="http://www.legislation.gov.uk/namespaces/metadata"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  RestrictExtent="E+W">
+<ukm:Metadata><dc:title>The Demo Regulations 2010</dc:title><dc:modified>2026-11-06</dc:modified></ukm:Metadata>
+<Secondary>
+<Body>
+  <Part id="part-1" RestrictExtent="E+W">
+    <Number>PART 1</Number><Title>General</Title>
+    <P1group><Title>Citation</Title>
+      <P1 id="regulation-1" DocumentURI="http://www.legislation.gov.uk/uksi/2010/9999/regulation/1/2026-11-06">
+        <Pnumber>1</Pnumber>
+        <P1para><Text>These Regulations may be cited as the Demo Regulations 2010.</Text></P1para>
+      </P1>
+    </P1group>
+    <P1group><Title>Interpretation</Title>
+      <P1 id="regulation-2" DocumentURI="http://www.legislation.gov.uk/uksi/2010/9999/regulation/2/2026-11-06">
+        <Pnumber>2</Pnumber>
+        <P1para>
+          <P2 id="regulation-2-1"><Pnumber>1</Pnumber>
+            <P2para><Text>In these Regulations—</Text>
+              <UnorderedList Decoration="none" Class="Definition">
+                <ListItem><Para><Text>“<Term id="term-the-act">the Act</Term>” means the Building Act 1984;</Text></Para></ListItem>
+                <ListItem><Para><Text><Addition ChangeId="k1-1" CommentaryRef="key-f1">“</Addition><Term><Addition ChangeId="k1-1" CommentaryRef="key-f1">relevant building</Addition></Term><Addition ChangeId="k1-1" CommentaryRef="key-f1">” means a building of 11 metres or more;</Addition></Text></Para></ListItem>
+              </UnorderedList>
+            </P2para>
+          </P2>
+        </P1para>
+      </P1>
+    </P1group>
+  </Part>
+  <Part id="part-2" RestrictExtent="E+W">
+    <Number>PART 2</Number><Title>Control of building work</Title>
+    <Chapter id="part-2-chapter-1"><Number>CHAPTER 1</Number><Title>Duties</Title>
+      <P1group AltVersionRefs="v1" RestrictExtent="E"><Title>Requirements</Title>
+        <P1 id="regulation-4" DocumentURI="http://www.legislation.gov.uk/uksi/2010/9999/regulation/4/england/2026-11-06">
+          <Pnumber><CommentaryRef Ref="key-f2"/>4</Pnumber>
+          <P1para>
+            <P2 id="regulation-4-1"><Pnumber>1</Pnumber>
+              <P2para><Text>Building work shall comply with <CitationSubRef URI="http://www.legislation.gov.uk/id/uksi/2010/9999/schedule/1" SectionRef="schedule-1">Schedule 1</CitationSubRef> and section 1 of the <Citation URI="http://www.legislation.gov.uk/id/ukpga/1984/55" Class="UnitedKingdomPublicGeneralAct" Year="1984" Number="55">Building Act 1984</Citation>.</Text></P2para>
+            </P2>
+            <P2 id="regulation-4-2"><Pnumber>2</Pnumber>
+              <P2para><Text>Work under <CitationSubRef URI="http://www.legislation.gov.uk/id/uksi/2010/9999/regulation/4/1" SectionRef="regulation-4-1">paragraph (1)</CitationSubRef> includes—</Text>
+                <P3 id="regulation-4-2-a"><Pnumber>a</Pnumber><P3para><Text>new buildings; and</Text></P3para></P3>
+                <P3 id="regulation-4-2-b"><Pnumber>b</Pnumber><P3para><Text><Substitution ChangeId="k3-1" CommentaryRef="key-f3">extensions</Substitution>.</Text></P3para></P3>
+              </P2para>
+            </P2>
+          </P1para>
+        </P1>
+      </P1group>
+    </Chapter>
+    <P1group RestrictExtent="E+W"><Title>Revoked duty</Title>
+      <P1 id="regulation-5" Status="Repealed"><Pnumber>5</Pnumber>
+        <P1para><Text><Repeal ChangeId="k4-1" CommentaryRef="key-f4">. . .</Repeal></Text></P1para>
+      </P1>
+    </P1group>
+  </Part>
+</Body>
+<Schedules RestrictExtent="E+W"/>
+</Secondary>
+<Versions>
+  <Version id="v1" Description="W">
+    <P1group RestrictExtent="W"><Title>Requirements</Title>
+      <P1 id="regulation-4" DocumentURI="http://www.legislation.gov.uk/uksi/2010/9999/regulation/4/wales/2026-11-06">
+        <Pnumber>4</Pnumber>
+        <P1para><Text>In Wales, building work shall comply with Schedule 1.</Text></P1para>
+      </P1>
+    </P1group>
+  </Version>
+</Versions>
+<Commentaries>
+  <Commentary id="key-f1" Type="F"><Para><Text>Words in reg. 2(1) inserted (1.1.2023) by S.I. 2022/9998.</Text></Para></Commentary>
+  <Commentary id="key-f2" Type="E"><Para><Text>This version of this provision applies to England only.</Text></Para></Commentary>
+  <Commentary id="key-f3" Type="F"><Para><Text>Word in reg. 4(2)(b) substituted (6.4.2024) by S.I. 2024/9997.</Text></Para></Commentary>
+  <Commentary id="key-f4" Type="F"><Para><Text>Reg. 5 revoked (1.10.2025) by S.I. 2025/9996.</Text></Para></Commentary>
+</Commentaries>
+</Legislation>

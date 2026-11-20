@@ -4,7 +4,8 @@ __pycache__/
 node_modules/
 .cache/
 
-# Raw corpus files (PDF, HTML, XML) live in S3, never in git (ADR 0005)
+# Raw corpus files (PDF, HTML, XML) live in S3, never in git (ADR 0008); parsed trees are rebuilt from them (ADR 0010)
 corpus/raw/
+corpus/parsed/
 .pytest_cache/
 *.egg-info/
