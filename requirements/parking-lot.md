@@ -13,7 +13,7 @@ Started 20 Nov 2026. Status of the demo build: steps 1 (mock data plan), 2 (sche
 | N2 | Gmail loader, reset and live simulator (ADR 0005) | Needs Google login on Florin's laptop | No live "email arrives" moment |
 | N3 | Real `sync_inbox` (Gmail fetch, PDF text) | After the simulator | Tool returns "not connected yet" |
 | N4 | `save_facts` with server checks (job exists, source exists, quote appears in source) (ADR 0006) | After `sync_inbox` | Facts only from seed data |
-| N5 | First real run in AWS: CloudFormation stack, `install.sh` on Amazon Linux, the GitHub pipeline (code in `deploy/`, ADR 0009) | Needs Florin's AWS | CloudFormation, install and pipeline only linted, never run |
+| N5 | ~~First AWS run~~ Done 20 Nov 2026: stack `builders-lab-prod` up, server installed itself, Let's Encrypt certificate, demo data and Florin's key loaded. Still open: turn on the GitHub deploy step (repository variables) and watch its first run | Repo variables need Florin | Pushes test but do not deploy |
 | N6 | OAuth login (Cognito) as the second auth layer (ADR 0007) | API keys first for the demo | One shared secret per firm |
 | N7 | App alerts (lockdown, IP blocks) to the email topic. Budget alarm and server-down alarm are in the CloudFormation template | `security.alert()` only logs | Attacks go unseen |
 | N8 | Backups copied off the server's account and region (now: daily dumps on the disk + daily disk snapshots in the same region) | Pilot | Region or account loss loses data |
@@ -56,6 +56,9 @@ Started 20 Nov 2026. Status of the demo build: steps 1 (mock data plan), 2 (sche
 | S25 | Images built on the server, not in a registry; the pipeline runs the server's current copy of `upgrade.sh` before it checks out the new version | `upgrade.sh`, `ci-deploy.yml` | Build in GitHub, push to ECR |
 | S26 | Server role has no Bedrock or S3 rights yet (corpus embedder, re-ranker and files) | `server.yaml` | Add narrow rights when the corpus is wired in |
 | S27 | Upgrade rollback restores the whole database from the pre-upgrade dump; writes made during the failed minute are lost | `upgrade.sh` | Acceptable for the pilot |
+| S28 | Server-down alarm only emails; auto-recover was dropped (needs a service-linked role the deploy user may not create) | `server.yaml` | Allow `iam:CreateServiceLinkedRole` for CloudWatch Events, then add the recover action back |
+| S29 | Server disk survives stack deletion (`DeleteOnTermination: false`); a failed first create leaves an orphan disk to delete by hand | `server.yaml` | Keep for data safety; check for orphan volumes after failed creates |
+| S30 | Deploy user `builders-claude` holds a long-lived access key with the deploy policy | IAM | Remove the key after setup, or move to SSO / short-lived credentials |
 | S19 | Cost figures are first-pass, partly guesses, mostly US prices | `research/hosting-costs/connector-auth-options.md` | Review in detail; check London prices |
 | S28 | Postgres runs in Docker on the one server; no managed database, no read replica (raised by Florin 20 Nov 2026) | ADR 0009 | RDS, or a writer plus at least one reader, when traffic or customers need it |
 | S29 | 17 raw corpus files missing: the source now gives different bytes, so they were not restored (16 same size, legislation metadata order) | `corpus/harvest-report.md` | Decide: keep today's bytes with a note in the record, or fetch when evals need them |

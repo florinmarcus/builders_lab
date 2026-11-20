@@ -138,7 +138,7 @@ erDiagram
 
 Also: `schema_migrations` (applied files and hashes), `server_flags` (kill switch).
 
-## Deployment (ADR 0009; code in `deploy/`, not yet run in AWS)
+## Deployment (ADR 0009; code in `deploy/`, live since 20 Nov 2026)
 
 ```mermaid
 flowchart TB

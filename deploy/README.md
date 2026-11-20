@@ -55,6 +55,14 @@ aws iam put-user-policy --user-name <deploy user> --policy-name builders-lab-dep
 8. **Turn on automatic deploys:** in GitHub, Settings, Secrets and variables, Actions, Variables:
    `AWS_DEPLOY_ROLE_ARN` (output DeployRoleArn), `AWS_INSTANCE_ID` (output InstanceId), `DEPLOY_ENABLED` = `true`.
 
+## Current production (20 Nov 2026)
+
+- Stack `builders-lab-prod`, server `i-0f7814c27302e471f`, address `https://16-60-88-218.sslip.io`.
+- Florin's API key (expires 31 Dec 2026) is in Parameter Store, not in chat or Git:
+  ```
+  aws ssm get-parameter --region eu-west-2 --with-decryption --name /builders-lab/prod/handover/florin_api_key --query Parameter.Value --output text
+  ```
+
 ## Run a command on the server
 
 No SSH. Use Session Manager:
@@ -102,6 +110,6 @@ dc exec -T app python -m builders_api.admin kill off
 |---|---|
 | `compose.yaml`, `Caddyfile`, `db-init`, Dockerfile | Yes, locally in Docker: HTTPS, 401 without key, 404 on wrong path, tool call with key, app database user cannot drop tables |
 | `upgrade.sh` first start, broken upgrade with rollback and database restore | Yes, locally |
-| `cloudformation/server.yaml` | Lint only (cfn-lint). Not yet run in AWS |
-| `install.sh`, `env-from-ssm.sh` | Shellcheck only. Need a real Amazon Linux server and Parameter Store |
-| `ci-deploy.yml` | Not yet run |
+| `cloudformation/server.yaml` | Yes, in AWS (third attempt; two permission fixes) |
+| `install.sh`, `env-from-ssm.sh` | Yes, on the real server (one bug fixed: log lines mixed into secrets) |
+| `ci-deploy.yml` | Test job yes; deploy job waits for the repository variables |

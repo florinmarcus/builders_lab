@@ -45,7 +45,7 @@ flowchart TB
         ci["Actions pipeline"]
     end
 
-    subgraph aws["AWS eu-west-2 (code ready in deploy/, not yet run; ADR 0009)"]
+    subgraph aws["AWS eu-west-2 (live since 20 Nov 2026; ADR 0009)"]
         subgraph ec2["EC2 server (Docker)"]
             caddy["Caddy<br/>HTTPS"] --> app["MCP server"] --> pg[("Postgres")]
         end
