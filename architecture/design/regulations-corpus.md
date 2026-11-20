@@ -15,7 +15,7 @@ flowchart LR
     harvest --> rec["corpus/versions<br/>records (git)"]
     raw -.-> lib["Parser: library pass<br/>lxml for XML,<br/>pdfplumber / PyMuPDF"]
     lib -.-> chk["Model check<br/>(Claude Code)<br/>tables, diagrams,<br/>unclear cases"]
-    fixes[("Saved fixes<br/>by file hash + page")] -.-> chk
+    fixes[("Saved fixes (git)<br/>by content fingerprint")] -.-> chk
     chk -.-> fixes
     chk -.-> tree[("corpus/parsed<br/>document trees (JSON)<br/>not in git")]
     lib -.-> img[("Images<br/>diagrams, photos")]
@@ -45,7 +45,7 @@ flowchart TB
     model --> out["Document tree"]
 ```
 
-A model answer can vary between runs, so every model fix is saved with the file's hash and page and reused. Re-parsing gives the same result unless we choose to redo a fix. Counting fixes shows what the library should learn next.
+A model answer can vary between runs, so every model fix is saved in `corpus/fixes/` (git) with a fingerprint of the content it is about, and reused. The parser lists what is still open as `checks`. Re-parsing gives the same result unless we choose to redo a fix. Counting fixes shows what the library should learn next.
 
 ## Data model
 

@@ -6,6 +6,7 @@ from pathlib import Path
 
 import pytest
 
+from system.rag.fixes import load_fixes
 from system.rag.parse_legislation import parse_legislation
 
 FIXTURE = Path(__file__).parent / "fixtures" / "legislation_mini.xml"
@@ -197,6 +198,52 @@ def test_no_step_2_issue_left(tree):
     assert not [i for i in tree["issues"] if "step 2" in i]
 
 
+# ---------------------------------------------------------------- saved fixes and model checks (step 3)
+
+def test_checks_list_what_the_model_must_decide(tree):
+    kinds = sorted((c["kind"], c["part"]) for c in tree["checks"])
+    assert kinds == [("applies_to", "M"), ("applies_to", "M"), ("requirement_code", "T")]
+    m = [c for c in tree["checks"] if c["kind"] == "applies_to"]
+    assert {c["guess"] for c in m} == {"E", "W"}
+    assert all(c["key"] and c["evidence"] for c in m)
+    assert any("(W.)" in e for c in m for e in c["evidence"])
+    t = next(c for c in tree["checks"] if c["kind"] == "requirement_code")
+    assert t["text"].startswith("Toilet accommodation must consist")
+
+
+def fixes_from(tree, m_values=("E", "W"), t_code="T1"):
+    m = [c for c in tree["checks"] if c["kind"] == "applies_to"]
+    t = next(c for c in tree["checks"] if c["kind"] == "requirement_code")
+    out = [{"key": c["key"], "kind": "applies_to", "value": v, "reason": "test"} for c, v in zip(m, m_values)]
+    out.append({"key": t["key"], "kind": "requirement_code", "value": t_code, "reason": "test"})
+    return out
+
+
+def test_saved_fixes_replace_guesses(tree):
+    fixed = parse_legislation(FIXTURE.read_bytes(), META, fixes=fixes_from(tree))
+    eng, wal = sec(fixed, "schedule-1-part-M"), sec(fixed, "schedule-1-part-M@W")
+    assert (eng["applies_to"], wal["applies_to"]) == ("E", "W")
+    assert eng["label_source"] == "model" == wal["label_source"]
+    t1 = sec(fixed, "schedule-1-T1")
+    assert t1["number"] == "T1" and t1["code_source"] == "model"
+    assert t1["heading_path"][-1] == "T1"
+    assert fixed["checks"] == [] and fixed["issues"] == []
+
+
+def test_saved_fixes_can_flip_the_guess(tree):
+    fixed = parse_legislation(FIXTURE.read_bytes(), META, fixes=fixes_from(tree, ("W", "E")))
+    assert sec(fixed, "schedule-1-part-M")["applies_to"] == "E"
+    # The copy that the code thought was England's is now the Wales copy.
+    assert "Wales" in sec(fixed, "schedule-1-M1")["text"]
+
+
+def test_fixes_that_disagree_are_not_used(tree):
+    fixed = parse_legislation(FIXTURE.read_bytes(), META, fixes=fixes_from(tree, ("E", "E")))
+    assert sec(fixed, "schedule-1-part-M")["label_source"] == "code-guess"
+    assert any("disagree" in i for i in fixed["issues"])
+    assert len([c for c in fixed["checks"] if c["kind"] == "applies_to"]) == 2
+
+
 # ---------------------------------------------------------------- real files (skipped where raw files are missing)
 
 def _current_br2010():
@@ -205,7 +252,8 @@ def _current_br2010():
     if not cur or not (ROOT / cur[0]["raw_path"]).exists():
         pytest.skip("Building Regulations raw file not on this machine")
     r = cur[0]
-    return parse_legislation((ROOT / r["raw_path"]).read_bytes(), {**r, "title": "The Building Regulations 2010"})
+    return parse_legislation((ROOT / r["raw_path"]).read_bytes(), {**r, "title": "The Building Regulations 2010"},
+                             fixes=load_fixes("br2010"))
 
 
 @pytest.fixture(scope="module")
@@ -245,7 +293,7 @@ def test_real_schedule_1(br2010):
 
 def test_real_no_requirement_text_left_in_headings(br2010):
     for s in br2010["sections"]:
-        if s["type"] == "requirement" and s["number"]:
+        if s["type"] == "requirement" and s["number"] and s.get("code_source") != "model":
             assert s["text"].startswith(s["number"].split("(")[0]), s["id"]
     assert len([s for s in br2010["sections"] if s["type"] == "part" and s["parent_id"] is None]) == 15
 
@@ -262,3 +310,11 @@ def test_real_text_is_clean(br2010):
     assert reg1["text"].startswith("These Regulations may be cited as the Building Regulations 2010")
     for s in br2010["sections"]:
         assert "key-" not in s["text"], s["id"]
+
+
+def test_real_all_checks_settled_by_saved_fixes(br2010):
+    assert br2010["checks"] == []
+    assert br2010["issues"] == []
+    labelled = [s for s in br2010["sections"] if s["type"] == "schedule-part" and s.get("label_source")]
+    assert labelled and all(s["label_source"] == "model" for s in labelled)
+    assert next(s for s in br2010["sections"] if s["id"] == "schedule-1-T1")["code_source"] == "model"

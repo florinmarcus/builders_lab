@@ -16,7 +16,9 @@ Tree:
                  alt_of / alt_versions (Wales copies of England-only provisions),
                  limits (requirements only), label_source (code-guess / model) on duplicated Parts
     definitions: id, term, text, section_id
-    issues:      what this parser did not handle or only guessed, for the model check
+    issues:      what this parser did not handle or only guessed
+    checks:      decisions for the model, with key, question, guess and evidence; answers are saved
+                 in corpus/fixes/<source_id>.json (system/rag/fixes.py) and reused on the next run
 
 Covers the Body (Parts, Chapters, regulations) and the Schedules. Schedule 1 becomes one section per
 requirement (B1, M4(1)) with its limits on application. Parts printed twice (England and Wales copies)
@@ -33,8 +35,9 @@ import sys
 from lxml import etree
 
 from system.rag.corpus import CORPUS_DIR, slugify
+from system.rag.fixes import content_key, index, load_fixes
 
-PARSER = "legislation-xml/0.2"
+PARSER = "legislation-xml/0.3"
 NS = "http://www.legislation.gov.uk/namespaces/legislation"
 L = f"{{{NS}}}"
 X = "{http://www.w3.org/1999/xhtml}"
@@ -128,9 +131,11 @@ def cell_paragraphs(cell) -> list[tuple[str, bool]]:
 
 
 class Parser:
-    def __init__(self, data: bytes, meta: dict):
+    def __init__(self, data: bytes, meta: dict, fixes: list[dict] | None = None):
         self.root = etree.fromstring(data, etree.XMLParser(resolve_entities=False, no_network=True, huge_tree=True))
         self.meta = meta
+        self.fixes = index(fixes)
+        self.checks: list[dict] = []
         self.title = meta.get("title") or self._doc_title()
         self.notes = {c.get("id"): c for c in self.root.iter(f"{L}Commentary")}
         self.doc_path = self._doc_path()
@@ -320,12 +325,13 @@ class Parser:
             by_letter.setdefault(p["letter"], []).append(p)
         for letter, group in by_letter.items():
             labels: list[str | None] = [None] * len(group)
+            source = None
             if len(group) == 2:
-                labels = self.guess_e_w(group)
+                labels, source = self.label_e_w(group)
             elif len(group) > 2:
                 self.issues.append(f"schedule-1-part-{letter} appears {len(group)} times: model check")
             for p, lab in zip(group, labels):
-                self.add_requirement_part(p, sched, lab)
+                self.add_requirement_part(p, sched, lab, source)
 
     def requirement_table(self, tab) -> dict:
         """One Part of Schedule 1: letter, title, and requirements with text, limits and headings."""
@@ -370,10 +376,19 @@ class Parser:
         if not reqs and loose:
             reqs.append({"code": None, "title": pending, "text": loose, "limits": [], "els": [tab]})
         return {"el": tab, "letter": letter, "title": sentence(ptitle) if ptitle else None, "reqs": reqs,
-                "notes": self.amendments(tab)}
+                "notes": self.amendments(tab), "key": content_key(inline(tab))}
 
-    def guess_e_w(self, group: list[dict]) -> list[str]:
-        """Two copies of one Part: guess which is England's from the amendment notes. A model confirms later."""
+    def label_e_w(self, group: list[dict]) -> tuple[list[str], str]:
+        """Two copies of one Part: which is England's. A saved model fix decides; otherwise the code
+        guesses from the amendment notes and asks for a model check."""
+        letter = group[0]["letter"]
+        saved = [self.fixes.get((p["key"], "applies_to")) for p in group]
+        if all(saved):
+            values = [f["value"] for f in saved]
+            if sorted(values) == ["E", "W"]:
+                return values, "model"
+            self.issues.append(f"schedule-1-part-{letter}: saved fixes disagree ({values}); not used")
+
         def margin(p):
             text = " ".join(a["text"] for a in p["notes"] if a["type"] == "F")
             return len(re.findall(r"\(E\.", text)) - len(re.findall(r"\(W\.", text))
@@ -381,11 +396,20 @@ class Parser:
         a, b = margin(group[0]), margin(group[1])
         labels = ["E", "W"] if a >= b else ["W", "E"]
         self.issues.append(
-            f"schedule-1-part-{group[0]['letter']}: two copies, code guessed {labels[0]} then {labels[1]} "
+            f"schedule-1-part-{letter}: two copies, code guessed {labels[0]} then {labels[1]} "
             f"from amendment notes (margins {a}, {b}); needs model check")
-        return labels
+        for p, guess in zip(group, labels):
+            self.checks.append({
+                "kind": "applies_to", "key": p["key"], "part": letter, "guess": guess,
+                "question": f"Schedule 1 Part {letter} is printed twice. Does this copy apply to England (E) or Wales (W)?",
+                "codes": [r["code"] for r in p["reqs"]],
+                "starts": p["el"].get("RestrictStartDate"),
+                "evidence": [a["text"] for a in p["notes"] if a["type"] in ("F", "E")],
+                "text": "\n".join(t for r in p["reqs"] for t in r["text"])[:1500],
+            })
+        return labels, "code-guess"
 
-    def add_requirement_part(self, p: dict, sched: dict, label: str | None) -> None:
+    def add_requirement_part(self, p: dict, sched: dict, label: str | None, source: str | None = None) -> None:
         suffix = "@W" if label == "W" else ""
         letter = p["letter"]
         pid = f"schedule-1-part-{letter}{suffix}"
@@ -396,14 +420,25 @@ class Parser:
             "text": "", "amendments": [], "references": [], "url": sched.get("url"),
         })
         if label:
-            part["label_source"] = "code-guess"
+            part["label_source"] = source or "code-guess"
             if suffix:
                 part["alt_of"] = f"schedule-1-part-{letter}"
         for r in p["reqs"]:
             code = r["code"]
-            rid = f"schedule-1-{code}{suffix}" if code else f"schedule-1-{letter}-requirement{suffix}"
+            code_source = None
             if not code:
-                self.issues.append(f"schedule-1-part-{letter}: no requirement code in the table; model check")
+                saved = self.fixes.get((p["key"], "requirement_code"))
+                if saved:
+                    code, code_source = saved["value"], "model"
+                else:
+                    self.issues.append(f"schedule-1-part-{letter}: no requirement code in the table; model check")
+                    self.checks.append({
+                        "kind": "requirement_code", "key": p["key"], "part": letter, "guess": None,
+                        "question": f"Schedule 1 Part {letter} prints no requirement code. What is it (e.g. {letter}1)?",
+                        "evidence": [a["text"] for a in p["notes"] if a["type"] in ("F", "E")],
+                        "text": "\n".join(r["text"])[:1500],
+                    })
+            rid = f"schedule-1-{code}{suffix}" if code else f"schedule-1-{letter}-requirement{suffix}"
             notes: list[dict] = []
             refs: list[dict] = []
             for el in {id(e): e for e in r["els"]}.values():
@@ -421,6 +456,8 @@ class Parser:
             })
             if suffix:
                 sec["alt_of"] = rid[: -len(suffix)]
+            if code_source:
+                sec["code_source"] = code_source
             for el in {id(e): e for e in r["els"]}.values():
                 self.collect_definitions(el, rid)
 
@@ -481,11 +518,12 @@ class Parser:
             "sections": self.sections,
             "definitions": self.definitions,
             "issues": self.issues,
+            "checks": self.checks,
         }
 
 
-def parse_legislation(data: bytes, meta: dict) -> dict:
-    return Parser(data, meta).parse()
+def parse_legislation(data: bytes, meta: dict, fixes: list[dict] | None = None) -> dict:
+    return Parser(data, meta, fixes).parse()
 
 
 # ---------------------------------------------------------------- command line
@@ -516,12 +554,13 @@ def main(argv: list[str] | None = None) -> int:
         return 2
     root = CORPUS_DIR.parent
     title = _title(a.source)
+    fixes = load_fixes(a.source)
     for r in pick:
         raw = root / r["raw_path"]
         if not raw.exists():
             print(f"missing raw file: {r['raw_path']}")
             continue
-        tree = parse_legislation(raw.read_bytes(), {**r, "title": title})
+        tree = parse_legislation(raw.read_bytes(), {**r, "title": title}, fixes=fixes)
         out = CORPUS_DIR / "parsed" / a.source / f"{r['version_id']}.json"
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(json.dumps(tree, ensure_ascii=False, indent=1), encoding="utf-8")
@@ -530,7 +569,7 @@ def main(argv: list[str] | None = None) -> int:
             types[s["type"]] = types.get(s["type"], 0) + 1
         print(f"{r['version_id']}: {types.get('regulation', 0)} regulations, {types.get('requirement', 0)} requirements, "
               f"{len(tree['sections'])} sections, {len(tree['definitions'])} definitions, "
-              f"{len(tree['issues'])} issues -> {out.relative_to(root)}")
+              f"{len(tree['issues'])} issues, {len(tree['checks'])} model checks -> {out.relative_to(root)}")
     return 0
 
 

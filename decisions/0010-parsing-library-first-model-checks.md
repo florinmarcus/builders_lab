@@ -10,7 +10,7 @@ The corpus is harvested (ADR 0008). Next is turning raw files into chunks for se
 
 - **Two steps.** The parser writes a document tree (JSON) to `corpus/parsed/`, out of git, rebuilt from raw files. The chunker reads the tree.
 - **Library first, model second.** lxml for legislation XML; pdfplumber and PyMuPDF for PDFs. A model (Claude Code) checks every table and every diagram, and decides cases the code cannot (unclear "fi" repairs, which duplicate Schedule 1 Part is England's). Tests and experiments will move the line between the two.
-- **Model fixes are saved** with the file's SHA-256 and page, and reused on later runs, so parsing is repeatable and fixes can be counted.
+- **Model fixes are saved** in git (`corpus/fixes/<source_id>.json`) and reused on later runs, so parsing is repeatable and fixes can be counted. Each fix is linked to a fingerprint of the content it is about (for a table: its text), so it carries over to later versions where that content is unchanged, and comes back as a check when the content changes. The parser lists open decisions as `checks` in the tree. (Updated 20 Nov 2026; first written as "file hash and page".)
 - **Keep everything, mark it.** Wales-only text is kept with `applies_to`; search shows England by default. Amendment markers leave the text; amendment notes stay as metadata.
 - **Dates on every chunk**, including two dated versions inside one document (AD B appendices B and C: until 1 Sep 2029, from 2 Sep 2029).
 - **Chunk by structure**: regulation (split at sub-paragraphs only when long, splits counted), Schedule 1 requirement, definition, numbered paragraph, box, table plus a sentence per row, figure, change note. Every chunk links to its parent section; full section text is stored for a `get_section` tool.

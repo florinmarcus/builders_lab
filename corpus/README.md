@@ -6,6 +6,7 @@ The shared regulations corpus: public rules and guidance that every customer use
 - `sources.yaml`: one entry per document.
 - `versions/<source_id>/<version_id>.json`: one record per fetched version.
 - `harvest-report.md`: what the last run fetched, what failed and why.
+- `fixes/`: saved model fixes for the parsers, one JSON file per source (ADR 0010). Each fix says what was decided, why, on what evidence, by whom and when. Linked to a fingerprint of the content, so a fix carries over to later versions until that content changes.
 - Inventory and licence research: `research/domain/corpus-inventory/`.
 
 Code: `system/rag/harvest.py` (fetch and record), `system/rag/upload_s3.py` (copy raw files to S3). Run from the repo root: `python -m system.rag.harvest [--only ID ...]`. Parse legislation into document trees (`corpus/parsed/`, not in git): `python -m system.rag.parse_legislation --source br2010 --current [--since YYYY-MM-DD]` (ADR 0010). Duplicated Schedule 1 Parts get a code guess, listed in the tree's issues for a model check.
