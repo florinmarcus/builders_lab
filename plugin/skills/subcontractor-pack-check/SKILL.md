@@ -1,6 +1,6 @@
 ---
 name: subcontractor-pack-check
-description: Use when the builder asks whether subcontractors' paperwork is in order: insurance in date, RAMS received, certificates. For example "are my subbies' papers OK on the office job?".
+description: Use for Marcus Limited (the building firm) when the builder asks whether subcontractors' papers on a job are in order: insurance in date, RAMS, certificates.
 ---
 
 # Subcontractor pack check

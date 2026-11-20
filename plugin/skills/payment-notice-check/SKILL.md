@@ -1,6 +1,6 @@
 ---
 name: payment-notice-check
-description: Use when the builder asks about payment notices, pay less notices, "when do I have to pay", "when must they pay me", application for payment dates, or what happens if a notice is missed. UK Construction Act.
+description: Use for Marcus Limited (the building firm) when the builder asks about payment notices, pay less notices, payment applications or final dates on a job, or what happens if a notice is missed (UK Construction Act).
 ---
 
 # Payment notice check

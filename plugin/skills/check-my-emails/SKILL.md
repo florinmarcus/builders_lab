@@ -1,6 +1,6 @@
 ---
 name: check-my-emails
-description: Use when the builder says "check my emails", "what came in", "anything new?", or when run on a schedule. Fetches new emails, files them by job, and records the key facts from each one.
+description: Use only for Marcus Limited (the building firm) work, when the builder asks to check the firm's emails or what came in on its jobs (e.g. "check my emails" in the Builders project). Fetches new job emails through BuildersMCP, files them by job and records the key facts. Not for personal email.
 ---
 
 # Check my emails

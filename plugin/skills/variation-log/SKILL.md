@@ -1,6 +1,6 @@
 ---
 name: variation-log
-description: Use when the builder asks "what changes did the client approve?", "show me the variations", "build the variation list", or before a final account or invoice. Lists every approved change on a job from emails and chat exports, with the client's own words.
+description: Use for Marcus Limited (the building firm) when the builder asks which changes a client approved on a job, the variations, or before a final account or invoice. Lists every approved change from job emails and chat exports, with the client's own words.
 ---
 
 # Variation log

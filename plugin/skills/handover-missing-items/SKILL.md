@@ -1,6 +1,6 @@
 ---
 name: handover-missing-items
-description: Use when the builder asks "what's still missing before I can finish/hand over this job?", "can I close this job?", or wants a completion checklist.
+description: Use for Marcus Limited (the building firm) when the builder asks what is still missing before a job can be finished or handed over, or for a completion checklist.
 ---
 
 # What's missing before handover

@@ -1,6 +1,6 @@
 ---
 name: regs-question
-description: Use for questions about building regulations, building control, structure, fire, asbestos rules, CDM or payment law in England. For example "do I need building control to remove this wall?".
+description: Use for Marcus Limited (the building firm) building questions about building regulations, building control, structure, fire, asbestos rules, CDM or payment law in England, answered only from the BuildersMCP regulations library (no web search).
 ---
 
 # Building regulations question

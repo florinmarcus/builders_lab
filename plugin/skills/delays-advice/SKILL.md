@@ -1,6 +1,6 @@
 ---
 name: delays-advice
-description: Use when the builder is running late or worried about a deadline: "I'm late at Riverside, what now?", "Sunt în întârziere", extensions of time, damages, what was already sent, who to notify, the delay notice email.
+description: Use for Marcus Limited (the building firm) when a job is running late or a deadline is at risk: "I'm late at Riverside, what now?", "Sunt în întârziere", extensions of time, damages, what was already sent, who to notify, the delay notice email.
 ---
 
 # Delays advice

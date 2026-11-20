@@ -1,6 +1,6 @@
 ---
 name: builders-workflow
-description: Use for EVERY question about the firm's jobs, emails, documents, payments, paperwork, delays or regulations, in Romanian or English. Loads the firm's live context, routes to a specialist, drafts, verifies with plain-code checks and replies in short spoken chunks.
+description: Use for questions about Marcus Limited's (the building firm's) jobs, job emails, documents, payments, paperwork, delays or building regulations, in Romanian or English, when the BuildersMCP connector is available. Loads the firm's live context, routes to a specialist, verifies with plain-code checks and replies in short spoken chunks.
 ---
 
 # Builders answer workflow (contracts.v4)
