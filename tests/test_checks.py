@@ -28,7 +28,7 @@ def test_family_is_the_title_before_for():
 
 def test_rows_need_one_sentence_each_except_heading_rows():
     rows = [["Loose insulation", "", ""], ["Loose fill", "Lofts", "Pure"]]
-    assert lint_fixes("x", [table_fix("table-1: T", ["A", "B", "C"], rows, ["One.", "Two."])])  # heading not listed
+    assert lint_fixes("x", [table_fix("table-1: T", ["A", "B", "C"], rows, ["One."])])  # count must match
     assert lint_fixes("x", [table_fix("table-1: T", ["A", "B", "C"], rows, ["Loose fill is in lofts."], [0])]) == []
     bad = lint_fixes("x", [table_fix("table-1: T", ["A", "B"], rows, ["S."], [0])])
     assert any("2 cells" in b for b in bad)

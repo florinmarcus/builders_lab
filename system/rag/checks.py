@@ -46,8 +46,9 @@ INSTRUCTIONS = {
   summary for a group (an overall score, an average, a total) stays on the row where it is printed;
   other rows get "". Totals rows: the label in the first column, the value in its column.
 - heading_rows: the indexes (from 0) of rows that are only a sub-heading ("Loose insulation") or a second
-  header row inside the table. They get no sentence. In a table of two or more columns, a row with only its
-  first cell filled is always one. Never invent column headings: a single-column box has one column.
+  header row inside the table. They get no sentence. A row whose other cells are empty only because the
+  page leaves them empty (a requirement with no limits) is a normal row. Never invent column headings: a
+  single-column box has one column.
 - sentences: one plain sentence per other row, in the same order. Start with what the table is about (from its
   title), then the row's facts in the table's own words. Add nothing that is not in the row and title.
 - If a template is given, use exactly its columns and its sentence pattern.""",
@@ -160,9 +161,6 @@ def _lint_table(v) -> list[str]:
     heads = v.get("heading_rows", [])
     if not isinstance(heads, list) or not all(isinstance(i, int) and 0 <= i < len(rows) for i in heads):
         return bad + ["heading_rows must be row indexes"]
-    lone = [i for i, r in enumerate(rows) if len(r) > 1 and r[0].strip() and not any(c.strip() for c in r[1:])]
-    if set(lone) - set(heads):
-        bad.append(f"rows {sorted(set(lone) - set(heads))} have only a first cell: list them in heading_rows")
     want = len(rows) - len(set(heads))
     if not isinstance(sents, list) or len(sents) != want:
         bad.append(f"one sentence per row that is not a heading: {want} rows, {len(sents or [])} sentences")
