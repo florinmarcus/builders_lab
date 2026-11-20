@@ -41,9 +41,10 @@ INSTRUCTIONS = {
 - columns: the column headings as printed (the lowest header row). If the first column holds a heading
   and a sub-heading on separate lines (a factor and its sub-factors), use two columns for them.
 - rows: one list per printed data row, as many cells as columns. Copy the words exactly; keep units,
-  symbols and spelling as printed (even typos). Repeat a row heading on every row it covers, so each row
-  stands alone. A value printed once for a group (an overall score, a total) stays on the row where it
-  is printed; other rows get "". Totals rows: the label in the first column, the value in its column.
+  symbols and spelling as printed (even typos). A cell that spans several rows (a row heading, or a value
+  printed once beside two rows) is repeated on every row it covers, so each row stands alone. Only a
+  summary for a group (an overall score, an average, a total) stays on the row where it is printed;
+  other rows get "". Totals rows: the label in the first column, the value in its column.
 - heading_rows: the indexes (from 0) of rows that are only a sub-heading ("Loose insulation") or a second
   header row inside the table. They get no sentence. A row with only its first cell filled is always one.
 - sentences: one plain sentence per other row, in the same order. Start with what the table is about (from its

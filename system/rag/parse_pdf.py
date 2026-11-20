@@ -783,7 +783,7 @@ def render_images(pdf_path, tree: dict, out_dir: Path, scale: float = 2.0) -> No
             path = out_dir / "figures" / f"{s['id']}.png"
             img.save(path)
             s["image_path"] = path.relative_to(root).as_posix()
-        elif s["type"] == "table":
+        elif s["type"] in ("table", "requirement"):  # requirement boxes (Approved Documents) are checked as tables
             paths = []
             for page in sorted({int(p) for p in s.get("spans", {})} or {s["file_page"]}):
                 path = out_dir / "pages" / f"p{page}.png"
