@@ -58,6 +58,7 @@ def config(schema: str, search) -> dict:
     c["rewrite"] = os.environ.get("EVAL_REWRITE", "0")
     c["queries_from"] = os.environ.get("EVAL_QUERIES_FROM")
     c["fuse"] = os.environ.get("EVAL_FUSE", "0")
+    c["rerank_with"] = os.environ.get("EVAL_RERANK_WITH", "question")
     c["golden_sha"] = hashlib.sha256(GOLDEN.read_bytes()).hexdigest()[:12] if GOLDEN.exists() else None
     return c
 
@@ -173,7 +174,10 @@ def fused_search(question: str, extra: list[str], search, url: str, top_k: int, 
     cands = [M.section_key(r["source_id"], r["section_id"]) for r in rows]
     reranked = [[cands[i], None, rows[i]["id"]] for i in range(min(5, len(rows)))]
     if rerank and rows:
-        order = search.rerank(question, [r["embed_text"] for r in rows], 5)
+        rq = question
+        if os.environ.get("EVAL_RERANK_WITH") == "all" and extra:  # E6: the agent's words help the re-rank too
+            rq = question + "\n" + "\n".join(extra)
+        order = search.rerank(rq, [r["embed_text"] for r in rows], 5)
         reranked = [[cands[i], round(s, 6), rows[i]["id"]] for i, s in order]
     return cands, reranked
 
