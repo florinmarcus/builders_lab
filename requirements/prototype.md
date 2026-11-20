@@ -27,7 +27,7 @@ Builders of every size, mostly private clients and main contractors, some counci
 - **RAMS module:** draft a RAMS from the job's own documents (works order, asbestos survey), not a typed description. Never claim compliance; competent person signs.
 - **WhatsApp:** check the WhatsApp Business Platform route (business number, forward messages and files). Meta approval will not be ready by Saturday: show as "coming next" unless a test number works.
 
-## Priority 2b: the Builders plugin (ADR 0005)
+## Priority 2b: the Builders plugin (ADR 0011)
 
 Package what works as a Claude plugin in `plugin/`:
 

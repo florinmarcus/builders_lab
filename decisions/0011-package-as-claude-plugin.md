@@ -1,4 +1,4 @@
-# 0005: Package builders_lab as a Claude plugin (connectors + skills)
+# 0011: Package builders_lab as a Claude plugin (connectors + skills)
 
 Date: 20 Nov 2026. Status: accepted.
 
