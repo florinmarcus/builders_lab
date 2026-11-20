@@ -1,0 +1,34 @@
+# 0010: Parsing: library first, model checks and fills gaps, chunk by document structure
+
+Date: 20 Nov 2026. Status: accepted for the parser pilot. Design and diagrams: `architecture/design/regulations-corpus.md`.
+
+## Context
+
+The corpus is harvested (ADR 0008). Next is turning raw files into chunks for search. Profiling the pilot files showed hard cases for any parser: legislation XML with Wales-only text in a separate block and duplicated Schedule 1 Parts without extent markers; an Approved Document with two dated versions of two appendices in one PDF, diagram labels mixed into the text, a watermark, a font that drops "fi", and tables that neither pdfplumber nor PyMuPDF extracts cleanly. Florin expects the parser to need constant improvement as new cases appear, and a purely rule-based parser would grow hard to manage. Ingestion runs on Florin's PC in Claude Code, so model checks cost no extra money.
+
+## Decision
+
+- **Two steps.** The parser writes a document tree (JSON) to `corpus/parsed/`, out of git, rebuilt from raw files. The chunker reads the tree.
+- **Library first, model second.** lxml for legislation XML; pdfplumber and PyMuPDF for PDFs. A model (Claude Code) checks every table and every diagram, and decides cases the code cannot (unclear "fi" repairs, which duplicate Schedule 1 Part is England's). Tests and experiments will move the line between the two.
+- **Model fixes are saved** with the file's SHA-256 and page, and reused on later runs, so parsing is repeatable and fixes can be counted.
+- **Keep everything, mark it.** Wales-only text is kept with `applies_to`; search shows England by default. Amendment markers leave the text; amendment notes stay as metadata.
+- **Dates on every chunk**, including two dated versions inside one document (AD B appendices B and C: until 1 Sep 2029, from 2 Sep 2029).
+- **Chunk by structure**: regulation (split at sub-paragraphs only when long, splits counted), Schedule 1 requirement, definition, numbered paragraph, box, table plus a sentence per row, figure, change note. Every chunk links to its parent section; full section text is stored for a `get_section` tool.
+- **Figures and photos** are saved as original images cut from the PDF, with caption, labels and a model description. No Mermaid redraw, because a wrong redraw of a safety drawing is worse than none.
+- **Links** use the documents' own marks for definitions (legislation `Term`, AD B green links), each scoped to its own document. Cross-references are found by pattern; unresolved ones are logged, not guessed.
+- **Citations** use the printed page number.
+- **Pilot:** Building Regulations 2010 (current and the four 2026 versions), AD B volume 1, HSG264 and HSG227 (for the asbestos priority assessment). Done when a checklist of counts taken from the documents passes as automatic tests.
+
+## Options considered
+
+- Library only: free and repeatable, but the AD B tables and the duplicated Parts need judgement; rules for every case would pile up.
+- Model only (page images to a model): handles tables well, but varies between runs, is slow on 200-page documents, and makes every result depend on the model.
+- Mermaid redraws of diagrams: renderable and light, but most AD B diagrams are measured drawings Mermaid cannot draw, and redraw errors are a safety risk.
+- Chunk by size (fixed tokens): simple, but cuts clauses in half and makes evals by section id impossible.
+
+## Consequences
+
+- The parser needs a fix store and a step that runs model checks in Claude Code; both must log what they did.
+- Asbestos as the demo scenario rests on one builder's view so far (a guess to test with more builders).
+- `get_section` and new passage keys (`applies_to`, `printed_page`, `image_url`) change the contract in `system/rag/README.md`; agree them with the server session first.
+- Embedding model, hybrid search and re-ranking stay open until the evals.

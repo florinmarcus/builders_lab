@@ -1,8 +1,138 @@
 # Design: regulations corpus and search
 
-**Owner: the corpus session.** Placeholder written 20 Nov 2026 by the server session. Up: [architecture](../ARCHITECTURE.md).
+**Owner: the corpus session.** Up: [architecture](../ARCHITECTURE.md). Decisions: ADR 0008 (harvest, storage, fingerprints), ADR 0010 (parsing). Corpus files: [corpus/README.md](../../corpus/README.md).
 
-To fill in (diagrams first, little text): harvesting, storage (S3), chunking, embeddings, hybrid search, re-ranking, edition history.
+Updated 20 Nov 2026 after the parsing design session. Solid = built. Dashed = planned.
+
+## Pipeline
+
+Everything up to the database runs on Florin's PC, in Claude Code. The server only stores and searches.
+
+```mermaid
+flowchart LR
+    src["Source sites<br/>legislation.gov.uk,<br/>GOV.UK, HSE"] --> harvest["harvest.py<br/>versions by hash"]
+    harvest --> raw[("corpus/raw<br/>+ S3 eu-west-2")]
+    harvest --> rec["corpus/versions<br/>records (git)"]
+    raw -.-> lib["Parser: library pass<br/>lxml for XML,<br/>pdfplumber / PyMuPDF"]
+    lib -.-> chk["Model check<br/>(Claude Code)<br/>tables, diagrams,<br/>unclear cases"]
+    fixes[("Saved fixes<br/>by file hash + page")] -.-> chk
+    chk -.-> fixes
+    chk -.-> tree[("corpus/parsed<br/>document trees (JSON)<br/>not in git")]
+    lib -.-> img[("Images<br/>diagrams, photos")]
+    tree -.-> chunk["Chunker"]
+    chunk -.-> pg[("Postgres + pgvector<br/>on the server")]
+    img -.-> pg
+```
+
+Parse and chunk are separate steps. The parsed tree can be checked on its own, and chunkers can change without parsing again. Parsed trees and images are rebuilt from raw files, so they stay out of git.
+
+## Parse: library first, model fills the gaps
+
+```mermaid
+flowchart TB
+    f["Raw file"] --> kind{"Kind"}
+    kind -->|"legislation XML"| x["Walk the XML:<br/>Parts, regulations, Schedules"]
+    kind -->|"PDF"| p["Pages, page labels,<br/>bookmarks, text blocks"]
+    x --> clean["Clean:<br/>drop amendment markers,<br/>keep notes as metadata"]
+    p --> strip["Strip: headers, footers,<br/>watermark, contents, index"]
+    strip --> fi["Repair dropped 'fi'<br/>by word check (logged)"]
+    fi --> lift["Lift diagrams and photos<br/>out of the text"]
+    lift --> tab["Tables: library grid"]
+    tab --> model["Model check:<br/>every table, every diagram,<br/>unclear repairs"]
+    clean --> dup["Duplicate Schedule 1 Parts:<br/>code guesses E or W"]
+    dup --> model
+    model --> saved[("Saved fix<br/>reused next run")]
+    model --> out["Document tree"]
+```
+
+A model answer can vary between runs, so every model fix is saved with the file's hash and page and reused. Re-parsing gives the same result unless we choose to redo a fix. Counting fixes shows what the library should learn next.
+
+## Data model
+
+```mermaid
+erDiagram
+    SOURCE ||--o{ VERSION : "has"
+    VERSION ||--o{ SECTION : "parsed into"
+    SECTION ||--o{ SECTION : "parent of"
+    SECTION ||--o{ CHUNK : "split into"
+    SECTION ||--o{ FIGURE : "has"
+    SECTION ||--o{ TABLE : "has"
+    TABLE ||--o{ CHUNK : "whole + row sentences"
+    FIGURE ||--o| CHUNK : "caption + description"
+    VERSION ||--o{ DEFINITION : "defines"
+    CHUNK }o--o{ DEFINITION : "uses (own marks)"
+    CHUNK }o--o{ SECTION : "refers to"
+    SECTION ||--o{ AMENDMENT : "changed by"
+    VERSION ||--o{ FIX : "model fixes"
+
+    SOURCE { string id "br2010, adb, hse-hsg264" string licence string mode }
+    VERSION { string version_id date valid_from date valid_to string sha256 }
+    SECTION { string id "reg-7, B1, adb-2.5" string heading_path string printed_page string applies_to "E, W, E+W" date valid_from date valid_to text full_text }
+    CHUNK { string id string text vector embedding string kind "clause, paragraph, requirement, table-row, figure, change-note" }
+    DEFINITION { string term string text string scope "own document only" }
+    FIGURE { string number string title string labels string description string image_path }
+    TABLE { string number string grid_json }
+    AMENDMENT { string by "SI number" date date string note }
+    FIX { string file_sha256 string page string kind string result }
+```
+
+Every chunk carries: source id, version, valid_from, valid_to, applies_to, section, heading path, printed page, URL, and its parent section.
+
+## Chunk units
+
+| Document | One chunk per | Notes |
+|---|---|---|
+| Building Regulations 2010 | regulation | Split at (1), (2) only when long. The ingestion report counts and lists every split. |
+| Schedule 1 | requirement (B1, M4(1)) | With its "limits on application" text. Each is a graph node. |
+| Regulation 2 | definition | Definition items, not one large chunk. |
+| AD B, HSG264, HSG227 | numbered paragraph (2.5, 47) | With its lettered lists and heading path. HSG264 boxes are their own chunks. |
+| Tables | table, plus one sentence per row | Model checks every table against the page image. |
+| Diagrams, photos | figure | Original image cut from the PDF; caption, labels and model description are searchable. No Mermaid redraw. |
+| AD B change notes | change note | Linked to the sections they mention. |
+
+## Search
+
+```mermaid
+sequenceDiagram
+    participant S as search_regulations (server)
+    participant R as rag.search
+    participant DB as Postgres
+    S->>R: question, as_of_date
+    R->>DB: chunks where applies_to includes E<br/>and valid on as_of_date
+    DB-->>R: best chunks
+    R->>DB: definitions used, linked sections
+    R-->>S: passages (text, source, section,<br/>edition_date, url)
+    S-->>S: show up to 5
+    Note over S,DB: Planned: get_section(section_id) returns the parent's full text<br/>("small to big"). Needs agreement with the server session.
+```
+
+- Wales-only text is kept and marked. Search shows England by default; Wales is a filter, not a re-parse.
+- Dates come from the versions. AD B appendices B and C are split into "until 1 Sep 2029" and "from 2 Sep 2029".
+- Citations use the printed page number. The file page is internal only.
+- Embedding model, hybrid search and re-ranking are not decided yet. Evals decide them.
+
+## Pilot
+
+Documents: Building Regulations 2010 (current, plus the 2026 versions of 1 Jul, 20 Jul, 1 Oct and 6 Nov), Approved Document B volume 1 (current), HSG264, HSG227 (priority assessment, Appendix 3).
+
+Done when these counts pass as automatic tests:
+
+| Check | Expected |
+|---|---|
+| Regulations in the current Building Regulations | 170 |
+| Schedule 1 requirements | every one in the tables, with an E or W label on duplicated Parts K, M, O |
+| AD B tables and diagrams | 16 tables, 56 diagrams |
+| Numbered paragraphs | match contents pages and bookmarks |
+| Broken "fi" words left | 0 |
+| Header, footer or watermark text in chunks | 0 |
+| New duplicate Schedule 1 Part without a label | test fails |
+
+## What the files look like (profiled 20 Nov 2026)
+
+- **Building Regulations XML:** 15 Parts, 170 regulations, 8 Schedules. Wales-only regulations sit in a separate `Versions` block, linked by `AltVersionRefs`. Schedule 1 is 22 tables; Parts K, M and O appear twice with no extent attribute (the notes say which copy is which). Before 1 Oct 2015, Schedule 1 is images only. Amendments are tagged (`Addition`, `Substitution`, `Repeal`); 197 defined terms (`Term`); 3,209 references (`CitationSubRef`).
+- **AD B volume 1:** 200 pages, text on every page, page labels give printed numbers. Watermark on every page; diagrams are vectors whose labels mix into the text; one font drops "fi" (about 200 words). Neither library extracts the 16 tables cleanly. Defined terms are green links to Appendix A.
+- **HSG264:** 73 pages, clean. pdfplumber extracts the material assessment table (Appendix 4) well. No priority assessment table.
+- **HSG227:** 85 pages (2002, older than CAR 2012: show its date). Priority assessment: Table 3, page 54, with worked examples in Tables 4 to 14.
 
 ## Agreed interface with the server
 
@@ -13,4 +143,4 @@ flowchart LR
     tool -.->|"if rag missing"| fb["fallback passages"]
 ```
 
-Contract: [system/rag/README.md](../../system/rag/README.md).
+Contract: [system/rag/README.md](../../system/rag/README.md). Proposed additions, to agree with the server session: `get_section(section_id)`, and optional passage keys `applies_to`, `printed_page`, `image_url`.

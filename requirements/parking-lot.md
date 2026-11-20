@@ -23,6 +23,8 @@ Started 20 Nov 2026. Status of the demo build: steps 1 (mock data plan), 2 (sche
 | N12 | Machine-readable "AI-generated" marker (design rule 2) | Text notice only for now | Needed if we serve EU users (Art 50) |
 | N13 | Romanian answers and AI notice in Romanian (ADR 0001, design rules 1 and 11) | English-first demo | Main audience is Romanian |
 | N14 | Evening summary, RAMS module, WhatsApp channel (prototype priorities 2 and 3) | After priority 1 | – |
+| N15 | Corpus parser, chunker, `get_section` and `rag.search` (design: `architecture/design/regulations-corpus.md`, ADR 0010) | Design agreed 20 Nov 2026; pilot next | Server stays on the 7-passage fallback |
+| N16 | Text fingerprint for PDFs, so byte-only changes are not new versions (ADR 0008 update) | Comes with the parser, which extracts PDF text anyway | A re-saved PDF would look like a new edition |
 
 ## Shortcuts taken (works, but not production)
 
@@ -55,6 +57,9 @@ Started 20 Nov 2026. Status of the demo build: steps 1 (mock data plan), 2 (sche
 | S26 | Server role has no Bedrock or S3 rights yet (corpus embedder, re-ranker and files) | `server.yaml` | Add narrow rights when the corpus is wired in |
 | S27 | Upgrade rollback restores the whole database from the pre-upgrade dump; writes made during the failed minute are lost | `upgrade.sh` | Acceptable for the pilot |
 | S19 | Cost figures are first-pass, partly guesses, mostly US prices | `research/hosting-costs/connector-auth-options.md` | Review in detail; check London prices |
+| S28 | Postgres runs in Docker on the one server; no managed database, no read replica (raised by Florin 20 Nov 2026) | ADR 0009 | RDS, or a writer plus at least one reader, when traffic or customers need it |
+| S29 | 17 raw corpus files missing: the source now gives different bytes, so they were not restored (16 same size, legislation metadata order) | `corpus/harvest-report.md` | Decide: keep today's bytes with a note in the record, or fetch when evals need them |
+| S30 | Old Approved Document B editions all carry valid_from 2025-01-14 (GOV.UK page date), so their dates are unusable | `corpus/versions/adb-historical/` | Set real edition dates before any "rules on date X" answer uses them |
 
 ## Open questions
 

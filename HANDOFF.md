@@ -44,9 +44,9 @@ Written 19 Nov 2026 at the end of a long session. Read this first, then `AGENTS.
 1. Finish telling Florin the agentic-rag-lab study: part 6, lessons and what to reuse (parts 1 to 5 done: golden set, metrics, judge, parsing, hybrid and rerank).
 2. Context engineering: AGENTS.md is monolithic. Split it with a "read when you need it" table, as agentic-rag-lab does.
 3. `docs/architecture.md`: **Mermaid diagrams only, no prose**: modules, system layers, deployment, runtime flow. Then zoom-in design docs, also Mermaid-led: ingestion pipeline (with entity diagram), retrieval, evals. A design agent can draft; review before showing Florin.
-4. Grill session on parsing and chunking for the three pilot documents, then test-first parsers.
+4. Done 20 Nov 2026: grill session on parsing and chunking (ADR 0010, `architecture/design/regulations-corpus.md`). Next: test-first parsers for the four pilot documents (HSG227 added for the asbestos priority assessment), starting with the checklist of counts.
 5. Golden set and evals.
-6. Also wanted, not started: a **parking lot** file (things to improve later) and a **one-page plain summary** of what the corpus contains, for non-technical people at the builders meeting.
+6. Parking lot exists now (`requirements/parking-lot.md`). Also wanted, not started: a **one-page plain summary** of what the corpus contains, for non-technical people at the builders meeting.
 
 ## Open conflicts to raise
 
