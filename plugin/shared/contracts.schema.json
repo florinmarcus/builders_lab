@@ -1,6 +1,6 @@
 {
   "$comment": "Generated from system/api/builders_api/contracts.py. Do not edit by hand.",
-  "contract": "contracts.v1",
+  "contract": "contracts.v2",
   "definitions": {
     "Answer": {
       "$defs": {
@@ -63,8 +63,8 @@
           "type": "array"
         },
         "contract": {
-          "const": "contracts.v1",
-          "default": "contracts.v1",
+          "const": "contracts.v2",
+          "default": "contracts.v2",
           "title": "Contract",
           "type": "string"
         },
@@ -442,8 +442,8 @@
           "type": "array"
         },
         "contract": {
-          "const": "contracts.v1",
-          "default": "contracts.v1",
+          "const": "contracts.v2",
+          "default": "contracts.v2",
           "title": "Contract",
           "type": "string"
         },
@@ -656,8 +656,8 @@
           "title": "As Of Date"
         },
         "contract": {
-          "const": "contracts.v1",
-          "default": "contracts.v1",
+          "const": "contracts.v2",
+          "default": "contracts.v2",
           "title": "Contract",
           "type": "string"
         },
@@ -694,6 +694,224 @@
         "kind"
       ],
       "title": "SpecialistTask",
+      "type": "object"
+    },
+    "Term": {
+      "additionalProperties": false,
+      "properties": {
+        "english": {
+          "title": "English",
+          "type": "string"
+        },
+        "mismatch": {
+          "default": false,
+          "title": "Mismatch",
+          "type": "boolean"
+        },
+        "note": {
+          "default": "",
+          "title": "Note",
+          "type": "string"
+        },
+        "romanian": {
+          "title": "Romanian",
+          "type": "string"
+        }
+      },
+      "required": [
+        "romanian",
+        "english"
+      ],
+      "title": "Term",
+      "type": "object"
+    },
+    "TranslatedAnswer": {
+      "additionalProperties": false,
+      "description": "Translator to main agent: chunks in the user's language, quotes kept in English with a translation.",
+      "properties": {
+        "chunks": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Chunks",
+          "type": "array"
+        },
+        "contract": {
+          "const": "contracts.v2",
+          "default": "contracts.v2",
+          "title": "Contract",
+          "type": "string"
+        },
+        "language": {
+          "enum": [
+            "ro",
+            "en"
+          ],
+          "title": "Language",
+          "type": "string"
+        }
+      },
+      "required": [
+        "language",
+        "chunks"
+      ],
+      "title": "TranslatedAnswer",
+      "type": "object"
+    },
+    "TranslatedQuestion": {
+      "$defs": {
+        "Term": {
+          "additionalProperties": false,
+          "properties": {
+            "english": {
+              "title": "English",
+              "type": "string"
+            },
+            "mismatch": {
+              "default": false,
+              "title": "Mismatch",
+              "type": "boolean"
+            },
+            "note": {
+              "default": "",
+              "title": "Note",
+              "type": "string"
+            },
+            "romanian": {
+              "title": "Romanian",
+              "type": "string"
+            }
+          },
+          "required": [
+            "romanian",
+            "english"
+          ],
+          "title": "Term",
+          "type": "object"
+        }
+      },
+      "additionalProperties": false,
+      "description": "Translator to main agent: the question in English for the tools.",
+      "properties": {
+        "clarifying_question": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "In the user's language, only if the question is unclear",
+          "title": "Clarifying Question"
+        },
+        "contract": {
+          "const": "contracts.v2",
+          "default": "contracts.v2",
+          "title": "Contract",
+          "type": "string"
+        },
+        "english_question": {
+          "title": "English Question",
+          "type": "string"
+        },
+        "language": {
+          "enum": [
+            "ro",
+            "en"
+          ],
+          "title": "Language",
+          "type": "string"
+        },
+        "terms": {
+          "items": {
+            "$ref": "#/$defs/Term"
+          },
+          "title": "Terms",
+          "type": "array"
+        }
+      },
+      "required": [
+        "language",
+        "english_question"
+      ],
+      "title": "TranslatedQuestion",
+      "type": "object"
+    },
+    "TranslationIn": {
+      "additionalProperties": false,
+      "description": "Main agent to translator, start of a turn: the user's own words.",
+      "properties": {
+        "contract": {
+          "const": "contracts.v2",
+          "default": "contracts.v2",
+          "title": "Contract",
+          "type": "string"
+        },
+        "direction": {
+          "const": "in",
+          "default": "in",
+          "title": "Direction",
+          "type": "string"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "text"
+      ],
+      "title": "TranslationIn",
+      "type": "object"
+    },
+    "TranslationOut": {
+      "additionalProperties": false,
+      "description": "Main agent to translator, end of a turn: the English answer to put in the user's language.",
+      "properties": {
+        "chunks": {
+          "description": "English answer chunks: answer, details, sources",
+          "items": {
+            "type": "string"
+          },
+          "title": "Chunks",
+          "type": "array"
+        },
+        "contract": {
+          "const": "contracts.v2",
+          "default": "contracts.v2",
+          "title": "Contract",
+          "type": "string"
+        },
+        "direction": {
+          "const": "out",
+          "default": "out",
+          "title": "Direction",
+          "type": "string"
+        },
+        "keep_english": {
+          "description": "Quotes and official terms to keep in English",
+          "items": {
+            "type": "string"
+          },
+          "title": "Keep English",
+          "type": "array"
+        },
+        "language": {
+          "enum": [
+            "ro",
+            "en"
+          ],
+          "title": "Language",
+          "type": "string"
+        }
+      },
+      "required": [
+        "language",
+        "chunks"
+      ],
+      "title": "TranslationOut",
       "type": "object"
     },
     "Verdict": {
@@ -758,8 +976,8 @@
           "type": "object"
         },
         "contract": {
-          "const": "contracts.v1",
-          "default": "contracts.v1",
+          "const": "contracts.v2",
+          "default": "contracts.v2",
           "title": "Contract",
           "type": "string"
         },

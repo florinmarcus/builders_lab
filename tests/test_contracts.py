@@ -20,7 +20,10 @@ def test_schema_file_is_current():
         "Run: python -m builders_api.contracts --write (from system/api) and commit the schema file."
 
 
-@pytest.mark.parametrize("agent", sorted((ROOT / "plugin" / "agents").glob("*.md")), ids=lambda p: p.stem)
+SPECIALISTS = sorted(p for p in (ROOT / "plugin" / "agents").glob("*.md") if p.stem != "translator")
+
+
+@pytest.mark.parametrize("agent", SPECIALISTS, ids=lambda p: p.stem)
 def test_agent_examples_are_valid_findings(agent):
     blocks = _json_blocks(agent)
     assert blocks, f"{agent.name} has no JSON example"
@@ -29,8 +32,16 @@ def test_agent_examples_are_valid_findings(agent):
         assert f.kind == agent.stem.replace("inbox-clerk", "inbox") or f.kind in agent.read_text()
 
 
+def test_translator_examples():
+    question, answer = _json_blocks(ROOT / "plugin" / "agents" / "translator.md")
+    q = contracts.TranslatedQuestion.model_validate(question)
+    a = contracts.TranslatedAnswer.model_validate(answer)
+    assert q.language == "ro" and q.terms and "£2,400" in a.chunks[0]
+
+
 def test_workflow_examples():
-    task, answer = _json_blocks(ROOT / "plugin" / "skills" / "builders-workflow" / "SKILL.md")
+    blocks = _json_blocks(ROOT / "plugin" / "skills" / "builders-workflow" / "SKILL.md")
+    task, answer = blocks[0], blocks[1]
     contracts.SpecialistTask.model_validate(task)
     contracts.Answer.model_validate(answer)
 

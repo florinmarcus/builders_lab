@@ -12,6 +12,7 @@ flowchart TB
     user(["Builder"]) --> main
     subgraph claude["Claude (user's plan)"]
         main["Main agent<br/>+ builders-workflow skill<br/>(router, drafter)"]
+        main --> tr["translator<br/>Haiku<br/>in + out"]
         main --> inbox["inbox-clerk<br/>Haiku"]
         main --> var["variations<br/>Haiku"]
         main --> pay["payments<br/>Haiku"]
@@ -23,6 +24,7 @@ flowchart TB
         guard["verify_answer"]
     end
     inbox & var & pay & paper & regs --> tools
+    tr --> tools
     main --> guard
     sched["Claude Code schedule"] -.->|"check my emails"| main
 ```
@@ -32,6 +34,7 @@ flowchart TB
 | Agent | Triggered by | Actions (tools) | Writes data? | Returns |
 |---|---|---|---|---|
 | **Main agent** (`builders-workflow`) | every question | route; start one specialist; draft; `verify_answer`; reply | no | answer text |
+| **translator** | every Romanian turn (start and end) | `lookup_terms` | no | TranslatedQuestion (in) / TranslatedAnswer (out) |
 | **inbox-clerk** | "check my emails", schedule | `sync_inbox`, `save_facts`, `list_jobs` | yes: job, document types, facts (server-checked) | Findings: one claim per new email |
 | **variations** | approved changes, final account | `get_job`, `search_job_documents` | no | Findings: approved / not_approved claims |
 | **payments** | payment, pay less, final dates, the law | `get_payment_dates`, `search_regulations`, `get_job` | no | Findings: deadline claims (calculation) + rule claims |
@@ -45,12 +48,16 @@ Only `inbox-clerk` writes, and only through `save_facts`, which rejects anything
 ```mermaid
 stateDiagram-v2
     [*] --> Language
-    Language --> Route: question in English (lookup_terms if Romanian)
+    Language --> Clarify: question unclear
+    Language --> Route: english_question (translator in)
+    Clarify --> [*]
     Route --> Refuse: decision about a person
     Route --> Specialist: kind found
     Specialist --> Draft: Findings JSON
     Specialist --> Draft: gaps only (tools found nothing)
-    Draft --> Verify
+    Draft --> Translate: Romanian user (translator out)
+    Draft --> Verify: English user
+    Translate --> Verify
     Verify --> Reply: pass
     Verify --> Fix: fail (round 1 or 2)
     Fix --> Verify
@@ -62,11 +69,12 @@ stateDiagram-v2
 
 | Step | Who | Input | Output | Stops if |
 |---|---|---|---|---|
-| Language | main | question | language; English question via `lookup_terms` | — |
+| Language in | translator | TranslationIn | TranslatedQuestion | unclear: asks one clarifying question |
 | Route | main | question | `kind`, job | asked to rank, score or monitor people |
 | Specialist | sub-agent | SpecialistTask | Findings | tool error: reported in `gaps` |
 | Draft | main | Findings | Answer (text + claims) | no claims: says nothing was found |
 | Verify | server | Answer | Verdict | — |
+| Language out | translator | TranslationOut (English chunks) | TranslatedAnswer | — |
 | Fix | main | Verdict problems | corrected Answer | 2 rounds used |
 | Reply | main | verified text | chunk 1 in the user's language, then "next"; English version offered; drafts in English | — |
 

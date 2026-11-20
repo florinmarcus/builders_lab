@@ -15,7 +15,7 @@ from typing import Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
-CONTRACT_VERSION = "contracts.v1"
+CONTRACT_VERSION = "contracts.v2"  # v2 (20 Nov 2026): translator messages added
 SCHEMA_FILE = Path(__file__).resolve().parents[3] / "plugin" / "shared" / "contracts.schema.json"
 
 Kind = Literal["inbox", "variations", "payments", "paperwork", "regulations"]
@@ -42,7 +42,7 @@ class Source(Strict):
 
 
 class SpecialistTask(Strict):
-    contract: Literal["contracts.v1"] = CONTRACT_VERSION
+    contract: Literal["contracts.v2"] = CONTRACT_VERSION
     question: str
     kind: Kind
     job: str | None = None
@@ -59,7 +59,7 @@ class FindingClaim(Strict):
 
 
 class Findings(Strict):
-    contract: Literal["contracts.v1"] = CONTRACT_VERSION
+    contract: Literal["contracts.v2"] = CONTRACT_VERSION
     kind: Kind
     job: str | None = None
     claims: list[FindingClaim]
@@ -79,9 +79,51 @@ class AnswerClaim(Strict):
 
 
 class Answer(Strict):
-    contract: Literal["contracts.v1"] = CONTRACT_VERSION
+    contract: Literal["contracts.v2"] = CONTRACT_VERSION
     text: str
     claims: list[AnswerClaim] = Field(default_factory=list)
+
+
+Language = Literal["ro", "en"]
+
+
+class TranslationIn(Strict):
+    """Main agent to translator, start of a turn: the user's own words."""
+    contract: Literal["contracts.v2"] = CONTRACT_VERSION
+    direction: Literal["in"] = "in"
+    text: str
+
+
+class Term(Strict):
+    romanian: str
+    english: str
+    mismatch: bool = False
+    note: str = ""
+
+
+class TranslatedQuestion(Strict):
+    """Translator to main agent: the question in English for the tools."""
+    contract: Literal["contracts.v2"] = CONTRACT_VERSION
+    language: Language
+    english_question: str
+    terms: list[Term] = Field(default_factory=list)
+    clarifying_question: str | None = Field(None, description="In the user's language, only if the question is unclear")
+
+
+class TranslationOut(Strict):
+    """Main agent to translator, end of a turn: the English answer to put in the user's language."""
+    contract: Literal["contracts.v2"] = CONTRACT_VERSION
+    direction: Literal["out"] = "out"
+    language: Language
+    chunks: list[str] = Field(description="English answer chunks: answer, details, sources")
+    keep_english: list[str] = Field(default_factory=list, description="Quotes and official terms to keep in English")
+
+
+class TranslatedAnswer(Strict):
+    """Translator to main agent: chunks in the user's language, quotes kept in English with a translation."""
+    contract: Literal["contracts.v2"] = CONTRACT_VERSION
+    language: Language
+    chunks: list[str]
 
 
 class Problem(Strict):
@@ -92,7 +134,7 @@ class Problem(Strict):
 
 
 class Verdict(Strict):
-    contract: Literal["contracts.v1"] = CONTRACT_VERSION
+    contract: Literal["contracts.v2"] = CONTRACT_VERSION
     pass_: bool = Field(alias="pass")
     problems: list[Problem]
     checked: dict[str, int]
@@ -100,7 +142,8 @@ class Verdict(Strict):
     model_config = ConfigDict(extra="forbid", populate_by_name=True)
 
 
-MODELS = {m.__name__: m for m in (Source, SpecialistTask, FindingClaim, Findings, AnswerClaim, Answer, Problem, Verdict)}
+MODELS = {m.__name__: m for m in (Source, SpecialistTask, FindingClaim, Findings, AnswerClaim, Answer, Problem, Verdict,
+                                  TranslationIn, Term, TranslatedQuestion, TranslationOut, TranslatedAnswer)}
 
 
 def schema() -> dict[str, Any]:

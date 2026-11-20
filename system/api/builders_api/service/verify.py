@@ -16,7 +16,7 @@ from builders_api.service import payments, regulations
 from builders_api.service.facts import _norm
 from builders_api.terminology import fold
 
-CONTRACT = "contracts.v1"
+from builders_api.contracts import CONTRACT_VERSION as CONTRACT  # noqa: E402
 AI_NOTICES = (  # long and short spoken forms, English and Romanian (ADR 0012); compared without diacritics
     "ai-generated, check before use", "ai answer, please check",
     "generat de ai, verificati inainte de folosire", "raspuns ai, va rog verificati",

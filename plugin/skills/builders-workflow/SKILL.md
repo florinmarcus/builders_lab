@@ -3,13 +3,16 @@ name: builders-workflow
 description: Use for EVERY question about the builder's jobs, emails, documents, payments, paperwork or regulations. Runs the fixed answer workflow (router, specialist, draft, verify, reply) from the agent contracts so every answer is grounded and checked.
 ---
 
-# Builders answer workflow (contracts.v1)
+# Builders answer workflow (contracts.v2)
 
 Read `../../shared/rules.md` first. Follow these steps in order for every answer. Do not skip step 4.
 
-## 0. Language
+## 0. Language in (translator)
 
-Detect the user's language (Romanian or English). If Romanian, call `lookup_terms` with their words and turn the question into English using the English terms. Everything you send to tools and specialists is English. Reply, and ask any clarifying question, in the user's language.
+Start the `translator` sub-agent with `{"contract": "contracts.v2", "direction": "in", "text": "<user's words>"}`.
+It returns a TranslatedQuestion: `language`, `english_question`, `terms` (with `mismatch` notes) and maybe a `clarifying_question`.
+If there is a clarifying question, ask it (in the user's language) and stop. Otherwise use `english_question` from here on: everything sent to tools and specialists is English.
+No sub-agents here? Call `lookup_terms` yourself and write the English question.
 
 ## 1. Route
 
@@ -30,15 +33,15 @@ Refuse plainly (no specialist) if asked to rank, score or monitor workers or ten
 Start the specialist sub-agent with a SpecialistTask (JSON):
 
 ```json
-{"contract": "contracts.v1", "question": "Show every change the client approved on Elm Avenue", "kind": "variations", "job": "ELM-22"}
+{"contract": "contracts.v2", "question": "Show every change the client approved on Elm Avenue", "kind": "variations", "job": "ELM-22"}
 ```
 
 It returns Findings JSON: `claims` (each with text, status, quote, source, values), `gaps`.
 If sub-agents are not available here, do the specialist's steps yourself (see `agents/<name>.md`) and build the same Findings.
 
-## 3. Draft
+## 3. Draft (English), then language out
 
-Write the full answer from the Findings only, in the user's language, in chunks: (1) the answer in two or three short sentences; (2) details; (3) sources (email or document, sender, date; regulations with section and edition date). Include the AI notice ("AI answer, please check." / "Răspuns AI, vă rog verificați."). Every £ amount and date must come from a claim. In Romanian, keep UK terms in English in brackets and quotes in English with a translation; where `lookup_terms` said `mismatch`, explain the difference.
+Write the full answer in English from the Findings only. If the user's language is Romanian, then start the `translator` with a TranslationOut (`direction` "out", `language` "ro", the English `chunks`, and `keep_english`: every quote and official term) and use the TranslatedAnswer chunks as the text to verify and show. Chunks: (1) the answer in two or three short sentences; (2) details; (3) sources (email or document, sender, date; regulations with section and edition date). Include the AI notice ("AI answer, please check." / "Răspuns AI, vă rog verificați."). Every £ amount and date must come from a claim. In Romanian, keep UK terms in English in brackets and quotes in English with a translation; where `lookup_terms` said `mismatch`, explain the difference.
 
 ## 4. Verify
 

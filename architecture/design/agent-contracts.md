@@ -3,7 +3,7 @@
 The mini harness inside Claude: every answer goes through fixed steps, and every step speaks JSON, so our server can check it with plain code. No model runs on our server (ADR 0006); all model work is on the user's Claude plan.
 Up: [architecture](../ARCHITECTURE.md). Server side: [server.md](server.md).
 
-Contract version: `contracts.v1` (20 Nov 2026). **Source of truth: `system/api/builders_api/contracts.py`** (Pydantic). Generated schema: `plugin/shared/contracts.schema.json`. The JSON below explains it; `tests/test_contracts.py` checks the schema file is current and every example in `plugin/` is valid. Any change makes a new version.
+Contract version: `contracts.v2` (20 Nov 2026; v2 added the translator messages). **Source of truth: `system/api/builders_api/contracts.py`** (Pydantic). Generated schema: `plugin/shared/contracts.schema.json`. The JSON below explains it; `tests/test_contracts.py` checks the schema file is current and every example in `plugin/` is valid. Any change makes a new version.
 
 ## Pipeline
 
@@ -88,7 +88,7 @@ Error: `{ "error": { "code": "not_found | invalid_input | quota_exceeded | not_c
 
 ```json
 {
-  "contract": "contracts.v1",
+  "contract": "contracts.v2",
   "question": "user's words",
   "kind": "inbox | variations | payments | paperwork | regulations",
   "job": "job ref or words, optional",
@@ -100,7 +100,7 @@ Error: `{ "error": { "code": "not_found | invalid_input | quota_exceeded | not_c
 
 ```json
 {
-  "contract": "contracts.v1",
+  "contract": "contracts.v2",
   "kind": "variations",
   "job": "ELM-22",
   "claims": [
@@ -124,7 +124,7 @@ Rules: one claim per fact; every claim has a source; quotes copied exactly; noth
 
 ```json
 {
-  "contract": "contracts.v1",
+  "contract": "contracts.v2",
   "text": "The answer as it will be shown, including the AI notice",
   "claims": [ { "id": "c1", "quote": "exact words", "source": { "type": "document", "id": "uuid" } } ]
 }
@@ -134,7 +134,7 @@ Rules: one claim per fact; every claim has a source; quotes copied exactly; noth
 
 ```json
 {
-  "contract": "contracts.v1",
+  "contract": "contracts.v2",
   "pass": false,
   "problems": [
     { "code": "QUOTE_NOT_IN_SOURCE", "claim": "c2", "message": "Quote not found in the cited source." }
@@ -154,6 +154,17 @@ Rules: one claim per fact; every claim has a source; quotes copied exactly; noth
 | `NO_CLAIMS` | an answer with facts but no claims to check |
 
 `verify_answer` is a read-only tool, traced like every other tool. It never changes data.
+
+## Translator messages (v2)
+
+| Message | From → to | Fields |
+|---|---|---|
+| TranslationIn | main → translator | `direction: "in"`, `text` (user's words) |
+| TranslatedQuestion | translator → main | `language` (ro/en), `english_question`, `terms` [romanian, english, mismatch, note], `clarifying_question` |
+| TranslationOut | main → translator | `direction: "out"`, `language`, English `chunks`, `keep_english` (quotes, official terms) |
+| TranslatedAnswer | translator → main | `language`, `chunks` (what is verified and spoken) |
+
+Full schemas: `plugin/shared/contracts.schema.json`.
 
 ## Build status (20 Nov 2026)
 
