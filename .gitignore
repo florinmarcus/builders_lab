@@ -14,3 +14,7 @@ corpus/search.sqlite
 *.egg-info/
 system/data/mock/out/
 plugin/dist/
+
+# Google OAuth client and tokens: never commit
+client_secret*.json
+*gmail-token*.json
