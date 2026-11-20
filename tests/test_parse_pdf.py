@@ -189,6 +189,65 @@ def test_tree_is_json(tree):
     json.dumps(tree, ensure_ascii=False)
 
 
+# ---------------------------------------------------------------- step B: grids, figure areas, fixes
+
+def doc_with_grids():
+    d = doc()
+    d["tables"] = [
+        {"page": 4, "top": 395, "bottom": 440, "x0": 50, "x1": 545,
+         "rows": [["Sample variable", "Score", "Examples"], ["Product type", "1", "Asbestos cement"]]},
+        {"page": 4, "top": 120, "bottom": 140, "x0": 220, "x1": 300, "rows": [["Material"], ["assessment"]]},
+    ]
+    return d
+
+
+def test_table_grid_from_the_pdf_table_on_its_page():
+    t = sec(build_tree(doc_with_grids(), META), "table-1")
+    assert t["grid"] == [["Sample variable", "Score", "Examples"], ["Product type", "1", "Asbestos cement"]]
+    assert t["grid_source"] == "pdf"
+
+
+def test_repeated_header_rows_on_later_pages_are_dropped():
+    d = doc_with_grids()
+    d["lines"].append(ln(5, 600, "Product type 2 Lagging", 8.0, "HelveticaNeue-Light", 59))
+    d["tables"].append({"page": 5, "top": 590, "bottom": 640, "x0": 50, "x1": 545,
+                        "rows": [["Sample variable", "Score", "Examples"], ["Product type", "2", "Lagging"]]})
+    tree = build_tree(d, META)
+    grids = [s["grid"] for s in tree["sections"] if s["type"] == "table" and s.get("grid")]
+    assert ["Product type", "2", "Lagging"] in grids[-1]
+    assert sum(r == ["Sample variable", "Score", "Examples"] for g in grids for r in g) <= len(grids)
+
+
+def test_figure_area_for_cutting_the_image():
+    f1 = sec(build_tree(doc_with_grids(), META), "figure-1")
+    a = f1["area"]
+    assert a["page"] == 4 and a["top"] <= 124 and a["bottom"] >= 200
+    assert sec(build_tree(doc_with_grids(), META), "figure-2")["area"]["top"] == 240  # photo: the image box
+
+
+def test_saved_table_fix_replaces_the_grid_and_adds_row_sentences():
+    tree = build_tree(doc_with_grids(), META)
+    key = next(c["key"] for c in tree["checks"] if c["section_id"] == "table-1")
+    fix = {"key": key, "kind": "table", "reason": "test",
+           "value": {"columns": ["Sample variable", "Score", "Examples"],
+                     "rows": [["Product type", "1", "Asbestos cement"]],
+                     "sentences": ["Product type scores 1 for asbestos cement."]}}
+    fixed = build_tree(doc_with_grids(), META, fixes=[fix])
+    t = sec(fixed, "table-1")
+    assert t["grid_source"] == "model" and t["columns"] == ["Sample variable", "Score", "Examples"]
+    assert t["row_sentences"] == ["Product type scores 1 for asbestos cement."]
+    assert not [c for c in fixed["checks"] if c["section_id"] == "table-1"]
+
+
+def test_saved_figure_description():
+    tree = build_tree(doc_with_grids(), META)
+    key = next(c["key"] for c in tree["checks"] if c["section_id"] == "figure-2")
+    fixed = build_tree(doc_with_grids(), META,
+                       fixes=[{"key": key, "kind": "figure_description", "value": "A lagged pipe.", "reason": "test"}])
+    f2 = sec(fixed, "figure-2")
+    assert f2["description"] == "A lagged pipe." and f2["description_source"] == "model"
+
+
 # ---------------------------------------------------------------- real file
 
 def _record(source_id):
@@ -222,6 +281,15 @@ def test_real_boxes_figures_tables(hsg264):
     assert figs == list(range(1, 53))
     assert "table-1" in {s["id"] for s in hsg264["sections"]}
     assert len([s for s in hsg264["sections"] if s["type"] == "table"]) >= 3
+
+
+def test_real_table_grids(hsg264):
+    S = {s["id"]: s for s in hsg264["sections"]}
+    assert len(S["table-1"]["grid"][0]) == 11
+    a4 = S["appendix-4-table-1"]["grid"]
+    assert any(r and r[0].startswith("Product type") for r in a4)
+    a2 = S["appendix-2-table-1"]["grid"]
+    assert sum(1 for r in a2 if r and r[0] == "Asbestos product") == 1  # header kept once across 5 pages
 
 
 def test_real_text_is_clean(hsg264):

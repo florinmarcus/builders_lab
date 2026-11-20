@@ -34,9 +34,9 @@ from collections import Counter
 from pathlib import Path
 
 from system.rag.corpus import CORPUS_DIR, slugify
-from system.rag.fixes import content_key
+from system.rag.fixes import content_key, index, load_fixes
 
-PARSER = "guidance-pdf/0.1"
+PARSER = "guidance-pdf/0.2"
 SKIP_TITLES = {"contents"}
 BACK_MATTER = {"references": "references", "further information": "further-information"}
 CAPTION_RE = re.compile(r"^(Figure|Table)\s+(\d+)\b")
@@ -76,7 +76,7 @@ def _colour(c):
 def read_pdf(path) -> dict:
     import pdfplumber
 
-    lines, rects, images = [], [], []
+    lines, rects, images, tables = [], [], [], []
     with pdfplumber.open(str(path)) as pdf:
         for n, page in enumerate(pdf.pages, start=1):
             for l in page.extract_text_lines(return_chars=True):
@@ -94,8 +94,17 @@ def read_pdf(path) -> dict:
             for im in page.images:
                 images.append({"page": n, "top": round(im["top"], 1), "bottom": round(im["bottom"], 1),
                                "x0": round(im["x0"], 1), "x1": round(im["x1"], 1)})
+            for t in page.find_tables():  # ruled tables; the model checks every grid later
+                rows = [[" ".join((c or "").split()) for c in row] for row in t.extract()]
+                rows = [r for r in rows if any(r)]
+                if rows:
+                    x0, top, x1, bottom = t.bbox
+                    tables.append({"page": n, "top": round(top, 1), "bottom": round(bottom, 1),
+                                   "x0": round(x0, 1), "x1": round(x1, 1), "rows": rows})
         count = len(pdf.pages)
-    return {"lines": lines, "rects": rects, "images": images, "page_count": count}
+        width = float(pdf.pages[0].width) if pdf.pages else 595.0
+    return {"lines": lines, "rects": rects, "images": images, "tables": tables, "page_count": count,
+            "page_width": width}
 
 
 # ---------------------------------------------------------------- building the tree
@@ -117,8 +126,11 @@ def _join(text: str, line: str) -> str:
 
 
 class Builder:
-    def __init__(self, doc: dict, meta: dict):
+    def __init__(self, doc: dict, meta: dict, fixes: list[dict] | None = None):
         self.meta = meta
+        self.fixes = index(fixes)
+        self.doc_tables = doc.get("tables", [])
+        self.page_width = doc.get("page_width") or 595.0
         self.title = meta.get("title") or meta.get("source_id", "")
         self.lines = sorted(doc["lines"], key=lambda l: (l["page"], l["top"], l["x0"]))
         self.rects = doc.get("rects", [])
@@ -177,6 +189,13 @@ class Builder:
         self.sections.append(sec)
         self.by_id[sec["id"]] = sec
         return sec
+
+    @staticmethod
+    def span(sec: dict, page: int, top: float, bottom: float) -> None:
+        """Remember the vertical extent of a table or figure on a page (to match PDF tables and cut images)."""
+        sp = sec.setdefault("spans", {})
+        a, b = sp.get(str(page), (top, bottom))
+        sp[str(page)] = (min(a, top), max(b, bottom))
 
     def new(self, sid, kind, parent, number, title, path, page, text="") -> dict:
         return self.add({
@@ -308,7 +327,10 @@ class Builder:
                     sec["caption_box"] = {"page": l["page"], "top": l["top"], "x0": cap["x0"], "x1": cap["x1"]}
                     captions_on_page.append(sec)
                     prev_caption_line.append(sec)
-                area = [self.lines[j]["text"] for j in areas.get(k_line, [])]
+                area_lines = [self.lines[j] for j in areas.get(k_line, [])]
+                area = [x["text"] for x in area_lines]
+                for c in prev_caption_line:
+                    self.span(c, l["page"], area_lines[0]["top"] if area_lines else l["top"], l["top"] + l["size"] + 2)
                 if area and prev_caption_line:
                     first = prev_caption_line[0]
                     if first["type"] == "figure":
@@ -326,14 +348,14 @@ class Builder:
             # ---- small print: footnotes, figure labels, table rows
             if self.is_small(l) or (l["size"] < self.body_size - 0.5 and "Dingbat" not in l["font"] and not self.rect_of(l)):
                 mark = l["text"].lstrip()[:1]
-                if mark in ("*", "†", "‡") and abs(l["x0"] - self.body_left) < 6 and last_body:
+                if mark in ("*", "†", "‡") and last_body:  # footnotes may start left of the body margin
                     owner = next((s for s in reversed(self.sections)
                                   if s["type"] in ("paragraph", "text", "box", "note") and mark in s["text"]), last_body)
                     owner["footnotes"].append(l["text"].strip())
                     last_footnote = (owner, l)
                     continue
                 if last_footnote and last_footnote[1]["page"] == l["page"] and 0 < l["top"] - last_footnote[1]["top"] < 14 \
-                        and abs(l["x0"] - self.body_left) < 6:
+                        and abs(l["x0"] - last_footnote[1]["x0"]) < 6:
                     owner = last_footnote[0]
                     owner["footnotes"][-1] = f"{owner['footnotes'][-1]} {l['text'].strip()}"
                     last_footnote = (owner, l)
@@ -399,11 +421,13 @@ class Builder:
             para["text"] = _join(para["text"], l["text"])
         self.place_small(small_lines, captions_on_page)
         self.place_images(captions_on_page)
+        self.attach_grids()
+        self.figure_areas()
         for s in self.sections:
-            if s["type"] in ("table", "figure"):
+            if s["type"] in ("table", "figure") and not self.apply_fix(s):
                 self.checks.append({
                     "kind": s["type"], "section_id": s["id"], "file_page": s["file_page"],
-                    "key": content_key(s["id"] + "\n" + s["text"] + "\n" + " ".join(s.get("labels", []))),
+                    "key": self.check_key(s), "area": s.get("area"), "spans": s.get("spans"),
                     "question": ("Check this table's rows and columns against the page image and write one "
                                  "sentence per row." if s["type"] == "table" else
                                  "Describe this figure in two or three plain sentences for search."),
@@ -461,6 +485,7 @@ class Builder:
             texts = [x["text"] for x in b]
             if near:
                 c = near[0]
+                self.span(c, page, top, bottom + b[-1]["size"] + 2)
                 if c["type"] == "figure":
                     c["labels"].extend(texts)
                 else:
@@ -475,6 +500,62 @@ class Builder:
                              [*parent["heading_path"], f"Table ({parent['title']})"], page)
                 unnamed[key] = t
             t["text"] = "\n".join(x for x in [t["text"], *texts] if x)
+            self.span(t, page, top, bottom + b[-1]["size"] + 2)
+
+    def attach_grids(self) -> None:
+        """Give each table section the PDF tables that overlap its lines; header rows repeated on later
+        pages are dropped."""
+        for s in self.sections:
+            if s["type"] != "table":
+                continue
+            rows: list[list[str]] = []
+            for page, (top, bottom) in sorted(s.get("spans", {}).items(), key=lambda kv: int(kv[0])):
+                for t in self.doc_tables:
+                    if t["page"] == int(page) and t["top"] <= bottom + 15 and t["bottom"] >= top - 15:
+                        for r in t["rows"]:
+                            if rows and r == rows[0]:
+                                continue
+                            rows.append(r)
+            if rows:
+                s["grid"], s["grid_source"] = rows, "pdf"
+            else:
+                self.issues.append(f"{s['id']}: no ruled table found on its pages; the model must build the grid")
+
+    def figure_areas(self) -> None:
+        """Where to cut each figure: the photo's box, or the caption area (labels down to the caption)."""
+        for s in self.sections:
+            if s["type"] != "figure":
+                continue
+            cap = s["caption_box"]
+            if s.get("image_bbox"):
+                im = s["image_bbox"]
+                s["area"] = {"page": im["page"], "top": im["top"], "bottom": max(im["bottom"], cap["top"] + 12),
+                             "x0": im["x0"], "x1": im["x1"]}
+            else:
+                top, bottom = s.get("spans", {}).get(str(cap["page"]), (cap["top"] - 200, cap["top"] + 12))
+                s["area"] = {"page": cap["page"], "top": max(0.0, top - 6), "bottom": bottom,
+                             "x0": 36.0, "x1": self.page_width - 36.0}
+
+    def apply_fix(self, s: dict) -> bool:
+        """Use a saved model fix for this table or figure if there is one. Returns True if used."""
+        key = self.check_key(s)
+        if s["type"] == "table":
+            f = self.fixes.get((key, "table"))
+            if f:
+                v = f["value"]
+                s["columns"], s["grid"], s["row_sentences"] = v.get("columns"), v.get("rows"), v.get("sentences", [])
+                s["grid_source"] = "model"
+                return True
+        else:
+            f = self.fixes.get((key, "figure_description"))
+            if f:
+                s["description"], s["description_source"] = f["value"], "model"
+                return True
+        return False
+
+    @staticmethod
+    def check_key(s: dict) -> str:
+        return content_key(s["id"] + "\n" + s["text"] + "\n" + " ".join(s.get("labels", [])))
 
     def place_images(self, captions: list[dict]) -> None:
         for im in self.images:
@@ -492,8 +573,48 @@ class Builder:
                 self.issues.append(f"image on file page {im['page']} at {im['top']} has no caption below it")
 
 
-def build_tree(doc: dict, meta: dict) -> dict:
-    return Builder(doc, meta).build()
+def build_tree(doc: dict, meta: dict, fixes: list[dict] | None = None) -> dict:
+    return Builder(doc, meta, fixes).build()
+
+
+# ---------------------------------------------------------------- images (pypdfium2, permissive licence)
+
+def render_images(pdf_path, tree: dict, out_dir: Path, scale: float = 2.0) -> None:
+    """Cut each figure out of its page, and render whole pages that hold tables (for the model check).
+    Images go under corpus/parsed/ (not in git); their paths are written into the tree."""
+    import pypdfium2 as pdfium
+
+    root = CORPUS_DIR.parent
+    pdf = pdfium.PdfDocument(str(pdf_path))
+    cache: dict[int, object] = {}
+
+    def page_image(n: int):
+        if n not in cache:
+            cache[n] = pdf[n - 1].render(scale=scale).to_pil()
+        return cache[n]
+
+    (out_dir / "figures").mkdir(parents=True, exist_ok=True)
+    (out_dir / "pages").mkdir(parents=True, exist_ok=True)
+    for s in tree["sections"]:
+        if s["type"] == "figure" and s.get("area"):
+            a = s["area"]
+            img = page_image(a["page"]).crop((int(a["x0"] * scale), int(a["top"] * scale),
+                                              int(a["x1"] * scale), int(a["bottom"] * scale)))
+            path = out_dir / "figures" / f"{s['id']}.png"
+            img.save(path)
+            s["image_path"] = path.relative_to(root).as_posix()
+        elif s["type"] == "table":
+            paths = []
+            for page in sorted({int(p) for p in s.get("spans", {})} or {s["file_page"]}):
+                path = out_dir / "pages" / f"p{page}.png"
+                if not path.exists():
+                    page_image(page).save(path)
+                paths.append(path.relative_to(root).as_posix())
+            s["page_images"] = paths
+    for c in tree["checks"]:
+        sec = next((s for s in tree["sections"] if s["id"] == c["section_id"]), {})
+        c["images"] = [sec["image_path"]] if sec.get("image_path") else sec.get("page_images", [])
+    pdf.close()
 
 
 # ---------------------------------------------------------------- command line
@@ -513,9 +634,10 @@ def main(argv: list[str] | None = None) -> int:
         if not raw.exists():
             print(f"missing raw file: {r['raw_path']}")
             continue
-        tree = build_tree(read_pdf(raw), {**r, "title": src["title"] if src else a.source})
+        tree = build_tree(read_pdf(raw), {**r, "title": src["title"] if src else a.source}, fixes=load_fixes(a.source))
         out = CORPUS_DIR / "parsed" / a.source / f"{r['version_id']}.json"
         out.parent.mkdir(parents=True, exist_ok=True)
+        render_images(raw, tree, out.parent / r["version_id"])
         out.write_text(json.dumps(tree, ensure_ascii=False, indent=1), encoding="utf-8")
         types = Counter(s["type"] for s in tree["sections"])
         print(f"{r['version_id']}: {dict(types)}, {len(tree['issues'])} issues, {len(tree['checks'])} model checks "

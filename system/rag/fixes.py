@@ -21,7 +21,7 @@ import json
 
 from system.rag.corpus import CORPUS_DIR
 
-FIX_KINDS = {"applies_to", "requirement_code"}
+FIX_KINDS = {"applies_to", "requirement_code", "table", "figure_description"}
 
 
 def content_key(text: str) -> str:
