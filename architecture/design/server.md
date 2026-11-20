@@ -150,7 +150,7 @@ flowchart TB
         end
         ssm["Parameter Store<br/>secrets"] --> ec2
         dlm["Daily snapshots, 7 kept"] --> ec2
-        alarm["Alarm: auto-recover + email"] --> ec2
+        alarm["Alarm: server down → email"] --> ec2
         budget["Budget alarm"]
     end
     admin(["Florin"]) -->|"Session Manager"| ec2
