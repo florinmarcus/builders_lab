@@ -30,6 +30,14 @@ Parameters:
   GitHubRepo:
     Type: String
     Default: florinmarcus/builders_lab
+  GitHubOwnerId:
+    Type: String
+    Default: "5174719"
+    Description: Numeric GitHub account id (GitHub's OIDC subject now includes it)
+  GitHubRepoId:
+    Type: String
+    Default: "1449687111"
+    Description: Numeric GitHub repository id
   CreateGitHubOidcProvider:
     Type: String
     Default: "true"
@@ -266,7 +274,12 @@ Resources:
             Condition:
               StringEquals:
                 "token.actions.githubusercontent.com:aud": sts.amazonaws.com
-                "token.actions.githubusercontent.com:sub": !Sub "repo:${GitHubRepo}:ref:refs/heads/main"
+                "token.actions.githubusercontent.com:sub":   # either subject form, main branch only
+                  - !Sub "repo:${GitHubRepo}:ref:refs/heads/main"
+                  - !Sub
+                    - "repo:${Owner}@${GitHubOwnerId}/${Repo}@${GitHubRepoId}:ref:refs/heads/main"
+                    - Owner: !Select [0, !Split ["/", !Ref GitHubRepo]]
+                      Repo: !Select [1, !Split ["/", !Ref GitHubRepo]]
       Policies:
         - PolicyName: run-upgrade-on-server
           PolicyDocument:
