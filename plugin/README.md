@@ -27,7 +27,7 @@ sub-agent (`agents/`, on Haiku), draft from its Findings JSON, check the draft w
 
 ## Claude app on phone or web (no sub-agents)
 
-1. Create a project "Builders demo"; paste `claude-app/PROJECT_INSTRUCTIONS.md` as its instructions.
+1. Create a project "Marcus Limited"; paste `claude-app/PROJECT_INSTRUCTIONS.md` as its instructions and upload `claude-app/FIRM_CONTEXT.md` to its knowledge.
 2. Optional: run `./build-skill-zips.sh` and upload the ZIPs in Customize, Skills, Upload a skill.
 3. Switch the BuildersMCP connector on in that project's chats only.
 
