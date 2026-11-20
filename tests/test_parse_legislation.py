@@ -118,6 +118,85 @@ def test_tree_is_json(tree):
     json.dumps(tree, ensure_ascii=False)
 
 
+# ---------------------------------------------------------------- Schedules (step 2)
+
+def reqs(tree):
+    return {s["id"]: s for s in tree["sections"] if s["type"] == "requirement"}
+
+
+def test_schedule_container_and_breadcrumb(tree):
+    s1 = sec(tree, "schedule-1")
+    assert s1["type"] == "schedule" and s1["number"] == "1" and s1["title"] == "Requirements"
+    pb = sec(tree, "schedule-1-part-B")
+    assert pb["type"] == "schedule-part" and pb["number"] == "B" and pb["parent_id"] == "schedule-1"
+    assert sec(tree, "schedule-1-B1")["heading_path"] == [
+        "The Demo Regulations 2010", "Schedule 1 Requirements", "Part B Fire safety", "B1 Means of warning and escape"]
+
+
+def test_requirement_text_and_limits(tree):
+    b1 = sec(tree, "schedule-1-B1")
+    assert b1["number"] == "B1" and b1["title"] == "Means of warning and escape"
+    assert b1["text"] == "B1.—(1) The building shall be designed for early warning of fire.\n(a) in all buildings; and"
+    assert b1["limits"] == "Requirement B1 does not apply to prisons."
+
+
+def test_bold_line_in_a_cell_is_a_heading_not_text(tree):
+    b4 = sec(tree, "schedule-1-B4")
+    assert b4["title"] == "External fire spread"
+    assert b4["text"].startswith("B4.—(1)")
+    assert "External fire spread" not in sec(tree, "schedule-1-B1")["text"]
+
+
+def test_code_alone_and_sub_codes(tree):
+    s1 = sec(tree, "schedule-1-S1")
+    assert s1["text"] == "S1\n(1) A new residential building must have a charge point."
+    m4 = sec(tree, "schedule-1-M4(1)@W")
+    assert m4["title"] == "Category 1 - visitable dwelling"
+
+
+def test_duplicate_part_labelled_by_notes(tree):
+    eng, wal = sec(tree, "schedule-1-part-M"), sec(tree, "schedule-1-part-M@W")
+    assert eng["applies_to"] == "E" and wal["applies_to"] == "W"
+    assert sec(tree, "schedule-1-M1")["applies_to"] == "E"
+    assert sec(tree, "schedule-1-M1@W")["applies_to"] == "W"
+    assert sec(tree, "schedule-1-M1@W")["alt_of"] == "schedule-1-M1"
+    for p in (eng, wal):
+        assert p["label_source"] == "code-guess"
+    assert any("schedule-1-part-M" in i and "model check" in i for i in tree["issues"])
+
+
+def test_unduplicated_parts_keep_document_extent(tree):
+    assert sec(tree, "schedule-1-B1")["applies_to"] == "E+W"
+    assert "label_source" not in sec(tree, "schedule-1-part-B")
+
+
+def test_part_without_code_is_flagged_not_guessed(tree):
+    pt = sec(tree, "schedule-1-part-T")
+    assert pt["title"] == "Toilet accommodation"
+    t = [r for r in reqs(tree).values() if r["parent_id"] == "schedule-1-part-T"]
+    assert len(t) == 1 and t[0]["number"] is None
+    assert t[0]["text"] == "Toilet accommodation must consist of single-sex toilets."
+    assert any("schedule-1-part-T" in i and "no requirement code" in i for i in tree["issues"])
+
+
+def test_schedule_paragraphs_parts_and_wales_copy(tree):
+    p = sec(tree, "schedule-2-part-1-paragraph-1")
+    assert p["type"] == "schedule-paragraph" and p["applies_to"] == "E"
+    assert p["heading_path"][-2:] == ["Class 1", "Paragraph 1 Buildings controlled elsewhere"]
+    w = sec(tree, "schedule-2-part-1-paragraph-1@W")
+    assert w["alt_of"] == p["id"] and w["text"] == "In Wales, a building subject to other law."
+    assert not [i for i in tree["issues"] if i.startswith("version block")]
+
+
+def test_repealed_schedule_marks_its_paragraphs(tree):
+    assert sec(tree, "schedule-3")["status"] == "repealed"
+    assert sec(tree, "schedule-3-paragraph-1")["status"] == "repealed"
+
+
+def test_no_step_2_issue_left(tree):
+    assert not [i for i in tree["issues"] if "step 2" in i]
+
+
 # ---------------------------------------------------------------- real files (skipped where raw files are missing)
 
 def _current_br2010():
@@ -139,12 +218,36 @@ def test_real_counts(br2010):
     england_side = [s for s in regs if s["applies_to"] != "W"]
     wales = [s for s in regs if s["applies_to"] == "W"]
     assert len(england_side) == 170
-    # 27 Wales version blocks: 26 regulations, plus Schedule 4 paragraph 1 (Schedules come in step 2).
+    # 27 Wales version blocks: 26 regulations, plus Schedule 4 paragraph 1.
     assert len(wales) == 26
     assert all(w["alt_of"] for w in wales)
-    unlinked = [i for i in br2010["issues"] if i.startswith("version block")]
-    assert len(unlinked) == 1 and "v10020" in unlinked[0]
-    assert len([s for s in br2010["sections"] if s["type"] == "part"]) == 15
+    assert next(s for s in br2010["sections"] if s["id"] == "schedule-4-paragraph-1@W")["applies_to"] == "W"
+    assert not [i for i in br2010["issues"] if i.startswith("version block")]
+
+
+def test_real_schedule_1(br2010):
+    req = [s for s in br2010["sections"] if s["type"] == "requirement"]
+    england = {s["number"] for s in req if s["applies_to"] != "W"}
+    for code in ["A1", "A3", "B1", "B4", "B5", "G2A", "K1", "K5.1", "K5.4", "K6", "L2", "M4(1)", "M4(2)", "M4(3)", "O1", "Q1", "RA1", "RA2", "S1", "S6"]:
+        assert code in england, code
+    parts = [s for s in br2010["sections"] if s["type"] == "schedule-part" and s["parent_id"] == "schedule-1"]
+    assert len(parts) == 22
+    dup = [p for p in parts if p.get("label_source")]
+    assert sorted(p["number"] for p in dup) == ["K", "K", "M", "M", "O", "O"]
+    # Every duplicated Part has one England and one Wales copy.
+    for letter in "KMO":
+        assert sorted(p["applies_to"] for p in dup if p["number"] == letter) == ["E", "W"]
+    # The first heading row ("Requirement | Limits on application") is never a requirement title.
+    assert not [s for s in req if s["title"] and s["title"].startswith("Requirement")]
+    b1 = next(s for s in req if s["number"] == "B1")
+    assert b1["title"] == "Means of warning and escape" and b1["text"].startswith("B1.")
+
+
+def test_real_no_requirement_text_left_in_headings(br2010):
+    for s in br2010["sections"]:
+        if s["type"] == "requirement" and s["number"]:
+            assert s["text"].startswith(s["number"].split("(")[0]), s["id"]
+    assert len([s for s in br2010["sections"] if s["type"] == "part" and s["parent_id"] is None]) == 15
 
 
 def test_real_definitions(br2010):

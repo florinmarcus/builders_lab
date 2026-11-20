@@ -58,7 +58,56 @@
     </P1group>
   </Part>
 </Body>
-<Schedules RestrictExtent="E+W"/>
+<Schedules RestrictExtent="E+W" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <Schedule id="schedule-1" RestrictExtent="E+W">
+    <Number>SCHEDULE 1</Number><TitleBlock><Title>Requirements</Title></TitleBlock>
+    <ScheduleBody>
+      <Tabular><Title>PART B FIRE SAFETY</Title><xhtml:table><xhtml:tbody>
+        <xhtml:tr><xhtml:th>Requirement</xhtml:th><xhtml:th>Limits on application</xhtml:th></xhtml:tr>
+        <xhtml:tr><xhtml:th colspan="2"><Strong>Means of warning and escape</Strong></xhtml:th></xhtml:tr>
+        <xhtml:tr><xhtml:td><P><BlockText><Para><Text><Strong>B1</Strong>.—(1) The building shall be designed for early warning of fire.</Text></Para></BlockText></P>
+          <P><BlockText><Para><Text>(a) in all buildings; and</Text></Para></BlockText></P></xhtml:td>
+          <xhtml:td><P><BlockText><Para><Text>Requirement B1 does not apply to prisons.</Text></Para></BlockText></P></xhtml:td></xhtml:tr>
+        <xhtml:tr><xhtml:td><P><BlockText><Para><Text><Strong>External fire spread</Strong></Text></Para></BlockText></P>
+          <P><BlockText><Para><Text><Strong>B4</Strong>.—(1) The external walls shall resist the spread of fire.</Text></Para></BlockText></P></xhtml:td><xhtml:td/></xhtml:tr>
+      </xhtml:tbody></xhtml:table></Tabular>
+      <Tabular><Title>PART M ACCESS</Title><xhtml:table><xhtml:tbody>
+        <xhtml:tr><xhtml:th colspan="2"><Strong>Access and use</Strong></xhtml:th></xhtml:tr>
+        <xhtml:tr><xhtml:td><P><BlockText><Para><Text><Strong>M1</Strong>. Reasonable provision shall be made for access.<CommentaryRef Ref="key-m-e"/></Text></Para></BlockText></P></xhtml:td><xhtml:td/></xhtml:tr>
+      </xhtml:tbody></xhtml:table></Tabular>
+      <Tabular><Title>PART M ACCESS</Title><xhtml:table><xhtml:tbody>
+        <xhtml:tr><xhtml:th colspan="2"><Strong>Access and use</Strong></xhtml:th></xhtml:tr>
+        <xhtml:tr><xhtml:td><P><BlockText><Para><Text><Strong>M1</Strong>. Reasonable provision must be made for access in Wales.<CommentaryRef Ref="key-m-w"/></Text></Para></BlockText></P>
+          <P><BlockText><Para><Text><Strong>Category 1 - visitable dwelling</Strong></Text></Para></BlockText></P>
+          <P><BlockText><Para><Text>M4(1). Reasonable provision must be made for visitors.</Text></Para></BlockText></P></xhtml:td><xhtml:td/></xhtml:tr>
+      </xhtml:tbody></xhtml:table></Tabular>
+      <Tabular><Title>PART S CHARGING</Title><xhtml:table><xhtml:tbody>
+        <xhtml:tr><xhtml:th colspan="2"><Strong>New residential buildings</Strong></xhtml:th></xhtml:tr>
+        <xhtml:tr><xhtml:td><P><BlockText><Para><Text>S1</Text></Para></BlockText></P>
+          <P><BlockText><Para><Text>(1) A new residential building must have a charge point.</Text></Para></BlockText></P></xhtml:td><xhtml:td/></xhtml:tr>
+      </xhtml:tbody></xhtml:table></Tabular>
+      <Tabular><xhtml:table><xhtml:tbody>
+        <xhtml:tr><xhtml:th colspan="2"><Strong>PART T TOILET ACCOMMODATION</Strong></xhtml:th></xhtml:tr>
+        <xhtml:tr><xhtml:td><P><BlockText><Para><Text>Toilet accommodation must consist of single-sex toilets.</Text></Para></BlockText></P></xhtml:td><xhtml:td/></xhtml:tr>
+      </xhtml:tbody></xhtml:table></Tabular>
+    </ScheduleBody>
+  </Schedule>
+  <Schedule id="schedule-2" RestrictExtent="E+W">
+    <Number>SCHEDULE 2</Number><TitleBlock><Title>Exempt buildings</Title></TitleBlock>
+    <ScheduleBody>
+      <Part id="schedule-2-part-1"><Number><Strong>CLASS 1</Strong></Number>
+        <P1group><Title>Buildings controlled elsewhere</Title>
+          <P1 id="schedule-2-part-1-paragraph-1" RestrictExtent="E" AltVersionRefs="v2"><Pnumber>1</Pnumber>
+            <P1para><Text>A building subject to other law.</Text></P1para></P1>
+        </P1group>
+      </Part>
+    </ScheduleBody>
+  </Schedule>
+  <Schedule id="schedule-3" Status="Repealed">
+    <Number>SCHEDULE 3</Number><TitleBlock><Title>Old forms</Title></TitleBlock>
+    <ScheduleBody><P1 id="schedule-3-paragraph-1"><Pnumber>1</Pnumber><P1para><Text>. . .</Text></P1para></P1></ScheduleBody>
+  </Schedule>
+</Schedules>
 </Secondary>
 <Versions>
   <Version id="v1" Description="W">
@@ -69,11 +118,17 @@
       </P1>
     </P1group>
   </Version>
+  <Version id="v2" Description="W">
+    <P1 id="schedule-2-part-1-paragraph-1" RestrictExtent="W"><Pnumber>1</Pnumber>
+      <P1para><Text>In Wales, a building subject to other law.</Text></P1para></P1>
+  </Version>
 </Versions>
 <Commentaries>
   <Commentary id="key-f1" Type="F"><Para><Text>Words in reg. 2(1) inserted (1.1.2023) by S.I. 2022/9998.</Text></Para></Commentary>
   <Commentary id="key-f2" Type="E"><Para><Text>This version of this provision applies to England only.</Text></Para></Commentary>
   <Commentary id="key-f3" Type="F"><Para><Text>Word in reg. 4(2)(b) substituted (6.4.2024) by S.I. 2024/9997.</Text></Para></Commentary>
+  <Commentary id="key-m-e" Type="F"><Para><Text>Sch. 1 Pt. M substituted (E.) (1.10.2015) by S.I. 2015/9995.</Text></Para></Commentary>
+  <Commentary id="key-m-w" Type="F"><Para><Text>Sch. 1 Pt. M substituted (W.) (8.6.2018) by S.I. 2018/9994.</Text></Para></Commentary>
   <Commentary id="key-f4" Type="F"><Para><Text>Reg. 5 revoked (1.10.2025) by S.I. 2025/9996.</Text></Para></Commentary>
 </Commentaries>
 </Legislation>

@@ -8,15 +8,19 @@ corpus/parsed/<source_id>/<version_id>.json (not in git; rebuilt from raw files)
 
 Tree:
     source_id, version_id, valid_from, valid_to, sha256, title, parser
-    sections:    id, parent_id, type (part, chapter, block, regulation, paragraph),
+    sections:    id, parent_id, type (part, chapter, block, regulation, paragraph, schedule,
+                 schedule-part, requirement, schedule-paragraph, table),
                  number, title, heading_path, applies_to (E, W, E+W, ...), status,
                  text (clean, numbered lines, no amendment markers), amendments
                  (id, type, text), references (words, target, uri, internal), url,
-                 alt_of / alt_versions (Wales copies of England-only provisions)
+                 alt_of / alt_versions (Wales copies of England-only provisions),
+                 limits (requirements only), label_source (code-guess / model) on duplicated Parts
     definitions: id, term, text, section_id
-    issues:      what this parser did not handle, for the model check or a later step
+    issues:      what this parser did not handle or only guessed, for the model check
 
-Step 1 covers the Body (Parts, Chapters, regulations). Schedules come in step 2.
+Covers the Body (Parts, Chapters, regulations) and the Schedules. Schedule 1 becomes one section per
+requirement (B1, M4(1)) with its limits on application. Parts printed twice (England and Wales copies)
+get a code guess from their amendment notes, listed in issues for a model check.
 """
 
 from __future__ import annotations
@@ -25,19 +29,23 @@ import argparse
 import json
 import re
 import sys
-from pathlib import Path
 
 from lxml import etree
 
 from system.rag.corpus import CORPUS_DIR, slugify
 
-PARSER = "legislation-xml/0.1"
+PARSER = "legislation-xml/0.2"
 NS = "http://www.legislation.gov.uk/namespaces/legislation"
 L = f"{{{NS}}}"
+X = "{http://www.w3.org/1999/xhtml}"
 P_LEVELS = {f"{L}P{n}" for n in range(2, 8)} | {f"{L}P"}
 SKIP_INLINE = {f"{L}Pnumber", f"{L}CommentaryRef", f"{L}FootnoteRef"}
 DOC_PATH_RE = re.compile(r"legislation\.gov\.uk/(?:id/)?([a-z]+/\d{4}/\d+)")
 KEEP_NOTE_TYPES = {"F", "E", "C", "I", "X"}  # M notes are only citations of the enabling law
+# A Schedule 1 requirement starts with its code: "B1.", "K5.1.", "M4(1).", "M4(2) optional requirement",
+# "G2A", or the code alone ("S1").
+CODE_RE = re.compile(r"^((?:RA|[A-T])\d+[A-Z]?(?:\.\d+)?)(\(\d\))?(?=[.\s]|$)")
+HEADER_CELLS = ("Requirement", "Limits on application")
 
 
 def tag(e) -> str:
@@ -93,8 +101,30 @@ def extent(e) -> str | None:
     return None
 
 
-def heading(kind: str, number: str | None, title: str | None) -> str:
+def status(e) -> str:
+    return "repealed" if any(x.get("Status") == "Repealed" for x in [e, *e.iterancestors()]) else "in_force"
+
+
+def heading(kind: str | None, number: str | None, title: str | None) -> str:
     return " ".join(p for p in [kind, number, title] if p)
+
+
+def sentence(text: str) -> str:
+    """'FIRE SAFETY' -> 'Fire safety'. Mixed-case text is kept as it is."""
+    return text[:1].upper() + text[1:].lower() if text.isupper() else text
+
+
+def cell_paragraphs(cell) -> list[tuple[str, bool]]:
+    """Paragraphs of a table cell, each with 'bold' = all its text is inside <Strong>."""
+    texts = list(cell.iter(f"{L}Text")) or [cell]
+    out = []
+    for t in texts:
+        s = inline(t)
+        if not s:
+            continue
+        strong = " ".join(inline(x) for x in t.iter(f"{L}Strong"))
+        out.append((s, " ".join(strong.split()) == s))
+    return out
 
 
 class Parser:
@@ -152,6 +182,16 @@ class Parser:
                 out.append(ref)
         return out
 
+    def amendments_own(self, e) -> list[dict]:
+        """Notes on a container's own number and title, not on everything inside it."""
+        own = [x for x in (e.find(f"{L}Number"), e.find(f"{L}Title"), e.find(f"{L}TitleBlock")) if x is not None]
+        out: list[dict] = []
+        for x in own:
+            for a in self.amendments(x):
+                if a not in out:
+                    out.append(a)
+        return out
+
     # ------------------------------------------------------------ sections
 
     def add(self, sec: dict) -> dict:
@@ -162,44 +202,49 @@ class Parser:
         return sec
 
     def container(self, e, kind: str, parent: dict | None, path: list[str]) -> dict:
-        num_el, title_el = e.find(f"{L}Number"), e.find(f"{L}Title")
-        number = re.sub(r"^(PART|CHAPTER)\s+", "", inline(num_el), flags=re.I) if num_el is not None else None
+        num_el = e.find(f"{L}Number")
+        title_el = e.find(f"{L}Title")
+        if title_el is None:
+            title_el = e.find(f"{L}TitleBlock/{L}Title")
+        raw_num = inline(num_el) if num_el is not None else ""
         title = inline(title_el) if title_el is not None else None
-        label = {"part": "Part", "chapter": "Chapter"}.get(kind)
+        m = re.match(r"^(PART|CHAPTER|SCHEDULE)\s+(\S+)$", raw_num, flags=re.I)
+        if m:
+            number = m.group(2)
+            head = heading(m.group(1).capitalize(), number, title)
+        else:  # e.g. "CLASS 1" in Schedule 2
+            number = raw_num or None
+            head = heading(None, sentence(raw_num) if raw_num else None, title)
         sid = e.get("id") or f"{parent['id'] if parent else 'body'}-{kind}-{slugify(title or number or '')}"
         return self.add({
             "id": sid, "parent_id": parent["id"] if parent else None, "type": kind, "number": number, "title": title,
-            "heading_path": [*path, heading(label, number, title) if label else (title or "")],
-            "applies_to": extent(e), "status": "repealed" if e.get("Status") == "Repealed" else "in_force",
+            "heading_path": [*path, head], "applies_to": extent(e), "status": status(e),
             "text": "", "amendments": self.amendments_own(e), "references": [], "url": e.get("DocumentURI"),
         })
 
-    def amendments_own(self, e) -> list[dict]:
-        """Notes on a container's own number and title, not on everything inside it."""
-        own = [x for x in (e.find(f"{L}Number"), e.find(f"{L}Title")) if x is not None]
-        out: list[dict] = []
-        for x in own:
-            for a in self.amendments(x):
-                if a not in out:
-                    out.append(a)
-        return out
-
-    def regulation(self, group, parent: dict, path: list[str], suffix: str = "", applies_to: str | None = None) -> dict | None:
-        p1 = group.find(f"{L}P1")
+    def provision(self, holder, parent: dict, path: list[str], kind: str = "regulation", suffix: str = "",
+                  applies_to: str | None = None) -> dict | None:
+        """A regulation (P1group/P1 in the Body) or a Schedule paragraph, with its numbered paragraphs."""
+        p1 = holder if holder.tag in (f"{L}P1", f"{L}P") else holder.find(f"{L}P1")
         if p1 is None:
-            self.issues.append(f"P1group without P1 under {parent['id']}")
+            p1 = holder.find(f"{L}P")  # "wrapper" paragraphs: a P1group holding an unnumbered P
+        if p1 is not None and p1.get("id") is None and holder.get("id"):
+            p1.set("id", holder.get("id"))
+        if p1 is None:
+            self.issues.append(f"{tag(holder)} without P1 under {parent['id']}")
             return None
-        title_el = group.find(f"{L}Title")
+        title_el = holder.find(f"{L}Title") if holder is not p1 else None
         title = inline(title_el) if title_el is not None else None
         num_el = p1.find(f"{L}Pnumber")
         number = inline(num_el) if num_el is not None else ""
-        sid = (p1.get("id") or f"regulation-{number}") + suffix
-        hp = [*path, heading("Regulation", number, title)]
-        status = "repealed" if "Repealed" in (p1.get("Status"), group.get("Status")) else "in_force"
+        sid = (p1.get("id") or f"{parent['id']}-{number}") + suffix
+        label = "Regulation" if kind == "regulation" else "Paragraph"
+        hp = [*path, heading(label, number, title)]
+        st = status(p1)
         reg = self.add({
-            "id": sid, "parent_id": parent["id"], "type": "regulation", "number": number, "title": title,
-            "heading_path": hp, "applies_to": applies_to or extent(p1), "status": status,
-            "text": "\n".join(lines(p1)), "amendments": self.amendments(group), "references": self.references(p1),
+            "id": sid, "parent_id": parent["id"], "type": kind, "number": number, "title": title,
+            "heading_path": hp, "applies_to": applies_to or extent(p1), "status": st,
+            "text": "\n".join(lines(p1)), "amendments": self.amendments(holder), "references": self.references(p1),
             "url": p1.get("DocumentURI"),
         })
         for para_block in p1.findall(f"{L}P1para"):
@@ -211,7 +256,7 @@ class Parser:
                     text[0] = f"({n}) {text[0]}"
                 self.add({
                     "id": (p2.get("id") or f"{sid}-{n}") + suffix, "parent_id": sid, "type": "paragraph", "number": n,
-                    "title": None, "heading_path": [*hp, f"({n})"], "applies_to": reg["applies_to"], "status": status,
+                    "title": None, "heading_path": [*hp, f"({n})"], "applies_to": reg["applies_to"], "status": st,
                     "text": "\n".join(text), "amendments": self.amendments(p2), "references": self.references(p2),
                     "url": p2.get("DocumentURI") or reg["url"],
                 })
@@ -219,28 +264,167 @@ class Parser:
                 if tag(odd) in ("Tabular", "Figure"):
                     self.issues.append(f"{tag(odd)} inside {sid}: not parsed yet")
         self.collect_definitions(p1, sid)
-        for v in (group.get("AltVersionRefs") or "").split():
-            self.alt_owner[v] = sid
+        for x in (holder, p1):
+            for v in (x.get("AltVersionRefs") or "").split():
+                self.alt_owner[v] = sid
         return reg
 
-    def walk(self, e, parent: dict | None, path: list[str]) -> None:
+    def walk(self, e, parent: dict | None, path: list[str], in_schedule: bool = False) -> None:
         for c in e:
             t = tag(c)
-            if t == "Part":
-                s = self.container(c, "part", parent, path)
-                self.walk(c, s, s["heading_path"])
-            elif t == "Chapter":
-                s = self.container(c, "chapter", parent, path)
-                self.walk(c, s, s["heading_path"])
-            elif t == "Pblock":
-                s = self.container(c, "block", parent, path)
-                self.walk(c, s, s["heading_path"])
-            elif t == "P1group":
-                self.regulation(c, parent, path)
-            elif t in ("Number", "Title", "SignedSection", ""):
+            if t in ("Part", "Chapter", "Pblock"):
+                s = self.container(c, {"Part": "part", "Chapter": "chapter", "Pblock": "block"}[t], parent, path)
+                self.walk(c, s, s["heading_path"], in_schedule)
+            elif t in ("P1group", "P1"):
+                self.provision(c, parent, path, "schedule-paragraph" if in_schedule else "regulation")
+            elif t == "Schedule":
+                s = self.container(c, "schedule", parent, path)
+                body = c.find(f"{L}ScheduleBody")
+                if body is not None:
+                    if c.get("id") == "schedule-1":
+                        self.schedule_1(body, s)
+                    else:
+                        self.walk(body, s, s["heading_path"], in_schedule=True)
+            elif t == "Tabular" and parent is not None:
+                self.table(c, parent, path)
+            elif t == "P" and parent is not None:  # loose text in a Part, e.g. ". . ." for repealed paragraphs
+                parent["text"] = "\n".join(x for x in [parent["text"], *lines(c)] if x)
+            elif t in ("Number", "Title", "TitleBlock", "Reference", "SignedSection", ""):
                 continue
             else:
-                self.issues.append(f"unhandled <{t}> under {parent['id'] if parent else 'Body'}")
+                self.issues.append(f"unhandled <{t}> under {parent['id'] if parent else 'top level'}")
+
+    def table(self, tab, parent: dict, path: list[str]) -> None:
+        """A table in a Schedule other than Schedule 1: rows as text, cells joined by ' | '."""
+        title_el = tab.find(f"{L}Title")
+        title = inline(title_el) if title_el is not None else None
+        rows = []
+        for tr in tab.iter(f"{X}tr"):
+            cells = [inline(c) for c in tr if c.tag in (f"{X}td", f"{X}th")]
+            if any(cells):
+                rows.append(" | ".join(cells))
+        n = 1 + sum(1 for s in self.sections if s["parent_id"] == parent["id"] and s["type"] == "table")
+        self.add({
+            "id": f"{parent['id']}-table-{n}", "parent_id": parent["id"], "type": "table", "number": str(n),
+            "title": title, "heading_path": [*path, title or f"Table {n}"], "applies_to": extent(tab),
+            "status": status(tab), "text": "\n".join(rows), "amendments": self.amendments(tab),
+            "references": self.references(tab), "url": parent.get("url"),
+        })
+
+    # ------------------------------------------------------------ Schedule 1: the requirements
+
+    def schedule_1(self, body, sched: dict) -> None:
+        parsed = [self.requirement_table(t) for t in body if tag(t) == "Tabular"]
+        by_letter: dict[str, list[dict]] = {}
+        for p in parsed:
+            by_letter.setdefault(p["letter"], []).append(p)
+        for letter, group in by_letter.items():
+            labels: list[str | None] = [None] * len(group)
+            if len(group) == 2:
+                labels = self.guess_e_w(group)
+            elif len(group) > 2:
+                self.issues.append(f"schedule-1-part-{letter} appears {len(group)} times: model check")
+            for p, lab in zip(group, labels):
+                self.add_requirement_part(p, sched, lab)
+
+    def requirement_table(self, tab) -> dict:
+        """One Part of Schedule 1: letter, title, and requirements with text, limits and headings."""
+        title_el = tab.find(f"{L}Title")
+        title = inline(title_el) if title_el is not None else ""
+        reqs: list[dict] = []
+        cur: dict | None = None
+        pending: str | None = None
+        loose: list[str] = []
+        for tr in tab.iter(f"{X}tr"):
+            col = 0
+            for cell in tr:
+                if cell.tag not in (f"{X}td", f"{X}th"):
+                    continue
+                span = int(cell.get("colspan") or 1)
+                is_th = cell.tag == f"{X}th"
+                for text, bold in cell_paragraphs(cell):
+                    m = CODE_RE.match(text)
+                    if is_th and text in HEADER_CELLS:
+                        continue
+                    if col == 0 and m:
+                        cur = {"code": m.group(1) + (m.group(2) or ""), "title": pending, "text": [text],
+                               "limits": [], "els": [cell]}
+                        pending = None
+                        reqs.append(cur)
+                    elif not title and re.match(r"^PART\s+[A-Z]+\b", text):
+                        title = text
+                    elif bold or (is_th and col == 0):
+                        pending = text
+                    elif col == 0:
+                        if cur is not None:
+                            cur["text"].append(text)
+                            cur["els"].append(cell)
+                        else:
+                            loose.append(text)
+                    elif cur is not None:
+                        cur["limits"].append(text)
+                        cur["els"].append(cell)
+                col += span
+        m = re.match(r"^PART\s+([A-Z]+)\s*(.*)$", title, flags=re.I)
+        letter, ptitle = (m.group(1).upper(), m.group(2)) if m else ("?", title)
+        if not reqs and loose:
+            reqs.append({"code": None, "title": pending, "text": loose, "limits": [], "els": [tab]})
+        return {"el": tab, "letter": letter, "title": sentence(ptitle) if ptitle else None, "reqs": reqs,
+                "notes": self.amendments(tab)}
+
+    def guess_e_w(self, group: list[dict]) -> list[str]:
+        """Two copies of one Part: guess which is England's from the amendment notes. A model confirms later."""
+        def margin(p):
+            text = " ".join(a["text"] for a in p["notes"] if a["type"] == "F")
+            return len(re.findall(r"\(E\.", text)) - len(re.findall(r"\(W\.", text))
+
+        a, b = margin(group[0]), margin(group[1])
+        labels = ["E", "W"] if a >= b else ["W", "E"]
+        self.issues.append(
+            f"schedule-1-part-{group[0]['letter']}: two copies, code guessed {labels[0]} then {labels[1]} "
+            f"from amendment notes (margins {a}, {b}); needs model check")
+        return labels
+
+    def add_requirement_part(self, p: dict, sched: dict, label: str | None) -> None:
+        suffix = "@W" if label == "W" else ""
+        letter = p["letter"]
+        pid = f"schedule-1-part-{letter}{suffix}"
+        hp = [*sched["heading_path"], heading("Part", letter, p["title"])]
+        part = self.add({
+            "id": pid, "parent_id": sched["id"], "type": "schedule-part", "number": letter, "title": p["title"],
+            "heading_path": hp, "applies_to": label or extent(p["el"]), "status": status(p["el"]),
+            "text": "", "amendments": [], "references": [], "url": sched.get("url"),
+        })
+        if label:
+            part["label_source"] = "code-guess"
+            if suffix:
+                part["alt_of"] = f"schedule-1-part-{letter}"
+        for r in p["reqs"]:
+            code = r["code"]
+            rid = f"schedule-1-{code}{suffix}" if code else f"schedule-1-{letter}-requirement{suffix}"
+            if not code:
+                self.issues.append(f"schedule-1-part-{letter}: no requirement code in the table; model check")
+            notes: list[dict] = []
+            refs: list[dict] = []
+            for el in {id(e): e for e in r["els"]}.values():
+                for a in self.amendments(el):
+                    if a not in notes:
+                        notes.append(a)
+                for x in self.references(el):
+                    if x not in refs:
+                        refs.append(x)
+            sec = self.add({
+                "id": rid, "parent_id": pid, "type": "requirement", "number": code, "title": r["title"],
+                "heading_path": [*hp, heading(None, code, r["title"]) or f"Part {letter}"],
+                "applies_to": part["applies_to"], "status": part["status"], "text": "\n".join(r["text"]),
+                "limits": "\n".join(r["limits"]), "amendments": notes, "references": refs, "url": sched.get("url"),
+            })
+            if suffix:
+                sec["alt_of"] = rid[: -len(suffix)]
+            for el in {id(e): e for e in r["els"]}.values():
+                self.collect_definitions(el, rid)
+
+    # ------------------------------------------------------------ Wales copies and definitions
 
     def wales_versions(self) -> None:
         vs = self.root.find(f"{L}Versions")
@@ -248,14 +432,17 @@ class Parser:
             return
         for v in vs.findall(f"{L}Version"):
             owner_id = self.alt_owner.get(v.get("id"))
-            group = v.find(f"{L}P1group")
-            if owner_id is None or group is None:
-                self.issues.append(f"version block {v.get('id')} ({v.get('Description')}) not linked to a regulation: step 2")
+            holder = v.find(f"{L}P1group")
+            if holder is None:
+                holder = v.find(f"{L}P1")
+            if owner_id is None or holder is None:
+                self.issues.append(f"version block {v.get('id')} ({v.get('Description')}) not linked to a provision")
                 continue
             owner = self.by_id[owner_id]
             parent = self.by_id[owner["parent_id"]]
             desc = v.get("Description") or "alt"
-            alt = self.regulation(group, parent, parent["heading_path"], suffix=f"@{desc}", applies_to=extent(group) or desc)
+            alt = self.provision(holder, parent, parent["heading_path"], kind=owner["type"], suffix=f"@{desc}",
+                                 applies_to=extent(holder) or desc)
             if alt is None:
                 continue
             alt["alt_of"] = owner_id
@@ -268,12 +455,14 @@ class Parser:
         for term in scope.iter(f"{L}Term"):
             name = inline(term)
             holder = next((a for a in term.iterancestors() if tag(a) == "Text"), None)
-            self.definitions.append({
+            d = {
                 "id": term.get("id") or f"term-{slugify(name, 80)}",
                 "term": name,
                 "text": inline(holder) if holder is not None else name,
                 "section_id": section_id,
-            })
+            }
+            if d not in self.definitions:
+                self.definitions.append(d)
 
     def parse(self) -> dict:
         body = self.root.find(f".//{L}Body")
@@ -281,9 +470,10 @@ class Parser:
             self.issues.append("no Body element")
         else:
             self.walk(body, None, [self.title])
+        schedules = self.root.find(f".//{L}Schedules")
+        if schedules is not None:
+            self.walk(schedules, None, [self.title])
         self.wales_versions()
-        if self.root.find(f".//{L}Schedules") is not None and len(self.root.find(f".//{L}Schedules")):
-            self.issues.append("Schedules not parsed yet: step 2")
         return {
             **{k: self.meta.get(k) for k in ("source_id", "version_id", "valid_from", "valid_to", "sha256")},
             "title": self.title,
@@ -335,9 +525,12 @@ def main(argv: list[str] | None = None) -> int:
         out = CORPUS_DIR / "parsed" / a.source / f"{r['version_id']}.json"
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(json.dumps(tree, ensure_ascii=False, indent=1), encoding="utf-8")
-        regs = sum(1 for s in tree["sections"] if s["type"] == "regulation")
-        print(f"{r['version_id']}: {len(tree['sections'])} sections, {regs} regulations, "
-              f"{len(tree['definitions'])} definitions, {len(tree['issues'])} issues -> {out.relative_to(root)}")
+        types: dict[str, int] = {}
+        for s in tree["sections"]:
+            types[s["type"]] = types.get(s["type"], 0) + 1
+        print(f"{r['version_id']}: {types.get('regulation', 0)} regulations, {types.get('requirement', 0)} requirements, "
+              f"{len(tree['sections'])} sections, {len(tree['definitions'])} definitions, "
+              f"{len(tree['issues'])} issues -> {out.relative_to(root)}")
     return 0
 
 
