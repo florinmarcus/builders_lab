@@ -65,7 +65,7 @@ python -m system.rag.checks save --source <source_id> --answers corpus/parsed/<s
 
 `save` refuses answers that break the rules (row and sentence counts, heading rows, a family's columns, unknown keys). Re-run a refused packet's subagent once, adding the refusal reason to the prompt. If it is refused again, check it yourself against the page image.
 
-Run `export` again. Tables held back because they belong to a family now get the first one as their template. Repeat until export says `0 packets`.
+Then parse again (the tree only drops a check once it is parsed with the saved fix) and run `export` again. Tables held back because they belong to a family now get the first one as their template, and refused packets come back. Repeat until export says `0 packets`.
 
 ## 4. Parse again and review
 
