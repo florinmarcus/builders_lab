@@ -13,7 +13,7 @@ dependencies = [
 [project.optional-dependencies]
 dev = ["pytest>=8", "pyyaml>=6", "lxml>=5"]
 # Corpus harvester and S3 copy (system/rag), run from the repo root.
-corpus = ["pyyaml>=6", "requests>=2.31", "lxml>=5", "boto3>=1.34"]
+corpus = ["pyyaml>=6", "requests>=2.31", "lxml>=5", "boto3>=1.34", "pdfplumber>=0.11"]
 
 [build-system]
 requires = ["setuptools>=68"]
