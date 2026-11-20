@@ -99,3 +99,11 @@ def test_applies_to_values(value, ok):
     f = {"key": "0123456789abcdef", "kind": "applies_to", "target": "Part K", "value": value, "reason": "r",
          "by": "t", "date": "2026-11-20"}
     assert (lint_fixes("x", [f]) == []) is ok
+
+
+def test_single_column_rows_are_not_headings_and_abbreviations_do_not_end_sentences():
+    one = table_fix("requirement-b4-box-2: R", ["Text"], [["7.(1) Materials ..."], ["(2) Every ..."]], ["S1.", "S2."])
+    assert lint_fixes("x", [one]) == []
+    f = {"key": "0123456789abcdef", "kind": "figure_description", "target": "diagram-12.1: D", "reason": "r",
+         "by": "t", "date": "2026-11-20", "value": "Plan of rooflights, max. area 5m2 each. Spacing min. 3m apart."}
+    assert lint_fixes("x", [f]) == []

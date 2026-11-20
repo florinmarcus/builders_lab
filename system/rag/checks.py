@@ -46,7 +46,8 @@ INSTRUCTIONS = {
   summary for a group (an overall score, an average, a total) stays on the row where it is printed;
   other rows get "". Totals rows: the label in the first column, the value in its column.
 - heading_rows: the indexes (from 0) of rows that are only a sub-heading ("Loose insulation") or a second
-  header row inside the table. They get no sentence. A row with only its first cell filled is always one.
+  header row inside the table. They get no sentence. In a table of two or more columns, a row with only its
+  first cell filled is always one. Never invent column headings: a single-column box has one column.
 - sentences: one plain sentence per other row, in the same order. Start with what the table is about (from its
   title), then the row's facts in the table's own words. Add nothing that is not in the row and title.
 - If a template is given, use exactly its columns and its sentence pattern.""",
@@ -90,8 +91,13 @@ def _target_title(target: str) -> str:
     return target.split(": ", 1)[1] if ": " in target else target
 
 
+ABBREVIATIONS = re.compile(r"\b(max|min|approx|eg|e\.g|ie|i\.e|etc|no|para|paras|fig|ref|incl|vol|ch)\.", re.I)
+
+
 def _sentence_count(text: str) -> int:
-    return len([s for s in re.split(r"(?<=[.!?])\s+", text.strip()) if s])
+    """Sentences in a description; printed abbreviations ("max.", "e.g.") do not end a sentence."""
+    text = ABBREVIATIONS.sub(lambda m: m.group(0)[:-1], text.strip())
+    return len([s for s in re.split(r"(?<=[.!?])\s+", text) if s])
 
 
 # ---------------------------------------------------------------- lint
@@ -154,7 +160,7 @@ def _lint_table(v) -> list[str]:
     heads = v.get("heading_rows", [])
     if not isinstance(heads, list) or not all(isinstance(i, int) and 0 <= i < len(rows) for i in heads):
         return bad + ["heading_rows must be row indexes"]
-    lone = [i for i, r in enumerate(rows) if r and r[0].strip() and not any(c.strip() for c in r[1:])]
+    lone = [i for i, r in enumerate(rows) if len(r) > 1 and r[0].strip() and not any(c.strip() for c in r[1:])]
     if set(lone) - set(heads):
         bad.append(f"rows {sorted(set(lone) - set(heads))} have only a first cell: list them in heading_rows")
     want = len(rows) - len(set(heads))
