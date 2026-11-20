@@ -34,6 +34,8 @@ from system.rag.corpus import CORPUS_DIR
 
 ROOT = CORPUS_DIR.parent
 MAX_CHARS = 2500  # above this a regulation or paragraph is split (about 600 tokens)
+HARD_MAX = 6000   # safety net: anything still longer is cut at line breaks into MAX_CHARS parts (overnight S3)
+CONTROL = re.compile(r"[\x00-\x08\x0b\x0c\x0e-\x1f]")
 SKIP_TYPES = {"part", "chapter", "appendix", "schedule", "schedule-part", "heading", "block", "back-matter",
               "references"}
 NATION = {"england": "E", "england-wales": "E+W", "gb": "E+W+S", "uk": "E+W+S+NI"}
@@ -122,6 +124,20 @@ def split_paragraphs(text: str, limit: int | None = None) -> list[str]:
     return parts
 
 
+def hard_split(text: str, limit: int) -> list[str]:
+    """split_paragraphs, then cut any part still over the limit at the last space before it (one huge line)."""
+    out = []
+    for part in split_paragraphs(text, limit):
+        while len(part) > limit:
+            cut = part.rfind(" ", 0, limit)
+            cut = cut if cut > limit // 2 else limit
+            out.append(part[:cut].rstrip())
+            part = part[cut:].lstrip()
+        if part:
+            out.append(part)
+    return out
+
+
 # ---------------------------------------------------------------- chunks
 
 class Chunker:
@@ -161,8 +177,17 @@ class Chunker:
         }
 
     def add(self, s: dict, chunk_type: str, text: str, suffix: str = "", **extra) -> None:
-        text = text.strip()
+        text = CONTROL.sub("", text).strip()
         if not text:
+            return
+        if len(text) > HARD_MAX:  # a giant clause or table that the structure did not split
+            lines = text.split("\n")
+            keep = lines[:1] if chunk_type in ("table", "requirement") and len(lines) > 2 else []
+            body = "\n".join(lines[len(keep):])
+            parts = hard_split(body, MAX_CHARS - sum(len(k) + 1 for k in keep))
+            self.splits.append(f"{s['id']}{suffix}: {len(text)} characters, cut into {len(parts)} parts (safety net)")
+            for i, p in enumerate(parts, start=1):
+                self.add(s, chunk_type, "\n".join(keep + [p]), f"{suffix}#part-{i}", **extra)
             return
         c = self.base(s)
         path = [p for p in c["heading_path"] if p]

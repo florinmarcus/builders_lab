@@ -162,3 +162,31 @@ def test_real_chunks_have_no_page_furniture(real_chunks):
         for bad in ("O N L I N E", "ONLINE VERSION", "Approved Document B Volume 1, 2019 edition Building",
                     "Health and Safety\nExecutive", "Page 1 of"):
             assert bad not in c["text"], (c["id"], bad)
+
+
+# ---------------------------------------------------------------- safety net for giant chunks (overnight S3)
+
+def test_a_giant_clause_is_split_into_parts_with_the_breadcrumb():
+    big = "\n".join(f"(a{i}) " + "word " * 60 for i in range(80))  # about 24,000 characters in one paragraph
+    t = tree([sec("regulation-6", "regulation", "(1) " + big, number="6", title="Amendments"),
+              sec("regulation-6-1", "paragraph", "(1) " + big, parent="regulation-6", number="1")])
+    chunks, _ = chunk_tree(t, LAW, RECORD)
+    assert all(len(c["text"]) <= ch.HARD_MAX for c in chunks)
+    parts = [c for c in chunks if "#part-" in c["id"]]
+    assert len(parts) >= 8 and all(c["embed_text"].startswith("Doc ›") for c in parts)
+    assert len({c["id"] for c in chunks}) == len(chunks)
+
+
+def test_a_giant_table_keeps_its_title_and_header_on_every_part():
+    rows = "\n".join(f"Item {i} | " + "detail " * 40 for i in range(120))
+    t = tree([sec("schedule-3-table-1", "table", "Contract | Detail\n" + rows, title="Exempted contracts")])
+    chunks, _ = chunk_tree(t, LAW, RECORD)
+    parts = [c for c in chunks if "#part-" in c["id"]]
+    assert len(parts) >= 3
+    assert all(c["text"].splitlines()[0] == "Contract | Detail" for c in parts)
+
+
+def test_control_characters_are_removed():
+    t = tree([sec("para-1", "paragraph", "Fire doors\x07 should be FD30.")])
+    chunks, _ = chunk_tree(t, GUIDE, RECORD)
+    assert chunks[0]["text"] == "Fire doors should be FD30."
