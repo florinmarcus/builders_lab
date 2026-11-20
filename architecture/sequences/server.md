@@ -74,7 +74,7 @@ sequenceDiagram
     end
 ```
 
-## 4. Upgrade (built in `deploy/scripts/upgrade.sh`, tested locally; ADR 0008)
+## 4. Upgrade (built in `deploy/scripts/upgrade.sh`, tested locally; ADR 0009)
 
 ```mermaid
 sequenceDiagram

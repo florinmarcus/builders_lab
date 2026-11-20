@@ -1,6 +1,6 @@
 # Deploy: server set-up, upgrades, rollback
 
-Everything to run the MCP server on AWS, repeatably. Decision: ADR 0008. Picture: [architecture/design/server.md](../architecture/design/server.md).
+Everything to run the MCP server on AWS, repeatably. Decision: ADR 0009. Picture: [architecture/design/server.md](../architecture/design/server.md).
 
 | File | What it does |
 |---|---|
@@ -15,7 +15,13 @@ Everything to run the MCP server on AWS, repeatably. Decision: ADR 0008. Picture
 
 ## First install (once)
 
-You need: the AWS CLI logged in to your account, region `eu-west-2` (London).
+You need: the AWS CLI logged in to your account, region `eu-west-2` (London), with the permissions in
+`iam/deployer-policy.json` (scoped to `builders-lab-*` resources in London). An admin attaches it once:
+
+```
+aws iam put-user-policy --user-name <deploy user> --policy-name builders-lab-deployer \
+  --policy-document file://deploy/iam/deployer-policy.json
+```
 
 1. **If the GitHub repo is private:** create a fine-grained GitHub token with read access to this repo only, then:
    ```

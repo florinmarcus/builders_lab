@@ -13,7 +13,7 @@ Started 20 Nov 2026. Status of the demo build: steps 1 (mock data plan), 2 (sche
 | N2 | Gmail loader, reset and live simulator (ADR 0005) | Needs Google login on Florin's laptop | No live "email arrives" moment |
 | N3 | Real `sync_inbox` (Gmail fetch, PDF text) | After the simulator | Tool returns "not connected yet" |
 | N4 | `save_facts` with server checks (job exists, source exists, quote appears in source) (ADR 0006) | After `sync_inbox` | Facts only from seed data |
-| N5 | First real run in AWS: CloudFormation stack, `install.sh` on Amazon Linux, the GitHub pipeline (code in `deploy/`, ADR 0008) | Needs Florin's AWS | CloudFormation, install and pipeline only linted, never run |
+| N5 | First real run in AWS: CloudFormation stack, `install.sh` on Amazon Linux, the GitHub pipeline (code in `deploy/`, ADR 0009) | Needs Florin's AWS | CloudFormation, install and pipeline only linted, never run |
 | N6 | OAuth login (Cognito) as the second auth layer (ADR 0007) | API keys first for the demo | One shared secret per firm |
 | N7 | App alerts (lockdown, IP blocks) to the email topic. Budget alarm and server-down alarm are in the CloudFormation template | `security.alert()` only logs | Attacks go unseen |
 | N8 | Backups copied off the server's account and region (now: daily dumps on the disk + daily disk snapshots in the same region) | Pilot | Region or account loss loses data |
