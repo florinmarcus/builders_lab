@@ -308,6 +308,8 @@ sources:
   status: current
   notes: Two parts (Vol 1, Vol 2). PDFs are collated with 2029 amendments (in force 2 Sep 2029). Third-party images; ingest text only. match guessed from the inventory titles; check.
   checked: 2026-11-19
+  images: check-only               # diagram crops are made for the model check but not shown to users (see notes)
+  parser: {module: parse_adoc, parts: [approved-document-b-fire-safety-volume-1-dwellings]}
   fetch: {method: govuk, page: /government/publications/fire-safety-approved-document-b, attachments: pdf, match: "(?i)volume"}
 
 - id: adb-amendments

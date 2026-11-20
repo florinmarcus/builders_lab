@@ -47,24 +47,35 @@ BULLET_RE = re.compile(r"^[■●•▪]+\s*")
 # ---------------------------------------------------------------- reading the PDF
 
 def _words(chars: list[dict]) -> list[dict]:
-    words, cur, x0, x1 = [], "", None, None
+    """Words with x positions, plus bold (b) and colour (c) of their first character, when the PDF gives them."""
+    words, cur, x0, x1, first = [], "", None, None, None
     prev = None
+
+    def emit():
+        w = {"x0": round(x0, 1), "x1": round(x1, 1), "text": cur}
+        if first.get("fontname") and any(k in first["fontname"] for k in ("Bold", "Heavy", "Black", "Semibold")):
+            w["b"] = True
+        col = _colour(first.get("non_stroking_color"))
+        if col and col not in ((0.0,), (0.0, 0.0, 0.0), (0.0, 0.0, 0.0, 1.0)):
+            w["c"] = list(col)
+        words.append(w)
+
     for c in chars:
         gap = prev is not None and c["x0"] - prev["x1"] > 1.5  # some PDFs have no space characters, only gaps
         if c["text"].isspace() or gap:
             if cur:
-                words.append({"x0": round(x0, 1), "x1": round(x1, 1), "text": cur})
+                emit()
             cur, x0 = "", None
             if c["text"].isspace():
                 prev = c
                 continue
         if not cur:
-            x0 = c["x0"]
+            x0, first = c["x0"], c
         cur += c["text"]
         x1 = c["x1"]
         prev = c
     if cur:
-        words.append({"x0": round(x0, 1), "x1": round(x1, 1), "text": cur})
+        emit()
     return words
 
 

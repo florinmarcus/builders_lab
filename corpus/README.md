@@ -31,6 +31,8 @@ On a new machine, `corpus/raw/` is empty. Get the files with `CORPUS_BUCKET=<buc
   status: current                 # current | out-of-date | withdrawn | coming
   notes: ...                      # optional
   checked: 2026-11-19
+  images: show                    # optional: show (default) | check-only (crops for model checks, never shown to users)
+  parser: {module: parse_adoc, parts: [...]}   # optional: which parser, and which parts are parsed so far
   fetch:
     method: legislation           # legislation | govuk | url | none
     path: uksi/2010/2214

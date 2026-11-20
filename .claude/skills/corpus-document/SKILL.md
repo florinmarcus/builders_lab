@@ -29,11 +29,12 @@ If the source now gives different bytes, stop and ask Florin. Do not parse a fil
 ## 2. Parse
 
 ```
-python -m system.rag.parse_pdf --source <source_id>                  # guidance PDFs
+python -m system.rag.parse_pdf --source <source_id>                  # HSE-style guidance PDFs
+python -m system.rag.parse_adoc --source <source_id> --part <part>     # Approved Documents (2019 layout)
 python -m system.rag.parse_legislation --source <source_id> --current   # legislation XML
 ```
 
-Read the `issues` in the tree. Structure problems (paragraph numbers, headings, captions, crops) are fixed in the parser code, with a test, then parse again. Never patch them with fixes.
+The parser for a source is named in `sources.yaml` (`parser:`). Read the `issues` and, for Approved Documents, the `repairs` (letters put back into words) in the tree. Structure problems (paragraph numbers, headings, captions, crops) are fixed in the parser code, with a test, then parse again. Never patch them with fixes.
 
 ## 3. Model checks, through packets
 
@@ -58,7 +59,7 @@ Run `export` again. Tables held back because they belong to a family now get the
 ## 4. Parse again and review
 
 ```
-python -m system.rag.parse_pdf --source <source_id>     # must say "0 model checks"
+python -m system.rag.parse_pdf --source <source_id>     # or parse_adoc; must say "0 model checks"
 python -m system.rag.checks review --source <source_id>
 ```
 

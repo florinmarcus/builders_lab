@@ -13,7 +13,7 @@ flowchart LR
     src["Source sites<br/>legislation.gov.uk,<br/>GOV.UK, HSE"] --> harvest["harvest.py<br/>versions by hash"]
     harvest --> raw[("corpus/raw<br/>+ S3 eu-west-2")]
     harvest --> rec["corpus/versions<br/>records (git)"]
-    raw -.-> lib["Parser: library pass<br/>lxml for XML,<br/>pdfplumber / PyMuPDF"]
+    raw --> lib["Parser: library pass<br/>lxml for XML,<br/>pdfplumber (parse_pdf, parse_adoc)"]
     lib -.-> chk["Model check<br/>(Claude Code)<br/>tables, diagrams,<br/>unclear cases"]
     fixes[("Saved fixes (git)<br/>by content fingerprint")] -.-> chk
     chk -.-> fixes
@@ -44,6 +44,10 @@ flowchart TB
     model --> saved[("Saved fix<br/>reused next run")]
     model --> out["Document tree"]
 ```
+
+### Approved Documents (parse_adoc, built 20 Nov 2026)
+
+The 2019-layout Approved Documents are read by fonts, sizes and colours: 26pt chapters, 20/15pt headings, semibold paragraph numbers, white diagram captions on a green band, bold table captions, green words as links to key terms. Edition banners ("Effective until 1 September 2029", "effective from 2 September 2029") date the two copies of Appendices B and C. Letters dropped from "fi"/"fl" by the PDF font are put back by checking the document's own words, and counted. Diagram crops are made for the model check; `images: check-only` in `sources.yaml` keeps them from users.
 
 ### The model-check step (built 20 Nov 2026)
 
