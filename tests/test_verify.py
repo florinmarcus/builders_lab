@@ -6,7 +6,7 @@ import pytest
 
 from builders_api.service import jobs, verify
 
-NOTICE = "AI-generated, check before use."
+NOTICE = ""
 
 
 @pytest.fixture()
@@ -39,7 +39,7 @@ def test_invented_number_and_quote_fail(firm, conn):
 def test_guardrails(firm):
     v = verify.verify_answer(firm, "Bedroom 2 has no asbestos. I have sent the invoice. Call 07700 900123.", [])
     codes = [p["code"] for p in v["problems"]]
-    assert codes.count("BANNED_PHRASE") == 2 and "MISSING_AI_NOTICE" in codes
+    assert codes.count("BANNED_PHRASE") == 2 and "MISSING_AI_NOTICE" not in codes
     assert any(p["code"] == "PERSONAL_DATA" and p["severity"] == "warning" for p in v["problems"])
 
 

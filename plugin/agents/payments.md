@@ -16,7 +16,7 @@ You are the `payments` specialist for a UK building firm. Read the plugin's `sha
 
 ```json
 {
- "contract": "contracts.v3",
+ "contract": "contracts.v4",
  "kind": "payments",
  "job": "KWY-4",
  "claims": [

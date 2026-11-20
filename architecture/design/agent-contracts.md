@@ -3,7 +3,7 @@
 The mini harness inside Claude: every answer goes through fixed steps, and every step speaks JSON, so our server can check it with plain code. No model runs on our server (ADR 0006); all model work is on the user's Claude plan.
 Up: [architecture](../ARCHITECTURE.md). Server side: [server.md](server.md).
 
-Contract version: `contracts.v3` (20 Nov 2026; v2 added the translator messages). **Source of truth: `system/api/builders_api/contracts.py`** (Pydantic). Generated schema: `plugin/shared/contracts.schema.json`. The JSON below explains it; `tests/test_contracts.py` checks the schema file is current and every example in `plugin/` is valid. Any change makes a new version.
+Contract version: `contracts.v4` (20 Nov 2026; v2 added the translator messages). **Source of truth: `system/api/builders_api/contracts.py`** (Pydantic). Generated schema: `plugin/shared/contracts.schema.json`. The JSON below explains it; `tests/test_contracts.py` checks the schema file is current and every example in `plugin/` is valid. Any change makes a new version.
 
 ## Pipeline
 
@@ -15,7 +15,7 @@ flowchart LR
     spec -->|"Findings JSON"| draft["3. Main agent<br/>drafts answer"]
     draft -->|"Answer JSON"| verify["4. verify_answer<br/>(our server, plain code)"]
     verify -->|"Verdict JSON: fail"| draft
-    verify -->|"pass"| reply(["5. Reply:<br/>answer, sources, AI notice"])
+    verify -->|"pass"| reply(["5. Reply:<br/>answer, sources"])
 ```
 
 ## Sequence
@@ -40,7 +40,7 @@ sequenceDiagram
         M->>M: fix flagged claims (max 2 rounds)
         M->>T: verify_answer again
     end
-    M-->>U: answer text + sources + AI notice
+    M-->>U: answer text + sources
 ```
 
 Where sub-agents are not available (Claude phone or web app), the main agent plays the specialist itself, but steps 1, 3, 4 and 5 stay the same.
@@ -77,8 +77,7 @@ Where sub-agents are not available (Claude phone or web app), the main agent pla
 ## Tool envelope (every tool, built)
 
 ```json
-{ "ai_notice": "AI-generated, check before use. Mock data only.",
-  "access_notice": "optional: key expiring or in grace period",
+{   "access_notice": "optional: key expiring or in grace period",
   "untrusted_content_notice": "present when the result holds email or document text",
   "trace_id": "uuid",
   "...": "tool-specific fields, sources as Source objects" }
@@ -90,7 +89,7 @@ Error: `{ "error": { "code": "not_found | invalid_input | quota_exceeded | not_c
 
 ```json
 {
-  "contract": "contracts.v3",
+  "contract": "contracts.v4",
   "question": "user's words",
   "kind": "inbox | variations | payments | paperwork | regulations | delays",
   "job": "job ref or words, optional",
@@ -102,7 +101,7 @@ Error: `{ "error": { "code": "not_found | invalid_input | quota_exceeded | not_c
 
 ```json
 {
-  "contract": "contracts.v3",
+  "contract": "contracts.v4",
   "kind": "variations",
   "job": "ELM-22",
   "claims": [
@@ -126,8 +125,8 @@ Rules: one claim per fact; every claim has a source; quotes copied exactly; noth
 
 ```json
 {
-  "contract": "contracts.v3",
-  "text": "The answer as it will be shown, including the AI notice",
+  "contract": "contracts.v4",
+  "text": "The answer as it will be shown",
   "claims": [ { "id": "c1", "quote": "exact words", "source": { "type": "document", "id": "uuid" } } ]
 }
 ```
@@ -136,7 +135,7 @@ Rules: one claim per fact; every claim has a source; quotes copied exactly; noth
 
 ```json
 {
-  "contract": "contracts.v3",
+  "contract": "contracts.v4",
   "pass": false,
   "problems": [
     { "code": "QUOTE_NOT_IN_SOURCE", "claim": "c2", "message": "Quote not found in the cited source." }
@@ -152,7 +151,6 @@ Rules: one claim per fact; every claim has a source; quotes copied exactly; noth
 | `NUMBER_NOT_IN_SOURCES` | every £ amount and date in the answer text appears in at least one cited source |
 | `BANNED_PHRASE` | e.g. "no asbestos", "asbestos-free", "I have sent", "I've paid" |
 | `PERSONAL_DATA` | phone numbers, email addresses, NI numbers in the answer text (flag, not block) |
-| `MISSING_AI_NOTICE` | the text carries "AI-generated, check before use" |
 | `NO_CLAIMS` | an answer with facts but no claims to check |
 
 `verify_answer` is a read-only tool, traced like every other tool. It never changes data.

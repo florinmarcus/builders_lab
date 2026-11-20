@@ -77,7 +77,7 @@ About 15–20 emails with PDF attachments. All names, addresses and companies in
 
 ## Rules from the research (must show)
 
-- AI notice on every answer path ("AI-generated, check before use").
+- ~~AI notice on every answer~~ Removed 20 Nov 2026 at Florin's request (no UK duty; see parking lot for EU use).
 - Every answer cites the source: email or document, page, date; regulations with document, section and edition date.
 - Never say "no asbestos": say what the survey covered; "treat as present" for anything else.
 - Drafts only: emails and invoices are created as drafts for a person to check and send.

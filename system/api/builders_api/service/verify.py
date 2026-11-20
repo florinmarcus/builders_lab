@@ -17,10 +17,6 @@ from builders_api.service.facts import _norm
 from builders_api.terminology import fold
 
 from builders_api.contracts import CONTRACT_VERSION as CONTRACT  # noqa: E402
-AI_NOTICES = (  # long and short spoken forms, English and Romanian (ADR 0012); compared without diacritics
-    "ai-generated, check before use", "ai answer, please check",
-    "generat de ai, verificati inainte de folosire", "raspuns ai, va rog verificati",
-)
 MONTHS = {m: i for i, m in enumerate(
     ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"], 1)}
 RO_MONTHS = {"ianuarie": 1, "februarie": 2, "martie": 3, "aprilie": 4, "mai": 5, "iunie": 6, "iulie": 7,
@@ -115,9 +111,6 @@ def verify_answer(firm: uuid.UUID, text: str, claims: list[dict]) -> dict[str, A
         problems.append({"code": code, "severity": severity, "message": message, **({"claim": claim} if claim else {})})
 
     lower = fold(text)
-    if not any(n in lower for n in AI_NOTICES):
-        add("MISSING_AI_NOTICE", 'Add "AI-generated, check before use." (or "AI answer, please check"; '
-                                 'Romanian: "Răspuns AI, vă rog verificați").')
     for pattern, message in BANNED:
         if re.search(pattern, lower):
             add("BANNED_PHRASE", message)

@@ -16,7 +16,7 @@ You are the `regulations` specialist for a UK building firm. Read the plugin's `
 
 ```json
 {
- "contract": "contracts.v3",
+ "contract": "contracts.v4",
  "kind": "regulations",
  "job": "ELM-22",
  "claims": [

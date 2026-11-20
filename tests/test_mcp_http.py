@@ -64,7 +64,7 @@ def test_tools_over_http_with_key(server, conn):
     names, ok = _call(server["url"], key, "get_payment_dates", {"job": "office"})
     assert names == {"list_jobs", "get_job", "list_missing_items", "search_job_documents",
                      "search_regulations", "get_payment_dates", "sync_inbox", "save_facts", "verify_answer", "lookup_terms", "get_job_timeline"}
-    assert ok["ai_notice"].startswith("AI-generated") and ok["job"]["ref"] == "KWY-4"
+    assert "ai_notice" not in ok and ok["job"]["ref"] == "KWY-4"
     assert "access_notice" not in ok and "untrusted_content_notice" in ok
     _, missing = _call(server["url"], key, "get_job", {"job": "Mill Lane"})
     assert missing["error"]["code"] == "not_found" and "Traceback" not in json.dumps(missing)

@@ -57,4 +57,4 @@ def test_verify_output_fits_verdict(seeded):
     from builders_api.service import jobs, verify
     out = verify.verify_answer(jobs.firm_id("oakline"), "No asbestos here.", [])
     v = contracts.Verdict.model_validate(out)
-    assert v.pass_ is False and {p.code for p in v.problems} >= {"BANNED_PHRASE", "MISSING_AI_NOTICE"}
+    assert v.pass_ is False and {p.code for p in v.problems} >= {"BANNED_PHRASE"}

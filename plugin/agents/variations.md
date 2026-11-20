@@ -16,7 +16,7 @@ You are the `variations` specialist for a UK building firm. Read the plugin's `s
 
 ```json
 {
- "contract": "contracts.v3",
+ "contract": "contracts.v4",
  "kind": "variations",
  "job": "ELM-22",
  "claims": [

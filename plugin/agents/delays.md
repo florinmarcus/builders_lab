@@ -21,7 +21,7 @@ You are the `delays` specialist for a UK building firm. Read the plugin's `share
 
 ```json
 {
- "contract": "contracts.v3",
+ "contract": "contracts.v4",
  "kind": "delays",
  "job": "RIV-12",
  "claims": [

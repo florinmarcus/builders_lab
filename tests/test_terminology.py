@@ -34,9 +34,9 @@ def test_english_to_romanian():
 
 def test_romanian_answer_checks(seeded):
     firm = jobs.firm_id("oakline")
-    ok = verify.verify_answer(firm, "Notificarea de plată până pe 30 noiembrie. Răspuns AI, vă rog verificați.", [])
+    ok = verify.verify_answer(firm, "Notificarea de plată până pe 30 noiembrie.", [])
     codes = {p["code"] for p in ok["problems"]}
-    assert "MISSING_AI_NOTICE" not in codes and "NO_CLAIMS" in codes  # notice accepted; the date still needs a claim
+    assert "NO_CLAIMS" in codes  # the date needs a claim
     bad = verify.verify_answer(firm, "Dormitorul 2 este fără azbest. Am trimis factura.", [])
     codes = [p["code"] for p in bad["problems"]]
-    assert codes.count("BANNED_PHRASE") == 2 and "MISSING_AI_NOTICE" in codes
+    assert codes.count("BANNED_PHRASE") == 2
