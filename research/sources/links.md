@@ -1082,3 +1082,15 @@ Files: `research/reports/Builder tools and integrations.md`, `research/integrati
 - https://zapier.com/blog/what-is-a-task-in-zapier/
 - https://zapier.com/mcp/houzz-pro
 - https://zapier.com/mcp/procore
+
+## Connector login and Cognito (checked 20 Nov 2026)
+
+- https://www.claude.com/docs/connectors/building/authentication
+- https://claude.com/docs/connectors/custom/remote-mcp
+- https://github.com/anthropics/claude-ai-mcp/issues/212
+- https://github.com/anthropics/claude-ai-mcp/issues/402
+- https://code.claude.com/docs/en/hooks
+- https://aws.amazon.com/cognito/pricing/
+- https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html
+- https://markaicode.com/pricing/amazon-cognito-pricing/
+- https://thestack.technology/awss-new-cognito-pricing-complicated-potentially-costly
