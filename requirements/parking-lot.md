@@ -59,6 +59,7 @@ Started 20 Nov 2026. Status of the demo build: steps 1 (mock data plan), 2 (sche
 | S28 | Server-down alarm only emails; auto-recover was dropped (needs a service-linked role the deploy user may not create) | `server.yaml` | Allow `iam:CreateServiceLinkedRole` for CloudWatch Events, then add the recover action back |
 | S29 | Server disk survives stack deletion (`DeleteOnTermination: false`); a failed first create leaves an orphan disk to delete by hand | `server.yaml` | Keep for data safety; check for orphan volumes after failed creates |
 | S30 | Deploy user `builders-claude` holds a long-lived access key with the deploy policy | IAM | Remove the key after setup, or move to SSO / short-lived credentials |
+| S31 | Connector path secret was shown in a screenshot in chat (20 Nov 2026); the key was not | Parameter Store | Rotate the path secret (new value, restart, update the connector URL) |
 | S19 | Cost figures are first-pass, partly guesses, mostly US prices | `research/hosting-costs/connector-auth-options.md` | Review in detail; check London prices |
 | S28 | Postgres runs in Docker on the one server; no managed database, no read replica (raised by Florin 20 Nov 2026) | ADR 0009 | RDS, or a writer plus at least one reader, when traffic or customers need it |
 | S29 | 17 raw corpus files missing: the source now gives different bytes, so they were not restored (16 same size, legislation metadata order) | `corpus/harvest-report.md` | Decide: keep today's bytes with a note in the record, or fetch when evals need them |
@@ -71,5 +72,5 @@ Started 20 Nov 2026. Status of the demo build: steps 1 (mock data plan), 2 (sche
 | Q1 | Can a Claude app connector send a header API key and use OAuth at the same time? | ADR 0007 |
 | Q2 | Does the Claude app have hooks? None found (20 Nov 2026) | `research/hosting-costs/connector-auth-options.md` |
 | Q3 | Can a connector reach files on an iPhone? | `research/backlog.md` item 12 |
-| Q5 | Which request header names does the Claude app accept for a custom connector? We accept `Authorization: Bearer` and `X-API-Key` | ADR 0007 |
+| Q5 | ~~Which header does the Claude app accept?~~ Answered 20 Nov 2026: `Authorization` works with Authentication set to "No sign-in". The server also accepts the key without "Bearer" or without the space | ADR 0007 |
 | Q4 | Is a Claude Code scheduled task reliable enough for regular inbox syncs, or do we need Haiku on the server? | ADR 0006 |
