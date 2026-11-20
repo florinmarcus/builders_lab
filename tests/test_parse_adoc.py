@@ -178,7 +178,7 @@ def _vol1():
 @pytest.fixture(scope="module")
 def adb1():
     pytest.importorskip("pdfplumber")
-    from system.rag.parse_pdf import read_pdf
+    from system.rag.parse_adoc import read_adoc_pdf as read_pdf
     r = _vol1()
     return build_tree(read_pdf(ROOT / r["raw_path"]), {**r, "title": r["part_title"]}, fixes=load_fixes("adb"))
 

@@ -40,8 +40,11 @@ PARSER = "guidance-pdf/0.3"
 SKIP_TITLES = {"contents"}
 BACK_MATTER = {"references": "references", "further information": "further-information"}
 CAPTION_RE = re.compile(r"^(Figure|Table)\s+(\d+)\b")
-PAGE_NO_RE = re.compile(r"\bPage\s+(\S+)\s+of\s+\d+\b")
+PAGE_NO_RE = re.compile(r"\bPage\s+(\S+)\s+of\s+\d+\b|^(\d+)\s+of\s+\d+\s+pages$")
 BULLET_RE = re.compile(r"^[■●•▪]+\s*")
+PART_RE = re.compile(r"^(PART|Part|SCHEDULE|Schedule)\s+(\d+[A-Z]?|[IVX]+)\b")
+# A numbered paragraph: "12 Text" (HSE guides) or "12. Text" / "1.—(1) Text" (legislation printed as PDF).
+PARA_RE = re.compile(r"^(\d{1,3})(?:\.—|\.\s|\s)\s*(\S.*)$")
 
 
 # ---------------------------------------------------------------- reading the PDF
@@ -53,6 +56,12 @@ def _words(chars: list[dict]) -> list[dict]:
 
     def emit():
         w = {"x0": round(x0, 1), "x1": round(x1, 1), "text": cur}
+        if "size" in first:
+            w["s"] = round(first["size"], 1)
+        if first.get("fontname"):
+            w["f"] = first["fontname"].split("+")[-1]
+        if "top" in first:
+            w["t"] = round(first["top"], 1)
         if first.get("fontname") and any(k in first["fontname"] for k in ("Bold", "Heavy", "Black", "Semibold")):
             w["b"] = True
         col = _colour(first.get("non_stroking_color"))
@@ -97,6 +106,140 @@ def _colour(c):
     return None
 
 
+BULLET_FONTS = ("Dingbat", "Wingding", "Symbol")
+GUTTER_MIN_LINES = 3
+
+
+def normalise_bullet(l: dict) -> dict:
+    """A bullet drawn with a symbol font ("n" in ZapfDingbats, a private-use glyph in Wingdings) becomes "•".
+    When the bullet is smaller or in another font than the words after it, the line takes the size and font of
+    its words, so a bullet does not make a body line look like small print."""
+    ws = l.get("words") or []
+    if len(ws) < 2:
+        return l
+    w0 = ws[0]
+    f0 = w0.get("f") or l["font"]
+    glyph = len(w0["text"]) <= 2 and any(k in f0 for k in BULLET_FONTS) and not BULLET_RE.match(w0["text"])
+    if glyph:
+        w0 = {**w0, "text": "•"}
+        ws = [w0, *ws[1:]]
+        l = {**l, "words": ws, "text": " ".join(w["text"] for w in ws)}
+    if (glyph or (w0["text"] in ("•", "●", "▪") and not any(k in f0 for k in BULLET_FONTS))) and ws[1].get("s") \
+            and (ws[1]["s"] != l["size"] or ws[1].get("f") != l["font"]):
+        l = {**l, "size": ws[1]["s"], "font": ws[1].get("f", l["font"])}
+    return l
+
+
+def _is_bullet_word(w: dict, line_font: str = "") -> bool:
+    f = w.get("f") or line_font
+    return bool(BULLET_RE.fullmatch(w["text"])) or (len(w["text"]) <= 2 and any(k in f for k in BULLET_FONTS))
+
+
+def _size_at(ws: list[dict], k: int, l: dict) -> float:
+    """Size of the text starting at word k: a bullet takes the size of the word after it."""
+    if _is_bullet_word(ws[k], l["font"]) and k + 1 < len(ws):
+        k += 1
+    return ws[k].get("s", l["size"])
+
+
+def _segment(l: dict, ws: list[dict]) -> dict:
+    """Part of a line (a run of its words) as a line of its own, with the size and font of its first word."""
+    return {**l, "words": ws, "text": " ".join(w["text"] for w in ws), "x0": ws[0]["x0"],
+            "top": min(w.get("t", l["top"]) for w in ws), "size": ws[0].get("s", l["size"]),
+            "font": ws[0].get("f", l["font"])}
+
+
+def split_columns(lines: list[dict], body_size: float, page_width: float,
+                  tables: list[dict] | None = None) -> list[dict]:
+    """Pages set in columns (a sidebar beside the main text, or two text columns): pdfplumber joins words that
+    sit at the same height in different columns into one line. Find each page's gutters (a wide gap in at least
+    GUTTER_MIN_LINES lines, all at the same place, with body-size text on its right), cut lines there, and give
+    every line its reading order: "band" (full-width lines separate bands) and "col". A narrow first column
+    (under 36% of the page) is a sidebar: its lines are marked "aside".
+    Small print, and lines inside a ruled table, are never cut: table cells are not columns of text."""
+    out: list[dict] = []
+    pages: dict[int, list[dict]] = {}
+    for l in lines:
+        pages.setdefault(l["page"], []).append(l)
+    for page in sorted(pages):
+        ls = pages[page]
+        boxes = [t for t in tables or [] if t["page"] == page]
+        cands = []  # (line index, x where the right part starts)
+        for i, l in enumerate(ls):
+            if any(t["top"] - 2 <= l["top"] <= t["bottom"] and t["x0"] - 2 <= l["x0"] <= t["x1"] for t in boxes):
+                continue
+            ws = l.get("words") or []
+            for k in range(1, len(ws)):
+                a, b = ws[k - 1], ws[k]
+                bs, as_ = _size_at(ws, k, l), a.get("s", l["size"])
+                if (k == 1 and re.match(r"^(\(?[\divxlc]{1,4}[.)]?|\(?[a-z][.)]|[•■●▪–-])$", a["text"])) \
+                        or _is_bullet_word(a, l["font"]):
+                    continue  # a list number or bullet with a hanging indent, not a column
+                if b["x0"] - a.get("x1", a["x0"]) >= max(8.0, 1.2 * bs) and bs >= body_size - 0.5 \
+                        and as_ >= body_size - 1.5:
+                    cands.append((i, b["x0"]))
+        gutters: list[float] = []
+        for _, x in sorted(cands, key=lambda c: c[1]):
+            if any(g - 1 <= x <= g + 25 for g in gutters):  # a column's indented lines (bullets) are the same column
+                continue
+            hits = {i for i, x2 in cands if x - 1 <= x2 <= x + 25}
+            if len(hits) < GUTTER_MIN_LINES:
+                continue
+            # Text columns: few body lines run across the gutter. In a table or a flow chart set in body-size
+            # text, the paragraphs above and below cross it.
+            lo, hi = min(ls[i]["top"] for i in hits), max(ls[i]["top"] for i in hits)
+            crossing = 0
+            for j, l in enumerate(ls):
+                if j in hits or not (lo - 60 <= l["top"] <= hi + 60) or l["size"] < body_size - 0.5:
+                    continue
+                ws = l.get("words") or []
+                if ws and ws[0]["x0"] < x - 2 and max(w.get("x1", w["x0"]) for w in ws) > x + 2:
+                    crossing += 1
+            if crossing * 2 <= len(hits):
+                gutters.append(x)
+        if not gutters:
+            out.extend(ls)
+            continue
+        cut: list[dict] = []
+        for l in ls:
+            ws = l.get("words") or []
+            if any(t["top"] - 2 <= l["top"] <= t["bottom"] and t["x0"] - 2 <= l["x0"] <= t["x1"] for t in boxes):
+                ws = []
+            parts, start = [], 0
+            for k in range(1, len(ws)):
+                a, b = ws[k - 1], ws[k]
+                bs, as_ = _size_at(ws, k, l), a.get("s", l["size"])
+                if any(a.get("x1", a["x0"]) < g - 2 and b["x0"] >= g - 1 for g in gutters) \
+                        and b["x0"] - a.get("x1", a["x0"]) >= max(8.0, 1.2 * bs) and bs >= body_size - 0.5 \
+                        and as_ >= body_size - 1.5:
+                    parts.append(ws[start:k])
+                    start = k
+            if not parts:
+                cut.append(l)
+                continue
+            parts.append(ws[start:])
+            cut.extend(normalise_bullet(_segment(l, p)) for p in parts)
+        band = 0
+        first = gutters[0]
+        left_min = min((l["x0"] for l in cut if l["x0"] < first - 1), default=first)
+        aside = (first - left_min) < 0.36 * page_width
+        for l in sorted(cut, key=lambda l: (l["top"], l["x0"])):
+            ws = l.get("words") or []
+            end = ws[-1].get("x1", l["x0"]) if ws else l["x0"]
+            col = sum(1 for g in gutters if l["x0"] >= g - 1)
+            nxt = gutters[col] if col < len(gutters) else None
+            if nxt is not None and end > nxt + 2:  # crosses a gutter: a full-width line
+                band += 1
+                out.append({**l, "band": band, "col": 0})
+                band += 1
+                continue
+            l = {**l, "band": band, "col": col}
+            if aside and col == 0:
+                l["aside"] = True
+            out.append(l)
+    return out
+
+
 def read_pdf(path) -> dict:
     import pdfplumber
 
@@ -108,11 +251,11 @@ def read_pdf(path) -> dict:
                 m = first.get("matrix") or (1, 0, 0, 1)
                 if not first.get("upright", True) or m[0] < 0 or m[3] < 0:  # sideways or upside-down text
                     continue
-                lines.append({
+                lines.append(normalise_bullet({
                     "page": n, "top": round(l["top"], 1), "x0": round(l["x0"], 1),
                     "size": round(first["size"], 1), "font": first["fontname"].split("+")[-1],
                     "text": l["text"], "words": _words(l["chars"]),
-                })
+                }))
             for r in page.rects:
                 col = _colour(r.get("non_stroking_color"))
                 if r["width"] > 100 and r["height"] > 12 and col and col not in ((1.0,), (1.0, 1.0, 1.0)):
@@ -130,8 +273,12 @@ def read_pdf(path) -> dict:
                                    "x0": round(x0, 1), "x1": round(x1, 1), "rows": rows})
         count = len(pdf.pages)
         width = float(pdf.pages[0].width) if pdf.pages else 595.0
+        height = float(pdf.pages[0].height) if pdf.pages else 842.0
+    sizes = Counter(l["size"] for l in lines)
+    body = sizes.most_common(1)[0][0] if sizes else 10.0
+    lines = split_columns(lines, body, width, tables)
     return {"lines": lines, "rects": rects, "images": images, "tables": tables, "page_count": count,
-            "page_width": width}
+            "page_width": width, "page_height": height}
 
 
 # ---------------------------------------------------------------- building the tree
@@ -164,7 +311,9 @@ class Builder:
         self.doc_tables = doc.get("tables", [])
         self.page_width = doc.get("page_width") or 595.0
         self.title = meta.get("title") or meta.get("source_id", "")
-        self.lines = sorted(doc["lines"], key=lambda l: (l["page"], l["top"], l["x0"]))
+        self.page_height = doc.get("page_height") or 842.0
+        # Reading order: page, then band and column on pages set in columns (split_columns), then top to bottom.
+        self.lines = sorted(doc["lines"], key=lambda l: (l["page"], l.get("band", 0), l.get("col", 0), l["top"], l["x0"]))
         self.rects = doc.get("rects", [])
         self.images = doc.get("images", [])
         self.page_count = doc.get("page_count") or max((l["page"] for l in self.lines), default=0)
@@ -185,7 +334,7 @@ class Builder:
             return re.sub(r"\d+", "#", l["text"].strip())
 
         def band(l):
-            return "top" if l["top"] < 75 else ("bottom" if l["top"] > 800 else None)
+            return "top" if l["top"] < 75 else ("bottom" if l["top"] > self.page_height - 42 else None)
 
         seen: dict[tuple, set] = {}
         for l in self.lines:
@@ -200,7 +349,7 @@ class Builder:
             if b and (b, norm(l)) in furniture:
                 m = PAGE_NO_RE.search(l["text"])
                 if m:
-                    self.printed[l["page"]] = m.group(1)
+                    self.printed[l["page"]] = m.group(1) or m.group(2)
                 continue
             kept.append(l)
         self.lines = kept
@@ -223,7 +372,9 @@ class Builder:
                     rest = ws[k:]
                     if not rest:
                         continue
-                    l = {**l, "words": rest, "text": " ".join(w["text"] for w in rest), "x0": rest[0]["x0"]}
+                    # The rest keeps its own size and font (the label is larger and bold).
+                    l = {**l, "words": rest, "text": " ".join(w["text"] for w in rest), "x0": rest[0]["x0"],
+                         "size": rest[0].get("s", l["size"]), "font": rest[0].get("f", l["font"])}
             kept.append(l)
         self.lines = kept
 
@@ -242,6 +393,7 @@ class Builder:
         self.body_size = sizes.most_common(1)[0][0] if sizes else 10.0
         lefts = Counter(round(l["x0"]) for l in self.lines if l["size"] == self.body_size)
         self.body_left = lefts.most_common(1)[0][0] if lefts else 0
+        self.part_size = max((l["size"] for l in self.lines if PART_RE.match(l["text"].strip())), default=0.0)
 
     def page_label(self, page: int) -> str:
         return self.printed.get(page, str(page))
@@ -361,13 +513,75 @@ class Builder:
 
     def is_chapter(self, l) -> bool:
         # HSG264/HSG227 chapters are at least twice the body size; L143 uses 16pt condensed on 10pt body.
-        return l["size"] >= 2 * self.body_size or (l["size"] >= 1.5 * self.body_size and "Cond" in l["font"])
+        if l["size"] >= 2 * self.body_size or (l["size"] >= 1.5 * self.body_size and "Cond" in l["font"]):
+            return True
+        # Statutory instruments and similar: "PART 1", "SCHEDULE 2" and "CONTENTS" set larger than body text.
+        # Contents pages list the Parts in a smaller size than the Parts themselves: only the largest count.
+        if l["size"] > self.body_size + 0.4:
+            t = l["text"].strip()
+            if t.lower() in SKIP_TITLES:
+                return True
+            if PART_RE.match(t):
+                return l["size"] >= self.part_size - 0.5
+        return False
+
+    def _part_title(self, i: int, title: str) -> tuple[str, int]:
+        """A bare "PART 1" takes the line below it (larger than body text, not bold body text) as its title."""
+        if not PART_RE.fullmatch(title.strip()) or i >= len(self.lines):
+            return title, i
+        nxt, cur = self.lines[i], self.lines[i - 1]
+        if nxt["page"] == cur["page"] and 0 < nxt["top"] - cur["top"] < 40 and nxt["size"] > self.body_size + 0.4 \
+                and not self.is_chapter(nxt):
+            return f"{title} {nxt['text']}", i + 1
+        return title, i
+
+    def is_runin_heading(self, k: int, expected: int) -> bool:
+        """A bold line at body size, at the left margin, just above the next numbered paragraph ("Interpretation"
+        above "2. In these Regulations"): a heading. Legislation printed as PDF sets headings like this."""
+        l = self.lines[k]
+        ws = l.get("words") or []
+        if not ws or not all(w.get("b") for w in ws) or l["size"] != self.body_size or l["text"].rstrip().endswith(".") \
+                or abs(l["x0"] - self.body_left) > 20 or k + 1 >= len(self.lines):
+            return False
+        m = PARA_RE.match(self.lines[k + 1]["text"])
+        return bool(m) and int(m.group(1)) == expected and self.lines[k + 1]["page"] - l["page"] <= 1
+
+    def add_aside(self, block: list[dict], parent: dict) -> dict | None:
+        """Sidebar lines (split_columns marks them "aside"): one note per sidebar heading ("Safety checklist",
+        "Caution:"), or one note for the block if it has none."""
+        groups: list[tuple[str | None, list[str]]] = []
+        for x in block:
+            ws = x.get("words") or []
+            head = bool(ws) and all(w.get("b") for w in ws) and not BULLET_RE.match(x["text"]) and len(ws) <= 8
+            if head and (not groups or groups[-1][1] or groups[-1][0] is None):
+                groups.append((x["text"].strip(), []))
+            elif head and groups and not groups[-1][1]:
+                groups[-1] = (f"{groups[-1][0]} {x['text'].strip()}", [])
+            else:
+                if not groups:
+                    groups.append((None, []))
+                groups[-1][1].append(x["text"])
+        last = None
+        for title, texts in groups:
+            text = ""
+            for t in texts:
+                text = _join(text, t)
+            if not text and not title:
+                continue
+            k = 1 + sum(1 for s in self.sections if s["type"] == "note")
+            last = self.new(f"note-{k}", "note", parent, None, title,
+                            [*parent["heading_path"], title.rstrip(":") if title else "Note"], block[0]["page"], text)
+            last["aside"] = True
+        return last
 
     # -------------------------------------------------- main pass
 
     def build(self) -> dict:
-        mode = "skip"            # skip (cover, contents), content, back
         self.lines_seen_contents = False
+        # Short documents (task sheets, leaflets) have a title on page 1 and no chapter titles after it: the whole
+        # document is one chapter and page 1 is content, not a cover.
+        self.has_chapters = any(self.is_chapter(l) for l in self.lines if l["page"] > 1)
+        mode = "skip" if self.has_chapters else "content"  # skip (cover, contents), content, back
         chapter = heading = None  # current chapter and heading sections
         para = None              # current numbered paragraph or text section
         last_body = None         # last section that can take a footnote
@@ -394,7 +608,10 @@ class Builder:
                     j += 1
                 i = j
                 title = " ".join(parts)
+                title, i = self._part_title(i, title)
                 low = title.lower().strip()
+                if not self.has_chapters:
+                    continue  # the document's own title (page 1)
                 para = None
                 heading = None
                 if l["page"] == 1 or low in SKIP_TITLES:
@@ -409,7 +626,17 @@ class Builder:
                 mode = "content"
                 m_num = re.match(r"^(\d+)\s+(.*)$", title)
                 m_app = re.match(r"^Appendix\s+(\d+)\s*[:\-–—]?\s*(.*)$", title, flags=re.I)
-                if m_app:
+                m_part = PART_RE.match(title)
+                if m_part:
+                    kind, n = m_part.group(1).lower(), m_part.group(2)
+                    t = title[m_part.end():].strip(" :-–—")
+                    cid = f"{kind}-{n.lower()}"
+                    while cid in self.by_id:
+                        cid += "-2"
+                    chapter = self.new(cid, "appendix" if kind == "schedule" else "chapter", None, n, t or title,
+                                       [self.title, title], l["page"])
+                    counter_key = cid if kind == "schedule" else "main"
+                elif m_app:
                     n, t = m_app.group(1), m_app.group(2).lstrip(":-–— ")
                     chapter = self.new(f"appendix-{n}", "appendix", None, n, t, [self.title, f"Appendix {n} {t}"], l["page"])
                     counter_key = chapter["id"]
@@ -437,7 +664,19 @@ class Builder:
             if mode == "back":
                 chapter["text"] = "\n".join(x for x in [chapter["text"], l["text"]] if x)
                 continue
+            if chapter is None:  # a document without chapter titles: one chapter, named after the document
+                chapter = self.new("document", "chapter", None, None, self.title, [self.title], l["page"])
             parent = heading or chapter
+            # ---- sidebar (split_columns): notes beside the main text
+            if l.get("aside"):
+                block = [l]
+                while i < len(self.lines) and self.lines[i].get("aside") and self.lines[i]["page"] == l["page"] \
+                        and not self.is_chapter(self.lines[i]):
+                    if i not in consumed:
+                        block.append(self.lines[i])
+                    i += 1
+                last_body = self.add_aside(block, parent) or last_body
+                continue
             # ---- captions (figures and tables); two captions may share a line
             if self.is_caption(l):
                 prev_caption_line = []
@@ -529,7 +768,8 @@ class Builder:
                                      l["page"], text)
                 continue
             # ---- headings (merge wrapped heading lines)
-            if self.is_heading(l):
+            expected = counters.get(counter_key, 0) + 1
+            if self.is_heading(l) or self.is_runin_heading(k_line, expected):
                 title = l["text"]
                 while i < len(self.lines) and self.is_heading(self.lines[i]) and self.lines[i]["page"] == l["page"] \
                         and self.lines[i]["top"] - l["top"] < 16 and not self.rect_of(self.lines[i]):
@@ -542,9 +782,10 @@ class Builder:
                 para = None
                 continue
             # ---- numbered paragraphs and running text
-            m = re.match(r"^(\d{1,3})\s+(\S.*)$", l["text"])
-            expected = counters.get(counter_key, 0) + 1
-            if m and abs(l["x0"] - self.body_left) <= 2 and int(m.group(1)) == expected:
+            m = PARA_RE.match(l["text"])
+            dotted = bool(m) and l["text"][len(m.group(1))] == "."
+            if m and int(m.group(1)) == expected and (abs(l["x0"] - self.body_left) <= 2 or
+                                                       (dotted and abs(l["x0"] - self.body_left) <= 20)):
                 counters[counter_key] = expected
                 n = m.group(1)
                 sid = f"para-{n}" if counter_key == "main" else f"{counter_key}-para-{n}"

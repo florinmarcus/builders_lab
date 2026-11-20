@@ -38,17 +38,20 @@ from collections import Counter, defaultdict
 
 from system.rag.corpus import CORPUS_DIR, slugify
 from system.rag.fixes import content_key, index, load_fixes
-from system.rag.parse_pdf import read_pdf, render_images
+from system.rag.parse_pdf import render_images
 
 PARSER = "approved-document-pdf/0.1"
 BODY = 12.0
 SMALL = 10.6  # below this: diagram labels, table text, requirement boxes (some list items are 11pt)
 RARE_AFTER_F = set("bcdgjkmnpqsvwxz")  # letters that almost never follow "f" in English words
-NUM_RE = re.compile(r"^(\d{1,2}\.\d{1,3}|[A-G]\d{1,3})$")
+NUM_RE = re.compile(r"^(\d{1,2}\.\d{1,3}|[A-G]\d{1,3}|\d[A-H]\d{1,2})$")  # 2.5, B24, 2C17 (AD A sections 2A-2E)
 LIST_RE = re.compile(r"^(?:[a-z]|[ivx]{1,4})\.\s|^•\s|^\(\w{1,4}\)\s")
 TABLE_RE = re.compile(r"^Table ([A-Z]?\d+(?:\.\d+)?)\b\s*(.*)$")
+TABLE_TO_RE = re.compile(r"^Table (to Diagram \d+)\b\s*(.*)$")  # AD J: "Table to Diagram 34"
+CONTINUED_RE = re.compile(r"^(Continued on page \d+|Continued)$")
 DIAGRAM_RE = re.compile(r"^Diagram ([A-Z]?\d+(?:\.\d+)?|[ivx]{1,4})\b\s*(.*)$")
-BANNER_RE = re.compile(r"(?i)(effective until|effective from) (\d{1,2} \w+ \d{4})")
+DOUBLED_RE = re.compile(r"(ffi|ffl|fi|fl)\1+")  # a ligature printed twice: "specifification"
+BANNER_RE =re.compile(r"(?i)(effective until|effective from) (\d{1,2} \w+ \d{4})")
 SKIP_CHAPTERS = {"contents"}
 STOP_CHAPTERS = {"index", "list of approved documents"}
 
@@ -64,6 +67,12 @@ def _white(w) -> bool:
 def _green(w) -> bool:
     c = w.get("c")
     return bool(c) and len(c) == 3 and c[1] > 0.3 and c[0] < 0.2 and c[2] < 0.5
+
+
+def _accent(w) -> bool:
+    """Text in a spot (one-ink) colour: the key terms of the 2013 editions."""
+    c = w.get("c")
+    return bool(c) and len(c) == 1 and c[0] > 0.5
 
 
 def _bold(w) -> bool:
@@ -94,14 +103,26 @@ class AdocBuilder:
         self.banner: dict[int, tuple[str, str]] = {}
         self.pages: dict[int, list[dict]] = defaultdict(list)
         self._diagram_top: dict[tuple[int, int], float] = {}
+        self._diagram_area: dict[tuple[int, int], tuple[float, float, float, float]] = {}
+        self.gutter: dict[int, float] = {}
+        sizes = Counter()
+        for l in doc["lines"]:
+            if 100 < l["top"] < 780:
+                sizes[l["size"]] += len(l["text"])
+        body = sizes.most_common(1)[0][0] if sizes else BODY
+        # The older two-column layout (2004-2016 editions: A, C, E, G, H, J, M ...): 10.5pt body text, 23pt chapter
+        # titles, 14pt headings, captions in 12pt roman type above the drawing or table.
+        self.classic = 9.8 <= body <= 11.2
+        self.body = body
         self._furniture(doc["lines"])
 
     # -------------------------------------------------- pages
 
     def _furniture(self, lines) -> None:
+        head = 40 if self.classic else 82  # classic: the section tab and running header sit above 40
         for l in sorted(lines, key=lambda l: (l["page"], l["top"], l["x0"])):
             t = l["text"].strip()
-            if l["top"] < 82:
+            if l["top"] < head:
                 m = BANNER_RE.search(t)
                 if m:
                     self.banner[l["page"]] = ("until" if "until" in m.group(1).lower() else "from", _date(m.group(2)))
@@ -109,13 +130,111 @@ class AdocBuilder:
             if l["top"] >= 795:
                 if re.fullmatch(r"[0-9]{1,3}|[ivxlc]{1,6}", t) and l["size"] >= 13:
                     self.printed[l["page"]] = t
+                elif self.classic:  # "O N L I N E V E R S I O N 13", "14 O N L I N E V E R S I O N"
+                    m = re.fullmatch(r"(?:([0-9]{1,3}|[ivxlc]{1,6})\s+)?O N L I N E V E R S I O N(?:\s+([0-9]{1,3}|[ivxlc]{1,6}))?", t)
+                    if m and (m.group(1) or m.group(2)):
+                        self.printed[l["page"]] = m.group(1) or m.group(2)
                 continue
             if "O N L I N E" in t:
                 continue
+            if self.classic:
+                l = self._normalise(l)
             self.pages[l["page"]].append(_line(l["words"], l) if l.get("words") else l)
         self._ligatures()
+        if self.classic:
+            self._find_gutters()
         for p in self.pages:
-            self.pages[p] = self._columns(p, self._scripts(self.pages[p]))
+            ls = self._scripts(self.pages[p])
+            self.pages[p] = self._columns_classic(p, ls) if self.classic else self._columns(p, ls)
+
+    def _normalise(self, l: dict) -> dict:
+        """Classic layout: map sizes onto the 2019 ones the rest of the parser knows (body 12, headings 15,
+        chapters 26), and mark captions ("Table 2 ...", "Diagram 1 ...", 12pt roman) for regions()."""
+        s, ws = l["size"], l.get("words") or []
+        bold0 = bool(ws) and _bold(ws[0])
+        if abs(s - self.body) <= 0.6:
+            s = BODY
+        elif 22 <= s <= 24 and bold0:
+            s = 26.0
+        elif 13.5 <= s <= 14.5 and bold0:
+            s = 15.0
+        elif 11.5 <= s <= 12.5 and ws and not bold0 and re.match(r"^(Table|Diagram)$", ws[0]["text"]):
+            return {**l, "size": BODY + 0.5, "cap": True}
+        elif 11.5 <= s <= 12.5:
+            s = 13.0  # other 12pt text (sub-headings): above body, below headings
+        return {**l, "size": s}
+
+    def _find_gutters(self) -> None:
+        """The gutter of each page: where the right column starts (it differs on odd and even pages). Pages with
+        little text use the most common gutter of pages with the same parity."""
+        found: dict[int, float] = {}
+        for p, ls in self.pages.items():
+            xs = Counter()
+            for l in ls:
+                ws = l.get("words") or []
+                if abs(l["size"] - BODY) > 0.6 or not ws:
+                    continue
+                if 280 <= ws[0]["x0"] <= 345:
+                    xs[round(ws[0]["x0"])] += 1
+                for a, b in zip(ws, ws[1:]):
+                    if b["x0"] - a["x1"] > 8 and 280 <= b["x0"] <= 345:
+                        xs[round(b["x0"])] += 1
+            good = [x for x, c in xs.items() if c >= 3]
+            if good:
+                found[p] = float(min(good))
+        for parity in (0, 1):
+            vals = Counter(v for p, v in found.items() if p % 2 == parity)
+            default = vals.most_common(1)[0][0] if vals else 310.0
+            for p in self.pages:
+                if p % 2 == parity:
+                    self.gutter[p] = found.get(p, default)
+
+    def _columns_classic(self, page: int, lines: list[dict]) -> list[dict]:
+        """Classic layout: cut lines at the gutter, give each a column (0 left, 1 right, None for lines that cross
+        the gutter: chapter titles, wide tables and drawings) and read band by band: lines that cross the gutter
+        separate bands; inside a band the left column comes first."""
+        g = self.gutter.get(page, 310.0)
+        parts = []
+        for l in lines:
+            ws = l.get("words") or []
+            if not ws:
+                continue
+            if BODY - 0.6 <= l["size"] <= 21 and not l.get("cap"):
+                lw = [w for w in ws if w["x0"] < g - 4]
+                rw = [w for w in ws if w["x0"] >= g - 4]
+                if lw and rw:
+                    parts += [{**_line(lw, l), "col": 0}, {**_line(rw, {**l, "x0": rw[0]["x0"]}), "col": 1}]
+                    continue
+            if l.get("cap"):  # a caption beside text in the other column: cut at the gutter, keep its own part
+                lw = [w for w in ws if w["x0"] < g - 4]
+                rw = [w for w in ws if w["x0"] >= g - 4]
+                if lw and rw and lw[-1]["x1"] < g - 2:
+                    other = {k: v for k, v in l.items() if k != "cap"}
+                    if ws[0]["x0"] < g - 4:
+                        parts += [{**_line(lw, l), "col": 0}, {**_line(rw, {**other, "size": BODY}), "col": 1}]
+                    continue
+            x1 = max(w["x1"] for w in ws)
+            col = 1 if ws[0]["x0"] >= g - 4 else (0 if x1 <= g - 1 else None)
+            if l["size"] > 21:
+                col = None
+            parts.append({**l, "col": col})
+        parts.sort(key=lambda l: (l["top"], l["x0"]))
+        left = {}
+        for l in parts:
+            if l["col"] is not None and abs(l["size"] - BODY) < 0.6:
+                left[l["col"]] = min(left.get(l["col"], 1e9), l["x0"])
+        for l in parts:
+            if l["col"] in left:
+                l["indent"] = l["x0"] - left[l["col"]]
+        band, prev_full, out = 0, False, []
+        for l in parts:
+            full = l["col"] is None
+            if full != prev_full:
+                band += 1
+            prev_full = full
+            out.append((band, l["col"] or 0, l["top"], l["x0"], l))
+        out.sort(key=lambda x: x[:4])
+        return [x[4] for x in out]
 
     def _scripts(self, lines: list[dict]) -> list[dict]:
         """Put small sub- and superscripts (B ROOF, footnote marks) back into the text line they belong to."""
@@ -143,7 +262,20 @@ class AdocBuilder:
     def _ligatures(self) -> None:
         """Some words lose letters of an "fi" or "fl" pair in these PDFs ("fre", "foor", "specifed", "Ofces"), show
         "ff" as a degree sign ("E°ective"), or split a capital from its word ("M easurement"). Put them back when
-        the repaired word is more common in the same document than the broken one (and used at least 3 times). Every repair is counted."""
+        the repaired word is more common in the same document than the broken one (and used at least 3 times). Every repair is counted.
+        Some 2021-2023 PDFs (AD L, F, O) print a ligature twice ("specifification", "flfloor", "effiffifficiency"):
+        the repeated pair is dropped first."""
+        self.repairs: Counter = Counter()
+        for ls in self.pages.values():
+            for l in ls:
+                changed = False
+                for w in l.get("words") or []:
+                    if DOUBLED_RE.search(w["text"]):
+                        good = DOUBLED_RE.sub(r"\1", w["text"])
+                        self.repairs[f"{w['text']} -> {good}"] += 1
+                        w["text"], changed = good, True
+                if changed:
+                    l["text"] = _text(l["words"])
         vocab = Counter(re.sub(r"[^a-z]", "", w["text"].lower()) for ls in self.pages.values() for l in ls
                         for w in l.get("words") or [])
         fixes: dict[str, str] = {}
@@ -167,7 +299,6 @@ class AdocBuilder:
                                 best = cand
             if best:
                 fixes[word] = best
-        self.repairs: Counter = Counter()
         for ls in self.pages.values():
             for l in ls:
                 changed = False
@@ -214,7 +345,7 @@ class AdocBuilder:
             for a, b in zip(ws, ws[1:]):
                 if b["x0"] - a["x1"] > 10 and 280 <= b["x0"] <= 345:
                     gutters[round(b["x0"])] += 1
-        if sum(gutters.values()) < 6:
+        if sum(gutters.values()) < 6 or max(gutters.values()) < 2:  # scattered starts are not a column
             return lines
         g = min(x for x, c in gutters.items() if c >= 2)  # the right column can have two indents: use the outer one
         left, right = [], []
@@ -246,9 +377,15 @@ class AdocBuilder:
             sec["valid_to"] = chap["valid_to"]
         if chap and chap.get("valid_from"):
             sec["valid_from"] = chap["valid_from"]
+        if sid in self.by_id and chap and kind in ("paragraph", "table", "figure") \
+                and self.by_id[sid].get("_chapter") not in (None, chap["id"]):
+            # The same number in another chapter (two volumes or two Parts in one booklet): scope it by chapter.
+            sid = sec["id"] = f"{chap['id']}-{sid}"
         if sid in self.by_id:
             self.issues.append(f"duplicate section id {sid} (file page {page})")
             sid = sec["id"] = f"{sid}-p{page}"
+        if chap:
+            sec["_chapter"] = chap["id"]
         self.sections.append(sec)
         self.by_id[sid] = sec
         return sec
@@ -274,6 +411,8 @@ class AdocBuilder:
         where n numbers the region on the page."""
         out: dict[int, tuple[str, int]] = {}
         n = 0
+        if self.classic:
+            n = self._regions_classic(page, lines, out)
         # Diagrams: white caption, then labels back to the last body-size line above.
         i = 0
         while i < len(lines):
@@ -333,6 +472,46 @@ class AdocBuilder:
             prev = i
         return out
 
+    def _regions_classic(self, page: int, lines: list[dict], out: dict) -> int:
+        """Classic layout: the caption sits above its table or drawing. The region is the small print below the
+        caption, in the caption's column (or both columns when the small print crosses the gutter), down to the
+        next body-size line or caption there."""
+        g = self.gutter.get(page, 310.0)
+        n = 0
+        caps = [i for i, l in enumerate(lines) if l.get("cap")]
+        for i in caps:
+            if i in out:
+                continue
+            c = lines[i]
+            kind = "table" if c["text"].startswith("Table") else "diagram"
+            if not (TABLE_RE.match(c["text"]) or TABLE_TO_RE.match(c["text"])) if kind == "table" else not DIAGRAM_RE.match(c["text"]):
+                continue
+            n += 1
+            out[i] = ("table-caption" if kind == "table" else "caption", n)
+            col = 1 if c["x0"] >= g - 4 else 0
+            last = c
+            wraps = [k for k, m in enumerate(lines) if k not in out and 12.4 <= m["size"] <= 13.1]
+            for k in sorted(wraps, key=lambda k: lines[k]["top"]):  # wrapped caption (its words can be bold)
+                m = lines[k]
+                if 0 < m["top"] - last["top"] < 16 and -2 <= m["x0"] - c["x0"] < 60 \
+                        and not TABLE_RE.match(m["text"]) and not DIAGRAM_RE.match(m["text"]):
+                    out[k] = ("table-caption-more" if kind == "table" else "caption", n)
+                    last = m
+            below = [k for k, m in enumerate(lines) if k not in out and m["top"] > last["top"] + 2
+                     and m["top"] - last["top"] < 60 and m["size"] < SMALL]
+            wide = col == 0 and any(lines[k].get("col") is None or lines[k].get("col") == 1 for k in below)
+            cols = {0, 1, None} if wide else {col, None}
+            stops = [m["top"] for k, m in enumerate(lines) if m["top"] > last["top"] + 2 and m.get("col") in cols
+                     and (m["size"] >= SMALL and k not in out or m.get("cap") and k not in out)]
+            bottom = min(stops, default=795.0)
+            for k, m in enumerate(lines):
+                if k not in out and last["top"] < m["top"] < bottom and m["size"] < SMALL and m.get("col") in cols:
+                    out[k] = (kind, n)
+            x0, x1 = (28.0, self.page_width - 28.0) if wide else ((28.0, g - 2) if col == 0 else (g - 10, self.page_width - 28.0))
+            if kind == "diagram":
+                self._diagram_area[(page, n)] = (c["top"] - 4, min(bottom - 4, 800.0), x0, x1)
+        return n
+
     # -------------------------------------------------- build
 
     def build(self) -> dict:
@@ -340,6 +519,7 @@ class AdocBuilder:
         root = None
         h1 = h2 = h3 = None
         current = None  # the section running text goes to
+        prev_line = None  # ((page, column), top) of the last line added to running text
         skipping = True  # cover
         tables: dict[str, dict] = {}
         last_table = None
@@ -347,7 +527,9 @@ class AdocBuilder:
             lines = self.pages[page]
             reg = self.regions(page, lines)
             region_secs: dict[int, dict] = {}
-            tiny = [l for k, l in enumerate(lines) if reg.get(k, ("",))[0] == "small" and l["size"] < 9.0]
+            # (classic layout: tables and requirement boxes are set in 8pt, so only far smaller text counts)
+            tiny = [l for k, l in enumerate(lines) if reg.get(k, ("",))[0] == "small"
+                    and l["size"] < (6.5 if self.classic else 9.0)]
             if len(tiny) >= 10:
                 # A picture of a page made of text (AD B page 8, the "how to use" sample page): if it has a diagram
                 # caption, everything else on the page is that diagram's labels; if not, skip the page.
@@ -355,13 +537,20 @@ class AdocBuilder:
                 if not caps:
                     self.issues.append(f"file page {page}: picture made of text with no caption, {len(lines)} lines skipped")
                     continue
-                reg = {k: (reg[k] if reg.get(k, ("",))[0] == "caption" else ("diagram", caps[0][1]))
-                       for k in range(len(lines))}
+                # Text below the caption band is the page's own text again (AD P page 14: para 2.5 under Diagram 1).
+                cap_bottom = max(lines[k]["top"] for k, v in reg.items() if v == caps[0])
+                new = {}
+                for k in range(len(lines)):
+                    if lines[k]["top"] <= cap_bottom:
+                        new[k] = reg[k] if reg.get(k, ("",))[0] == "caption" else ("diagram", caps[0][1])
+                    elif k in reg:
+                        new[k] = reg[k]
+                reg = new
                 self._diagram_top[(page, caps[0][1])] = 0.0  # the picture fills the page
             for i, l in enumerate(lines):
                 ws = l.get("words") or []
                 t = l["text"].strip()
-                if not t:
+                if not t or self.classic and CONTINUED_RE.match(t):
                     continue
                 kind, n = reg.get(i, (None, None))
                 # Chapters
@@ -391,6 +580,13 @@ class AdocBuilder:
                     chap["number"] = m.group(2) if m else None
                     base = f"{m.group(1).lower()}-{m.group(2).lower()}" if m else slugify(title)[:60]
                     chap["id"] = base + self.suffix()
+                    if chap["id"] in self.by_id and m:  # "Regulation 23(1) ..." and "Regulation 23(2) ...": use the code words
+                        chap["id"] = slugify(title.split(":")[0])[:60] + self.suffix()
+                    if chap["id"] in self.by_id and not m:  # a second "Guidance" chapter: number it
+                        k = 2
+                        while f"{chap['id']}-{k}" in self.by_id:
+                            k += 1
+                        chap["id"] += f"-{k}"
                     if chap["id"] in self.by_id:
                         self.issues.append(f"duplicate section id {chap['id']} (file page {page})")
                         chap["id"] += f"-p{page}"
@@ -411,13 +607,13 @@ class AdocBuilder:
                     continue
                 # Tables
                 if kind == "table-caption":
-                    m = TABLE_RE.match(t)
-                    num, rest = m.group(1), m.group(2).strip()
+                    m = TABLE_RE.match(t) or TABLE_TO_RE.match(t)
+                    num, rest = m.group(1), m.group(2).strip().lstrip(":").strip()
                     if rest.lower().startswith("continued") and last_table:
                         region_secs[n] = last_table
                         self.span(last_table, page, l["top"], l["top"] + 14)
                         continue
-                    sid = f"table-{num.lower()}" + self.suffix()
+                    sid = f"table-{slugify(num) if ' ' in num else num.lower()}" + self.suffix()
                     sec = self.add(sid, "table", parent_h, num, (rest), page)
                     sec["kind_label"] = "table"
                     self.span(sec, page, l["top"], l["top"] + 14)
@@ -441,7 +637,8 @@ class AdocBuilder:
                 if kind == "small":
                     sec = region_secs.get(n)
                     if sec is None:
-                        is_req = self.chapter["id"].startswith(("requirement-", "regulation-"))
+                        is_req = self.chapter["id"].startswith(("requirement-", "regulation-")) or \
+                            re.match(r"(?i)^(the )?requirements?\b", self.chapter["title"] or "")
                         block = [m for k2, m in enumerate(lines) if reg.get(k2) == ("small", n)]
                         sizes = sorted(m["size"] for m in block)
                         if is_req:
@@ -466,20 +663,25 @@ class AdocBuilder:
                     self.span(sec, page, l["top"], l["top"] + l["size"] + 2)
                     continue
                 all_bold = ws and all(_bold(w) for w in ws)
+                if self.classic and all_bold and abs(l["size"] - BODY) < 0.6 and prev_line and current is not None \
+                        and current["type"] in ("paragraph", "text") and prev_line[0] == (page, l.get("col")) \
+                        and 0 < l["top"] - prev_line[1] < 13:
+                    all_bold = False  # a bold run-in title wrapping onto the next line ("2C6 Solid external walls ...")
                 # Definitions (key terms): a bold term at the start of a line, then its meaning.
-                if self.chapter["id"].startswith("appendix-a") and ws and _bold(ws[0]) and not t.startswith("NOTE") \
-                        and abs(l["size"] - BODY) < 0.6:
+                # Older editions (AD P 2013) print the term in the accent colour on its own line, the meaning below.
+                if self.chapter["id"].startswith("appendix-a") and ws and not t.startswith("NOTE") \
+                        and (_bold(ws[0]) or all(_accent(w) for w in ws)) and abs(l["size"] - BODY) < 0.6:
                     k = 0
-                    while k < len(ws) and _bold(ws[k]):
+                    while k < len(ws) and (_bold(ws[k]) or _accent(ws[k])):
                         k += 1
-                    term = _text(ws[:k]).lstrip("*").strip()
+                    term = _text(ws[:k]).strip("*").strip()
                     if current is not None and current["type"] == "definition" and not current["text"]:
                         current["title"] = f"{current['title']} {term}"  # the term wraps onto this line
                         current["heading_path"][-1] = current["title"]
                         current["text"] = _text(ws[k:])
                         self._terms(current, ws[k:])
                         continue
-                    from_regs = ws[0]["text"].startswith("*")
+                    from_regs = ws[0]["text"].startswith("*") or ws[k - 1]["text"].endswith("*")
                     sec = self.add(f"definition-tmp-{len(self.sections)}", "definition", self.chapter, None, term, page, _text(ws[k:]))
                     sec["from_building_regulations"] = from_regs
                     current = sec
@@ -519,12 +721,14 @@ class AdocBuilder:
                     m = re.match(r"^(\d{1,2}\.\d{1,3}|[A-G]\d{1,3})([A-Z][a-z].*)$", ws[0]["text"])
                     if m:
                         ws = [{**ws[0], "text": m.group(1)}, {**ws[0], "text": m.group(2), "b": False}] + ws[1:]
-                if ws and _bold(ws[0]) and NUM_RE.match(ws[0]["text"]) and abs(l["size"] - BODY) < 0.6:
+                if ws and _bold(ws[0]) and NUM_RE.match(ws[0]["text"]) and abs(l["size"] - BODY) < 0.6 \
+                        and l.get("indent", 0) <= 4:  # classic: bold cross-references inside indented lists
                     num = ws[0]["text"]
                     sec = self.add(f"para-{num.lower()}" + self.suffix(), "paragraph", parent_h, num,
                                    f"Paragraph {num}", page, _text(ws[1:]))
                     current = sec
                     self._terms(sec, ws[1:])
+                    prev_line = ((page, l.get("col")), l["top"])
                     continue
                 # Running text
                 if current is None or current["type"] in ("chapter", "appendix", "heading"):
@@ -532,11 +736,13 @@ class AdocBuilder:
                     k = 1 + sum(1 for s in self.sections if s["parent_id"] == host["id"] and s["type"] == "text")
                     current = self.add(f"{host['id']}-text-{k}", "text", host, None, None, page)
                 current["text"] = self._join(current["text"], t)
+                prev_line = ((page, l.get("col")), l["top"])
                 self._terms(current, ws)
             # Close this page's diagrams.
             for n, r in region_secs.items():
                 if isinstance(r, dict) and "caption" in r and r["caption"]:
-                    self._diagram(page, r, h3 or h2 or h1 or self.chapter, self._diagram_top.get((page, n), 0.0))
+                    self._diagram(page, r, h3 or h2 or h1 or self.chapter, self._diagram_top.get((page, n), 0.0),
+                                  self._diagram_area.get((page, n)))
         return self.finish()
 
     def _heading(self, t, page, parent, level, l) -> dict:
@@ -548,12 +754,16 @@ class AdocBuilder:
         sec["_size"] = l["size"]
         return sec
 
-    def _diagram(self, page, r, parent, above: float = 0.0) -> None:
+    def _diagram(self, page, r, parent, above: float = 0.0, area=None) -> None:
         cap = " ".join(c["text"] for c in r["caption"])
         m = DIAGRAM_RE.match(cap)
         num, title = m.group(1), (m.group(2).strip())
         labels = [(x["text"]) for x in sorted(r["labels"], key=lambda x: (x["top"], x["x0"]))]
-        sec = self.add(f"diagram-{num.lower()}" + self.suffix(), "figure", parent, num, title, page, title)
+        sid = f"diagram-{num.lower()}" + self.suffix()
+        prev = self.by_id.get(sid)
+        if prev is not None and prev["type"] == "figure" and prev["file_page"] == page - 1:
+            sid += "-continued"  # a diagram carried over two pages (AD A Diagram 6)
+        sec = self.add(sid, "figure", parent, num, title, page, title)
         sec["kind_label"] = "diagram"
         sec["labels"] = labels
         # The drawing can reach above its highest label: cut from just below the last text line above it.
@@ -561,6 +771,9 @@ class AdocBuilder:
         bottom = max(x["top"] for x in r["caption"]) + 16
         sec["area"] = {"page": page, "top": max(70.0, top), "bottom": min(800.0, bottom), "x0": 28.0,
                        "x1": self.page_width - 28.0}
+        if area:  # classic layout: caption above, the drawing below it down to the next text
+            sec["area"] = {"page": page, "top": max(40.0, area[0]), "bottom": max(area[0] + 40, area[1]),
+                           "x0": area[2], "x1": area[3]}
         sec["caption_box"] = {"page": page, "top": r["caption"][0]["top"], "x0": r["caption"][0]["x0"], "x1": 10_000}
         self.span(sec, page, sec["area"]["top"], sec["area"]["bottom"])
 
@@ -602,6 +815,7 @@ class AdocBuilder:
             s.pop("_top", None)
             s.pop("_heading_top", None)
             s.pop("_size", None)
+            s.pop("_chapter", None)
             s["text"] = (s["text"]) if s.get("text") else s.get("text", "")
         self.attach_grids()
         for s in self.sections:
@@ -661,6 +875,46 @@ class AdocBuilder:
         return content_key(s["id"] + "\n" + s["text"] + "\n" + " ".join(s.get("labels", [])))
 
 
+def read_adoc_pdf(path) -> dict:
+    """The PDF's lines, words, coloured boxes, images and ruled tables, as pdfplumber gives them. Lines are
+    NOT cut into columns here (parse_pdf.read_pdf does that for HSE guides): this parser finds the Approved
+    Document columns itself, so a change to the guide reader does not move AD text and its saved fixes."""
+    import pdfplumber
+
+    from system.rag.parse_pdf import _colour, _words
+
+    lines, rects, images, tables = [], [], [], []
+    with pdfplumber.open(str(path)) as pdf:
+        for n, page in enumerate(pdf.pages, start=1):
+            for l in page.extract_text_lines(return_chars=True):
+                first = l["chars"][0]
+                m = first.get("matrix") or (1, 0, 0, 1)
+                if not first.get("upright", True) or m[0] < 0 or m[3] < 0:  # sideways or upside-down text
+                    continue
+                lines.append({"page": n, "top": round(l["top"], 1), "x0": round(l["x0"], 1),
+                              "size": round(first["size"], 1), "font": first["fontname"].split("+")[-1],
+                              "text": l["text"], "words": _words(l["chars"])})
+            for r in page.rects:
+                col = _colour(r.get("non_stroking_color"))
+                if r["width"] > 100 and r["height"] > 12 and col and col not in ((1.0,), (1.0, 1.0, 1.0)):
+                    rects.append({"page": n, "top": round(r["top"], 1), "bottom": round(r["bottom"], 1),
+                                  "x0": round(r["x0"], 1), "x1": round(r["x1"], 1), "colour": col})
+            for im in page.images:
+                images.append({"page": n, "top": round(im["top"], 1), "bottom": round(im["bottom"], 1),
+                               "x0": round(im["x0"], 1), "x1": round(im["x1"], 1)})
+            for t in page.find_tables():  # ruled tables: a hint for the model check
+                rows = [[" ".join((c or "").split()) for c in row] for row in t.extract()]
+                rows = [r for r in rows if any(r)]
+                if rows:
+                    x0, top, x1, bottom = t.bbox
+                    tables.append({"page": n, "top": round(top, 1), "bottom": round(bottom, 1),
+                                   "x0": round(x0, 1), "x1": round(x1, 1), "rows": rows})
+        count = len(pdf.pages)
+        width = float(pdf.pages[0].width) if pdf.pages else 595.0
+    return {"lines": lines, "rects": rects, "images": images, "tables": tables, "page_count": count,
+            "page_width": width}
+
+
 def build_tree(doc: dict, meta: dict, fixes: list[dict] | None = None) -> dict:
     return AdocBuilder(doc, meta, fixes).build()
 
@@ -687,7 +941,7 @@ def main(argv: list[str] | None = None) -> int:
             return 1
         meta = {**r, "title": r.get("part_title") or src.get("title", a.source),
                 "image_display": src.get("images", "show") != "check-only"}
-        tree = build_tree(read_pdf(raw), meta, fixes=load_fixes(a.source))
+        tree = build_tree(read_adoc_pdf(raw), meta, fixes=load_fixes(a.source))
         out = CORPUS_DIR / "parsed" / a.source / f"{r['version_id']}.json"
         out.parent.mkdir(parents=True, exist_ok=True)
         render_images(raw, tree, out.parent / r["version_id"])
