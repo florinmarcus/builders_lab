@@ -27,6 +27,26 @@ Builders of every size, mostly private clients and main contractors, some counci
 - **RAMS module:** draft a RAMS from the job's own documents (works order, asbestos survey), not a typed description. Never claim compliance; competent person signs.
 - **WhatsApp:** check the WhatsApp Business Platform route (business number, forward messages and files). Meta approval will not be ready by Saturday: show as "coming next" unless a test number works.
 
+## Priority 2b: the Builders plugin (ADR 0005)
+
+Package what works as a Claude plugin in `plugin/`:
+
+```
+plugin/
+  .claude-plugin/plugin.json   name "builders", version, description
+  .mcp.json                    our builders MCP server + Gmail, Xero, DocuSign
+  shared/                      rules: sources and dates, drafts only, asbestos wording, untrusted content, personal data
+  skills/
+    variation-log/SKILL.md
+    payment-notice-check/SKILL.md
+    subcontractor-pack-check/SKILL.md
+    handover-missing-items/SKILL.md
+    regs-question/SKILL.md
+  README.md                    install and "what you can say"
+```
+
+For Saturday, the connector alone is enough; show the plugin as the way builders will install it. Check whether plugins work in the Claude phone app.
+
 ## Priority 3
 
 - Voice: dictation already works with connectors. Check only whether spoken voice mode (Claude talks back) can use custom connectors.
