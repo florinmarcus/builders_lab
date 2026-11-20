@@ -19,7 +19,7 @@ flowchart LR
     chk -.-> fixes
     chk -.-> tree[("corpus/parsed<br/>document trees (JSON)<br/>not in git")]
     lib -.-> img[("Images<br/>diagrams, photos")]
-    tree -.-> chunk["Chunker"]
+    tree --> chunk["Chunker<br/>chunk.py → corpus/chunks<br/>+ chunk-report.md"]
     chunk -.-> pg[("Postgres + pgvector<br/>on the server")]
     img -.-> pg
 ```
@@ -120,6 +120,10 @@ erDiagram
 | Tables | table, plus one sentence per row | Model checks every table against the page image. |
 | Diagrams, photos | figure | Original image cut from the PDF (a photo is cut to its own pixels above its caption, since the PDF's image box can be padded); caption, labels and model description are searchable. No Mermaid redraw. |
 | AD B change notes | change note | Linked to the sections they mention. |
+
+### Chunks as built (20 Nov 2026)
+
+`python -m system.rag.chunk` writes one JSON line per chunk to `corpus/chunks/<source>/<version>.jsonl` (not in git, rebuilt from the trees) and `corpus/chunk-report.md` (in git). Each chunk carries `id`, `chunk_type`, the filter fields above, `text`, `embed_text` (breadcrumb + text), `references` (resolved to a section id in the same document, to another document such as `br2010`, or unresolved), `terms` (key terms the text marks) and, for figures, `image_path` and `image_display`. Legal weight comes from `kind` in `sources.yaml` (legislation = law, Approved Documents = statutory guidance, HSE "L" books = approved code, the rest guidance), or from `legal_weight` if a source sets it. Regulations and paragraphs longer than 2,500 characters are split (regulations at (1), (2); guidance at list items), and every split is listed in the report.
 
 ## Search
 

@@ -23,7 +23,7 @@ Started 20 Nov 2026. Status of the demo build: steps 1 (mock data plan), 2 (sche
 | N12 | Machine-readable "AI-generated" marker (design rule 2) | Text notice only for now | Needed if we serve EU users (Art 50) |
 | N13 | Romanian answers and AI notice in Romanian (ADR 0001, design rules 1 and 11) | English-first demo | Main audience is Romanian |
 | N14 | Evening summary, RAMS module, WhatsApp channel (prototype priorities 2 and 3) | After priority 1 | – |
-| N15 | Corpus parser, chunker, `get_section` and `rag.search` (design: `architecture/design/regulations-corpus.md`, ADR 0010) | Design agreed 20 Nov 2026; pilot next | Server stays on the 7-passage fallback |
+| N15 | Corpus parser, chunker, `get_section` and `rag.search` (design: `architecture/design/regulations-corpus.md`, ADR 0010) | Parsers and chunker built for the 4 pilot documents (20 Nov 2026); embeddings, loading into Postgres, `rag.search` and `get_section` not yet | Server stays on the 7-passage fallback |
 | N16 | Text fingerprint for PDFs, so byte-only changes are not new versions (ADR 0008 update) | Comes with the parser, which extracts PDF text anyway | A re-saved PDF would look like a new edition |
 
 ## Shortcuts taken (works, but not production)
@@ -81,6 +81,10 @@ Started 20 Nov 2026. Status of the demo build: steps 1 (mock data plan), 2 (sche
 | S53 | verify_answer checks numbers and quotes, not meaning: a true quote can still be used for a wrong claim | `service/verify.py` | Evals with an LLM judge (N9) |
 | S54 | ~~Agent contract JSON only in prose~~ Done 20 Nov 2026: `contracts.py` is the source, schema generated, examples tested | – | – |
 | S55 | Rules text exists three times (MCP server instructions, plugin rules, Claude app project instructions) | `versions/server/`, `plugin/shared/rules.md`, `plugin/claude-app/` | One source file; build or check the others from it |
+| S56 | 45 of 193 Building Regulations definitions are cut at "means—" in the parsed tree (their list is lost); the chunker takes the full text from regulation 2 instead | `system/rag/parse_legislation.py` | Fix the definition reader so the tree has the full text |
+| S57 | Cross-references are found by a fixed list of patterns (paragraph, Diagram, Table, Figure, Section, Appendix, regulation, requirement); other forms are missed. References to another document (AD B to the Building Regulations) are kept but not checked | `system/rag/chunk.py` | Check them once both documents are loaded together; add patterns when evals show misses |
+| S58 | Whole-table chunks can be long (up to about 6,500 characters for AD B Table B1); split rule is 2,500 characters for regulations and paragraphs only | `system/rag/chunk.py` | Revisit when the embedding model is chosen |
+| S59 | Only regulation 2's definitions get their own chunks; terms defined in other regulations are found inside those regulations' chunks | `system/rag/chunk.py` | Add if evals ask for them |
 | S19 | Cost figures are first-pass, partly guesses, mostly US prices | `research/hosting-costs/connector-auth-options.md` | Review in detail; check London prices |
 | S28 | Postgres runs in Docker on the one server; no managed database, no read replica (raised by Florin 20 Nov 2026) | ADR 0009 | RDS, or a writer plus at least one reader, when traffic or customers need it |
 | S29 | 17 raw corpus files missing: the source now gives different bytes, so they were not restored (16 same size, legislation metadata order) | `corpus/harvest-report.md` | Decide: keep today's bytes with a note in the record, or fetch when evals need them |
