@@ -18,18 +18,21 @@ Florin's own lab (`agentic-rag-lab`, ADRs 0010 and 0012, experiments E7, E9, E15
 - **Keywords:** real BM25 (not `ts_rank`), with codes kept whole in their own field, as in `search.py`.
 - **Merge:** top 50 from vectors and top 50 from BM25, reciprocal rank fusion with k = 60 (fixed), after the date and country filters.
 - **Re-rank:** Amazon Rerank (`amazon.rerank-v1:0`) in **Frankfurt** (eu-central-1), 50 candidates down to 5. Cohere Rerank 3.5 is a setting, not a rebuild.
-- **Where vectors live:** Postgres with pgvector on our server (ADR 0009), loaded from the chunk files; one new migration. Until then, a local index for building and testing.
+- **Where vectors live (updated 20 Nov 2026):** Postgres with pgvector on Florin's existing RDS instance (the lab's), in its own database `builders_corpus` (schema `corpus`), not on our Docker Postgres (its image has no pgvector). The loader writes as `builders_corpus_owner`; the Builders server connects only as `builders_corpus_reader`: SELECT only, read-only transactions by default, 5 connections, 5-second queries. Set-up: `deploy/rds/`. The local index stays for building and testing.
 - **Settings, not code:** region, models, top-k and the keyword switch are configuration, so evals can compare keyword only, vector only, hybrid, with and without re-rank.
 - **Permissions:** the deploy user (for building the index) and later the server role (for questions) get `bedrock:InvokeModel` on Titan V2 in London and on the re-rank model in Frankfurt, plus `bedrock:Rerank`. Managed policy `deploy/iam/corpus-bedrock-policy.json` (separate from the inline deployer policy, which is at the 2,048-byte limit); the server role change stays in parking lot S26.
 
 ## Options considered
 
+- **pgvector in our Docker Postgres:** no new dependency on the lab's instance, but the live database image would have to change. **A new RDS for Builders:** clean, but a second monthly cost now.
 - **Everything in Frankfurt, as the lab:** one region, but Titan costs twice as much there ($0.0002 vs $0.0001 per 1,000 tokens, `research/hosting-costs/claude-app-vs-bedrock.md`) and the corpus would be embedded outside the UK for no gain.
 - **No re-rank until evals ask for it:** keeps every call in London, but Florin wants re-ranking, and the lab already showed it is cheap (one search unit per question).
 - **Keyword only:** free and in place, but misses paraphrases (above).
 - **Vector only:** simpler, but codes like "B1" and "7(2)" are where vectors are weakest.
 
 ## Consequences
+
+- The corpus database shares an instance with the lab: a lab outage or a stopped instance stops regulations search (the server then falls back to its small passage set). The instance may be in another region (the lab uses Frankfurt); search adds a few milliseconds per question. The Builders server reaches it through one security-group rule for its Elastic IP, with SSL. It also starts on parking lot S28 (a managed database).
 
 - Each question sends its text and up to 50 passages (public regulations) to Frankfurt for re-ranking. The question can mention a firm's job; Frankfurt is in the EU, not the UK. Re-check if a customer asks for UK-only processing, and re-check the London model list when permissions are in place (regions change).
 - Building the index costs about 10 cents for today's corpus (about a million tokens). Each question costs one Titan call and one re-rank search unit (Amazon Rerank about $1 per 1,000; verify current prices before quoting).
