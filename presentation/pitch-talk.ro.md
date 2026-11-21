@@ -60,7 +60,7 @@ Golul e clar: nimeni nu e sincer despre acuratețe.
 - **Cineva îl instalează și răspunde de el.** Noi instalăm, vă arătăm cum merge și vă ajutăm când ceva nu merge.
 - **Nu trimite nimic fără voi.** Totul e ciornă. Tot voi semnați. Noi ne asigurăm că semnați ce trebuie.
 
-Pe scurt: **ChatGPT e un străin deștept. Noi suntem o echipă de agenți care vă știe lucrările, știe regulile și își verifică munca.**
+Pe scurt: **ChatGPT știe câte puțin din toate. Echipa noastră de agenți vă știe lucrările, știe regulile și își verifică munca.**
 
 Și n-ați devenit constructori ca să faceți hârtii la 10 seara. Vorbiți cu ea pe telefon, în română sau engleză.
 
