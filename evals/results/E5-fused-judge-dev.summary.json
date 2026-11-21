@@ -1,0 +1,45 @@
+{
+ "run": "E5-fused-judge",
+ "floor": 0.0,
+ "split": "dev",
+ "time": "2026-11-21T00:21:16Z",
+ "answer_model": "eu.anthropic.claude-haiku-4-5-20251001-v1:0",
+ "judge_model": "openai.gpt-oss-120b-1:0",
+ "schema": "corpus_next",
+ "cost_usd_this_call": 1.0349,
+ "errors": 0,
+ "questions": 342,
+ "judged": 342,
+ "unjudged": 0,
+ "pass_rate": 0.576,
+ "correctness": 3.722,
+ "grounding": 4.167,
+ "completeness": 3.129,
+ "by_kind": {
+  "answerable": {
+   "n": 241,
+   "pass_rate": 0.5021,
+   "declined": 0.0871,
+   "asked_back": 0.1784
+  },
+  "negative": {
+   "n": 41,
+   "pass_rate": 0.7561,
+   "declined": 0.0,
+   "asked_back": 0.0732
+  },
+  "out_of_scope": {
+   "n": 39,
+   "pass_rate": 0.8462,
+   "declined": 0.6923,
+   "asked_back": 0.2821
+  },
+  "underspecified": {
+   "n": 21,
+   "pass_rate": 0.5714,
+   "declined": 0.0476,
+   "asked_back": 0.9048
+  }
+ },
+ "bad_citation_rows": 2
+}

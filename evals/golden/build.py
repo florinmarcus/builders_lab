@@ -67,6 +67,16 @@ def section_index() -> dict[str, dict]:
             continue
         for s in d["sections"]:
             idx.setdefault(f"{d['source_id']}:{s['id']}", s)
+        # Defined terms in a regulation 2 "Interpretation" are chunked one per term (system/rag/chunk.py).
+        seen: dict[str, int] = {}
+        for t in d.get("definitions") or []:
+            if t.get("section_id") != "regulation-2":
+                continue
+            slug = re.sub(r"[^a-z0-9]+", "-", t["term"].lower()).strip("-")
+            seen[slug] = seen.get(slug, 0) + 1
+            sid = f"regulation-2-term-{slug}" + (f"-{seen[slug]}" if seen[slug] > 1 else "")
+            idx.setdefault(f"{d['source_id']}:{sid}", {"id": sid, "parent_id": "regulation-2", "type": "definition",
+                                                       "text": t.get("text") or "", "heading_path": ["Regulation 2", t["term"]]})
     return idx
 
 
