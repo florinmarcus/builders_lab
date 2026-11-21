@@ -16,6 +16,14 @@ Bun. Atunci trebuie să știți câteva lucruri.
 
 Nu vă spun să nu folosiți AI. Vă spun să-l folosiți în siguranță.
 
+**Soluția: un plan pentru firme, cu acord semnat.** Planurile pentru firme vin cu un acord de prelucrare a datelor (DPA), nu folosesc datele voastre ca să antreneze AI-ul și au controale de securitate verificate. Asta vă trebuie:
+
+- **Claude Team** (ce folosim noi): aprox. £20 de persoană pe lună (£16 cu plată anuală), minim 2 persoane. Pentru folosire intensă există locul Premium, aprox. £100 pe lună (£80 anual).
+- **ChatGPT Business** (echivalentul de la OpenAI): cam același preț, aprox. £20 de persoană pe lună (£16 anual), minim 2 persoane. Tot cu acord de date și fără antrenare pe datele voastre.
+- **Nu:** contul gratuit, Plus, Pro sau orice cont personal, chiar dacă e plătit. Nu au acordul de date pentru firmă.
+
+Produsul nostru merge acum pe Claude Team.
+
 ## 2. Problema
 
 N-ați devenit constructori ca să faceți hârtii la 10 seara.
