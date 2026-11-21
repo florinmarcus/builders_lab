@@ -49,6 +49,7 @@ def test_search_can_read_another_schema(monkeypatch):
 def test_candidates_are_what_search_reranks(monkeypatch):
     rows = [{"id": f"c{i}", "source_id": "s", "section_id": f"sec{i % 3}", "embed_text": f"t{i}", "text": f"t{i}",
              "distance": i / 10} for i in range(6)]
+    monkeypatch.setenv("RAG_HYBRID", "0")  # vector path only (hybrid fusion: tests/test_pgsearch.py)
     monkeypatch.setattr(P, "nearest", lambda v, d, c, n, url=None, schema=None: rows)
     cands = P.candidates("q", embed=lambda q: [0.0])
     assert [r["section_id"] for r in cands] == ["sec0", "sec1", "sec2"]  # one per section, in order
