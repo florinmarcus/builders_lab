@@ -4,9 +4,9 @@
 - **Documente:** nu se mai pierde nimic, totul e pus pe lucrarea potrivită.
 - **Plăți și termene:** când ești plătit, ce notificări trebuie trimise și până când.
 - **Întârzieri:** când ești în urmă, îți spune următorul pas legal: pe cine anunți, până când și ce riști.
-- **Calendar:** termenele ajung în calendarul tău.
-- **Rezumat:** pe scurt, cum stă firma azi.
-- **Contabilitate:** citește plățile din programul de contabilitate (Xero, QuickBooks).
+- **Calendar (în curând):** termenele ajung în calendarul tău.
+- **Rezumat (în curând):** pe scurt, cum stă firma azi.
+- **Contabilitate (în curând, pentru firmele mari):** citește plățile din programul de contabilitate (Xero, QuickBooks).
 
 Fiecare răspuns are sursa și e verificat înainte să ajungă la constructor.
 
