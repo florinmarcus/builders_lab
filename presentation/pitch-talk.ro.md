@@ -7,7 +7,7 @@ Pentru prezentarea lui Florin la constructori, în română. Stil vorbit. De raf
 Ridicați mâna cine a folosit ChatGPT sau alt AI pentru firmă: un email, o ofertă, o întrebare despre reguli.
 Bun. Atunci trebuie să știți câteva lucruri.
 
-- **AI-ul pe cont personal e AI public, chiar dacă plătiți.** ChatGPT sau Claude, gratuit sau plătit (Plus, Pro): pot învăța din ce scrieți, dacă nu opriți asta din setări, iar datele ajung pe serverele lor din SUA fără niciun acord pentru datele firmei. Dacă datele clienților scapă, compania de AI practic nu își asumă nicio răspundere, voi încălcați GDPR, iar s-ar putea ca nici asigurarea voastră să nu vă acopere.
+- **AI-ul pe cont personal e AI public, chiar dacă plătiți.** ChatGPT sau Claude, gratuit sau plătit (Plus, Pro): pot învăța din ce scrieți, iar datele ajung pe serverele lor din SUA fără niciun acord pentru datele firmei. Dacă datele clienților scapă, compania de AI practic nu își asumă nicio răspundere, voi încălcați GDPR, iar s-ar putea ca nici asigurarea voastră să nu vă acopere.
 - **Contractul vă poate interzice asta.** Multe consilii și antreprenori generali (main contractors) cer acord scris înainte să le puneți documentele într-un program din afară.
 
 Nu vă spun să nu folosiți AI. Vă spun să-l folosiți în siguranță.
@@ -22,7 +22,7 @@ Asta rezolvă confidențialitatea. Nu e meritul nostru, e licența potrivită. D
 
 ## 2. Al doilea risc: AI-ul vă dă răspunsuri greșite
 
-Întrebați ChatGPT ceva despre o notificare de plată (payment notice), o regulă de construcții sau azbest. Primiți un răspuns general, care sună bine, dar care nu vă știe lucrarea și nici regula exactă. Uneori e pur și simplu greșit. Și oricât plătiți pe licență, asta nu se rezolvă.
+Întrebați ChatGPT ceva despre o notificare de plată (payment notice), o regulă de construcții sau azbest. Vă va răspunde mereu. Niciodată nu vă spune „nu știu". Primiți un răspuns care sună perfect plauzibil la prima citire, dar care poate fi incomplet sau complet greșit. Și oricât plătiți pe licență, asta nu se rezolvă.
 
 **Cum se rezolvă: o echipă de agenți, nu un singur AI.**
 Un agent e un AI specializat, nu un AI general. Fiecare se pricepe la un singur lucru:
