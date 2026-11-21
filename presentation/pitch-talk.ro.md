@@ -1,8 +1,8 @@
-# Prezentare: ideile principale (draft 1, 21 nov 2026)
+# Prezentare: ideile principale (draft 2, 21 nov 2026)
 
 Pentru prezentarea lui Florin la constructori, în română. Stil vorbit. De rafinat. Traducere a `pitch-talk.md`, cu o parte nouă la început despre riscuri (din `risk-briefing.md`).
 
-## 1. Început: AI-ul pe care îl folosiți deja
+## 1. Primul risc: datele clienților voștri
 
 Ridicați mâna cine a folosit ChatGPT sau alt AI pentru firmă: un email, o ofertă, o întrebare despre reguli.
 Bun. Atunci trebuie să știți câteva lucruri.
@@ -12,8 +12,6 @@ Bun. Atunci trebuie să știți câteva lucruri.
 - **Pe contul personal, nimeni nu vă garantează confidențialitatea.** Ce puneți în ChatGPT pe cont personal ajunge pe serverele lor din SUA, fără niciun acord pentru date. Dacă datele scapă, compania de AI practic nu își asumă nicio răspundere. Și s-ar putea ca nici asigurarea voastră să nu vă acopere, pentru că ați pus datele clienților acolo fără acord.
 - **Contractul vă poate interzice asta.** Multe consilii și antreprenori generali (main contractors) cer acord scris înainte să le puneți documentele într-un program din afară.
 
-Și încă ceva: **AI-ul spune lucruri greșite, cu toată siguranța.** O dată greșită pentru o notificare de plată, o regulă depășită, o presupunere despre azbest. Iar în contract scrie mereu: riscul e al vostru.
-
 Nu vă spun să nu folosiți AI. Vă spun să-l folosiți în siguranță.
 
 **Soluția: un plan pentru firme, cu acord semnat.** Planurile pentru firme vin cu un acord de prelucrare a datelor (DPA), nu folosesc datele voastre ca să antreneze AI-ul și au controale de securitate verificate. Asta vă trebuie:
@@ -22,31 +20,37 @@ Nu vă spun să nu folosiți AI. Vă spun să-l folosiți în siguranță.
 - **ChatGPT Business** (echivalentul de la OpenAI): cam același preț, aprox. £20 de persoană pe lună (£16 anual), minim 2 persoane. Tot cu acord de date și fără antrenare pe datele voastre.
 - **Nu:** contul gratuit, Plus, Pro sau orice cont personal, chiar dacă e plătit. Nu au acordul de date pentru firmă.
 
-Produsul nostru merge acum pe Claude Team.
+Asta rezolvă confidențialitatea. Nu e meritul nostru, e licența potrivită. Dar mai rămâne o problemă.
 
-## 2. Problema
+## 2. Al doilea risc: AI-ul greșește, cu toată siguranța
 
-N-ați devenit constructori ca să faceți hârtii la 10 seara.
-Emailuri, notificări, termene, cine a aprobat ce. Ratezi una și te costă bani.
-Noi am construit o echipă de agenți AI care face partea asta cu voi. Vorbiți cu ea pe telefon, în română sau engleză.
+O dată greșită pentru o notificare de plată (payment notice). O regulă depășită. O presupunere despre azbest. Spuse cu aceeași siguranță ca un răspuns corect.
+Și oricât plătiți pe licență, asta nu se rezolvă. Iar în contract scrie mereu: riscul e al vostru.
 
-## 3. De ce să plătiți, când puteți folosi ChatGPT singuri?
+## 3. Am studiat piața
 
-Puteți. Pentru lucruri simple, chiar așa să faceți. Dar singuri nu aveți:
+Am analizat peste 25 de unelte AI pentru construcții și meserii: asistenți pentru reglementări, RAMS, oferte de preț, programe de lucrări, plus platformele mari. Ce am găsit:
 
-- **Știe lucrările voastre.** ChatGPT nu vă știe emailurile, clientul sau termenele. Al nostru pune fiecare email pe lucrarea lui și ține minte ce s-a stabilit.
-- **Știe regulile.** ChatGPT răspunde din ce a învățat acum ceva timp sau din pagini găsite pe internet. Al nostru răspunde dintr-o bibliotecă de reglementări oficiale din Anglia, cu secțiunea și data. Dacă nu găsește, spune „nu știu", nu ghicește.
-- **Se verifică singur.** Înainte să auziți răspunsul, îl verifică un program, nu AI-ul. Fiecare informație trebuie să aibă sursă. Datele de plată sunt calculate, nu ghicite. N-are voie să spună „fără azbest". O modificare e aprobată doar dacă clientul a spus-o cu cuvintele lui.
-- **E legal și privat.** Lucrăm doar pe planuri pentru firme, cu acord de date. Datele stau la Londra și se șterg când plecați.
-- **Cineva îl instalează și răspunde de el.** Nu vă pierdeți weekendurile cu conectori. Noi instalăm, vă arătăm cum merge și vă ajutăm când ceva nu merge.
+- **Niciuna nu spune cât de des greșește.** Nici mici, nici mari.
+- **Promisiuni fără dovezi.** „0% halucinații", „complet conform". Niciun test în spate.
+- **Riscul vă e pasat înapoi.** În termeni, aproape toate spun „verificați singuri" și limitează ce vă datorează la cam un an de abonament.
+- **Fiecare face un singur lucru.** Una RAMS, alta oferte, alta reglementări. Niciuna nu leagă emailurile voastre, lucrările și regulile.
+- **Niciuna în română.**
 
-Pe scurt: **ChatGPT e un străin deștept. Noi suntem o echipă care vă știe lucrările, știe regulile și își verifică munca.**
+Golul e clar: nimeni nu e sincer despre acuratețe.
 
-## 4. Sinceri
+## 4. Ce aduc eu: acuratețe, nu promisiuni
 
-Nimeni de pe piață nu vă spune cât de des greșește AI-ul lui. Noi vă spunem.
-Nu e perfect. De asta vă arată sursa, se verifică singur și nu trimite nimic fără voi.
-Tot voi semnați. Noi ne asigurăm că semnați ce trebuie.
+- **Fiecare răspuns are sursa.** Emailul, cine l-a trimis, data. Sau reglementarea, secțiunea și ediția. Puteți verifica oricând.
+- **Răspunde doar din surse sigure.** Din emailurile și documentele voastre și dintr-o bibliotecă de reglementări oficiale din Anglia. Nu de pe internet, nu din memorie. Dacă nu găsește, spune „nu știu".
+- **Un program verifică fiecare răspuns, nu AI-ul.** Fiecare informație trebuie să aibă sursă. Datele de plată sunt calculate, nu ghicite. N-are voie să spună „fără azbest". O modificare e aprobată doar dacă clientul a spus-o cu cuvintele lui.
+- **Vă spun cifrele.** În testele noastre pe 342 de întrebări de la constructori despre reglementări: 58% din răspunsuri judecate corecte și bazate pe surse, față de 31% acum două zile. Zero trimiteri la surse inventate. 85% din întrebările din afara domeniului refuzate corect, nu inventate. Cifra crește pe măsură ce adăugăm documente.
+- **Cineva îl instalează și răspunde de el.** Noi instalăm, vă arătăm cum merge și vă ajutăm când ceva nu merge.
+- **Nu trimite nimic fără voi.** Totul e ciornă. Tot voi semnați. Noi ne asigurăm că semnați ce trebuie.
+
+Pe scurt: **ChatGPT e un străin deștept. Noi suntem o echipă de agenți care vă știe lucrările, știe regulile și își verifică munca.**
+
+Și n-ați devenit constructori ca să faceți hârtii la 10 seara. Vorbiți cu ea pe telefon, în română sau engleză.
 
 ## 5. Pentru cei care lucrează singuri sau cu o echipă mică
 
