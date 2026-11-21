@@ -44,3 +44,21 @@ McNemar on pass: live alone 16, E5 alone 107, chi2 67: a clear gain. Cost: live 
 
 - One judge model, no human calibration yet; a sample of judged rows should be read by a person.
 - The answer model is Haiku 4.5, not the product's Haiku 5.5.
+
+## Addendum: hybrid with no floor (two server settings, no code change)
+
+`python evals/judge.py --retrieval E2-hybrid --split dev --floor 0.0`: settings `RAG_HYBRID=1`, `RAG_MIN_SCORE=0`.
+
+| | Live | Hybrid, no floor | E5, no floor |
+|---|---|---|---|
+| Pass rate, all | 0.31 | 0.57 | 0.58 |
+| Answerable pass ("NOT IN SOURCES") | 0.22 (0.58) | 0.52 (0.07) | 0.50 (0.09) |
+| Negative pass | 0.44 | 0.66 | 0.76 |
+| Out of scope pass | 0.64 | 0.77 | 0.85 |
+| Underspecified pass | 0.52 | 0.67 | 0.57 |
+
+McNemar on pass: live → hybrid 13 lost / 103 gained, chi2 70 (clear); hybrid → E5 30 / 31, chi2 0.02 (no
+difference in answers, though E5 retrieves better and does better on false-premise and out-of-scope questions).
+
+**Meaning:** the quick, reversible fix for the demo is two settings on the server (hybrid on, floor 0). The
+search-tool change for the specialist's extra queries (E5) is the next step, not a precondition.
