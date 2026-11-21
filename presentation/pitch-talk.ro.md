@@ -44,7 +44,7 @@ Golul e clar: nimeni nu e sincer despre acuratețe.
 - **Fiecare răspuns are sursa.** Emailul, cine l-a trimis, data. Sau reglementarea, secțiunea și ediția. Puteți verifica oricând.
 - **Răspunde doar din surse sigure.** Din emailurile și documentele voastre și dintr-o bibliotecă de reglementări oficiale din Anglia. Nu de pe internet, nu din memorie. Dacă nu găsește, spune „nu știu".
 - **Un program verifică fiecare răspuns, nu AI-ul.** Fiecare informație trebuie să aibă sursă. Datele de plată sunt calculate, nu ghicite. N-are voie să spună „fără azbest". O modificare e aprobată doar dacă clientul a spus-o cu cuvintele lui.
-- **Vă spun cifrele.** În testele noastre pe 342 de întrebări de test despre reglementări, puse cum le-ar pune un constructor: 58% din răspunsuri judecate corecte și bazate pe surse, față de 31% acum două zile. Zero trimiteri la surse inventate. 85% din întrebările din afara domeniului refuzate corect, nu inventate. Cifra crește pe măsură ce adăugăm documente.
+- **Testăm și vă arătăm rezultatele.** Testăm acuratețea pe sute de întrebări de constructori și publicăm rezultatele, nu promisiuni. Suntem la prototip, așa că rezultatele cresc pe măsură ce adăugăm documente.
 - **Cineva îl instalează și răspunde de el.** Noi instalăm, vă arătăm cum merge și vă ajutăm când ceva nu merge.
 - **Nu trimite nimic fără voi.** Totul e ciornă. Tot voi semnați. Noi ne asigurăm că semnați ce trebuie.
 
