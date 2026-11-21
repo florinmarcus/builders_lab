@@ -2,6 +2,21 @@
 
 Owner: Florin. Status report: [REPORT-2026-11-21.md](REPORT-2026-11-21.md). Each step needs Florin's yes before it starts.
 
+## Current focus (Florin, 21 Nov evening)
+
+**Retrieval only, vector search first.** Nothing else moves until retrieval is strong. Then the judge (step 3).
+
+| Step | Status |
+|---|---|
+| 1. Miss analysis | done: [experiments/L1-miss-analysis.md](experiments/L1-miss-analysis.md) |
+| 2. Experiments driven by step 1 | **in progress**: out-of-date sources removed (V1, no significant change); next, the embedded chunk text |
+| 3. Local judge | on hold until retrieval is strong |
+| 4. Multi-turn scenarios | on hold |
+| 5. Traces and logs | on hold |
+
+Main metric now: vector-only Recall@5 and Recall@50 on dev 299, before keyword search and rerank. Baseline (V0):
+0.51 and 0.80. Runs use the full corpus in a throwaway local Postgres; live is not touched.
+
 ## Ground rules (Florin, 21 Nov)
 
 - **No LLM on AWS.** Only the embedder (Titan v2) and the reranker (Amazon Rerank) stay on Bedrock.
@@ -49,6 +64,10 @@ live search settings: hybrid on, no relevance cut-off. Save every candidate, its
 **Done when:** a table of miss counts per cause, 10 worked examples per cause, and a ranked list of fixes.
 
 ## Step 2: experiments driven by step 1
+
+Order (from step 1's findings): (a) out-of-date sources out of the index (V1, done); (b) document title and full
+heading path in every embedded text; (c) merge tiny chunks with their neighbours under the same heading; (d) a
+parsing strategy per family, starting with the Home Office fire safety guides; (e) the vocabulary gap.
 
 Pick the fixes from step 1's counts, biggest first. Possible fixes:
 - re-parse the documents that cause errors
