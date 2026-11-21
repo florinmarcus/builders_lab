@@ -27,7 +27,7 @@ Primele 3 firme ne ajută să dăm forma produsului. În schimb, primesc preț r
 
 **Firme mari:** integrare personalizată cu sistemele lor interne (contabilitate, programe proprii, server de email propriu). Întâi analizăm ce au și ce le trebuie; costul îl stabilim după, nu îl putem estima acum.
 
-**Ce îi cerem oricărei firme:** Claude Team, acordul semnat, și numele persoanei care se ocupă de IT-ul lor (pentru conectarea emailului).
+**Ce îi cerem oricărei firme:** Claude Team, acordul semnat și numele persoanei care se ocupă de IT-ul lor (pentru conectarea emailului).
 
 **Tu:** găsești firmele și ești primul contact. **Eu:** partea tehnică.
 
