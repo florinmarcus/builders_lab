@@ -1,4 +1,7 @@
 **Ce vindem:** un asistent AI care ține evidența firmei și o ține în regulă legal. Vorbești cu el pe telefon, în română sau engleză.
+
+**Nu un singur AI, ci o echipă de agenți:** fiecare agent e specializat pe o meserie (emailuri, plăți, întârzieri, documente, reglementări, traducere), iar la final o verificare automată controlează fiecare răspuns.
+
 - **Emailuri:** citește emailurile de la clienți și de la consiliu (council), le pune pe lucrări și îți spune ce e important.
 - **Legal:** verifică dacă emailurile primite și cele pe care le trimiți sunt în regulă cu legea din Anglia.
 - **Documente:** nu se mai pierde nimic, totul e pus pe lucrarea potrivită.
