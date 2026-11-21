@@ -20,10 +20,14 @@ from __future__ import annotations
 
 import datetime
 import json
+import logging
 import os
 import re
 
 _clients: dict = {}
+
+
+log = logging.getLogger(__name__)
 
 
 def cfg() -> dict:
@@ -128,13 +132,17 @@ KEYWORD = """
 WITH st AS (SELECT chunk_count::float8 AS n, greatest(avg_len, 1)::float8 AS avgdl FROM {schema}.stats LIMIT 1),
 qw AS (SELECT tsvector_to_array(to_tsvector('english', %(q)s)) AS words),
 terms AS (
-  SELECT l.lexeme, l.field, ln(1 + ((SELECT n FROM st) - l.df + 0.5) / (l.df + 0.5))
+  SELECT l.lexeme, l.field, l.df, row_number() OVER (PARTITION BY l.field ORDER BY l.df) AS rk,
+         ln(1 + ((SELECT n FROM st) - l.df + 0.5) / (l.df + 0.5))
          * CASE WHEN l.field = 'codes' THEN %(wc)s ELSE 1 END AS idf
   FROM {schema}.lexemes l, qw
   WHERE (l.field = 'text' AND l.lexeme = ANY (qw.words))
      OR (l.field = 'codes' AND l.lexeme = ANY (%(codes)s::text[]))
 ),
-tq AS (SELECT (SELECT string_agg(quote_literal(w), ' | ') FROM unnest((SELECT words FROM qw)) w)::tsquery AS t,
+-- Candidates come from the rarer words only (in at most 1 percent of chunks, plus the three rarest): a word like
+-- "notice" is in 4,000 of 40,000 chunks, and scoring all of them took seconds (2.9 s against a 5 s limit). Every word still counts in the score.
+tq AS (SELECT (SELECT string_agg(quote_literal(lexeme), ' | ') FROM terms
+               WHERE field = 'text' AND (df <= 0.01 * (SELECT n FROM st) OR rk <= 3))::tsquery AS t,
               (SELECT string_agg(quote_literal(w), ' | ') FROM unnest(%(codes)s::text[]) w)::tsquery AS c),
 scored AS (
   SELECT ch.id, sum(terms.idf * t.tf * 2.2 / (t.tf + 1.2 * (0.25 + 0.75 * ch.doc_len / (SELECT avgdl FROM st)))) AS bm25
@@ -221,7 +229,11 @@ def candidates(question: str, as_of_date: datetime.date | None = None, country: 
     rows = one_per_section(nearest(vec, as_of, country, n, url))
     if not c["hybrid"]:
         return rows
-    kw = one_per_section(keyword(question, as_of, country, n, url))
+    try:
+        kw = one_per_section(keyword(question, as_of, country, n, url))
+    except Exception as e:  # a slow or failed keyword query must not break search: vectors alone still work
+        log.warning("keyword search failed, vectors only: %s", type(e).__name__)
+        return rows
     return one_per_section(rrf(rows, kw))[:n]
 
 

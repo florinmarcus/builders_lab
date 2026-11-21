@@ -112,3 +112,25 @@ def test_keyword_sql_names_the_schema():
     assert "corpus_next.chunks" in P.keyword_sql("corpus_next") and "{schema}" not in P.keyword_sql("corpus")
     with pytest.raises(ValueError):
         P.keyword_sql("corpus; drop table x")
+
+
+def test_keyword_failure_falls_back_to_vectors(monkeypatch):
+    monkeypatch.setenv("RAG_HYBRID", "1")
+    monkeypatch.setattr(P, "nearest", lambda v, d, c, n, url=None: [row(1), row(2)])
+
+    def slow(q, d, c, n, url=None):
+        raise TimeoutError("canceling statement due to statement timeout")
+    monkeypatch.setattr(P, "keyword", slow)
+    assert [r["id"] for r in P.candidates("pay less notice", embed=lambda q: [0.0] * 1024)] == ["c1", "c2"]
+
+
+def test_keyword_sql_matches_only_on_rare_words_but_scores_all():
+    sql = P.keyword_sql("corpus")
+    assert "RARE_SHARE" not in sql and "0.01 *" in sql  # words in more than 1% of chunks do not pick candidates
+    assert "rk <= 3" in sql  # the three rarest words always do
+
+
+def test_keyword_sql_has_no_stray_percent_signs():
+    import re
+    sql = re.sub(r"%\(\w+\)s", "", P.keyword_sql("corpus"))  # psycopg reads any other % as a placeholder
+    assert "%" not in sql
