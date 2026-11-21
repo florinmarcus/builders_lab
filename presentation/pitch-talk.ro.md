@@ -20,20 +20,34 @@ Nu vă spun să nu folosiți AI. Vă spun să-l folosiți în siguranță.
 
 Asta rezolvă confidențialitatea. Nu e meritul nostru, e licența potrivită. Dar mai rămâne o problemă.
 
-## 2. Al doilea risc: AI-ul greșește, cu toată siguranța
+## 2. Al doilea risc: AI-ul vă dă răspunsuri greșite
 
-O dată greșită pentru o notificare de plată (payment notice). O regulă depășită. O presupunere despre azbest. Spuse cu aceeași siguranță ca un răspuns corect.
-Și oricât plătiți pe licență, asta nu se rezolvă. Iar în contract scrie mereu: riscul e al vostru.
+Întrebați ChatGPT ceva despre o notificare de plată (payment notice), o regulă de construcții sau azbest. Primiți un răspuns general, care sună bine, dar care nu vă știe lucrarea și nici regula exactă. Uneori e pur și simplu greșit. Și oricât plătiți pe licență, asta nu se rezolvă.
+
+**Cum se rezolvă: o echipă de agenți, nu un singur AI.**
+Un agent e un AI specializat, nu un AI general. Fiecare se pricepe la un singur lucru:
+
+- unul la emailuri și lucrări,
+- unul la plăți și termene,
+- unul la întârzieri și pașii legali,
+- unul la modificările aprobate de client,
+- unul la documente și acte lipsă,
+- unul la reglementări,
+- unul la traducere, română și engleză.
+
+Agenții lucrează împreună, iar la final un verificator controlează fiecare răspuns înainte să ajungă la voi.
+O echipă de agenți reduce mult greșelile. Dar agenții nu vin gata făcuți: trebuie construiți pentru un anumit domeniu de business. Pe ăștia i-am construit pentru constructori.
 
 ## 3. Am studiat piața
 
-Am analizat peste 25 de unelte AI pentru construcții și meserii: asistenți pentru reglementări, RAMS, oferte de preț, programe de lucrări, plus platformele mari. Ce am găsit:
+M-am uitat la 26 de aplicații AI pentru construcții și meserii din Anglia. Ce am găsit:
 
-- **Niciuna nu spune cât de des greșește.** Nici mici, nici mari.
-- **Promisiuni fără dovezi.** „0% halucinații", „complet conform". Niciun test în spate.
-- **Riscul vă e pasat înapoi.** În termeni, aproape toate spun „verificați singuri" și limitează ce vă datorează la cam un an de abonament.
+- **Toate vă pasează răspunderea.** În termeni scrie „verificați singuri", iar ce vă datorează e limitat la cam un an de abonament.
+- **Niciuna nu garantează calitatea răspunsurilor.** N-am găsit niciuna.
+- **Niciuna nu spune cât de des greșește.**
+- **Unele pretind „0% halucinații", adică 100% acuratețe.** Asta e imposibil, matematic. Orice AI greșește uneori. Când cineva promite 100%, vă dați seama că nu e o treabă serioasă.
 - **Fiecare face un singur lucru.** Una RAMS, alta oferte, alta reglementări. Niciuna nu leagă emailurile voastre, lucrările și regulile.
-- **Niciuna în română.**
+- **Niciuna nu oferă română.**
 
 Golul e clar: nimeni nu e sincer despre acuratețe.
 
