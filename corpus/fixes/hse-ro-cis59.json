@@ -1,0 +1,57 @@
+{
+ "source_id": "hse-ro-cis59",
+ "about": "Saved model fixes for hse-ro-cis59 (ADR 0010).",
+ "fixes": [
+  {
+   "key": "c35b45d2df6e1316",
+   "kind": "table",
+   "target": "document-planificare-table-1: Planificare",
+   "value": {
+    "columns": [
+     "Tipul dotării",
+     "Observaţii adiţionale"
+    ],
+    "rows": [
+     [
+      "1a Dotare fixă conectată la reţeaua de canalizare, cu apă curentă.",
+      "Ordinea preferinţei: ■ pe şantier; ■ la o locaţie centrală; ■ într-o locaţie satelit. N.B.: Aceasta poate include folosirea unor dotări particulare în baza unei înţelegeri anterioare. Este important să se obţină acordul proprietarului, de preferat în scris, înainte de demararea lucrării. Folosirea toaletelor publice este acceptabilă numai dacă asigurarea sau punerea la dispoziţie a altor dotări nu este practică."
+     ],
+     [
+      "1b Dotări portabile cu rezervoare de alimentare şi evacuare.",
+      "Ordinea preferinţei: ■ pe şantier; ■ la o locaţie centrală; ■ într-o locaţie satelit. N.B.: Aceasta poate include folosirea unor dotări particulare în baza unei înţelegeri anterioare. Este important să se obţină acordul proprietarului, de preferat în scris, înainte de demararea lucrării. Folosirea toaletelor publice este acceptabilă numai dacă asigurarea sau punerea la dispoziţie a altor dotări nu este practică."
+     ],
+     [
+      "2 Dotări portabile pe şantier.",
+      "Vor consta din toaletă/toalete ecologică/ecologice, spaţii pentru spălat şi suficiente mese şi scaune."
+     ],
+     [
+      "3 Vehicule special amenajate.",
+      "Vor consta din toaletă/toalete ecologică/ecologice, spaţii pentru spălat şi suficiente mese şi scaune."
+     ],
+     [
+      "4 Dotări uşor accesibile de pe şantier (inclusiv toalete publice).",
+      "Folosirea toaletelor publice este acceptabilă numai dacă asigurarea sau punerea la dispoziţie a altor dotări nu este practică."
+     ],
+     [
+      "5 Dotări portabile în apropierea şantierului.",
+      "Vor include toaletă/toalete ecologică/ecologice, spaţii pentru spălat şi suficiente mese şi scaune."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Dotări social-sanitare – opţiuni: tipul dotării 1a Dotare fixă conectată la reţeaua de canalizare, cu apă curentă; observaţii adiţionale: Ordinea preferinţei: ■ pe şantier; ■ la o locaţie centrală; ■ într-o locaţie satelit. N.B.: Aceasta poate include folosirea unor dotări particulare în baza unei înţelegeri anterioare. Este important să se obţină acordul proprietarului, de preferat în scris, înainte de demararea lucrării. Folosirea toaletelor publice este acceptabilă numai dacă asigurarea sau punerea la dispoziţie a altor dotări nu este practică.",
+     "Dotări social-sanitare – opţiuni: tipul dotării 1b Dotări portabile cu rezervoare de alimentare şi evacuare; observaţii adiţionale: Ordinea preferinţei: ■ pe şantier; ■ la o locaţie centrală; ■ într-o locaţie satelit. N.B.: Aceasta poate include folosirea unor dotări particulare în baza unei înţelegeri anterioare. Este important să se obţină acordul proprietarului, de preferat în scris, înainte de demararea lucrării. Folosirea toaletelor publice este acceptabilă numai dacă asigurarea sau punerea la dispoziţie a altor dotări nu este practică.",
+     "Dotări social-sanitare – opţiuni: tipul dotării 2 Dotări portabile pe şantier; observaţii adiţionale: Vor consta din toaletă/toalete ecologică/ecologice, spaţii pentru spălat şi suficiente mese şi scaune.",
+     "Dotări social-sanitare – opţiuni: tipul dotării 3 Vehicule special amenajate; observaţii adiţionale: Vor consta din toaletă/toalete ecologică/ecologice, spaţii pentru spălat şi suficiente mese şi scaune.",
+     "Dotări social-sanitare – opţiuni: tipul dotării 4 Dotări uşor accesibile de pe şantier (inclusiv toalete publice); observaţii adiţionale: Folosirea toaletelor publice este acceptabilă numai dacă asigurarea sau punerea la dispoziţie a altor dotări nu este practică.",
+     "Dotări social-sanitare – opţiuni: tipul dotării 5 Dotări portabile în apropierea şantierului; observaţii adiţionale: Vor include toaletă/toalete ecologică/ecologice, spaţii pentru spălat şi suficiente mese şi scaune."
+    ]
+   },
+   "reason": "Two printed columns. The observations cell is printed once beside rows 1a and 1b, so it is repeated on both rows; the library grid had left 1b empty.",
+   "evidence": "Page 4, Tabelul 1 Dotări social-sanitare – opţiuni.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  }
+ ]
+}

@@ -1,0 +1,220 @@
+{
+ "source_id": "decent-home-2006",
+ "about": "Saved model fixes for decent-home-2006 (ADR 0010).",
+ "fixes": [
+  {
+   "key": "6346ec4dd1889f46",
+   "kind": "table",
+   "target": "table-1: Component lifetimes used in the disrepair criterion",
+   "value": {
+    "columns": [
+     "Building components (key components marked*)",
+     "Houses and bungalows",
+     "All flats in blocks of below 6 storeys",
+     "All flats in blocks of 6 or more storeys"
+    ],
+    "rows": [
+     [
+      "Wall structure*",
+      "80",
+      "80",
+      "80"
+     ],
+     [
+      "Lintels*",
+      "60",
+      "60",
+      "60"
+     ],
+     [
+      "Brickwork (spalling)*",
+      "30",
+      "30",
+      "30"
+     ],
+     [
+      "Wall finish*",
+      "60",
+      "60",
+      "30"
+     ],
+     [
+      "Roof structure*",
+      "50",
+      "30",
+      "30"
+     ],
+     [
+      "Roof finish*",
+      "50",
+      "30",
+      "30"
+     ],
+     [
+      "Chimney*",
+      "50",
+      "50",
+      "N/A"
+     ],
+     [
+      "Windows*",
+      "40",
+      "30",
+      "30"
+     ],
+     [
+      "External doors*",
+      "40",
+      "30",
+      "30"
+     ],
+     [
+      "Kitchen",
+      "30",
+      "30",
+      "30"
+     ],
+     [
+      "Bathrooms",
+      "40",
+      "40",
+      "40"
+     ],
+     [
+      "Heating central heating gas boiler*",
+      "15",
+      "15",
+      "15"
+     ],
+     [
+      "Heating central heating distribution system",
+      "40",
+      "40",
+      "40"
+     ],
+     [
+      "Heating other*",
+      "30",
+      "30",
+      "30"
+     ],
+     [
+      "Electrical systems*",
+      "30",
+      "30",
+      "30"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Component lifetimes used in the disrepair criterion: Wall structure* has a lifetime of 80 for houses and bungalows, 80 for all flats in blocks of below 6 storeys and 80 for all flats in blocks of 6 or more storeys.",
+     "Component lifetimes used in the disrepair criterion: Lintels* has a lifetime of 60 for houses and bungalows, 60 for all flats in blocks of below 6 storeys and 60 for all flats in blocks of 6 or more storeys.",
+     "Component lifetimes used in the disrepair criterion: Brickwork (spalling)* has a lifetime of 30 for houses and bungalows, 30 for all flats in blocks of below 6 storeys and 30 for all flats in blocks of 6 or more storeys.",
+     "Component lifetimes used in the disrepair criterion: Wall finish* has a lifetime of 60 for houses and bungalows, 60 for all flats in blocks of below 6 storeys and 30 for all flats in blocks of 6 or more storeys.",
+     "Component lifetimes used in the disrepair criterion: Roof structure* has a lifetime of 50 for houses and bungalows, 30 for all flats in blocks of below 6 storeys and 30 for all flats in blocks of 6 or more storeys.",
+     "Component lifetimes used in the disrepair criterion: Roof finish* has a lifetime of 50 for houses and bungalows, 30 for all flats in blocks of below 6 storeys and 30 for all flats in blocks of 6 or more storeys.",
+     "Component lifetimes used in the disrepair criterion: Chimney* has a lifetime of 50 for houses and bungalows, 50 for all flats in blocks of below 6 storeys and N/A for all flats in blocks of 6 or more storeys.",
+     "Component lifetimes used in the disrepair criterion: Windows* has a lifetime of 40 for houses and bungalows, 30 for all flats in blocks of below 6 storeys and 30 for all flats in blocks of 6 or more storeys.",
+     "Component lifetimes used in the disrepair criterion: External doors* has a lifetime of 40 for houses and bungalows, 30 for all flats in blocks of below 6 storeys and 30 for all flats in blocks of 6 or more storeys.",
+     "Component lifetimes used in the disrepair criterion: Kitchen has a lifetime of 30 for houses and bungalows, 30 for all flats in blocks of below 6 storeys and 30 for all flats in blocks of 6 or more storeys.",
+     "Component lifetimes used in the disrepair criterion: Bathrooms has a lifetime of 40 for houses and bungalows, 40 for all flats in blocks of below 6 storeys and 40 for all flats in blocks of 6 or more storeys.",
+     "Component lifetimes used in the disrepair criterion: Heating central heating gas boiler* has a lifetime of 15 for houses and bungalows, 15 for all flats in blocks of below 6 storeys and 15 for all flats in blocks of 6 or more storeys.",
+     "Component lifetimes used in the disrepair criterion: Heating central heating distribution system has a lifetime of 40 for houses and bungalows, 40 for all flats in blocks of below 6 storeys and 40 for all flats in blocks of 6 or more storeys.",
+     "Component lifetimes used in the disrepair criterion: Heating other* has a lifetime of 30 for houses and bungalows, 30 for all flats in blocks of below 6 storeys and 30 for all flats in blocks of 6 or more storeys.",
+     "Component lifetimes used in the disrepair criterion: Electrical systems* has a lifetime of 30 for houses and bungalows, 30 for all flats in blocks of below 6 storeys and 30 for all flats in blocks of 6 or more storeys."
+    ]
+   },
+   "reason": "Four printed columns, 15 data rows read from the page image. Footnote marker 19 on Kitchen dropped from the cell; it points to a footnote, not table text. Lifetimes have no unit printed in the table.",
+   "evidence": "Table 1: Component lifetimes used in the disrepair criterion, page 33.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "83f02cccb96280d3",
+   "kind": "table",
+   "target": "table-2: Definition of ‘poor condition’ used in disrepair criterion",
+   "value": {
+    "columns": [
+     "Component",
+     "Definition of ‘poor condition’ used in EHCS"
+    ],
+    "rows": [
+     [
+      "Wall structure",
+      "Replace 10% or more or repair 30% or more"
+     ],
+     [
+      "Wall finish",
+      "Replace/repoint/renew 50% or more"
+     ],
+     [
+      "Chimneys",
+      "1 chimney need partial rebuilding or more"
+     ],
+     [
+      "Roof structure",
+      "Replace 10% or more or strengthen 30% or more"
+     ],
+     [
+      "Roof covering",
+      "Replace or isolated repairs to 50% or more"
+     ],
+     [
+      "Windows",
+      "Replace at least one window or repair/replace sash or member to least two (excluding easing sashes, reglazing painting)"
+     ],
+     [
+      "External doors",
+      "Replace at least one"
+     ],
+     [
+      "Kitchen",
+      "Major repair or replace 3 or more items out of the 6 (cold water drinking supply, hot water, sink, cooking provision, cupboards, worktop)"
+     ],
+     [
+      "Bathroom",
+      "Major repairs or replace 2 or more items (bath, wash hand basin, WC)"
+     ],
+     [
+      "Electrical system",
+      "Replace or major repair to system"
+     ],
+     [
+      "Central heating boiler",
+      "Replace or major repair"
+     ],
+     [
+      "Central heating distribution",
+      "Replace or major repair"
+     ],
+     [
+      "Storage heaters",
+      "Replace or major repair"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Definition of ‘poor condition’ used in the disrepair criterion: Wall structure is in poor condition when it needs: Replace 10% or more or repair 30% or more.",
+     "Definition of ‘poor condition’ used in the disrepair criterion: Wall finish is in poor condition when it needs: Replace/repoint/renew 50% or more.",
+     "Definition of ‘poor condition’ used in the disrepair criterion: Chimneys is in poor condition when it needs: 1 chimney need partial rebuilding or more.",
+     "Definition of ‘poor condition’ used in the disrepair criterion: Roof structure is in poor condition when it needs: Replace 10% or more or strengthen 30% or more.",
+     "Definition of ‘poor condition’ used in the disrepair criterion: Roof covering is in poor condition when it needs: Replace or isolated repairs to 50% or more.",
+     "Definition of ‘poor condition’ used in the disrepair criterion: Windows is in poor condition when it needs: Replace at least one window or repair/replace sash or member to least two (excluding easing sashes, reglazing painting).",
+     "Definition of ‘poor condition’ used in the disrepair criterion: External doors is in poor condition when it needs: Replace at least one.",
+     "Definition of ‘poor condition’ used in the disrepair criterion: Kitchen is in poor condition when it needs: Major repair or replace 3 or more items out of the 6 (cold water drinking supply, hot water, sink, cooking provision, cupboards, worktop).",
+     "Definition of ‘poor condition’ used in the disrepair criterion: Bathroom is in poor condition when it needs: Major repairs or replace 2 or more items (bath, wash hand basin, WC).",
+     "Definition of ‘poor condition’ used in the disrepair criterion: Electrical system is in poor condition when it needs: Replace or major repair to system.",
+     "Definition of ‘poor condition’ used in the disrepair criterion: Central heating boiler is in poor condition when it needs: Replace or major repair.",
+     "Definition of ‘poor condition’ used in the disrepair criterion: Central heating distribution is in poor condition when it needs: Replace or major repair.",
+     "Definition of ‘poor condition’ used in the disrepair criterion: Storage heaters is in poor condition when it needs: Replace or major repair."
+    ]
+   },
+   "reason": "Two columns with one header line spanning both; the first column has no printed heading, so the neutral name Component is used. Library grid run-together words (Electricalsystem etc.) fixed from the image; printed wording such as 'need' and 'to least two' kept as printed.",
+   "evidence": "Table 2: Definition of ‘poor condition’ used in disrepair criterion, page 34.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  }
+ ]
+}

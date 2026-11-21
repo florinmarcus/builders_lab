@@ -87,6 +87,12 @@ def _text(words) -> str:
     return " ".join(w["text"] for w in words)
 
 
+def _part_size(words, default: float) -> float:
+    """The most common word size of part of a line (words carry "s"), or the line's size."""
+    sizes = Counter(round(w["s"], 1) for w in words if w.get("s"))
+    return sizes.most_common(1)[0][0] if sizes else default
+
+
 def _line(words, src) -> dict:
     return {**src, "words": words, "text": _text(words), "x0": words[0]["x0"] if words else src["x0"]}
 
@@ -416,7 +422,7 @@ class AdocBuilder:
         """Two-column pages: split body-size lines at the gutter and read the left column first."""
         gutters = Counter()
         for l in lines:
-            if l["size"] < SMALL:
+            if l["size"] < max(SMALL, self.body - 0.6):  # 11pt text in a table or drawing (AD L vol 2 Table 5.6) is not a column
                 continue
             ws = l.get("words") or []
             if ws and 280 <= ws[0]["x0"] <= 345:
@@ -436,10 +442,12 @@ class AdocBuilder:
                 continue
             lw = [w for w in ws if w["x0"] < g - 4]
             rw = [w for w in ws if w["x0"] >= g - 4]
+            # Each half takes its own words' size: a 12pt key term beside a 10pt table row was read as one line
+            # (AD L 2026 vol 2 Table A1 beside the key terms).
             if lw:
-                left.append(_line(lw, l))
+                left.append(_line(lw, {**l, "size": _part_size(lw, l["size"]) if rw else l["size"]}))
             if rw:
-                right.append(_line(rw, {**l, "x0": rw[0]["x0"]}))
+                right.append(_line(rw, {**l, "x0": rw[0]["x0"], "size": _part_size(rw, l["size"]) if lw else l["size"]}))
         return sorted(left, key=lambda l: l["top"]) + sorted(right, key=lambda l: l["top"])
 
     def page_label(self, page: int) -> str:
@@ -561,6 +569,13 @@ class AdocBuilder:
                         if tx and not self.classic and abs(m["x0"] - tx) < 3 and not any(_bold(w) for w in mw[:1]) \
                                 and all(out.get(j, ("",))[0] in ("table", "table-caption", "table-caption-more")
                                         for j in range(i + 1, k)):
+                            out[k] = ("table", n)
+                            continue
+                        # A list a little larger than table text, set far inside the table, just under its rows (AD L
+                        # 2026 vol 2 Table 5.6: 11pt conversion factors in the "Product standard" cell) is table text.
+                        prev = max((lines[j]["top"] for j in range(i + 1, k) if out.get(j, ("",)) == ("table", n)), default=None)
+                        if not self.classic and m["size"] < self.body - 0.6 and m["x0"] - l["x0"] > 150 \
+                                and prev is not None and 0 < m["top"] - prev < 20:
                             out[k] = ("table", n)
                             continue
                         break

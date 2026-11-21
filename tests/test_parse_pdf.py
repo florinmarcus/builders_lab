@@ -693,3 +693,76 @@ def test_real_awaab_consolidated_regulations():
     assert paras == list(range(1, 24))
     assert [s["id"] for s in t["sections"] if s["type"] == "chapter"] == [f"part-{n}" for n in range(1, 8)]
     assert t["checks"] == [] and not t["issues"]
+
+
+def test_decimal_paragraphs_and_appendix_numbers_follow_their_chapter():
+    lines = [ln(2, 98, "2 Accreditation", 28.0, "HelveticaNeue-Medium", x0=57),
+             ln(2, 150, "2.1 Organisations must be accredited by UKAS for this work.", x0=57),
+             ln(2, 180, "2.2 The assessment covers 5.6 m of documents and more.", x0=57),
+             ln(3, 98, "Appendix 1 Fibres in air", 28.0, "HelveticaNeue-Medium", x0=57),
+             ln(3, 150, "A1.1 This method is used to count fibres in air samples.", x0=176),
+             ln(3, 180, "A1.2 Use a phase contrast microscope for the count.", x0=176)]
+    lines += [ln(2, 300 + 12 * i, "running text of the chapter goes on here for a while and more", x0=57) for i in range(6)]
+    lines += [ln(3, 300 + 12 * i, "running text of the appendix goes on here for a while and more", x0=176) for i in range(6)]
+    t = build_tree({"lines": lines, "rects": [], "images": [], "page_count": 4}, META)
+    assert sec(t, "para-2-2")["number"] == "2.2" and sec(t, "para-2-2")["text"].startswith("The assessment")
+    assert sec(t, "para-a1-2")["parent_id"] == "appendix-1"
+
+
+def test_lettered_and_appendix_captions():
+    lines = [ln(2, 98, "1 Gas", 28.0, "HelveticaNeue-Medium"), ln(2, 150, "1 Gas fittings must be safe.", x0=180),
+             ln(2, 300, "Figure 11(a) LPG systems – cylinder installation", 9.0, "HelveticaNeue"),
+             ln(2, 400, "Table A1.2 Sampling rates", 9.0, "HelveticaNeue"),
+             ln(2, 420, "Rate 1 litre per minute", 8.0, x0=180)]
+    t = build_tree({"lines": lines, "rects": [], "images": [], "page_count": 3}, META)
+    assert sec(t, "figure-11a")["number"] == "11(a)"
+    assert sec(t, "table-a1-2")["title"] == "Sampling rates"
+
+
+def test_margin_labels_with_paragraph_references_and_letter_parts():
+    lines = [ln(2, 98, "PART B Gas fittings", 16.0, "HelveticaNeueLTStd-HvCn"),
+             wl(2, 150, [(57, "ACOP", 11.0, "HelveticaNeueLTStd-Bd", True)]),
+             wl(2, 150, [(143, "3(1)–(2)", 11.0, "HelveticaNeueLTStd-Bd", True)]),
+             ln(2, 152, "1 No one shall carry out work on a gas fitting unless competent.", x0=180)]
+    lines += [ln(2, 200 + 12 * i, "guidance text about competence goes on and on here", x0=180) for i in range(5)]
+    t = build_tree({"lines": lines, "rects": [], "images": [], "page_count": 3}, META)
+    assert sec(t, "part-b")["title"] == "Gas fittings"
+    assert sec(t, "para-1")["status"] == "acop" and not [s for s in t["sections"] if s["type"] == "note"]
+
+
+@pytest.fixture(scope="module")
+def hsg150():
+    return _real("hse-hsg150", "HSG150 Health and safety in construction")
+
+
+def test_real_hsg150(hsg150):
+    paras = [int(s["number"]) for s in hsg150["sections"] if s["type"] == "paragraph" and s["id"].startswith("para-")]
+    assert paras == list(range(1, 682))
+    ids = {s["id"] for s in hsg150["sections"]}
+    assert {"figure-12a", "figure-48d", "figure-54"} <= ids and len(ids) == len(hsg150["sections"])
+    assert hsg150["checks"] == []
+
+
+def test_real_l153():
+    t = _real("hse-l153", "L153 Managing health and safety in construction")
+    main = [int(s["number"]) for s in t["sections"] if s["type"] == "paragraph" and s["id"].startswith("para-")]
+    assert main[:30] == list(range(1, 31)) and main[-1] == 186 and len(main) >= 180
+    assert len([s for s in t["sections"] if s["id"].startswith("regulation-") and s["type"] == "chapter"]) == 39
+    assert t["checks"] == []
+
+
+def test_real_hsg248_decimal_paragraphs():
+    t = _real("hse-hsg248", "HSG248 Asbestos: The analysts' guide")
+    S = {s["id"]: s for s in t["sections"]}
+    assert S["para-2-14"]["text"].startswith("These site issues arose")
+    assert len([s for s in t["sections"] if s["type"] == "paragraph"]) >= 580
+    assert {"table-2-1", "table-a1-2", "appendix-2-annex-1"} <= set(S)
+    assert len(S) == len(t["sections"])
+
+
+def test_real_l56_labels_and_paragraphs():
+    t = _real("hse-l56", "L56 Safety in the installation and use of gas systems and appliances")
+    main = [int(s["number"]) for s in t["sections"] if s["type"] == "paragraph" and s["id"].startswith("para-")]
+    assert main[0] == 1 and main[-1] >= 340 and len(main) >= 335
+    assert len([s for s in t["sections"] if s["type"] == "note"]) <= 2
+    assert {"figure-7a", "figure-11c"} <= {s["id"] for s in t["sections"]}

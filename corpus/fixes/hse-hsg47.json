@@ -1,0 +1,39 @@
+{
+ "source_id": "hse-hsg47",
+ "about": "Saved model fixes for hse-hsg47 (ADR 0010).",
+ "fixes": [
+  {
+   "key": "3b9858ac4b44af4a",
+   "kind": "figure_description",
+   "target": "figure-1: Aftermath of a gas explosion, following damage to an underground gas service pipe",
+   "value": "A photo of a large brick building that has partly collapsed, with a big pile of rubble, roof slates, timber and bricks spread across the grass in front. Standing parts of the building and bare trees are visible behind the rubble. There are no printed labels.",
+   "reason": "The photo matches the caption about the aftermath of a gas explosion.",
+   "evidence": "Image shows collapsed building and debris on grass.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "f565c8e20bad0d89",
+   "kind": "figure_description",
+   "target": "figure-2: A safe system of work",
+   "value": "A flow chart titled \"A brief look at the process from referring to plans on site to the start of work near underground services\", starting at \"Planning the work\". The steps are: \"Refer to plans of underground services\", \"Survey the work area\", then \"Services detected and identified by trial holes\"; if NO, \"Further trial holes required\" then \"Services located?\", where NO leads to \"Contact service owner(s)\" and YES leads to \"Evidence of other services?\"; a YES from the trial holes also leads to \"Evidence of other services?\". If YES, \"Obtain more information and plans\" loops back to \"Refer to plans of underground services\"; if NO, \"Is work close to identified services?\", where YES leads to \"Carry out excavation using safe methods\" and NO leads to \"Use tools of choice\".",
+   "reason": "The flow chart is clear; the crop also includes four bullet points of body text above the chart.",
+   "evidence": "All boxes and YES/NO arrows read from the image.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "9e6dbb065c29ce80",
+   "kind": "figure_description",
+   "target": "photo-1: under a road",
+   "value": "A colour photo of two workers in white hard hats and yellow high-visibility jackets working beside a hedge. One worker stands behind a blue machine with a control panel next to a long pipe or rod, and the other, partly out of view, holds a yellow hand tool over the ground. There are no printed labels in the photo.",
+   "reason": "The photo is clear; the title \"under a road\" is not shown in the image and nothing in the photo shows a road.",
+   "evidence": "Image shows two workers, hard hats, high-visibility jackets, a blue machine and a long pipe beside a hedge.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "medium",
+   "date": "2026-11-21"
+  }
+ ]
+}

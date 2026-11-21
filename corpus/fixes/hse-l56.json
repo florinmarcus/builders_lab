@@ -1,0 +1,160 @@
+{
+ "source_id": "hse-l56",
+ "about": "Saved model fixes for hse-l56 (ADR 0010).",
+ "fixes": [
+  {
+   "key": "3b9858ac4b44af4a",
+   "kind": "figure_description",
+   "target": "figure-1: Single metered supply for CNG refuelling: GSIUR doesn’t apply",
+   "value": "A line diagram of a gas supply for CNG refuelling, running from a Service valve (where fitted) through an Emergency control also acts as meter control, a primary meter marked M and a Compressor shut-off device to the CNG refuelling installation. Brackets above the line mark the Service pipe, the Primary meter, the Installation pipework and the Compressor connector.",
+   "reason": "Schematic with all printed labels copied in order along the pipe.",
+   "evidence": "Image labels: Service valve (where fitted), Emergency control also acts as meter control, M, Compressor shut-off device, CNG refuelling installation, Service pipe, Primary meter, Installation pipework, Compressor connector.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "a7ec161614054280",
+   "kind": "figure_description",
+   "target": "figure-2: Single metered supply for more than one use",
+   "value": "Schematic pipework diagram of a single metered gas supply serving more than one use, running from a dashed service valve (where fitted) through an emergency control that also acts as meter control, a regulator R and a primary meter M. After the meter the pipe splits: one branch goes through an appliance shut-off device and appliance connector to an Appliance, and the other goes through a compressor shut-off device and compressor connection to a CNG refuelling installation. Brackets label the Service pipe, Primary meter, Installation pipework and Appliance connector, and a line under the CNG branch is marked \"GSIUR doesn't apply (applies elsewhere)\".",
+   "reason": "The image is a line diagram; all labels are read from it.",
+   "evidence": "Labels: Service valve (where fitted), Emergency control also acts as meter control, R, M, Appliance shut-off device, Compressor shut-off device, CNG refuelling installation, GSIUR doesn't apply (applies elsewhere).",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "f5ff4a511f8ac6b1",
+   "kind": "figure_description",
+   "target": "figure-3: Two separate metered supplies",
+   "value": "Schematic pipework diagram of two separate metered gas supplies taken from one service pipe that rises from below ground level after a dashed service valve. The upper supply passes a valve, a regulator R and meter M, then an appliance shut-off device and appliance connector to an Appliance; the lower supply passes a valve and meter M, then an appliance/compressor shut-off device to a CNG refuelling installation. The top is marked \"GSIUR applies to rest of premises\" and the lower supply is marked \"GSIUR doesn't apply (applies elsewhere)\", with brackets for Service pipe, Primary meter, Installation pipework and Appliance connector.",
+   "reason": "The image is a line diagram; all labels are read from it.",
+   "evidence": "Labels: Ground level, Service valve, R, M, Appliance/compressor shut-off device, CNG refuelling installation, GSIUR applies to rest of premises.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "fb9a52bd8ce1782e",
+   "kind": "figure_description",
+   "target": "figure-4: Single supply with two secondary meters",
+   "value": "Schematic pipework diagram of a single gas supply with two secondary meters: a service valve, a meter control/ECV, a regulator and a primary meter M feed installation pipework that splits into two branches. One branch has a valve, regulator R and secondary meter M leading through an appliance connector to an Appliance; the other has a valve, meter M and a further valve leading to a compressor/appliance shut-off device and a CNG refuelling installation. Brackets label Service pipe, Primary meter, Installation pipework, Secondary meter and Appliance connector, and the CNG branch is marked \"GSIUR doesn't apply (applies elsewhere)\".",
+   "reason": "The image is a line diagram; labels are read from it. The top label \"Installation pipework\" is slightly clipped at the top edge but still readable.",
+   "evidence": "Labels: Service valve, Meter control/ECV, Regulator, Secondary meter, Compressor/appliance shut-off device, CNG refuelling installation.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "37ddb9915994ba94",
+   "kind": "figure_description",
+   "target": "figure-5: Outside meter installation",
+   "value": "Schematic pipework diagram of an outside meter installation, shown as Figure 5. Gas runs from a dashed service valve (where fitted) through an emergency control that also acts as meter control, a regulator R and meter M, then through a shaded wall into the building to an appliance shut-off device and an Appliance. Brackets label the Service pipe, Primary meter, Installation pipework and Appliance connector.",
+   "reason": "The image is a line diagram with its printed caption; the shaded bar is read as the building wall, since the meter sits before it.",
+   "evidence": "Caption: Figure 5 Outside meter installation. Labels: Service valve (where fitted), Emergency control also acts as meter control, R, M, Appliance shut-off device, Appliance.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "bbb5ac806d9ba3cd",
+   "kind": "figure_description",
+   "target": "figure-6: Inside meter installation",
+   "value": "Schematic pipework diagram of an inside meter installation, shown as Figure 6. Gas runs from a dashed service valve (where fitted) through a shaded wall, then through an emergency control that also acts as meter control, a regulator R and meter M inside the building, to an appliance shut-off device and an Appliance. Brackets label the Service pipe, Primary meter, Installation pipework and Appliance connector.",
+   "reason": "The image is a line diagram with its printed caption; the shaded bar is read as the building wall, since the meter sits after it.",
+   "evidence": "Caption: Figure 6 Inside meter installation. Labels: Service valve (where fitted), Emergency control also acts as meter control, R, M, Appliance shut-off device, Appliance.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "23f64d458b113a61",
+   "kind": "figure_description",
+   "target": "figure-7a: Multi-occupancy installation – external riser",
+   "value": "Schematic pipework diagram of a multi-occupancy installation with an external riser, shown as Figure 7(a). A service pipe from a dashed service valve below ground level rises up the outside of a shaded building and branches into two dwellings, each with a valve, regulator R and meter M, then an appliance shut-off device and an Appliance. A note says \"Valves in individual dwellings act as emergency controls and meter controls\", and brackets label Service pipe, Primary meter, Installation pipework and Appliance connector.",
+   "reason": "The image is a line diagram with its printed caption; all labels are read from it.",
+   "evidence": "Caption: Figure 7(a) Multi-occupancy installation – external riser. Labels: Ground level, Service valve, Appliance shut-off device, Appliance.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "e7f62bf7645cecd5",
+   "kind": "figure_description",
+   "target": "figure-7b: Multi-occupancy installation (remote bulk meter)",
+   "value": "Schematic pipework diagram of a multi-occupancy installation with a remote bulk meter, shown as Figure 7(b). After the service valve, a boxed meter control (accessible to gas consumers), also acting as emergency control, with regulator R and primary meter M feeds installation pipework that rises to flats (one or more). Each flat has a valve, regulator R and secondary meter M, then an appliance shut-off device and an Appliance, with a note of additional emergency controls in individual dwellings and brackets for Service pipe, Primary meter, Installation pipework, Secondary meter and Appliance connector.",
+   "reason": "The image is a line diagram with its printed caption; all labels are read from it.",
+   "evidence": "Caption: Figure 7(b) Multi-occupancy installation (remote bulk meter). Labels: Meter control (accessible to gas consumers), also acting as emergency control; Flats (one or more); Additional emergency controls in individual dwellings.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "a77ce77216f4ae4e",
+   "kind": "figure_description",
+   "target": "figure-8: Multi-occupancy installation (remote meters)",
+   "value": "Schematic pipework diagram of a multi-occupancy installation with remote meters, shown as Figure 8. After a single service valve the pipe splits into three lines, each with a meter control (accessible to gas consumers, also acting as emergency control), a regulator R and a meter M, and the lines rise into a shaded building. In the dwellings, additional emergency controls and appliance shut-off devices lead to Appliances, with brackets labelling Service pipe, Primary meter, Installation pipework and Appliance connector.",
+   "reason": "The image is a line diagram with its printed caption; three meter lines are drawn but only two appliances are shown.",
+   "evidence": "Caption: Figure 8 Multi-occupancy installation (remote meters). Labels: Service valve; Meter controls (accessible to gas consumers), also acting as emergency controls; Additional emergency controls in individual dwellings; Appliance shut-off device.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "78147721ae5ae677",
+   "kind": "figure_description",
+   "target": "figure-9: Meter with bypass, eg industrial/commercial",
+   "value": "A line diagram of a gas supply with a meter bypass, for example in industrial or commercial premises. From left to right it shows the Service valve, a wall, the Emergency control, a regulator marked R, a Meter control valve, the meter marked M with a valve after it, and a Bypass valve on a pipe running above the meter, then an Appliance shut-off device and the Appliance. Brackets above mark the Service pipe, Primary meter, Installation pipework and Appliance connector sections.",
+   "reason": "Schematic diagram; all printed labels read from the image.",
+   "evidence": "Figure 9 Meter with bypass, eg industrial/commercial.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "6adbbaf5ed6aecad",
+   "kind": "figure_description",
+   "target": "figure-10: Meter remote from premises, eg meter houses",
+   "value": "A line diagram of a gas supply where the meter is remote from the premises, for example in a meter house. It shows the Service valve, then a box holding the Meter control (accessible to gas consumers), also acting as emergency control, a regulator marked R and the meter marked M, then two dashed valves labelled Additional emergency control (optional position) on either side of a wall, an Appliance shut-off device and the Appliance. Brackets above mark the Service pipe, Primary meter, Installation pipework and Appliance connector sections.",
+   "reason": "Schematic diagram; labels read from the image, dashed valves shown as optional.",
+   "evidence": "Figure 10 Meter remote from premises, eg meter houses.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "07fd3637b3fb1549",
+   "kind": "figure_description",
+   "target": "figure-11a: LPG systems – cylinder installation",
+   "value": "A line diagram of an LPG cylinder installation. Four Cylinders feed a manifold to a device marked ACD and a regulator marked R, then an Emergency control valve, a wall, an Appliance shut-off device and the Appliance. Brackets above mark the Service pipework, Installation pipework and Appliance connector sections.",
+   "reason": "Schematic diagram; labels read from the image.",
+   "evidence": "Figure 11(a) LPG systems – cylinder installation.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "ddd171620794ffa7",
+   "kind": "figure_description",
+   "target": "figure-11b: LPG systems – single bulk tank installation (Note: Some vapour installations may have an additional regulator)",
+   "value": "A line diagram of an LPG single bulk tank installation. A Tank feeds a regulator marked R, then an Emergency control valve, a wall, an Appliance shut-off device and the Appliance. Brackets above mark the Service pipework, Installation pipework and Appliance connector sections, and a note says some vapour installations may have an additional regulator.",
+   "reason": "Schematic diagram; labels and the note read from the image.",
+   "evidence": "Figure 11(b) LPG systems – single bulk tank installation (Note: Some vapour installations may have an additional regulator).",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "5f849453f40be115",
+   "kind": "figure_description",
+   "target": "figure-11c: LPG systems – single bulk tank installation (multi-residence)",
+   "value": "A line diagram of an LPG single bulk tank installation serving more than one home. A Tank feeds a regulator marked R, and the pipe then splits into two branches, each with its own regulator marked R, an Emergency control valve, a wall, an Appliance shut-off device and an Appliance. Brackets above mark the Service pipework, Installation pipework and Appliance connector sections.",
+   "reason": "Schematic diagram; labels read from the image (the label text 'Applliianccee' is a parsing artefact, the image says Appliance).",
+   "evidence": "Figure 11(c) LPG systems – single bulk tank installation (multi-residence).",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  }
+ ]
+}

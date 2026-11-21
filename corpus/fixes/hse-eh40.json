@@ -1,0 +1,64 @@
+{
+ "source_id": "hse-eh40",
+ "about": "Saved model fixes for hse-eh40 (ADR 0010).",
+ "fixes": [
+  {
+   "key": "d12a3032e14d824c",
+   "kind": "figure_description",
+   "target": "figure-p33: The 8-hour reference period",
+   "value": "A page of worked examples, not a drawing, showing how to calculate an 8-hour TWA exposure. Example 3 splits a working day into sessions 0800–1030 at 0.32 mg.m-3 for 2.5 h, 1045–1245 at 0.07 for 2 h, 1330–1530 at 0.2 for 2 h and 1545–1715 at 0.1 for 1.5 h, with zero exposure in the breaks, giving an 8-hour TWA of 0.19 mg.m-3. Example 4 is a night shift of 2200 to 2400 helping in workshop at 0.1, 2400 to 0100 cleaning elsewhere in factory at 0 (assumed), 0100 to 0400 working in canteen at 0 (assumed) and 0400 to 0600 cleaning-up after breakdown in workshop at 0.21 measured, giving an 8-hour TWA of 0.078 mg.m-3.",
+   "reason": "The cropped area is a full page of text and two small tables (Examples 3 and 4 under Calculation methods), not a figure; values read from the image.",
+   "evidence": "Example 3: = 0.19 mg.m-3. Example 4: = 0.078 mg.m-3.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "medium",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "445b7bf1251be54a",
+   "kind": "figure_description",
+   "target": "figure-p39: Reciprocal calculation procedure for mixtures of hydrocarbon solvents",
+   "value": "This is a page of text from the mixed exposures section, not a picture, setting out the reciprocal calculation procedure (RCP) for mixtures of hydrocarbon solvents. It says the OELsol should be rounded to the nearest 25 below 100 mg.m-3, the nearest 50 for 100–600 mg.m-3 and the nearest 200 above 600 mg.m-3, and lists the ACTS guidance values (8-hour TWAs): normal and branched chain alkanes C5 – C6 1800 mg.m-3 and ≥C7 1200 mg.m-3, cycloalkanes C5 – C6 1800 mg.m-3 and ≥C7 800 mg.m-3, and aromatics 500 mg.m-3. It ends with a white spirit example of 52% alkanes ≥C7 (guidance value = 1200 mg.m-3), 27% cycloalkanes ≥C7 (guidance value = 800 mg.m-3) and 10% aromatics (guidance value = 500 mg.m-3).",
+   "reason": "The image is the whole of page 39, which is plain text (paragraphs 87 to 89) with no figure, so the description gives the printed values.",
+   "evidence": "Page 39 image: rounding rule lines, group headings in red with values, and the Example list.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "medium",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "bd568aeb21a1f358",
+   "kind": "table",
+   "target": "reciprocal-calculation-procedure-for-mixtures-of-hydrocarbon-table-1: Reciprocal calculation procedure for mixtures of hydrocarbon solvents",
+   "value": {
+    "columns": [
+     "Expression",
+     "Value"
+    ],
+    "rows": [
+     [
+      "1/OELsol",
+      "52/100 / 1200 + 27/100 / 800 + 10/10 / 500 + 1/100 / 220 + 10/100 / 125"
+     ],
+     [
+      "1/OELsol",
+      "1.816 x 10-3"
+     ],
+     [
+      "OELsol",
+      "551 mg.m-3"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "In the reciprocal calculation procedure for mixtures of hydrocarbon solvents, 1/OELsol = 52/100 / 1200 + 27/100 / 800 + 10/10 / 500 + 1/100 / 220 + 10/100 / 125.",
+     "In the reciprocal calculation procedure for mixtures of hydrocarbon solvents, 1/OELsol = 1.816 x 10-3.",
+     "In the reciprocal calculation procedure for mixtures of hydrocarbon solvents, OELsol = 551 mg.m-3."
+    ]
+   },
+   "reason": "The area is a worked equation, not a printed table, so it is laid out as expression and value; no headings are printed, so 'Expression' and 'Value' are neutral names. The third fraction is printed as 10/10 (copied as printed, likely a typo for 10/100); fractions are written as numerator / denominator.",
+   "evidence": "Page 40 image, the stacked fractions between the white spirit list and the line 'rounded to the nearest 50 gives ... 550 mg.m-3'.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "medium",
+   "date": "2026-11-21"
+  }
+ ]
+}

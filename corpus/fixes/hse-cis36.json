@@ -1,0 +1,39 @@
+{
+ "source_id": "hse-cis36",
+ "about": "Saved model fixes for hse-cis36 (ADR 0010).",
+ "fixes": [
+  {
+   "key": "5a566ea04f65410d",
+   "kind": "figure_description",
+   "target": "figure-1: Common tasks like cutting can create very high dust levels",
+   "value": "A photo of a worker in a hi-vis yellow jacket and trousers, a helmet and a face mask bending over to cut the ground with a hand-held cut-off saw beside a brick wall. A large cloud of white dust rises from the cut and spreads across the pavement and road, with a barrier and a vehicle in the background.",
+   "reason": "Photo with no printed labels; described from what is visible, matching the caption about cutting creating high dust levels.",
+   "evidence": "figure-1.png: worker with cut-off saw, thick dust cloud.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "50ac97a70c5b8267",
+   "kind": "figure_description",
+   "target": "figure-3: Water suppression on a cut-off saw",
+   "value": "A close-up photo of a hand-held orange cut-off saw held by a worker in yellow gloves and a hi-vis sleeve. A water hose is attached to the saw and runs to the blade guard, and the ground under the blade is wet with grey slurry.",
+   "reason": "Photo with no printed labels; the hose and wet ground show the water suppression named in the caption.",
+   "evidence": "figure-3.png: saw with hose to blade guard, wet slurry on ground.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "00ec4eee1f7cf04d",
+   "kind": "figure_description",
+   "target": "figure-4: Wall chasing using on-tool extraction",
+   "value": "A photo of a worker crouching beside a block wall, cutting a chase with a red hand-held wall chaser. A thick black extraction hose runs from the tool down to the floor, and the worker wears a white helmet, a respirator mask, gloves and a hi-vis vest.",
+   "reason": "Photo with no printed labels; the hose fixed to the tool shows the on-tool extraction named in the caption.",
+   "evidence": "figure-4.png: wall chaser with extraction hose, worker with respirator.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  }
+ ]
+}

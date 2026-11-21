@@ -202,6 +202,24 @@ def test_diagram_labels_a_little_larger_than_small_print_stay_in_the_drawing():
     assert sec(t, "para-10.1")["text"] == "Doors text."
 
 
+def test_an_11pt_list_inside_a_table_does_not_make_the_page_two_columns():
+    # AD L 2026 vol 2 Table 5.6: an 11pt list of conversion factors starts at x=329 inside the table; the page title
+    # and its table caption must not be cut at a "gutter" there.
+    L = page_furniture(1, "1") + [ln(1, 84, bold("Section", "5:", "Services"), 26.0, "Agenda-Bold"),
+                                  ln(1, 120, [("5.1", B), "Some", "text."], font="Agenda-Semibold"),
+                                  ln(1, 150, bold("Table", "5.6", "Minimum", "thermal", "efficiencies", "for", "domestic", "hot",
+                                                  "water", "systems"), 12.0, "Agenda-Bold")]
+    L += [ln(1, 165, ["Indirect-fired", "Natural", "gas", "91%"], 10.0)]
+    L += [ln(1, 180 + 13 * k, [f"Fuel{k}", f"0.9{k}"], 11.0, x0=329.0) for k in range(6)]
+    L += [ln(1, 270, ["Electrically-heated", "100%", "assumed"], 10.0)]
+    L += [ln(1, 300, [("5.2", B), "More", "text."], font="Agenda-Semibold")]
+    t = build_tree({"lines": L, "tables": [], "page_width": 595.0}, META)
+    tab = sec(t, "table-5.6")
+    assert tab["title"] == "Minimum thermal efficiencies for domestic hot water systems"
+    assert "Fuel5 0.95" in tab["text"] and tab["text"].endswith("Electrically-heated 100% assumed")
+    assert sec(t, "para-5.2")["text"] == "More text."
+
+
 def test_key_terms_in_the_accent_colour_on_their_own_line():
     # AD P 2013: the term is printed in a spot colour, its meaning on the lines below; "*" marks a term from the
     # Building Regulations.

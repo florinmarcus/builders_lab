@@ -6518,6 +6518,302 @@
    "by": "model check, Claude Code subagent (page images and pdfplumber grid)",
    "confidence": "high",
    "date": "2026-11-20"
+  },
+  {
+   "key": "42bb07eeab2dd503",
+   "kind": "table",
+   "target": "table-3-1: Topics to be covered in analyst development programmes",
+   "value": {
+    "columns": [
+     "All staff",
+     "Field staff"
+    ],
+    "rows": [
+     [
+      "Awareness training for asbestos in accordance with CAR Regulation 10. This includes the health effects of exposure to asbestos fibre and emergency procedures",
+      "Working in confined spaces"
+     ],
+     [
+      "Methods to reduce the risk when working with asbestos",
+      "Working at heights"
+     ],
+     [
+      "Safe handling and use of chemicals",
+      "Lone working"
+     ],
+     [
+      "Ergonomic issues and requirements",
+      "Other hazards (eg risks from old buildings; biological hazards)"
+     ],
+     [
+      "Company health and safety policy and procedures",
+      "Working in hot environments"
+     ],
+     [
+      "",
+      "Selection, fitting, wearing and care of RPE"
+     ],
+     [
+      "",
+      "Use of PPE"
+     ],
+     [
+      "",
+      "Procedures for entry and exit from enclosures"
+     ],
+     [
+      "",
+      "Decontamination procedures"
+     ],
+     [
+      "",
+      "The meaning and interpretation of the control limit and clearance indicator"
+     ],
+     [
+      "",
+      "Action to take if intimidation, confrontation or inappropriate challenges occur on site"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Topics to be covered in analyst development programmes: for all staff, awareness training for asbestos in accordance with CAR Regulation 10, which includes the health effects of exposure to asbestos fibre and emergency procedures; for field staff, working in confined spaces.",
+     "Topics to be covered in analyst development programmes: for all staff, methods to reduce the risk when working with asbestos; for field staff, working at heights.",
+     "Topics to be covered in analyst development programmes: for all staff, safe handling and use of chemicals; for field staff, lone working.",
+     "Topics to be covered in analyst development programmes: for all staff, ergonomic issues and requirements; for field staff, other hazards (eg risks from old buildings; biological hazards).",
+     "Topics to be covered in analyst development programmes: for all staff, company health and safety policy and procedures; for field staff, working in hot environments.",
+     "Topics to be covered in analyst development programmes: for field staff, selection, fitting, wearing and care of RPE.",
+     "Topics to be covered in analyst development programmes: for field staff, use of PPE.",
+     "Topics to be covered in analyst development programmes: for field staff, procedures for entry and exit from enclosures.",
+     "Topics to be covered in analyst development programmes: for field staff, decontamination procedures.",
+     "Topics to be covered in analyst development programmes: for field staff, the meaning and interpretation of the control limit and clearance indicator.",
+     "Topics to be covered in analyst development programmes: for field staff, action to take if intimidation, confrontation or inappropriate challenges occur on site."
+    ]
+   },
+   "reason": "Two independent topic lists side by side; the library grid matches the page. The tall 'All staff' cell beside the last seven field staff rows is only blank space after the last all-staff topic, not one value covering those rows, so it is not repeated and those rows get an empty first cell.",
+   "evidence": "Page 19, Table 3.1: header row All staff | Field staff, 5 all-staff topics, 11 field-staff topics.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "4da07564073a9fe6",
+   "kind": "figure_description",
+   "target": "figure-3-2: Training in checking respiratory protective equipment",
+   "value": "A photo of six people seated around a meeting table during training in checking respiratory protective equipment. One person at the far end holds up a respirator mask while the others look at masks, papers and notebooks on the table.",
+   "reason": "Photo with no printed labels; caption is 'Training in checking respiratory protective equipment'.",
+   "evidence": "Figure 3.2 image on page 19.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "af6e7e06f1937015",
+   "kind": "figure_description",
+   "target": "figure-5-4: Personal sampler head",
+   "value": "A photo of a black cylindrical personal sampler head (conductive cowl) used for air sampling. Its white label reads \"0.8µ PCM\" with a barcode and the number 12797465.",
+   "reason": "Photo of the sampler head; the label text is legible. The section labels picked up nearby body text (paragraph 5.33), not figure labels.",
+   "evidence": "Figure 5.4 image: label '0.8µ PCM', barcode, '12797465'.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "0e3afd1434a1e686",
+   "kind": "figure_description",
+   "target": "figure-5-5: Analyst setting up a clearance test",
+   "value": "A photo of an analyst in a white hooded disposable coverall and a respirator crouching on a polythene-covered floor while setting up a clearance test. Beside them is a blue air sampling pump with a tall stand holding a sampling head at the top.",
+   "reason": "Photo with no printed labels. The crop also takes in the body text of paragraphs 5.40 and 5.41, which is not part of the figure.",
+   "evidence": "Figure 5.5 image: analyst, pump and sampling stand on polythene sheeting.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "81f1559e7ea3bcef",
+   "kind": "figure_description",
+   "target": "figure-5-6: Leak test outside an airlock",
+   "value": "A photo of a leak test outside an airlock, with an air sampling pump on the floor and a tall stand holding a sampling head beside a polythene enclosure sealed with black tape. A warning sign on the enclosure begins with \"Danger\".",
+   "reason": "Photo; the sign text other than 'Danger' is too small to read. The crop also takes in bulleted body text about sampling locations, which is not part of the figure.",
+   "evidence": "Figure 5.6 image: pump and sampling stand next to the enclosure airlock.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "medium",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "6826cee817bb06de",
+   "kind": "figure_description",
+   "target": "figure-6-4: Analyst carrying out the thorough visual inspection",
+   "value": "A photo of an analyst in a white hooded coverall, respirator and purple gloves kneeling inside a polythene-lined enclosure. The analyst shines a torch on the floor while carrying out the thorough visual inspection.",
+   "reason": "Photo with no printed labels.",
+   "evidence": "Figure 6.4 image.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "510a33c9b2650fb9",
+   "kind": "figure_description",
+   "target": "figure-8-2: Pre-use wearer seal check (fit check) of half-face mask",
+   "value": "A photo of a person in a white hooded coverall doing a pre-use wearer seal check (fit check) of a blue half-face mask, holding a hand over the mask filter. Behind them, a sign on the enclosure reads \"Danger Materials containing asbestos\", \"Follow safety procedures\", \"Wear protective clothing\" and \"No unauthorised entry\".",
+   "reason": "Photo; sign text is legible (the word asbestos is partly cut off at the edge). The section labels picked up nearby body text (paragraphs 8.19 and 8.20).",
+   "evidence": "Figure 8.2 image: mask, hand on filter, enclosure sign.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "625f055e3c2b9abf",
+   "kind": "figure_description",
+   "target": "figure-9-4: Preliminary decontamination procedures (on exiting the enclosure (from right to left))",
+   "value": "A diagram headed \"EXIT PROCEDURES: AIRLOCK\" showing a worker leaving an enclosure from right to left through the Enclosure edge and the Inner, Middle and Outer stages of an airlock, with an arrow pointing out on the left. The steps are: Enclosure edge: Vacuum coverall, footwear; Airlock inner stage: Wipe mask, brush boots, clean equipment; Middle: Remove outer coverall (retain for re-entry or discard); Outer: No action; Outside airlock: Remove RPE. The pictures show a vacuum cleaner at the enclosure edge, a bucket and box in the inner stage, and the worker changing from a blue to a white coverall in the middle stage.",
+   "reason": "Diagram with printed stage names and steps; text copied as printed and in exit order. The crop includes the printed caption.",
+   "evidence": "Figure 9.4 image: heading, four boxes labelled Outer, Middle, Inner, Enclosure edge, and five step lines.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "50ece57ffcac2644",
+   "kind": "figure_description",
+   "target": "figure-9-5: Full decontamination procedures in the DCU (from right to left)",
+   "value": "Diagram of a three-room decontamination unit (DCU), entered from the airlock on the right, with rooms labelled Dirty, Shower and Clean and arrows showing movement from right to left. Dirty end: Remove and discard all items except RPE (and swimwear); carry footwear into shower. Shower: Wet mask, remove and clean; remove or cap filter; wash swimwear; clean footwear; carry items into clean end. Clean end: Dry and dress.",
+   "reason": "The image shows the DCU layout with figures in each room and the printed steps for each end.",
+   "evidence": "Printed headings DECONTAMINATION UNIT, Clean, Shower, Dirty, From airlock, and the three step captions under the diagram.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "4ac0915ce38d9c20",
+   "kind": "figure_description",
+   "target": "figure-a1-1: Exploded view of a personal sampling head",
+   "value": "Exploded diagram of a personal air sampling head, showing its parts stacked from top to bottom. The labels are Base plug; Base. Allows uniform dynamic pressure across filter face; Back-up pads; Filter; Cowl. Must be made of electrically conductive material; End cap. Must be removed for sampling; and End cap plug.",
+   "reason": "The image is a labelled exploded drawing of the sampling head with all printed labels readable.",
+   "evidence": "Caption Figure A1.1 Exploded view of a personal sampling head and the seven arrow labels.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "82501b92bd9b6ab6",
+   "kind": "figure_description",
+   "target": "figure-a1-2: Exploded view of a personal sampling head with a metal cowl",
+   "value": "Exploded diagram of a personal sampling head with a metal cowl, with dimensions of 27 mm, 55 mm, 50 mm and 50 mm marked on the clip bracket. The labelled parts are Spring clip, Fixed clip support, Support plate, Male part of filter holder, eg of Gelman Sciences Type 1107, 25 mm filter, PTFE ring, and Knurling. The Cowl label reads 22 mm i.d., 32 mm o.d., 47 mm long, Recessed and threaded to match Filter holder male.",
+   "reason": "The image is a labelled exploded drawing with dimensions; the top of the spring clip is slightly cut off but all labels are readable.",
+   "evidence": "Caption Figure A1.2 and the printed labels and dimension marks.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "a88f29f5e23c69fb",
+   "kind": "figure_description",
+   "target": "figure-a1-5: Cowl being loaded with an MCE filter",
+   "value": "Photo of a hand loading a sampling cowl with a filter. It shows an open black cowl, a black end cap with a grid pattern, and a blue holder containing a round filter with a printed grid.",
+   "reason": "The image is an unlabelled photo; the section labels are body text from the page, not figure labels.",
+   "evidence": "Photo shows a hand, a black cylindrical cowl, a black grid-patterned cap and a blue filter holder with a gridded filter.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "medium",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "189a83c9bd59a365",
+   "kind": "figure_description",
+   "target": "figure-a1-9: Asbestos fibres under PCM 40x objective",
+   "value": "Photo through a phase contrast microscope (PCM) showing long thin asbestos fibres on a green background, viewed through a circular counting graticule. The graticule has a cross with scale marks, numbers 3 and 5 at its ends, and shape markers around it labelled 10x3, 5x5/3, 10 and 3:1.",
+   "reason": "The image is a microscope photo with a graticule overlay; the caption names it as asbestos fibres under PCM 40x objective.",
+   "evidence": "Section title Asbestos fibres under PCM 40x objective; visible circle, cross scale and printed shape labels.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "medium",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "e08efc1e628cd695",
+   "kind": "figure_description",
+   "target": "figure-a1-11: Graph of the calculated intra-laboratory confdence limits",
+   "value": "Log-log line graph of the calculated intra-laboratory confidence limits, with Number of fibres counted (log scale) from 1 to 1000 on the x axis and Upper and lower confidence limits In terms of number of fibres (log scale) from 1 to 1000 on the y axis. It shows three lines, keyed as Lower 95% limit, Observed values (dashed) and Upper 95% limit, with the limits closer to the observed values as the number of fibres counted rises.",
+   "reason": "The image is a clear graph with axis titles and a key.",
+   "evidence": "Caption Figure A1.11, axis titles, axis numbers 1, 10, 100, 1000 and the key.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "80ccf020cc45a239",
+   "kind": "figure_description",
+   "target": "figure-a2-4: A glass slide with RI liquid ready for a fibre to be placed on it",
+   "value": "A photo of a laboratory work surface where a gloved hand holds a clear glass microscope slide with a small drop of liquid on it. A petri dish with fibrous sample material sits to the left, and a lamp shines on the slide. There are no printed labels in the image.",
+   "reason": "Photo shows the slide being prepared as the caption says; no labels to copy.",
+   "evidence": "Image: purple-gloved hand, glass slide with liquid drop, petri dish with sample, lamp.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "ca0a4fc9f4724673",
+   "kind": "figure_description",
+   "target": "figure-a2-5: Analyst using a polarised light microscope",
+   "value": "A photo of an analyst in a white lab coat looking through the eyepieces of a large Olympus microscope. His hands are on the stage and focus controls, and another microscope stands on a bench behind him. There are no printed labels apart from the Olympus brand name on the microscope.",
+   "reason": "Photo matches the caption; only text is the maker's name on the instrument.",
+   "evidence": "Image: man in lab coat at microscope marked OLYMPUS; second microscope in background.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "a45b7d1b6538531a",
+   "kind": "figure_description",
+   "target": "figure-a2-9: CDG 2009 Hazard placard",
+   "value": "A drawing of a diamond-shaped hazard placard with seven black vertical stripes in the top half and a white bottom half with the number 9 printed near the bottom corner. A dashed outline surrounds the diamond. It is the class 9 hazard placard used under CDG 2009.",
+   "reason": "The placard itself is clear; the crop also takes in two QC points tables and body text from the same page, which are not part of the figure.",
+   "evidence": "Image bottom left: diamond with black stripes, underlined 9, caption Figure A2.9 CDG 2009 Hazard placard. Image top: two tables of Category A and B sample points.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "87ab78d623360f0e",
+   "kind": "figure_description",
+   "target": "figure-a4-4: Hierarchy of techniques and decision-making",
+   "value": "A flow chart of the hierarchy of techniques for fibre counts, starting with Initial PCM evaluation (HSG248 or MDHS 59/2), Paragraph A4.10, then asking Total count < target value (Paragraph A4.11); if Yes, or if the next question Is discrimination appropriate or necessary? (Paragraph A4.11) is No, the Result = original count by PCM. If discrimination is needed, it asks Is discrimination by PCM, PLM or UV fluorescence possible?; if Yes, Discrimination by PCM with PLM and/or UV fluorescence (Paragraphs A4.13–A4.17), then Discrimination achieved, then Result = discrimination count. If No, it asks Is SEM or TEM analysis appropriate?; Yes leads to SEM or TEM evaluation (Paragraphs A4.18–A4.32) and Result = SEM or TEM count, and No leads back to Result = original count by PCM.",
+   "reason": "Flow chart steps and branches copied in order as printed.",
+   "evidence": "Image: boxes and decision circles with Yes/No arrows and paragraph references A4.10, A4.11, A4.13–A4.17, A4.18–A4.32.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "82e9378e18ece328",
+   "kind": "figure_description",
+   "target": "figure-a5-1: Example of a diagram showing the removal area and transit routes",
+   "value": "A plan diagram of a building showing a Ground floor warehouse and enclosure (32m x 3m x 4.5m), a DCU with CLEAN, SHOWER and DIRTY sections outside the building, and a Waste skip. A key titled Transit routes shows a green line for Operatives, running from the DCU to the enclosure airlocks, and a red line for Waste, running from the enclosure bag lock out to the waste skip. Stairs, doors and the airlock units at the enclosure are also drawn.",
+   "reason": "Labels copied as printed; the parsed labels 5N0P0U0 are garbled small sign text on the enclosure that is not readable.",
+   "evidence": "Image: legend Transit routes, Operatives (green), Waste (red); labels DCU, CLEAN, SHOWER, DIRTY, Waste skip, enclosure dimensions.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "3b38500705756134",
+   "kind": "figure_description",
+   "target": "figure-a5-2: Diagram showing the effect of the low-angle torch in identifying dust particles",
+   "value": "A diagram showing a Torch held at a low angle to a flat surface, with a beam labelled Illumination falling across it. A Dust particle on the surface gives off Scattered light, shown as arrows going up, and casts a long Shadow on the side away from the torch.",
+   "reason": "All four printed labels included; simple line diagram.",
+   "evidence": "Image labels: Torch, Illumination, Scattered light, Dust particle, Shadow.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "7ceb5ebfc4844c56",
+   "kind": "figure_description",
+   "target": "figure-a7-3: Examples of different sampling designs used in BS EN 14899",
+   "value": "A diagram of sampling designs from BS EN 14899, each drawn as a grey square inside a larger box with triangles marking sample points. The visible panel on the left has sample points spread evenly around the edge of the grey square, and the middle panel has sample points grouped in one oval cluster at the lower left corner. The printed labels for the set are Simple random sampling, Stratified random sampling, Systematic sampling, Judgemental sampling (1) and Judgemental sampling (2).",
+   "reason": "The crop shows only the bottom row of the figure (two judgemental sampling panels and an empty cell); the top row and the labels are not in the image, so labels come from the parsed text and which label goes with which panel is not certain.",
+   "evidence": "Image: two panels with triangle markers and an empty third cell. Parsed labels list five sampling design names.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "medium",
+   "date": "2026-11-21"
   }
  ]
 }

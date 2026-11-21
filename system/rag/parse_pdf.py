@@ -39,10 +39,10 @@ from system.rag.fixes import content_key, index, load_fixes
 PARSER = "guidance-pdf/0.3"
 SKIP_TITLES = {"contents"}
 BACK_MATTER = {"references": "references", "further information": "further-information"}
-CAPTION_RE = re.compile(r"^(Figure|Table)\s+(A?\d+(?:\.\d+)?[a-z]?)\b")  # "Figure 48d", "Table A1.2"
+CAPTION_RE = re.compile(r"^(Figure|Table)\s+(A?\d+(?:\.\d+)?(?:[a-z]|\([a-z]\))?)(?=[\s:.]|$)")  # "Figure 48d", "Table A1.2"
 PAGE_NO_RE = re.compile(r"\bPage\s+(\S+)\s+of\s+\d+\b|^(\d+)\s+of\s+\d+\s+pages$")
 BULLET_RE = re.compile(r"^[■●•▪]+\s*")
-PART_RE = re.compile(r"^(PART|Part|SCHEDULE|Schedule)\s+(\d+[A-Z]?|[IVX]+|[A-H])\b")
+PART_RE = re.compile(r"^(PART|Part|SCHEDULE|Schedule|SECTION|Section)\s+(\d+[A-Z]?|[IVX]+|[A-H])\b")
 # A numbered paragraph: "12 Text" (HSE guides) or "12. Text" / "1.—(1) Text" (legislation printed as PDF).
 PARA_RE = re.compile(r"^(\d{1,3})(?:\.—|\.\s|\s)\s*(\S.*)$")
 DEC_PARA_RE = re.compile(r"^(A?\d{1,2})\.(\d{1,3})\s+(\S.*)$")  # "2.14 Text": paragraph 14 of chapter 2 (HSG248)
@@ -615,6 +615,11 @@ class Builder:
             # Only a margin many pages share (mirrored pages), not the left edge of one page's figure notes.
             if n >= 5 and common[x] >= max(3, 0.25 * len(modes)):
                 self.page_left[page] = x
+        fonts: Counter = Counter()
+        for l in self.lines:
+            if l["size"] == self.body_size:
+                fonts[l["font"]] += len(l["text"])
+        self.body_font = fonts.most_common(1)[0][0] if fonts else ""
         self.part_size = max((l["size"] for l in self.lines if PART_RE.match(l["text"].strip())), default=0.0)
 
     def left(self, l) -> float:
@@ -678,6 +683,9 @@ class Builder:
             after = t[m.end():].strip()
             nxt = self.lines[k + 1] if k + 1 < len(self.lines) else None
             nn = self.lines[k + 2] if k + 2 < len(self.lines) else None
+            if after[:1].isupper() and (not nxt or nxt["page"] != l["page"]) and l["top"] > 0.75 * self.page_height:
+                self.body_captions.add(id(l))  # the last line on its page: a caption under its figure (L56 figure 6)
+                continue
             if not after[:1].isupper() or not nxt or nxt["page"] != l["page"]:
                 continue
             if nxt["top"] - l["top"] >= 1.8 * l["size"]:
@@ -694,7 +702,11 @@ class Builder:
         return l["size"] <= self.body_size - 1.5
 
     def is_heading(self, l) -> bool:
-        return (_is_bold(l["font"]) and "Italic" not in l["font"] and self.body_size + 0.5 <= l["size"] < 2 * self.body_size
+        # Bold and larger than body text; or much larger, in another typeface (Decent Homes: 15pt sans headings over
+        # 11pt Garamond text).
+        bigger = (_is_bold(l["font"]) and self.body_size + 0.5 <= l["size"]) or \
+            (l["size"] >= 1.3 * self.body_size and l["font"].split("-")[0] != self.body_font.split("-")[0])
+        return (bigger and "Italic" not in l["font"] and l["size"] < 2 * self.body_size
                 and self.left(l) - 6 <= l["x0"] <= self.left(l) + 25)
 
     def is_body_line(self, l) -> bool:
@@ -735,7 +747,7 @@ class Builder:
             if not self.is_caption(l):
                 continue
             got = []
-            j = k - 1 if id(l) not in self.body_captions else -1  # body-size captions sit above their table
+            j = -1 if id(l) in self.body_captions and l["text"].startswith("Table") else k - 1  # body-size table captions sit above
             stop_bottom = 72.0  # below the page header if nothing stops the walk
             while j >= 0 and self.lines[j]["page"] == l["page"]:
                 x = self.lines[j]
@@ -1000,7 +1012,7 @@ class Builder:
                 prev_caption_line = []
                 for cap in self.split_captions(l):
                     kind = cap["kind"]
-                    sid = f"{kind}-{cap['number']}".replace(".", "-").lower()  # "Table 2.1" -> table-2-1
+                    sid = re.sub(r"[().]", lambda m: "-" if m.group(0) == "." else "", f"{kind}-{cap['number']}").lower()  # "Table 2.1" -> table-2-1
                     if sid in self.by_id and re.search(r"\(?continued\)?$", cap["title"], flags=re.I):
                         # "Table 5 ... (continued)" on the next page: more rows of the same table
                         captions_on_page.append(self.by_id[sid])
@@ -1194,7 +1206,7 @@ class Builder:
     def split_captions(self, l) -> list[dict]:
         words = l.get("words") or [{"x0": l["x0"], "text": w} for w in l["text"].split()]
         starts = [k for k in range(len(words) - 1)
-                  if words[k]["text"] in ("Figure", "Table") and re.match(r"^A?\d+(\.\d+)?[a-z]?[:.]?$", words[k + 1]["text"])]
+                  if words[k]["text"] in ("Figure", "Table") and re.match(r"^A?\d+(\.\d+)?([a-z]|\([a-z]\))?[:.]?$", words[k + 1]["text"])]
         if not starts:  # words did not split as expected: fall back to the line's text
             m = CAPTION_RE.match(l["text"])
             self.issues.append(f"caption words not split on file page {l['page']}: {l['text'][:40]}")
@@ -1351,7 +1363,14 @@ class Builder:
                 s["area"] = {"page": im["page"], "top": im["top"], "bottom": im["bottom"], "x0": im["x0"], "x1": im["x1"]}
             else:
                 top, bottom = s.get("spans", {}).get(str(cap["page"]), (cap["top"] - 200, cap["top"] + 12))
-                if s.get("drawn"):
+                if not s.get("drawn") and not s.get("diagram") and bottom - top < 40 and not s.get("labels"):
+                    # A drawing with no words of its own above its caption (a utility plan, a wired plug): the
+                    # picture is the space between the text above and the caption.
+                    on = [l for l in self.lines if l["page"] == cap["page"] and l["top"] + l["size"] < cap["top"] - 2]
+                    above = [l["top"] + l["size"] + 2 for l in on if l["x0"] < cap["x1"]]
+                    top = max(above) + 4 if above else 72.0
+                    bottom = cap["top"] - 1
+                elif s.get("drawn"):
                     # A drawing found from its labels: the picture reaches up to the text above it and down to the
                     # text below it, beyond its outermost labels.
                     on = [l for l in self.lines if l["page"] == cap["page"] and l["text"] not in s["labels"]]

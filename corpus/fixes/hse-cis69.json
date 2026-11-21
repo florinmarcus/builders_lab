@@ -1,0 +1,50 @@
+{
+ "source_id": "hse-cis69",
+ "about": "Saved model fixes for hse-cis69 (ADR 0010).",
+ "fixes": [
+  {
+   "key": "65f15f1104b807ba",
+   "kind": "figure_description",
+   "target": "figure-1: Tools and accessories providing for effective dust removal",
+   "value": "A photo of an angle grinder seen from below, lying on a dusty concrete floor. Its grinding disc has a ring of holes so dust can be drawn through it, and a dust extraction hose is attached to the hood around the disc. There are no printed labels.",
+   "reason": "The photo matches the caption about tools and accessories for effective dust removal.",
+   "evidence": "Image shows grinder, side handle, perforated disc, black extraction hose.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "adede9d9cc4bb53c",
+   "kind": "figure_description",
+   "target": "figure-2: Examples of captor hoods on a grinder and breaker",
+   "value": "A photo of a breaker with an orange captor hood fitted around its chisel bit, connected to a black extraction hose. The chisel is resting on a dusty concrete surface with broken pieces nearby. There are no printed labels in the photo.",
+   "reason": "The caption speaks of a grinder and a breaker, but the crop shows only the breaker; it also includes text from the next column (Figure 3 caption and How to choose the right one).",
+   "evidence": "Image left half shows breaker hood; right half is page text.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "medium",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "f5ff4a511f8ac6b1",
+   "kind": "figure_description",
+   "target": "figure-3: Examples of different extraction units",
+   "value": "A photo of a yellow and black mobile extraction unit on wheels, standing against a wall. It has power sockets on the front, a yellow plug connected by a cable, and a black hose attached at the bottom. A warning label is visible on top but its words cannot be read.",
+   "reason": "The caption says examples of different extraction units, but only one unit is visible in the crop.",
+   "evidence": "Image shows one yellow vacuum-type extraction unit.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "medium",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "fb9a52bd8ce1782e",
+   "kind": "figure_description",
+   "target": "figure-4: Examples of labels on H and M class extraction units",
+   "value": "A photo of a label on an extraction unit, with a red and white striped border. The label shows a large letter M at each end, with a dust hazard symbol, a warning triangle with an exclamation mark, and a symbol of an open book with the letter i between them.",
+   "reason": "The caption mentions H and M class labels, but the crop shows only the M class label; it also includes bullet text from the next column.",
+   "evidence": "Image left part shows the M label; right part is page text.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "medium",
+   "date": "2026-11-21"
+  }
+ ]
+}

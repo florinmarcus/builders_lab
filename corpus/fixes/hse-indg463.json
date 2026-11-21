@@ -1,0 +1,93 @@
+{
+ "source_id": "hse-indg463",
+ "about": "Saved model fixes for hse-indg463 (ADR 0010).",
+ "fixes": [
+  {
+   "key": "9e6dbb065c29ce80",
+   "kind": "figure_description",
+   "target": "photo-1: This is a web-friendly version of leaflet INDG463, published 05/24",
+   "value": "A photo from the leaflet cover showing a worker in a face visor and dark overalls carving or cutting a block of stone, with fine dust in the air around the work. The crop also takes in the start of the leaflet text under the heading 'What is silica?'.",
+   "reason": "The crop misses the top of the cover thumbnail (the HSE header and title) and includes body text to the right; the section title is the caption 'This is a web-friendly version of leaflet INDG463, published 05/24', not a description of the photo.",
+   "evidence": "photo-1.png and page 1 image: cover thumbnail with stone worker and dust.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "medium",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "48f11a65c25c931c",
+   "kind": "table",
+   "target": "document-what-is-silica-table-1: What is silica?",
+   "value": {
+    "columns": [
+     "Approximate crystalline silica content of different materials",
+     "Crystalline silica content (%w/w)"
+    ],
+    "rows": [
+     [
+      "Sandstone, gritstone, quartzite",
+      "above 70%"
+     ],
+     [
+      "Artificial stone *",
+      "up to 95% (but depends on the type of stone pieces or minerals used in its production)"
+     ],
+     [
+      "Mortar, concrete",
+      "25–70%"
+     ],
+     [
+      "Shale",
+      "40–60%"
+     ],
+     [
+      "China stone",
+      "up to 50%"
+     ],
+     [
+      "Granite",
+      "20–45% (typically 30%)"
+     ],
+     [
+      "Slate",
+      "20–40%"
+     ],
+     [
+      "Ironstone",
+      "Up to 15%"
+     ],
+     [
+      "Basalt, dolerite",
+      "Up to 5%"
+     ],
+     [
+      "Limestone, chalk",
+      "Up to 5% (typically less than 2%)"
+     ],
+     [
+      "Marble",
+      "Up to 5% (but can contain veins of crystalline silica so the overall content may be a lot higher)"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "The approximate crystalline silica content of Sandstone, gritstone, quartzite is above 70% (%w/w).",
+     "The approximate crystalline silica content of Artificial stone * is up to 95% (but depends on the type of stone pieces or minerals used in its production) (%w/w).",
+     "The approximate crystalline silica content of Mortar, concrete is 25–70% (%w/w).",
+     "The approximate crystalline silica content of Shale is 40–60% (%w/w).",
+     "The approximate crystalline silica content of China stone is up to 50% (%w/w).",
+     "The approximate crystalline silica content of Granite is 20–45% (typically 30%) (%w/w).",
+     "The approximate crystalline silica content of Slate is 20–40% (%w/w).",
+     "The approximate crystalline silica content of Ironstone is Up to 15% (%w/w).",
+     "The approximate crystalline silica content of Basalt, dolerite is Up to 5% (%w/w).",
+     "The approximate crystalline silica content of Limestone, chalk is Up to 5% (typically less than 2%) (%w/w).",
+     "The approximate crystalline silica content of Marble is Up to 5% (but can contain veins of crystalline silica so the overall content may be a lot higher) (%w/w)."
+    ]
+   },
+   "reason": "The grid matches the printed table exactly: two columns, eleven data rows.",
+   "evidence": "Page 1 image, table under 'The quantity of silica contained in stone ...'.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  }
+ ]
+}
