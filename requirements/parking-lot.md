@@ -29,6 +29,7 @@ Started 20 Nov 2026. Status of the demo build: steps 1 (mock data plan), 2 (sche
 | N18 | Replace the demo Gmail tool with Claude's own Gmail and Microsoft 365 connectors for real firms (ADR 0014) | Demo uses our own inbox | Real firms would need a Google security review |
 | N19 | Excel export of a firm's data, then deletion within 30 days, confirmed in writing (pilot agreement; see N11) | Not needed for mock data | Promise in the pilot agreement we cannot keep |
 | N20 | Pilot agreement with DPA, our terms with the 12-month cap, and a setup help sheet for the partner | Business plan agreed 21 Nov 2026 | No pilot can start |
+| N21 | Wales: add Welsh Approved Documents (gov.wales) and keep the Welsh parts of the Building Regulations 2010 (now filtered to England); check the licence first; never mix England and Wales in one answer | England first; pitch says "England, with Wales coming" | A Welsh firm would get English rules |
 
 ## Shortcuts taken (works, but not production)
 
