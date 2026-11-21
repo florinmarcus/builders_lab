@@ -36,6 +36,8 @@ ROOT = CORPUS_DIR.parent
 MAX_CHARS = 2500  # above this a regulation or paragraph is split (about 600 tokens)
 HARD_MAX = 6000   # safety net: anything still longer is cut at line breaks into MAX_CHARS parts (overnight S3)
 CONTROL = re.compile(r"[\x00-\x08\x0b\x0c\x0e-\x1f]")
+SQUARE_BULLET = re.compile(r"[■▪]+")                 # HSE list markers left by the PDF parser (safety net)
+PRINT_FOOTER = re.compile(r"\s*\bPage \d+ of \d+\b")  # "Published by HSE 08/11 Page 141 of 141"
 SKIP_TYPES = {"part", "chapter", "appendix", "schedule", "schedule-part", "heading", "block", "back-matter",
               "references"}
 NATION = {"england": "E", "england-wales": "E+W", "gb": "E+W+S", "uk": "E+W+S+NI"}
@@ -148,6 +150,7 @@ class Chunker:
         self.ids = set(self.by_id)
         self.terms = {d["term"].lower(): d for d in tree.get("definitions", [])}
         self.chunks: list[dict] = []
+        self.used_ids: dict[str, int] = {}
         self.splits: list[str] = []
         self.legislation = src.get("kind") == "legislation"
 
@@ -177,7 +180,7 @@ class Chunker:
         }
 
     def add(self, s: dict, chunk_type: str, text: str, suffix: str = "", **extra) -> None:
-        text = CONTROL.sub("", text).strip()
+        text = PRINT_FOOTER.sub("", SQUARE_BULLET.sub("•", CONTROL.sub("", text))).strip()
         if not text:
             return
         if len(text) > HARD_MAX:  # a giant clause or table that the structure did not split
@@ -194,7 +197,11 @@ class Chunker:
         if path and len(path[0]) > 60 and "," in path[0]:  # "Approved Document B ... volume 1: Dwellings, 2019 edition ..."
             path[0] = path[0].split(",")[0]
         crumbs = " › ".join(path)
-        c.update({"id": f"{c['source_id']}:{c['version_id']}:{s['id']}{suffix}", "chunk_type": chunk_type,
+        cid = f"{c['source_id']}:{c['version_id']}:{s['id']}{suffix}"
+        n = self.used_ids[cid] = self.used_ids.get(cid, 0) + 1
+        if n > 1:  # the parser gave two sections one id (e.g. two notes on one page)
+            cid = f"{cid}~{n}"
+        c.update({"id": cid, "chunk_type": chunk_type,
                   "text": text, "embed_text": f"{crumbs}\n{text}" if crumbs else text, **extra})
         c["references"] = find_refs(text, s["id"], self.ids, c,
                                     "br2010" if self.src.get("kind") == "approved-document" else None)

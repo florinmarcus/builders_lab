@@ -190,3 +190,20 @@ def test_control_characters_are_removed():
     t = tree([sec("para-1", "paragraph", "Fire doors\x07 should be FD30.")])
     chunks, _ = chunk_tree(t, GUIDE, RECORD)
     assert chunks[0]["text"] == "Fire doors should be FD30."
+
+
+def test_square_bullets_become_round_and_print_footers_are_dropped():
+    t = tree([sec("para-1", "paragraph", "Health risks are:; ■ lung cancer;; ■■ silicosis; ▪ asthma"),
+              sec("para-2", "paragraph", "Published by HSE 08/11 Page 141 of 141"),
+              sec("para-3", "paragraph", "Page 11 of the same data release")])
+    C = by_suffix(chunk_tree(t, GUIDE, RECORD)[0])
+    assert C["para-1"]["text"] == "Health risks are:; • lung cancer;; • silicosis; • asthma"
+    assert C["para-2"]["text"] == "Published by HSE 08/11"
+    assert C["para-3"]["text"] == "Page 11 of the same data release"
+
+
+def test_duplicate_section_ids_get_unique_chunk_ids():
+    t = tree([sec("note-p59", "paragraph", "First note."), sec("note-p59", "paragraph", "Second note."),
+              sec("note-p59", "paragraph", "Third note.")])
+    ids = [c["id"] for c in chunk_tree(t, GUIDE, RECORD)[0]]
+    assert ids == ["demo:main@1:note-p59", "demo:main@1:note-p59~2", "demo:main@1:note-p59~3"]
