@@ -217,7 +217,8 @@ def log_cost(run: str, rows: list[dict]) -> float:
     return total
 
 
-def run(retrieval: str, schema: str, split: str, limit: int | None, workers: int) -> dict:
+def run(retrieval: str, schema: str, split: str, limit: int | None, workers: int, floor: float = 0.0,
+        tag: str = "") -> dict:
     sys.path.insert(0, str(ROOT / "evals"))
     import retrieval as R
 
@@ -225,7 +226,11 @@ def run(retrieval: str, schema: str, split: str, limit: int | None, workers: int
     golden = {q["id"]: q for q in (json.loads(l) for l in GOLDEN.read_text(encoding="utf-8").splitlines() if l.strip())}
     rrows = [json.loads(l) for l in (RESULTS / f"{retrieval}-{split}.jsonl").read_text(encoding="utf-8").splitlines() if l.strip()]
     rrows = [r for r in rrows if r["id"] in golden][:limit] if limit else [r for r in rrows if r["id"] in golden]
-    out_path = RESULTS / f"{retrieval}-judge-{split}.jsonl"
+    for r in rrows:  # the passages the server would return at this relevance floor
+        if r.get("reranked"):
+            r["top5"], r["scores"], r["top5_chunks"] = R.apply_floor(r["reranked"], floor)
+    name = f"{retrieval}-judge{tag}"
+    out_path = RESULTS / f"{name}-{split}.jsonl"
     done = {}
     if out_path.exists():
         done = {r["id"]: r for r in (json.loads(l) for l in out_path.read_text(encoding="utf-8").splitlines() if l.strip())
@@ -240,11 +245,11 @@ def run(retrieval: str, schema: str, split: str, limit: int | None, workers: int
             if i % 25 == 0:
                 print(f"  {i}/{len(todo)}", flush=True)
     rows = [done.get(r["id"]) or next(n for n in new if n["id"] == r["id"]) for r in rrows]
-    cost = log_cost(f"{retrieval}-judge-{split}", new)
-    summary = {"run": f"{retrieval}-judge", "split": split, "time": datetime.datetime.now(datetime.UTC).replace(tzinfo=None).isoformat(timespec="seconds") + "Z",
+    cost = log_cost(f"{name}-{split}", new)
+    summary = {"run": name, "floor": floor, "split": split, "time": datetime.datetime.now(datetime.UTC).replace(tzinfo=None).isoformat(timespec="seconds") + "Z",
                "answer_model": ANSWER_MODEL, "judge_model": JUDGE_MODEL, "schema": schema,
                "cost_usd_this_call": round(cost, 4), "errors": sum(1 for r in rows if "error" in r), **summarise(rows)}
-    (RESULTS / f"{retrieval}-judge-{split}.summary.json").write_text(json.dumps(summary, indent=1), encoding="utf-8")
+    (RESULTS / f"{name}-{split}.summary.json").write_text(json.dumps(summary, indent=1), encoding="utf-8")
     return summary
 
 
@@ -256,8 +261,10 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--split", default="dev", choices=["dev", "holdout", "all"])
     ap.add_argument("--limit", type=int)
     ap.add_argument("--workers", type=int, default=3)
+    ap.add_argument("--floor", type=float, default=0.0, help="relevance floor applied to the saved re-ranked list")
+    ap.add_argument("--tag", default="", help="suffix for the output name, e.g. -floor005")
     a = ap.parse_args(argv)
-    print(json.dumps(run(a.retrieval, a.schema, a.split, a.limit, a.workers), indent=1))
+    print(json.dumps(run(a.retrieval, a.schema, a.split, a.limit, a.workers, a.floor, a.tag), indent=1))
     return 0
 
 
