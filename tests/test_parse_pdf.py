@@ -448,3 +448,248 @@ def test_real_hsg227_photo_crops_do_not_overlap(hsg227):
     for n in (3, 5, 6, 9):  # nothing below the caption's top
         cap = next(s for s in tree["sections"] if s["id"] == f"figure-{n}")["caption_box"]
         assert A[f"figure-{n}"]["bottom"] < cap["top"], n
+
+
+# ---------------------------------------------------------------- layouts beyond the pilot (S2c, 20 Nov 2026)
+
+from system.rag.parse_pdf import normalise_bullet, split_columns  # noqa: E402
+
+
+def wl(page, top, parts, size=10.0, font="HelveticaNeue-Light"):
+    """A line as pdfplumber joins it, from (x0, text, size, font, bold) parts; words get sizes and x1."""
+    words = []
+    for x0, text, s, f, b in parts:
+        x = x0
+        for t in text.split():
+            w = {"x0": float(x), "x1": float(x + 5 * len(t)), "text": t, "s": s, "f": f, "t": float(top)}
+            if b:
+                w["b"] = True
+            words.append(w)
+            x += 5 * (len(t) + 1)
+    first = parts[0]
+    return {"page": page, "top": float(top), "x0": float(first[0]), "size": first[2], "font": first[3],
+            "text": " ".join(w["text"] for w in words), "words": words}
+
+
+def sidebar_page():
+    side, main = "HelveticaNeue-Medium", "HelveticaNeue-Roman"
+    rows = [("Workers are at risk", "Asbestos essentials task sheets tell employers what to do"),
+            ("of developing disease", "when they need to work on or near asbestos materials and"),
+            ("from breathing fibres", "they help you decide which category of work it is and how"),
+            ("in the air at work", "to plan the work safely with the right equipment for it.")]
+    lines = [wl(1, 100 + 14 * i, [(34, a, 10.0, side, False), (215, b, 11.0, main, False)]) for i, (a, b) in enumerate(rows)]
+    lines.append(wl(1, 60, [(215, "Why is asbestos a problem?", 13.0, "HelveticaNeue-Heavy", True)]))
+    return lines
+
+
+def test_sidebar_lines_are_cut_from_the_main_column_and_marked_aside():
+    out = split_columns(sidebar_page(), 11.0, 595.0)
+    side = [l for l in out if l.get("aside")]
+    main = [l for l in out if not l.get("aside")]
+    assert [l["text"] for l in side][0] == "Workers are at risk"
+    assert all(l["x0"] >= 215 for l in main) and len(main) == 5
+    assert main[1]["size"] == 11.0 and side[0]["size"] == 10.0  # each part keeps its own size
+
+
+def test_table_cells_and_hanging_numbers_are_not_columns():
+    rows = [wl(1, 100 + 14 * i, [(54, f"{i + 1}", 10.0, "Light", False), (90, "Work with materials containing asbestos HSE Books", 10.0, "Light", False)]) for i in range(4)]
+    assert all("band" not in l for l in split_columns(rows, 10.0, 595.0))
+    ruled = [wl(1, 100 + 14 * i, [(54, "Controlled wet stripping", 10.0, "Light", False), (250, "Up to one thorough soaking of it", 10.0, "Light", False)]) for i in range(4)]
+    box = [{"page": 1, "top": 95, "bottom": 160, "x0": 50, "x1": 545}]
+    assert all("band" not in l for l in split_columns(ruled, 10.0, 595.0, box))
+
+
+def test_symbol_bullets_become_dots_and_take_the_text_size():
+    l = normalise_bullet(wl(1, 100, [(57, "n", 10.0, "ZapfDingbatsITC", False), (70, "installing a kitchen", 10.0, "Light", False)]))
+    assert l["text"] == "• installing a kitchen"
+    small = normalise_bullet(wl(1, 100, [(178, "■", 8.0, "ZapfDingbatsITC", False), (190, "crocidolite (blue asbestos);", 10.0, "Light", False)]))
+    assert small["size"] == 10.0 and small["text"].startswith("■ crocidolite")
+
+
+def short_doc(lines, pages=2, **kw):
+    d = {"lines": [ln(1, 300, "Task sheet a0", 30.0, "HelveticaNeue-Condensed")] + lines, "rects": [], "images": [],
+         "page_count": pages}
+    d.update(kw)
+    return d
+
+
+def test_document_without_chapter_titles_is_one_chapter_and_page_one_is_content():
+    t = build_tree(short_doc([ln(1, 400, "What to do first", 13.0, "HelveticaNeue-Heavy"),
+                              ln(1, 420, "Check what asbestos is present before you start work on site."),
+                              ln(2, 100, "Ask the client for the register.")]), META)
+    assert sec(t, "document")["title"] == "Demo guide"
+    assert sec(t, "document-what-to-do-first")["type"] == "heading"
+    assert "Check what asbestos" in sec(t, "document-what-to-do-first-text-1")["text"]
+
+
+def test_margin_label_split_from_its_number_and_text_keeps_the_text_font():
+    lines = [ln(2, 98, "1 Introduction", 28.0, "HelveticaNeue-Medium"),
+             ln(2, 150, "1 The Regulations apply to employers.", x0=180),
+             wl(2, 200, [(57, "ACOP", 12.0, "HelveticaNeue-Bold", True)]),
+             wl(2, 198, [(155, "2", 12.0, "HelveticaNeue-Bold", True), (180, "2 Employers should plan the work.", 10.0, "HelveticaNeue-Medium", False)]),
+             ln(2, 300, "3 More guidance text here.", x0=180)]
+    t = build_tree({"lines": lines, "rects": [], "images": [], "page_count": 3}, META)
+    p2 = sec(t, "para-2")
+    assert p2["text"] == "Employers should plan the work." and p2["status"] == "acop"
+    assert sec(t, "para-3")["status"] == "acop"
+
+
+def test_body_size_caption_takes_the_rows_below_and_a_continued_table_joins_it():
+    lines = [ln(3, 98, "1 Introduction", 28.0, "HelveticaNeue-Medium"),
+             ln(3, 150, "1 Some work needs no licence.", x0=180),
+             ln(3, 180, "Table 2 Examples of non-licensable work", 10.0, "HelveticaNeue-Medium", x0=180),
+             ln(3, 210, "Maintenance work on asbestos cement products.", x0=184),
+             ln(3, 234, "Drilling textured decorative coatings.", x0=184),
+             ln(4, 104, "Table 2 Examples of non-licensable work continued", 10.0, "HelveticaNeue-Medium", x0=180),
+             ln(4, 135, "Painting AIB.", x0=181),
+             ln(4, 200, "2 To decide if other work is NNLW, assess it.", x0=180)]
+    t = build_tree({"lines": lines, "rects": [], "images": [], "page_count": 4}, META)
+    t2 = sec(t, "table-2")
+    assert "Maintenance work" in t2["text"] and "Painting AIB." in t2["text"]
+    assert sec(t, "para-2")["text"].startswith("To decide")
+
+
+def test_contents_heading_inside_a_chapter_is_not_a_chapter():
+    lines = [ln(2, 98, "1 Plans of work", 28.0, "HelveticaNeue-Medium"),
+             ln(2, 150, "1 The plan must be written.", x0=180),
+             ln(2, 180, "Contents", 12.0, "HelveticaNeue-Bold", x0=180),
+             ln(2, 200, "2 The plan should include the site layout.", x0=180)]
+    t = build_tree({"lines": lines, "rects": [], "images": [], "page_count": 3}, META)
+    assert sec(t, "para-2")["text"].startswith("The plan should")
+
+
+def test_statutory_instrument_layout_parts_regulation_headings_and_footnotes():
+    T = "TimesNewRomanPSMT"
+    B = "TimesNewRomanPS-BoldMT"
+    lines = [ln(1, 200, "CONTENTS", 14.0, T, x0=260), ln(1, 220, "PART 1", 12.0, T, x0=278),
+             ln(1, 260, "1. Citation and commencement", 10.5, T, x0=90),
+             ln(2, 320, "PART 1", 14.0, T, x0=275), ln(2, 342, "Introduction", 12.0, T, x0=268),
+             wl(2, 372, [(90, "Citation and commencement", 10.5, B, True)]),
+             ln(2, 392, "1.—(1) These Regulations may be cited as the Demo Regulations.", 10.5, B, x0=98),
+             ln(2, 404, "(2) They come into force on 1st January 2026.", 10.5, T, x0=98),
+             wl(2, 430, [(90, "Interpretation", 10.5, B, True)]),
+             ln(2, 450, "2. In these Regulations “lessor” has the meaning in the 1985 Act(a).", 10.5, T, x0=98),
+             ln(2, 740, "(a) 1985 c. 70. Sections 10A and 10B were inserted by", 8.0, T, x0=90),
+             ln(2, 749, "section 42 of the 2023 Act.", 8.0, T, x0=107),
+             ln(3, 100, "PART 2", 14.0, T, x0=275), ln(3, 122, "Emergency action", 12.0, T, x0=250),
+             wl(3, 150, [(90, "Requirement to take emergency action", 10.5, B, True)]),
+             ln(3, 170, "3.—(1) This regulation applies if Condition 1 applies.", 10.5, T, x0=98)]
+    lines += [ln(2, 500 + 12 * i, "words of the definition run on here for a while", 10.5, T, x0=107) for i in range(6)]
+    t = build_tree({"lines": lines, "rects": [], "images": [], "page_count": 3}, META)
+    assert sec(t, "part-1")["title"] == "Introduction" and sec(t, "part-2")["title"] == "Emergency action"
+    assert not [s for s in t["sections"] if s["id"] == "part-1-2"]  # the contents page is skipped
+    assert sec(t, "part-1-interpretation")["type"] == "heading"
+    assert sec(t, "para-1")["text"].startswith("(1) These Regulations")
+    assert sec(t, "para-3")["text"].startswith("(1) This regulation") and sec(t, "para-3")["parent_id"].startswith("part-2")
+    assert sec(t, "para-2")["footnotes"] == ["(a) 1985 c. 70. Sections 10A and 10B were inserted by section 42 of the 2023 Act."]
+
+
+def test_photo_named_by_the_short_line_below_it():
+    lines = [ln(1, 400, "Examples", 13.0, "HelveticaNeue-Heavy"),
+             wl(1, 250, [(215, "Asbestos lagging", 9.0, "Light", False), (340, "Sprayed asbestos", 9.0, "Light", False)])]
+    images = [{"page": 1, "top": 120, "bottom": 246, "x0": 214, "x1": 320},
+              {"page": 1, "top": 120, "bottom": 246, "x0": 335, "x1": 441}]
+    t = build_tree(short_doc(lines, images=images), META)
+    titles = sorted(s["title"] for s in t["sections"] if s["id"].startswith("photo-"))
+    assert titles == ["Asbestos lagging", "Sprayed asbestos"]
+    assert not t["issues"]
+
+
+def test_page_of_short_boxes_is_one_diagram_figure():
+    lines = [wl(2, 100, [(44, "Decision flow chart", 13.0, "HelveticaNeue-Heavy", True)])]
+    for i in range(16):
+        lines.append(ln(2, 130 + 40 * (i // 4), "Is the work removal?", 11.0, x0=50 + 130 * (i % 4)))
+    lines.append(ln(1, 400, "The flow chart helps you decide who should do the work and what kind of work it is.", 11.0))
+    t = build_tree(short_doc(lines), META)
+    f = sec(t, "figure-p2")
+    assert f["type"] == "figure" and f["title"] == "Decision flow chart" and len(f["labels"]) == 16
+
+
+def test_short_scattered_labels_are_a_drawing_and_prose_small_print_is_text():
+    lines = [ln(2, 98, "1 Labelling", 28.0, "HelveticaNeue-Medium"),
+             ln(2, 150, "1 The label must look like this, and it must be printed so that it can be read.", x0=180),
+             ln(2, 162, "It goes on raw asbestos, on asbestos waste and on products containing asbestos.", x0=180)]
+    lines += [ln(2, 300 + 12 * i, t, 8.0, x0=300) for i, t in enumerate(["h", "20 mm", "H", "50 mm", "30 mm"])]
+    lines += [ln(2, 700, "Published by the Health and Safety Executive in 2017 as guidance.", 8.0, x0=180)]
+    t = build_tree({"lines": lines, "rects": [], "images": [], "page_count": 3}, META)
+    f = sec(t, "chapter-1-figure-1")
+    assert f["type"] == "figure" and f["labels"][:2] == ["h", "20 mm"]
+    assert not [s for s in t["sections"] if s["type"] == "table"]
+    assert any(s.get("small_print") and "Published by" in s["text"] for s in t["sections"])
+
+
+# ---------------------------------------------------------------- real files: S2c sources
+
+def _real(source_id, title):
+    pytest.importorskip("pdfplumber")
+    r = _record(source_id)
+    return build_tree(read_pdf(ROOT / r["raw_path"]), {**r, "title": title}, fixes=load_fixes(source_id))
+
+
+@pytest.fixture(scope="module")
+def l143():
+    return _real("hse-l143", "L143 Managing and working with asbestos")
+
+
+def test_real_l143_structure(l143):
+    secs = l143["sections"]
+    main = [int(s["number"]) for s in secs if s["type"] == "paragraph" and s["id"].startswith("para-")]
+    assert main == list(range(1, 538))
+    regs = [s for s in secs if s["type"] == "chapter" and s["id"].startswith("regulation-")]
+    assert len(regs) == 35
+    assert sorted(int(s["number"]) for s in secs if s["type"] == "table") == list(range(1, 8))
+    S = {s["id"]: s for s in secs}
+    assert S["para-46"]["status"] == "guidance" and S["para-36"]["status"] == "acop"
+    assert S["para-46"]["text"].startswith("Licensable work does not meet")
+    assert len({s["id"] for s in secs}) == len(secs)
+    assert not [s for s in secs if s["type"] == "note" and s["text"].startswith(("ACOP", "Guidance", "Regulation"))]
+
+
+def test_real_l143_all_checks_settled_by_saved_fixes(l143):
+    assert l143["checks"] == []
+    S = {s["id"]: s for s in l143["sections"]}
+    assert S["table-5"]["grid_source"] == "model" and len(S["table-5"]["row_sentences"]) == 24
+    assert S["schedule-2-figure-1"]["description_source"] == "model"
+
+
+@pytest.fixture(scope="module")
+def a0():
+    return _real("hse-asbestos-a0", "Asbestos essentials a0")
+
+
+def test_real_a0_sidebars_photos_and_diagrams(a0):
+    S = {s["id"]: s for s in a0["sections"]}
+    assert S["note-3"]["title"] == "Safety checklist" and "Class H" not in S["note-3"]["text"]
+    assert [S[f"photo-{n}"]["title"] for n in (1, 2, 3)] == ["Broken asbestos insulating board", "Asbestos lagging",
+                                                            "Sprayed asbestos (limpet)"]
+    assert S["figure-p6"]["title"] == "Decision flow chart"
+    assert S["figure-p7"]["title"].startswith("Where asbestos materials can be found")
+    assert a0["checks"] == [] and not a0["issues"]
+
+
+@pytest.fixture(scope="module")
+def em1():
+    return _real("hse-asbestos-em1", "Asbestos essentials em1")
+
+
+def test_real_em1(em1):
+    S = {s["id"]: s for s in em1["sections"]}
+    assert {"document-unexpected-discovery-of-asbestos", "document-accidental-release-of-asbestos",
+            "document-emergency-procedures"} <= set(S)
+    assert S["photo-1"]["title"].startswith("Top row:") and S["figure-p3"]["title"] == "Flow chart"
+    assert em1["checks"] == []
+
+
+def test_real_cis80_two_columns():
+    t = _real("hse-cis80", "CIS80")
+    titles = [s["title"] for s in t["sections"] if s["type"] == "note"]
+    assert {"Plan", "Working together", "Organise"} <= set(titles)
+    assert t["checks"] == []
+
+
+def test_real_awaab_consolidated_regulations():
+    t = _real("awaab-consolidated", "Awaab's law regulations")
+    paras = [int(s["number"]) for s in t["sections"] if s["type"] == "paragraph"]
+    assert paras == list(range(1, 24))
+    assert [s["id"] for s in t["sections"] if s["type"] == "chapter"] == [f"part-{n}" for n in range(1, 8)]
+    assert t["checks"] == [] and not t["issues"]

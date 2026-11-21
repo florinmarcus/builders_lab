@@ -39,12 +39,13 @@ from system.rag.fixes import content_key, index, load_fixes
 PARSER = "guidance-pdf/0.3"
 SKIP_TITLES = {"contents"}
 BACK_MATTER = {"references": "references", "further information": "further-information"}
-CAPTION_RE = re.compile(r"^(Figure|Table)\s+(\d+)\b")
+CAPTION_RE = re.compile(r"^(Figure|Table)\s+(A?\d+(?:\.\d+)?[a-z]?)\b")  # "Figure 48d", "Table A1.2"
 PAGE_NO_RE = re.compile(r"\bPage\s+(\S+)\s+of\s+\d+\b|^(\d+)\s+of\s+\d+\s+pages$")
 BULLET_RE = re.compile(r"^[■●•▪]+\s*")
-PART_RE = re.compile(r"^(PART|Part|SCHEDULE|Schedule)\s+(\d+[A-Z]?|[IVX]+)\b")
+PART_RE = re.compile(r"^(PART|Part|SCHEDULE|Schedule)\s+(\d+[A-Z]?|[IVX]+|[A-H])\b")
 # A numbered paragraph: "12 Text" (HSE guides) or "12. Text" / "1.—(1) Text" (legislation printed as PDF).
 PARA_RE = re.compile(r"^(\d{1,3})(?:\.—|\.\s|\s)\s*(\S.*)$")
+DEC_PARA_RE = re.compile(r"^(A?\d{1,2})\.(\d{1,3})\s+(\S.*)$")  # "2.14 Text": paragraph 14 of chapter 2 (HSG248)
 
 
 # ---------------------------------------------------------------- reading the PDF
@@ -62,7 +63,7 @@ def _words(chars: list[dict]) -> list[dict]:
             w["f"] = first["fontname"].split("+")[-1]
         if "top" in first:
             w["t"] = round(first["top"], 1)
-        if first.get("fontname") and any(k in first["fontname"] for k in ("Bold", "Heavy", "Black", "Semibold")):
+        if first.get("fontname") and (_is_bold(first["fontname"]) or "Semibold" in first["fontname"]):
             w["b"] = True
         col = _colour(first.get("non_stroking_color"))
         if col and col not in ((0.0,), (0.0, 0.0, 0.0), (0.0, 0.0, 0.0, 1.0)):
@@ -70,6 +71,8 @@ def _words(chars: list[dict]) -> list[dict]:
         words.append(w)
 
     for c in chars:
+        if prev is not None and c["text"] == prev["text"] and abs(c["x0"] - prev["x0"]) < 1.0 and not c["text"].isspace():
+            continue  # the same character printed twice on top of itself (bold faked by overprinting)
         gap = prev is not None and c["x0"] - prev["x1"] > 1.5  # some PDFs have no space characters, only gaps
         if c["text"].isspace() or gap:
             if cur:
@@ -127,6 +130,9 @@ def normalise_bullet(l: dict) -> dict:
     if (glyph or (w0["text"] in ("•", "●", "▪") and not any(k in f0 for k in BULLET_FONTS))) and ws[1].get("s") \
             and (ws[1]["s"] != l["size"] or ws[1].get("f") != l["font"]):
         l = {**l, "size": ws[1]["s"], "font": ws[1].get("f", l["font"])}
+    elif BULLET_RE.fullmatch(w0["text"]) and ws[1].get("s") and ws[1]["s"] >= l["size"] + 1.5:
+        # "■" set much smaller than its words (L143: 8pt bullets on 10pt text)
+        l = {**l, "size": ws[1]["s"], "font": ws[1].get("f", l["font"])}
     return l
 
 
@@ -177,12 +183,15 @@ def split_columns(lines: list[dict], body_size: float, page_width: float,
                     continue  # a list number or bullet with a hanging indent, not a column
                 if b["x0"] - a.get("x1", a["x0"]) >= max(8.0, 1.2 * bs) and bs >= body_size - 0.5 \
                         and as_ >= body_size - 1.5:
-                    cands.append((i, b["x0"]))
+                    left = [w for w in ws[:k] if not _is_bullet_word(w, l["font"])]
+                    if len(left) <= 2 and re.fullmatch(r"\d+[A-Za-z]?[.:]?", left[-1]["text"] if left else "x"):
+                        continue  # a numbered label ("Step 1") beside its text, as in a flow chart
+                    cands.append((i, b["x0"], len(left)))
         gutters: list[float] = []
-        for _, x in sorted(cands, key=lambda c: c[1]):
+        for _, x, _n in sorted(cands, key=lambda c: c[1]):
             if any(g - 1 <= x <= g + 25 for g in gutters):  # a column's indented lines (bullets) are the same column
                 continue
-            hits = {i for i, x2 in cands if x - 1 <= x2 <= x + 25}
+            hits = {i for i, x2, _n in cands if x - 1 <= x2 <= x + 25}
             if len(hits) < GUTTER_MIN_LINES:
                 continue
             # Text columns: few body lines run across the gutter. In a table or a flow chart set in body-size
@@ -210,7 +219,7 @@ def split_columns(lines: list[dict], body_size: float, page_width: float,
                 a, b = ws[k - 1], ws[k]
                 bs, as_ = _size_at(ws, k, l), a.get("s", l["size"])
                 if any(a.get("x1", a["x0"]) < g - 2 and b["x0"] >= g - 1 for g in gutters) \
-                        and b["x0"] - a.get("x1", a["x0"]) >= max(8.0, 1.2 * bs) and bs >= body_size - 0.5 \
+                        and b["x0"] - a.get("x1", a["x0"]) >= max(8.0, 1.2 * bs) and bs >= body_size - 1.5 \
                         and as_ >= body_size - 1.5:
                     parts.append(ws[start:k])
                     start = k
@@ -240,6 +249,15 @@ def split_columns(lines: list[dict], body_size: float, page_width: float,
     return out
 
 
+def _size_weights(lines: list[dict]) -> Counter:
+    """Text sizes weighted by characters: the body size is the one most text is set in (a sidebar of many short
+    lines must not outvote the main column)."""
+    c: Counter = Counter()
+    for l in lines:
+        c[l["size"]] += len(l["text"])
+    return c
+
+
 def read_pdf(path) -> dict:
     import pdfplumber
 
@@ -251,10 +269,14 @@ def read_pdf(path) -> dict:
                 m = first.get("matrix") or (1, 0, 0, 1)
                 if not first.get("upright", True) or m[0] < 0 or m[3] < 0:  # sideways or upside-down text
                     continue
+                ws = _words(l["chars"])
+                text = l["text"]
+                if sum(len(w["text"]) for w in ws) < len(text.replace(" ", "")):  # overprinted characters dropped
+                    text = " ".join(w["text"] for w in ws)
                 lines.append(normalise_bullet({
                     "page": n, "top": round(l["top"], 1), "x0": round(l["x0"], 1),
                     "size": round(first["size"], 1), "font": first["fontname"].split("+")[-1],
-                    "text": l["text"], "words": _words(l["chars"]),
+                    "text": text, "words": ws,
                 }))
             for r in page.rects:
                 col = _colour(r.get("non_stroking_color"))
@@ -274,7 +296,7 @@ def read_pdf(path) -> dict:
         count = len(pdf.pages)
         width = float(pdf.pages[0].width) if pdf.pages else 595.0
         height = float(pdf.pages[0].height) if pdf.pages else 842.0
-    sizes = Counter(l["size"] for l in lines)
+    sizes = _size_weights(lines)
     body = sizes.most_common(1)[0][0] if sizes else 10.0
     lines = split_columns(lines, body, width, tables)
     return {"lines": lines, "rects": rects, "images": images, "tables": tables, "page_count": count,
@@ -288,8 +310,12 @@ def _caption_under(cap_top: float, im: dict) -> bool:
     bottom: some images have white space at the bottom, with the caption printed over it (HSG227)."""
     return im["top"] < cap_top <= im["bottom"] + 40
 
+BOLD_ABBR_RE = re.compile(r"-(Bd|Hv|Blk|Bk|Hvy)(Cn|It|CnO|O|Ex)?$")
+
+
 def _is_bold(font: str) -> bool:
-    return any(k in font for k in ("Bold", "Heavy", "Black"))
+    """Bold, heavy or black weights, also when abbreviated in the font name (HelveticaNeueLTStd-Bd, -Hv, -BdCn)."""
+    return any(k in font for k in ("Bold", "Heavy", "Black")) or bool(BOLD_ABBR_RE.search(font))
 
 
 def _join(text: str, line: str) -> str:
@@ -302,6 +328,13 @@ def _join(text: str, line: str) -> str:
     if text.endswith("-") and len(text) > 1 and text[-2].isalpha():
         return text + line
     return f"{text} {line}"
+
+
+def _join_all(lines) -> str:
+    text = ""
+    for x in lines:
+        text = _join(text, x)
+    return text
 
 
 class Builder:
@@ -323,11 +356,137 @@ class Builder:
         self.checks: list[dict] = []
         self.printed: dict[int, str] = {}
         self.markers: list[tuple[int, float, str]] = []  # (page, top, status) from margin labels
+        self._drop_overprint()
         self._strip_furniture()
         self._margin_labels()
         self._metrics()
+        self._body_captions()
+        self._diagram_pages()
+        self._photo_captions()
+
+    # -------------------------------------------------- pictures without "Figure N" captions
+
+    def _diagram_pages(self) -> None:
+        """A page that is one big picture: a flow chart drawn as boxes of text, an illustrated house with its
+        numbered key (Asbestos essentials a0). Many short lines spread across the page at body size, almost no
+        running text, no "Figure N" caption and no chapter title. The whole page becomes one figure."""
+        self.diagram_pages: set[int] = set()
+        pages: dict[int, list[dict]] = {}
+        for l in self.lines:
+            pages.setdefault(l["page"], []).append(l)
+        for page, ls in pages.items():
+            if len(ls) < 12 or any(CAPTION_RE.match(l["text"]) or self.is_chapter(l) for l in ls):
+                continue
+            running = [l for l in ls if l["size"] == self.body_size and abs(l["x0"] - self.left(l)) <= 3
+                       and len(l["text"].split()) >= 7]
+            near_body = [l for l in ls if l["size"] >= self.body_size - 1]
+            if len(running) > 0.15 * len(ls) or len(near_body) < 0.7 * len(ls):
+                continue
+            short = sorted(len(l["text"].split()) for l in ls)[len(ls) // 2] <= 6  # boxes of a few words each
+            if short and len({int(l["x0"] // 40) for l in ls}) >= 4:
+                self.diagram_pages.add(page)
+
+    def _photo_captions(self) -> None:
+        """Photos named by a short line printed just below them, with no "Figure N" (task sheets: "Asbestos
+        lagging"). Photos in a row share caption lines, so only the words under each photo are its title. The
+        lines become figure titles instead of loose small print."""
+        self.photo_caps: dict[int, list[tuple[dict, str, dict]]] = {}
+        self.skip_lines: set[int] = set()
+        claimed: dict[int, int] = {}  # line index -> words claimed by photo captions
+        handled: set[int] = set()  # images already named (one caption can name a grid of photos)
+        for im in self.images:
+            if im["bottom"] - im["top"] < 40 or im["x1"] - im["x0"] < 60 or im["page"] in self.diagram_pages \
+                    or id(im) in handled:
+                continue
+            on_page = [(j, l) for j, l in enumerate(self.lines) if l["page"] == im["page"]]
+            if any(CAPTION_RE.match(l["text"]) and _caption_under(l["top"], im) for _, l in on_page):
+                continue
+
+            def under(l):
+                return [w for w in l.get("words") or [] if im["x0"] - 4 <= w["x0"] <= im["x1"] + 2]
+
+            first = next(((j, l) for j, l in on_page if im["bottom"] - 2 <= l["top"] <= im["bottom"] + 20
+                          and under(l) and under(l)[0]["x0"] <= im["x0"] + 0.5 * (im["x1"] - im["x0"])
+                          and l["size"] <= self.body_size and len(under(l)) <= 8), None)
+            if not first:
+                continue
+            fw = first[1].get("words") or []
+            gaps = [fw[k]["x0"] - fw[k - 1].get("x1", fw[k]["x0"]) for k in range(1, len(fw))]
+            if fw and fw[-1].get("x1", 0) > im["x1"] + 20 and fw[0]["x0"] >= im["x0"] - 4 and max(gaps or [0]) < 12:
+                # One caption for a grid of photos ("Top row: ... Bottom row: ..."): it runs past this photo.
+                group, prev = [first], first[1]
+                while True:
+                    nxt = next(((j, l) for j, l in on_page if all(j != g[0] for g in group)
+                                and 0 < l["top"] - prev["top"] < 14 and abs(l["x0"] - first[1]["x0"]) <= 4), None)
+                    if not nxt:
+                        break
+                    group.append(nxt)
+                    prev = nxt[1]
+                right = max(w.get("x1", 0) for _, l in group for w in l.get("words") or [])
+                grid = [g for g in self.images if g["page"] == im["page"] and g["bottom"] <= first[1]["top"] + 2
+                        and g["bottom"] >= first[1]["top"] - 350 and g["x1"] > fw[0]["x0"] - 4 and g["x0"] < right + 4
+                        and g["bottom"] - g["top"] >= 40]
+                handled.update(id(g) for g in grid)
+                union = {"page": im["page"], "top": min(g["top"] for g in grid), "bottom": max(g["bottom"] for g in grid),
+                         "x0": min(g["x0"] for g in grid), "x1": max(g["x1"] for g in grid)}
+                title = _join_all(l["text"].strip() for _, l in group)
+                box = {"page": first[1]["page"], "top": first[1]["top"], "x0": fw[0]["x0"], "x1": union["x1"]}
+                self.photo_caps.setdefault(min(j for j, _ in group), []).append((union, title, box))
+                for j, l in group:
+                    claimed[j] = len(l.get("words") or [])
+                continue
+            group, prev = [first], first[1]
+            x0 = under(first[1])[0]["x0"]
+            while True:
+                nxt = next(((j, l) for j, l in on_page if all(j != g[0] for g in group)
+                            and 0 < l["top"] - prev["top"] < 14 and under(l) and abs(under(l)[0]["x0"] - x0) <= 4
+                            and len(under(l)) <= 8), None)
+                if not nxt:
+                    break
+                group.append(nxt)
+                prev = nxt[1]
+            title = _join_all(" ".join(w["text"] for w in under(l)) for _, l in group)
+            j0, l0 = group[0]
+            box = {"page": l0["page"], "top": l0["top"], "x0": x0, "x1": im["x1"]}
+            self.photo_caps.setdefault(min(j for j, _ in group), []).append((im, title, box))
+            for j, l in group:
+                claimed[j] = claimed.get(j, 0) + len(under(l))
+        for j, n in claimed.items():
+            if n >= 0.8 * len(self.lines[j].get("words") or [1]):
+                self.skip_lines.add(j)
+        # A caption group may start on a line that is not skipped: move it to the first skipped line, or drop it.
+        for j in list(self.photo_caps):
+            if j not in self.skip_lines:
+                self.photo_caps.pop(j)
 
     # -------------------------------------------------- page furniture
+
+    def _drop_overprint(self) -> None:
+        """The same line printed twice a few points apart (a shadow or overprint, HSG150 figure 47): keep one."""
+        kept, seen = [], []
+        for l in self.lines:
+            if any(o["page"] == l["page"] and o["text"] == l["text"] and abs(o["top"] - l["top"]) <= 8
+                   and abs(o["x0"] - l["x0"]) <= 12 for o in seen[-6:]):
+                continue
+            seen.append(l)
+            kept.append(l)
+        # A small picture of the cover printed on page 1 (INDG453): its words repeat a title line at a fraction of
+        # its size. Drop those words; text after a wide gap on the same line is kept.
+        big = [l for l in kept if l["page"] == 1]
+        out = []
+        for l in kept:
+            ws = l.get("words") or []
+            if l["page"] == 1 and ws:
+                src = next((b for b in big if b["size"] >= 2 * l["size"] and len(b["text"]) >= 12
+                            and l["text"].startswith(b["text"][:12])), None)
+                if src:
+                    n = len(src["text"].split())
+                    rest = ws[n:] if " ".join(w["text"] for w in ws[:n]) == src["text"] else []
+                    if rest and rest[0].get("s", 0) > l["size"]:
+                        out.append(_segment(l, rest))
+                    continue
+            out.append(l)
+        self.lines = out
 
     def _strip_furniture(self) -> None:
         def norm(l):
@@ -343,13 +502,30 @@ class Builder:
                 seen.setdefault((b, norm(l)), set()).add(l["page"])
         need = max(2, int(0.3 * self.page_count))
         furniture = {k for k, pages in seen.items() if len(pages) >= need}
+        sizes = _size_weights(self.lines)
+        body = sizes.most_common(1)[0][0] if sizes else 10.0
+
+        def is_furniture(l, b) -> bool:
+            if (b, norm(l)) in furniture:
+                return True
+            t = l["text"].strip()
+            # Part of a running head printed whole on other pages ("Health and Safety" alone on page 1).
+            if len(t) >= 6 and any(fb == b and norm(l) in ft for fb, ft in furniture):
+                return True
+            # Logo text at the top right, in small print; a bare page number at the bottom.
+            if b == "top" and l["x0"] > 0.6 * self.page_width and l["size"] < body:
+                return True
+            return b == "bottom" and bool(re.fullmatch(r"\d{1,3}", t))
+
         kept = []
         for l in self.lines:
             b = band(l)
-            if b and (b, norm(l)) in furniture:
+            if b and is_furniture(l, b):
                 m = PAGE_NO_RE.search(l["text"])
                 if m:
                     self.printed[l["page"]] = m.group(1) or m.group(2)
+                elif b == "bottom" and re.fullmatch(r"\d{1,3}", l["text"].strip()):
+                    self.printed[l["page"]] = l["text"].strip()
                 continue
             kept.append(l)
         self.lines = kept
@@ -358,25 +534,59 @@ class Builder:
         """L143 prints "Regulation 2", "ACOP 2" or "Guidance 2" in the left margin: the text that follows is the
         law itself, the Approved Code of Practice, or guidance (each has a different legal weight). Split these
         labels off the lines they share and remember where each one starts."""
-        label_re = re.compile(r"^(Regulation|ACOP|Guidance)\s+\d+[A-Z]?$")
+        # "Regulation 2", "ACOP 3(1)–(2)" (L56 labels name the paragraphs they cover), "Summary"
+        label_re = re.compile(r"^(Regulation|ACOP|Guidance|Schedule)\s+\d+[A-Z]?(\(\w+\)([–-]\(\w+\))?)?$|^(Summary|Guidance|ACOP)$")
+        sizes = _size_weights(self.lines)
+        body = sizes.most_common(1)[0][0] if sizes else 10.0
+        lefts = Counter(round(l["x0"]) for l in self.lines if l["size"] == body)
+        margin = max(150.0, (lefts.most_common(1)[0][0] if lefts else 0) - 4)  # where the text column starts
+        # The label's word and its number may come as two lines ("ACOP" at the left, "2 Sporadic ..." at the
+        # number's height): put them back together first.
+        word_re = re.compile(r"^(Regulation|ACOP|Guidance)$")
+        lone = [l for l in self.lines if word_re.match(l["text"].strip()) and l["x0"] < 120]
+        merged: set[int] = set()
+        joined: dict[int, dict] = {}
+        for a in lone:
+            for b in self.lines:
+                bw = b.get("words") or []
+                if b is not a and b["page"] == a["page"] and abs(b["top"] - a["top"]) <= 4 and bw \
+                        and 120 <= bw[0]["x0"] < margin \
+                        and re.fullmatch(r"\d+[A-Z]?(\(\w+\)([–-]\(\w+\))?)?", bw[0]["text"]):
+                    rest = bw[1:]
+                    joined[id(a)] = {**a, "words": [*a["words"], *bw], "text": f"{a['text'].strip()} {b['text']}",
+                                     "aside": False}
+                    if rest:  # the text after the number keeps its own place in the reading order
+                        joined[id(a)]["top"] = b["top"]
+                        joined[id(a)]["band"], joined[id(a)]["col"] = b.get("band", 0), b.get("col", 0)
+                    merged.add(id(b))
+                    break
+        self.lines = [joined.get(id(l), l) for l in self.lines if id(l) not in merged]
         kept = []
         for l in self.lines:
             ws = l.get("words") or []
+            if len(ws) > 1 and ws[0]["x0"] < margin - 10 and _is_bullet_word(ws[0], l["font"]) \
+                    and abs(ws[1]["x0"] - margin - 4) <= 3 and PARA_RE.match(" ".join(w["text"] for w in ws[1:])):
+                # A bullet in the margin before a numbered paragraph (HSG150 "• 224 Stepladders ..."): drop it.
+                ws = ws[1:]
+                l = {**l, "words": ws, "text": " ".join(w["text"] for w in ws), "x0": ws[0]["x0"],
+                     "size": ws[0].get("s", l["size"]), "font": ws[0].get("f", l["font"])}
             if ws and ws[0]["x0"] < 120:
                 k = 1
-                while k < len(ws) and ws[k]["x0"] < 150:
+                while k < len(ws) and ws[k]["x0"] < margin:
                     k += 1
                 label = " ".join(w["text"] for w in ws[:k])
                 if label_re.match(label):
-                    self.markers.append((l["page"], l["top"], label.split()[0].lower()))
+                    st = label.split()[0].lower()  # "summary": no legal status; a schedule is part of the law
+                    self.markers.append((l["page"], l["top"], "regulation" if st == "schedule" else st))
                     rest = ws[k:]
                     if not rest:
                         continue
                     # The rest keeps its own size and font (the label is larger and bold).
                     l = {**l, "words": rest, "text": " ".join(w["text"] for w in rest), "x0": rest[0]["x0"],
                          "size": rest[0].get("s", l["size"]), "font": rest[0].get("f", l["font"])}
+                    l = normalise_bullet(l)
             kept.append(l)
-        self.lines = kept
+        self.lines = sorted(kept, key=lambda l: (l["page"], l.get("band", 0), l.get("col", 0), l["top"], l["x0"]))
 
     def status_at(self, page: int, top: float) -> str | None:
         """regulation, acop or guidance: the last margin label at or before this point."""
@@ -389,11 +599,27 @@ class Builder:
         return last
 
     def _metrics(self) -> None:
-        sizes = Counter(l["size"] for l in self.lines)
+        sizes = _size_weights(self.lines)
         self.body_size = sizes.most_common(1)[0][0] if sizes else 10.0
         lefts = Counter(round(l["x0"]) for l in self.lines if l["size"] == self.body_size)
         self.body_left = lefts.most_common(1)[0][0] if lefts else 0
+        # Left margin page by page: books set mirrored margins on left and right pages (HSG248: 57 and 176).
+        self.page_left: dict[int, int] = {}
+        per: dict[int, Counter] = {}
+        for l in self.lines:
+            if l["size"] == self.body_size and len(l["text"]) > 40:
+                per.setdefault(l["page"], Counter())[round(l["x0"])] += 1
+        modes = {page: c.most_common(1)[0] for page, c in per.items()}
+        common = Counter(x for x, n in modes.values() if n >= 5)
+        for page, (x, n) in modes.items():
+            # Only a margin many pages share (mirrored pages), not the left edge of one page's figure notes.
+            if n >= 5 and common[x] >= max(3, 0.25 * len(modes)):
+                self.page_left[page] = x
         self.part_size = max((l["size"] for l in self.lines if PART_RE.match(l["text"].strip())), default=0.0)
+
+    def left(self, l) -> float:
+        """The left margin of running text on this line's page."""
+        return self.page_left.get(l["page"], self.body_left) if hasattr(self, "page_left") else self.body_left
 
     def page_label(self, page: int) -> str:
         return self.printed.get(page, str(page))
@@ -436,9 +662,29 @@ class Builder:
         return None
 
     def is_caption(self, l) -> bool:
-        # Smaller than body text (HSG264), or bold at body size (HSG227, where captions sit above).
+        # Smaller than body text (HSG264), or bold at body size (HSG227, where captions sit above), or a body-size
+        # line set apart from what follows (L143: "Table 2 Examples of ..." then a gap, then the rows).
         return bool(CAPTION_RE.match(l["text"])) and (l["size"] < self.body_size or
-                                                       (_is_bold(l["font"]) and l["size"] <= self.body_size))
+                                                       (_is_bold(l["font"]) and l["size"] <= self.body_size)
+                                                       or id(l) in self.body_captions)
+
+    def _body_captions(self) -> None:
+        self.body_captions: set[int] = set()
+        for k, l in enumerate(self.lines):
+            t = l["text"].strip()
+            if not CAPTION_RE.match(t) or l["size"] != self.body_size or t.endswith(".") or len(t.split()) > 18:
+                continue
+            m = CAPTION_RE.match(t)
+            after = t[m.end():].strip()
+            nxt = self.lines[k + 1] if k + 1 < len(self.lines) else None
+            nn = self.lines[k + 2] if k + 2 < len(self.lines) else None
+            if not after[:1].isupper() or not nxt or nxt["page"] != l["page"]:
+                continue
+            if nxt["top"] - l["top"] >= 1.8 * l["size"]:
+                self.body_captions.add(id(l))
+            elif abs(nxt["x0"] - l["x0"]) <= 2 and not nxt["text"].rstrip().endswith(".") and nn \
+                    and nn["page"] == l["page"] and nn["top"] - nxt["top"] >= 1.8 * l["size"]:
+                self.body_captions.add(id(l))  # a caption wrapped onto a second line
 
     def is_callout(self, l) -> bool:
         """A key message in large bold italic (e.g. 'Take care, these dates are only a guideline'): a note."""
@@ -449,11 +695,11 @@ class Builder:
 
     def is_heading(self, l) -> bool:
         return (_is_bold(l["font"]) and "Italic" not in l["font"] and self.body_size + 0.5 <= l["size"] < 2 * self.body_size
-                and self.body_left - 6 <= l["x0"] <= self.body_left + 25)
+                and self.left(l) - 6 <= l["x0"] <= self.left(l) + 25)
 
     def is_body_line(self, l) -> bool:
         """Ordinary running text at the left margin (not in a box, not a caption)."""
-        return (l["size"] == self.body_size and not _is_bold(l["font"]) and abs(l["x0"] - self.body_left) <= 3
+        return (l["size"] == self.body_size and not _is_bold(l["font"]) and abs(l["x0"] - self.left(l)) <= 3
                 and not self.rect_of(l))
 
     def caption_areas(self) -> dict[int, list[int]]:
@@ -474,6 +720,13 @@ class Builder:
             while j < len(self.lines) and self.lines[j]["page"] == l["page"] and \
                     0 < self.lines[j]["top"] - prev["top"] < 15 and self.lines[j]["size"] == l["size"] and \
                     self.lines[j]["x0"] <= max(starts) + 5 and not CAPTION_RE.match(self.lines[j]["text"]):
+                nxt_t = self.lines[j]["text"].strip()
+                # A wrapped caption goes on mid-phrase; a table's first row ("General", "Handover form ...") starts
+                # a new one with a capital after a caption that ended (HSG248 Table 2.1).
+                if l["text"].startswith("Table") and nxt_t[:1].isupper() and not re.search(r"(\b(and|of|for|the|to|in|with|on|a|by|or)|[–\-,(])$",
+                                                         prev["text"].strip()) and l.get("font") != self.lines[j].get("font") \
+                        and len(prev["text"].strip()) < 60:
+                    break
                 cont.add(j)
                 prev = self.lines[j]
                 j += 1
@@ -482,7 +735,7 @@ class Builder:
             if not self.is_caption(l):
                 continue
             got = []
-            j = k - 1
+            j = k - 1 if id(l) not in self.body_captions else -1  # body-size captions sit above their table
             stop_bottom = 72.0  # below the page header if nothing stops the walk
             while j >= 0 and self.lines[j]["page"] == l["page"]:
                 x = self.lines[j]
@@ -500,7 +753,10 @@ class Builder:
                     if j in cont:
                         j += 1
                         continue
-                    if self.is_body_line(x) or self.is_caption(x) or self.is_chapter(x) or self.is_heading(x) \
+                    # Under a body-size caption the rows are body-size too: only a numbered paragraph ends them.
+                    body_stop = self.is_body_line(x) and (id(l) not in self.body_captions or
+                                                          (PARA_RE.match(x["text"]) and abs(x["x0"] - self.left(x)) <= 3))
+                    if body_stop or self.is_caption(x) or self.is_chapter(x) or self.is_heading(x) \
                             or (self.rect_of(x) and not self.is_small(x)):
                         break
                     got.append(j)
@@ -513,14 +769,17 @@ class Builder:
 
     def is_chapter(self, l) -> bool:
         # HSG264/HSG227 chapters are at least twice the body size; L143 uses 16pt condensed on 10pt body.
-        if l["size"] >= 2 * self.body_size or (l["size"] >= 1.5 * self.body_size and "Cond" in l["font"]):
+        if not re.search(r"[A-Za-z]", l["text"]):
+            return False  # a large number or bullet on a section tab, not a title
+        if l["size"] >= 2 * self.body_size or (l["size"] >= 1.5 * self.body_size
+                                               and ("Cond" in l["font"] or re.search(r"(Hv|Bd|Blk|Md)Cn", l["font"]))):
             return True
         # Statutory instruments and similar: "PART 1", "SCHEDULE 2" and "CONTENTS" set larger than body text.
         # Contents pages list the Parts in a smaller size than the Parts themselves: only the largest count.
         if l["size"] > self.body_size + 0.4:
             t = l["text"].strip()
             if t.lower() in SKIP_TITLES:
-                return True
+                return l["size"] >= 1.3 * self.body_size  # not a "Contents" heading inside a chapter (L143)
             if PART_RE.match(t):
                 return l["size"] >= self.part_size - 0.5
         return False
@@ -535,14 +794,35 @@ class Builder:
             return f"{title} {nxt['text']}", i + 1
         return title, i
 
+    def _next_is(self, k: int, number: int) -> bool:
+        """The next numbered line at the left margin (within 80 lines) carries this number: confirms a jump."""
+        for x in self.lines[k + 1:k + 80]:
+            m = PARA_RE.match(x["text"])
+            if m and abs(x["x0"] - self.left(x)) <= 2:
+                return int(m.group(1)) == number
+        return False
+
+    def _next_dec_is(self, k: int, prefix: str, number: int) -> bool:
+        """The next "2.14"-style numbered line at the margin carries this number: confirms a longer jump (a
+        paragraph the text layer lost, or one set inside a box)."""
+        for x in self.lines[k + 1:k + 120]:
+            m = DEC_PARA_RE.match(x["text"])
+            if m and m.group(1) == prefix and abs(x["x0"] - self.left(x)) <= 2:
+                return int(m.group(2)) == number
+        return False
+
     def is_runin_heading(self, k: int, expected: int) -> bool:
         """A bold line at body size, at the left margin, just above the next numbered paragraph ("Interpretation"
         above "2. In these Regulations"): a heading. Legislation printed as PDF sets headings like this."""
         l = self.lines[k]
         ws = l.get("words") or []
         if not ws or not all(w.get("b") for w in ws) or l["size"] != self.body_size or l["text"].rstrip().endswith(".") \
-                or abs(l["x0"] - self.body_left) > 20 or k + 1 >= len(self.lines):
+                or abs(l["x0"] - self.left(l)) > 20 or k + 1 >= len(self.lines):
             return False
+        prev = self.lines[k - 1] if k else None
+        if prev and prev["page"] == l["page"] and 0 < l["top"] - prev["top"] < 1.8 * l["size"] \
+                and all(w.get("b") for w in prev.get("words") or [{}]):
+            return False  # the second line of a bold sentence, not a heading of its own
         m = PARA_RE.match(self.lines[k + 1]["text"])
         return bool(m) and int(m.group(1)) == expected and self.lines[k + 1]["page"] - l["page"] <= 1
 
@@ -593,6 +873,8 @@ class Builder:
         prev_caption_line = None
         prev_caption_top = 0.0
         last_footnote = None
+        diagram_done: set[int] = set()
+        diagram_lines: set[int] = set()
         areas = self.caption_areas()
         consumed = {j for js in areas.values() for j in js}
         i = 0
@@ -627,7 +909,13 @@ class Builder:
                 m_num = re.match(r"^(\d+)\s+(.*)$", title)
                 m_app = re.match(r"^Appendix\s+(\d+)\s*[:\-–—]?\s*(.*)$", title, flags=re.I)
                 m_part = PART_RE.match(title)
-                if m_part:
+                m_annex = re.match(r"^Appendix\s+(\d+)\s*:?\s*Annex\s+(\d+)\s*(.*)$", title, flags=re.I)
+                if m_annex:
+                    n, a, t = m_annex.groups()
+                    chapter = self.new(f"appendix-{n}-annex-{a}", "appendix", None, f"{n}.{a}", t or f"Annex {a}",
+                                       [self.title, title], l["page"])
+                    counter_key = chapter["id"]
+                elif m_part:
                     kind, n = m_part.group(1).lower(), m_part.group(2)
                     t = title[m_part.end():].strip(" :-–—")
                     cid = f"{kind}-{n.lower()}"
@@ -667,6 +955,25 @@ class Builder:
             if chapter is None:  # a document without chapter titles: one chapter, named after the document
                 chapter = self.new("document", "chapter", None, None, self.title, [self.title], l["page"])
             parent = heading or chapter
+            # ---- a whole page that is one picture (flow chart, illustrated key)
+            if l["page"] in self.diagram_pages and l["page"] not in diagram_done:
+                diagram_done.add(l["page"])
+                rest = [j for j in range(k_line, len(self.lines)) if self.lines[j]["page"] == l["page"]]
+                ws = l.get("words") or []
+                titled = bool(ws) and all(w.get("b") for w in ws) and len(ws) <= 14 and l["size"] >= self.body_size
+                title = l["text"] if titled else (parent["title"] or self.title)
+                sec = self.new(f"figure-p{l['page']}", "figure", parent, None, title,
+                               [*parent["heading_path"], title], l["page"])
+                labels = [self.lines[j] for j in (rest[1:] if titled else rest)]
+                sec["labels"] = [x["text"] for x in labels]
+                sec["caption_box"] = {"page": l["page"], "top": l["top"], "x0": l["x0"], "x1": self.page_width - 36}
+                sec["diagram"] = True
+                bottom = max(x["top"] + x["size"] + 2 for x in [l, *labels])
+                self.span(sec, l["page"], l["top"], bottom)
+                diagram_lines.update(rest)
+                continue
+            if k_line in diagram_lines:
+                continue
             # ---- sidebar (split_columns): notes beside the main text
             if l.get("aside"):
                 block = [l]
@@ -677,12 +984,28 @@ class Builder:
                     i += 1
                 last_body = self.add_aside(block, parent) or last_body
                 continue
+            # ---- photos named by the short line below them
+            if k_line in self.skip_lines:
+                for im, title, box in sorted(self.photo_caps.get(k_line, []), key=lambda c: c[2]["x0"]):
+                    k = 1 + sum(1 for s in self.sections if s["id"].startswith("photo-"))
+                    sec = self.new(f"photo-{k}", "figure", parent, None, title,
+                                   [*parent["heading_path"], title], l["page"])
+                    sec["labels"] = []
+                    sec["caption_box"] = box
+                    sec["image_bbox"] = {k2: im[k2] for k2 in ("page", "top", "bottom", "x0", "x1")}
+                    self.span(sec, l["page"], im["top"], box["top"] + l["size"] + 2)
+                continue
             # ---- captions (figures and tables); two captions may share a line
             if self.is_caption(l):
                 prev_caption_line = []
                 for cap in self.split_captions(l):
                     kind = cap["kind"]
-                    sid = f"{kind}-{cap['number']}"
+                    sid = f"{kind}-{cap['number']}".replace(".", "-").lower()  # "Table 2.1" -> table-2-1
+                    if sid in self.by_id and re.search(r"\(?continued\)?$", cap["title"], flags=re.I):
+                        # "Table 5 ... (continued)" on the next page: more rows of the same table
+                        captions_on_page.append(self.by_id[sid])
+                        prev_caption_line.append(self.by_id[sid])
+                        continue
                     sec = self.new(sid, kind, parent, cap["number"], cap["title"],
                                    [*parent["heading_path"], f"{kind.capitalize()} {cap['number']} {cap['title']}"], l["page"])
                     sec["labels"] = []
@@ -713,14 +1036,17 @@ class Builder:
             # ---- small print: footnotes, figure labels, table rows
             if self.is_small(l) or (l["size"] < self.body_size - 0.5 and "Dingbat" not in l["font"] and not self.rect_of(l)):
                 mark = l["text"].lstrip()[:1]
-                if mark in ("*", "†", "‡") and last_body:  # footnotes may start left of the body margin
+                m_fn = re.match(r"^\(([a-z])\)\s", l["text"].lstrip())  # "(a) 1985 c. 70." (legislation footnotes)
+                if m_fn and last_body and l["top"] > 0.75 * self.page_height:
+                    mark = m_fn.group(0).strip()
+                if (mark in ("*", "†", "‡") or len(mark) == 3) and last_body:  # footnotes may start left of the margin
                     owner = next((s for s in reversed(self.sections)
                                   if s["type"] in ("paragraph", "text", "box", "note") and mark in s["text"]), last_body)
                     owner["footnotes"].append(l["text"].strip())
                     last_footnote = (owner, l)
                     continue
                 if last_footnote and last_footnote[1]["page"] == l["page"] and 0 < l["top"] - last_footnote[1]["top"] < 14 \
-                        and abs(l["x0"] - last_footnote[1]["x0"]) < 6:
+                        and -6 < l["x0"] - last_footnote[1]["x0"] < 20:  # wrapped lines may hang under the text
                     owner = last_footnote[0]
                     owner["footnotes"][-1] = f"{owner['footnotes'][-1]} {l['text'].strip()}"
                     last_footnote = (owner, l)
@@ -750,7 +1076,24 @@ class Builder:
                     sec = self.new(f"box-{n}", "box", parent, n, t, [*parent["heading_path"], f"Box {n} {t}"], l["page"], text)
                 else:
                     k = 1 + sum(1 for s in self.sections if s["type"] == "note")
-                    sec = self.new(f"note-{k}", "note", parent, None, None, [*parent["heading_path"], "Note"], l["page"], text)
+                    # A note led by a few bold words ("Summary This regulation ...") takes them as its title.
+                    ws0 = inside[0].get("words") or [] if inside else []
+                    lead = []
+                    for w in ws0:
+                        if not w.get("b"):
+                            break
+                        lead.append(w["text"])
+                    title = None
+                    if 0 < len(lead) <= 3 and len(lead) < len(ws0) and text.startswith(" ".join(lead)):
+                        title = " ".join(lead).rstrip(":")
+                        text = text[len(" ".join(lead)):].lstrip(" :")
+                    elif lead and len(lead) == len(ws0) <= 6 and len(inside) > 1 and not BULLET_RE.match(inside[0]["text"]):
+                        title = inside[0]["text"].strip().rstrip(":")  # a bold title line at the top of the box
+                        text = ""
+                        for x in inside[1:]:
+                            text = _join(text, x["text"])
+                    sec = self.new(f"note-{k}", "note", parent, None, title,
+                                   [*parent["heading_path"], title or "Note"], l["page"], text)
                 sec["colour"] = list(r["colour"])
                 last_body = sec
                 continue
@@ -782,15 +1125,43 @@ class Builder:
                 para = None
                 continue
             # ---- numbered paragraphs and running text
+            m_dec = DEC_PARA_RE.match(l["text"])
+            prefix = (("A" if chapter.get("type") == "appendix" else "") + str(chapter.get("number"))) \
+                if chapter.get("number") else None  # "A1.9" in appendix 1
+            if m_dec and prefix and m_dec.group(1) == prefix \
+                    and (abs(l["x0"] - self.left(l)) <= 2 or m_dec.group(3)[:1].isupper()):  # also beside a figure
+                key = f"dec-{chapter['id']}"
+                want = counters.get(key, 0) + 1
+                got = int(m_dec.group(2))
+                prev = self.lines[k_line - 1] if k_line else None
+                spaced = prev is None or prev["page"] != l["page"] or l["top"] - prev["top"] >= 1.6 * l["size"]
+                if got == want or (want < got <= want + 3 and spaced) or \
+                        (got > want and spaced and self._next_dec_is(k_line, prefix, got + 1)):
+                    if got != want:
+                        self.issues.append(f"paragraph numbers jump to {m_dec.group(1)}.{got} on file page {l['page']}")
+                    counters[key] = got
+                    n = f"{m_dec.group(1)}.{got}"
+                    para = self.new(f"para-{m_dec.group(1).lower()}-{got}", "paragraph", parent, n, None,
+                                    [*parent["heading_path"], f"Paragraph {n}"], l["page"], _join("", m_dec.group(3)),
+                                    top=l["top"])
+                    last_body = para
+                    continue
             m = PARA_RE.match(l["text"])
             dotted = bool(m) and l["text"][len(m.group(1))] == "."
-            if m and int(m.group(1)) == expected and (abs(l["x0"] - self.body_left) <= 2 or
-                                                       (dotted and abs(l["x0"] - self.body_left) <= 20)):
-                counters[counter_key] = expected
+            prev = self.lines[k_line - 1] if k_line else None
+            # A paragraph starts after a gap; a number that wraps to the start of a line has none.
+            spaced = prev is None or prev["page"] != l["page"] or l["top"] - prev["top"] >= 1.6 * l["size"]
+            num = int(m.group(1)) if m else 0
+            near = abs(l["x0"] - self.left(l))
+            if m and ((num == expected and (near <= 2 or (dotted and near <= 20) or (spaced and near <= 8)))
+                      or (expected < num <= expected + 3 and near <= 2 and spaced and self._next_is(k_line, num + 1))):
+                if num != expected:
+                    self.issues.append(f"paragraph numbers jump from {expected - 1} to {num} on file page {l['page']}")
+                counters[counter_key] = num
                 n = m.group(1)
                 sid = f"para-{n}" if counter_key == "main" else f"{counter_key}-para-{n}"
                 para = self.new(sid, "paragraph", parent, n, None, [*parent["heading_path"], f"Paragraph {n}"],
-                                l["page"], _join("", m.group(2)), top=l["top"])
+                                l["page"], _join("", m.group(2).lstrip("—– ")), top=l["top"])
                 last_body = para
                 continue
             if para is None or para["parent_id"] != parent["id"] and para["type"] == "text":
@@ -814,7 +1185,7 @@ class Builder:
                 })
         return {
             **{k: self.meta.get(k) for k in ("source_id", "version_id", "valid_from", "valid_to", "sha256")},
-            "title": self.title, "parser": PARSER,
+            "title": self.title, "parser": PARSER, "page_width": self.page_width,
             "sections": self.sections, "definitions": [], "issues": self.issues, "checks": self.checks,
         }
 
@@ -823,7 +1194,7 @@ class Builder:
     def split_captions(self, l) -> list[dict]:
         words = l.get("words") or [{"x0": l["x0"], "text": w} for w in l["text"].split()]
         starts = [k for k in range(len(words) - 1)
-                  if words[k]["text"] in ("Figure", "Table") and re.match(r"^\d+[:.]?$", words[k + 1]["text"])]
+                  if words[k]["text"] in ("Figure", "Table") and re.match(r"^A?\d+(\.\d+)?[a-z]?[:.]?$", words[k + 1]["text"])]
         if not starts:  # words did not split as expected: fall back to the line's text
             m = CAPTION_RE.match(l["text"])
             self.issues.append(f"caption words not split on file page {l['page']}: {l['text'][:40]}")
@@ -858,11 +1229,29 @@ class Builder:
             else:
                 blocks.append([l])
         unnamed: dict[str, dict] = {}
+        drawn: list[dict] = []  # drawings found from their labels (no caption)
         for b in blocks:
             page, top, bottom = b[0]["page"], b[0]["top"], b[-1]["top"]
             near = [c for c in captions if c["caption_box"]["page"] == page and
                     (0 <= c["caption_box"]["top"] - bottom <= 100 or 0 <= top - c["caption_box"]["top"] <= 40)]
             near.sort(key=lambda c: abs(c["caption_box"]["top"] - bottom))
+            if not near and not any(c["type"] == "table" and c["caption_box"]["page"] == page for c in captions):
+                # Labels high up in a tall drawing: the figure whose caption is further below, with no running
+                # text in between (HSG150 figures 37, 41, 45).
+                far = [c for c in captions if c["type"] == "figure" and not c.get("image_bbox")
+                       and c["caption_box"]["page"] == page and 0 <= c["caption_box"]["top"] - bottom <= 450
+                       and not any(x["page"] == page and bottom < x["top"] < c["caption_box"]["top"]
+                                   and self.is_body_line(x) and len(x["text"].split()) >= 6 for x in self.lines)]
+                near = sorted(far, key=lambda c: c["caption_box"]["top"] - bottom)[:1]
+            if not near and top < 200:
+                # A table running over from the bottom of the previous page, with no "continued" caption (L153 Table 1).
+                prev = [c for c in captions if c["type"] == "table"
+                        and str(page - 1) in c.get("spans", {}) and c["spans"][str(page - 1)][1] > self.page_height - 140]
+                if prev:
+                    c = prev[-1]
+                    self.span(c, page, top, bottom + b[-1]["size"] + 2)
+                    c["text"] = "\n".join(x for x in [c["text"], *[x["text"] for x in b]] if x)
+                    continue
             texts = [x["text"] for x in b]
             if near:
                 c = near[0]
@@ -874,6 +1263,37 @@ class Builder:
                 continue
             parent = b[0]["parent"]
             key = parent["id"]
+            if not any(re.search(r"[A-Za-z]", x["text"]) for x in b) or all(len(x["text"].strip()) <= 2 for x in b):
+                continue  # a stray number (a section tab) or the subscripts of a formula, not content
+            joins_table = key in unnamed and str(page) in unnamed[key].get("spans", {})
+            words = [len(x["text"].split()) for x in b]
+            near_fig = next((f for f in drawn if f["caption_box"]["page"] == page
+                             and 0 <= top - f["spans"][str(page)][1] <= 120), None)
+            if near_fig and sum(words) / len(b) <= 4:  # more labels of the same drawing
+                near_fig["labels"].extend(texts)
+                near_fig["caption_box"]["top"] = bottom
+                self.span(near_fig, page, top, bottom + b[-1]["size"] + 2)
+                continue
+            if len(b) >= 4 and sum(words) / len(b) <= 3.5 and (not joins_table or not self.is_tabular(b)):
+                # Scattered short labels ("h", "20 mm", "White 'a' on a black background"): a drawing with no
+                # caption, not a table (L143 Schedule 2, the asbestos label).
+                k = 1 + sum(1 for s in self.sections if s["id"].startswith(f"{key}-figure-"))
+                f = self.new(f"{key}-figure-{k}", "figure", parent, None, parent["title"],
+                             [*parent["heading_path"], f"Figure ({parent['title']})"], page)
+                f["labels"], f["drawn"] = texts, True
+                f["caption_box"] = {"page": page, "top": bottom, "x0": min(x["x0"] for x in b), "x1": self.page_width - 36}
+                self.span(f, page, top, bottom + b[-1]["size"] + 2)
+                drawn.append(f)
+                continue
+            if not joins_table and not self.is_tabular(b):
+                # Small print set as sentences (publishing notes, a key under a list): text, not a table.
+                k = 1 + sum(1 for s in self.sections if s["parent_id"] == key and s["type"] == "text")
+                text = ""
+                for x in b:
+                    text = _join(text, x["text"])
+                s = self.new(f"{key}-text-{k}", "text", parent, None, None, [*parent["heading_path"], "Text"], page, text)
+                s["small_print"] = True
+                continue
             t = unnamed.get(key)
             if t is None:
                 k = 1 + sum(1 for s in self.sections if s["parent_id"] == key and s["type"] == "table")
@@ -882,6 +1302,23 @@ class Builder:
                 unnamed[key] = t
             t["text"] = "\n".join(x for x in [t["text"], *texts] if x)
             self.span(t, page, top, bottom + b[-1]["size"] + 2)
+
+    def is_tabular(self, block: list[dict]) -> bool:
+        """Small-print lines look like a table when they are cut into cells: wide gaps inside lines, or a ruled
+        table on the page around them. Lines of sentences with ordinary word spaces are prose."""
+        page, top, bottom = block[0]["page"], block[0]["top"], block[-1]["top"]
+        if len(block) == 1 and len(block[0]["text"].split()) >= 4 and not any(
+                t["page"] == page and t["top"] - 2 <= top <= t["bottom"] + 2 for t in self.doc_tables):
+            return False  # one line of words outside any ruled table: a sentence
+        if any(t["page"] == page and t["top"] - 5 <= bottom and t["bottom"] + 5 >= top for t in self.doc_tables):
+            return True
+        gapped = 0
+        for x in block:
+            ws = x.get("words") or []
+            if any(ws[k]["x0"] - ws[k - 1].get("x1", ws[k - 1]["x0"] + 5 * len(ws[k - 1]["text"])) > max(6.0, 1.5 * x["size"])
+                   for k in range(1, len(ws))):
+                gapped += 1
+        return gapped >= max(1, 0.25 * len(block)) or len(block) == 1 and len(block[0]["text"].split()) <= 3
 
     def attach_grids(self) -> None:
         """Give each table section the PDF tables that overlap its lines; header rows repeated on later
@@ -914,8 +1351,25 @@ class Builder:
                 s["area"] = {"page": im["page"], "top": im["top"], "bottom": im["bottom"], "x0": im["x0"], "x1": im["x1"]}
             else:
                 top, bottom = s.get("spans", {}).get(str(cap["page"]), (cap["top"] - 200, cap["top"] + 12))
-                s["area"] = {"page": cap["page"], "top": max(0.0, top - 6), "bottom": bottom,
-                             "x0": 36.0, "x1": self.page_width - 36.0}
+                if s.get("drawn"):
+                    # A drawing found from its labels: the picture reaches up to the text above it and down to the
+                    # text below it, beyond its outermost labels.
+                    on = [l for l in self.lines if l["page"] == cap["page"] and l["text"] not in s["labels"]]
+                    above = [l["top"] + l["size"] + 2 for l in on if l["top"] + l["size"] < top]
+                    below = [l["top"] - 2 for l in on if l["top"] > bottom]
+                    top, bottom = (max(above) + 6 if above else 72.0), (min(below) if below else self.page_height - 45)
+                x0, x1 = 36.0, self.page_width - 36.0
+                shared = [o for o in self.sections if o is not s and o["type"] == "figure" and o.get("caption_box")
+                          and o["caption_box"]["page"] == cap["page"] and abs(o["caption_box"]["top"] - cap["top"]) < 3]
+                if shared:  # figures side by side above one caption line: each takes its caption's column
+                    x0 = max(x0, cap["x0"] - 10)
+                    if cap["x1"] < 10_000:
+                        x1 = cap["x1"] - 4
+                if s.get("diagram"):  # a whole page: from the leftmost to the rightmost text on it
+                    on = [l for l in self.lines if l["page"] == cap["page"]]
+                    x0 = max(0.0, min([x0, *(l["x0"] - 8 for l in on)]))
+                    x1 = min(self.page_width, max([x1, *(w.get("x1", l["x0"]) + 8 for l in on for w in l.get("words") or [])]))
+                s["area"] = {"page": cap["page"], "top": max(0.0, top - 6), "bottom": bottom, "x0": x0, "x1": x1}
 
     def apply_fix(self, s: dict) -> bool:
         """Use a saved model fix for this table or figure if there is one. Returns True if used."""
@@ -940,7 +1394,12 @@ class Builder:
         return content_key(s["id"] + "\n" + s["text"] + "\n" + " ".join(s.get("labels", [])))
 
     def place_images(self, captions: list[dict]) -> None:
+        named = [s["image_bbox"] for s in self.sections if s["id"].startswith("photo-")]
         for im in self.images:
+            if im["page"] in self.diagram_pages or any(n["page"] == im["page"] and n["top"] <= im["top"] + 1
+                                                        and im["bottom"] <= n["bottom"] + 1 and n["x0"] <= im["x0"] + 1
+                                                        and im["x1"] <= n["x1"] + 1 for n in named):
+                continue  # inside a whole-page picture, or a photo named by the line below it
             below = [c for c in captions if c["type"] == "figure" and c["caption_box"]["page"] == im["page"]
                      and _caption_under(c["caption_box"]["top"], im)
                      and c["caption_box"]["x0"] <= im["x1"] and c["caption_box"]["x0"] >= im["x0"] - 10]
@@ -951,7 +1410,7 @@ class Builder:
                 c = min(below, key=lambda c: (abs(c["caption_box"]["top"] - im["bottom"]), abs(c["caption_box"]["x0"] - im["x0"])))
                 if not c.get("image_bbox"):
                     c["image_bbox"] = {k: im[k] for k in ("page", "top", "bottom", "x0", "x1")}
-            elif im["page"] != 1:
+            elif im["page"] != 1 and im["bottom"] - im["top"] >= 30 and im["x1"] - im["x0"] >= 30:  # not icons
                 self.issues.append(f"image on file page {im['page']} at {im['top']} has no caption below it")
 
 

@@ -1,0 +1,870 @@
+{
+ "source_id": "hse-hsg150",
+ "about": "Saved model fixes for hse-hsg150 (ADR 0010).",
+ "fixes": [
+  {
+   "key": "9e6dbb065c29ce80",
+   "kind": "figure_description",
+   "target": "photo-1: Stephen Williams HM Chief Inspector of Construction Chair of the Health and Safety Commission’s Construction Committee",
+   "value": "An image of a handwritten signature reading \"Stephen Williams\". It is the signature of Stephen Williams, HM Chief Inspector of Construction and Chair of the Health and Safety Commission's Construction Committee, as given in the caption.",
+   "reason": "The image is not a photo but a handwritten signature; the name is legible and matches the caption.",
+   "evidence": "Cursive handwriting 'Stephen Williams' on white background; caption names Stephen Williams HM Chief Inspector of Construction.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "70870d79117cbb94",
+   "kind": "figure_description",
+   "target": "figure-1: F10 notification requirements",
+   "value": "Flow chart titled \"How to decide if your project has to be notified to HSE\" (Figure 1, F10 notification requirements). Step 1 asks \"Will the construction phase involve more than 30 days' work?\": Yes leads to \"Written notification to HSE required\"; No leads to step 2. Step 2 asks \"Will the construction phase involve more than 500 person days of construction work?\": Yes leads to \"Written notification to HSE required\"; No leads to \"Notification not required\".",
+   "reason": "All boxes, arrows and Yes/No branches are clearly readable in the image.",
+   "evidence": "Boxes: 'How to decide if your project has to be notified to HSE'; 'more than 30 days' work?'; 'more than 500 person days of construction work?'; green Yes boxes to 'Written notification to HSE required'; red No boxes; 'Notification not required'.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "a7ec161614054280",
+   "kind": "figure_description",
+   "target": "figure-2: A self-contained water-flushing toilet block with built-in tank",
+   "value": "Photo of a blue portable welfare cabin on a building site with two open doors and wooden steps up to each door. The left room has a washbasin with soap and towel dispensers, and the right room has a flushing toilet and a small washbasin. Orange plastic mesh barrier fencing stands in front of the unit.",
+   "reason": "Contents of both rooms and the fencing are clearly visible; caption says it is a self-contained water-flushing toilet block with built-in tank.",
+   "evidence": "Blue container with two open doors, sink and dispensers on left, toilet pan and basin on right, orange mesh fence in foreground.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "f5ff4a511f8ac6b1",
+   "kind": "figure_description",
+   "target": "figure-3: Washbasin large enough for people to wash their forearms",
+   "value": "Photo of a man washing his hands and forearms in a large stainless steel washbasin with two taps. Wall-mounted soap dispensers are above the basin and a second steel basin is to the right.",
+   "reason": "The scene is clear and matches the caption about a washbasin large enough to wash forearms.",
+   "evidence": "Man with forearms in deep steel sink under running tap; dispensers on wall; second sink at right edge.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "f3a8eb90b89f1867",
+   "kind": "figure_description",
+   "target": "figure-4: A welfare unit with a rest area and drying room",
+   "value": "Cutaway line drawing of a portable site welfare unit with two doors and steps. One end is a drying room with hanging rails, hooks and slatted floor or shelving for wet clothes, and the other part is a rest area with tables and bench seating. There are no printed labels in the drawing.",
+   "reason": "Drawing clearly shows coat hooks and racks on one side and tables with benches on the other; the caption names a rest area and drying room.",
+   "evidence": "Black-and-white cutaway cabin: rails with hooks and slatted racks at left, two tables with benches at right, doors with steps at each end.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "4b503cc6c430d05b",
+   "kind": "figure_description",
+   "target": "figure-5: A designated timber storage area",
+   "value": "Photo of a large stack of timber lengths stored on bearers inside a building under refurbishment, next to scaffolding and steel columns. Temporary site lights hang from the ceiling and a red jacket hangs on a stand in front.",
+   "reason": "The stacked timber, scaffold and columns are clearly visible; caption says it is a designated timber storage area.",
+   "evidence": "Neat pile of sawn timber on a concrete floor beside scaffold tubes and painted columns; work lights; red jacket on stand.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "2e20df841376564c",
+   "kind": "figure_description",
+   "target": "figure-6: A designated waste collection area",
+   "value": "Photo of a site waste area with a large yellow skip full of broken board and timber offcuts and a smaller yellow skip full of metal off-cuts, with the number \"548 7237\" painted on it. A blue site container stands behind them.",
+   "reason": "Skips and their contents are clearly visible; the painted number is legible; caption says it is a designated waste collection area.",
+   "evidence": "Open-ended yellow skip with wood and board waste; smaller skip with metal strips, painted '548 7237'; blue container in background.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "23edb28bd47d01df",
+   "kind": "figure_description",
+   "target": "figure-7: An example of an emergency exit sign",
+   "value": "A diagram of a green rectangular emergency exit safety sign with a white border. It shows a white running figure moving towards a white door shape on the left, with a white arrow pointing left towards the door. There is no printed text on the sign.",
+   "reason": "The image is a pictogram sign with no words; caption reads 'Figure 7 An example of an emergency exit sign'.",
+   "evidence": "Green sign, white running man, left-pointing arrow, white rectangle door; caption 'Figure 7 An example of an emergency exit sign'.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "7da46bb2c6a4fc01",
+   "kind": "figure_description",
+   "target": "figure-8: Using a long pole to avoid working at height",
+   "value": "A photo of a worker in an orange and navy high-visibility jacket standing on the ground and using a long extended pole to reach the glass canopy above the entrance of a red brick building. A hose runs along the ground from the pole, and a yellow warning sign stands near his feet. Metal handrails line the ramp and steps in front of the building.",
+   "reason": "The photo shows ground-level work with a long pole reaching a high canopy, matching the title about avoiding working at height.",
+   "evidence": "Man in hi-vis holding a long pole angled up to the curved canopy over the glass doors; hose and yellow sign on the ground.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "7d870ddab7b69e31",
+   "kind": "figure_description",
+   "target": "figure-9: An independent scaffold",
+   "value": "A line drawing of an independent tube and fitting scaffold built around the corner of a brick building, with boarded working platforms at the top and diagonal bracing. Four circled close-up insets show details: a tie fixed into the brick wall, a tie fixed into a hole in the wall, a tie through a window opening, and a scaffold standard resting on a base plate on a timber sole board. There are no printed labels in the drawing.",
+   "reason": "The drawing shows a freestanding scaffold with magnified details of ties and the base; no text labels appear.",
+   "evidence": "Scaffold drawing with boarded top lift and bracing; insets with pointers to wall ties, window tie and base plate on sole board.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "medium",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "5b0d3d062d508612",
+   "kind": "figure_description",
+   "target": "figure-10: Guard rails and toe boards",
+   "value": "A line drawing of a guard rail system bolted down at the edge of a concrete slab, with a frame, upright posts, a top guard rail, an intermediate rail and a toe board. Dimensions printed are: the guard rail at least 950 mm high, and gaps of not more than 470 mm between the rails and between the lower rail and the toe board. Labels printed are Guard rail, Frame, Slab, Toe board and Bolt down.",
+   "reason": "Labels and dimensions are read directly from the drawing and match the packet labels.",
+   "evidence": "Labels 'Guard rail', 'Frame', 'Slab', 'Toe board', 'Bolt down', 'At least 950 mm', 'Not more than 470 mm' (twice); caption 'Figure 10 Guard rails and toe boards'.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "205c2949a49d076b",
+   "kind": "figure_description",
+   "target": "figure-11: Advanced guard rails",
+   "value": "A photo inside a large metal-clad building showing an aluminium mobile tower scaffold being built with outriggers fitted at the base. One worker in a hard hat and yellow high-visibility vest stands on a platform inside the tower holding guard rail frames above him. A second worker in a hard hat and hi-vis vest bends over tower parts laid on the floor nearby.",
+   "reason": "The photo shows a mobile tower being erected with guard rail frames raised ahead of the platform, matching the title 'Advanced guard rails'. No labels are printed in the image.",
+   "evidence": "Tower with stabilising outriggers, worker on platform handling upper frames, second worker with components on the floor.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "medium",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "390485c24586dbac",
+   "kind": "figure_description",
+   "target": "figure-13: A mobile elevating work platform",
+   "value": "An illustration of a blue mobile elevating work platform (boom lift) with a white turntable on a four-wheeled base and a zig-zag articulated boom. A worker stands in the railed basket at the top of the boom, wearing a harness, and holds up a long beam or panel overhead. There are no labels other than the caption.",
+   "reason": "The drawing clearly shows an articulated boom lift with an operator in the basket.",
+   "evidence": "Blue boom lift with wheels, white turntable, articulated boom, basket with guard rails and worker holding a beam; caption 'Figure 13 A mobile elevating work platform'.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "3f8eaa9b9b8193a8",
+   "kind": "figure_description",
+   "target": "figure-14: A mast climbing work platform",
+   "value": "Photo of a mast climbing work platform on the outside of a multi-storey building under construction. The platform has guard rails and a banner and is carried on an orange lattice mast fixed to the brick wall; a second white lattice mast stands beside the building.",
+   "reason": "The image is a photograph showing a working platform that climbs a mast up the face of a building.",
+   "evidence": "Orange lattice mast with platform deck and rails attached at upper floor level; white mast to the right; no printed labels.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "e306b708df7ab670",
+   "kind": "figure_description",
+   "target": "figure-15: Soft landing system",
+   "value": "Photo of a soft landing system: rows of white filled bags laid on the floor inside a brick-walled area below timber floor joists and a steel beam. A worker in a hard hat and high-visibility vest kneels on the joists above. The bags carry printed text including \"TEL: 01452 503555\" and \"Install This Side Up\".",
+   "reason": "Photograph showing fall-arrest bags placed under the work area where joists are being fixed.",
+   "evidence": "White bags filling the space below the joists; text on bags reads TEL: 01452 503555 and Install This Side Up; worker above on joists.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "b8cf1111f5893bcb",
+   "kind": "figure_description",
+   "target": "figure-16: A work-restraint harness",
+   "value": "Photo of a worker in a hard hat, high-visibility vest and harness crouching on a metal profiled sheet roof. A blue lanyard runs from the back of the harness to a cable line fixed along the roof. There are no printed labels.",
+   "reason": "Photograph showing a work-restraint harness connected to a roof anchor line.",
+   "evidence": "Yellow harness straps over the vest, blue lanyard clipped to a line running along the roof sheets.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "31cfa553a0857484",
+   "kind": "figure_description",
+   "target": "figure-19: Ladder showing correct 1 in 4 angle (means of securing omitted for clarity)",
+   "value": "Line drawing of a ladder leaning against a wall, showing the 1 in 4 angle. The height up the wall is marked 4 and the distance out from the wall at the base is marked 1. Means of securing the ladder are left out of the drawing.",
+   "reason": "The figure is a diagram with numbered dimension markings for ladder angle; the cropped image also includes neighbouring photos of podium and platform steps, which belong to other figures.",
+   "evidence": "Circled 4 on the vertical arrow along the wall and circled 1 on the horizontal arrow at the base; caption Figure 19 printed below.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "ba83946837e12244",
+   "kind": "figure_description",
+   "target": "figure-22: Working platform stepladder",
+   "value": "Photo of a man standing on the platform of an aluminium stepladder with a top guard rail, working on a light fitting under a canopy outside a brick building. The stepladder has wheels at the back legs and a diagonal stay to the ground. There are no printed labels.",
+   "reason": "Photograph of a working platform stepladder in use.",
+   "evidence": "Stepladder with a handrail loop at the top platform, rear wheels and a stay on the right; man reaching up to a fluorescent fitting.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "2dc2c9548b671ff1",
+   "kind": "figure_description",
+   "target": "figure-23: Typical sloping-roof edge protection",
+   "value": "Diagram of two types of edge protection at the eaves of a sloping roof, marked (a) and (b). In (a) a scaffold tube rises at an angle from a braced scaffold against the wall, with labels Guard rail, Intermediate rail and Scaffold board. In (b) an upright scaffold tube beside a working platform at eaves level carries labels Guard rail, Intermediate rail and Toe board.",
+   "reason": "The figure is a cross-section drawing comparing two edge protection arrangements at a roof edge.",
+   "evidence": "Printed labels Guard rail, Intermediate rail, Scaffold board, Toe board, (a), (b); caption Figure 23 Typical sloping-roof edge protection.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "bd9144bb0091fd26",
+   "kind": "figure_description",
+   "target": "figure-24: Example of flat-roof edge protection",
+   "value": "Two cross-section diagrams, (a) and (b), of edge protection at the edge of a roof above a brick wall. In (a) an inclined scaffold tube braced against the wall carries a Guard rail, an Intermediate rail and a Scaffold board at the roof edge; in (b) a vertical scaffold standard on a boarded platform level with the eaves carries a Guard rail, an Intermediate rail and a Toe board.",
+   "reason": "Line drawing with two labelled parts showing scaffold-tube edge protection at a roof edge.",
+   "evidence": "Printed labels: Guard rail, Intermediate rail, Scaffold board, Toe board, (a), (b); caption Figure 24 Example of flat-roof edge protection.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "5adbce911a20cff0",
+   "kind": "figure_description",
+   "target": "figure-25: Proprietary access system for roof-work",
+   "value": "A photo of a two-storey house with a tiled pitched roof and a proprietary access system set up for roof work. Ladders run up the wall to a guard-railed platform along the eaves, and a further ladder and platform with rails reach up to the ridge and chimney.",
+   "reason": "Colour photo of a house with an access system of ladders, platforms and rails on the roof.",
+   "evidence": "Visible ladders against the wall, railed platform at eaves level, railed staging up the roof slope to the chimney; no printed labels.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "f64d4299a3fb0ebd",
+   "kind": "figure_description",
+   "target": "figure-26: A mobile elevating work platform being used to replace a roof sheet",
+   "value": "A photo of a mobile elevating work platform with an orange and white boom holding a railed basket just above a corrugated sheet roof. Two workers in the basket are reaching out over the roof sheets.",
+   "reason": "Colour photo of a boom-type MEWP basket positioned over a sheeted roof with workers in it.",
+   "evidence": "Orange and white boom, railed basket, workers, corrugated roof sheets visible; no printed labels.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "b25bf00cddad3db4",
+   "kind": "figure_description",
+   "target": "figure-27: Workmen wearing harnesses attached to a work positioning line, which is fitted to the staging",
+   "value": "A photo of two workers in hard hats and high-visibility vests kneeling on a mesh roof staging laid across a sheeted roof. The staging has a guard rail along one side, and the workers wear harnesses attached to a line fitted to the staging.",
+   "reason": "Colour photo of roof workers on staging with rails and harness lines.",
+   "evidence": "White and blue hard hats, yellow hi-vis vests, metal mesh staging with rail posts on roof sheets; no printed labels.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "medium",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "ebc94929f5c1a1b2",
+   "kind": "figure_description",
+   "target": "figure-28: Edge protection installed with the steelwork",
+   "value": "A photo of a multi-storey steel frame building under construction, with beams that have round holes in their webs. Red edge protection barriers with posts and rails are fixed along the edges of the steel beams at several floor levels.",
+   "reason": "Colour photo of a steel frame with red guard-rail edge protection attached to the beams.",
+   "evidence": "Cellular steel beams and columns, red post-and-rail barriers along beam edges, blue sky; no printed labels in the image.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "fb31e927fae74c5c",
+   "kind": "figure_description",
+   "target": "figure-29: A formwork system with purpose-designed fittings",
+   "value": "A line drawing of a vertical wall formwork system braced to the ground with adjustable push-pull props, next to a section of concrete. A worker in a hard hat stands on a working platform carried on brackets at the top of the formwork, with a guard rail of posts and rails along its outer edge.",
+   "reason": "Line drawing of formwork panels with a bracket-mounted top platform and guard rail.",
+   "evidence": "Formwork panels with soldiers, diagonal props to base plates, concrete section at left, worker on top platform with railings; no printed labels.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "219f5a9a060c0ba1",
+   "kind": "figure_description",
+   "target": "figure-30: A tower scaffold provides a safe means of access to the columns",
+   "value": "A line drawing of a worker in a hard hat standing on the platform of a tower scaffold beside column formwork. He holds a pipe into the top of the column form, which contains concrete, and the platform has guard rails and an internal ladder for access.",
+   "reason": "Line drawing of a tower scaffold with guard rails and ladder next to a column formwork, worker at the top.",
+   "evidence": "Tower scaffold tubes and couplers, internal ladder, worker with pipe into column form filled with concrete; caption Figure 30 A tower scaffold provides a safe means of access to the columns.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "7dc770f8d207ba52",
+   "kind": "figure_description",
+   "target": "figure-33: Where walkways need to cross vehicle routes, provide a clearly signed, well-lit crossing point",
+   "value": "Drawing of a fenced pedestrian walkway on a construction site, with a worker in a hard hat carrying a board between barriers, and a yellow dumper on the vehicle route beyond the fence. A blue pedestrian route sign is beside the walkway, and a warning sign with a forklift symbol reads 'PEDESTRIANS BEWARE Traffic approaching from each direction'. Further signs, a stack of blocks and spoil heaps are also shown.",
+   "reason": "Illustration of a pedestrian walkway and crossing area with signs; only the clearly legible sign text is quoted.",
+   "evidence": "figure-33.png; the 'PEDESTRIANS BEWARE' sign text is legible, the far right sign text is too small to read reliably.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "medium",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "90c6dc22f428683a",
+   "kind": "figure_description",
+   "target": "figure-34: Pedestrians are segregated from vehicles on this slope",
+   "value": "Photo of a construction site slope where a separate pedestrian walkway runs beside the vehicle ramp, divided by a rail and posts. A worker in a hard hat and hi-vis vest walks down the walkway while a red car drives on the ramp. A red sign at the bottom left reads 'PEDESTRIANS' with an arrow, and a traffic cone stands at the foot of the divider.",
+   "reason": "Photo showing segregated pedestrian and vehicle routes on a slope.",
+   "evidence": "figure-34.png shows the walkway, divider, red car and 'PEDESTRIANS' sign.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "bcba7342a99c06b8",
+   "kind": "figure_description",
+   "target": "figure-35: Take precautions, such as stop blocks, where vehicles tip materials into excavations",
+   "value": "Drawing of a site dumper with a raised skip tipping at the edge of an excavation. A large timber stop block lies along the edge in front of the wheels and is anchored with a chain to a stake in the ground. The figure has no printed labels.",
+   "reason": "Illustration of a dumper tipping against a stop block at an excavation edge.",
+   "evidence": "figure-35.png; the packet labels are body text above the figure, not figure labels.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "7f488230eabbd283",
+   "kind": "figure_description",
+   "target": "figure-36: Minimal tail swing",
+   "value": "Photo of a yellow excavator with a compact rear body and a front dozer blade, working on a housing site next to a building. Its arm reaches over to a dumper parked beside it. The figure has no printed labels.",
+   "reason": "Photo of an excavator illustrating minimal tail swing, per the caption.",
+   "evidence": "figure-36.png shows the excavator, the nearby building and the dumper; no labels are printed.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "medium",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "85cdd6c64c3528b3",
+   "kind": "figure_description",
+   "target": "figure-37: Some vehicles are fitted with vision aids such as mirrors or CCTV, which help drivers to see areas that they cannot view directly",
+   "value": "Diagram comparing the rear view of two site dumpers seen from above, with blue shading for the 'Driver's area of rear visibility theoretically covered by visibility aids'. On the left, 'Standard mirrors and no CCTV camera': labelled 'Standard mirrors', with 'Pedestrian cannot be seen by driver'. On the right, 'Convex mirrors, CCTV camera and monitor': labelled 'Convex mirrors', 'CCTV monitor in cab provides visibility at rear' and 'CCTV camera on the vehicle for the driver', with 'Pedestrian visible in CCTV monitor'.",
+   "reason": "Labelled comparison diagram of vehicle vision aids; labels transcribed from the image.",
+   "evidence": "figure-37.png labels and key box match the packet labels.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "ac2ad5604a195b85",
+   "kind": "figure_description",
+   "target": "figure-38: Handling kerbs using a vacuum lifter",
+   "value": "Black and white photo of a worker in a hi-vis jacket and gloves using a vacuum lifter to lift a concrete kerb on a gravel site. The lifter has a suction pad on top of the kerb and a handle bar the worker steers by; another kerb lies on the ground in front, with site cabins behind. No printed labels.",
+   "reason": "Photo shows a vacuum lifting device holding a kerb, matching the caption.",
+   "evidence": "Suction pad and hose on top of kerb, operator holding handle frame, second kerb on ground, stacked cabins in background.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "2e109c54ebc53211",
+   "kind": "figure_description",
+   "target": "figure-39: The operator of this hoist has a clear view of each landing. The base of the hoist is protected by a cage and each landing is protected by a sliding gate",
+   "value": "Line drawing of a goods hoist on a building with scaffolding, with the operator standing at the base holding a pendant control and looking up at the platform. The base of the hoist is enclosed by a mesh cage carrying a sign reading \"GOODS ONLY NO RIDING ON THE PLATFORM\". Each scaffold landing has a mesh gate, with a worker standing behind the gate at one landing.",
+   "reason": "Drawing shows hoist mast, mesh platform, base cage, landing gates and operator with pendant control.",
+   "evidence": "Sign on the base cage reads GOODS ONLY / NO RIDING ON / THE PLATFORM; operator holds corded control; mesh gates at landings.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "bc1244e8d1cdcf44",
+   "kind": "figure_description",
+   "target": "figure-40: A mobile crane is supported on outriggers which are prevented from sinking into the ground by timber packing. The crane is positioned to ensure adequate clearance between the wall and the counterweight. The slings are protected by packing around the load. The load is fitted with a tag line to allow it to be easily controlled",
+   "value": "Line drawing of a mobile crane with its outriggers extended and resting on packing, lifting a bundle of long material on slings from its hook. A worker on the left holds a tag line attached to the load. A double-headed arrow marks the clearance between the crane's counterweight and a brick wall on the right; there are no printed labels.",
+   "reason": "Drawing shows crane on outriggers, slung load, tag line and clearance arrow to wall.",
+   "evidence": "Outrigger feet on pads, slings around bundled load, rope held by worker, arrow between counterweight and brick wall.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "ed339f8c808de12d",
+   "kind": "figure_description",
+   "target": "figure-41: The centre of gravity must be beneath the hook",
+   "value": "Diagram of loads hanging from crane hooks, showing where the centre of gravity (marked by a black and white circle symbol) sits compared with the hook. Left, a tall load lifted from two hooks below its centre of gravity is labelled \"Unstable: Centre of gravity is higher than lift points\"; middle, a T-shaped load on one hook is labelled \"Unstable: Hook is not over the centre of gravity\" and, after an arrow, tilts with \"Load will shift until centre of gravity is below hook\". Right, boxed, the same load with the hook directly above the centre of gravity is labelled \"Stable: Hook is over centre of gravity\".",
+   "reason": "Printed labels read directly from the diagram; three cases unstable, unstable, stable.",
+   "evidence": "Labels: Centre of gravity; Unstable / Centre of gravity is higher than lift points; Unstable / Hook is not over the centre of gravity / Load will shift until centre of gravity is below hook; Stable / Hook is over centre of gravity.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "6c9721bf79e4e97d",
+   "kind": "figure_description",
+   "target": "figure-42: Proprietary trench boxes and hydraulic wallings allow trench supports to be put in place without requiring people to enter the excavation",
+   "value": "Three line drawings of trench support systems. Left, an excavator lowers sheet piles or a walling frame into a trench; centre, a trench box made of two pairs of flat side panels held apart by adjustable struts; right, an excavator lowers a strutted trench box into a trench. There are no printed labels.",
+   "reason": "Three panels show trench supports being placed from above by an excavator and a trench box on its own.",
+   "evidence": "Excavator buckets with chains lowering supports; centre panel shows panels with horizontal struts.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "medium",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "4b68bdc2d55be0d6",
+   "kind": "figure_description",
+   "target": "figure-43: A trench box with guard rails attached",
+   "value": "Colour drawing of a trench lined with a trench box made of grey side panels held apart by struts. Tubular guard rails are fixed on posts along the top edge of the trench box, and a wooden ladder tied to the rail leads down into the trench. There are no printed labels.",
+   "reason": "Drawing shows trench box, guard rails attached on top and a tied ladder.",
+   "evidence": "Grey panels with struts, scaffold-tube rails with clamps on panel tops, ladder lashed at top.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "5745180db4364ea9",
+   "kind": "figure_description",
+   "target": "figure-44: An excavation supported by timbering and props with guard rails (omitted from left-hand side for clarity) to prevent falls. Extended poling boards act as toe boards, safe access is provided by a tied ladder and exposed services are supported",
+   "value": "Colour drawing of an excavation lined with vertical timber poling boards held by horizontal timber walings and adjustable steel props. Tubular guard rails run along the right-hand edge, the poling boards stand up above ground level, and a ladder tied at the top leads down into the trench. A pipe crossing the trench is hung by ropes from a timber beam laid across the top; there are no printed labels.",
+   "reason": "Drawing shows timbered excavation with props, guard rails on one side, ladder and a supported service pipe.",
+   "evidence": "Timber boards and walings with screw props, rails on right only, ladder lashed at top, pipe slung from cross beam.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "ba3898208ca19bf4",
+   "kind": "figure_description",
+   "target": "figure-45: Excavation planning process",
+   "value": "Flow chart of the excavation planning process: 'Excavation planned', then 'Refer to plans of buried services', then 'Use locating devices', then 'Services located and confirmed by trial holes as necessary?'; if No, 'Is there a reasonable explanation for not being located?*' (No leads to 'Contact owners of services†'; Yes leads to 'Dig as many trial holes as necessary by hand', then 'Services exposed?', where No leads to 'Contact owners of services†'). If services are located, or exposed (Yes), the next question is 'Evidence of other services?**'; Yes leads to 'Obtain more information and plans if possible' and back to 'Use locating devices', and No leads to 'Is work close to the services?', where Yes means 'Carry out excavation near services by hand digging' and No means 'Use tools of choice'. Footnotes: * for example, could services be non-metallic pipes; ** in particular visual evidence, eg service connections; † if owners cannot be traced despite all reasonable attempts, excavation could proceed using hand-dug trial holes and great care.",
+   "reason": "Flow chart steps and branches read from the image in order, with footnotes summarised.",
+   "evidence": "Boxes 'Excavation planned', 'Refer to plans of buried services', 'Use locating devices', Yes/No arrows, footnotes *, **, †, caption 'Figure 45 Excavation planning process'.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "76c23eda0d003d6f",
+   "kind": "figure_description",
+   "target": "figure-46: A person suffering from dermatitis",
+   "value": "Colour photo of the palm of a worker's hand with dry, cracked and peeling skin across the palm and fingers, shown as an example of dermatitis. The hand is held over steel reinforcing bars with a yellow cable in the background. There are no printed labels in the image.",
+   "reason": "Photo shows a hand with visibly cracked, flaking skin; title names dermatitis.",
+   "evidence": "Close-up of open palm with patches of peeling skin, ring on finger, rebar mesh behind.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "f67db60c4574708f",
+   "kind": "figure_description",
+   "target": "figure-47: Typical locations for the most common asbestos-containing materials",
+   "value": "Cut-away line drawing of a multi-storey building with 39 numbered coloured markers showing typical locations of the most common asbestos-containing materials, grouped in a key as: Roof and exterior walls (1 Roof sheets, slates and tiles; 2 Guttering and drainpipe; 3 Wall cladding; 4 Soffit boards; 5 Panel beneath window; 6 Roofing felt and coating to metal wall cladding), Boiler, vessels and pipe work (7-13, eg lagging, gaskets, rope seals, boiler flue), Ceilings (14 Spray coating; 15 Loose asbestos in ceiling/floor cavity; 16 Tiles, slats, canopies and firebreaks above ceilings; 17 Textured coatings and paints), Interior walls/panels (18-29, eg partition walls, panel lining to lift shaft, fire door, bath panel). Further groups are Flooring materials (30 Floor tiles, linoleum and paper backing, lining to suspended floor), Air handling systems (31 Lagging; 32 Gaskets; 33 Anti-vibration gaiter), Domestic appliances (34-36, eg gaskets in domestic boilers, 'Caposil' insulating blocks, string seals on radiators) and Other (37 Fire blanket; 38 Water tank; 39 Brake/clutch lining). A red note states the diagram does not show all possible uses and locations of asbestos-containing materials and that a detailed survey will be required to identify all asbestos-containing materials present in a building.",
+   "reason": "Page is printed sideways; key, numbered markers and red note read from the rotated image.",
+   "evidence": "Numbered circles 1-39 on building drawing, key headings 'Roof an dexterior walls', 'Boiler, vessels and pipe work', 'Ceilings', 'Interior walls/panels', 'Flooring materials', 'Air handling systems', 'Domestic appliances', 'Other', red note box.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "medium",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "9662311be52094fe",
+   "kind": "figure_description",
+   "target": "figure-49: Ground-level barrier for plant working near an overhead power line",
+   "value": "Drawing of a yellow tracked excavator working beside a line of red and white striped drums that form a ground-level barrier below an overhead power line on poles. A vertical dimension arrow is labelled 'Between 3-6 m'. The drums mark a boundary between the plant and the power line.",
+   "reason": "Illustration shows excavator, barrier drums, poles with wires and one dimension label.",
+   "evidence": "Label 'Between 3-6 m'; caption 'Figure 49 Ground-level barrier for plant working near an overhead power line'.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "medium",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "018057a7a2f474bb",
+   "kind": "figure_description",
+   "target": "figure-50: Diagram showing normal dimensions for ‘goal post’ crossing points and barriers",
+   "value": "Diagram in elevation and plan of a 'goal post' crossing point under overhead conductors, with barriers of drums and bunting on each side of the power line. The ELEVATION labels read 'Overhead conductors', 'Height to be specified by electricity supplier' (goal post), 'Height 3-6 m' (barrier bunting) and 'Width to be determined by site conditions (maximum 10 m)', with a DANGER! sign. The PLAN shows the barrier lines each set '6 m minimum' from the line of the conductors, with goal posts on both barriers at the crossing.",
+   "reason": "Two views read from the image with all printed dimensions.",
+   "evidence": "Labels 'Overhead conductors', 'Height to be specified by electricity supplier', 'Height 3-6 m', 'Width to be determined by site conditions (maximum 10 m)', 'ELEVATION', '6 m minimum' twice, 'PLAN'.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "555c1398890f2c9c",
+   "kind": "figure_description",
+   "target": "figure-51: A worker wearing full breathing apparatus is also wearing a harness and lanyard connected to a winch so that he can be hauled to the surface in an emergency without others having to enter the manhole to rescue him",
+   "value": "Line drawing of a worker in a manhole wearing breathing apparatus with a face mask and air cylinder, attached by a harness and line to a winch on a tripod set over the opening. A second worker in a hard hat stands outside holding the winch handle, ready to haul him up. There are no printed labels in the image.",
+   "reason": "Drawing shows tripod, winch, worker in manhole with breathing apparatus and a person outside at the winch.",
+   "evidence": "Tripod over manhole, winch with crank handle, mask and cylinder on worker below, open manhole cover.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "38bceb1ecfe63f28",
+   "kind": "figure_description",
+   "target": "figure-52: A debris chute into a covered skip reduces the risk of flying debris",
+   "value": "Line drawing of a sectional debris chute running from the top of a scaffold beside a building wall down into a skip at ground level. The bottom of the chute and the top of the skip are covered with a sheet. There are no printed labels in the drawing.",
+   "reason": "Drawing shows scaffold against wall, angled chute of linked sections, and covered skip.",
+   "evidence": "Scaffold with bracing, chute hopper at top platform, sheet draped over skip; caption 'Figure 52 A debris chute into a covered skip reduces the risk of flying debris'.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "750ed196a0a74a93",
+   "kind": "figure_description",
+   "target": "figure-53: Provide pedestrians with a protected route separated from the work and from traffic",
+   "value": "A line drawing of street works where a mini excavator digs a trench beside a road, fenced off with red and white barriers. A separate walkway for pedestrians, marked by a red sign printed \"PEDESTRIANS\" with an arrow, runs between barriers on both sides, between the work area and the road traffic lane, with traffic cones and warning lamps along the road edge. Men walk along the protected route while a car passes in the road.",
+   "reason": "Described the drawing as seen; only printed text is the PEDESTRIANS sign.",
+   "evidence": "figure-53.png: excavator, trench, barriers, PEDESTRIANS sign with arrow, cones, lamps, car.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "81d62b5dd554c215",
+   "kind": "table",
+   "target": "2-setting-up-the-site-first-aid-table-1: First aid",
+   "value": {
+    "columns": [
+     "Numbers employed at any location",
+     "Number of first aid personnel"
+    ],
+    "rows": [
+     [
+      "Fewer than five",
+      "At least one appointed person"
+     ],
+     [
+      "5 to 50",
+      "At least one first aider"
+     ],
+     [
+      "More than 50",
+      "One additional first aider for every 50 employed"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "For first aid, where the numbers employed at any location are fewer than five, the number of first aid personnel is at least one appointed person.",
+     "For first aid, where the numbers employed at any location are 5 to 50, the number of first aid personnel is at least one first aider.",
+     "For first aid, where the numbers employed at any location are more than 50, the number of first aid personnel is one additional first aider for every 50 employed."
+    ]
+   },
+   "reason": "Library grid matches the printed table exactly.",
+   "evidence": "p20.png: two-column ruled table below paragraph 96.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "2ce69a5f44222679",
+   "kind": "table",
+   "target": "appendix-1-table-1: Inspection recording form with timing and frequency chart",
+   "value": {
+    "columns": [
+     "Place of work or work equipment",
+     "Inspect before work at the start of every shift (see note 1)",
+     "Inspect after any event likely to have affected its strength or stability",
+     "Inspect after accidental fall of rock, earth or other material",
+     "Inspect after installation or assembly in any position (see notes 2 and 3)",
+     "Inspect at suitable intervals",
+     "Inspect after exceptional circumstances which are liable to jeopardise the safety of work equipment",
+     "Inspect at intervals not exceeding 7 days (see note 3)",
+     "Check on each occasion before use (REPORT NOT REQUIRED)",
+     "LOLER Thorough Examination (if work equipment subject to LOLER) (see note 4)"
+    ],
+    "rows": [
+     [
+      "Excavations which are supported to prevent any person being buried or trapped by an accidental collapse or a fall or dislodgement of material",
+      "✓",
+      "✓",
+      "✓",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "Cofferdams and caissons",
+      "✓",
+      "✓",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "The surface and every parapet or permanent rail of every existing place of work at height",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "✓",
+      ""
+     ],
+     [
+      "Guard rails, toe boards, barriers and similar collective means of fall protection",
+      "",
+      "",
+      "",
+      "✓",
+      "✓",
+      "✓",
+      "",
+      "",
+      ""
+     ],
+     [
+      "Scaffolds and other working platforms (including tower scaffolds and MEWPs) used for construction work and from which a person could fall more than 2m",
+      "",
+      "",
+      "",
+      "✓",
+      "",
+      "✓",
+      "✓",
+      "",
+      "✓"
+     ],
+     [
+      "All other working platforms",
+      "",
+      "",
+      "",
+      "✓",
+      "✓",
+      "✓",
+      "",
+      "",
+      "✓"
+     ],
+     [
+      "Collective safeguards for arresting falls (eg nets, airbags, soft landing systems)",
+      "",
+      "",
+      "",
+      "✓",
+      "✓",
+      "✓",
+      "",
+      "",
+      ""
+     ],
+     [
+      "Personal fall protection systems (including work positioning, rope access, work restraint and fall arrest systems)",
+      "",
+      "",
+      "",
+      "✓",
+      "✓",
+      "✓",
+      "",
+      "",
+      "✓"
+     ],
+     [
+      "Ladders and stepladders",
+      "",
+      "",
+      "",
+      "",
+      "✓",
+      "✓",
+      "",
+      "✓",
+      ""
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "In the inspection timing and frequency chart, excavations which are supported to prevent any person being buried or trapped by an accidental collapse or a fall or dislodgement of material are marked for: inspect before work at the start of every shift (see note 1); inspect after any event likely to have affected its strength or stability; and inspect after accidental fall of rock, earth or other material.",
+     "In the inspection timing and frequency chart, cofferdams and caissons are marked for: inspect before work at the start of every shift (see note 1); and inspect after any event likely to have affected its strength or stability.",
+     "In the inspection timing and frequency chart, the surface and every parapet or permanent rail of every existing place of work at height are marked for: check on each occasion before use (REPORT NOT REQUIRED).",
+     "In the inspection timing and frequency chart, guard rails, toe boards, barriers and similar collective means of fall protection are marked for: inspect after installation or assembly in any position (see notes 2 and 3); inspect at suitable intervals; and inspect after exceptional circumstances which are liable to jeopardise the safety of work equipment.",
+     "In the inspection timing and frequency chart, scaffolds and other working platforms (including tower scaffolds and MEWPs) used for construction work and from which a person could fall more than 2m are marked for: inspect after installation or assembly in any position (see notes 2 and 3); inspect after exceptional circumstances which are liable to jeopardise the safety of work equipment; inspect at intervals not exceeding 7 days (see note 3); and LOLER Thorough Examination (if work equipment subject to LOLER) (see note 4).",
+     "In the inspection timing and frequency chart, all other working platforms are marked for: inspect after installation or assembly in any position (see notes 2 and 3); inspect at suitable intervals; inspect after exceptional circumstances which are liable to jeopardise the safety of work equipment; and LOLER Thorough Examination (if work equipment subject to LOLER) (see note 4).",
+     "In the inspection timing and frequency chart, collective safeguards for arresting falls (eg nets, airbags, soft landing systems) are marked for: inspect after installation or assembly in any position (see notes 2 and 3); inspect at suitable intervals; and inspect after exceptional circumstances which are liable to jeopardise the safety of work equipment.",
+     "In the inspection timing and frequency chart, personal fall protection systems (including work positioning, rope access, work restraint and fall arrest systems) are marked for: inspect after installation or assembly in any position (see notes 2 and 3); inspect at suitable intervals; inspect after exceptional circumstances which are liable to jeopardise the safety of work equipment; and LOLER Thorough Examination (if work equipment subject to LOLER) (see note 4).",
+     "In the inspection timing and frequency chart, ladders and stepladders are marked for: inspect at suitable intervals; inspect after exceptional circumstances which are liable to jeopardise the safety of work equipment; and check on each occasion before use (REPORT NOT REQUIRED)."
+    ]
+   },
+   "reason": "Used the lowest header row; the top spanning heading 'Timing and frequency of checks, inspections and examinations' covers columns 2-10. Tick marks (extracted as '3') copied as the printed tick. Library grid tick positions match the page.",
+   "evidence": "p129.png: Appendix 1 timing and frequency chart, 9 data rows; notes 1-4 below the table are not rows.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "3cfb6166e9970fc6",
+   "kind": "figure_description",
+   "target": "figure-12a: and b Through the trap",
+   "value": "Two photos of workers putting up a mobile access tower in a warehouse. They show a worker going up through the trap door in the tower's platform, so that they are protected while they climb onto the working level.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg150/main@2024-12-06-0d0c380b/figures/figure-12a.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "b2b89213cc68c454",
+   "kind": "figure_description",
+   "target": "figure-17a: Incorrect - overreaching and not maintaining three points of contact",
+   "value": "Drawing of a man on a ladder leaning far to one side to clean a window, with one foot off the rung. A cross marks this as wrong: overreaching and not keeping three points of contact.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg150/main@2024-12-06-0d0c380b/figures/figure-17a.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "5b8394204080d247",
+   "kind": "figure_description",
+   "target": "figure-17b: Correct position",
+   "value": "Drawing of a man on a ladder painting a gutter while facing the ladder, body kept between the stiles and the paint pot hung on the ladder. A tick marks this as the correct position.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg150/main@2024-12-06-0d0c380b/figures/figure-17b.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "756cf152e3d23668",
+   "kind": "figure_description",
+   "target": "figure-21: Podium steps",
+   "value": "Photo of a worker standing on the guarded platform of podium steps to reach a ceiling tile. The podium has handrails on all sides and steps to climb onto it.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg150/main@2024-12-06-0d0c380b/figures/figure-21.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "e9b79d34960498aa",
+   "kind": "figure_description",
+   "target": "figure-20a: Correct – two Roof work and fragile surfaces clear rungs",
+   "value": "Drawing of a man on a stepladder working on a wall with two clear rungs above his feet. A tick marks this as correct.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg150/main@2024-12-06-0d0c380b/figures/figure-20a.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "59376b0792708d3e",
+   "kind": "figure_description",
+   "target": "figure-20b: Correct – three clear steps",
+   "value": "Drawing of a man on a stepladder working on a ceiling light with three clear steps above his feet. A tick marks this as correct.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg150/main@2024-12-06-0d0c380b/figures/figure-20b.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "0f2b98a5619679d0",
+   "kind": "figure_description",
+   "target": "figure-31: Use gates or barriers etc to control entry into the work area and display the procedure for obtaining entry",
+   "value": "Drawing of a site entrance on a public road. Labels say the site entrance is set back from the road so that vehicles waiting to enter do not block the road, a sign tells visitors to contact the site office, a SLOW sign warns drivers, and the hoarding is set back so drivers leaving can see pedestrians. Welded mesh fencing lets drivers see approaching pedestrians, and the area beside the gate must be kept clear of materials that would block the driver's view.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg150/main@2024-12-06-0d0c380b/figures/figure-31.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "a2f965d21a1ccff2",
+   "kind": "figure_description",
+   "target": "figure-32: Provide drive-in/drive-out access to delivery and work areas",
+   "value": "Plan of a housing development site with a one-way route for site traffic around a cul-de-sac. Red arrows mark one-way and two-way routes; building of one unit is delayed until the others are finished so that it can serve as a temporary exit route. The layout removes the need for vehicles to reverse.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg150/main@2024-12-06-0d0c380b/figures/figure-32.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "cd0478a78f9aa79a",
+   "kind": "figure_description",
+   "target": "figure-48a: Asbestos-insulated water pipes showing evidence of maintenance work damage, with detached preformed sections and calico wrapping",
+   "value": "Photo of asbestos-insulated water pipes damaged during maintenance work. Preformed insulation sections have come away and the calico wrapping is torn.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg150/main@2024-12-06-0d0c380b/figures/figure-48a.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "9f43c04ffb7a1b5e",
+   "kind": "figure_description",
+   "target": "figure-48b: Poorly tamped sprayed chrysotile fireproofing on a structural steel beam holding up a concrete floor, showing some overspray onto the concrete and damage by electrical work",
+   "value": "Photo of poorly applied sprayed chrysotile fireproofing on a steel beam holding up a concrete floor. Some spray has gone onto the concrete and the coating is damaged where electrical work has been done.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg150/main@2024-12-06-0d0c380b/figures/figure-48b.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "24250040223a9fff",
+   "kind": "figure_description",
+   "target": "figure-48c: Painted asbestos insulating board facing to a fire door with some damage around the door furniture",
+   "value": "Photo of a painted fire door faced with asbestos insulating board. The board is damaged around the door furniture: the lock and the handle fixings.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg150/main@2024-12-06-0d0c380b/figures/figure-48c.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "1f071bff7685d807",
+   "kind": "figure_description",
+   "target": "figure-48d: Asbestos cement downpipe, hopper and profile sheet",
+   "value": "Photo of an asbestos cement downpipe and hopper against corrugated asbestos cement profile sheeting. The surfaces are weathered and dirty.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg150/main@2024-12-06-0d0c380b/figures/figure-48d.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "69a573d4f6748c0d",
+   "kind": "figure_description",
+   "target": "figure-48f: Asbestos rope seal in a domestic gas boiler",
+   "value": "Photo of the burner of a domestic gas boiler with a pale asbestos rope seal around it, among the copper pipes and a pressure gauge.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg150/main@2024-12-06-0d0c380b/figures/figure-48f.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "be50d8a063fd8fb1",
+   "kind": "figure_description",
+   "target": "figure-48e: Asbestos-containing vinyl floor tiles",
+   "value": "Photo of a corridor floor laid with dark blue asbestos-containing vinyl floor tiles with white streaks.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg150/main@2024-12-06-0d0c380b/figures/figure-48e.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "284d7a19c751f861",
+   "kind": "figure_description",
+   "target": "figure-48g: Painted asbestos-containing textured coating on a ceiling",
+   "value": "The photo printed above this caption shows a corridor floor of dark blue vinyl floor tiles, the same picture as figure 48e. It does not show the painted textured coating on a ceiling that the caption names.",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg150/main@2024-12-06-0d0c380b/figures/figure-48g.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "2194bf38f00d370a",
+   "kind": "figure_description",
+   "target": "figure-54: CDM decision tool",
+   "value": "CDM decision tool flow chart for deciding when the exceptions to the CDM Regulations apply. If the local authority is the enforcing authority for the work, none of the CDM Regulations apply. Work for a domestic client with no arrangement with a developer needs only CDM regulation 7 (site notification) and regulation 13 (designer duties). Other work, including domestic work arranged with a developer, goes on: if demolition or dismantling is involved, or the project is notifiable, or more than four people will be at work at any one time, all CDM Regulations apply. Otherwise the CDM Regulations do not apply except regulation 13 (designer duties).",
+   "reason": "Short description for search, from the figure image, caption and labels only.",
+   "evidence": "corpus/parsed/hse-hsg150/main@2024-12-06-0d0c380b/figures/figure-54.png",
+   "by": "model check, Claude Code subagent",
+   "confidence": "high",
+   "date": "2026-11-20"
+  }
+ ]
+}

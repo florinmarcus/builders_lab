@@ -1362,8 +1362,8 @@ sources:
   why: Medical rules for workers doing NNLW.
   status: current
   checked: 2026-11-19
-  parser: {module: parse_html}
-  fetch: {method: url}
+  parser: {module: parse_pdf}
+  fetch: {method: url, url: https://www.hse.gov.uk/pubns/ms34.pdf}
 
 - id: hse-asbestos-information
   title: HSE asbestos information and publications page
@@ -1857,8 +1857,8 @@ sources:
   status: current
   notes: Edition not read; check before ingest. Landing page only.
   checked: 2026-11-19
-  parser: {module: parse_html}
-  fetch: {method: url}
+  parser: {module: parse_pdf}
+  fetch: {method: url, url: https://www.hse.gov.uk/pubns/priced/eh40.pdf}
 
 - id: hse-indg136
   title: "INDG136 Working with substances hazardous to health: a brief guide to COSHH (rev5)"
@@ -1889,8 +1889,8 @@ sources:
   why: Masks and extraction when chasing walls or cutting blocks; silica is a top health risk.
   status: current
   checked: 2026-11-19
-  parser: {module: parse_html}
-  fetch: {method: url}
+  parser: {module: parse_pdf}
+  fetch: {method: url, url: https://www.hse.gov.uk/pubns/cis36.pdf}
 
 - id: hse-indg463
   title: INDG463 Control of exposure to silica dust (2024)
@@ -1905,8 +1905,8 @@ sources:
   why: Silica dust controls.
   status: current
   checked: 2026-11-19
-  parser: {module: parse_html}
-  fetch: {method: url}
+  parser: {module: parse_pdf}
+  fetch: {method: url, url: https://www.hse.gov.uk/pubns/indg463.pdf}
 
 - id: hse-cis69
   title: CIS69 On-tool extraction (2013)
@@ -1921,8 +1921,8 @@ sources:
   why: On-tool dust extraction.
   status: current
   checked: 2026-11-19
-  parser: {module: parse_html}
-  fetch: {method: url}
+  parser: {module: parse_pdf}
+  fetch: {method: url, url: https://www.hse.gov.uk/pubns/cis69.pdf}
 
 - id: hse-cis54
   title: CIS54 Dust control on cut-off saws
@@ -2133,8 +2133,8 @@ sources:
   why: Romanian sheet on site welfare.
   status: current
   checked: 2026-11-19
-  parser: {module: parse_html}
-  fetch: {method: url}
+  parser: {module: parse_pdf}
+  fetch: {method: url, url: https://www.hse.gov.uk/pubns/romanian/cis59.pdf}
 
 - id: hse-ro-migrant-workers
   title: HSE migrant workers pages (Romanian, worker)
@@ -2182,8 +2182,8 @@ sources:
   status: current
   notes: Landing page only; PDF URL not in the inventory.
   checked: 2026-11-19
-  parser: {module: parse_html}
-  fetch: {method: url}
+  parser: {module: parse_pdf}
+  fetch: {method: url, url: https://www.hse.gov.uk/pubns/priced/hsg47.pdf}
 
 - id: hse-l74
   title: L74 First aid at work (3rd edition, 2013, amended 2018 and 2024)
@@ -2402,8 +2402,8 @@ sources:
   why: Basic electrical safety.
   status: current
   checked: 2026-11-19
-  parser: {module: parse_html}
-  fetch: {method: url}
+  parser: {module: parse_pdf}
+  fetch: {method: url, url: https://www.hse.gov.uk/pubns/indg231.pdf}
 
 - id: hse-indg236
   title: INDG236 Maintaining portable electric equipment (rev3, 2013)
@@ -2418,8 +2418,8 @@ sources:
   why: PAT testing myths.
   status: current
   checked: 2026-11-19
-  parser: {module: parse_html}
-  fetch: {method: url}
+  parser: {module: parse_pdf}
+  fetch: {method: url, url: https://www.hse.gov.uk/pubns/indg236.pdf}
 
 - id: ess2020
   title: Electrical Safety Standards in the Private Rented Sector and Social Rented Sector (England) Regulations 2020 (SI 2020/312)
