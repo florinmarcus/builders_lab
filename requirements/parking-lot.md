@@ -25,6 +25,10 @@ Started 20 Nov 2026. Status of the demo build: steps 1 (mock data plan), 2 (sche
 | N14 | Evening summary, RAMS module, WhatsApp channel (prototype priorities 2 and 3) | After priority 1 | – |
 | N15 | Corpus parser, chunker, `get_section` and `rag.search` (design: `architecture/design/regulations-corpus.md`, ADRs 0010 and 0013) | **Live on the server 20 Nov 2026:** 12 documents in pgvector on RDS, vector search + Amazon Rerank + relevance floor (`backend: corpus`). Not yet: keyword (BM25) on the server (S76), `get_section`, more documents | Fallback set kept for `rag_enabled=off` |
 | N16 | Text fingerprint for PDFs, so byte-only changes are not new versions (ADR 0008 update) | Comes with the parser, which extracts PDF text anyway | A re-saved PDF would look like a new edition |
+| N17 | Move the regulations corpus from the Frankfurt lab RDS to the London server's Postgres (pgvector image); check the server has enough memory (t4g.small, else t4g.medium); then update ADR 0013 and diagrams | Lab RDS is being withdrawn (ADR 0014) | Regulations search stops when the lab is switched off |
+| N18 | Replace the demo Gmail tool with Claude's own Gmail and Microsoft 365 connectors for real firms (ADR 0014) | Demo uses our own inbox | Real firms would need a Google security review |
+| N19 | Excel export of a firm's data, then deletion within 30 days, confirmed in writing (pilot agreement; see N11) | Not needed for mock data | Promise in the pilot agreement we cannot keep |
+| N20 | Pilot agreement with DPA, our terms with the 12-month cap, and a setup help sheet for the partner | Business plan agreed 21 Nov 2026 | No pilot can start |
 
 ## Shortcuts taken (works, but not production)
 
@@ -129,3 +133,9 @@ Started 20 Nov 2026. Status of the demo build: steps 1 (mock data plan), 2 (sche
 | Q3 | Can a connector reach files on an iPhone? | `research/backlog.md` item 12 |
 | Q5 | ~~Which header does the Claude app accept?~~ Answered 20 Nov 2026: `Authorization` works with Authentication set to "No sign-in". The server also accepts the key without "Bearer" or without the space | ADR 0007 |
 | Q4 | Is a Claude Code scheduled task reliable enough for regular inbox syncs, or do we need Haiku on the server? | ADR 0006 |
+| Q6 | Does Florin's employment contract allow this side work, and who owns code he writes outside work? | `requirements/business-plan.md` |
+| Q7 | Anthropic's liability cap and data terms for Claude Team (not confirmed) | `requirements/business-plan.md` |
+| Q8 | ChatGPT Business and Enterprise prices from OpenAI's own page (third-party figures so far) | `requirements/business-plan.md` |
+| Q9 | Does Claude's Microsoft 365 connector read Outlook mail? | `requirements/business-plan.md` |
+| Q10 | Companies House registration fee and ICO data protection fee (from memory) | `requirements/business-plan.md` |
+| Q11 | Real quotes: cyber insurance, professional indemnity, accountant | `requirements/business-plan.md` |

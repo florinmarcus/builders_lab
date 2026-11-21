@@ -24,6 +24,7 @@ An AI assistant for UK building firms, first for Romanian-run firms: Claude (the
 | Mock data, demo emails, Gmail demo | `system/data/mock/README.md`, `decisions/0005-...md` |
 | Regulations corpus or search | `system/rag/README.md` (contract), `corpus/README.md`, `.claude/skills/corpus-document/` |
 | Research or requirements | `research/summary.md`, `requirements/prototype.md` |
+| Business plan, prices, pilot | `requirements/business-plan.md`, `decisions/0014-pilot-business-model.md` |
 | Language, Romanian terms, spoken answers | `decisions/0012-language-and-voice.md`, `research/domain/glossary.md` (then `python -m builders_api.terminology --build`) |
 | Making a decision | `decisions/` (add an ADR) |
 
@@ -97,7 +98,6 @@ evals/          answer quality evals (not started; parking lot N9)
 
 ## Open questions
 
-- How much will a firm pay us, on top of its own Claude plan?
 - Romanian answers: when, and for which users (ADR 0001)?
 
 Answered questions are in `requirements/README.md`.
