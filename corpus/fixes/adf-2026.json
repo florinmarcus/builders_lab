@@ -1,0 +1,1849 @@
+{
+ "source_id": "adf-2026",
+ "about": "Saved model fixes for adf-2026 (ADR 0010).",
+ "fixes": [
+  {
+   "key": "b216aa96c2292e9e",
+   "kind": "figure_description",
+   "target": "diagram-i: The relationship between regulations and guidance in the approved documents",
+   "value": "Diagram showing a sample approved document page, \"Requirement B2: Internal fire spread (linings)\", to explain how law and guidance are laid out. A green \"Requirement\" box with the text of B2 (Requirement / Limits on application) is marked 1, and the \"Intention\" section below it is marked 2. The key says: 1 \"The law: extract from the Building Regulations 2010.\" 2 \"Statutory guidance.\"",
+   "reason": "The standard 'how to use' sample page of the 2019-style approved documents, the same drawing as AD B Diagram i (checked against this document's figure image). Carried over from adf (v1-diagram-i): same content fingerprint apart from the part prefix of the id.",
+   "evidence": "page image corpus/parsed/adf/approved-document-f-volume-1-applies-to-dwellings@2022-06-15-5d3ebc08/figures/v1-diagram-i.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "1ad348be5a4b7a23",
+   "kind": "table",
+   "target": "requirement-f1-box-1: Requirement F1(1): Means of ventilation",
+   "value": {
+    "columns": [
+     "Requirement",
+     "Limits on application"
+    ],
+    "rows": [
+     [
+      "Means of ventilation",
+      ""
+     ],
+     [
+      "F1. (1) There shall be adequate means of ventilation provided for people in the building.",
+      "Requirement F1 does not apply to a building or space within a building: a. into which people do not normally go; b. which is used solely for storage; or c. which is a garage used solely in connection with a single dwelling."
+     ]
+    ],
+    "heading_rows": [
+     0
+    ],
+    "sentences": [
+     "Requirement F1(1): Means of ventilation: the requirement is F1(1), there shall be adequate means of ventilation provided for people in the building, and the limit on application is that Requirement F1 does not apply to a building or space within a building: a. into which people do not normally go; b. which is used solely for storage; or c. which is a garage used solely in connection with a single dwelling."
+    ]
+   },
+   "reason": "Two-column requirement box; the bold 'Means of ventilation' line is a sub-heading row. Carried over from adf (v1-requirement-f1-box-1): same content fingerprint apart from the part prefix of the id.",
+   "evidence": "page image corpus/parsed/adf/approved-document-f-volume-1-applies-to-dwellings@2022-06-15-5d3ebc08/pages/p13.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "75ebc4b32061f717",
+   "kind": "table",
+   "target": "table-1.1: Minimum extract ventilation rates for intermittent extract systems",
+   "value": {
+    "columns": [
+     "Room",
+     "Intermittent extract rate (l/s)"
+    ],
+    "rows": [
+     [
+      "Kitchen (cooker hood extracting to the outside)(1)",
+      "30"
+     ],
+     [
+      "Kitchen (no cooker hood or cooker hood does not extract to the outside)(2)",
+      "60"
+     ],
+     [
+      "Utility room",
+      "30"
+     ],
+     [
+      "Bathroom",
+      "15"
+     ],
+     [
+      "Sanitary accommodation(3)",
+      "6"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Minimum extract ventilation rates for intermittent extract systems: Room Kitchen (cooker hood extracting to the outside)(1); Intermittent extract rate (l/s) 30.",
+     "Minimum extract ventilation rates for intermittent extract systems: Room Kitchen (no cooker hood or cooker hood does not extract to the outside)(2); Intermittent extract rate (l/s) 60.",
+     "Minimum extract ventilation rates for intermittent extract systems: Room Utility room; Intermittent extract rate (l/s) 30.",
+     "Minimum extract ventilation rates for intermittent extract systems: Room Bathroom; Intermittent extract rate (l/s) 15.",
+     "Minimum extract ventilation rates for intermittent extract systems: Room Sanitary accommodation(3); Intermittent extract rate (l/s) 6."
+    ]
+   },
+   "reason": "Two-column table; notes are not rows. Carried over from adf (v1-table-1.1): same content fingerprint apart from the part prefix of the id.",
+   "evidence": "page image corpus/parsed/adf/approved-document-f-volume-1-applies-to-dwellings@2022-06-15-5d3ebc08/pages/p16.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "4a7f1f3ebe748f0a",
+   "kind": "figure_description",
+   "target": "diagram-1.1: Minimum kitchen extract ventilation rate in cases where a cooker hood extracts to the outside(1)",
+   "value": "Diagram of a cooker with a cooker hood above it that extracts to the outside through a duct. Arrows show air rising from the hob into the hood at '30 litres per second' and leaving the duct to the 'Outside'. The note says the cooker hood should span at least the full width of the cooker.",
+   "reason": "Short description from the figure image, caption and labels. Carried over from adf (v1-diagram-1.1): same content fingerprint apart from the part prefix of the id.",
+   "evidence": "page image corpus/parsed/adf/approved-document-f-volume-1-applies-to-dwellings@2022-06-15-5d3ebc08/figures/v1-diagram-1.1.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "c13b9abd45e83710",
+   "kind": "figure_description",
+   "target": "diagram-1.2: Minimum ventilation rate for kitchen extract where a cooker hood does not extract to the outside(1)",
+   "value": "Diagram of a cooker with a recirculating cooker hood that does not extract to the outside; air from the hob goes into the hood and back into the room. A separate extract to the 'Outside' is marked '60 litres per second'. The note says a recirculating cooker hood on its own does not provide a means of ventilation that complies with Part F.",
+   "reason": "Short description from the figure image, caption and labels. Carried over from adf (v1-diagram-1.2): same content fingerprint apart from the part prefix of the id.",
+   "evidence": "page image corpus/parsed/adf/approved-document-f-volume-1-applies-to-dwellings@2022-06-15-5d3ebc08/figures/v1-diagram-1.2.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "eab7df46e876a478",
+   "kind": "table",
+   "target": "table-1.2: Minimum extract ventilation rates for continuous extract systems(1)",
+   "value": {
+    "columns": [
+     "Room",
+     "Intermittent extract rate (l/s)"
+    ],
+    "rows": [
+     [
+      "Kitchen",
+      "High rate (l/s) 13; Continuous rate: The sum of all extract ventilation in the dwelling on its continuous rate should be at least the whole dwelling ventilation rate given in Table 1.3"
+     ],
+     [
+      "Utility room",
+      "High rate (l/s) 8; Continuous rate: The sum of all extract ventilation in the dwelling on its continuous rate should be at least the whole dwelling ventilation rate given in Table 1.3"
+     ],
+     [
+      "Bathroom",
+      "High rate (l/s) 8; Continuous rate: The sum of all extract ventilation in the dwelling on its continuous rate should be at least the whole dwelling ventilation rate given in Table 1.3"
+     ],
+     [
+      "Sanitary accommodation",
+      "High rate (l/s) 6; Continuous rate: The sum of all extract ventilation in the dwelling on its continuous rate should be at least the whole dwelling ventilation rate given in Table 1.3"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Minimum extract ventilation rates for continuous extract systems(1): Room Kitchen; Intermittent extract rate (l/s) High rate (l/s) 13; Continuous rate: The sum of all extract ventilation in the dwelling on its continuous rate should be at least the whole dwelling ventilation rate given in Table 1.3.",
+     "Minimum extract ventilation rates for continuous extract systems(1): Room Utility room; Intermittent extract rate (l/s) High rate (l/s) 8; Continuous rate: The sum of all extract ventilation in the dwelling on its continuous rate should be at least the whole dwelling ventilation rate given in Table 1.3.",
+     "Minimum extract ventilation rates for continuous extract systems(1): Room Bathroom; Intermittent extract rate (l/s) High rate (l/s) 8; Continuous rate: The sum of all extract ventilation in the dwelling on its continuous rate should be at least the whole dwelling ventilation rate given in Table 1.3.",
+     "Minimum extract ventilation rates for continuous extract systems(1): Room Sanitary accommodation; Intermittent extract rate (l/s) High rate (l/s) 6; Continuous rate: The sum of all extract ventilation in the dwelling on its continuous rate should be at least the whole dwelling ventilation rate given in Table 1.3."
+    ]
+   },
+   "reason": "The page prints columns Room, High rate (l/s) and Continuous rate; the continuous-rate text is printed once beside all rooms. The save rules require the family columns of Table 1.1, so the second cell carries both printed headings with their values. The note is not a row. Carried over from adf (v1-table-1.2): same content fingerprint apart from the part prefix of the id.",
+   "evidence": "page image corpus/parsed/adf/approved-document-f-volume-1-applies-to-dwellings@2022-06-15-5d3ebc08/pages/p18.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "aebce1814bf38879",
+   "kind": "table",
+   "target": "table-1.3: Minimum whole dwelling ventilation rates determined by the number of bedrooms",
+   "value": {
+    "columns": [
+     "Number of bedrooms(1)(2)",
+     "Minimum ventilation rate by number of bedrooms (l/s)"
+    ],
+    "rows": [
+     [
+      "1",
+      "19"
+     ],
+     [
+      "2",
+      "25"
+     ],
+     [
+      "3",
+      "31"
+     ],
+     [
+      "4",
+      "37"
+     ],
+     [
+      "5",
+      "43"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Minimum whole dwelling ventilation rates determined by the number of bedrooms: Number of bedrooms(1)(2) 1; Minimum ventilation rate by number of bedrooms (l/s) 19.",
+     "Minimum whole dwelling ventilation rates determined by the number of bedrooms: Number of bedrooms(1)(2) 2; Minimum ventilation rate by number of bedrooms (l/s) 25.",
+     "Minimum whole dwelling ventilation rates determined by the number of bedrooms: Number of bedrooms(1)(2) 3; Minimum ventilation rate by number of bedrooms (l/s) 31.",
+     "Minimum whole dwelling ventilation rates determined by the number of bedrooms: Number of bedrooms(1)(2) 4; Minimum ventilation rate by number of bedrooms (l/s) 37.",
+     "Minimum whole dwelling ventilation rates determined by the number of bedrooms: Number of bedrooms(1)(2) 5; Minimum ventilation rate by number of bedrooms (l/s) 43."
+    ]
+   },
+   "reason": "Two-column table; notes are not rows. Carried over from adf (v1-table-1.3): same content fingerprint apart from the part prefix of the id.",
+   "evidence": "page image corpus/parsed/adf/approved-document-f-volume-1-applies-to-dwellings@2022-06-15-5d3ebc08/pages/p18.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "9b98bc030103ff6f",
+   "kind": "table",
+   "target": "table-1.4: Purge ventilation openings",
+   "value": {
+    "columns": [
+     "Opening type",
+     "Minimum total area of openings"
+    ],
+    "rows": [
+     [
+      "Hinged or pivot windows with an opening angle of 15 to 30 degrees",
+      "1/10 of the floor area of the room"
+     ],
+     [
+      "Hinged or pivot windows with an opening angle of greater than or equal to 30 degrees",
+      "1/20 of the floor area of the room"
+     ],
+     [
+      "Opening sash windows",
+      "1/20 of the floor area of the room"
+     ],
+     [
+      "External doors",
+      "1/20 of the floor area of the room"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Purge ventilation openings: Opening type Hinged or pivot windows with an opening angle of 15 to 30 degrees; Minimum total area of openings 1/10 of the floor area of the room.",
+     "Purge ventilation openings: Opening type Hinged or pivot windows with an opening angle of greater than or equal to 30 degrees; Minimum total area of openings 1/20 of the floor area of the room.",
+     "Purge ventilation openings: Opening type Opening sash windows; Minimum total area of openings 1/20 of the floor area of the room.",
+     "Purge ventilation openings: Opening type External doors; Minimum total area of openings 1/20 of the floor area of the room."
+    ]
+   },
+   "reason": "'1/20 of the floor area of the room' is printed once beside the last three opening types (page image) and is repeated. Carried over from adf (v1-table-1.4): same content fingerprint apart from the part prefix of the id.",
+   "evidence": "page image corpus/parsed/adf/approved-document-f-volume-1-applies-to-dwellings@2022-06-15-5d3ebc08/pages/p19.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "56c9556fc103766d",
+   "kind": "table",
+   "target": "table-1.5: Performance testing standards",
+   "value": {
+    "columns": [
+     "Equipment type",
+     "Test standard"
+    ],
+    "rows": [
+     [
+      "Intermittent extract fans",
+      "BS EN 13141-4"
+     ],
+     [
+      "Cooker hoods",
+      "BS EN 13141-3"
+     ],
+     [
+      "Background ventilators without humidity control",
+      "BS EN 13141-1, clauses 5.1 and 5.2. Background ventilators should meet the performance standards for both of the following: a. air flow from outside to inside the dwelling b. air flow from inside the dwelling to outside"
+     ],
+     [
+      "Continuous mechanical extract ventilation systems",
+      "BS EN 13141-6"
+     ],
+     [
+      "Mechanical ventilation with heat recovery",
+      "BS EN 13141-7. BS EN 13141-8 – for internal and external leakage and for mixing, the unit should meet at least Class U4 of the standard"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Performance testing standards: Equipment type Intermittent extract fans; Test standard BS EN 13141-4.",
+     "Performance testing standards: Equipment type Cooker hoods; Test standard BS EN 13141-3.",
+     "Performance testing standards: Equipment type Background ventilators without humidity control; Test standard BS EN 13141-1, clauses 5.1 and 5.2. Background ventilators should meet the performance standards for both of the following: a. air flow from outside to inside the dwelling b. air flow from inside the dwelling to outside.",
+     "Performance testing standards: Equipment type Continuous mechanical extract ventilation systems; Test standard BS EN 13141-6.",
+     "Performance testing standards: Equipment type Mechanical ventilation with heat recovery; Test standard BS EN 13141-7. BS EN 13141-8 – for internal and external leakage and for mixing, the unit should meet at least Class U4 of the standard."
+    ]
+   },
+   "reason": "Two-column table; extra lines printed under a standard stay in its cell. Carried over from adf (v1-table-1.5): same content fingerprint apart from the part prefix of the id.",
+   "evidence": "page image corpus/parsed/adf/approved-document-f-volume-1-applies-to-dwellings@2022-06-15-5d3ebc08/pages/p20.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "51e31a840395ef61",
+   "kind": "table",
+   "target": "table-1.7: Minimum equivalent area of background ventilators for natural ventilation(1)",
+   "value": {
+    "columns": [
+     "Room",
+     "Minimum equivalent area of background ventilators for dwellings with multiple floors",
+     "Minimum equivalent area of background ventilators for single-storey dwellings"
+    ],
+    "rows": [
+     [
+      "Habitable rooms(2)(3)",
+      "8000mm2",
+      "10,000mm2"
+     ],
+     [
+      "Kitchen(2)(3)",
+      "8000mm2",
+      "10,000mm2"
+     ],
+     [
+      "Utility room",
+      "No minimum",
+      "No minimum"
+     ],
+     [
+      "Bathroom(4)",
+      "4000mm2",
+      "4000mm2"
+     ],
+     [
+      "Sanitary accommodation",
+      "No minimum",
+      "No minimum"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Minimum equivalent area of background ventilators for natural ventilation(1): Room Habitable rooms(2)(3); Minimum equivalent area of background ventilators for dwellings with multiple floors 8000mm2; Minimum equivalent area of background ventilators for single-storey dwellings 10,000mm2.",
+     "Minimum equivalent area of background ventilators for natural ventilation(1): Room Kitchen(2)(3); Minimum equivalent area of background ventilators for dwellings with multiple floors 8000mm2; Minimum equivalent area of background ventilators for single-storey dwellings 10,000mm2.",
+     "Minimum equivalent area of background ventilators for natural ventilation(1): Room Utility room; Minimum equivalent area of background ventilators for dwellings with multiple floors No minimum; Minimum equivalent area of background ventilators for single-storey dwellings No minimum.",
+     "Minimum equivalent area of background ventilators for natural ventilation(1): Room Bathroom(4); Minimum equivalent area of background ventilators for dwellings with multiple floors 4000mm2; Minimum equivalent area of background ventilators for single-storey dwellings 4000mm2.",
+     "Minimum equivalent area of background ventilators for natural ventilation(1): Room Sanitary accommodation; Minimum equivalent area of background ventilators for dwellings with multiple floors No minimum; Minimum equivalent area of background ventilators for single-storey dwellings No minimum."
+    ]
+   },
+   "reason": "Three-column table; notes are not rows. Carried over from adf (v1-table-1.7): same content fingerprint apart from the part prefix of the id.",
+   "evidence": "page image corpus/parsed/adf/approved-document-f-volume-1-applies-to-dwellings@2022-06-15-5d3ebc08/pages/p23.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "1f029f95e71e5e9c",
+   "kind": "table",
+   "target": "table-2.1: Limit values from Schedule 2 to the Air Quality Standards Regulations 2010",
+   "value": {
+    "columns": [
+     "Pollutant",
+     "Exposure limit",
+     "Exposure time"
+    ],
+    "rows": [
+     [
+      "Carbon monoxide",
+      "10mg/m3",
+      "8-hour average"
+     ],
+     [
+      "Sulphur dioxide",
+      "350μg/m3",
+      "1-hour average"
+     ],
+     [
+      "Sulphur dioxide",
+      "125μg/m3",
+      "1-day average"
+     ],
+     [
+      "Nitrogen dioxide",
+      "200μg/m3",
+      "1-hour average"
+     ],
+     [
+      "Nitrogen dioxide",
+      "40μg/m3",
+      "1-year average"
+     ],
+     [
+      "Benzene",
+      "5μg/m3",
+      "1-year average"
+     ],
+     [
+      "Lead",
+      "0.5μg/m3",
+      "1-year average"
+     ],
+     [
+      "PM2.5",
+      "25μg/m3",
+      "1-year average"
+     ],
+     [
+      "PM10",
+      "50μg/m3",
+      "1-day average"
+     ],
+     [
+      "PM10",
+      "40μg/m3",
+      "1-year average"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Limit values from Schedule 2 to the Air Quality Standards Regulations 2010: Pollutant Carbon monoxide; Exposure limit 10mg/m3; Exposure time 8-hour average.",
+     "Limit values from Schedule 2 to the Air Quality Standards Regulations 2010: Pollutant Sulphur dioxide; Exposure limit 350μg/m3; Exposure time 1-hour average.",
+     "Limit values from Schedule 2 to the Air Quality Standards Regulations 2010: Pollutant Sulphur dioxide; Exposure limit 125μg/m3; Exposure time 1-day average.",
+     "Limit values from Schedule 2 to the Air Quality Standards Regulations 2010: Pollutant Nitrogen dioxide; Exposure limit 200μg/m3; Exposure time 1-hour average.",
+     "Limit values from Schedule 2 to the Air Quality Standards Regulations 2010: Pollutant Nitrogen dioxide; Exposure limit 40μg/m3; Exposure time 1-year average.",
+     "Limit values from Schedule 2 to the Air Quality Standards Regulations 2010: Pollutant Benzene; Exposure limit 5μg/m3; Exposure time 1-year average.",
+     "Limit values from Schedule 2 to the Air Quality Standards Regulations 2010: Pollutant Lead; Exposure limit 0.5μg/m3; Exposure time 1-year average.",
+     "Limit values from Schedule 2 to the Air Quality Standards Regulations 2010: Pollutant PM2.5; Exposure limit 25μg/m3; Exposure time 1-year average.",
+     "Limit values from Schedule 2 to the Air Quality Standards Regulations 2010: Pollutant PM10; Exposure limit 50μg/m3; Exposure time 1-day average.",
+     "Limit values from Schedule 2 to the Air Quality Standards Regulations 2010: Pollutant PM10; Exposure limit 40μg/m3; Exposure time 1-year average."
+    ]
+   },
+   "reason": "A pollutant printed once beside two limits is repeated on both rows. Carried over from adf (v1-table-2.1): same content fingerprint apart from the part prefix of the id.",
+   "evidence": "page image corpus/parsed/adf/approved-document-f-volume-1-applies-to-dwellings@2022-06-15-5d3ebc08/pages/p27.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "816701d9aa23892a",
+   "kind": "table",
+   "target": "table-3.1: Energy efficiency measures",
+   "value": {
+    "columns": [
+     "Energy efficiency measure",
+     "Category of measure"
+    ],
+    "rows": [
+     [
+      "Roof insulation",
+      ""
+     ],
+     [
+      "a. Renewing loft insulation, including effective edge sealing at junctions and penetrations",
+      "Minor"
+     ],
+     [
+      "b. Loft conversions or works that include changing a cold loft (insulation at ceiling level) to a warm loft (insulation at roof level)",
+      "Minor"
+     ],
+     [
+      "Wall insulation",
+      ""
+     ],
+     [
+      "c. Installing cavity wall insulation to any external wall",
+      "Minor"
+     ],
+     [
+      "d. Installing external or internal wall insulation to less than or equal to 50% of the external wall area",
+      "Minor"
+     ],
+     [
+      "e. Installing external or internal wall insulation to more than 50% of the external wall area",
+      "Major"
+     ],
+     [
+      "Replacement of windows and doors(1)",
+      ""
+     ],
+     [
+      "f. Replacing less than or equal to 30% of the total existing windows or door units",
+      "Minor"
+     ],
+     [
+      "g. Replacing more than 30% of the total existing windows or door units",
+      "Major"
+     ],
+     [
+      "Draught-proofing (other than openings)(2)",
+      ""
+     ],
+     [
+      "h. Replacing a loft hatch with a sealed/insulated unit",
+      "Minor"
+     ],
+     [
+      "i. Sealing around structural or service penetrations through walls, floors or ceiling/roof",
+      "Minor"
+     ],
+     [
+      "j. Sealing and/or insulating a suspended ground floor",
+      "Major"
+     ],
+     [
+      "k. Removing chimney or providing another means of sealing over chimney, internally or externally",
+      "Major"
+     ]
+    ],
+    "heading_rows": [
+     0,
+     3,
+     7,
+     10
+    ],
+    "sentences": [
+     "Energy efficiency measures, Roof insulation: Energy efficiency measure a. Renewing loft insulation, including effective edge sealing at junctions and penetrations; Category of measure Minor.",
+     "Energy efficiency measures, Roof insulation: Energy efficiency measure b. Loft conversions or works that include changing a cold loft (insulation at ceiling level) to a warm loft (insulation at roof level); Category of measure Minor.",
+     "Energy efficiency measures, Wall insulation: Energy efficiency measure c. Installing cavity wall insulation to any external wall; Category of measure Minor.",
+     "Energy efficiency measures, Wall insulation: Energy efficiency measure d. Installing external or internal wall insulation to less than or equal to 50% of the external wall area; Category of measure Minor.",
+     "Energy efficiency measures, Wall insulation: Energy efficiency measure e. Installing external or internal wall insulation to more than 50% of the external wall area; Category of measure Major.",
+     "Energy efficiency measures, Replacement of windows and doors(1): Energy efficiency measure f. Replacing less than or equal to 30% of the total existing windows or door units; Category of measure Minor.",
+     "Energy efficiency measures, Replacement of windows and doors(1): Energy efficiency measure g. Replacing more than 30% of the total existing windows or door units; Category of measure Major.",
+     "Energy efficiency measures, Draught-proofing (other than openings)(2): Energy efficiency measure h. Replacing a loft hatch with a sealed/insulated unit; Category of measure Minor.",
+     "Energy efficiency measures, Draught-proofing (other than openings)(2): Energy efficiency measure i. Sealing around structural or service penetrations through walls, floors or ceiling/roof; Category of measure Minor.",
+     "Energy efficiency measures, Draught-proofing (other than openings)(2): Energy efficiency measure j. Sealing and/or insulating a suspended ground floor; Category of measure Major.",
+     "Energy efficiency measures, Draught-proofing (other than openings)(2): Energy efficiency measure k. Removing chimney or providing another means of sealing over chimney, internally or externally; Category of measure Major."
+    ]
+   },
+   "reason": "The first column has no printed heading (named from the table title); groups are heading rows; notes are not rows (page image). Carried over from adf (v1-table-3.1): same content fingerprint apart from the part prefix of the id.",
+   "evidence": "page image corpus/parsed/adf/approved-document-f-volume-1-applies-to-dwellings@2022-06-15-5d3ebc08/pages/p31.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "5e418bbcbf0af030",
+   "kind": "figure_description",
+   "target": "diagram-3.1: Chart for categorising impact on ventilation when carrying out works in existing dwellings",
+   "value": "Chart for categorising the impact on ventilation of energy efficiency works in existing dwellings. The number of minor measures (0 to 6) runs across the top and the number of major measures (0 to 4) down the side; the cells are shaded into Category A (no major and up to two minor measures), Category B and Category C, with more measures moving the work towards Category C.",
+   "reason": "Short description from the chart image, caption and labels; the boundaries are read from the shading. Carried over from adf (v1-diagram-3.1): same content fingerprint apart from the part prefix of the id.",
+   "evidence": "page image corpus/parsed/adf/approved-document-f-volume-1-applies-to-dwellings@2022-06-15-5d3ebc08/figures/v1-diagram-3.1.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "02127dfc136f72d0",
+   "kind": "table",
+   "target": "table-b1: Indoor air pollutants guidance values(1)(2)",
+   "value": {
+    "columns": [
+     "Pollutant",
+     "Exposure limit",
+     "Exposure time"
+    ],
+    "rows": [
+     [
+      "Carbon monoxide (CO)",
+      "100mg/m3",
+      "15-minute average"
+     ],
+     [
+      "Carbon monoxide (CO)",
+      "30mg/m3",
+      "1-hour average"
+     ],
+     [
+      "Carbon monoxide (CO)",
+      "10mg/m3",
+      "8-hour average"
+     ],
+     [
+      "Nitrogen dioxide (NO2)",
+      "200μg/m3",
+      "1-hour average"
+     ],
+     [
+      "Nitrogen dioxide (NO2)",
+      "40μg/m3",
+      "1-year average"
+     ],
+     [
+      "Formaldehyde (CH2O)",
+      "100μg/m3",
+      "30-minute average"
+     ],
+     [
+      "Formaldehyde (CH2O)",
+      "10μg/m3",
+      "1-year average"
+     ],
+     [
+      "TVOC(3)",
+      "300μg/m3",
+      "8-hour average"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Indoor air pollutants guidance values(1)(2): Pollutant Carbon monoxide (CO); Exposure limit 100mg/m3; Exposure time 15-minute average.",
+     "Indoor air pollutants guidance values(1)(2): Pollutant Carbon monoxide (CO); Exposure limit 30mg/m3; Exposure time 1-hour average.",
+     "Indoor air pollutants guidance values(1)(2): Pollutant Carbon monoxide (CO); Exposure limit 10mg/m3; Exposure time 8-hour average.",
+     "Indoor air pollutants guidance values(1)(2): Pollutant Nitrogen dioxide (NO2); Exposure limit 200μg/m3; Exposure time 1-hour average.",
+     "Indoor air pollutants guidance values(1)(2): Pollutant Nitrogen dioxide (NO2); Exposure limit 40μg/m3; Exposure time 1-year average.",
+     "Indoor air pollutants guidance values(1)(2): Pollutant Formaldehyde (CH2O); Exposure limit 100μg/m3; Exposure time 30-minute average.",
+     "Indoor air pollutants guidance values(1)(2): Pollutant Formaldehyde (CH2O); Exposure limit 10μg/m3; Exposure time 1-year average.",
+     "Indoor air pollutants guidance values(1)(2): Pollutant TVOC(3); Exposure limit 300μg/m3; Exposure time 8-hour average."
+    ]
+   },
+   "reason": "A pollutant printed once beside several limits is repeated on each row; notes are not rows. Carried over from adf (v1-table-b1): same content fingerprint apart from the part prefix of the id.",
+   "evidence": "page image corpus/parsed/adf/approved-document-f-volume-1-applies-to-dwellings@2022-06-15-5d3ebc08/pages/p48.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "7bb12723211f8ffc",
+   "kind": "table",
+   "target": "table-b2: Surface water activity",
+   "value": {
+    "columns": [
+     "Moving average period",
+     "Surface water activity"
+    ],
+    "rows": [
+     [
+      "1 month",
+      "0.75"
+     ],
+     [
+      "1 week",
+      "0.85"
+     ],
+     [
+      "1 day",
+      "0.95"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Surface water activity: Moving average period 1 month; Surface water activity 0.75.",
+     "Surface water activity: Moving average period 1 week; Surface water activity 0.85.",
+     "Surface water activity: Moving average period 1 day; Surface water activity 0.95."
+    ]
+   },
+   "reason": "Two-column table. Carried over from adf (v1-table-b2): same content fingerprint apart from the part prefix of the id.",
+   "evidence": "page image corpus/parsed/adf/approved-document-f-volume-1-applies-to-dwellings@2022-06-15-5d3ebc08/pages/p49.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "1be04639b4b8bc85",
+   "kind": "table",
+   "target": "table-b3: Indoor air relative humidity",
+   "value": {
+    "columns": [
+     "Moving average period",
+     "Indoor air relative humidity (%)"
+    ],
+    "rows": [
+     [
+      "1 month",
+      "65"
+     ],
+     [
+      "1 week",
+      "75"
+     ],
+     [
+      "1 day",
+      "85"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Indoor air relative humidity: Moving average period 1 month; Indoor air relative humidity (%) 65.",
+     "Indoor air relative humidity: Moving average period 1 week; Indoor air relative humidity (%) 75.",
+     "Indoor air relative humidity: Moving average period 1 day; Indoor air relative humidity (%) 85."
+    ]
+   },
+   "reason": "Two-column table. Carried over from adf (v1-table-b3): same content fingerprint apart from the part prefix of the id.",
+   "evidence": "page image corpus/parsed/adf/approved-document-f-volume-1-applies-to-dwellings@2022-06-15-5d3ebc08/pages/p49.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "aa7f033857af4b8b",
+   "kind": "table",
+   "target": "section-0-summary-table-1: Summary",
+   "value": {
+    "columns": [
+     "Approved document section",
+     "Related Building Regulations requirements"
+    ],
+    "rows": [
+     [
+      "Section 0: Introduction",
+      "n/a"
+     ],
+     [
+      "Section 1: Ventilation provision",
+      "Requirement F1(1)"
+     ],
+     [
+      "Section 2: Minimising the ingress of external pollutants",
+      "Requirement F1(1)"
+     ],
+     [
+      "Section 3: Work on existing dwellings",
+      "Requirement F1(1)"
+     ],
+     [
+      "Section 4: Installation, inspection, testing, commissioning and providing information",
+      "Requirement F1(2) and regulations 39, 40C, 42 and 44"
+     ],
+     [
+      "Appendix A: Key terms",
+      "n/a"
+     ],
+     [
+      "Appendix B: Performance-based ventilation",
+      "n/a"
+     ],
+     [
+      "Appendix C: Completion checklist and commissioning sheets",
+      "n/a"
+     ],
+     [
+      "Appendix D: Checklist for ventilation provision in existing dwellings",
+      "n/a"
+     ],
+     [
+      "Appendix E: Standards referred to",
+      "n/a"
+     ],
+     [
+      "Appendix F: Documents referred to",
+      "n/a"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Summary of Approved Document F Volume 1 (2026): Approved document section Section 0: Introduction; Related Building Regulations requirements n/a.",
+     "Summary of Approved Document F Volume 1 (2026): Approved document section Section 1: Ventilation provision; Related Building Regulations requirements Requirement F1(1).",
+     "Summary of Approved Document F Volume 1 (2026): Approved document section Section 2: Minimising the ingress of external pollutants; Related Building Regulations requirements Requirement F1(1).",
+     "Summary of Approved Document F Volume 1 (2026): Approved document section Section 3: Work on existing dwellings; Related Building Regulations requirements Requirement F1(1).",
+     "Summary of Approved Document F Volume 1 (2026): Approved document section Section 4: Installation, inspection, testing, commissioning and providing information; Related Building Regulations requirements Requirement F1(2) and regulations 39, 40C, 42 and 44.",
+     "Summary of Approved Document F Volume 1 (2026): Approved document section Appendix A: Key terms; Related Building Regulations requirements n/a.",
+     "Summary of Approved Document F Volume 1 (2026): Approved document section Appendix B: Performance-based ventilation; Related Building Regulations requirements n/a.",
+     "Summary of Approved Document F Volume 1 (2026): Approved document section Appendix C: Completion checklist and commissioning sheets; Related Building Regulations requirements n/a.",
+     "Summary of Approved Document F Volume 1 (2026): Approved document section Appendix D: Checklist for ventilation provision in existing dwellings; Related Building Regulations requirements n/a.",
+     "Summary of Approved Document F Volume 1 (2026): Approved document section Appendix E: Standards referred to; Related Building Regulations requirements n/a.",
+     "Summary of Approved Document F Volume 1 (2026): Approved document section Appendix F: Documents referred to; Related Building Regulations requirements n/a."
+    ]
+   },
+   "reason": "Same layout as the 2021 edition summary: Requirement F1(1) printed once beside Sections 1 to 3 is repeated.",
+   "evidence": "page image corpus/parsed/adf-2026/approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96/pages/p9.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "aa420af4bb03bdd8",
+   "kind": "figure_description",
+   "target": "diagram-1.3: Two habitable rooms treated as one room for ventilation purposes",
+   "value": "Three-dimensional cut-away of two habitable rooms joined by an internal opening, treated as one room for ventilation. Labels: 'Permanent opening based on 1/20 of the combined floor area' between the rooms, 'Purge ventilation opening, see paragraphs 1.22 to 1.27' in the outer wall, and '10,000mm2 background ventilator' above it.",
+   "reason": "Same drawing as Diagram 1.3 of the 2021 edition (checked against its labels); the paragraph reference is now 1.22 to 1.27.",
+   "evidence": "page image corpus/parsed/adf-2026/approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96/figures/diagram-1.3.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "faa427612489938b",
+   "kind": "table",
+   "target": "table-1.6: Types of ventilation system",
+   "value": {
+    "columns": [
+     "System type",
+     "Dwellings covered by the guidance"
+    ],
+    "rows": [
+     [
+      "Natural ventilation (paragraphs 1.47 to 1.59)",
+      "Less airtight dwellings"
+     ],
+     [
+      "Continuous mechanical extract ventilation (paragraphs 1.60 to 1.66)",
+      "All dwellings (both less airtight dwellings and highly airtight dwellings)"
+     ],
+     [
+      "Mechanical ventilation with heat recovery (paragraphs 1.67 to 1.73)",
+      "All dwellings (both less airtight dwellings and highly airtight dwellings)"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Types of ventilation system: System type Natural ventilation (paragraphs 1.47 to 1.59); Dwellings covered by the guidance Less airtight dwellings.",
+     "Types of ventilation system: System type Continuous mechanical extract ventilation (paragraphs 1.60 to 1.66); Dwellings covered by the guidance All dwellings (both less airtight dwellings and highly airtight dwellings).",
+     "Types of ventilation system: System type Mechanical ventilation with heat recovery (paragraphs 1.67 to 1.73); Dwellings covered by the guidance All dwellings (both less airtight dwellings and highly airtight dwellings)."
+    ]
+   },
+   "reason": "Two-column table (PDF text).",
+   "evidence": "page image corpus/parsed/adf-2026/approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96/pages/p22.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "735da3f331315ccb",
+   "kind": "table",
+   "target": "table-1.8: Maximum design static pressure for ductwork installations",
+   "value": {
+    "columns": [
+     "Total air flow rate range (l/s)",
+     "Continuous mechanical extract ventilation (multiple extract spigots) (Pa)",
+     "Mechanical ventilation with heat recovery and mechanical extract ventilation (single extract spigot) (Pa)"
+    ],
+    "rows": [
+     [
+      "Up to and including 37",
+      "30",
+      "60"
+     ],
+     [
+      "38 up to and including 53",
+      "50",
+      "110"
+     ],
+     [
+      "54 and above",
+      "80",
+      "160"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Maximum design static pressure for ductwork installations: Total air flow rate range (l/s) Up to and including 37; Continuous mechanical extract ventilation (multiple extract spigots) (Pa) 30; Mechanical ventilation with heat recovery and mechanical extract ventilation (single extract spigot) (Pa) 60.",
+     "Maximum design static pressure for ductwork installations: Total air flow rate range (l/s) 38 up to and including 53; Continuous mechanical extract ventilation (multiple extract spigots) (Pa) 50; Mechanical ventilation with heat recovery and mechanical extract ventilation (single extract spigot) (Pa) 110.",
+     "Maximum design static pressure for ductwork installations: Total air flow rate range (l/s) 54 and above; Continuous mechanical extract ventilation (multiple extract spigots) (Pa) 80; Mechanical ventilation with heat recovery and mechanical extract ventilation (single extract spigot) (Pa) 160."
+    ]
+   },
+   "reason": "Three-column table (PDF text).",
+   "evidence": "page image corpus/parsed/adf-2026/approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96/pages/p26.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "de1cd173279df72f",
+   "kind": "table",
+   "target": "requirement-f1-2-and-regulations-39-40c-42-box-1: Requirement F1(2) and regulations 39, 40C, 42 and 44",
+   "value": {
+    "columns": [
+     "Requirement",
+     "Limits on application"
+    ],
+    "rows": [
+     [
+      "F1. (2) Fixed systems for mechanical ventilation and any associated controls must be commissioned by testing and adjusting as necessary to secure that the objective referred to in sub-paragraph (1) is met.",
+      "Requirement F1 does not apply to a building or space within a building: a. into which people do not normally go; b. which is used solely for storage; or c. which is a garage used solely in connection with a single dwelling."
+     ]
+    ],
+    "sentences": [
+     "Requirement F1(2): the requirement is F1(2), fixed systems for mechanical ventilation and any associated controls must be commissioned by testing and adjusting as necessary to secure that the objective referred to in sub-paragraph (1) is met, and the limit on application is that Requirement F1 does not apply to a building or space within a building: a. into which people do not normally go; b. which is used solely for storage; or c. which is a garage used solely in connection with a single dwelling."
+    ],
+    "heading_rows": []
+   },
+   "reason": "Two-column requirement box, as in the 2021 edition.",
+   "evidence": "page image corpus/parsed/adf-2026/approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96/pages/p36.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "d360900f90c91062",
+   "kind": "table",
+   "target": "requirement-f1-2-and-regulations-39-40c-42-box-2: Requirement F1(2) and regulations 39, 40C, 42 and 44",
+   "value": {
+    "columns": [
+     "Regulations"
+    ],
+    "rows": [
+     [
+      "Information about ventilation 39. (1) This regulation applies where paragraph F1(1) of Schedule 1 imposes a requirement in relation to building work. (2) The person carrying out the work shall not later than five days after the work has been completed give sufficient information to the owner about the building’s ventilation system and its maintenance requirements so that the ventilation system can be operated in such a manner as to provide adequate means of ventilation."
+     ],
+     [
+      "40C. Where regulation 39, 40, 40A or 40B requires a person carrying out work to provide information to a dwelling owner in relation to a new dwelling, the requirement will only be met if the information is provided to the dwelling owner in an appropriate format."
+     ],
+     [
+      "Mechanical ventilation air flow rate testing 42. (1) This regulation applies where paragraph F1(1) of Schedule 1 imposes a requirement in relation to the creation of a new dwelling by building work. (2) The person carrying out the work shall, for the purpose of ensuring compliance with paragraph F1(1) of Schedule 1— (a) ensure that testing of the mechanical ventilation air flow rate is carried out in accordance with a procedure approved by the Secretary of State; and (b) give notice of the results of the testing to the building control authority. (3) The notice referred to in paragraph (2)(b) shall— (a) record the results and the data upon which they are based in a manner approved by the Secretary of State; and (b) be given to the building control authority not later than five days after the final test is carried out. (4) Where the regulator is the building control authority by virtue of section 91ZB of the Act (the regulator: building control authority for other work), it must send a copy of each notice it receives under this regulation in relation to a building to the local authority for the area in which the building is situated."
+     ],
+     [
+      "Commissioning 44. (1) This regulation applies to building work in relation to which paragraph F1(2) of Schedule 1 imposes a requirement, but does not apply to the provision or extension of any fixed system for mechanical ventilation or any associated controls where testing and adjustment is not possible. (2) This regulation also applies to building work in relation to which paragraph L1(1)(b) of Schedule 1 imposes a requirement, but does not apply to the provision or extension of any fixed building service where testing and adjustment is not possible or would not affect the energy efficiency of that fixed building service. (3) Where this regulation applies the person carrying out the work shall, for the purpose of ensuring compliance with paragraph F1(2) or L1(1)(b) of Schedule 1, give to the building control authority a notice confirming that the fixed building services have been commissioned in accordance with a procedure approved by the Secretary of State. (4) The notice must be given— (a) in the case where the building work is higher-risk building work for which an application for a completion certificate is required, to the regulator with the application; (b) in any other case, to the building control authority— (i) not later than the date on which the notice required by regulation 16(4) is required to be given; or (ii) where that regulation does not apply, not more than 30 days after completion of the work. (5) Where the regulator is the building control authority by virtue of section 91ZB of the Act (the regulator: building control authority for other work), it must send a copy of each notice it receives under this regulation in relation to a building to the local authority for the area in which the building is situated."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Requirement F1(2) and regulations 39, 40C, 42 and 44, Information about ventilation: 39. (1) This regulation applies where paragraph F1(1) of Schedule 1 imposes a requirement in relation to building work. (2) The person carrying out the work shall not later than five days after the work has been completed give sufficient information to the owner about the building’s ventilation system and its maintenance requirements so that the ventilation system can be operated in such a manner as to provide adequate means of ventilation.",
+     "Requirement F1(2) and regulations 39, 40C, 42 and 44: 40C. Where regulation 39, 40, 40A or 40B requires a person carrying out work to provide information to a dwelling owner in relation to a new dwelling, the requirement will only be met if the information is provided to the dwelling owner in an appropriate format.",
+     "Requirement F1(2) and regulations 39, 40C, 42 and 44, Mechanical ventilation air flow rate testing: 42. (1) This regulation applies where paragraph F1(1) of Schedule 1 imposes a requirement in relation to the creation of a new dwelling by building work. (2) The person carrying out the work shall, for the purpose of ensuring compliance with paragraph F1(1) of Schedule 1— (a) ensure that testing of the mechanical ventilation air flow rate is carried out in accordance with a procedure approved by the Secretary of State; and (b) give notice of the results of the testing to the building control authority. (3) The notice referred to in paragraph (2)(b) shall— (a) record the results and the data upon which they are based in a manner approved by the Secretary of State; and (b) be given to the building control authority not later than five days after the final test is carried out. (4) Where the regulator is the building control authority by virtue of section 91ZB of the Act (the regulator: building control authority for other work), it must send a copy of each notice it receives under this regulation in relation to a building to the local authority for the area in which the building is situated.",
+     "Requirement F1(2) and regulations 39, 40C, 42 and 44, Commissioning: 44. (1) This regulation applies to building work in relation to which paragraph F1(2) of Schedule 1 imposes a requirement, but does not apply to the provision or extension of any fixed system for mechanical ventilation or any associated controls where testing and adjustment is not possible. (2) This regulation also applies to building work in relation to which paragraph L1(1)(b) of Schedule 1 imposes a requirement, but does not apply to the provision or extension of any fixed building service where testing and adjustment is not possible or would not affect the energy efficiency of that fixed building service. (3) Where this regulation applies the person carrying out the work shall, for the purpose of ensuring compliance with paragraph F1(2) or L1(1)(b) of Schedule 1, give to the building control authority a notice confirming that the fixed building services have been commissioned in accordance with a procedure approved by the Secretary of State. (4) The notice must be given— (a) in the case where the building work is higher-risk building work for which an application for a completion certificate is required, to the regulator with the application; (b) in any other case, to the building control authority— (i) not later than the date on which the notice required by regulation 16(4) is required to be given; or (ii) where that regulation does not apply, not more than 30 days after completion of the work. (5) Where the regulator is the building control authority by virtue of section 91ZB of the Act (the regulator: building control authority for other work), it must send a copy of each notice it receives under this regulation in relation to a building to the local authority for the area in which the building is situated."
+    ]
+   },
+   "reason": "One-column box of regulation text: each regulation (its printed title and numbered text) is one row.",
+   "evidence": "Rows and words from the page image corpus/parsed/adf-2026/approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96/pages/p37.png and the PDF text of the box.",
+   "by": "model check, Claude Code (AD parser agent; regulation box text from the PDF)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "68ca6d8dba03dc5c",
+   "kind": "table",
+   "target": "appendix-c-part-1-system-details-and-declarations-table-1: Part 1 – System details and declarations",
+   "value": {
+    "columns": [
+     "Item",
+     "Answer space"
+    ],
+    "rows": [
+     [
+      "1.1 Installation address details",
+      ""
+     ],
+     [
+      "Dwelling name/number",
+      ""
+     ],
+     [
+      "Street",
+      ""
+     ],
+     [
+      "Town",
+      ""
+     ],
+     [
+      "County",
+      ""
+     ],
+     [
+      "Postcode",
+      ""
+     ],
+     [
+      "1.2 System details",
+      ""
+     ],
+     [
+      "System classification*",
+      ""
+     ],
+     [
+      "Enter ‘natural ventilation’, ‘continuous mechanical extract ventilation’ or ‘continuous mechanical extract and supply ventilation’ as defined by Approved Document F, Volume 1: Dwellings.",
+      ""
+     ],
+     [
+      "Fans installed Location Manufacturer Model Serial number",
+      ""
+     ],
+     [
+      "1.",
+      ""
+     ],
+     [
+      "2.",
+      ""
+     ],
+     [
+      "3.",
+      ""
+     ],
+     [
+      "4.",
+      ""
+     ],
+     [
+      "1.3 Installation engineer’s details",
+      ""
+     ],
+     [
+      "Engineer’s name",
+      ""
+     ],
+     [
+      "Company",
+      ""
+     ],
+     [
+      "Address line 1",
+      ""
+     ],
+     [
+      "Address line 2",
+      ""
+     ],
+     [
+      "Postcode",
+      ""
+     ],
+     [
+      "Telephone number",
+      ""
+     ],
+     [
+      "1.4 Commissioning engineer’s details",
+      ""
+     ],
+     [
+      "Engineer’s name",
+      ""
+     ],
+     [
+      "Company",
+      ""
+     ],
+     [
+      "Competent Person Scheme",
+      ""
+     ],
+     [
+      "Address line 1",
+      ""
+     ],
+     [
+      "Address line 2",
+      ""
+     ],
+     [
+      "Postcode",
+      ""
+     ],
+     [
+      "Telephone number",
+      ""
+     ],
+     [
+      "Email address",
+      ""
+     ]
+    ],
+    "heading_rows": [
+     0,
+     6,
+     14,
+     21
+    ],
+    "sentences": [
+     "Part 1 – System details and declarations, 1.1 Installation address details: Item Dwelling name/number.",
+     "Part 1 – System details and declarations, 1.1 Installation address details: Item Street.",
+     "Part 1 – System details and declarations, 1.1 Installation address details: Item Town.",
+     "Part 1 – System details and declarations, 1.1 Installation address details: Item County.",
+     "Part 1 – System details and declarations, 1.1 Installation address details: Item Postcode.",
+     "Part 1 – System details and declarations, 1.2 System details: Item System classification*.",
+     "Part 1 – System details and declarations, 1.2 System details: Item Enter ‘natural ventilation’, ‘continuous mechanical extract ventilation’ or ‘continuous mechanical extract and supply ventilation’ as defined by Approved Document F, Volume 1: Dwellings.",
+     "Part 1 – System details and declarations, 1.2 System details: Item Fans installed Location Manufacturer Model Serial number.",
+     "Part 1 – System details and declarations, 1.2 System details: Item 1.",
+     "Part 1 – System details and declarations, 1.2 System details: Item 2.",
+     "Part 1 – System details and declarations, 1.2 System details: Item 3.",
+     "Part 1 – System details and declarations, 1.2 System details: Item 4.",
+     "Part 1 – System details and declarations, 1.3 Installation engineer’s details: Item Engineer’s name.",
+     "Part 1 – System details and declarations, 1.3 Installation engineer’s details: Item Company.",
+     "Part 1 – System details and declarations, 1.3 Installation engineer’s details: Item Address line 1.",
+     "Part 1 – System details and declarations, 1.3 Installation engineer’s details: Item Address line 2.",
+     "Part 1 – System details and declarations, 1.3 Installation engineer’s details: Item Postcode.",
+     "Part 1 – System details and declarations, 1.3 Installation engineer’s details: Item Telephone number.",
+     "Part 1 – System details and declarations, 1.4 Commissioning engineer’s details: Item Engineer’s name.",
+     "Part 1 – System details and declarations, 1.4 Commissioning engineer’s details: Item Company.",
+     "Part 1 – System details and declarations, 1.4 Commissioning engineer’s details: Item Competent Person Scheme.",
+     "Part 1 – System details and declarations, 1.4 Commissioning engineer’s details: Item Address line 1.",
+     "Part 1 – System details and declarations, 1.4 Commissioning engineer’s details: Item Address line 2.",
+     "Part 1 – System details and declarations, 1.4 Commissioning engineer’s details: Item Postcode.",
+     "Part 1 – System details and declarations, 1.4 Commissioning engineer’s details: Item Telephone number.",
+     "Part 1 – System details and declarations, 1.4 Commissioning engineer’s details: Item Email address."
+    ]
+   },
+   "reason": "A blank form printed as a table: each printed field or question is a row, with what the form prints for the answer (Yes No boxes, a unit, or nothing); numbered parts and group titles are heading rows; notes are not rows.",
+   "evidence": "page image corpus/parsed/adf-2026/approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96/pages/p55.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "5b947deac7a8f13e",
+   "kind": "table",
+   "target": "appendix-c-part-2a-installation-details-table-1: Part 2a – Installation details",
+   "value": {
+    "columns": [
+     "Item",
+     "Answer space"
+    ],
+    "rows": [
+     [
+      "2a.1 Installation checklist – general (all systems) Tick as appropriate",
+      ""
+     ],
+     [
+      "Has the system been installed in accordance with the manufacturer’s requirements?",
+      "Yes No"
+     ],
+     [
+      "Have paragraphs 1.8 to 1.86(1) been followed (if relevant)?",
+      "Yes No"
+     ],
+     [
+      "If there are any deviations from paragraphs 1.8 to 1.86, give details here",
+      ""
+     ],
+     [
+      "Description of installed controls (e.g. timer, central control, humidistat, occupancy sensor, summer bypass, if applicable, etc.)",
+      ""
+     ],
+     [
+      "Location of manual/ override controls",
+      ""
+     ],
+     [
+      "2a.2 Installation engineer’s declaration",
+      ""
+     ],
+     [
+      "Engineer’s signature",
+      ""
+     ],
+     [
+      "Registration number (if applicable)",
+      ""
+     ],
+     [
+      "Date of inspection",
+      ""
+     ]
+    ],
+    "heading_rows": [
+     0,
+     6
+    ],
+    "sentences": [
+     "Part 2a – Installation details, 2a.1 Installation checklist – general (all systems) Tick as appropriate: Item Has the system been installed in accordance with the manufacturer’s requirements?; Answer space Yes No.",
+     "Part 2a – Installation details, 2a.1 Installation checklist – general (all systems) Tick as appropriate: Item Have paragraphs 1.8 to 1.86(1) been followed (if relevant)?; Answer space Yes No.",
+     "Part 2a – Installation details, 2a.1 Installation checklist – general (all systems) Tick as appropriate: Item If there are any deviations from paragraphs 1.8 to 1.86, give details here.",
+     "Part 2a – Installation details, 2a.1 Installation checklist – general (all systems) Tick as appropriate: Item Description of installed controls (e.g. timer, central control, humidistat, occupancy sensor, summer bypass, if applicable, etc.).",
+     "Part 2a – Installation details, 2a.1 Installation checklist – general (all systems) Tick as appropriate: Item Location of manual/ override controls.",
+     "Part 2a – Installation details, 2a.2 Installation engineer’s declaration: Item Engineer’s signature.",
+     "Part 2a – Installation details, 2a.2 Installation engineer’s declaration: Item Registration number (if applicable).",
+     "Part 2a – Installation details, 2a.2 Installation engineer’s declaration: Item Date of inspection."
+    ]
+   },
+   "reason": "A blank form printed as a table: each printed field or question is a row, with what the form prints for the answer (Yes No boxes, a unit, or nothing); numbered parts and group titles are heading rows; notes are not rows.",
+   "evidence": "page image corpus/parsed/adf-2026/approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96/pages/p56.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "a1a8a636b4253d07",
+   "kind": "table",
+   "target": "appendix-c-part-2b-inspection-of-installation-table-1: Part 2b – Inspection of installation",
+   "value": {
+    "columns": [
+     "Item",
+     "Answer space"
+    ],
+    "rows": [
+     [
+      "2b.1 Visual inspections – general (all systems)",
+      ""
+     ],
+     [
+      "Does the amount and equivalent area size of background ventilators installed satisfy either of the following?",
+      "Yes No"
+     ],
+     [
+      "For natural ventilation, Table 1.7 or paragraph 1.57(1), as appropriate.",
+      ""
+     ],
+     [
+      "For continuous mechanical extract ventilation, paragraph 1.64.",
+      ""
+     ],
+     [
+      "Have all background ventilators been left in the open position?",
+      "Yes No"
+     ],
+     [
+      "Have the correct number and location of extract fans/terminals been installed to satisfy the standards in Table 1.1 or Table 1.2, as appropriate?",
+      "Yes No"
+     ],
+     [
+      "Is the installation complete, with no obvious defects?",
+      "Yes No"
+     ],
+     [
+      "Do all internal doors have enough undercut to allow air transfer between rooms as detailed in paragraph 1.21 (i.e. 10mm above the floor finish or 20mm above the floor surface)?",
+      "Yes No"
+     ],
+     [
+      "Has all protection/packaging been removed (including from background ventilators), so that the system is fully functional?",
+      "Yes No"
+     ],
+     [
+      "Are systems clean internally and externally?",
+      "Yes No"
+     ],
+     [
+      "Has the entire system been installed to allow access for routine maintenance and to repair/replace components?",
+      "Yes No"
+     ],
+     [
+      "2b.2 Visual inspections – general (continuous mechanical extract ventilation and mechanical ventilation with heat recovery systems only)",
+      ""
+     ],
+     [
+      "Have appropriate air terminal devices been installed to allow system balance?",
+      "Yes No"
+     ],
+     [
+      "Have the heat recovery unit and all ductwork been effectively insulated and sealed for all heated and unheated spaces?",
+      "Yes No"
+     ],
+     [
+      "Is the condensate connection complete and does the condensate drain to an appropriate location (mechanical ventilation with heat recovery only)?",
+      "Yes No"
+     ],
+     [
+      "Are filters installed?",
+      "Yes No"
+     ],
+     [
+      "For ducted systems, has the ductwork been installed so that air resistance and leakage is kept to a minimum?",
+      "Yes No"
+     ],
+     [
+      "2b.3 Other inspections – general (all systems)",
+      ""
+     ],
+     [
+      "At initial start-up, was there any abnormal sound or vibration, or unusual smell?",
+      "Yes No"
+     ],
+     [
+      "During continuous operation, was there any excessive noise?",
+      "Yes No"
+     ]
+    ],
+    "heading_rows": [
+     0,
+     11,
+     17
+    ],
+    "sentences": [
+     "Part 2b – Inspection of installation, 2b.1 Visual inspections – general (all systems): Item Does the amount and equivalent area size of background ventilators installed satisfy either of the following?; Answer space Yes No.",
+     "Part 2b – Inspection of installation, 2b.1 Visual inspections – general (all systems): Item For natural ventilation, Table 1.7 or paragraph 1.57(1), as appropriate.",
+     "Part 2b – Inspection of installation, 2b.1 Visual inspections – general (all systems): Item For continuous mechanical extract ventilation, paragraph 1.64.",
+     "Part 2b – Inspection of installation, 2b.1 Visual inspections – general (all systems): Item Have all background ventilators been left in the open position?; Answer space Yes No.",
+     "Part 2b – Inspection of installation, 2b.1 Visual inspections – general (all systems): Item Have the correct number and location of extract fans/terminals been installed to satisfy the standards in Table 1.1 or Table 1.2, as appropriate?; Answer space Yes No.",
+     "Part 2b – Inspection of installation, 2b.1 Visual inspections – general (all systems): Item Is the installation complete, with no obvious defects?; Answer space Yes No.",
+     "Part 2b – Inspection of installation, 2b.1 Visual inspections – general (all systems): Item Do all internal doors have enough undercut to allow air transfer between rooms as detailed in paragraph 1.21 (i.e. 10mm above the floor finish or 20mm above the floor surface)?; Answer space Yes No.",
+     "Part 2b – Inspection of installation, 2b.1 Visual inspections – general (all systems): Item Has all protection/packaging been removed (including from background ventilators), so that the system is fully functional?; Answer space Yes No.",
+     "Part 2b – Inspection of installation, 2b.1 Visual inspections – general (all systems): Item Are systems clean internally and externally?; Answer space Yes No.",
+     "Part 2b – Inspection of installation, 2b.1 Visual inspections – general (all systems): Item Has the entire system been installed to allow access for routine maintenance and to repair/replace components?; Answer space Yes No.",
+     "Part 2b – Inspection of installation, 2b.2 Visual inspections – general (continuous mechanical extract ventilation and mechanical ventilation with heat recovery systems only): Item Have appropriate air terminal devices been installed to allow system balance?; Answer space Yes No.",
+     "Part 2b – Inspection of installation, 2b.2 Visual inspections – general (continuous mechanical extract ventilation and mechanical ventilation with heat recovery systems only): Item Have the heat recovery unit and all ductwork been effectively insulated and sealed for all heated and unheated spaces?; Answer space Yes No.",
+     "Part 2b – Inspection of installation, 2b.2 Visual inspections – general (continuous mechanical extract ventilation and mechanical ventilation with heat recovery systems only): Item Is the condensate connection complete and does the condensate drain to an appropriate location (mechanical ventilation with heat recovery only)?; Answer space Yes No.",
+     "Part 2b – Inspection of installation, 2b.2 Visual inspections – general (continuous mechanical extract ventilation and mechanical ventilation with heat recovery systems only): Item Are filters installed?; Answer space Yes No.",
+     "Part 2b – Inspection of installation, 2b.2 Visual inspections – general (continuous mechanical extract ventilation and mechanical ventilation with heat recovery systems only): Item For ducted systems, has the ductwork been installed so that air resistance and leakage is kept to a minimum?; Answer space Yes No.",
+     "Part 2b – Inspection of installation, 2b.3 Other inspections – general (all systems): Item At initial start-up, was there any abnormal sound or vibration, or unusual smell?; Answer space Yes No.",
+     "Part 2b – Inspection of installation, 2b.3 Other inspections – general (all systems): Item During continuous operation, was there any excessive noise?; Answer space Yes No."
+    ]
+   },
+   "reason": "A blank form printed as a table: each printed field or question is a row, with what the form prints for the answer (Yes No boxes, a unit, or nothing); numbered parts and group titles are heading rows; notes are not rows.",
+   "evidence": "page image corpus/parsed/adf-2026/approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96/pages/p57.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "f81c2c0764293304",
+   "kind": "table",
+   "target": "appendix-c-part-3a-intermittent-extract-fan-testing-details-table-1: Part 3a – Intermittent extract fan testing details",
+   "value": {
+    "columns": [
+     "Item",
+     "Answer space"
+    ],
+    "rows": [
+     [
+      "3a.1 Commissioning equipment",
+      ""
+     ],
+     [
+      "Schedule of air flow measurement device used (model and serial number) Date of last Certificate",
+      ""
+     ],
+     [
+      "UKAS calibration number",
+      ""
+     ],
+     [
+      "1.",
+      ""
+     ],
+     [
+      "2.",
+      ""
+     ],
+     [
+      "3a.2 Air flow measurements – intermittent extract fans only",
+      ""
+     ],
+     [
+      "Room reference (location of fans) Measured extract rate (l/s) Design extract rate (l/s)",
+      ""
+     ],
+     [
+      "Refer to Table 1.1(1)",
+      ""
+     ],
+     [
+      "Cooker hood",
+      ""
+     ],
+     [
+      "Kitchen (if separate to cooker hood)",
+      ""
+     ],
+     [
+      "Bathroom",
+      ""
+     ],
+     [
+      "En suite",
+      ""
+     ],
+     [
+      "Utility",
+      ""
+     ],
+     [
+      "Other",
+      ""
+     ],
+     [
+      "For cooker hoods, only the highest setting needs to be recorded.",
+      ""
+     ],
+     [
+      "3a.3 Commissioning engineer’s declaration",
+      ""
+     ],
+     [
+      "Engineer’s signature",
+      ""
+     ],
+     [
+      "Registration number (if applicable)",
+      ""
+     ],
+     [
+      "Date of commissioning",
+      ""
+     ]
+    ],
+    "heading_rows": [
+     0,
+     5,
+     15
+    ],
+    "sentences": [
+     "Part 3a – Intermittent extract fan testing details, 3a.1 Commissioning equipment: Item Schedule of air flow measurement device used (model and serial number) Date of last Certificate.",
+     "Part 3a – Intermittent extract fan testing details, 3a.1 Commissioning equipment: Item UKAS calibration number.",
+     "Part 3a – Intermittent extract fan testing details, 3a.1 Commissioning equipment: Item 1.",
+     "Part 3a – Intermittent extract fan testing details, 3a.1 Commissioning equipment: Item 2.",
+     "Part 3a – Intermittent extract fan testing details, 3a.2 Air flow measurements – intermittent extract fans only: Item Room reference (location of fans) Measured extract rate (l/s) Design extract rate (l/s).",
+     "Part 3a – Intermittent extract fan testing details, 3a.2 Air flow measurements – intermittent extract fans only: Item Refer to Table 1.1(1).",
+     "Part 3a – Intermittent extract fan testing details, 3a.2 Air flow measurements – intermittent extract fans only: Item Cooker hood.",
+     "Part 3a – Intermittent extract fan testing details, 3a.2 Air flow measurements – intermittent extract fans only: Item Kitchen (if separate to cooker hood).",
+     "Part 3a – Intermittent extract fan testing details, 3a.2 Air flow measurements – intermittent extract fans only: Item Bathroom.",
+     "Part 3a – Intermittent extract fan testing details, 3a.2 Air flow measurements – intermittent extract fans only: Item En suite.",
+     "Part 3a – Intermittent extract fan testing details, 3a.2 Air flow measurements – intermittent extract fans only: Item Utility.",
+     "Part 3a – Intermittent extract fan testing details, 3a.2 Air flow measurements – intermittent extract fans only: Item Other.",
+     "Part 3a – Intermittent extract fan testing details, 3a.2 Air flow measurements – intermittent extract fans only: Item For cooker hoods, only the highest setting needs to be recorded.",
+     "Part 3a – Intermittent extract fan testing details, 3a.3 Commissioning engineer’s declaration: Item Engineer’s signature.",
+     "Part 3a – Intermittent extract fan testing details, 3a.3 Commissioning engineer’s declaration: Item Registration number (if applicable).",
+     "Part 3a – Intermittent extract fan testing details, 3a.3 Commissioning engineer’s declaration: Item Date of commissioning."
+    ]
+   },
+   "reason": "A blank form printed as a table: each printed field or question is a row, with what the form prints for the answer (Yes No boxes, a unit, or nothing); numbered parts and group titles are heading rows; notes are not rows.",
+   "evidence": "page image corpus/parsed/adf-2026/approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96/pages/p58.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "b790ba65e21420f7",
+   "kind": "table",
+   "target": "appendix-c-part-3b-decentralised-continuous-extract-fan-table-1: Part 3b – Decentralised continuous extract fan commissioning details",
+   "value": {
+    "columns": [
+     "Item",
+     "Answer space"
+    ],
+    "rows": [
+     [
+      "3b.1 Commissioning equipment",
+      ""
+     ],
+     [
+      "Schedule of air flow measurement device used (model and serial number) Date of last Certificate",
+      ""
+     ],
+     [
+      "UKAS calibration number",
+      ""
+     ],
+     [
+      "1.",
+      ""
+     ],
+     [
+      "2.",
+      ""
+     ],
+     [
+      "3b.2 Air flow measurements (extract)",
+      ""
+     ],
+     [
+      "Room reference Measured air flow – Design air flow – Measured air flow – Design air flow – (location of fans or high rate (l/s) high rate (l/s) continuous rate (l/s) continuous rate (l/s) terminals) Refer to Table 1.2(1) Refer to paragraph",
+      ""
+     ],
+     [
+      "1.20",
+      ""
+     ],
+     [
+      "Kitchen",
+      ""
+     ],
+     [
+      "Bathroom",
+      ""
+     ],
+     [
+      "En suite",
+      ""
+     ],
+     [
+      "Utility",
+      ""
+     ],
+     [
+      "Other",
+      ""
+     ],
+     [
+      "3b.3 Commissioning engineer’s declaration",
+      ""
+     ],
+     [
+      "Engineer’s signature",
+      ""
+     ],
+     [
+      "Registration number (if applicable)",
+      ""
+     ],
+     [
+      "Date of commissioning",
+      ""
+     ]
+    ],
+    "heading_rows": [
+     0,
+     5,
+     13
+    ],
+    "sentences": [
+     "Part 3b – Decentralised continuous extract fan commissioning details, 3b.1 Commissioning equipment: Item Schedule of air flow measurement device used (model and serial number) Date of last Certificate.",
+     "Part 3b – Decentralised continuous extract fan commissioning details, 3b.1 Commissioning equipment: Item UKAS calibration number.",
+     "Part 3b – Decentralised continuous extract fan commissioning details, 3b.1 Commissioning equipment: Item 1.",
+     "Part 3b – Decentralised continuous extract fan commissioning details, 3b.1 Commissioning equipment: Item 2.",
+     "Part 3b – Decentralised continuous extract fan commissioning details, 3b.2 Air flow measurements (extract): Item Room reference Measured air flow – Design air flow – Measured air flow – Design air flow – (location of fans or high rate (l/s) high rate (l/s) continuous rate (l/s) continuous rate (l/s) terminals) Refer to Table 1.2(1) Refer to paragraph.",
+     "Part 3b – Decentralised continuous extract fan commissioning details, 3b.2 Air flow measurements (extract): Item 1.20.",
+     "Part 3b – Decentralised continuous extract fan commissioning details, 3b.2 Air flow measurements (extract): Item Kitchen.",
+     "Part 3b – Decentralised continuous extract fan commissioning details, 3b.2 Air flow measurements (extract): Item Bathroom.",
+     "Part 3b – Decentralised continuous extract fan commissioning details, 3b.2 Air flow measurements (extract): Item En suite.",
+     "Part 3b – Decentralised continuous extract fan commissioning details, 3b.2 Air flow measurements (extract): Item Utility.",
+     "Part 3b – Decentralised continuous extract fan commissioning details, 3b.2 Air flow measurements (extract): Item Other.",
+     "Part 3b – Decentralised continuous extract fan commissioning details, 3b.3 Commissioning engineer’s declaration: Item Engineer’s signature.",
+     "Part 3b – Decentralised continuous extract fan commissioning details, 3b.3 Commissioning engineer’s declaration: Item Registration number (if applicable).",
+     "Part 3b – Decentralised continuous extract fan commissioning details, 3b.3 Commissioning engineer’s declaration: Item Date of commissioning."
+    ]
+   },
+   "reason": "A blank form printed as a table: each printed field or question is a row, with what the form prints for the answer (Yes No boxes, a unit, or nothing); numbered parts and group titles are heading rows; notes are not rows.",
+   "evidence": "page image corpus/parsed/adf-2026/approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96/pages/p59.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "dea3eb8ebdbb25db",
+   "kind": "table",
+   "target": "appendix-c-part-3c-centralised-continuous-fan-commissioning-d-table-1: Part 3c – Centralised continuous fan commissioning details",
+   "value": {
+    "columns": [
+     "Item",
+     "Answer space"
+    ],
+    "rows": [
+     [
+      "3c.1 Commissioning equipment",
+      ""
+     ],
+     [
+      "Schedule of air flow measurement device used (model and serial number) Date of last Certificate",
+      ""
+     ],
+     [
+      "UKAS calibration number",
+      ""
+     ],
+     [
+      "1.",
+      ""
+     ],
+     [
+      "2.",
+      ""
+     ],
+     [
+      "3c.2 Air flow measurements (extract) – continuous mechanical extract ventilation and mechanical ventilation with heat recovery",
+      ""
+     ],
+     [
+      "Room reference Measured air flow – Design air flow – Measured air flow – Design air flow – (location of terminals) high rate (l/s) high rate (l/s) continuous rate (l/s) continuous rate (l/s)",
+      ""
+     ],
+     [
+      "Refer to Table 1.2(1) Refer to paragraph",
+      ""
+     ],
+     [
+      "1.20",
+      ""
+     ],
+     [
+      "Kitchen",
+      ""
+     ],
+     [
+      "Bathroom",
+      ""
+     ],
+     [
+      "En suite",
+      ""
+     ],
+     [
+      "Utility",
+      ""
+     ],
+     [
+      "Other",
+      ""
+     ],
+     [
+      "Total air flow rates (extract)",
+      ""
+     ],
+     [
+      "3c.3 Air flow measurements (supply) – mechanical ventilation with heat recovery",
+      ""
+     ],
+     [
+      "Room reference Measured air flow – Design air flow – Measured air flow – Design air flow – (location of terminals) high rate (l/s) high rate (l/s) continuous rate (l/s) continuous rate (l/s)",
+      ""
+     ],
+     [
+      "Refer to Table 1.2 Refer to paragraph",
+      ""
+     ],
+     [
+      "1.20",
+      ""
+     ],
+     [
+      "Living room 1",
+      ""
+     ],
+     [
+      "Living room 2",
+      ""
+     ],
+     [
+      "Dining room",
+      ""
+     ],
+     [
+      "Bedroom 1",
+      ""
+     ],
+     [
+      "Bedroom 2",
+      ""
+     ],
+     [
+      "Bedroom 3",
+      ""
+     ],
+     [
+      "Bedroom 4",
+      ""
+     ],
+     [
+      "Bedroom 5",
+      ""
+     ],
+     [
+      "Study",
+      ""
+     ],
+     [
+      "Other",
+      ""
+     ],
+     [
+      "Total air flow rates (supply)",
+      ""
+     ],
+     [
+      "3c.4 Commissioning engineer’s declaration",
+      ""
+     ],
+     [
+      "Engineer’s signature",
+      ""
+     ],
+     [
+      "Registration number (if applicable)",
+      ""
+     ],
+     [
+      "Date of commissioning",
+      ""
+     ]
+    ],
+    "heading_rows": [
+     0,
+     5,
+     15,
+     30
+    ],
+    "sentences": [
+     "Part 3c – Centralised continuous fan commissioning details, 3c.1 Commissioning equipment: Item Schedule of air flow measurement device used (model and serial number) Date of last Certificate.",
+     "Part 3c – Centralised continuous fan commissioning details, 3c.1 Commissioning equipment: Item UKAS calibration number.",
+     "Part 3c – Centralised continuous fan commissioning details, 3c.1 Commissioning equipment: Item 1.",
+     "Part 3c – Centralised continuous fan commissioning details, 3c.1 Commissioning equipment: Item 2.",
+     "Part 3c – Centralised continuous fan commissioning details, 3c.2 Air flow measurements (extract) – continuous mechanical extract ventilation and mechanical ventilation with heat recovery: Item Room reference Measured air flow – Design air flow – Measured air flow – Design air flow – (location of terminals) high rate (l/s) high rate (l/s) continuous rate (l/s) continuous rate (l/s).",
+     "Part 3c – Centralised continuous fan commissioning details, 3c.2 Air flow measurements (extract) – continuous mechanical extract ventilation and mechanical ventilation with heat recovery: Item Refer to Table 1.2(1) Refer to paragraph.",
+     "Part 3c – Centralised continuous fan commissioning details, 3c.2 Air flow measurements (extract) – continuous mechanical extract ventilation and mechanical ventilation with heat recovery: Item 1.20.",
+     "Part 3c – Centralised continuous fan commissioning details, 3c.2 Air flow measurements (extract) – continuous mechanical extract ventilation and mechanical ventilation with heat recovery: Item Kitchen.",
+     "Part 3c – Centralised continuous fan commissioning details, 3c.2 Air flow measurements (extract) – continuous mechanical extract ventilation and mechanical ventilation with heat recovery: Item Bathroom.",
+     "Part 3c – Centralised continuous fan commissioning details, 3c.2 Air flow measurements (extract) – continuous mechanical extract ventilation and mechanical ventilation with heat recovery: Item En suite.",
+     "Part 3c – Centralised continuous fan commissioning details, 3c.2 Air flow measurements (extract) – continuous mechanical extract ventilation and mechanical ventilation with heat recovery: Item Utility.",
+     "Part 3c – Centralised continuous fan commissioning details, 3c.2 Air flow measurements (extract) – continuous mechanical extract ventilation and mechanical ventilation with heat recovery: Item Other.",
+     "Part 3c – Centralised continuous fan commissioning details, 3c.2 Air flow measurements (extract) – continuous mechanical extract ventilation and mechanical ventilation with heat recovery: Item Total air flow rates (extract).",
+     "Part 3c – Centralised continuous fan commissioning details, 3c.3 Air flow measurements (supply) – mechanical ventilation with heat recovery: Item Room reference Measured air flow – Design air flow – Measured air flow – Design air flow – (location of terminals) high rate (l/s) high rate (l/s) continuous rate (l/s) continuous rate (l/s).",
+     "Part 3c – Centralised continuous fan commissioning details, 3c.3 Air flow measurements (supply) – mechanical ventilation with heat recovery: Item Refer to Table 1.2 Refer to paragraph.",
+     "Part 3c – Centralised continuous fan commissioning details, 3c.3 Air flow measurements (supply) – mechanical ventilation with heat recovery: Item 1.20.",
+     "Part 3c – Centralised continuous fan commissioning details, 3c.3 Air flow measurements (supply) – mechanical ventilation with heat recovery: Item Living room 1.",
+     "Part 3c – Centralised continuous fan commissioning details, 3c.3 Air flow measurements (supply) – mechanical ventilation with heat recovery: Item Living room 2.",
+     "Part 3c – Centralised continuous fan commissioning details, 3c.3 Air flow measurements (supply) – mechanical ventilation with heat recovery: Item Dining room.",
+     "Part 3c – Centralised continuous fan commissioning details, 3c.3 Air flow measurements (supply) – mechanical ventilation with heat recovery: Item Bedroom 1.",
+     "Part 3c – Centralised continuous fan commissioning details, 3c.3 Air flow measurements (supply) – mechanical ventilation with heat recovery: Item Bedroom 2.",
+     "Part 3c – Centralised continuous fan commissioning details, 3c.3 Air flow measurements (supply) – mechanical ventilation with heat recovery: Item Bedroom 3.",
+     "Part 3c – Centralised continuous fan commissioning details, 3c.3 Air flow measurements (supply) – mechanical ventilation with heat recovery: Item Bedroom 4.",
+     "Part 3c – Centralised continuous fan commissioning details, 3c.3 Air flow measurements (supply) – mechanical ventilation with heat recovery: Item Bedroom 5.",
+     "Part 3c – Centralised continuous fan commissioning details, 3c.3 Air flow measurements (supply) – mechanical ventilation with heat recovery: Item Study.",
+     "Part 3c – Centralised continuous fan commissioning details, 3c.3 Air flow measurements (supply) – mechanical ventilation with heat recovery: Item Other.",
+     "Part 3c – Centralised continuous fan commissioning details, 3c.3 Air flow measurements (supply) – mechanical ventilation with heat recovery: Item Total air flow rates (supply).",
+     "Part 3c – Centralised continuous fan commissioning details, 3c.4 Commissioning engineer’s declaration: Item Engineer’s signature.",
+     "Part 3c – Centralised continuous fan commissioning details, 3c.4 Commissioning engineer’s declaration: Item Registration number (if applicable).",
+     "Part 3c – Centralised continuous fan commissioning details, 3c.4 Commissioning engineer’s declaration: Item Date of commissioning."
+    ]
+   },
+   "reason": "A blank form printed as a table: each printed field or question is a row, with what the form prints for the answer (Yes No boxes, a unit, or nothing); numbered parts and group titles are heading rows; notes are not rows.",
+   "evidence": "page image corpus/parsed/adf-2026/approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96/pages/p60.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "ca7d20b915720b04",
+   "kind": "table",
+   "target": "table-d1: Checklist for ventilation provision in existing dwellings",
+   "value": {
+    "columns": [
+     "Item",
+     "Answer space"
+    ],
+    "rows": [
+     [
+      "Natural ventilation(1)",
+      ""
+     ],
+     [
+      "What is the total equivalent area of background ventilators currently in dwelling?",
+      "mm2"
+     ],
+     [
+      "Does each habitable room satisfy the minimum equivalent area standards in Table 1.7(2)?",
+      "Yes No"
+     ],
+     [
+      "Have all background ventilators been left in the open position?",
+      "Yes No"
+     ],
+     [
+      "Are fans and background ventilators in the same room at least 0.5m apart?",
+      "Yes No"
+     ],
+     [
+      "Are there working intermittent extract fans in all wet rooms?",
+      "Yes No"
+     ],
+     [
+      "Is there the correct number of intermittent extract fans to satisfy the standards in Table 1.1?",
+      "Yes No"
+     ],
+     [
+      "Does the location of fans satisfy the standards in paragraph 1.16?",
+      "Yes No"
+     ],
+     [
+      "Do all automatic controls have a manual override?",
+      "Yes No"
+     ],
+     [
+      "Does each room have a system for purge ventilation (e.g. windows)?",
+      "Yes No"
+     ],
+     [
+      "Do the openings in the rooms satisfy the minimum opening area standards in Table 1.4?",
+      "Yes No"
+     ],
+     [
+      "Do all internal doors have sufficient undercut to allow air transfer between rooms as detailed in paragraph 1.21 (i.e. 10mm above the floor finish or 20mm above the floor surface)?",
+      "Yes No"
+     ],
+     [
+      "Continuous mechanical extract ventilation(1)",
+      ""
+     ],
+     [
+      "Does the system have a central extract fan, individual room extract fans, or both?",
+      "Yes No"
+     ],
+     [
+      "Does the total combined continuous rate of mechanical extract ventilation satisfy the standards in paragraph 1.20?",
+      "Yes No"
+     ],
+     [
+      "Does each minimum mechanical extract ventilation high rate satisfy the standards in Table 1.2?",
+      "Yes No"
+     ],
+     [
+      "Is it certain that there are no background ventilators in wet rooms?",
+      "Yes No"
+     ],
+     [
+      "Do all habitable rooms have a minimum equivalent area of 5000mm2?",
+      "Yes No"
+     ],
+     [
+      "Does each room have a system for purge ventilation (e.g. windows)?",
+      "Yes No"
+     ],
+     [
+      "Do the openings in the rooms satisfy the minimum opening area standards in Table 1.4?",
+      "Yes No"
+     ],
+     [
+      "Do all internal doors have sufficient undercut to allow air transfer between rooms as detailed in paragraph 1.21 (i.e. 10mm above the floor finish or 20mm above the floor surface)?",
+      "Yes No"
+     ],
+     [
+      "Mechanical ventilation with heat recovery(1)",
+      ""
+     ],
+     [
+      "Does each habitable room have mechanical supply ventilation?",
+      "Yes No"
+     ],
+     [
+      "Does the total continuous rate of mechanical ventilation with heat recovery satisfy the standards in paragraph 1.20?",
+      "Yes No"
+     ],
+     [
+      "Does each minimum mechanical extract ventilation high rate satisfy the standards in Table 1.2?",
+      "Yes No"
+     ],
+     [
+      "Have all background ventilators been removed or sealed shut?",
+      "Yes No"
+     ],
+     [
+      "Does each room have a system for purge ventilation (e.g. windows)?",
+      "Yes No"
+     ],
+     [
+      "Do the openings in the rooms satisfy the minimum opening area standards in Table 1.4?",
+      "Yes No"
+     ],
+     [
+      "Do all internal doors have sufficient undercut to allow air transfer between rooms as detailed in paragraph 1.21 (i.e. 10mm above the floor finish or 20mm above the floor surface)?",
+      "Yes No"
+     ]
+    ],
+    "heading_rows": [
+     0,
+     12,
+     21
+    ],
+    "sentences": [
+     "Checklist for ventilation provision in existing dwellings, Natural ventilation(1): Item What is the total equivalent area of background ventilators currently in dwelling?; Answer space mm2.",
+     "Checklist for ventilation provision in existing dwellings, Natural ventilation(1): Item Does each habitable room satisfy the minimum equivalent area standards in Table 1.7(2)?; Answer space Yes No.",
+     "Checklist for ventilation provision in existing dwellings, Natural ventilation(1): Item Have all background ventilators been left in the open position?; Answer space Yes No.",
+     "Checklist for ventilation provision in existing dwellings, Natural ventilation(1): Item Are fans and background ventilators in the same room at least 0.5m apart?; Answer space Yes No.",
+     "Checklist for ventilation provision in existing dwellings, Natural ventilation(1): Item Are there working intermittent extract fans in all wet rooms?; Answer space Yes No.",
+     "Checklist for ventilation provision in existing dwellings, Natural ventilation(1): Item Is there the correct number of intermittent extract fans to satisfy the standards in Table 1.1?; Answer space Yes No.",
+     "Checklist for ventilation provision in existing dwellings, Natural ventilation(1): Item Does the location of fans satisfy the standards in paragraph 1.16?; Answer space Yes No.",
+     "Checklist for ventilation provision in existing dwellings, Natural ventilation(1): Item Do all automatic controls have a manual override?; Answer space Yes No.",
+     "Checklist for ventilation provision in existing dwellings, Natural ventilation(1): Item Does each room have a system for purge ventilation (e.g. windows)?; Answer space Yes No.",
+     "Checklist for ventilation provision in existing dwellings, Natural ventilation(1): Item Do the openings in the rooms satisfy the minimum opening area standards in Table 1.4?; Answer space Yes No.",
+     "Checklist for ventilation provision in existing dwellings, Natural ventilation(1): Item Do all internal doors have sufficient undercut to allow air transfer between rooms as detailed in paragraph 1.21 (i.e. 10mm above the floor finish or 20mm above the floor surface)?; Answer space Yes No.",
+     "Checklist for ventilation provision in existing dwellings, Continuous mechanical extract ventilation(1): Item Does the system have a central extract fan, individual room extract fans, or both?; Answer space Yes No.",
+     "Checklist for ventilation provision in existing dwellings, Continuous mechanical extract ventilation(1): Item Does the total combined continuous rate of mechanical extract ventilation satisfy the standards in paragraph 1.20?; Answer space Yes No.",
+     "Checklist for ventilation provision in existing dwellings, Continuous mechanical extract ventilation(1): Item Does each minimum mechanical extract ventilation high rate satisfy the standards in Table 1.2?; Answer space Yes No.",
+     "Checklist for ventilation provision in existing dwellings, Continuous mechanical extract ventilation(1): Item Is it certain that there are no background ventilators in wet rooms?; Answer space Yes No.",
+     "Checklist for ventilation provision in existing dwellings, Continuous mechanical extract ventilation(1): Item Do all habitable rooms have a minimum equivalent area of 5000mm2?; Answer space Yes No.",
+     "Checklist for ventilation provision in existing dwellings, Continuous mechanical extract ventilation(1): Item Does each room have a system for purge ventilation (e.g. windows)?; Answer space Yes No.",
+     "Checklist for ventilation provision in existing dwellings, Continuous mechanical extract ventilation(1): Item Do the openings in the rooms satisfy the minimum opening area standards in Table 1.4?; Answer space Yes No.",
+     "Checklist for ventilation provision in existing dwellings, Continuous mechanical extract ventilation(1): Item Do all internal doors have sufficient undercut to allow air transfer between rooms as detailed in paragraph 1.21 (i.e. 10mm above the floor finish or 20mm above the floor surface)?; Answer space Yes No.",
+     "Checklist for ventilation provision in existing dwellings, Mechanical ventilation with heat recovery(1): Item Does each habitable room have mechanical supply ventilation?; Answer space Yes No.",
+     "Checklist for ventilation provision in existing dwellings, Mechanical ventilation with heat recovery(1): Item Does the total continuous rate of mechanical ventilation with heat recovery satisfy the standards in paragraph 1.20?; Answer space Yes No.",
+     "Checklist for ventilation provision in existing dwellings, Mechanical ventilation with heat recovery(1): Item Does each minimum mechanical extract ventilation high rate satisfy the standards in Table 1.2?; Answer space Yes No.",
+     "Checklist for ventilation provision in existing dwellings, Mechanical ventilation with heat recovery(1): Item Have all background ventilators been removed or sealed shut?; Answer space Yes No.",
+     "Checklist for ventilation provision in existing dwellings, Mechanical ventilation with heat recovery(1): Item Does each room have a system for purge ventilation (e.g. windows)?; Answer space Yes No.",
+     "Checklist for ventilation provision in existing dwellings, Mechanical ventilation with heat recovery(1): Item Do the openings in the rooms satisfy the minimum opening area standards in Table 1.4?; Answer space Yes No.",
+     "Checklist for ventilation provision in existing dwellings, Mechanical ventilation with heat recovery(1): Item Do all internal doors have sufficient undercut to allow air transfer between rooms as detailed in paragraph 1.21 (i.e. 10mm above the floor finish or 20mm above the floor surface)?; Answer space Yes No."
+    ]
+   },
+   "reason": "A blank form printed as a table: each printed field or question is a row, with what the form prints for the answer (Yes No boxes, a unit, or nothing); numbered parts and group titles are heading rows; notes are not rows.",
+   "evidence": "page image corpus/parsed/adf-2026/approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96/pages/p62.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  }
+ ]
+}

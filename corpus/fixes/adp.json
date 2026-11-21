@@ -1,0 +1,60 @@
+{
+ "source_id": "adp",
+ "about": "Saved model fixes for adp (ADR 0010).",
+ "fixes": [
+  {
+   "key": "86db7344a598f4ac",
+   "kind": "table",
+   "target": "requirement-p1-box-1: Requirement P1: Design and installation",
+   "value": {
+    "columns": [
+     "Requirement",
+     "Limits on application"
+    ],
+    "rows": [
+     [
+      "Design and installation",
+      ""
+     ],
+     [
+      "P1. Reasonable provision shall be made in the design and installation of electrical installations in order to protect persons operating, maintaining or altering the installations from fire or injury.",
+      "The requirements of this part apply only to electrical installations that are intended to operate at low or extra-low voltage and are: (a) in or attached to a dwelling; (b) in the common parts of a building serving one or more dwellings, but excluding power supplies to lifts; (c) in a building that receives its electricity from a source located within or shared with a dwelling; or (d) in a garden or in or on land associated with a building where the electricity is from a source located within or shared with a dwelling."
+     ]
+    ],
+    "heading_rows": [
+     0
+    ],
+    "sentences": [
+     "Requirement P1: Design and installation: the requirement is P1, reasonable provision shall be made in the design and installation of electrical installations in order to protect persons operating, maintaining or altering the installations from fire or injury, and the limit on application is that the requirements of this part apply only to electrical installations that are intended to operate at low or extra-low voltage and are: (a) in or attached to a dwelling; (b) in the common parts of a building serving one or more dwellings, but excluding power supplies to lifts; (c) in a building that receives its electricity from a source located within or shared with a dwelling; or (d) in a garden or in or on land associated with a building where the electricity is from a source located within or shared with a dwelling."
+    ]
+   },
+   "reason": "Two-column requirement box; 'Design and installation' is a sub-heading row (text printed triple-struck in the PDF, repaired by the parser).",
+   "evidence": "page image corpus/parsed/adp/approved-document-p-electrical-safety-dwellings@2013-01-01-c7128889/pages/p10.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "f100aa5960962880",
+   "kind": "figure_description",
+   "target": "diagram-1: Scope of Part P",
+   "value": "Diagram of example buildings showing where electrical installation work is within the scope of Part P (ticks) or outside it (crosses), see paragraphs 2.2 to 2.4. Ticks mark the loft, roof space, dwellings, garden electrics, an out-building, common access and shared facilities such as laundries, kitchens and gymnasiums, and a business unit supplied through the dwelling's meter; crosses mark a business unit with its own supply and meter, and lifts. The key shows intake switchgear, source of electricity supply and electricity supply meter.",
+   "reason": "Short description from the figure image, caption and labels.",
+   "evidence": "page image corpus/parsed/adp/approved-document-p-electrical-safety-dwellings@2013-01-01-c7128889/figures/diagram-1.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "ae7e6c17b9ea3770",
+   "kind": "figure_description",
+   "target": "diagram-2: Notifiable work in rooms containing a bath or shower",
+   "value": "Diagram of a bathroom corner with a bath tub or shower tray showing the shaded zone where additions and alterations to existing circuits are notifiable: 600mm beyond each end of the bath and up to 2.25m high. A note says socket-outlets should not be located within 3m of a bath tub or shower tray.",
+   "reason": "Short description from the figure image, caption and labels.",
+   "evidence": "page image corpus/parsed/adp/approved-document-p-electrical-safety-dwellings@2013-01-01-c7128889/figures/diagram-2.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  }
+ ]
+}

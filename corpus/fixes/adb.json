@@ -3,11 +3,11 @@
  "about": "Saved model fixes for adb (ADR 0010).",
  "fixes": [
   {
-   "key": "e1acd4a52b7cf896",
+   "key": "6ee2eedf7a13c1e3",
    "kind": "figure_description",
    "target": "diagram-i: The relationship between regulations and guidance in the approved documents",
    "value": "Diagram showing a sample approved document page, \"Requirement B2: Internal fire spread (linings)\", to explain how law and guidance are laid out. A green \"Requirement\" box with the text of B2 (Requirement / Limits on application) is marked 1, and the \"Intention\" section below it is marked 2. The key says: 1 \"The law: extract from the Building Regulations 2010.\" 2 \"Statutory guidance.\"",
-   "reason": "Figure is an annotated example page with two dashed callouts and a key.",
+   "reason": "Figure is an annotated example page with two dashed callouts and a key. Re-keyed: 20 Nov 2026, the body text under the caption on file page 8 is no longer read as labels (parser fix); image, caption and description unchanged.",
    "evidence": "Image shows B2 heading, Requirement box marked 1, Intention text marked 2, Key with labels 1 and 2; caption 'Diagram i The relationship between regulations and guidance in the approved documents'.",
    "by": "model check, Claude Code subagent (packet)",
    "confidence": "high",
@@ -106,11 +106,11 @@
    "date": "2026-11-20"
   },
   {
-   "key": "b2c11d9554b91c8b",
+   "key": "b3c334fa4d2bbed8",
    "kind": "figure_description",
    "target": "diagram-3.7: Horizontal escape for flats served by a single common stair",
    "value": "Diagram 3.7 shows two floor plans of flats (F) served by a single common stair: \"a. Corridor access flats\", with a corridor either side of a shaded \"Stair lobby with no flat opening directly into it\" and travel distances marked \"7.5m max.\" each way; and \"b. Lobby access flats\", with four flats opening onto a shaded lobby by the stair and a distance marked \"7.5m max.\". The key shows \"F Flat\", shaded areas as \"zones where ventilation should be provided in accordance with paragraphs 3.54 to 3.57 (An external wall vent or smoke shaft located anywhere in the shaded area)\" and green lines as \"Fire resisting construction\". Notes say the arrangements also apply to the top storey, see Diagram 3.9 for small single stair buildings, all doors shown are fire doorsets, a stair lobby used for travel distance must not give direct access to any storage room, flat or other space containing a potential fire hazard, see Appendix C, Table C1 for fire doorsets, and a single common stair is only suitable for buildings with a top storey less than 18m in height (see Diagram D6 in Appendix D) (see para 3.27 and 3.40).",
-   "reason": "Two-part plan diagram with key and six notes; labels and numbers read from the image.",
+   "reason": "Two-part plan diagram with key and six notes; labels and numbers read from the image. Re-keyed: 20 Nov 2026, ligature characters in the labels are now written as letters (parser fix); image, caption and description unchanged.",
    "evidence": "Labels visible: See para 3.27 and 3.40, a. Corridor access flats, b. Lobby access flats, F, 7.5m max. (x3), Stair lobby with no flat opening directly into it, key text, NOTES 1-6.",
    "by": "model check, Claude Code subagent (packet)",
    "confidence": "high",
@@ -2612,11 +2612,11 @@
    "date": "2026-11-20"
   },
   {
-   "key": "958940ba4f682c2c",
+   "key": "419bdcf35e7255a4",
    "kind": "figure_description",
    "target": "diagram-3.8: Horizontal escape for flats served by more than one common stair",
    "value": "Diagram 3.8 is a set of three floor plans (see para 3.27 and 3.40) of flats (F) on corridors with stairs: \"Corridor access without dead ends\" shows a central Fd cross-corridor fire doorset and \"30m max.\" travel; \"Corridor access with dead ends\" shows Fd doorsets with \"7.5m max.\" dead ends and \"30m max.\" travel, noting the central door may be omitted if maximum travel distance is not more than 15m; and \"'T' junction with main corridor\" shows a \"7.5m max.\" branch corridor with Fd doorsets and escape route arrows. The key shows Fd Cross-corridor fire doorset, F Flat, Fire resisting construction, Escape route, and shaded areas that indicate zones where ventilation should be provided in accordance with paragraphs 3.54 to 3.57 (An external wall vent or smoke shaft located anywhere in the shaded area). The notes say the arrangements shown also apply to the top storey, and for further guidance on the fire resistance rating of the fire doorsets from the corridor to the flat and/or stairway refer to Appendix C, Table C1.",
-   "reason": "Three sentences covering the three plans (a, b, c), the key and the notes.",
+   "reason": "Three sentences covering the three plans (a, b, c), the key and the notes. Re-keyed: 20 Nov 2026, ligature characters in the labels are now written as letters (parser fix); image, caption and description unchanged.",
    "evidence": "Image diagram-3.8.png labels: a., b., c. headings, 30m max., 7.5m max., 15m note, Fd, F, key items, NOTES 1 and 2.",
    "by": "model check, Claude Code subagent (packet)",
    "confidence": "high",

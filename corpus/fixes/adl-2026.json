@@ -1,0 +1,1400 @@
+{
+ "source_id": "adl-2026",
+ "about": "Saved model fixes for adl-2026 (ADR 0010).",
+ "fixes": [
+  {
+   "key": "eb345ca781126780",
+   "kind": "figure_description",
+   "target": "v1-diagram-11.1: Renovation of a thermal element from the outside",
+   "value": "Diagram of a two-storey house elevation showing how to measure the area of a thermal element renovated from the outside. The whole wall is shaded as the 'Total area of the thermal element' and a hatched part of it as the 'Area of the thermal element being renovated'. The note says that if external render is being removed from the outer side of a wall, the area of the thermal element is the area of the elevation in which that wall sits.",
+   "reason": "Short description from the figure image and its labels. Carried over from adl (v1-diagram-11.1): same content fingerprint.",
+   "evidence": "page image corpus/parsed/adl/approved-document-l-conservation-of-fuel-and-power-volume-1@2023-02-02-1ab93e59/figures/v1-diagram-11.1.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "a6d2744bc4cb0fc7",
+   "kind": "figure_description",
+   "target": "v1-diagram-11.2: Renovation of a thermal element from the inside",
+   "value": "Diagram of a room seen from inside showing how to measure the area of a thermal element renovated from the inside. The external wall facing the viewer is shaded as the 'Total area of the thermal element' and a hatched part of it as the 'Area of the thermal element being renovated'. The note says that if plaster is being removed from the inner side of a wall, the area of the thermal element is the area of external wall as viewed from inside the room.",
+   "reason": "Short description from the figure image and its labels. Carried over from adl (v1-diagram-11.2): same content fingerprint.",
+   "evidence": "page image corpus/parsed/adl/approved-document-l-conservation-of-fuel-and-power-volume-1@2023-02-02-1ab93e59/figures/v1-diagram-11.2.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "010119b1da45399e",
+   "kind": "table",
+   "target": "v1-regulations-24-25-25b-26-26a-26c-27-27a-regulations-table-1: Regulations",
+   "value": {
+    "columns": [
+     "Regulations"
+    ],
+    "rows": [
+     [
+      "Methodology of calculation of the energy performance 24. (1) The Secretary of State shall approve— (a) a methodology of calculation of the energy performance of buildings, including methods for calculating asset ratings and operational ratings of buildings; and (b) ways in which the energy performance of buildings, as calculated in accordance with the methodology, shall be expressed. (2) In this regulation— “asset rating” means an energy performance indicator determined from the amount of energy estimated to meet the different needs associated with a standardised use of the building; and “operational rating” means an energy performance indicator determined from the amount of energy consumed during the occupation of a building over a period of time and the energy demand associated with a typical use of the building over that period."
+     ],
+     [
+      "Minimum energy performance requirements for new buildings 25. Minimum energy performance requirements shall be approved by the Secretary of State, calculated and expressed in accordance with the methodology approved pursuant to regulation 24, for— (a) new buildings (which shall include new dwellings), in the form of target CO2 emission rates; (b) new dwellings, in the form of target fabric efficiency rates; and (c) new buildings in the form of target primary energy rates."
+     ],
+     [
+      "Nearly zero energy requirements for new buildings 25B. Where a building is erected, it must be a nearly zero energy building."
+     ],
+     [
+      "CO2 emission rates for new buildings 26. Where a building is erected, it shall not exceed the target CO2 emission rate for the building that has been approved pursuant to regulation 25, applying the methodology of calculation and expression of the energy performance of buildings approved pursuant to regulation 24."
+     ],
+     [
+      "Fabric energy efficiency rates for new dwellings 26A. Where a dwelling is erected, it shall not exceed the target fabric energy efficiency rate for the dwelling that has been approved pursuant to regulation 25, applying the methodology of calculation and expression of the energy performance of buildings approved pursuant to regulation 24."
+     ],
+     [
+      "Target primary energy rates for new buildings 26C. Where a building is erected it must not exceed the target primary energy rate for the building which has been approved pursuant to regulation 25(c), applying the methodology of calculation and expression of the energy performance of buildings approved pursuant to regulation 24."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Regulations, Methodology of calculation of the energy performance: 24. (1) The Secretary of State shall approve— (a) a methodology of calculation of the energy performance of buildings, including methods for calculating asset ratings and operational ratings of buildings; and (b) ways in which the energy performance of buildings, as calculated in accordance with the methodology, shall be expressed. (2) In this regulation— “asset rating” means an energy performance indicator determined from the amount of energy estimated to meet the different needs associated with a standardised use of the building; and “operational rating” means an energy performance indicator determined from the amount of energy consumed during the occupation of a building over a period of time and the energy demand associated with a typical use of the building over that period.",
+     "Regulations, Minimum energy performance requirements for new buildings: 25. Minimum energy performance requirements shall be approved by the Secretary of State, calculated and expressed in accordance with the methodology approved pursuant to regulation 24, for— (a) new buildings (which shall include new dwellings), in the form of target CO2 emission rates; (b) new dwellings, in the form of target fabric efficiency rates; and (c) new buildings in the form of target primary energy rates.",
+     "Regulations, Nearly zero energy requirements for new buildings: 25B. Where a building is erected, it must be a nearly zero energy building.",
+     "Regulations, CO2 emission rates for new buildings: 26. Where a building is erected, it shall not exceed the target CO2 emission rate for the building that has been approved pursuant to regulation 25, applying the methodology of calculation and expression of the energy performance of buildings approved pursuant to regulation 24.",
+     "Regulations, Fabric energy efficiency rates for new dwellings: 26A. Where a dwelling is erected, it shall not exceed the target fabric energy efficiency rate for the dwelling that has been approved pursuant to regulation 25, applying the methodology of calculation and expression of the energy performance of buildings approved pursuant to regulation 24.",
+     "Regulations, Target primary energy rates for new buildings: 26C. Where a building is erected it must not exceed the target primary energy rate for the building which has been approved pursuant to regulation 25(c), applying the methodology of calculation and expression of the energy performance of buildings approved pursuant to regulation 24."
+    ]
+   },
+   "reason": "One-column box of regulation text: each regulation (its printed title and numbered text) is one row.",
+   "evidence": "Words from the PDF text of the box; same box layout as the 2021 edition, whose boxes were checked against page images. Not re-checked against this edition's images.",
+   "by": "model check, Claude Code (AD parser agent; regulation box text from the PDF)",
+   "confidence": "medium",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "66b2fbf781baf876",
+   "kind": "table",
+   "target": "v1-regulations-24-25-25b-26-26a-26c-27-27a-regulations-table-2: Regulations",
+   "value": {
+    "columns": [
+     "Regulations continued"
+    ],
+    "rows": [
+     [
+      "CO2 emission rate calculations 27. (1) This regulation applies where a building is erected and regulation 26 applies. (2) The person carrying out the work must— (a) where the new building is a higher-risk building, ensure the application for building control approval in relation to the work is accompanied by a notice which specifies— (i) the target CO2 emission rate for the building, calculated and expressed in accordance with the methodology approved pursuant to regulation 24, (ii) the CO2 emission rate for the building as designed, calculated and expressed in accordance with the methodology approved pursuant to regulation 24, and (iii) a list of specifications to which the building is to be constructed; (b) in any other case, not later than the day before the work starts, give the building control authority a notice which specifies the matters set out in paragraphs (i) to (iii) of sub-paragraph (a). (3) The person carrying out the work must— (a) where the new building is a higher-risk building, ensure the application for a completion certificate in relation to the work is accompanied by— (i) a notice which specifies— (aa) the target CO2 emission rate for the building, calculated and expressed in accordance with the methodology approved pursuant to regulation 24, (bb) the CO2 emission rate for the building as constructed, calculated and expressed in accordance with the methodology approved pursuant to regulation 24, and (cc) whether the building has been constructed in accordance with the list of specifications referred to in paragraph (2), and, if not, a list of any changes to those specifications; or (ii) a certificate of the sort referred to in paragraph (4) accompanied by the information referred to in sub-paragraphs (aa) to (cc) of paragraph (i); (b) in any other case, not later than five days after the work has been completed, give the building control authority a notice which specifies the matters mentioned in sub-paragraphs (aa) to (cc) of sub-paragraph (a)(i) or a certificate of the sort mentioned in sub-paragraph (a)(ii). (4) A building control authority are authorised to accept, as evidence that the requirements of regulation 26 have been satisfied, a certificate to that effect by an energy assessor who is accredited to produce energy performance certificates for that category of building. (4A)Where the regulator is the building control authority by virtue of section 91ZB of the Act (the regulator: building control authority for other work), it must send a copy of each notice or certificate it receives under this regulation in relation to a building to the local authority for the area in which the building is situated. (5) In this regulation, “specifications” means specifications used for the calculation of the CO2 emission rate."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Regulations, CO2 emission rate calculations: 27. (1) This regulation applies where a building is erected and regulation 26 applies. (2) The person carrying out the work must— (a) where the new building is a higher-risk building, ensure the application for building control approval in relation to the work is accompanied by a notice which specifies— (i) the target CO2 emission rate for the building, calculated and expressed in accordance with the methodology approved pursuant to regulation 24, (ii) the CO2 emission rate for the building as designed, calculated and expressed in accordance with the methodology approved pursuant to regulation 24, and (iii) a list of specifications to which the building is to be constructed; (b) in any other case, not later than the day before the work starts, give the building control authority a notice which specifies the matters set out in paragraphs (i) to (iii) of sub-paragraph (a). (3) The person carrying out the work must— (a) where the new building is a higher-risk building, ensure the application for a completion certificate in relation to the work is accompanied by— (i) a notice which specifies— (aa) the target CO2 emission rate for the building, calculated and expressed in accordance with the methodology approved pursuant to regulation 24, (bb) the CO2 emission rate for the building as constructed, calculated and expressed in accordance with the methodology approved pursuant to regulation 24, and (cc) whether the building has been constructed in accordance with the list of specifications referred to in paragraph (2), and, if not, a list of any changes to those specifications; or (ii) a certificate of the sort referred to in paragraph (4) accompanied by the information referred to in sub-paragraphs (aa) to (cc) of paragraph (i); (b) in any other case, not later than five days after the work has been completed, give the building control authority a notice which specifies the matters mentioned in sub-paragraphs (aa) to (cc) of sub-paragraph (a)(i) or a certificate of the sort mentioned in sub-paragraph (a)(ii). (4) A building control authority are authorised to accept, as evidence that the requirements of regulation 26 have been satisfied, a certificate to that effect by an energy assessor who is accredited to produce energy performance certificates for that category of building. (4A)Where the regulator is the building control authority by virtue of section 91ZB of the Act (the regulator: building control authority for other work), it must send a copy of each notice or certificate it receives under this regulation in relation to a building to the local authority for the area in which the building is situated. (5) In this regulation, “specifications” means specifications used for the calculation of the CO2 emission rate."
+    ]
+   },
+   "reason": "One-column box of regulation text: each regulation (its printed title and numbered text) is one row.",
+   "evidence": "Words from the PDF text of the box; same box layout as the 2021 edition, whose boxes were checked against page images. Not re-checked against this edition's images.",
+   "by": "model check, Claude Code (AD parser agent; regulation box text from the PDF)",
+   "confidence": "medium",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "2f7877a38e93b376",
+   "kind": "table",
+   "target": "v1-regulations-24-25-25b-26-26a-26c-27-27a-regulations-table-3: Regulations",
+   "value": {
+    "columns": [
+     "Regulations continued"
+    ],
+    "rows": [
+     [
+      "Fabric energy efficiency rate calculations 27A. (1) This regulation applies where a dwelling is erected and regulation 26A applies. (2) The person carrying out the work must— (a) where the dwelling is within a higher-risk building, ensure the application for building control approval in relation to the work is accompanied by a notice which specifies— (i) the target fabric energy efficiency rate for the dwelling, calculated and expressed in accordance with the methodology approved pursuant to regulation 24, (ii) the fabric energy efficiency rate for the dwelling as designed, calculated and expressed in accordance with the methodology approved pursuant to regulation 24, and (iii) a list of specifications to which the dwelling is to be constructed; (b) in any other case, not later than the day before the work starts, give the building control authority a notice which specifies the matters set out in paragraphs (i) to (iii) of sub-paragraph (a). (3) The person carrying out the work must— (a) where the dwelling is within a higher-risk building, ensure the application for a completion certificate in relation to the work is accompanied by— (i) a notice which specifies— (aa) the target fabric energy efficiency rate for the dwelling, calculated and expressed in accordance with the methodology approved pursuant to regulation 24, (bb) the fabric energy efficiency rate for the dwelling as constructed, calculated and expressed in accordance with the methodology approved pursuant to regulation 24, and (cc) whether the dwelling has been constructed in accordance with the list of specifications referred to in paragraph (2), and, if not, a list of any changes to those specifications; or (ii) a certificate of the sort referred to in paragraph (4) accompanied by the information referred to in sub-paragraphs (aa) to (cc) of paragraph (i); (b) in any other case, not later than five days after the work has been completed, give the building control authority a notice which specifies the matters mentioned in sub-paragraphs (aa) to (cc) of sub-paragraph (a)(i) or a certificate of the sort mentioned in sub-paragraph (a)(ii). (4) A building control authority is authorised to accept, as evidence that the requirements of regulation 26A have been satisfied, a certificate to that effect by an energy assessor who is accredited to produce energy performance certificates for that category of building. (4A)Where the regulator is the building control authority by virtue of section 91ZB of the Act (the regulator: building control authority for other work), it must send a copy of each notice or certificate it receives under this regulation in relation to a building to the local authority for the area in which the building is situated. (5) In this regulation, “specifications” means specifications used for the calculation of the fabric energy efficiency rate."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Regulations, Fabric energy efficiency rate calculations: 27A. (1) This regulation applies where a dwelling is erected and regulation 26A applies. (2) The person carrying out the work must— (a) where the dwelling is within a higher-risk building, ensure the application for building control approval in relation to the work is accompanied by a notice which specifies— (i) the target fabric energy efficiency rate for the dwelling, calculated and expressed in accordance with the methodology approved pursuant to regulation 24, (ii) the fabric energy efficiency rate for the dwelling as designed, calculated and expressed in accordance with the methodology approved pursuant to regulation 24, and (iii) a list of specifications to which the dwelling is to be constructed; (b) in any other case, not later than the day before the work starts, give the building control authority a notice which specifies the matters set out in paragraphs (i) to (iii) of sub-paragraph (a). (3) The person carrying out the work must— (a) where the dwelling is within a higher-risk building, ensure the application for a completion certificate in relation to the work is accompanied by— (i) a notice which specifies— (aa) the target fabric energy efficiency rate for the dwelling, calculated and expressed in accordance with the methodology approved pursuant to regulation 24, (bb) the fabric energy efficiency rate for the dwelling as constructed, calculated and expressed in accordance with the methodology approved pursuant to regulation 24, and (cc) whether the dwelling has been constructed in accordance with the list of specifications referred to in paragraph (2), and, if not, a list of any changes to those specifications; or (ii) a certificate of the sort referred to in paragraph (4) accompanied by the information referred to in sub-paragraphs (aa) to (cc) of paragraph (i); (b) in any other case, not later than five days after the work has been completed, give the building control authority a notice which specifies the matters mentioned in sub-paragraphs (aa) to (cc) of sub-paragraph (a)(i) or a certificate of the sort mentioned in sub-paragraph (a)(ii). (4) A building control authority is authorised to accept, as evidence that the requirements of regulation 26A have been satisfied, a certificate to that effect by an energy assessor who is accredited to produce energy performance certificates for that category of building. (4A)Where the regulator is the building control authority by virtue of section 91ZB of the Act (the regulator: building control authority for other work), it must send a copy of each notice or certificate it receives under this regulation in relation to a building to the local authority for the area in which the building is situated. (5) In this regulation, “specifications” means specifications used for the calculation of the fabric energy efficiency rate."
+    ]
+   },
+   "reason": "One-column box of regulation text: each regulation (its printed title and numbered text) is one row.",
+   "evidence": "Words from the PDF text of the box; same box layout as the 2021 edition, whose boxes were checked against page images. Not re-checked against this edition's images.",
+   "by": "model check, Claude Code (AD parser agent; regulation box text from the PDF)",
+   "confidence": "medium",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "f823e40060573194",
+   "kind": "table",
+   "target": "v1-regulations-24-25-25b-26-26a-26c-27-27a-regulations-table-4: Regulations",
+   "value": {
+    "columns": [
+     "Regulations continued"
+    ],
+    "rows": [
+     [
+      "Target primary energy rate calculations for new buildings 27C. (1) This regulation applies where a building is erected. (2) The person carrying out the work must— (a) where the new building is a higher-risk building, ensure the application for building control approval in relation to the work is accompanied by a notice which specifies— (i) the target primary energy rate for the building, calculated and expressed in accordance with the methodology approved pursuant to regulation 24, (ii) the calculated target primary energy rate for the building as designed, calculated and expressed in accordance with the methodology approved pursuant to regulation 24, and (iii) a list of specifications to which the building is to be constructed; (b) in any other case, not later than the day before the work starts, give the building control authority a notice which specifies the matters set out in paragraphs (i) to (iii) of sub-paragraph (a). (3) The person carrying out the work must— (a) where the new building is a higher-risk building, ensure the application for a completion certificate in relation to the work is accompanied by— (i) a notice which specifies— (aa) the target primary energy rate for the building, calculated and expressed in accordance with the methodology approved pursuant to regulation 24, (bb) the calculated target primary energy rate for the building as constructed, calculated and expressed in accordance with the methodology approved pursuant to regulation 24, and (cc) whether the building has been constructed in accordance with the list of specifications referred to in paragraph (2), and, if not, a list of any changes to those specifications; or (ii) a certificate of the sort referred to in paragraph (4) accompanied by the information referred to in sub-paragraphs (aa) to (cc) of paragraph (i); (b) in any other case, not later than five days after the work has been completed, give the building control authority a notice which specifies the matters mentioned in sub-paragraphs (aa) to (cc) of sub-paragraph (a)(i) or a certificate of the sort mentioned in sub-paragraph (a)(ii). (4) A building control authority is authorised to accept, as evidence that the requirements of regulation 26C have been satisfied, a certificate to that effect by an energy assessor who is accredited to produce energy performance certificates for that category of building. (4A)Where the regulator is the building control authority by virtue of section 91ZB of the Act (the regulator: building control authority for other work), it must send a copy of each notice or certificate it receives under this regulation in relation to a building to the local authority for the area in which the building is situated. (5) In this regulation, “specifications” means specifications used for the calculation of the target primary energy rate."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Regulations, Target primary energy rate calculations for new buildings: 27C. (1) This regulation applies where a building is erected. (2) The person carrying out the work must— (a) where the new building is a higher-risk building, ensure the application for building control approval in relation to the work is accompanied by a notice which specifies— (i) the target primary energy rate for the building, calculated and expressed in accordance with the methodology approved pursuant to regulation 24, (ii) the calculated target primary energy rate for the building as designed, calculated and expressed in accordance with the methodology approved pursuant to regulation 24, and (iii) a list of specifications to which the building is to be constructed; (b) in any other case, not later than the day before the work starts, give the building control authority a notice which specifies the matters set out in paragraphs (i) to (iii) of sub-paragraph (a). (3) The person carrying out the work must— (a) where the new building is a higher-risk building, ensure the application for a completion certificate in relation to the work is accompanied by— (i) a notice which specifies— (aa) the target primary energy rate for the building, calculated and expressed in accordance with the methodology approved pursuant to regulation 24, (bb) the calculated target primary energy rate for the building as constructed, calculated and expressed in accordance with the methodology approved pursuant to regulation 24, and (cc) whether the building has been constructed in accordance with the list of specifications referred to in paragraph (2), and, if not, a list of any changes to those specifications; or (ii) a certificate of the sort referred to in paragraph (4) accompanied by the information referred to in sub-paragraphs (aa) to (cc) of paragraph (i); (b) in any other case, not later than five days after the work has been completed, give the building control authority a notice which specifies the matters mentioned in sub-paragraphs (aa) to (cc) of sub-paragraph (a)(i) or a certificate of the sort mentioned in sub-paragraph (a)(ii). (4) A building control authority is authorised to accept, as evidence that the requirements of regulation 26C have been satisfied, a certificate to that effect by an energy assessor who is accredited to produce energy performance certificates for that category of building. (4A)Where the regulator is the building control authority by virtue of section 91ZB of the Act (the regulator: building control authority for other work), it must send a copy of each notice or certificate it receives under this regulation in relation to a building to the local authority for the area in which the building is situated. (5) In this regulation, “specifications” means specifications used for the calculation of the target primary energy rate."
+    ]
+   },
+   "reason": "One-column box of regulation text: each regulation (its printed title and numbered text) is one row.",
+   "evidence": "Words from the PDF text of the box; same box layout as the 2021 edition, whose boxes were checked against page images. Not re-checked against this edition's images.",
+   "by": "model check, Claude Code (AD parser agent; regulation box text from the PDF)",
+   "confidence": "medium",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "225a11c6cc567766",
+   "kind": "table",
+   "target": "v1-requirements-l1-1-b-i-ii-iii-l2-and-l3-box-2: Requirements L1(1)(b)(i), (ii), (iii), L2 and L3: Fixed building services’ energy efficiency and controls, and on-site electricity generation",
+   "value": {
+    "columns": [
+     "Requirements continued"
+    ],
+    "rows": [
+     [
+      "Requirements continued Renewable electricity generation – dwellings and buildings Requirement L3 does not apply to a building— containing dwellings (a) which is a relevant building for the purpose of L3. (1) When a building is erected which is or contains one regulation 7(4); or more dwellings, a system for on-site renewable (b) on which it is not possible to install a system electricity generation must be installed on the building for on-site renewable electricity generation or within the boundaries of the curtilage of the capable of generating a reasonable output on building. account of its design or surroundings; (2) The system installed for the purpose of this or requirement must be— (c) where— (a) designed to enable generated electricity to be available for the use of residents of the dwellings; (i) equivalent renewable electricity generation output to that required by requirement L3 (b) capable of generating a reasonable output taking is available to the building from a system account of the building’s design and surroundings. for on-site renewable electricity generation (3) For the purposes of paragraph L3— which is not on the building or within the boundaries of the curtilage of the building; “energy from renewable sources” has the meaning and given in regulation 25A; (ii) that system is designed to enable generated “microgeneration” means the use for the generation electricity to be available for the use of of electricity of any plant (which for this purpose residents of the dwellings. includes any equipment, apparatus or appliance) which in generating electricity relies wholly or mainly on energy from renewable sources; “system for on-site renewable electricity generation” means a system for on-site electricity generation which generates electricity by microgeneration."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Requirements L1(1)(b)(i), (ii), (iii), L2 and L3: Fixed building services’ energy efficiency and controls, and on-site electricity generation: Requirements continued Renewable electricity generation – dwellings and buildings Requirement L3 does not apply to a building— containing dwellings (a) which is a relevant building for the purpose of L3. (1) When a building is erected which is or contains one regulation 7(4); or more dwellings, a system for on-site renewable (b) on which it is not possible to install a system electricity generation must be installed on the building for on-site renewable electricity generation or within the boundaries of the curtilage of the capable of generating a reasonable output on building. account of its design or surroundings; (2) The system installed for the purpose of this or requirement must be— (c) where— (a) designed to enable generated electricity to be available for the use of residents of the dwellings; (i) equivalent renewable electricity generation output to that required by requirement L3 (b) capable of generating a reasonable output taking is available to the building from a system account of the building’s design and surroundings. for on-site renewable electricity generation (3) For the purposes of paragraph L3— which is not on the building or within the boundaries of the curtilage of the building; “energy from renewable sources” has the meaning and given in regulation 25A; (ii) that system is designed to enable generated “microgeneration” means the use for the generation electricity to be available for the use of of electricity of any plant (which for this purpose residents of the dwellings. includes any equipment, apparatus or appliance) which in generating electricity relies wholly or mainly on energy from renewable sources; “system for on-site renewable electricity generation” means a system for on-site electricity generation which generates electricity by microgeneration."
+    ]
+   },
+   "reason": "One-column box of regulation text: each regulation (its printed title and numbered text) is one row.",
+   "evidence": "Words from the PDF text of the box; same box layout as the 2021 edition, whose boxes were checked against page images. Not re-checked against this edition's images.",
+   "by": "model check, Claude Code (AD parser agent; regulation box text from the PDF)",
+   "confidence": "medium",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "72009fdeeaf775b0",
+   "kind": "table",
+   "target": "v1-regulation-43-box-1: Regulation 43: Pressure testing",
+   "value": {
+    "columns": [
+     "Regulation"
+    ],
+    "rows": [
+     [
+      "Pressure testing 43. (1) This regulation applies to the erection of a building in relation to which paragraph L1(1)(a)(i) of Schedule 1 imposes a requirement. (2) Where this regulation applies, the person carrying out the work shall, for the purpose of ensuring compliance with regulation 26 and regulation 26A and paragraph L1(1)(a)(i) of Schedule 1— (a) ensure that— (i) pressure testing is carried out in such circumstances as are approved by the Secretary of State; and (ii) the testing is carried out in accordance with a procedure approved by the Secretary of State; and (b) subject to paragraph (5), give notice of the results of the testing to the building control authority. (3) The notice referred to in paragraph (2)(b) shall— (a) record the results and the data upon which they are based in a manner approved by the Secretary of State; and (b) be given to the building control authority not later than seven days after the final test is carried out. (4) A building control authority are authorised to accept, as evidence that the requirements of paragraph (2)(a) (ii) have been satisfied, a certificate to that effect by a person who is registered by Elmhurst Energy Systems Limited or the Air Tightness Testing and Measurement Association in respect of pressure testing for the air tightness of buildings. (5) Where such a certificate contains the information required by paragraph (3)(a), paragraph (2)(b) does not apply. (6) Where the regulator is the building control authority by virtue of section 91ZB of the Act (the regulator: building control authority for other work), it must send a copy of each notice or certificate it receives under this regulation in relation to a building to the local authority for the area in which the building is situated."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Regulation 43: Pressure testing, Pressure testing: 43. (1) This regulation applies to the erection of a building in relation to which paragraph L1(1)(a)(i) of Schedule 1 imposes a requirement. (2) Where this regulation applies, the person carrying out the work shall, for the purpose of ensuring compliance with regulation 26 and regulation 26A and paragraph L1(1)(a)(i) of Schedule 1— (a) ensure that— (i) pressure testing is carried out in such circumstances as are approved by the Secretary of State; and (ii) the testing is carried out in accordance with a procedure approved by the Secretary of State; and (b) subject to paragraph (5), give notice of the results of the testing to the building control authority. (3) The notice referred to in paragraph (2)(b) shall— (a) record the results and the data upon which they are based in a manner approved by the Secretary of State; and (b) be given to the building control authority not later than seven days after the final test is carried out. (4) A building control authority are authorised to accept, as evidence that the requirements of paragraph (2)(a) (ii) have been satisfied, a certificate to that effect by a person who is registered by Elmhurst Energy Systems Limited or the Air Tightness Testing and Measurement Association in respect of pressure testing for the air tightness of buildings. (5) Where such a certificate contains the information required by paragraph (3)(a), paragraph (2)(b) does not apply. (6) Where the regulator is the building control authority by virtue of section 91ZB of the Act (the regulator: building control authority for other work), it must send a copy of each notice or certificate it receives under this regulation in relation to a building to the local authority for the area in which the building is situated."
+    ]
+   },
+   "reason": "One-column box of regulation text: each regulation (its printed title and numbered text) is one row.",
+   "evidence": "Words from the PDF text of the box; same box layout as the 2021 edition, whose boxes were checked against page images. Not re-checked against this edition's images.",
+   "by": "model check, Claude Code (AD parser agent; regulation box text from the PDF)",
+   "confidence": "medium",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "0f004d6cfff6fded",
+   "kind": "table",
+   "target": "v1-regulations-44-and-44za-and-requirements-regulations-table-1: Regulations",
+   "value": {
+    "columns": [
+     "Regulations"
+    ],
+    "rows": [
+     [
+      "Commissioning 44. (1) This regulation applies to building work in relation to which paragraph F1(2) of Schedule 1 imposes a requirement, but does not apply to the provision or extension of any fixed system for mechanical ventilation or any associated controls where testing and adjustment is not possible. (2) This regulation also applies to building work in relation to which paragraph L1(1)(b) of Schedule 1 imposes a requirement, but does not apply to the provision or extension of any fixed building service where testing and adjustment is not possible or would not affect the energy efficiency of that fixed building service. (3) Where this regulation applies the person carrying out the work shall, for the purpose of ensuring compliance with paragraph F1(2) or L1(1)(b) of Schedule 1, give to the building control authority a notice confirming that the fixed building services have been commissioned in accordance with a procedure approved by the Secretary of State. (4) The notice must be given— (a) in the case where the building work is higher-risk building work for which an application for a completion certificate is required, to the regulator with the application; (b) in any other case, to the building control authority— (i) not later than the date on which the notice required by regulation 16(4) is required to be given; or (ii) where that regulation does not apply, not more than 30 days after completion of the work. (5) Where the regulator is the building control authority by virtue of section 91ZB of the Act (the regulator: building control authority for other work), it must send a copy of each notice it receives under this regulation in relation to a building to the local authority for the area in which the building is situated."
+     ],
+     [
+      "Commissioning in respect of a system for on-site electricity generation 44ZA. (1) This regulation applies to building work in respect of a building in relation to which paragraph L2 of Schedule 1 imposes a requirement, but does not apply to the provision or extension of any system for on-site electricity generation where testing and adjustment is not possible. (2) Where this regulation applies the person carrying out the work must, for the purpose of ensuring compliance with paragraph L2 of Schedule 1, give to the building control authority a notice confirming that the system for on-site electricity generation has been commissioned. (3) The notice must be given— (a) in the case where the building work is higher-risk building work for which an application for a completion certificate is required, to the regulator with the application; (b) in any other case, to the building control authority— (i) not later than the date on which the notice required by regulation 16(4) is required to be given; or (ii) where that regulation does not apply, not more than 30 days after completion of the work."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Regulations, Commissioning: 44. (1) This regulation applies to building work in relation to which paragraph F1(2) of Schedule 1 imposes a requirement, but does not apply to the provision or extension of any fixed system for mechanical ventilation or any associated controls where testing and adjustment is not possible. (2) This regulation also applies to building work in relation to which paragraph L1(1)(b) of Schedule 1 imposes a requirement, but does not apply to the provision or extension of any fixed building service where testing and adjustment is not possible or would not affect the energy efficiency of that fixed building service. (3) Where this regulation applies the person carrying out the work shall, for the purpose of ensuring compliance with paragraph F1(2) or L1(1)(b) of Schedule 1, give to the building control authority a notice confirming that the fixed building services have been commissioned in accordance with a procedure approved by the Secretary of State. (4) The notice must be given— (a) in the case where the building work is higher-risk building work for which an application for a completion certificate is required, to the regulator with the application; (b) in any other case, to the building control authority— (i) not later than the date on which the notice required by regulation 16(4) is required to be given; or (ii) where that regulation does not apply, not more than 30 days after completion of the work. (5) Where the regulator is the building control authority by virtue of section 91ZB of the Act (the regulator: building control authority for other work), it must send a copy of each notice it receives under this regulation in relation to a building to the local authority for the area in which the building is situated.",
+     "Regulations, Commissioning in respect of a system for on-site electricity generation: 44ZA. (1) This regulation applies to building work in respect of a building in relation to which paragraph L2 of Schedule 1 imposes a requirement, but does not apply to the provision or extension of any system for on-site electricity generation where testing and adjustment is not possible. (2) Where this regulation applies the person carrying out the work must, for the purpose of ensuring compliance with paragraph L2 of Schedule 1, give to the building control authority a notice confirming that the system for on-site electricity generation has been commissioned. (3) The notice must be given— (a) in the case where the building work is higher-risk building work for which an application for a completion certificate is required, to the regulator with the application; (b) in any other case, to the building control authority— (i) not later than the date on which the notice required by regulation 16(4) is required to be given; or (ii) where that regulation does not apply, not more than 30 days after completion of the work."
+    ]
+   },
+   "reason": "One-column box of regulation text: each regulation (its printed title and numbered text) is one row.",
+   "evidence": "Words from the PDF text of the box; same box layout as the 2021 edition, whose boxes were checked against page images. Not re-checked against this edition's images.",
+   "by": "model check, Claude Code (AD parser agent; regulation box text from the PDF)",
+   "confidence": "medium",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "c8793ad252f0bd45",
+   "kind": "table",
+   "target": "v1-regulations-44-and-44za-and-requirements-regulations-table-2: Regulations",
+   "value": {
+    "columns": [
+     "Regulations continued"
+    ],
+    "rows": [
+     [
+      "(4) Where the regulator is the building control authority by virtue of section 91ZB of the Act (the regulator: building control authority for other work), it must send a copy of each notice it receives under this regulation in relation to a building to the local authority for the area in which the building is situated."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Regulations: (4) Where the regulator is the building control authority by virtue of section 91ZB of the Act (the regulator: building control authority for other work), it must send a copy of each notice it receives under this regulation in relation to a building to the local authority for the area in which the building is situated."
+    ]
+   },
+   "reason": "One-column box of regulation text: each regulation (its printed title and numbered text) is one row.",
+   "evidence": "Words from the PDF text of the box; same box layout as the 2021 edition, whose boxes were checked against page images. Not re-checked against this edition's images.",
+   "by": "model check, Claude Code (AD parser agent; regulation box text from the PDF)",
+   "confidence": "medium",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "c512536b554e1831",
+   "kind": "table",
+   "target": "v1-regulations-40-40a-and-40c-providing-regulations-table-1: Regulations",
+   "value": {
+    "columns": [
+     "Regulations"
+    ],
+    "rows": [
+     [
+      "Information about use of fuel and power and minimisation of greenhouse gas emissions 40. (1) This regulation applies where paragraph L1 of Schedule 1 imposes a requirement in relation to building work. (2) The person carrying out the work shall not later than five days after the work has been completed provide to the owner sufficient information about the building, the fixed building services and their maintenance requirements so that the building can be operated in such a manner as to use no more fuel and power than is reasonable in the circumstances."
+     ],
+     [
+      "Information about systems for on-site generation of electricity 40A. (1) This regulation applies to building work in respect of a building in relation to which paragraph L2 of Schedule 1 applies. (2) The person carrying out the work must, not later than five days after the work has been completed, provide to the owner sufficient information about the system for on-site electricity generation in respect of its operation and maintenance requirements so that the system may be operated and maintained in such a manner as to produce the maximum electricity that is reasonable in the circumstances and delivers this electricity to the optimal place for use."
+     ],
+     [
+      "Provision of information for the purposes of regulations 39 to 40B – new dwellings 40C. Where regulation 39, 40, 40A or 40B requires a person carrying out work to provide information to a dwelling owner in relation to a new dwelling, the requirement will only be met if the information is provided to the dwelling owner in an appropriate format."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Regulations, Information about use of fuel and power and minimisation of greenhouse gas emissions: 40. (1) This regulation applies where paragraph L1 of Schedule 1 imposes a requirement in relation to building work. (2) The person carrying out the work shall not later than five days after the work has been completed provide to the owner sufficient information about the building, the fixed building services and their maintenance requirements so that the building can be operated in such a manner as to use no more fuel and power than is reasonable in the circumstances.",
+     "Regulations, Information about systems for on-site generation of electricity: 40A. (1) This regulation applies to building work in respect of a building in relation to which paragraph L2 of Schedule 1 applies. (2) The person carrying out the work must, not later than five days after the work has been completed, provide to the owner sufficient information about the system for on-site electricity generation in respect of its operation and maintenance requirements so that the system may be operated and maintained in such a manner as to produce the maximum electricity that is reasonable in the circumstances and delivers this electricity to the optimal place for use.",
+     "Regulations, Provision of information for the purposes of regulations 39 to 40B – new dwellings: 40C. Where regulation 39, 40, 40A or 40B requires a person carrying out work to provide information to a dwelling owner in relation to a new dwelling, the requirement will only be met if the information is provided to the dwelling owner in an appropriate format."
+    ]
+   },
+   "reason": "One-column box of regulation text: each regulation (its printed title and numbered text) is one row.",
+   "evidence": "Words from the PDF text of the box; same box layout as the 2021 edition, whose boxes were checked against page images. Not re-checked against this edition's images.",
+   "by": "model check, Claude Code (AD parser agent; regulation box text from the PDF)",
+   "confidence": "medium",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "424eb13f29e15fbe",
+   "kind": "table",
+   "target": "v1-regulation-23-box-1: Regulation 23(2) and requirement L1(1)(a): Replacing thermal elements and limiting heat gains and losses in existing dwellings",
+   "value": {
+    "columns": [
+     "Regulation"
+    ],
+    "rows": [
+     [
+      "Requirements for the renovation or replacement of thermal elements 23. (2) Where the whole or any part of an individual thermal element is proposed to be replaced and the replacement— (a) constitutes a major renovation; or (b) (in the case of part replacement) amounts to the replacement of more than 50% of the thermal element’s surface area; the whole of the thermal element must be replaced so as to ensure that it complies with paragraph L1(1)(a)(i) of Schedule 1, in so far as that is technically, functionally and economically feasible."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Regulation 23(2) and requirement L1(1)(a): Replacing thermal elements and limiting heat gains and losses in existing dwellings, Requirements for the renovation or replacement of thermal elements: 23. (2) Where the whole or any part of an individual thermal element is proposed to be replaced and the replacement— (a) constitutes a major renovation; or (b) (in the case of part replacement) amounts to the replacement of more than 50% of the thermal element’s surface area; the whole of the thermal element must be replaced so as to ensure that it complies with paragraph L1(1)(a)(i) of Schedule 1, in so far as that is technically, functionally and economically feasible."
+    ]
+   },
+   "reason": "One-column box of regulation text: each regulation (its printed title and numbered text) is one row.",
+   "evidence": "Words from the PDF text of the box; same box layout as the 2021 edition, whose boxes were checked against page images. Not re-checked against this edition's images.",
+   "by": "model check, Claude Code (AD parser agent; regulation box text from the PDF)",
+   "confidence": "medium",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "488073e50fb4712c",
+   "kind": "table",
+   "target": "v1-regulation-23-1-and-requirement-l1-1-a-box-1: Regulation 23(1) and requirement L1(1)(a): Renovating thermal elements and limiting heat gains and losses in existing dwellings",
+   "value": {
+    "columns": [
+     "Regulation"
+    ],
+    "rows": [
+     [
+      "Requirements for the renovation or replacement of thermal elements 23. (1) Where the renovation of an individual thermal element— (a) constitutes a major renovation; or (b) amounts to the renovation of more than 50% of the element’s surface area; the renovation must be carried out so as to ensure that the whole of the element complies with paragraph L1(1)(a)(i) of Schedule 1, in so far as that is technically, functionally and economically feasible."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Regulation 23(1) and requirement L1(1)(a): Renovating thermal elements and limiting heat gains and losses in existing dwellings, Requirements for the renovation or replacement of thermal elements: 23. (1) Where the renovation of an individual thermal element— (a) constitutes a major renovation; or (b) amounts to the renovation of more than 50% of the element’s surface area; the renovation must be carried out so as to ensure that the whole of the element complies with paragraph L1(1)(a)(i) of Schedule 1, in so far as that is technically, functionally and economically feasible."
+    ]
+   },
+   "reason": "One-column box of regulation text: each regulation (its printed title and numbered text) is one row.",
+   "evidence": "Words from the PDF text of the box; same box layout as the 2021 edition, whose boxes were checked against page images. Not re-checked against this edition's images.",
+   "by": "model check, Claude Code (AD parser agent; regulation box text from the PDF)",
+   "confidence": "medium",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "c49d985f556eee29",
+   "kind": "table",
+   "target": "v1-regulations-6-and-22-material-change-of-use-regulations-table-1: Regulations",
+   "value": {
+    "columns": [
+     "Regulations"
+    ],
+    "rows": [
+     [
+      "Requirements relating to material change of use 6. (1) Where there is a material change of use of the whole of a building, such work, if any, shall be carried out as is necessary to ensure that the building complies with the applicable requirements of the following paragraphs of Schedule 1— (a) in all cases, B1 (means of warning and escape) B2 (internal fire spread—linings) B3 (internal fire spread—structure) B4(2) (external fire spread—roofs) B5 (access and facilities for the fire service) C2(c) (interstitial and surface condensation) F1 (ventilation) G1 (cold water supply) G3(1) to (3) (hot water supply and systems) G4 (sanitary conveniences and washing facilities) G5 (bathrooms) G6 (kitchens and food preparation areas) H1 (foul water drainage) H6 (solid waste storage) J1 to J4 (combustion appliances) L1 (conservation of fuel and power and minimisation of greenhouse gas emissions) P1 (electrical safety) S2 (infrastructure for the charging of electric vehicles) T1 (toilet accommodation); (b) in the case of a material change of use described in regulation 5(c), (d), (e) or (f), A1 to A3 (structure); (c) in the case of a building exceeding fifteen metres in height, B4(1) (external fire spread—walls); (d) in the case of a material change of use described in regulation 5(a), (b), (c), (d), (g), (h), (i) or, where the material change provides new residential accommodation, (f), C1(2) (resistance to contaminants); (e) in the case of a material change of use described in regulation 5(a), C2 (resistance to moisture); (f) in the case of a material change of use described in regulation 5(a), (b), (c), (g), (h) or (i), E1 to E3 (resistance to the passage of sound); (g) in the case of a material change of use described in regulation 5(e), where the public building consists of or contains a school, E4 (acoustic conditions in schools); (h) in the case of a material change of use described in regulation 5(a) or (b), G2 (water efficiency) and G3(4) (hot water supply and systems: hot water supply to fixed baths); (i) in the case of a material change of use described in regulation 5(c), (d), (e) or (j), M1 (access to and use of buildings other than dwellings);"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Regulations, Requirements relating to material change of use: 6. (1) Where there is a material change of use of the whole of a building, such work, if any, shall be carried out as is necessary to ensure that the building complies with the applicable requirements of the following paragraphs of Schedule 1— (a) in all cases, B1 (means of warning and escape) B2 (internal fire spread—linings) B3 (internal fire spread—structure) B4(2) (external fire spread—roofs) B5 (access and facilities for the fire service) C2(c) (interstitial and surface condensation) F1 (ventilation) G1 (cold water supply) G3(1) to (3) (hot water supply and systems) G4 (sanitary conveniences and washing facilities) G5 (bathrooms) G6 (kitchens and food preparation areas) H1 (foul water drainage) H6 (solid waste storage) J1 to J4 (combustion appliances) L1 (conservation of fuel and power and minimisation of greenhouse gas emissions) P1 (electrical safety) S2 (infrastructure for the charging of electric vehicles) T1 (toilet accommodation); (b) in the case of a material change of use described in regulation 5(c), (d), (e) or (f), A1 to A3 (structure); (c) in the case of a building exceeding fifteen metres in height, B4(1) (external fire spread—walls); (d) in the case of a material change of use described in regulation 5(a), (b), (c), (d), (g), (h), (i) or, where the material change provides new residential accommodation, (f), C1(2) (resistance to contaminants); (e) in the case of a material change of use described in regulation 5(a), C2 (resistance to moisture); (f) in the case of a material change of use described in regulation 5(a), (b), (c), (g), (h) or (i), E1 to E3 (resistance to the passage of sound); (g) in the case of a material change of use described in regulation 5(e), where the public building consists of or contains a school, E4 (acoustic conditions in schools); (h) in the case of a material change of use described in regulation 5(a) or (b), G2 (water efficiency) and G3(4) (hot water supply and systems: hot water supply to fixed baths); (i) in the case of a material change of use described in regulation 5(c), (d), (e) or (j), M1 (access to and use of buildings other than dwellings)."
+    ]
+   },
+   "reason": "One-column box of regulation text: each regulation (its printed title and numbered text) is one row.",
+   "evidence": "Words from the PDF text of the box; same box layout as the 2021 edition, whose boxes were checked against page images. Not re-checked against this edition's images.",
+   "by": "model check, Claude Code (AD parser agent; regulation box text from the PDF)",
+   "confidence": "medium",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "90fc7e22e101e4f9",
+   "kind": "table",
+   "target": "v1-regulations-6-and-22-material-change-of-use-regulations-table-2: Regulations",
+   "value": {
+    "columns": [
+     "Regulations continued"
+    ],
+    "rows": [
+     [
+      "(j) in the case of a material change of use described in regulation 5(a), (b) or (g), Q1 (security). (2) Where there is a material change of use of part only of a building, such work, if any, shall be carried out as is necessary to ensure that— (a) that part complies in all cases with any applicable requirements referred to in paragraph (1)(a); (b) in a case in which sub-paragraphs (b), (e), (f), (g) or (h) of paragraph (1) apply, that part complies with the requirements referred to in the relevant sub-paragraph; (c) in a case to which sub-paragraph (c) of paragraph (1) applies, the whole building complies with the requirement referred to in that sub-paragraph; (d) in a case to which sub-paragraph (i) of paragraph (1) applies— (i) that part and any sanitary conveniences provided in or in connection with that part comply with the requirements referred to in that sub-paragraph; and (ii) the building complies with requirement M1(a) of Schedule 1 to the extent that reasonable provision is made to provide either suitable independent access to that part or suitable access through the building to that part; (e) in a case to which subparagraph (j) applies in respect of a material change of use described in regulation 5(b) or (g), that part complies with the requirement referred to in that subparagraph. (3) Subject to paragraph (4), where there is a material change of use described in regulation 5(k), such work, if any, shall be carried out as is necessary to ensure that any external wall, or specified attachment, of the building only contains materials of European Classification A2-s1, d0 or A1, classified in accordance with BS EN 13501-1:2018 entitled “Fire classification of construction products and building elements. Classification using test data from reaction to fire tests” (ISBN 978 0 580 95726 0) published by the British Standards Institution. (4) Paragraph (3) does not apply to the items listed in regulation 7(3)."
+     ],
+     [
+      "Requirements relating to a change to energy status 22. Where there is a change to a building’s energy status, such work, if any, shall be carried out as is necessary to ensure that the building complies with the applicable requirements of Part L of Schedule 1."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Regulations: (j) in the case of a material change of use described in regulation 5(a), (b) or (g), Q1 (security). (2) Where there is a material change of use of part only of a building, such work, if any, shall be carried out as is necessary to ensure that— (a) that part complies in all cases with any applicable requirements referred to in paragraph (1)(a); (b) in a case in which sub-paragraphs (b), (e), (f), (g) or (h) of paragraph (1) apply, that part complies with the requirements referred to in the relevant sub-paragraph; (c) in a case to which sub-paragraph (c) of paragraph (1) applies, the whole building complies with the requirement referred to in that sub-paragraph; (d) in a case to which sub-paragraph (i) of paragraph (1) applies— (i) that part and any sanitary conveniences provided in or in connection with that part comply with the requirements referred to in that sub-paragraph; and (ii) the building complies with requirement M1(a) of Schedule 1 to the extent that reasonable provision is made to provide either suitable independent access to that part or suitable access through the building to that part; (e) in a case to which subparagraph (j) applies in respect of a material change of use described in regulation 5(b) or (g), that part complies with the requirement referred to in that subparagraph. (3) Subject to paragraph (4), where there is a material change of use described in regulation 5(k), such work, if any, shall be carried out as is necessary to ensure that any external wall, or specified attachment, of the building only contains materials of European Classification A2-s1, d0 or A1, classified in accordance with BS EN 13501-1:2018 entitled “Fire classification of construction products and building elements. Classification using test data from reaction to fire tests” (ISBN 978 0 580 95726 0) published by the British Standards Institution. (4) Paragraph (3) does not apply to the items listed in regulation 7(3).",
+     "Regulations, Requirements relating to a change to energy status: 22. Where there is a change to a building’s energy status, such work, if any, shall be carried out as is necessary to ensure that the building complies with the applicable requirements of Part L of Schedule 1."
+    ]
+   },
+   "reason": "One-column box of regulation text: each regulation (its printed title and numbered text) is one row.",
+   "evidence": "Words from the PDF text of the box; same box layout as the 2021 edition, whose boxes were checked against page images. Not re-checked against this edition's images.",
+   "by": "model check, Claude Code (AD parser agent; regulation box text from the PDF)",
+   "confidence": "medium",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "84952689d303d574",
+   "kind": "table",
+   "target": "v1-regulation-28-box-1: Regulation 28: Consequential improvements to energy performance",
+   "value": {
+    "columns": [
+     "Regulation"
+    ],
+    "rows": [
+     [
+      "Consequential improvements to energy performance 28. (1) Paragraph (2) applies to an existing building with a total useful floor area over 1,000m2 where the proposed building work consists of or includes— (a) an extension; (b) the initial provision of any fixed building services; or (c) an increase to the installed capacity of any fixed building services. (2) Subject to paragraph (3), where this paragraph applies, such work, if any, shall be carried out as is necessary to ensure that the building complies with the requirements of Part L of Schedule 1. (3) Nothing in paragraph (2) requires work to be carried out if it is not technically, functionally or economically feasible."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Regulation 28: Consequential improvements to energy performance, Consequential improvements to energy performance: 28. (1) Paragraph (2) applies to an existing building with a total useful floor area over 1,000m2 where the proposed building work consists of or includes— (a) an extension; (b) the initial provision of any fixed building services; or (c) an increase to the installed capacity of any fixed building services. (2) Subject to paragraph (3), where this paragraph applies, such work, if any, shall be carried out as is necessary to ensure that the building complies with the requirements of Part L of Schedule 1. (3) Nothing in paragraph (2) requires work to be carried out if it is not technically, functionally or economically feasible."
+    ]
+   },
+   "reason": "One-column box of regulation text: each regulation (its printed title and numbered text) is one row.",
+   "evidence": "Words from the PDF text of the box; same box layout as the 2021 edition, whose boxes were checked against page images. Not re-checked against this edition's images.",
+   "by": "model check, Claude Code (AD parser agent; regulation box text from the PDF)",
+   "confidence": "medium",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "6e39d4973895886d",
+   "kind": "table",
+   "target": "v2-regulations-24-25-25b-26-26c-27-and-27c-regulations-table-1: Regulations",
+   "value": {
+    "columns": [
+     "Regulations"
+    ],
+    "rows": [
+     [
+      "Methodology of calculation of the energy performance 24. (1) The Secretary of State shall approve— (a) a methodology of calculation of the energy performance of buildings, including methods for calculating asset ratings and operational ratings of buildings; and (b) ways in which the energy performance of buildings, as calculated in accordance with the methodology, shall be expressed. (2) In this regulation— “asset rating” means an energy performance indicator determined from the amount of energy estimated to meet the different needs associated with a standardised use of the building; and “operational rating” means an energy performance indicator determined from the amount of energy consumed during the occupation of a building over a period of time and the energy demand associated with a typical use of the building over that period."
+     ],
+     [
+      "Minimum energy performance requirements for new buildings 25. Minimum energy performance requirements shall be approved by the Secretary of State, calculated and expressed in accordance with the methodology approved pursuant to regulation 24, for— (a) new buildings (which shall include new dwellings), in the form of target CO2 emission rates; (b) new dwellings, in the form of target fabric efficiency rates; and (c) new buildings in the form of target primary energy rates."
+     ],
+     [
+      "Nearly zero energy requirements for new buildings 25B. Where a building is erected, it must be a nearly zero energy building."
+     ],
+     [
+      "CO2 emission rates for new buildings 26. Where a building is erected, it shall not exceed the target CO2 emission rate for the building that has been approved pursuant to regulation 25, applying the methodology of calculation and expression of the energy performance of buildings approved pursuant to regulation 24."
+     ],
+     [
+      "Target primary energy rates for new buildings 26C. Where a building is erected it must not exceed the target primary energy rate for the building which has been approved pursuant to regulation 25(c), applying the methodology of calculation and expression of the energy performance of buildings approved pursuant to regulation 24."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Regulations, Methodology of calculation of the energy performance: 24. (1) The Secretary of State shall approve— (a) a methodology of calculation of the energy performance of buildings, including methods for calculating asset ratings and operational ratings of buildings; and (b) ways in which the energy performance of buildings, as calculated in accordance with the methodology, shall be expressed. (2) In this regulation— “asset rating” means an energy performance indicator determined from the amount of energy estimated to meet the different needs associated with a standardised use of the building; and “operational rating” means an energy performance indicator determined from the amount of energy consumed during the occupation of a building over a period of time and the energy demand associated with a typical use of the building over that period.",
+     "Regulations, Minimum energy performance requirements for new buildings: 25. Minimum energy performance requirements shall be approved by the Secretary of State, calculated and expressed in accordance with the methodology approved pursuant to regulation 24, for— (a) new buildings (which shall include new dwellings), in the form of target CO2 emission rates; (b) new dwellings, in the form of target fabric efficiency rates; and (c) new buildings in the form of target primary energy rates.",
+     "Regulations, Nearly zero energy requirements for new buildings: 25B. Where a building is erected, it must be a nearly zero energy building.",
+     "Regulations, CO2 emission rates for new buildings: 26. Where a building is erected, it shall not exceed the target CO2 emission rate for the building that has been approved pursuant to regulation 25, applying the methodology of calculation and expression of the energy performance of buildings approved pursuant to regulation 24.",
+     "Regulations, Target primary energy rates for new buildings: 26C. Where a building is erected it must not exceed the target primary energy rate for the building which has been approved pursuant to regulation 25(c), applying the methodology of calculation and expression of the energy performance of buildings approved pursuant to regulation 24."
+    ]
+   },
+   "reason": "One-column box of regulation text: each regulation (its printed title and numbered text) is one row.",
+   "evidence": "Words from the PDF text of the box; same box layout as the 2021 edition, whose boxes were checked against page images. Not re-checked against this edition's images.",
+   "by": "model check, Claude Code (AD parser agent; regulation box text from the PDF)",
+   "confidence": "medium",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "383e347c90c876a8",
+   "kind": "table",
+   "target": "v2-regulations-24-25-25b-26-26c-27-and-27c-regulations-table-2: Regulations",
+   "value": {
+    "columns": [
+     "Regulations continued"
+    ],
+    "rows": [
+     [
+      "CO2 emission rate calculations 27. (1) This regulation applies where a building is erected and regulation 26 applies. (2) The person carrying out the work must— (a) where the new building is a higher-risk building, ensure the application for building control approval in relation to the work is accompanied by a notice which specifies— (i) the target CO2 emission rate for the building, calculated and expressed in accordance with the methodology approved pursuant to regulation 24, (ii) the CO2 emission rate for the building as designed, calculated and expressed in accordance with the methodology approved pursuant to regulation 24, and (iii) a list of specifications to which the building is to be constructed; (b) in any other case, not later than the day before the work starts, give the building control authority a notice which specifies the matters set out in paragraphs (i) to (iii) of sub-paragraph (a). (3) The person carrying out the work must— (a) where the new building is a higher-risk building, ensure the application for a completion certificate in relation to the work is accompanied by— (i) a notice which specifies— (aa) the target CO2 emission rate for the building, calculated and expressed in accordance with the methodology approved pursuant to regulation 24, (bb) the CO2 emission rate for the building as constructed, calculated and expressed in accordance with the methodology approved pursuant to regulation 24, and (cc) whether the building has been constructed in accordance with the list of specifications referred to in paragraph (2), and, if not, a list of any changes to those specifications; or (ii) a certificate of the sort referred to in paragraph (4) accompanied by the information referred to in sub-paragraphs (aa) to (cc) of paragraph (i); (b) in any other case, not later than five days after the work has been completed, give the building control authority a notice which specifies the matters mentioned in sub-paragraphs (aa) to (cc) of sub-paragraph (a)(i) or a certificate of the sort mentioned in sub-paragraph (a)(ii). (4) A building control authority are authorised to accept, as evidence that the requirements of regulation 26 have been satisfied, a certificate to that effect by an energy assessor who is accredited to produce energy performance certificates for that category of building. (4A)Where the regulator is the building control authority by virtue of section 91ZB of the Act (the regulator: building control authority for other work), it must send a copy of each notice or certificate it receives under this regulation in relation to a building to the local authority for the area in which the building is situated. (5) In this regulation, “specifications” means specifications used for the calculation of the CO2 emission rate."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Regulations, CO2 emission rate calculations: 27. (1) This regulation applies where a building is erected and regulation 26 applies. (2) The person carrying out the work must— (a) where the new building is a higher-risk building, ensure the application for building control approval in relation to the work is accompanied by a notice which specifies— (i) the target CO2 emission rate for the building, calculated and expressed in accordance with the methodology approved pursuant to regulation 24, (ii) the CO2 emission rate for the building as designed, calculated and expressed in accordance with the methodology approved pursuant to regulation 24, and (iii) a list of specifications to which the building is to be constructed; (b) in any other case, not later than the day before the work starts, give the building control authority a notice which specifies the matters set out in paragraphs (i) to (iii) of sub-paragraph (a). (3) The person carrying out the work must— (a) where the new building is a higher-risk building, ensure the application for a completion certificate in relation to the work is accompanied by— (i) a notice which specifies— (aa) the target CO2 emission rate for the building, calculated and expressed in accordance with the methodology approved pursuant to regulation 24, (bb) the CO2 emission rate for the building as constructed, calculated and expressed in accordance with the methodology approved pursuant to regulation 24, and (cc) whether the building has been constructed in accordance with the list of specifications referred to in paragraph (2), and, if not, a list of any changes to those specifications; or (ii) a certificate of the sort referred to in paragraph (4) accompanied by the information referred to in sub-paragraphs (aa) to (cc) of paragraph (i); (b) in any other case, not later than five days after the work has been completed, give the building control authority a notice which specifies the matters mentioned in sub-paragraphs (aa) to (cc) of sub-paragraph (a)(i) or a certificate of the sort mentioned in sub-paragraph (a)(ii). (4) A building control authority are authorised to accept, as evidence that the requirements of regulation 26 have been satisfied, a certificate to that effect by an energy assessor who is accredited to produce energy performance certificates for that category of building. (4A)Where the regulator is the building control authority by virtue of section 91ZB of the Act (the regulator: building control authority for other work), it must send a copy of each notice or certificate it receives under this regulation in relation to a building to the local authority for the area in which the building is situated. (5) In this regulation, “specifications” means specifications used for the calculation of the CO2 emission rate."
+    ]
+   },
+   "reason": "One-column box of regulation text: each regulation (its printed title and numbered text) is one row.",
+   "evidence": "Words from the PDF text of the box; same box layout as the 2021 edition, whose boxes were checked against page images. Not re-checked against this edition's images.",
+   "by": "model check, Claude Code (AD parser agent; regulation box text from the PDF)",
+   "confidence": "medium",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "354185b45a2da56b",
+   "kind": "table",
+   "target": "v2-regulations-24-25-25b-26-26c-27-and-27c-regulations-table-3: Regulations",
+   "value": {
+    "columns": [
+     "Regulations continued"
+    ],
+    "rows": [
+     [
+      "Target primary energy rate calculations for new buildings 27C. (1) This regulation applies where a building is erected. (2) The person carrying out the work must— (a) where the new building is a higher-risk building, ensure the application for building control approval in relation to the work is accompanied by a notice which specifies— (i) the target primary energy rate for the building, calculated and expressed in accordance with the methodology approved pursuant to regulation 24, (ii) the calculated target primary energy rate for the building as designed, calculated and expressed in accordance with the methodology approved pursuant to regulation 24, and (iii) a list of specifications to which the building is to be constructed; (b) in any other case, not later than the day before the work starts, give the building control authority a notice which specifies the matters set out in paragraphs (i) to (iii) of sub-paragraph (a). (3) The person carrying out the work must— (a) where the new building is a higher-risk building, ensure the application for a completion certificate in relation to the work is accompanied by— (i) a notice which specifies— (aa) the target primary energy rate for the building, calculated and expressed in accordance with the methodology approved pursuant to regulation 24, (bb) the calculated target primary energy rate for the building as constructed, calculated and expressed in accordance with the methodology approved pursuant to regulation 24, and (cc) whether the building has been constructed in accordance with the list of specifications referred to in paragraph (2), and, if not, a list of any changes to those specifications; or (ii) a certificate of the sort referred to in paragraph (4) accompanied by the information referred to in sub-paragraphs (aa) to (cc) of paragraph (i); (b) in any other case, not later than five days after the work has been completed, give the building control authority a notice which specifies the matters mentioned in sub-paragraphs (aa) to (cc) of sub-paragraph (a)(i) or a certificate of the sort mentioned in sub-paragraph (a)(ii). (4) A building control authority is authorised to accept, as evidence that the requirements of regulation 26C have been satisfied, a certificate to that effect by an energy assessor who is accredited to produce energy performance certificates for that category of building. (4A)Where the regulator is the building control authority by virtue of section 91ZB of the Act (the regulator: building control authority for other work), it must send a copy of each notice or certificate it receives under this regulation in relation to a building to the local authority for the area in which the building is situated. (5) In this regulation, “specifications” means specifications used for the calculation of the target primary energy rate."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Regulations, Target primary energy rate calculations for new buildings: 27C. (1) This regulation applies where a building is erected. (2) The person carrying out the work must— (a) where the new building is a higher-risk building, ensure the application for building control approval in relation to the work is accompanied by a notice which specifies— (i) the target primary energy rate for the building, calculated and expressed in accordance with the methodology approved pursuant to regulation 24, (ii) the calculated target primary energy rate for the building as designed, calculated and expressed in accordance with the methodology approved pursuant to regulation 24, and (iii) a list of specifications to which the building is to be constructed; (b) in any other case, not later than the day before the work starts, give the building control authority a notice which specifies the matters set out in paragraphs (i) to (iii) of sub-paragraph (a). (3) The person carrying out the work must— (a) where the new building is a higher-risk building, ensure the application for a completion certificate in relation to the work is accompanied by— (i) a notice which specifies— (aa) the target primary energy rate for the building, calculated and expressed in accordance with the methodology approved pursuant to regulation 24, (bb) the calculated target primary energy rate for the building as constructed, calculated and expressed in accordance with the methodology approved pursuant to regulation 24, and (cc) whether the building has been constructed in accordance with the list of specifications referred to in paragraph (2), and, if not, a list of any changes to those specifications; or (ii) a certificate of the sort referred to in paragraph (4) accompanied by the information referred to in sub-paragraphs (aa) to (cc) of paragraph (i); (b) in any other case, not later than five days after the work has been completed, give the building control authority a notice which specifies the matters mentioned in sub-paragraphs (aa) to (cc) of sub-paragraph (a)(i) or a certificate of the sort mentioned in sub-paragraph (a)(ii). (4) A building control authority is authorised to accept, as evidence that the requirements of regulation 26C have been satisfied, a certificate to that effect by an energy assessor who is accredited to produce energy performance certificates for that category of building. (4A)Where the regulator is the building control authority by virtue of section 91ZB of the Act (the regulator: building control authority for other work), it must send a copy of each notice or certificate it receives under this regulation in relation to a building to the local authority for the area in which the building is situated. (5) In this regulation, “specifications” means specifications used for the calculation of the target primary energy rate."
+    ]
+   },
+   "reason": "One-column box of regulation text: each regulation (its printed title and numbered text) is one row.",
+   "evidence": "Words from the PDF text of the box; same box layout as the 2021 edition, whose boxes were checked against page images. Not re-checked against this edition's images.",
+   "by": "model check, Claude Code (AD parser agent; regulation box text from the PDF)",
+   "confidence": "medium",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "72a8bf1228881fb6",
+   "kind": "table",
+   "target": "v2-regulation-43-box-1: Regulation 43: Pressure testing",
+   "value": {
+    "columns": [
+     "Regulation"
+    ],
+    "rows": [
+     [
+      "Pressure testing 43. (1) This regulation applies to the erection of a building in relation to which paragraph L1(1)(a)(i) of Schedule 1 imposes a requirement. (2) Where this regulation applies, the person carrying out the work shall, for the purpose of ensuring compliance with regulation 26 and regulation 26A and paragraph L1(1)(a)(i) of Schedule 1— (a) ensure that— (i) pressure testing is carried out in such circumstances as are approved by the Secretary of State; and (ii) the testing is carried out in accordance with a procedure approved by the Secretary of State; and (b) subject to paragraph (5), give notice of the results of the testing to the building control authority. (3) The notice referred to in paragraph (2)(b) shall— (a) record the results and the data upon which they are based in a manner approved by the Secretary of State; and (b) be given to the building control authority not later than seven days after the final test is carried out. (4) A building control authority are authorised to accept, as evidence that the requirements of paragraph (2)(a) (ii) have been satisfied, a certificate to that effect by a person who is registered by Elmhurst Energy Systems Limited or the Air Tightness Testing and Measurement Association in respect of pressure testing for the air tightness of buildings. (5) Where such a certificate contains the information required by paragraph (3)(a), paragraph (2)(b) does not apply. (6) Where the regulator is the building control authority by virtue of section 91ZB of the Act (the regulator: building control authority for other work), it must send a copy of each notice or certificate it receives under this regulation in relation to a building to the local authority for the area in which the building is situated."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Regulation 43: Pressure testing, Pressure testing: 43. (1) This regulation applies to the erection of a building in relation to which paragraph L1(1)(a)(i) of Schedule 1 imposes a requirement. (2) Where this regulation applies, the person carrying out the work shall, for the purpose of ensuring compliance with regulation 26 and regulation 26A and paragraph L1(1)(a)(i) of Schedule 1— (a) ensure that— (i) pressure testing is carried out in such circumstances as are approved by the Secretary of State; and (ii) the testing is carried out in accordance with a procedure approved by the Secretary of State; and (b) subject to paragraph (5), give notice of the results of the testing to the building control authority. (3) The notice referred to in paragraph (2)(b) shall— (a) record the results and the data upon which they are based in a manner approved by the Secretary of State; and (b) be given to the building control authority not later than seven days after the final test is carried out. (4) A building control authority are authorised to accept, as evidence that the requirements of paragraph (2)(a) (ii) have been satisfied, a certificate to that effect by a person who is registered by Elmhurst Energy Systems Limited or the Air Tightness Testing and Measurement Association in respect of pressure testing for the air tightness of buildings. (5) Where such a certificate contains the information required by paragraph (3)(a), paragraph (2)(b) does not apply. (6) Where the regulator is the building control authority by virtue of section 91ZB of the Act (the regulator: building control authority for other work), it must send a copy of each notice or certificate it receives under this regulation in relation to a building to the local authority for the area in which the building is situated."
+    ]
+   },
+   "reason": "One-column box of regulation text: each regulation (its printed title and numbered text) is one row.",
+   "evidence": "Words from the PDF text of the box; same box layout as the 2021 edition, whose boxes were checked against page images. Not re-checked against this edition's images.",
+   "by": "model check, Claude Code (AD parser agent; regulation box text from the PDF)",
+   "confidence": "medium",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "69034e7d7f6c5d6f",
+   "kind": "table",
+   "target": "v2-regulations-44-and-44za-and-requirements-l1-1-regulations-table-1: Regulations",
+   "value": {
+    "columns": [
+     "Regulations"
+    ],
+    "rows": [
+     [
+      "Commissioning 44. (1) This regulation applies to building work in relation to which paragraph F1(2) of Schedule 1 imposes a requirement, but does not apply to the provision or extension of any fixed system for mechanical ventilation or any associated controls where testing and adjustment is not possible. (2) This regulation also applies to building work in relation to which paragraph L1(1)(b) of Schedule 1 imposes a requirement, but does not apply to the provision or extension of any fixed building service where testing and adjustment is not possible or would not affect the energy efficiency of that fixed building service. (3) Where this regulation applies the person carrying out the work shall, for the purpose of ensuring compliance with paragraph F1(2) or L1(1)(b) of Schedule 1, give to the building control authority a notice confirming that the fixed building services have been commissioned in accordance with a procedure approved by the Secretary of State. (4) The notice must be given— (a) in the case where the building work is higher-risk building work for which an application for a completion certificate is required, to the regulator with the application; (b) in any other case, to the building control authority— (i) not later than the date on which the notice required by regulation 16(4) is required to be given; or (ii) where that regulation does not apply, not more than 30 days after completion of the work. (5) Where the regulator is the building control authority by virtue of section 91ZB of the Act (the regulator: building control authority for other work), it must send a copy of each notice it receives under this regulation in relation to a building to the local authority for the area in which the building is situated."
+     ],
+     [
+      "Commissioning in respect of a system for on-site electricity generation 44ZA. (1) This regulation applies to building work in respect of a building in relation to which paragraph L2 of Schedule 1 imposes a requirement, but does not apply to the provision or extension of any system for on-site electricity generation where testing and adjustment is not possible. (2) Where this regulation applies the person carrying out the work must, for the purpose of ensuring compliance with paragraph L2 of Schedule 1, give to the building control authority a notice confirming that the system for on-site electricity generation has been commissioned. (3) The notice must be given— (a) in the case where the building work is higher-risk building work for which an application for a completion certificate is required, to the regulator with the application; (b) in any other case, to the building control authority— (i) not later than the date on which the notice required by regulation 16(4) is required to be given; or (ii) where that regulation does not apply, not more than 30 days after completion of the work. (4) Where the regulator is the building control authority by virtue of section 91ZB of the Act (the regulator: building control authority for other work), it must send a copy of each notice it receives under this regulation in relation to a building to the local authority for the area in which the building is situated."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Regulations, Commissioning: 44. (1) This regulation applies to building work in relation to which paragraph F1(2) of Schedule 1 imposes a requirement, but does not apply to the provision or extension of any fixed system for mechanical ventilation or any associated controls where testing and adjustment is not possible. (2) This regulation also applies to building work in relation to which paragraph L1(1)(b) of Schedule 1 imposes a requirement, but does not apply to the provision or extension of any fixed building service where testing and adjustment is not possible or would not affect the energy efficiency of that fixed building service. (3) Where this regulation applies the person carrying out the work shall, for the purpose of ensuring compliance with paragraph F1(2) or L1(1)(b) of Schedule 1, give to the building control authority a notice confirming that the fixed building services have been commissioned in accordance with a procedure approved by the Secretary of State. (4) The notice must be given— (a) in the case where the building work is higher-risk building work for which an application for a completion certificate is required, to the regulator with the application; (b) in any other case, to the building control authority— (i) not later than the date on which the notice required by regulation 16(4) is required to be given; or (ii) where that regulation does not apply, not more than 30 days after completion of the work. (5) Where the regulator is the building control authority by virtue of section 91ZB of the Act (the regulator: building control authority for other work), it must send a copy of each notice it receives under this regulation in relation to a building to the local authority for the area in which the building is situated.",
+     "Regulations, Commissioning in respect of a system for on-site electricity generation: 44ZA. (1) This regulation applies to building work in respect of a building in relation to which paragraph L2 of Schedule 1 imposes a requirement, but does not apply to the provision or extension of any system for on-site electricity generation where testing and adjustment is not possible. (2) Where this regulation applies the person carrying out the work must, for the purpose of ensuring compliance with paragraph L2 of Schedule 1, give to the building control authority a notice confirming that the system for on-site electricity generation has been commissioned. (3) The notice must be given— (a) in the case where the building work is higher-risk building work for which an application for a completion certificate is required, to the regulator with the application; (b) in any other case, to the building control authority— (i) not later than the date on which the notice required by regulation 16(4) is required to be given; or (ii) where that regulation does not apply, not more than 30 days after completion of the work. (4) Where the regulator is the building control authority by virtue of section 91ZB of the Act (the regulator: building control authority for other work), it must send a copy of each notice it receives under this regulation in relation to a building to the local authority for the area in which the building is situated."
+    ]
+   },
+   "reason": "One-column box of regulation text: each regulation (its printed title and numbered text) is one row.",
+   "evidence": "Words from the PDF text of the box; same box layout as the 2021 edition, whose boxes were checked against page images. Not re-checked against this edition's images.",
+   "by": "model check, Claude Code (AD parser agent; regulation box text from the PDF)",
+   "confidence": "medium",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "0f3b17d0fca1ac46",
+   "kind": "table",
+   "target": "v2-regulations-40-and-40a-providing-information-regulations-table-1: Regulations",
+   "value": {
+    "columns": [
+     "Regulations"
+    ],
+    "rows": [
+     [
+      "Information about use of fuel and power and minimisation of greenhouse gas emissions 40. (1) This regulation applies where paragraph L1 of Schedule 1 imposes a requirement in relation to building work. (2) The person carrying out the work shall not later than five days after the work has been completed provide to the owner sufficient information about the building, the fixed building services and their maintenance requirements so that the building can be operated in such a manner as to use no more fuel and power than is reasonable in the circumstances."
+     ],
+     [
+      "Information about systems for on-site generation of electricity 40A. (1) This regulation applies to building work in respect of a building in relation to which paragraph L2 of Schedule 1 applies. (2) The person carrying out the work must, not later than five days after the work has been completed, provide to the owner sufficient information about the system for on-site electricity generation in respect of its operation and maintenance requirements so that the system may be operated and maintained in such a manner as to produce the maximum electricity that is reasonable in the circumstances and delivers this electricity to the optimal place for use."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Regulations, Information about use of fuel and power and minimisation of greenhouse gas emissions: 40. (1) This regulation applies where paragraph L1 of Schedule 1 imposes a requirement in relation to building work. (2) The person carrying out the work shall not later than five days after the work has been completed provide to the owner sufficient information about the building, the fixed building services and their maintenance requirements so that the building can be operated in such a manner as to use no more fuel and power than is reasonable in the circumstances.",
+     "Regulations, Information about systems for on-site generation of electricity: 40A. (1) This regulation applies to building work in respect of a building in relation to which paragraph L2 of Schedule 1 applies. (2) The person carrying out the work must, not later than five days after the work has been completed, provide to the owner sufficient information about the system for on-site electricity generation in respect of its operation and maintenance requirements so that the system may be operated and maintained in such a manner as to produce the maximum electricity that is reasonable in the circumstances and delivers this electricity to the optimal place for use."
+    ]
+   },
+   "reason": "One-column box of regulation text: each regulation (its printed title and numbered text) is one row.",
+   "evidence": "Words from the PDF text of the box; same box layout as the 2021 edition, whose boxes were checked against page images. Not re-checked against this edition's images.",
+   "by": "model check, Claude Code (AD parser agent; regulation box text from the PDF)",
+   "confidence": "medium",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "0667355ce94b3ad9",
+   "kind": "table",
+   "target": "v2-regulation-23-box-1: Regulation 23(2) and requirement L1(1)(a): Replacing thermal elements and limiting heat gains and losses in existing buildings",
+   "value": {
+    "columns": [
+     "Regulation"
+    ],
+    "rows": [
+     [
+      "Requirements for the renovation or replacement of thermal elements 23. (2) Where the whole or any part of an individual thermal element is proposed to be replaced and the replacement— (a) constitutes a major renovation; or (b) (in the case of part replacement) amounts to the replacement of more than 50% of the thermal element’s surface area; the whole of the thermal element must be replaced so as to ensure that it complies with paragraph L1(1)(a)(i) of Schedule 1, in so far as that is technically, functionally and economically feasible."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Regulation 23(2) and requirement L1(1)(a): Replacing thermal elements and limiting heat gains and losses in existing buildings, Requirements for the renovation or replacement of thermal elements: 23. (2) Where the whole or any part of an individual thermal element is proposed to be replaced and the replacement— (a) constitutes a major renovation; or (b) (in the case of part replacement) amounts to the replacement of more than 50% of the thermal element’s surface area; the whole of the thermal element must be replaced so as to ensure that it complies with paragraph L1(1)(a)(i) of Schedule 1, in so far as that is technically, functionally and economically feasible."
+    ]
+   },
+   "reason": "One-column box of regulation text: each regulation (its printed title and numbered text) is one row.",
+   "evidence": "Words from the PDF text of the box; same box layout as the 2021 edition, whose boxes were checked against page images. Not re-checked against this edition's images.",
+   "by": "model check, Claude Code (AD parser agent; regulation box text from the PDF)",
+   "confidence": "medium",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "cc85ba7ce32446a7",
+   "kind": "table",
+   "target": "v2-regulation-23-1-and-requirement-l1-1-a-box-1: Regulation 23(1) and requirement L1(1)(a): Renovating thermal elements and limiting heat gains and losses in existing buildings",
+   "value": {
+    "columns": [
+     "Regulation"
+    ],
+    "rows": [
+     [
+      "Requirements for the renovation or replacement of thermal elements 23. (1) Where the renovation of an individual thermal element— (a) constitutes a major renovation; or (b) amounts to the renovation of more than 50% of the element’s surface area; the renovation must be carried out so as to ensure that the whole of the element complies with paragraph L1(1)(a)(i) of Schedule 1, in so far as that is technically, functionally and economically feasible."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Regulation 23(1) and requirement L1(1)(a): Renovating thermal elements and limiting heat gains and losses in existing buildings, Requirements for the renovation or replacement of thermal elements: 23. (1) Where the renovation of an individual thermal element— (a) constitutes a major renovation; or (b) amounts to the renovation of more than 50% of the element’s surface area; the renovation must be carried out so as to ensure that the whole of the element complies with paragraph L1(1)(a)(i) of Schedule 1, in so far as that is technically, functionally and economically feasible."
+    ]
+   },
+   "reason": "One-column box of regulation text: each regulation (its printed title and numbered text) is one row.",
+   "evidence": "Words from the PDF text of the box; same box layout as the 2021 edition, whose boxes were checked against page images. Not re-checked against this edition's images.",
+   "by": "model check, Claude Code (AD parser agent; regulation box text from the PDF)",
+   "confidence": "medium",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "48ed5e5b69fcf062",
+   "kind": "table",
+   "target": "v2-regulations-6-and-22-material-change-of-use-regulations-table-1: Regulations",
+   "value": {
+    "columns": [
+     "Regulations"
+    ],
+    "rows": [
+     [
+      "Requirements relating to material change of use 6. (1) Where there is a material change of use of the whole of a building, such work, if any, shall be carried out as is necessary to ensure that the building complies with the applicable requirements of the following paragraphs of Schedule 1— (a) in all cases, B1 (means of warning and escape) B2 (internal fire spread—linings) B3 (internal fire spread—structure) B4(2) (external fire spread—roofs) B5 (access and facilities for the fire service) C2(c) (interstitial and surface condensation) F1 (ventilation) G1 (cold water supply) G3(1) to (3) (hot water supply and systems) G4 (sanitary conveniences and washing facilities) G5 (bathrooms) G6 (kitchens and food preparation areas) H1 (foul water drainage) H6 (solid waste storage) J1 to J4 (combustion appliances) L1 (conservation of fuel and power and minimisation of greenhouse gas emissions) P1 (electrical safety); S2 (infrastructure for the charging of electric vehicles) T1 (toilet accommodation); (b) in the case of a material change of use described in regulation 5(c), (d), (e) or (f), A1 to A3 (structure); (c) in the case of a building exceeding fifteen metres in height, B4(1) (external fire spread—walls); (d) in the case of a material change of use described in regulation 5(a), (b), (c), (d), (g), (h), (i) or, where the material change provides new residential accommodation, (f), C1(2) (resistance to contaminants); (e) in the case of a material change of use described in regulation 5(a), C2 (resistance to moisture); (f) in the case of a material change of use described in regulation 5(a), (b), (c), (g), (h) or (i), E1 to E3 (resistance to the passage of sound); (g) in the case of a material change of use described in regulation 5(e), where the public building consists of or contains a school, E4 (acoustic conditions in schools); (h) in the case of a material change of use described in regulation 5(a) or (b), G2 (water efficiency) and G3(4) (hot water supply and systems: hot water supply to fixed baths); (i) in the case of a material change of use described in regulation 5(c), (d), (e) or (j), M1 (access to and use of buildings other than dwellings);"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Regulations, Requirements relating to material change of use: 6. (1) Where there is a material change of use of the whole of a building, such work, if any, shall be carried out as is necessary to ensure that the building complies with the applicable requirements of the following paragraphs of Schedule 1— (a) in all cases, B1 (means of warning and escape) B2 (internal fire spread—linings) B3 (internal fire spread—structure) B4(2) (external fire spread—roofs) B5 (access and facilities for the fire service) C2(c) (interstitial and surface condensation) F1 (ventilation) G1 (cold water supply) G3(1) to (3) (hot water supply and systems) G4 (sanitary conveniences and washing facilities) G5 (bathrooms) G6 (kitchens and food preparation areas) H1 (foul water drainage) H6 (solid waste storage) J1 to J4 (combustion appliances) L1 (conservation of fuel and power and minimisation of greenhouse gas emissions) P1 (electrical safety); S2 (infrastructure for the charging of electric vehicles) T1 (toilet accommodation); (b) in the case of a material change of use described in regulation 5(c), (d), (e) or (f), A1 to A3 (structure); (c) in the case of a building exceeding fifteen metres in height, B4(1) (external fire spread—walls); (d) in the case of a material change of use described in regulation 5(a), (b), (c), (d), (g), (h), (i) or, where the material change provides new residential accommodation, (f), C1(2) (resistance to contaminants); (e) in the case of a material change of use described in regulation 5(a), C2 (resistance to moisture); (f) in the case of a material change of use described in regulation 5(a), (b), (c), (g), (h) or (i), E1 to E3 (resistance to the passage of sound); (g) in the case of a material change of use described in regulation 5(e), where the public building consists of or contains a school, E4 (acoustic conditions in schools); (h) in the case of a material change of use described in regulation 5(a) or (b), G2 (water efficiency) and G3(4) (hot water supply and systems: hot water supply to fixed baths); (i) in the case of a material change of use described in regulation 5(c), (d), (e) or (j), M1 (access to and use of buildings other than dwellings)."
+    ]
+   },
+   "reason": "One-column box of regulation text: each regulation (its printed title and numbered text) is one row.",
+   "evidence": "Words from the PDF text of the box; same box layout as the 2021 edition, whose boxes were checked against page images. Not re-checked against this edition's images.",
+   "by": "model check, Claude Code (AD parser agent; regulation box text from the PDF)",
+   "confidence": "medium",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "5e3310a24c12a34c",
+   "kind": "table",
+   "target": "v2-regulations-6-and-22-material-change-of-use-regulations-table-2: Regulations",
+   "value": {
+    "columns": [
+     "Regulations continued"
+    ],
+    "rows": [
+     [
+      "(j) in the case of a material change of use described in regulation 5(a), (b) or (g), Q1 (security). (2) Where there is a material change of use of part only of a building, such work, if any, shall be carried out as is necessary to ensure that— (a) that part complies in all cases with any applicable requirements referred to in paragraph (1)(a); (b) in a case in which sub-paragraphs (b), (e), (f), (g) or (h) of paragraph (1) apply, that part complies with the requirements referred to in the relevant sub-paragraph; (c) in a case to which sub-paragraph (c) of paragraph (1) applies, the whole building complies with the requirement referred to in that sub-paragraph; (d) in a case to which sub-paragraph (i) of paragraph (1) applies— (i) that part and any sanitary conveniences provided in or in connection with that part comply with the requirements referred to in that sub-paragraph; and (ii) the building complies with requirement M1(a) of Schedule 1 to the extent that reasonable provision is made to provide either suitable independent access to that part or suitable access through the building to that part; (e) in a case to which subparagraph (j) applies in respect of a material change of use described in regulation 5(b) or (g), that part complies with the requirement referred to in that subparagraph. (3) Subject to paragraph (4), where there is a material change of use described in regulation 5(k), such work, if any, shall be carried out as is necessary to ensure that any external wall, or specified attachment, of the building only contains materials of European Classification A2-s1, d0 or A1, classified in accordance with BS EN 13501-1:2024 entitled “Fire classification of construction products and building elements. Classification using test data from reaction to fire tests” (ISBN 978 0 580 95726 0) published by the British Standards Institution. (4) Paragraph (3) does not apply to the items listed in regulation 7(3)."
+     ],
+     [
+      "Requirements relating to a change to energy status 22. Where there is a change to a building’s energy status, such work, if any, shall be carried out as is necessary to ensure that the building complies with the applicable requirements of Part L of Schedule 1."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Regulations: (j) in the case of a material change of use described in regulation 5(a), (b) or (g), Q1 (security). (2) Where there is a material change of use of part only of a building, such work, if any, shall be carried out as is necessary to ensure that— (a) that part complies in all cases with any applicable requirements referred to in paragraph (1)(a); (b) in a case in which sub-paragraphs (b), (e), (f), (g) or (h) of paragraph (1) apply, that part complies with the requirements referred to in the relevant sub-paragraph; (c) in a case to which sub-paragraph (c) of paragraph (1) applies, the whole building complies with the requirement referred to in that sub-paragraph; (d) in a case to which sub-paragraph (i) of paragraph (1) applies— (i) that part and any sanitary conveniences provided in or in connection with that part comply with the requirements referred to in that sub-paragraph; and (ii) the building complies with requirement M1(a) of Schedule 1 to the extent that reasonable provision is made to provide either suitable independent access to that part or suitable access through the building to that part; (e) in a case to which subparagraph (j) applies in respect of a material change of use described in regulation 5(b) or (g), that part complies with the requirement referred to in that subparagraph. (3) Subject to paragraph (4), where there is a material change of use described in regulation 5(k), such work, if any, shall be carried out as is necessary to ensure that any external wall, or specified attachment, of the building only contains materials of European Classification A2-s1, d0 or A1, classified in accordance with BS EN 13501-1:2024 entitled “Fire classification of construction products and building elements. Classification using test data from reaction to fire tests” (ISBN 978 0 580 95726 0) published by the British Standards Institution. (4) Paragraph (3) does not apply to the items listed in regulation 7(3).",
+     "Regulations, Requirements relating to a change to energy status: 22. Where there is a change to a building’s energy status, such work, if any, shall be carried out as is necessary to ensure that the building complies with the applicable requirements of Part L of Schedule 1."
+    ]
+   },
+   "reason": "One-column box of regulation text: each regulation (its printed title and numbered text) is one row.",
+   "evidence": "Words from the PDF text of the box; same box layout as the 2021 edition, whose boxes were checked against page images. Not re-checked against this edition's images.",
+   "by": "model check, Claude Code (AD parser agent; regulation box text from the PDF)",
+   "confidence": "medium",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "44cdbd01e6126ded",
+   "kind": "table",
+   "target": "v2-regulation-28-box-1: Regulation 28: Consequential improvements to energy performance",
+   "value": {
+    "columns": [
+     "Regulation"
+    ],
+    "rows": [
+     [
+      "Consequential improvements to energy performance 28. (1) Paragraph (2) applies to an existing building with a total useful floor area over 1,000m2 where the proposed building work consists of or includes— (a) an extension; (b) the initial provision of any fixed building services; or (c) an increase to the installed capacity of any fixed building services. (2) Subject to paragraph (3), where this paragraph applies, such work, if any, shall be carried out as is necessary to ensure that the building complies with the requirements of Part L of Schedule 1. (3) Nothing in paragraph (2) requires work to be carried out if it is not technically, functionally or economically feasible."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Regulation 28: Consequential improvements to energy performance, Consequential improvements to energy performance: 28. (1) Paragraph (2) applies to an existing building with a total useful floor area over 1,000m2 where the proposed building work consists of or includes— (a) an extension; (b) the initial provision of any fixed building services; or (c) an increase to the installed capacity of any fixed building services. (2) Subject to paragraph (3), where this paragraph applies, such work, if any, shall be carried out as is necessary to ensure that the building complies with the requirements of Part L of Schedule 1. (3) Nothing in paragraph (2) requires work to be carried out if it is not technically, functionally or economically feasible."
+    ]
+   },
+   "reason": "One-column box of regulation text: each regulation (its printed title and numbered text) is one row.",
+   "evidence": "Words from the PDF text of the box; same box layout as the 2021 edition, whose boxes were checked against page images. Not re-checked against this edition's images.",
+   "by": "model check, Claude Code (AD parser agent; regulation box text from the PDF)",
+   "confidence": "medium",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "82a60c3d51677d55",
+   "kind": "table",
+   "target": "v1-requirement-l1-box-1: Requirement L1(1)(a): Limiting heat gains and losses",
+   "value": {
+    "columns": [
+     "Requirement",
+     "Limits on application"
+    ],
+    "rows": [
+     [
+      "Schedule 1 – Part L Conservation of fuel and power and minimisation of greenhouse gas emissions",
+      ""
+     ],
+     [
+      "L1. (1) Reasonable provision must be made for the conservation of fuel and power in buildings and the minimisation of greenhouse gas emissions from buildings by— (a) limiting heat gains and losses— (i) through thermal elements and other parts of the building fabric; and (ii) from pipes, ducts and vessels used for space heating, space cooling and hot water services; (b) providing fixed building services which— (i) are energy efficient to a reasonable standard; (ii) minimise greenhouse gas emissions; (iii) have effective controls; and (iv) are commissioned by testing and adjusting as necessary to ensure they use no more fuel and power than is reasonable in the circumstances. (2) In this paragraph— “greenhouse gas” has the meaning given in section 92 of the Climate Change Act 2008.",
+      ""
+     ]
+    ],
+    "heading_rows": [
+     0
+    ],
+    "sentences": [
+     "Requirement L1(1)(a): Limiting heat gains and losses: requirement L1: (1) Reasonable provision must be made for the conservation of fuel and power in buildings and the minimisation of greenhouse gas emissions from buildings by— (a) limiting heat gains and losses— (i) through thermal elements and other parts of the building fabric; and (ii) from pipes, ducts and vessels used for space heating, space cooling and hot water services; (b) providing fixed building services which— (i) are energy efficient to a reasonable standard; (ii) minimise greenhouse gas emissions; (iii) have effective controls; and (iv) are commissioned by testing and adjusting as necessary to ensure they use no more fuel and power than is reasonable in the circumstances. (2) In this paragraph— “greenhouse gas” has the meaning given in section 92 of the Climate Change Act 2008; no limits on application are printed."
+    ]
+   },
+   "reason": "Requirement box: the Part heading and sub-headings are heading rows; each requirement is one row; the Limits on application column is empty on the page.",
+   "evidence": "Page image corpus/parsed/adl-2026/approved-document-l-volume-1-dwellings@2026-09-08-438bbd19/pages/p31.png and the PDF text of the box.",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "768076755267b76e",
+   "kind": "table",
+   "target": "v1-requirements-l1-1-b-i-ii-iii-l2-and-l3-box-1: Requirements L1(1)(b)(i), (ii), (iii), L2 and L3: Fixed building services’ energy efficiency and controls, and on-site electricity generation",
+   "value": {
+    "columns": [
+     "Requirement",
+     "Limits on application"
+    ],
+    "rows": [
+     [
+      "Schedule 1 – Part L Conservation of fuel and power and minimisation of greenhouse gas emissions",
+      ""
+     ],
+     [
+      "L1. (1) Reasonable provision must be made for the conservation of fuel and power in buildings and the minimisation of greenhouse gas emissions from buildings by— (a) limiting heat gains and losses— (i) through thermal elements and other parts of the building fabric; and (ii) from pipes, ducts and vessels used for space heating, space cooling and hot water services; (b) providing fixed building services which— (i) are energy efficient to a reasonable standard; (ii) minimise greenhouse gas emissions; (iii)have effective controls; and (iv) are commissioned by testing and adjusting as necessary to ensure they use no more fuel and power than is reasonable in the circumstances. (2) In this paragraph— “greenhouse gas” has the meaning given in section 92 of the Climate Change Act 2008.",
+      ""
+     ],
+     [
+      "On-site generation of electricity",
+      ""
+     ],
+     [
+      "L2. Where a system for on-site electricity generation is installed— (a) reasonable provision must be made to ensure that— (i) the system and its electrical output are appropriately sized for the site and available infrastructure; (ii) the system has effective controls; and (b) it must be commissioned by testing and adjusting as necessary to ensure that it produces the maximum electricity that is reasonable in the circumstances.",
+      ""
+     ]
+    ],
+    "heading_rows": [
+     0,
+     2
+    ],
+    "sentences": [
+     "Requirements L1(1)(b)(i), (ii), (iii), L2 and L3: Fixed building services’ energy efficiency and controls, and on-site electricity generation: requirement L1: (1) Reasonable provision must be made for the conservation of fuel and power in buildings and the minimisation of greenhouse gas emissions from buildings by— (a) limiting heat gains and losses— (i) through thermal elements and other parts of the building fabric; and (ii) from pipes, ducts and vessels used for space heating, space cooling and hot water services; (b) providing fixed building services which— (i) are energy efficient to a reasonable standard; (ii) minimise greenhouse gas emissions; (iii)have effective controls; and (iv) are commissioned by testing and adjusting as necessary to ensure they use no more fuel and power than is reasonable in the circumstances. (2) In this paragraph— “greenhouse gas” has the meaning given in section 92 of the Climate Change Act 2008; no limits on application are printed.",
+     "Requirements L1(1)(b)(i), (ii), (iii), L2 and L3: Fixed building services’ energy efficiency and controls, and on-site electricity generation: requirement L2: Where a system for on-site electricity generation is installed— (a) reasonable provision must be made to ensure that— (i) the system and its electrical output are appropriately sized for the site and available infrastructure; (ii) the system has effective controls; and (b) it must be commissioned by testing and adjusting as necessary to ensure that it produces the maximum electricity that is reasonable in the circumstances; no limits on application are printed."
+    ]
+   },
+   "reason": "Requirement box: the Part heading and sub-headings are heading rows; each requirement is one row; the Limits on application column is empty on the page.",
+   "evidence": "Page image corpus/parsed/adl-2026/approved-document-l-volume-1-dwellings@2026-09-08-438bbd19/pages/p46.png and the PDF text of the box.",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "9d479ce6ea38a590",
+   "kind": "table",
+   "target": "v1-regulations-44-and-44za-and-requirements-requirements-table-1: Requirements",
+   "value": {
+    "columns": [
+     "Requirement",
+     "Limits on application"
+    ],
+    "rows": [
+     [
+      "Schedule 1 – Part L Conservation of fuel and power and minimisation of greenhouse gas emissions",
+      ""
+     ],
+     [
+      "L1. (1) Reasonable provision must be made for the conservation of fuel and power in buildings and the minimisation of greenhouse gas emissions from buildings by— (a) limiting heat gains and losses— (i) through thermal elements and other parts of the building fabric; and (ii) from pipes, ducts and vessels used for space heating, space cooling and hot water services; (b) providing fixed building services which— (i) are energy efficient to a reasonable standard; (ii) minimise greenhouse gas emissions; (iii) have effective controls; and (iv) are commissioned by testing and adjusting as necessary to ensure they use no more fuel and power than is reasonable in the circumstances. (2) In this paragraph— “greenhouse gas” has the meaning given in section 92 of the Climate Change Act 2008.",
+      ""
+     ],
+     [
+      "L2. Where a system for on-site electricity generation is installed— (a) reasonable provision must be made to ensure that— (i) the system and its electrical output are appropriately sized for the site and available infrastructure; (ii) the system has effective controls; and (b) it must be commissioned by testing and adjusting as necessary to ensure that it produces the maximum electricity that is reasonable in the circumstances.",
+      ""
+     ]
+    ],
+    "heading_rows": [
+     0
+    ],
+    "sentences": [
+     "Requirements: requirement L1: (1) Reasonable provision must be made for the conservation of fuel and power in buildings and the minimisation of greenhouse gas emissions from buildings by— (a) limiting heat gains and losses— (i) through thermal elements and other parts of the building fabric; and (ii) from pipes, ducts and vessels used for space heating, space cooling and hot water services; (b) providing fixed building services which— (i) are energy efficient to a reasonable standard; (ii) minimise greenhouse gas emissions; (iii) have effective controls; and (iv) are commissioned by testing and adjusting as necessary to ensure they use no more fuel and power than is reasonable in the circumstances. (2) In this paragraph— “greenhouse gas” has the meaning given in section 92 of the Climate Change Act 2008; no limits on application are printed.",
+     "Requirements: requirement L2: Where a system for on-site electricity generation is installed— (a) reasonable provision must be made to ensure that— (i) the system and its electrical output are appropriately sized for the site and available infrastructure; (ii) the system has effective controls; and (b) it must be commissioned by testing and adjusting as necessary to ensure that it produces the maximum electricity that is reasonable in the circumstances; no limits on application are printed."
+    ]
+   },
+   "reason": "Requirement box: the Part heading and sub-headings are heading rows; each requirement is one row; the Limits on application column is empty on the page.",
+   "evidence": "Page image corpus/parsed/adl-2026/approved-document-l-volume-1-dwellings@2026-09-08-438bbd19/pages/p73.png and the PDF text of the box.",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "faf13fe5037ea151",
+   "kind": "table",
+   "target": "v1-regulation-11f-box-1: Regulation 11F: Competence: general requirement",
+   "value": {
+    "columns": [
+     "Requirement",
+     "Limits on application"
+    ],
+    "rows": [
+     [
+      "Competence: general requirement",
+      ""
+     ],
+     [
+      "11F. (1) Any person carrying out any building work or any design work must have— (a) where the person is an individual, the skills, knowledge, experience and behaviours necessary, (b) where the person is not an individual, the organisational capability, to carry out— (i) the building work in accordance with all relevant requirements; (ii) the design work so that the building work to which the design relates, if built, would be in accordance with all relevant requirements. (2) Any person carrying out any building work as a contractor or any design work as a designer must have— (a) where the person is an individual, the skills, knowledge, experience and behaviours necessary, (b) where the person is not an individual, the organisational capability, to fulfil the duties of a contractor or designer, as the case may be, under these Regulations in relation to the work. (3) The requirements in paragraphs (1) and (2) do not apply to an individual (T) who is in training to fulfil those requirements. (4) The person who asked T to carry out any building work or, as the case may be, any design work must ensure T is adequately supervised when carrying out the work. (5) A person who is in training to fulfil the requirements of a principal contractor or a principal designer may not be appointed as a principal contractor or a principal designer.",
+      ""
+     ]
+    ],
+    "heading_rows": [
+     0
+    ],
+    "sentences": [
+     "Regulation 11F: Competence: general requirement: regulation 11F: (1) Any person carrying out any building work or any design work must have— (a) where the person is an individual, the skills, knowledge, experience and behaviours necessary, (b) where the person is not an individual, the organisational capability, to carry out— (i) the building work in accordance with all relevant requirements; (ii) the design work so that the building work to which the design relates, if built, would be in accordance with all relevant requirements. (2) Any person carrying out any building work as a contractor or any design work as a designer must have— (a) where the person is an individual, the skills, knowledge, experience and behaviours necessary, (b) where the person is not an individual, the organisational capability, to fulfil the duties of a contractor or designer, as the case may be, under these Regulations in relation to the work. (3) The requirements in paragraphs (1) and (2) do not apply to an individual (T) who is in training to fulfil those requirements. (4) The person who asked T to carry out any building work or, as the case may be, any design work must ensure T is adequately supervised when carrying out the work. (5) A person who is in training to fulfil the requirements of a principal contractor or a principal designer may not be appointed as a principal contractor or a principal designer; no limits on application are printed."
+    ]
+   },
+   "reason": "Requirement box: the Part heading and sub-headings are heading rows; each requirement is one row; the Limits on application column is empty on the page.",
+   "evidence": "Page image corpus/parsed/adl-2026/approved-document-l-volume-1-dwellings@2026-09-08-438bbd19/pages/p77.png and the PDF text of the box.",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "83ffe470c4a173d4",
+   "kind": "table",
+   "target": "v1-regulation-23-box-2: Regulation 23(2) and requirement L1(1)(a): Replacing thermal elements and limiting heat gains and losses in existing dwellings",
+   "value": {
+    "columns": [
+     "Requirement",
+     "Limits on application"
+    ],
+    "rows": [
+     [
+      "Schedule 1 – Part L Conservation of fuel and power and minimisation of greenhouse gas emissions",
+      ""
+     ],
+     [
+      "L1. (1) Reasonable provision must be made for the conservation of fuel and power in buildings and the minimisation of greenhouse gas emissions from buildings by— (a) limiting heat gains and losses— (i) through thermal elements and other parts of the building fabric; and (ii) from pipes, ducts and vessels used for space heating, space cooling and hot water services; (b) providing fixed building services which— (i) are energy efficient to a reasonable standard; (ii) minimise greenhouse gas emissions; (iii) have effective controls; and (iv) are commissioned by testing and adjusting as necessary to ensure they use no more fuel and power than is reasonable in the circumstances. (2) In this paragraph— “greenhouse gas” has the meaning given in section 92 of the Climate Change Act 2008.",
+      ""
+     ]
+    ],
+    "heading_rows": [
+     0
+    ],
+    "sentences": [
+     "Regulation 23(2) and requirement L1(1)(a): Replacing thermal elements and limiting heat gains and losses in existing dwellings: requirement L1: (1) Reasonable provision must be made for the conservation of fuel and power in buildings and the minimisation of greenhouse gas emissions from buildings by— (a) limiting heat gains and losses— (i) through thermal elements and other parts of the building fabric; and (ii) from pipes, ducts and vessels used for space heating, space cooling and hot water services; (b) providing fixed building services which— (i) are energy efficient to a reasonable standard; (ii) minimise greenhouse gas emissions; (iii) have effective controls; and (iv) are commissioned by testing and adjusting as necessary to ensure they use no more fuel and power than is reasonable in the circumstances. (2) In this paragraph— “greenhouse gas” has the meaning given in section 92 of the Climate Change Act 2008; no limits on application are printed."
+    ]
+   },
+   "reason": "Requirement box: the Part heading and sub-headings are heading rows; each requirement is one row; the Limits on application column is empty on the page.",
+   "evidence": "Page image corpus/parsed/adl-2026/approved-document-l-volume-1-dwellings@2026-09-08-438bbd19/pages/p86.png and the PDF text of the box.",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "80f8836805a99097",
+   "kind": "table",
+   "target": "v1-regulation-23-1-and-requirement-l1-1-a-box-2: Regulation 23(1) and requirement L1(1)(a): Renovating thermal elements and limiting heat gains and losses in existing dwellings",
+   "value": {
+    "columns": [
+     "Requirement",
+     "Limits on application"
+    ],
+    "rows": [
+     [
+      "Schedule 1 – Part L Conservation of fuel and power and minimisation of greenhouse gas emissions",
+      ""
+     ],
+     [
+      "L1. (1) Reasonable provision must be made for the conservation of fuel and power in buildings and the minimisation of greenhouse gas emissions from buildings by— (a) limiting heat gains and losses— (i) through thermal elements and other parts of the building fabric; and (ii) from pipes, ducts and vessels used for space heating, space cooling and hot water services; (b) providing fixed building services which— (i) are energy efficient to a reasonable standard; (ii) minimise greenhouse gas emissions; (iii) have effective controls; and (iv) are commissioned by testing and adjusting as necessary to ensure they use no more fuel and power than is reasonable in the circumstances. (2) In this paragraph— “greenhouse gas” has the meaning given in section 92 of the Climate Change Act 2008.",
+      ""
+     ]
+    ],
+    "heading_rows": [
+     0
+    ],
+    "sentences": [
+     "Regulation 23(1) and requirement L1(1)(a): Renovating thermal elements and limiting heat gains and losses in existing dwellings: requirement L1: (1) Reasonable provision must be made for the conservation of fuel and power in buildings and the minimisation of greenhouse gas emissions from buildings by— (a) limiting heat gains and losses— (i) through thermal elements and other parts of the building fabric; and (ii) from pipes, ducts and vessels used for space heating, space cooling and hot water services; (b) providing fixed building services which— (i) are energy efficient to a reasonable standard; (ii) minimise greenhouse gas emissions; (iii) have effective controls; and (iv) are commissioned by testing and adjusting as necessary to ensure they use no more fuel and power than is reasonable in the circumstances. (2) In this paragraph— “greenhouse gas” has the meaning given in section 92 of the Climate Change Act 2008; no limits on application are printed."
+    ]
+   },
+   "reason": "Requirement box: the Part heading and sub-headings are heading rows; each requirement is one row; the Limits on application column is empty on the page.",
+   "evidence": "Page image corpus/parsed/adl-2026/approved-document-l-volume-1-dwellings@2026-09-08-438bbd19/pages/p91.png and the PDF text of the box.",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "34cdaf111aa74fd8",
+   "kind": "table",
+   "target": "v2-requirement-l1-box-1: Requirement L1(1)(a): Limiting heat gains and losses",
+   "value": {
+    "columns": [
+     "Requirement",
+     "Limits on application"
+    ],
+    "rows": [
+     [
+      "Schedule 1 – Part L Conservation of fuel and power and minimisation of greenhouse gas emissions",
+      ""
+     ],
+     [
+      "L1. (1) Reasonable provision must be made for the conservation of fuel and power in buildings and the minimisation of greenhouse gas emissions from buildings by— (a) limiting heat gains and losses— (i) through thermal elements and other parts of the building fabric; and (ii) from pipes, ducts and vessels used for space heating, space cooling and hot water services; (b) providing fixed building services which— (i) are energy efficient to a reasonable standard; (ii) minimise greenhouse gas emissions; (iii) have effective controls; and (iv) are commissioned by testing and adjusting as necessary to ensure they use no more fuel and power than is reasonable in the circumstances. (2) In this paragraph— “greenhouse gas” has the meaning given in section 92 of the Climate Change Act 2008.",
+      ""
+     ]
+    ],
+    "heading_rows": [
+     0
+    ],
+    "sentences": [
+     "Requirement L1(1)(a): Limiting heat gains and losses: requirement L1: (1) Reasonable provision must be made for the conservation of fuel and power in buildings and the minimisation of greenhouse gas emissions from buildings by— (a) limiting heat gains and losses— (i) through thermal elements and other parts of the building fabric; and (ii) from pipes, ducts and vessels used for space heating, space cooling and hot water services; (b) providing fixed building services which— (i) are energy efficient to a reasonable standard; (ii) minimise greenhouse gas emissions; (iii) have effective controls; and (iv) are commissioned by testing and adjusting as necessary to ensure they use no more fuel and power than is reasonable in the circumstances. (2) In this paragraph— “greenhouse gas” has the meaning given in section 92 of the Climate Change Act 2008; no limits on application are printed."
+    ]
+   },
+   "reason": "Requirement box: the Part heading and sub-headings are heading rows; each requirement is one row; the Limits on application column is empty on the page.",
+   "evidence": "Page image corpus/parsed/adl-2026/approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb/pages/p32.png and the PDF text of the box.",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "e21bf86a7e6c4a9f",
+   "kind": "table",
+   "target": "v2-requirements-l1-1-b-i-ii-iii-and-l2-fixed-box-1: Requirements L1(1)(b)(i), (ii), (iii) and L2: Fixed building services’ energy efficiency and controls and on-site generation of electricity",
+   "value": {
+    "columns": [
+     "Requirement",
+     "Limits on application"
+    ],
+    "rows": [
+     [
+      "Schedule 1 – Part L Conservation of fuel and power and minimisation of greenhouse gas emissions",
+      ""
+     ],
+     [
+      "L1. (1) Reasonable provision must be made for the conservation of fuel and power in buildings and the minimisation of greenhouse gas emissions from buildings by— (a) limiting heat gains and losses— (i) through thermal elements and other parts of the building fabric; and (ii) from pipes, ducts and vessels used for space heating, space cooling and hot water services; (b) providing fixed building services which— (i) are energy efficient to a reasonable standard; (ii) minimise greenhouse gas emissions; (iii)have effective controls; and (iv) are commissioned by testing and adjusting as necessary to ensure they use no more fuel and power than is reasonable in the circumstances. (2) In this paragraph— “greenhouse gas” has the meaning given in section 92 of the Climate Change Act 2008.",
+      ""
+     ],
+     [
+      "On-site generation of electricity",
+      ""
+     ],
+     [
+      "L2. Where a system for on-site electricity generation is installed— (a) reasonable provision must be made to ensure that— (i) the system and its electrical output are appropriately sized for the site and available infrastructure; (ii) the system has effective controls; and (b) it must be commissioned by testing and adjusting as necessary to ensure that it produces the maximum electricity that is reasonable in the circumstances.",
+      ""
+     ]
+    ],
+    "heading_rows": [
+     0,
+     2
+    ],
+    "sentences": [
+     "Requirements L1(1)(b)(i), (ii), (iii) and L2: Fixed building services’ energy efficiency and controls and on-site generation of electricity: requirement L1: (1) Reasonable provision must be made for the conservation of fuel and power in buildings and the minimisation of greenhouse gas emissions from buildings by— (a) limiting heat gains and losses— (i) through thermal elements and other parts of the building fabric; and (ii) from pipes, ducts and vessels used for space heating, space cooling and hot water services; (b) providing fixed building services which— (i) are energy efficient to a reasonable standard; (ii) minimise greenhouse gas emissions; (iii)have effective controls; and (iv) are commissioned by testing and adjusting as necessary to ensure they use no more fuel and power than is reasonable in the circumstances. (2) In this paragraph— “greenhouse gas” has the meaning given in section 92 of the Climate Change Act 2008; no limits on application are printed.",
+     "Requirements L1(1)(b)(i), (ii), (iii) and L2: Fixed building services’ energy efficiency and controls and on-site generation of electricity: requirement L2: Where a system for on-site electricity generation is installed— (a) reasonable provision must be made to ensure that— (i) the system and its electrical output are appropriately sized for the site and available infrastructure; (ii) the system has effective controls; and (b) it must be commissioned by testing and adjusting as necessary to ensure that it produces the maximum electricity that is reasonable in the circumstances; no limits on application are printed."
+    ]
+   },
+   "reason": "Requirement box: the Part heading and sub-headings are heading rows; each requirement is one row; the Limits on application column is empty on the page.",
+   "evidence": "Page image corpus/parsed/adl-2026/approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb/pages/p44.png and the PDF text of the box.",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "7819c00571e69139",
+   "kind": "table",
+   "target": "v2-regulations-44-and-44za-and-requirements-l1-1-requirements-table-1: Requirements",
+   "value": {
+    "columns": [
+     "Requirement",
+     "Limits on application"
+    ],
+    "rows": [
+     [
+      "Schedule 1 – Part L Conservation of fuel and power and minimisation of greenhouse gas emissions",
+      ""
+     ],
+     [
+      "L1. (1) Reasonable provision must be made for the conservation of fuel and power in buildings and the minimisation of greenhouse gas emissions from buildings by— (a) limiting heat gains and losses— (i) through thermal elements and other parts of the building fabric; and (ii) from pipes, ducts and vessels used for space heating, space cooling and hot water services; (b) providing fixed building services which— (i) are energy efficient to a reasonable standard; (ii) minimise greenhouse gas emissions; (iii) have effective controls; and (iv) are commissioned by testing and adjusting as necessary to ensure they use no more fuel and power than is reasonable in the circumstances. (2) In this paragraph— “greenhouse gas” has the meaning given in section 92 of the Climate Change Act 2008.",
+      ""
+     ],
+     [
+      "L2. Where a system for on-site electricity generation is installed— (a) reasonable provision must be made to ensure that— (i) the system and its electrical output are appropriately sized for the site and available infrastructure; (ii) the system has effective controls; and (b) it must be commissioned by testing and adjusting as necessary to ensure that it produces the maximum electricity that is reasonable in the circumstances.",
+      ""
+     ]
+    ],
+    "heading_rows": [
+     0
+    ],
+    "sentences": [
+     "Requirements: requirement L1: (1) Reasonable provision must be made for the conservation of fuel and power in buildings and the minimisation of greenhouse gas emissions from buildings by— (a) limiting heat gains and losses— (i) through thermal elements and other parts of the building fabric; and (ii) from pipes, ducts and vessels used for space heating, space cooling and hot water services; (b) providing fixed building services which— (i) are energy efficient to a reasonable standard; (ii) minimise greenhouse gas emissions; (iii) have effective controls; and (iv) are commissioned by testing and adjusting as necessary to ensure they use no more fuel and power than is reasonable in the circumstances. (2) In this paragraph— “greenhouse gas” has the meaning given in section 92 of the Climate Change Act 2008; no limits on application are printed.",
+     "Requirements: requirement L2: Where a system for on-site electricity generation is installed— (a) reasonable provision must be made to ensure that— (i) the system and its electrical output are appropriately sized for the site and available infrastructure; (ii) the system has effective controls; and (b) it must be commissioned by testing and adjusting as necessary to ensure that it produces the maximum electricity that is reasonable in the circumstances; no limits on application are printed."
+    ]
+   },
+   "reason": "Requirement box: the Part heading and sub-headings are heading rows; each requirement is one row; the Limits on application column is empty on the page.",
+   "evidence": "Page image corpus/parsed/adl-2026/approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb/pages/p74.png and the PDF text of the box.",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "3cffcff5bb2bb552",
+   "kind": "table",
+   "target": "v2-regulation-23-box-2: Regulation 23(2) and requirement L1(1)(a): Replacing thermal elements and limiting heat gains and losses in existing buildings",
+   "value": {
+    "columns": [
+     "Requirement",
+     "Limits on application"
+    ],
+    "rows": [
+     [
+      "Schedule 1 – Part L Conservation of fuel and power and minimisation of greenhouse gas emissions",
+      ""
+     ],
+     [
+      "L1. (1) Reasonable provision must be made for the conservation of fuel and power in buildings and the minimisation of greenhouse gas emissions from buildings by— (a) limiting heat gains and losses— (i) through thermal elements and other parts of the building fabric; and (ii) from pipes, ducts and vessels used for space heating, space cooling and hot water services; (b) providing fixed building services which— (i) are energy efficient to a reasonable standard; (ii) minimise greenhouse gas emissions; (iii) have effective controls; and (iv) are commissioned by testing and adjusting as necessary to ensure they use no more fuel and power than is reasonable in the circumstances. (2) In this paragraph— “greenhouse gas” has the meaning given in section 92 of the Climate Change Act 2008.",
+      ""
+     ]
+    ],
+    "heading_rows": [
+     0
+    ],
+    "sentences": [
+     "Regulation 23(2) and requirement L1(1)(a): Replacing thermal elements and limiting heat gains and losses in existing buildings: requirement L1: (1) Reasonable provision must be made for the conservation of fuel and power in buildings and the minimisation of greenhouse gas emissions from buildings by— (a) limiting heat gains and losses— (i) through thermal elements and other parts of the building fabric; and (ii) from pipes, ducts and vessels used for space heating, space cooling and hot water services; (b) providing fixed building services which— (i) are energy efficient to a reasonable standard; (ii) minimise greenhouse gas emissions; (iii) have effective controls; and (iv) are commissioned by testing and adjusting as necessary to ensure they use no more fuel and power than is reasonable in the circumstances. (2) In this paragraph— “greenhouse gas” has the meaning given in section 92 of the Climate Change Act 2008; no limits on application are printed."
+    ]
+   },
+   "reason": "Requirement box: the Part heading and sub-headings are heading rows; each requirement is one row; the Limits on application column is empty on the page.",
+   "evidence": "Page image corpus/parsed/adl-2026/approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb/pages/p81.png and the PDF text of the box.",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "a094533ad400426d",
+   "kind": "table",
+   "target": "v2-regulation-23-1-and-requirement-l1-1-a-box-2: Regulation 23(1) and requirement L1(1)(a): Renovating thermal elements and limiting heat gains and losses in existing buildings",
+   "value": {
+    "columns": [
+     "Requirement",
+     "Limits on application"
+    ],
+    "rows": [
+     [
+      "Schedule 1 – Part L Conservation of fuel and power and minimisation of greenhouse gas emissions",
+      ""
+     ],
+     [
+      "L1. (1) Reasonable provision must be made for the conservation of fuel and power in buildings and the minimisation of greenhouse gas emissions from buildings by— (a) limiting heat gains and losses— (i) through thermal elements and other parts of the building fabric; and (ii) from pipes, ducts and vessels used for space heating, space cooling and hot water services; (b) providing fixed building services which— (i) are energy efficient to a reasonable standard; (ii) minimise greenhouse gas emissions; (iii) have effective controls; and (iv) are commissioned by testing and adjusting as necessary to ensure they use no more fuel and power than is reasonable in the circumstances. (2) In this paragraph— “greenhouse gas” has the meaning given in section 92 of the Climate Change Act 2008.",
+      ""
+     ]
+    ],
+    "heading_rows": [
+     0
+    ],
+    "sentences": [
+     "Regulation 23(1) and requirement L1(1)(a): Renovating thermal elements and limiting heat gains and losses in existing buildings: requirement L1: (1) Reasonable provision must be made for the conservation of fuel and power in buildings and the minimisation of greenhouse gas emissions from buildings by— (a) limiting heat gains and losses— (i) through thermal elements and other parts of the building fabric; and (ii) from pipes, ducts and vessels used for space heating, space cooling and hot water services; (b) providing fixed building services which— (i) are energy efficient to a reasonable standard; (ii) minimise greenhouse gas emissions; (iii) have effective controls; and (iv) are commissioned by testing and adjusting as necessary to ensure they use no more fuel and power than is reasonable in the circumstances. (2) In this paragraph— “greenhouse gas” has the meaning given in section 92 of the Climate Change Act 2008; no limits on application are printed."
+    ]
+   },
+   "reason": "Requirement box: the Part heading and sub-headings are heading rows; each requirement is one row; the Limits on application column is empty on the page.",
+   "evidence": "Page image corpus/parsed/adl-2026/approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb/pages/p85.png and the PDF text of the box.",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "1ed60892ff617da2",
+   "kind": "figure_description",
+   "target": "v1-diagram-i: The relationship between regulations and guidance in the approved documents",
+   "value": "Diagram showing a sample approved document page, \"Regulations 40, 40A and 40C: Providing information to the owner about the building, fixed building services and maintenance requirements\", to explain how law and guidance are laid out. The green \"Regulations\" box with the text of regulations 40, 40A and 40C is marked 1, and the \"Intention\" section below it is marked 2. The key says: 1 \"The law: extract from the Building Regulations 2010.\" 2 \"Statutory guidance.\"",
+   "reason": "Short description from the figure image and key (the sample page's text is picture text, not body text).",
+   "evidence": "page image corpus/parsed/adl-2026/approved-document-l-volume-1-dwellings@2026-09-08-438bbd19/figures/v1-diagram-i.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "b3256fbcdb94a734",
+   "kind": "figure_description",
+   "target": "v2-diagram-i: The relationship between regulations and guidance in the approved documents",
+   "value": "Diagram showing a sample approved document page, \"Regulations 40 and 40A: Providing information to the owner about the building, fixed building services and maintenance requirements\", to explain how law and guidance are laid out. The green \"Regulations\" box with the text of regulations 40 and 40A is marked 1, and the \"Intention\" section below it is marked 2. The key says: 1 \"The law: extract from the Building Regulations 2010.\" 2 \"Statutory guidance.\"",
+   "reason": "Short description from the figure image and key (the sample page's text is picture text, not body text).",
+   "evidence": "page image corpus/parsed/adl-2026/approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb/figures/v2-diagram-i.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "7b6089cefcf2ab47",
+   "kind": "figure_description",
+   "target": "v1-diagram-b1: Semi-detached or end of terrace hipped roof",
+   "value": "Front, rear and side elevations of a semi-detached or end of terrace house with a hipped roof, showing photovoltaic panels on the roof: foundation area 39m², photovoltaic area 16m², installed capacity 3.52kWp. Offsets are shown as A, the distance between a panel and the closest edge of the roof, and B, the distance between a panel and the party wall. Measurements are taken to the edge of the photovoltaic panel.",
+   "reason": "Short description from the figure image, key and note.",
+   "evidence": "page image corpus/parsed/adl-2026/approved-document-l-volume-1-dwellings@2026-09-08-438bbd19/figures/v1-diagram-b1.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "2cd44e36fc2ba004",
+   "kind": "figure_description",
+   "target": "v1-diagram-b2: Semi-detached or end of terrace pitched roof with gable",
+   "value": "Front and rear elevations of a semi-detached or end of terrace house with a pitched roof and a gable, showing photovoltaic panels on the roof: foundation area 39m², photovoltaic area 20m², installed capacity 4.44kWp. Offsets are shown as A, the distance between a panel and the closest edge of the roof, B, the distance between a panel and a roof vent, and C, the distance between a panel and the party wall. Measurements are taken to the edge of the photovoltaic panel.",
+   "reason": "Short description from the figure image, key and note.",
+   "evidence": "page image corpus/parsed/adl-2026/approved-document-l-volume-1-dwellings@2026-09-08-438bbd19/figures/v1-diagram-b2.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "32b93b475a68c274",
+   "kind": "figure_description",
+   "target": "v1-diagram-b3: Mid-terrace pitched roof with dormer windows",
+   "value": "Front and rear elevations of a mid-terrace house with a pitched roof and dormer windows, showing photovoltaic panels on the roof: foundation area 35m², photovoltaic area 8m², installed capacity 1.76kWp. Offsets are shown as A, the distance between a panel and the party wall, and B, the distance between a panel and a window. Measurements are taken to the edge of the photovoltaic panel.",
+   "reason": "Short description from the figure image, key and note.",
+   "evidence": "page image corpus/parsed/adl-2026/approved-document-l-volume-1-dwellings@2026-09-08-438bbd19/figures/v1-diagram-b3.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "708eabd90f81f387",
+   "kind": "figure_description",
+   "target": "v2-diagram-10.1: Renovation of a thermal element from the outside",
+   "value": "Elevation of a house showing renovation of a thermal element from the outside: for example, if external render is being removed from the outer side of a wall, the area of the thermal element is the area of the elevation in which that wall sits. The hatched part is the area of the thermal element being renovated; the green area is the total area of the thermal element.",
+   "reason": "Short description from the figure image, note and key.",
+   "evidence": "page image corpus/parsed/adl-2026/approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb/figures/v2-diagram-10.1.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "8598c10e11adcc15",
+   "kind": "figure_description",
+   "target": "v2-diagram-10.2: Renovation of a thermal element from the inside",
+   "value": "Sketch of a room showing renovation of a thermal element from the inside: for example, if plaster is being removed from the inner side of a wall, the area of the thermal element is the area of external wall as viewed from inside the room. The hatched part is the area of the thermal element being renovated; the green area is the total area of the thermal element.",
+   "reason": "Short description from the figure image, note and key.",
+   "evidence": "page image corpus/parsed/adl-2026/approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb/figures/v2-diagram-10.2.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "4e06fdbdd32b70b2",
+   "kind": "table",
+   "target": "v1-section-0-summary-table-1: Summary",
+   "value": {
+    "columns": [
+     "Approved document section",
+     "Related Building Regulations requirements"
+    ],
+    "rows": [
+     [
+      "Section 0: Introduction",
+      "n/a"
+     ],
+     [
+      "Section 1: Calculating the target primary energy rate, target emission rate and target fabric energy efficiency rate",
+      "Regulations 24, 25, 25B, 26, 26A, 26C, 27, 27A and 27C"
+     ],
+     [
+      "Section 2: Calculating the dwelling primary energy rate, dwelling emission rate and dwelling fabric energy efficiency rate",
+      "Regulations 24, 25, 25B, 26, 26A, 26C, 27, 27A and 27C"
+     ],
+     [
+      "Section 3: Limiting heat gains and losses",
+      "Requirement L1(1)(a) of Schedule 1"
+     ],
+     [
+      "Section 4: Carbon and energy performance of building services – general guidance",
+      "Requirement L1(1)(b), L1(2) and L2 of Schedule 1"
+     ],
+     [
+      "Section 5: Carbon and energy performance of building services – system specific guidance",
+      "Requirements L1(1)(b)(i), (ii), (iii), L1(2), L2 and L3 of Schedule 1"
+     ],
+     [
+      "Section 6: Air permeability and pressure testing",
+      "Regulation 43"
+     ],
+     [
+      "Section 7: Commissioning fixed building services and on-site electricity generation systems",
+      "Regulations 44 and 44ZA and requirements L1(1)(b)(iv) and L2(b) of Schedule 1"
+     ],
+     [
+      "Section 8: Installation, certification, inspection and testing of heat pump systems",
+      "Regulation 11F"
+     ],
+     [
+      "Section 9: Providing information to the owner about the building, fixed building services and maintenance requirements",
+      "Regulations 40, 40A and 40C"
+     ],
+     [
+      "Section 10: Replacing thermal elements and limiting heat gains and losses in existing dwellings, including extensions",
+      "Regulation 23(2) and requirement L1(1)(a) of Schedule 1"
+     ],
+     [
+      "Section 11: Work to thermal elements in existing dwellings",
+      "Regulations 6, 22, 23(1) and requirement L1(1)(a) of Schedule 1"
+     ],
+     [
+      "Section 12: Consequential improvements to energy performance",
+      "Regulation 28"
+     ],
+     [
+      "Appendix A: Key terms",
+      ""
+     ],
+     [
+      "Appendix B: Reporting evidence of compliance",
+      "n/a"
+     ],
+     [
+      "Appendix C: Work to thermal elements",
+      "n/a"
+     ],
+     [
+      "Appendix D: Standards referred to",
+      "n/a"
+     ],
+     [
+      "Appendix E: Documents referred to",
+      "n/a"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Summary: Approved document section Section 0: Introduction; Related Building Regulations requirements n/a.",
+     "Summary: Approved document section Section 1: Calculating the target primary energy rate, target emission rate and target fabric energy efficiency rate; Related Building Regulations requirements Regulations 24, 25, 25B, 26, 26A, 26C, 27, 27A and 27C.",
+     "Summary: Approved document section Section 2: Calculating the dwelling primary energy rate, dwelling emission rate and dwelling fabric energy efficiency rate; Related Building Regulations requirements Regulations 24, 25, 25B, 26, 26A, 26C, 27, 27A and 27C.",
+     "Summary: Approved document section Section 3: Limiting heat gains and losses; Related Building Regulations requirements Requirement L1(1)(a) of Schedule 1.",
+     "Summary: Approved document section Section 4: Carbon and energy performance of building services – general guidance; Related Building Regulations requirements Requirement L1(1)(b), L1(2) and L2 of Schedule 1.",
+     "Summary: Approved document section Section 5: Carbon and energy performance of building services – system specific guidance; Related Building Regulations requirements Requirements L1(1)(b)(i), (ii), (iii), L1(2), L2 and L3 of Schedule 1.",
+     "Summary: Approved document section Section 6: Air permeability and pressure testing; Related Building Regulations requirements Regulation 43.",
+     "Summary: Approved document section Section 7: Commissioning fixed building services and on-site electricity generation systems; Related Building Regulations requirements Regulations 44 and 44ZA and requirements L1(1)(b)(iv) and L2(b) of Schedule 1.",
+     "Summary: Approved document section Section 8: Installation, certification, inspection and testing of heat pump systems; Related Building Regulations requirements Regulation 11F.",
+     "Summary: Approved document section Section 9: Providing information to the owner about the building, fixed building services and maintenance requirements; Related Building Regulations requirements Regulations 40, 40A and 40C.",
+     "Summary: Approved document section Section 10: Replacing thermal elements and limiting heat gains and losses in existing dwellings, including extensions; Related Building Regulations requirements Regulation 23(2) and requirement L1(1)(a) of Schedule 1.",
+     "Summary: Approved document section Section 11: Work to thermal elements in existing dwellings; Related Building Regulations requirements Regulations 6, 22, 23(1) and requirement L1(1)(a) of Schedule 1.",
+     "Summary: Approved document section Section 12: Consequential improvements to energy performance; Related Building Regulations requirements Regulation 28.",
+     "Summary: Approved document section Appendix A: Key terms.",
+     "Summary: Approved document section Appendix B: Reporting evidence of compliance; Related Building Regulations requirements n/a.",
+     "Summary: Approved document section Appendix C: Work to thermal elements; Related Building Regulations requirements n/a.",
+     "Summary: Approved document section Appendix D: Standards referred to; Related Building Regulations requirements n/a.",
+     "Summary: Approved document section Appendix E: Documents referred to; Related Building Regulations requirements n/a."
+    ]
+   },
+   "reason": "Two columns; the regulations cell for Sections 1 and 2 is one merged cell on the page, repeated on both rows (PDF text; the 2023 edition's table has the same layout). Appendix A has an empty second cell on the page.",
+   "evidence": "page image corpus/parsed/adl-2026/approved-document-l-volume-1-dwellings@2026-09-08-438bbd19/pages/p11.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "c9f0b5d86d363342",
+   "kind": "table",
+   "target": "v1-table-1.1: Primary energy and CO2 factors to be used for heating and hot water for dwellings connected to district heat networks",
+   "value": {
+    "columns": [
+     "Heat network status(1)",
+     "Primary energy factors for notional building",
+     "CO2 factors for notional building"
+    ],
+    "rows": [
+     [
+      "Sleeved",
+      "Same as actual (as used in dwelling primary energy rate)",
+      "Same as actual (as used in dwelling emission rate)"
+     ],
+     [
+      "Not sleeved",
+      "HEM = calculated in line with the specification in The Future Homes Standard 2026: dwelling notional buildings",
+      "HEM = calculated in line with the specification in The Future Homes Standard 2026: dwelling notional buildings"
+     ],
+     [
+      "Not sleeved",
+      "SAP = calculated in line with the specification in Appendix R of the SAP 10.3 specification",
+      "SAP = calculated in line with the specification in Appendix R of the SAP 10.3 specification"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Primary energy and CO2 factors to be used for heating and hot water for dwellings connected to district heat networks: Heat network status(1) Sleeved; Primary energy factors for notional building Same as actual (as used in dwelling primary energy rate); CO2 factors for notional building Same as actual (as used in dwelling emission rate).",
+     "Primary energy and CO2 factors to be used for heating and hot water for dwellings connected to district heat networks: Heat network status(1) Not sleeved; Primary energy factors for notional building HEM = calculated in line with the specification in The Future Homes Standard 2026: dwelling notional buildings; CO2 factors for notional building HEM = calculated in line with the specification in The Future Homes Standard 2026: dwelling notional buildings.",
+     "Primary energy and CO2 factors to be used for heating and hot water for dwellings connected to district heat networks: Heat network status(1) Not sleeved; Primary energy factors for notional building SAP = calculated in line with the specification in Appendix R of the SAP 10.3 specification; CO2 factors for notional building SAP = calculated in line with the specification in Appendix R of the SAP 10.3 specification."
+    ]
+   },
+   "reason": "Three columns from the page image; 'Not sleeved' spans the HEM and SAP rows and is repeated; note 1 (the meaning of 'sleeved') is a note, not a row.",
+   "evidence": "page image corpus/parsed/adl-2026/approved-document-l-volume-1-dwellings@2026-09-08-438bbd19/pages/p23.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "226ee962645889df",
+   "kind": "table",
+   "target": "v1-table-1.2: Low carbon heat sources which can be included in a declaration of sleeving capacity",
+   "value": {
+    "columns": [
+     "Low carbon heat source"
+    ],
+    "rows": [
+     [
+      "Electrically powered heat pumps(1)"
+     ],
+     [
+      "Recovered heat (including from power stations)"
+     ],
+     [
+      "Geothermal heat"
+     ],
+     [
+      "Electric boiler"
+     ],
+     [
+      "Solar thermal"
+     ],
+     [
+      "Biogas"
+     ],
+     [
+      "Biomass"
+     ],
+     [
+      "Biofuels"
+     ]
+    ],
+    "sentences": [
+     "Low carbon heat sources which can be included in a declaration of sleeving capacity: electrically powered heat pumps (see note 1).",
+     "Low carbon heat sources which can be included in a declaration of sleeving capacity: recovered heat (including from power stations).",
+     "Low carbon heat sources which can be included in a declaration of sleeving capacity: geothermal heat.",
+     "Low carbon heat sources which can be included in a declaration of sleeving capacity: electric boiler.",
+     "Low carbon heat sources which can be included in a declaration of sleeving capacity: solar thermal.",
+     "Low carbon heat sources which can be included in a declaration of sleeving capacity: biogas.",
+     "Low carbon heat sources which can be included in a declaration of sleeving capacity: biomass.",
+     "Low carbon heat sources which can be included in a declaration of sleeving capacity: biofuels."
+    ],
+    "heading_rows": []
+   },
+   "reason": "A one-column list with no printed heading ('Low carbon heat source' named from the title); note 1 is a note, not a row (page image).",
+   "evidence": "page image corpus/parsed/adl-2026/approved-document-l-volume-1-dwellings@2026-09-08-438bbd19/pages/p24.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  },
+  {
+   "key": "8fd86b9089eed8da",
+   "kind": "table",
+   "target": "v1-table-2.1: HEM condition for party walls(1)",
+   "value": {
+    "columns": [
+     "Party wall construction",
+     "HEM condition"
+    ],
+    "rows": [
+     [
+      "Solid",
+      "No heat loss"
+     ],
+     [
+      "Unfilled cavity with no effective edge sealing",
+      "Heat loss"
+     ],
+     [
+      "Unfilled cavity with effective sealing around all exposed edges and in alignment with insulation layers in abutting elements(2)",
+      "Heat loss"
+     ],
+     [
+      "Unfilled cavity with effective sealing around all exposed edges and in alignment with insulation layers in abutting elements for a concrete frame construction in a building containing flats(2),(3)",
+      "Heat loss"
+     ],
+     [
+      "A fully filled cavity with effective sealing at all exposed edges and in alignment with insulation layers in abutting elements(2),(3)",
+      "No heat loss"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "HEM condition for party walls(1): Party wall construction Solid; HEM condition No heat loss.",
+     "HEM condition for party walls(1): Party wall construction Unfilled cavity with no effective edge sealing; HEM condition Heat loss.",
+     "HEM condition for party walls(1): Party wall construction Unfilled cavity with effective sealing around all exposed edges and in alignment with insulation layers in abutting elements(2); HEM condition Heat loss.",
+     "HEM condition for party walls(1): Party wall construction Unfilled cavity with effective sealing around all exposed edges and in alignment with insulation layers in abutting elements for a concrete frame construction in a building containing flats(2),(3); HEM condition Heat loss.",
+     "HEM condition for party walls(1): Party wall construction A fully filled cavity with effective sealing at all exposed edges and in alignment with insulation layers in abutting elements(2),(3); HEM condition No heat loss."
+    ]
+   },
+   "reason": "Two columns; notes 1 to 3 are notes, not rows (PDF text).",
+   "evidence": "page image corpus/parsed/adl-2026/approved-document-l-volume-1-dwellings@2026-09-08-438bbd19/pages/p29.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-21"
+  }
+ ]
+}

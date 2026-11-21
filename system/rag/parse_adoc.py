@@ -43,14 +43,18 @@ from system.rag.parse_pdf import render_images
 PARSER = "approved-document-pdf/0.1"
 BODY = 12.0
 SMALL = 10.6  # below this: diagram labels, table text, requirement boxes (some list items are 11pt)
+LABEL_MAX = 10.95  # labels above a diagram caption can be a little larger (AD K Diagram 10.2: 10.9pt)
 RARE_AFTER_F = set("bcdgjkmnpqsvwxz")  # letters that almost never follow "f" in English words
 NUM_RE = re.compile(r"^(\d{1,2}\.\d{1,3}|[A-G]\d{1,3}|\d[A-H]\d{1,2})$")  # 2.5, B24, 2C17 (AD A sections 2A-2E)
 LIST_RE = re.compile(r"^(?:[a-z]|[ivx]{1,4})\.\s|^•\s|^\(\w{1,4}\)\s")
 TABLE_RE = re.compile(r"^Table ([A-Z]?\d+(?:\.\d+)?)\b\s*(.*)$")
 TABLE_TO_RE = re.compile(r"^Table (to Diagram \d+)\b\s*(.*)$")  # AD J: "Table to Diagram 34"
+SEE_RE = re.compile(r"^See (para|paragraph|paragraphs|paras) [0-9A-Z.]+( (to|and) [0-9A-Z.]+)?$")  # a drawing's own pointer
 CONTINUED_RE = re.compile(r"^(Continued on page \d+|Continued)$")
 DIAGRAM_RE = re.compile(r"^Diagram ([A-Z]?\d+(?:\.\d+)?|[ivx]{1,4})\b\s*(.*)$")
-DOUBLED_RE = re.compile(r"(ffi|ffl|fi|fl)\1+")  # a ligature printed twice: "specifification"
+DOUBLED_RE = re.compile(r"(ffi|ffl|ff|fi|fl)\1+")
+LIGATURES = {"ﬀ": "ff", "ﬁ": "fi", "ﬂ": "fl", "ﬃ": "ffi", "ﬄ": "ffl"}  # ligature characters in diagram labels
+LIGATURE_RE = re.compile("[" + "".join(LIGATURES) + "]")  # a ligature printed twice: "specifification"
 BANNER_RE =re.compile(r"(?i)(effective until|effective from) (\d{1,2} \w+ \d{4})")
 SKIP_CHAPTERS = {"contents"}
 STOP_CHAPTERS = {"index", "list of approved documents"}
@@ -93,6 +97,9 @@ class AdocBuilder:
         self.fixes = index(fixes)
         self.title = meta.get("title") or meta.get("source_id", "")
         self.page_width = doc.get("page_width") or 595.0
+        if self.page_width > 700:  # older reads took the width of a double-page cover
+            self.page_width = 595.3
+        self.rects = doc.get("rects", [])
         self.doc_tables = doc.get("tables", [])
         self.sections: list[dict] = []
         self.by_id: dict[str, dict] = {}
@@ -112,8 +119,36 @@ class AdocBuilder:
         body = sizes.most_common(1)[0][0] if sizes else BODY
         # The older two-column layout (2004-2016 editions: A, C, E, G, H, J, M ...): 10.5pt body text, 23pt chapter
         # titles, 14pt headings, captions in 12pt roman type above the drawing or table.
-        self.classic = 9.8 <= body <= 11.2
+        # Some classic editions (AD M volume 2, 2015) set the body in 12pt: their 23pt chapter titles tell them apart.
+        pages23 = {l["page"] for l in doc["lines"] if 22 <= l["size"] <= 24 and l["page"] > 1 and l["top"] < 200
+                   and l.get("words") and _bold(l["words"][0])}
+        pages26 = {l["page"] for l in doc["lines"] if 25 <= l["size"] <= 27.5 and l["page"] > 1 and l["top"] < 200
+                   and l.get("words") and _bold(l["words"][0]) and l["text"].strip().lower() not in STOP_CHAPTERS}
+        self.classic = 9.8 <= body <= 11.2 or len(pages23) >= 3 and not pages26
         self.body = body
+        xs = Counter(round(l["x0"]) for l in doc["lines"] if abs(l["size"] - body) <= 0.6 and 100 < l["top"] < 780)
+        self.margins = [x for x, _ in xs.most_common(6)]  # column left edges; captions sit 5.6pt inside them
+        # Short documents without chapter titles (amendment booklets, corrections, FAQ notes): the largest size
+        # used for headings on two or more pages after the cover is the chapter size.
+        chap_range = (22, 24) if self.classic else (25, 27.5)
+        has_chapters = any(chap_range[0] <= l["size"] <= chap_range[1] and l["page"] > 1 and l["top"] < 200
+                           and l.get("words") and _bold(l["words"][0]) and l["text"].strip().lower() not in STOP_CHAPTERS
+                           for l in doc["lines"])
+        self.simple = not has_chapters
+        self.chapter_size = 0.0
+        if self.simple:
+            self.classic = False
+            pages_by_size = defaultdict(set)
+            for l in doc["lines"]:
+                if l["page"] > 1 and body + 4 <= l["size"] <= 30 and 40 < l["top"] < 780 \
+                        and l["text"].strip().lower() not in {"contents", "the building regulations 2010", *STOP_CHAPTERS}:
+                    pages_by_size[l["size"]].add(l["page"])
+            sizes2 = [sz for sz, ps in pages_by_size.items() if len(ps) >= 2]
+            self.chapter_size = max(sizes2, default=max(pages_by_size, default=0.0))
+            if not self.chapter_size:  # a one-page note (corrections to AD G): its largest bold headings
+                bolds = [l["size"] for l in doc["lines"] if l["page"] > 1 and body + 3 <= l["size"] <= 30
+                         and 40 < l["top"] < 780 and l.get("words") and _bold(l["words"][0])]
+                self.chapter_size = max(bolds, default=0.0)
         self._furniture(doc["lines"])
 
     # -------------------------------------------------- pages
@@ -122,7 +157,7 @@ class AdocBuilder:
         head = 40 if self.classic else 82  # classic: the section tab and running header sit above 40
         for l in sorted(lines, key=lambda l: (l["page"], l["top"], l["x0"])):
             t = l["text"].strip()
-            if l["top"] < head:
+            if l["top"] < head and not (l["size"] >= 20 and t.lower() in STOP_CHAPTERS):  # the back page title stops
                 m = BANNER_RE.search(t)
                 if m:
                     self.banner[l["page"]] = ("until" if "until" in m.group(1).lower() else "from", _date(m.group(2)))
@@ -137,8 +172,12 @@ class AdocBuilder:
                 continue
             if "O N L I N E" in t:
                 continue
+            if self.simple and l["size"] >= 18 and t == "The Building Regulations 2010":
+                continue  # the banner above each Approved Document's list of amendments
             if self.classic:
                 l = self._normalise(l)
+            elif self.simple:
+                l = self._normalise_simple(l)
             self.pages[l["page"]].append(_line(l["words"], l) if l.get("words") else l)
         self._ligatures()
         if self.classic:
@@ -151,7 +190,13 @@ class AdocBuilder:
         """Classic layout: map sizes onto the 2019 ones the rest of the parser knows (body 12, headings 15,
         chapters 26), and mark captions ("Table 2 ...", "Diagram 1 ...", 12pt roman) for regions()."""
         s, ws = l["size"], l.get("words") or []
+        if len(ws) > 1 and (ws[0].get("s") or s) < 7 and (ws[1].get("s") or 0) >= 9:
+            s = ws[1]["s"]  # a reference number in tiny type in front of a body line ("3 BS 7913:1998")
         bold0 = bool(ws) and _bold(ws[0])
+        if 11.5 <= s <= 12.5 and ws and not bold0 and re.match(r"^(Table|Diagram)$", ws[0]["text"]) \
+                and (TABLE_RE.match(l["text"]) or DIAGRAM_RE.match(l["text"]) or TABLE_TO_RE.match(l["text"])) \
+                and (abs(s - self.body) > 0.6 or any(abs(ws[0]["x0"] - 5.6 - m) < 2 for m in self.margins)):
+            return {**l, "size": BODY + 0.5, "cap": True}  # 12pt caption (also when the body is 12pt: inset 5.6pt)
         if abs(s - self.body) <= 0.6:
             s = BODY
         elif 22 <= s <= 24 and bold0:
@@ -163,6 +208,18 @@ class AdocBuilder:
         elif 11.5 <= s <= 12.5:
             s = 13.0  # other 12pt text (sub-headings): above body, below headings
         return {**l, "size": s}
+
+    def _normalise_simple(self, l: dict) -> dict:
+        """Documents without chapter titles: the chapter size becomes 26 and bold, other sizes between body and
+        chapter become bold 15pt headings, body text 12pt."""
+        s, ws = l["size"], l.get("words") or []
+        if self.chapter_size and abs(s - self.chapter_size) < 0.3:
+            return {**l, "size": 26.0, "words": [{**w, "b": True} for w in ws]}
+        if self.body + 2 <= s < self.chapter_size:
+            return {**l, "size": 15.0, "words": [{**w, "b": True} for w in ws]}
+        if abs(s - self.body) <= 0.6:
+            return {**l, "size": BODY}
+        return l
 
     def _find_gutters(self) -> None:
         """The gutter of each page: where the right column starts (it differs on odd and even pages). Pages with
@@ -199,19 +256,21 @@ class AdocBuilder:
             ws = l.get("words") or []
             if not ws:
                 continue
-            if BODY - 0.6 <= l["size"] <= 21 and not l.get("cap"):
-                lw = [w for w in ws if w["x0"] < g - 4]
-                rw = [w for w in ws if w["x0"] >= g - 4]
-                if lw and rw:
-                    parts += [{**_line(lw, l), "col": 0}, {**_line(rw, {**l, "x0": rw[0]["x0"]}), "col": 1}]
-                    continue
-            if l.get("cap"):  # a caption beside text in the other column: cut at the gutter, keep its own part
-                lw = [w for w in ws if w["x0"] < g - 4]
-                rw = [w for w in ws if w["x0"] >= g - 4]
-                if lw and rw and lw[-1]["x1"] < g - 2:
-                    other = {k: v for k, v in l.items() if k != "cap"}
-                    if ws[0]["x0"] < g - 4:
-                        parts += [{**_line(lw, l), "col": 0}, {**_line(rw, {**other, "size": BODY}), "col": 1}]
+            lw = [w for w in ws if w["x0"] < g - 4]
+            rw = [w for w in ws if w["x0"] >= g - 4]
+            if lw and rw and rw[0]["x0"] - lw[-1]["x1"] > 4:
+                # pdfplumber joins words at the same height in both columns. Cut a body line, a caption beside
+                # text, or any line whose two sides differ in size (a table row beside body text).
+                sl, sr = lw[-1].get("s"), rw[0].get("s")
+                differ = bool(sl and sr) and abs(sl - sr) > 1
+                body_line = BODY - 0.6 <= l["size"] <= 21 and not 12.4 <= l["size"] <= 13.1
+                # 12pt caption lines of two tables set side by side ("calculations – taps | calculations – baths")
+                twin = 12.4 <= l["size"] <= 13.1 and rw[0]["x0"] - lw[-1]["x1"] > 15 and lw[-1]["x1"] < g - 2
+                if body_line or differ or twin or l.get("cap") and lw[-1]["x1"] < g - 2:
+                    right = _line(rw, {**{k: v for k, v in l.items() if k != "cap"}, "x0": rw[0]["x0"]})
+                    if sr:
+                        right = self._normalise({**right, "size": sr})
+                    parts += [{**_line(lw, l), "col": 0}, {**right, "col": 1}]
                     continue
             x1 = max(w["x1"] for w in ws)
             col = 1 if ws[0]["x0"] >= g - 4 else (0 if x1 <= g - 1 else None)
@@ -269,9 +328,28 @@ class AdocBuilder:
         for ls in self.pages.values():
             for l in ls:
                 changed = False
-                for w in l.get("words") or []:
-                    if DOUBLED_RE.search(w["text"]):
-                        good = DOUBLED_RE.sub(r"\1", w["text"])
+                def tripled(t3):
+                    return len(t3) >= 3 and len(t3) % 3 == 0 and all(t3[i] == t3[i + 1] == t3[i + 2] for i in range(0, len(t3), 3))
+                def doubled(t2):  # "CCoonntteennttss" (AD M volume 2 contents title)
+                    return len(t2) >= 8 and len(t2) % 2 == 0 and all(t2[i] == t2[i + 1] for i in range(0, len(t2), 2))
+                ws3 = l.get("words") or []
+                whole = len(ws3) >= 2 and sum(tripled(w["text"]) for w in ws3) * 2 >= len(ws3)
+                if len(ws3) <= 3 and ws3 and all(doubled(w["text"]) for w in ws3):
+                    for w in ws3:
+                        good = w["text"][::2]
+                        self.repairs[f"{w['text']} -> {good}"] += 1
+                        w["text"], changed = good, True
+                    ws3 = []
+                for w in ws3:
+                    t3 = w["text"]
+                    if whole and tripled(t3):
+                        # text printed three times over for a bold effect (AD P 2013 requirement box): "RRReeeqqq"
+                        good = t3[::3]
+                        self.repairs[f"{t3} -> {good}"] += 1
+                        w["text"], changed = good, True
+                        continue
+                    if LIGATURE_RE.search(w["text"]) or DOUBLED_RE.search(w["text"]):
+                        good = DOUBLED_RE.sub(r"\1", LIGATURE_RE.sub(lambda m: LIGATURES[m.group(0)], w["text"]))
                         self.repairs[f"{w['text']} -> {good}"] += 1
                         w["text"], changed = good, True
                 if changed:
@@ -284,7 +362,8 @@ class AdocBuilder:
                 continue
             best = None
             cands = [word[:i] + x + word[i:] for i in range(1, len(word) + 1) if word[i - 1] == "f" for x in ("i", "l")]
-            cands += [word[:i] + x + word[i:] for i in range(len(word) + 1) for x in ("fi", "fl")]
+            cands += [word[:i] + x + word[i:] for i in range(len(word) + 1) for x in ("fi", "fl")
+                      if i > 0 or len(word) >= 4]  # "red" is not a broken "fired"
             for cand in cands:
                 if vocab.get(cand, 0) >= 3 and n < vocab[cand] and (best is None or vocab[cand] > vocab[best]):
                     best = cand
@@ -352,7 +431,8 @@ class AdocBuilder:
         for l in lines:
             ws = l.get("words") or []
             if l["size"] < SMALL or l["size"] > 21 or not ws:  # small print and chapter titles are not split
-                left.append(l)
+                # small print wholly in the right column (AD L vol 2 Table A2 beside the key terms) is read there
+                (right if ws and l["size"] < SMALL and ws[0]["x0"] >= g - 4 else left).append(l)
                 continue
             lw = [w for w in ws if w["x0"] < g - 4]
             rw = [w for w in ws if w["x0"] >= g - 4]
@@ -381,6 +461,11 @@ class AdocBuilder:
                 and self.by_id[sid].get("_chapter") not in (None, chap["id"]):
             # The same number in another chapter (two volumes or two Parts in one booklet): scope it by chapter.
             sid = sec["id"] = f"{chap['id']}-{sid}"
+        if sid in self.by_id and kind == "heading" and self.classic:
+            k = 2  # classic: "Technical solution" / "Alternative approach" repeat under one chapter
+            while f"{sid}-{k}" in self.by_id:
+                k += 1
+            sid = sec["id"] = f"{sid}-{k}"
         if sid in self.by_id:
             self.issues.append(f"duplicate section id {sid} (file page {page})")
             sid = sec["id"] = f"{sid}-p{page}"
@@ -427,13 +512,24 @@ class AdocBuilder:
                 for k in range(i, j):
                     out[k] = ("caption", n)
                 top_limit = max([m["top"] for k, m in enumerate(lines[:i]) if m["top"] < l["top"]
-                                 and (m["size"] >= SMALL and "Medium" not in m["font"] and k not in out
+                                 and (m["size"] >= LABEL_MAX and "Medium" not in m["font"] and k not in out and not SEE_RE.match(m["text"])
                                       or out.get(k, ("",))[0] == "caption")],
                                 default=0.0)
+                # A table straight above the drawing (AD F Table 3.1 over Diagram 3.1): the labels start after the
+                # widest gap between the table's caption and the diagram caption.
+                tcap = [m["top"] for m in lines if top_limit <= m["top"] < l["top"] and TABLE_RE.match(m["text"])
+                        and (m.get("words") or [{}])[0].get("b")]
+                if tcap:
+                    mid = sorted(m["top"] for m in lines if max(tcap) < m["top"] < l["top"])
+                    gaps = [(b - a, a) for a, b in zip(mid, mid[1:])]
+                    if gaps:
+                        top_limit = max(gaps)[1]
                 for k, m in enumerate(lines):
-                    if k not in out and top_limit < m["top"] < l["top"] and (m["size"] < SMALL or "Medium" in m["font"]):
+                    if k not in out and top_limit < m["top"] < l["top"] and (m["size"] < LABEL_MAX or "Medium" in m["font"] or SEE_RE.match(m["text"])):
                         out[k] = ("diagram", n)
-                self._diagram_top[(page, n)] = top_limit
+                # Under another diagram's caption band, start below the band (its last line is about 22pt tall).
+                cap_above = any(out.get(k, ("",))[0] == "caption" and m["top"] == top_limit for k, m in enumerate(lines))
+                self._diagram_top[(page, n)] = top_limit + (8 if cap_above else 0)
                 i = j
                 continue
             i += 1
@@ -442,7 +538,7 @@ class AdocBuilder:
             if i in out:
                 continue
             ws = l.get("words") or []
-            if TABLE_RE.match(l["text"]) and ws and _bold(ws[0]) and l["size"] >= 11.5:
+            if TABLE_RE.match(l["text"]) and ws and _bold(ws[0]) and l["size"] >= 11.5 and not self.classic:
                 n += 1
                 out[i] = ("table-caption", n)
                 last = l
@@ -458,8 +554,47 @@ class AdocBuilder:
                         continue
                     last = None
                     if m["size"] >= SMALL and "Medium" not in m["font"]:
+                        # Body-size lines indented to the caption's title, straight after it, are the table's own
+                        # introduction (AD L vol 2 Table D1): they stay in the table, and its rows follow.
+                        cw = l.get("words") or []
+                        tx = cw[2]["x0"] if len(cw) > 2 else None
+                        if tx and not self.classic and abs(m["x0"] - tx) < 3 and not any(_bold(w) for w in mw[:1]) \
+                                and all(out.get(j, ("",))[0] in ("table", "table-caption", "table-caption-more")
+                                        for j in range(i + 1, k)):
+                            out[k] = ("table", n)
+                            continue
                         break
                     out[k] = ("table", n)
+        # Footnotes (classic layout, AD C): a tiny superscript number, then 6.5pt text, at the foot of a column.
+        if self.classic:
+            last = None
+            for i, l in enumerate(lines):
+                ws = l.get("words") or []
+                if i in out or l["size"] >= SMALL:
+                    last = None
+                    continue
+                if l["top"] > 450 and len(ws) > 1 and re.fullmatch(r"\d{1,3}", ws[0]["text"]) \
+                        and (ws[0].get("s") or l["size"]) < 5.0:
+                    out[i] = ("footnote", i)
+                    last = i
+                elif last is not None and l["size"] < 7.5 and 0 < l["top"] - lines[last]["top"] < 14:
+                    out[i] = ("footnote-more", out[last][1])
+                    last = i
+                else:
+                    last = None
+        # Small print just under a table's last row, in its column, is more of that table (AD L vol 2 Table A2: a
+        # row set in body size splits the table's small print in two).
+        if not self.classic:
+            tl = {}
+            for i, l in enumerate(lines):
+                if out.get(i, ("",))[0] == "table":
+                    tl[out[i][1]] = l
+                elif i not in out and l["size"] < SMALL:
+                    for n2, last in list(tl.items()):
+                        if 0 < l["top"] - last["top"] < 36 and abs(l["x0"] - last["x0"]) < 40:
+                            out[i] = ("table", n2)
+                            tl[n2] = l
+                            break
         # Small print outside diagrams and tables: requirement boxes and similar.
         prev = None
         for i, l in enumerate(lines):
@@ -493,23 +628,36 @@ class AdocBuilder:
             wraps = [k for k, m in enumerate(lines) if k not in out and 12.4 <= m["size"] <= 13.1]
             for k in sorted(wraps, key=lambda k: lines[k]["top"]):  # wrapped caption (its words can be bold)
                 m = lines[k]
-                if 0 < m["top"] - last["top"] < 16 and -2 <= m["x0"] - c["x0"] < 60 \
+                if 0 < m["top"] - last["top"] < 16 and -2 <= m["x0"] - c["x0"] < 90 \
                         and not TABLE_RE.match(m["text"]) and not DIAGRAM_RE.match(m["text"]):
                     out[k] = ("table-caption-more" if kind == "table" else "caption", n)
                     last = m
-            below = [k for k, m in enumerate(lines) if k not in out and m["top"] > last["top"] + 2
-                     and m["top"] - last["top"] < 60 and m["size"] < SMALL]
-            wide = col == 0 and any(lines[k].get("col") is None or lines[k].get("col") == 1 for k in below)
+            def bottom_for(cols):
+                stops = [m["top"] for k, m in enumerate(lines) if m["top"] > last["top"] + 2 and m.get("col") in cols
+                         and k not in out and (abs(m["size"] - BODY) < 0.6 and m.get("col") is not None
+                                               or m["size"] >= 14.5 or m.get("cap"))]  # body text never crosses the gutter
+                return min(stops, default=795.0)
+            # Full width when any of its small print, down to the next text in its own column, lies right of the gutter.
+            b0 = bottom_for({col, None})
+            wide = col == 0 and (c.get("col") is None or max(w["x1"] for w in c["words"]) > g + 20) or col == 0 and any(last["top"] < m["top"] < b0 and m.get("col") in (1, None) and k not in out
+                                    and (m["size"] < SMALL or 12.4 <= m["size"] <= 13.1) for k, m in enumerate(lines))
             cols = {0, 1, None} if wide else {col, None}
-            stops = [m["top"] for k, m in enumerate(lines) if m["top"] > last["top"] + 2 and m.get("col") in cols
-                     and (m["size"] >= SMALL and k not in out or m.get("cap") and k not in out)]
-            bottom = min(stops, default=795.0)
-            for k, m in enumerate(lines):
-                if k not in out and last["top"] < m["top"] < bottom and m["size"] < SMALL and m.get("col") in cols:
+            bottom = bottom_for(cols)
+            for k, m in enumerate(lines):  # small print, and 12pt sub-titles inside a drawing ("Figure 3a")
+                if k not in out and last["top"] < m["top"] < bottom and (m["size"] < SMALL or 12.4 <= m["size"] <= 13.1) \
+                        and m.get("col") in cols:
                     out[k] = (kind, n)
             x0, x1 = (28.0, self.page_width - 28.0) if wide else ((28.0, g - 2) if col == 0 else (g - 10, self.page_width - 28.0))
             if kind == "diagram":
-                self._diagram_area[(page, n)] = (c["top"] - 4, min(bottom - 4, 800.0), x0, x1)
+                # The drawing's frame (a filled box starting just under the caption) gives its true extent: many
+                # classic drawings have their labels as outlines, not text.
+                frame = [r for r in self.rects if r["page"] == page and 0 <= r["top"] - c["top"] < 40
+                         and abs(r["x0"] - c["x0"]) < 15 and r["bottom"] - r["top"] > 40]
+                if frame:
+                    r = max(frame, key=lambda r: r["bottom"] - r["top"])
+                    self._diagram_area[(page, n)] = (c["top"] - 4, min(r["bottom"] + 4, 800.0), r["x0"] - 4, r["x1"] + 4)
+                else:
+                    self._diagram_area[(page, n)] = (c["top"] - 4, min(bottom - 4, 800.0), x0, x1)
         return n
 
     # -------------------------------------------------- build
@@ -529,7 +677,7 @@ class AdocBuilder:
             region_secs: dict[int, dict] = {}
             # (classic layout: tables and requirement boxes are set in 8pt, so only far smaller text counts)
             tiny = [l for k, l in enumerate(lines) if reg.get(k, ("",))[0] == "small"
-                    and l["size"] < (6.5 if self.classic else 9.0)]
+                    and l["size"] < (0.0 if self.classic else 9.0)]  # classic: no pictures of pages
             if len(tiny) >= 10:
                 # A picture of a page made of text (AD B page 8, the "how to use" sample page): if it has a diagram
                 # caption, everything else on the page is that diagram's labels; if not, skip the page.
@@ -554,7 +702,9 @@ class AdocBuilder:
                     continue
                 kind, n = reg.get(i, (None, None))
                 # Chapters
-                if kind is None and 25 <= l["size"] <= 27.5 and ws and _bold(ws[0]) and l["top"] < 200:
+                if kind is None and ws and _bold(ws[0]) and (25 <= l["size"] <= 27.5 and (l["top"] < 200 or self.simple and l["top"] < 760)
+                                                  or self.simple and self.chapter is None and page > 1
+                                                  and 14.5 <= l["size"] < 25):  # booklet: "Introduction"
                     if self.chapter and self.chapter["file_page"] == page and current is self.chapter \
                             and not self.chapter["text"] and l["top"] - self.chapter.get("_top", 0) < 40:
                         self.chapter["title"] = (f"{self.chapter['title']} {t}")
@@ -634,6 +784,13 @@ class AdocBuilder:
                     self.span(sec, page, l["top"], l["top"] + l["size"] + 2)
                     continue
                 # Small-print boxes
+                if kind in ("footnote", "footnote-more"):
+                    host = current or self.chapter
+                    if kind == "footnote":
+                        host["footnotes"].append(t)
+                    elif host["footnotes"]:
+                        host["footnotes"][-1] += " " + t
+                    continue
                 if kind == "small":
                     sec = region_secs.get(n)
                     if sec is None:
@@ -646,12 +803,23 @@ class AdocBuilder:
                                         and s["type"] == "requirement")
                             sec = self.add(f"{self.chapter['id']}-box-{k}", "requirement", self.chapter, None,
                                            self.chapter["title"], page)
-                        elif sizes[len(sizes) // 2] >= 9.0 and len(block) >= 3:
+                        elif sizes[len(sizes) // 2] >= 9.0 and len(block) >= 3 and not self.classic \
+                                and sum(len(m["text"].split()) for m in block) >= 3 * len(block) \
+                                and sum(1 for m in block if len(m["text"]) <= 3) <= 2:  # short label lines: a drawing
                             # A table with no caption (Appendix E): named after the heading above it.
                             host = h3 or h2 or h1 or self.chapter
                             k = 1 + sum(1 for s in self.sections if s["parent_id"] == host["id"] and s["type"] == "table")
                             sec = self.add(f"{host['id']}-table-{k}", "table", host, None, host["title"], page)
                             last_table = sec
+                        elif page == max(self.pages):  # the publisher's back cover
+                            sec = {"_skip": True}
+                        elif self.classic or len(block) >= 3:
+                            # Classic notes boxes; and (2019 layout) the labels of a drawing whose caption is not
+                            # text (AD K Diagrams 9.1 and 9.2): kept as a text box, not a table.
+                            # Classic layout: worked examples, notes and keys are set in 8pt: keep them as a text box.
+                            host = h3 or h2 or h1 or self.chapter
+                            k = 1 + sum(1 for s in self.sections if s["parent_id"] == host["id"] and s["id"].startswith(f"{host['id']}-box-"))
+                            sec = self.add(f"{host['id']}-box-{k}", "text", host, None, host["title"], page)
                         else:
                             self.issues.append(f"file page {page}: {len(block)} lines of very small print skipped "
                                                f"(a picture made of text, e.g. a sample page): {t[:40]}")
@@ -694,6 +862,7 @@ class AdocBuilder:
                     current["title"] = f"{current['title']} {t}"
                     current["heading_path"][-1] = current["title"]
                     current["_heading_top"] = l["top"]
+                    self._redo_duplicate_id(current)
                     continue
                 if all_bold and l["size"] >= 19.5:
                     h1 = self._heading(t, page, self.chapter, 1, l)
@@ -722,7 +891,9 @@ class AdocBuilder:
                     if m:
                         ws = [{**ws[0], "text": m.group(1)}, {**ws[0], "text": m.group(2), "b": False}] + ws[1:]
                 if ws and _bold(ws[0]) and NUM_RE.match(ws[0]["text"]) and abs(l["size"] - BODY) < 0.6 \
-                        and l.get("indent", 0) <= 4:  # classic: bold cross-references inside indented lists
+                        and l.get("indent", 0) <= 4 \
+                        and not (self.classic and prev_line and prev_line[0] == (page, l.get("col"))
+                                 and 0 < l["top"] - prev_line[1] < 13):  # classic: a bold cross-reference in running text
                     num = ws[0]["text"]
                     sec = self.add(f"para-{num.lower()}" + self.suffix(), "paragraph", parent_h, num,
                                    f"Paragraph {num}", page, _text(ws[1:]))
@@ -744,6 +915,27 @@ class AdocBuilder:
                     self._diagram(page, r, h3 or h2 or h1 or self.chapter, self._diagram_top.get((page, n), 0.0),
                                   self._diagram_area.get((page, n)))
         return self.finish()
+
+    def _redo_duplicate_id(self, sec) -> None:
+        """A heading whose first line repeats an earlier heading ("MAIN CHANGES MADE BY THE" / "2013 AMENDMENTS"):
+        once its wrapped line is joined, give it an id from the whole title. Headings that were unique keep the id
+        from their first line, so ids already in use do not move."""
+        dup = f"-p{sec['file_page']}"
+        if not sec["id"].endswith(dup):
+            return
+        parent = self.by_id.get(sec["parent_id"])
+        sid = f"{parent['id'] if parent else ''}-{slugify(sec['title'])[:80]}".strip("-")
+        if sid in self.by_id:
+            return
+        msg = f"duplicate section id {sec['id'][:-len(dup)]} (file page {sec['file_page']})"
+        if msg in self.issues:
+            self.issues.remove(msg)
+        for s in self.sections:
+            if s["parent_id"] == sec["id"]:
+                s["parent_id"] = sid
+        self.by_id.pop(sec["id"], None)
+        sec["id"] = sid
+        self.by_id[sid] = sec
 
     def _heading(self, t, page, parent, level, l) -> dict:
         title = (t)
@@ -817,6 +1009,15 @@ class AdocBuilder:
             s.pop("_size", None)
             s.pop("_chapter", None)
             s["text"] = (s["text"]) if s.get("text") else s.get("text", "")
+        pre = self.meta.get("id_prefix") or ""
+        if pre:  # one source, several parts (two volumes, FAQ, amendment booklets): ids unique across the parts
+            for s in self.sections:
+                s["id"] = pre + s["id"]
+                if s["parent_id"]:
+                    s["parent_id"] = pre + s["parent_id"]
+            for d in self.definitions:
+                d["section_id"] = pre + d["section_id"]
+            self.by_id = {s["id"]: s for s in self.sections}
         self.attach_grids()
         for s in self.sections:
             if s["type"] in ("table", "figure", "requirement") and not self.apply_fix(s):
@@ -826,7 +1027,7 @@ class AdocBuilder:
                                     "section_id": s["id"], "file_page": s["file_page"], "key": self.check_key(s),
                                     "area": s.get("area"), "spans": s.get("spans")})
         counts = Counter(s["type"] for s in self.sections)
-        if not counts.get("paragraph"):
+        if not counts.get("paragraph") and not self.simple:
             self.issues.append("no numbered paragraphs found")
         return {
             **{k: self.meta.get(k) for k in ("source_id", "version_id", "valid_from", "valid_to", "sha256")},
@@ -881,7 +1082,40 @@ def read_adoc_pdf(path) -> dict:
     Document columns itself, so a change to the guide reader does not move AD text and its saved fixes."""
     import pdfplumber
 
-    from system.rag.parse_pdf import _colour, _words
+    from system.rag.parse_pdf import _colour
+
+    def _words(chars: list[dict]) -> list[dict]:
+        """Words with x positions, size (s), bold (b) and colour (c) of their first character. AD PDFs have no
+        space characters, only gaps. Bold fonts: "Bold", "Bd" (HelveticaNeueLTStd-Bd), "Heavy", "Black", "Semibold"."""
+        words, cur, x0, x1, first, prev = [], "", None, None, None, None
+
+        def emit():
+            w = {"x0": round(x0, 1), "x1": round(x1, 1), "text": cur, "s": round(first["size"], 1)}
+            fn = first.get("fontname") or ""
+            if any(k in fn for k in ("Bold", "Heavy", "Black", "Semibold")) or re.search(r"-Bd(?:Cn|It)?$", fn):
+                w["b"] = True
+            col = _colour(first.get("non_stroking_color"))
+            if col and col not in ((0.0,), (0.0, 0.0, 0.0), (0.0, 0.0, 0.0, 1.0)):
+                w["c"] = list(col)
+            words.append(w)
+
+        for c in chars:
+            gap = prev is not None and c["x0"] - prev["x1"] > 1.5
+            if c["text"].isspace() or gap:
+                if cur:
+                    emit()
+                cur, x0 = "", None
+                if c["text"].isspace():
+                    prev = c
+                    continue
+            if not cur:
+                x0, first = c["x0"], c
+            cur += c["text"]
+            x1 = c["x1"]
+            prev = c
+        if cur:
+            emit()
+        return words
 
     lines, rects, images, tables = [], [], [], []
     with pdfplumber.open(str(path)) as pdf:
@@ -910,9 +1144,33 @@ def read_adoc_pdf(path) -> dict:
                     tables.append({"page": n, "top": round(top, 1), "bottom": round(bottom, 1),
                                    "x0": round(x0, 1), "x1": round(x1, 1), "rows": rows})
         count = len(pdf.pages)
-        width = float(pdf.pages[0].width) if pdf.pages else 595.0
+        widths = Counter(round(float(pg.width), 1) for pg in pdf.pages)  # the cover can be a double-page spread
+        width = widths.most_common(1)[0][0] if widths else 595.0
     return {"lines": lines, "rects": rects, "images": images, "tables": tables, "page_count": count,
             "page_width": width}
+
+
+def part_prefix(part: str, parts: list[str]) -> str:
+    """Section-id prefix for one part of a source with several parts, so ids never repeat across the parts of
+    one source (search keys are "<source>:<section_id>"). A source with one part gets no prefix (AD B volume 1
+    keeps its ids). Rule: "...volume-N..." -> "vN-"; "frequently-asked-questions" -> "faq-"; "corrections..." ->
+    "corrections-"; the main document ("approved-document-...") -> no prefix; an amendment booklet "<words>-amendment(s)-to-..." -> "amendments-<words>-" (e.g.
+    "amendments-february-2023-"); any other part -> its slug up to 30 characters plus "-"."""
+    if len(parts) <= 1:
+        return ""
+    m = re.match(r"^(.*?)-?amendments?-to-", part)
+    if m:
+        return f"amendments-{m.group(1)}-" if m.group(1) else "amendments-"
+    m = re.search(r"volume-(\d+)", part)
+    if m:
+        return f"v{m.group(1)}-"
+    if part.startswith("frequently-asked-questions"):
+        return "faq-"
+    if part.startswith("corrections"):
+        return "corrections-"
+    if "approved-document" in part:  # the main document of the source keeps plain ids
+        return ""
+    return slugify(part)[:30].strip("-") + "-"
 
 
 def build_tree(doc: dict, meta: dict, fixes: list[dict] | None = None) -> dict:
@@ -940,7 +1198,8 @@ def main(argv: list[str] | None = None) -> int:
             print(f"missing raw file: {r['raw_path']}")
             return 1
         meta = {**r, "title": r.get("part_title") or src.get("title", a.source),
-                "image_display": src.get("images", "show") != "check-only"}
+                "image_display": src.get("images", "show") != "check-only",
+                "id_prefix": part_prefix(a.part, (src.get("parser") or {}).get("parts") or [a.part])}
         tree = build_tree(read_adoc_pdf(raw), meta, fixes=load_fixes(a.source))
         out = CORPUS_DIR / "parsed" / a.source / f"{r['version_id']}.json"
         out.parent.mkdir(parents=True, exist_ok=True)

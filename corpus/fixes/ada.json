@@ -1,0 +1,1263 @@
+{
+ "source_id": "ada",
+ "about": "Saved model fixes for ada (ADR 0010).",
+ "fixes": [
+  {
+   "key": "f0b3c66cb40192c6",
+   "kind": "table",
+   "target": "the-requirements-box-1: The Requirements",
+   "value": {
+    "columns": [
+     "Requirement",
+     "Limits on application"
+    ],
+    "rows": [
+     [
+      "Loading",
+      ""
+     ],
+     [
+      "A1. (1) The building shall be constructed so that the combined dead, imposed and wind loads are sustained and transmitted by it to the ground: (a) safely; and (b) without causing such deflection or deformation of any part of the building, or such movement of the ground, as will impair the stability of any part of another building. (2) In assessing whether a building complies with sub-paragraph (1) regard shall be had to the imposed and wind loads to which it is likely to be subjected in the ordinary course of its use for the purpose for which it is intended.",
+      ""
+     ],
+     [
+      "Ground movement",
+      ""
+     ],
+     [
+      "A2. The building shall be constructed so that ground movement caused by: (a) swelling, shrinkage or freezing of the subsoil; or (b) land-slip or subsidence (other than subsidence arising from shrinkage), in so far as the risk can be reasonably foreseen, will not impair the stability of any part of the building.",
+      ""
+     ]
+    ],
+    "heading_rows": [
+     0,
+     2
+    ],
+    "sentences": [
+     "The Requirements of Approved Document A, Loading: requirement A1 is that (1) the building shall be constructed so that the combined dead, imposed and wind loads are sustained and transmitted by it to the ground (a) safely and (b) without causing such deflection or deformation of any part of the building, or such movement of the ground, as will impair the stability of any part of another building; (2) in assessing whether a building complies with sub-paragraph (1) regard shall be had to the imposed and wind loads to which it is likely to be subjected in the ordinary course of its use for the purpose for which it is intended; no limits on application are printed.",
+     "The Requirements of Approved Document A, Ground movement: requirement A2 is that the building shall be constructed so that ground movement caused by (a) swelling, shrinkage or freezing of the subsoil or (b) land-slip or subsidence (other than subsidence arising from shrinkage), in so far as the risk can be reasonably foreseen, will not impair the stability of any part of the building; no limits on application are printed."
+    ]
+   },
+   "reason": "Two-column requirement box; Loading and Ground movement are sub-heading rows; the Limits on application column is empty on the page.",
+   "evidence": "page image corpus/parsed/ada/approved-document-a-structure@2013-09-01-96a5a374/pages/p7.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "8db8849054e4585c",
+   "kind": "table",
+   "target": "the-requirement-box-1: The Requirement",
+   "value": {
+    "columns": [
+     "Requirement",
+     "Limits on application"
+    ],
+    "rows": [
+     [
+      "Disproportionate collapse",
+      ""
+     ],
+     [
+      "A3. The building shall be constructed so that in the event of an accident the building will not suffer collapse to an extent disproportionate to the cause.",
+      ""
+     ]
+    ],
+    "heading_rows": [
+     0
+    ],
+    "sentences": [
+     "The Requirement A3, Disproportionate collapse: the building shall be constructed so that in the event of an accident the building will not suffer collapse to an extent disproportionate to the cause; no limits on application are printed."
+    ]
+   },
+   "reason": "Two-column requirement box; the PDF text of A3 has no spaces between words, so the words are taken from the page image.",
+   "evidence": "page image corpus/parsed/ada/approved-document-a-structure@2013-09-01-96a5a374/pages/p43.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "1c4b1ccf5ba0c56c",
+   "kind": "table",
+   "target": "table-1: Areas at risk from house longhorn beetle",
+   "value": {
+    "columns": [
+     "Geographical area"
+    ],
+    "rows": [
+     [
+      "In the Borough of Bracknell Forest the parishes of Sandhurst and Crowthorne."
+     ],
+     [
+      "The Borough of Elmbridge"
+     ],
+     [
+      "In the District of Hart, the parishes of Hawley and Yateley"
+     ],
+     [
+      "The District of Runnymede"
+     ],
+     [
+      "The Borough of Spelthorne"
+     ],
+     [
+      "The Borough of Surrey Heath"
+     ],
+     [
+      "In the Borough of Rushmoor, the area of the former district of Farnborough"
+     ],
+     [
+      "The Borough of Woking"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Areas at risk from house longhorn beetle: Geographical area In the Borough of Bracknell Forest the parishes of Sandhurst and Crowthorne.",
+     "Areas at risk from house longhorn beetle: Geographical area The Borough of Elmbridge.",
+     "Areas at risk from house longhorn beetle: Geographical area In the District of Hart, the parishes of Hawley and Yateley.",
+     "Areas at risk from house longhorn beetle: Geographical area The District of Runnymede.",
+     "Areas at risk from house longhorn beetle: Geographical area The Borough of Spelthorne.",
+     "Areas at risk from house longhorn beetle: Geographical area The Borough of Surrey Heath.",
+     "Areas at risk from house longhorn beetle: Geographical area In the Borough of Rushmoor, the area of the former district of Farnborough.",
+     "Areas at risk from house longhorn beetle: Geographical area The Borough of Woking."
+    ]
+   },
+   "reason": "One-column table.",
+   "evidence": "page image corpus/parsed/ada/approved-document-a-structure@2013-09-01-96a5a374/pages/p14.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "cdb6447532120c8d",
+   "kind": "table",
+   "target": "table-2: Wall types considered in this section",
+   "value": {
+    "columns": [
+     "Wall types considered in this section"
+    ],
+    "rows": [
+     [
+      "Residential buildings of up to three storeys"
+     ],
+     [
+      "External walls"
+     ],
+     [
+      "Internal load-bearing walls"
+     ],
+     [
+      "Compartment walls"
+     ],
+     [
+      "Separating walls"
+     ],
+     [
+      "Small single-storey non-residential buildings and annexes"
+     ],
+     [
+      "External walls"
+     ],
+     [
+      "Internal load-bearing walls"
+     ]
+    ],
+    "heading_rows": [
+     0,
+     5
+    ],
+    "sentences": [
+     "Wall types considered in Section 2C, Residential buildings of up to three storeys: Wall types considered in this section External walls.",
+     "Wall types considered in Section 2C, Residential buildings of up to three storeys: Wall types considered in this section Internal load-bearing walls.",
+     "Wall types considered in Section 2C, Residential buildings of up to three storeys: Wall types considered in this section Compartment walls.",
+     "Wall types considered in Section 2C, Residential buildings of up to three storeys: Wall types considered in this section Separating walls.",
+     "Wall types considered in Section 2C, Small single-storey non-residential buildings and annexes: Wall types considered in this section External walls.",
+     "Wall types considered in Section 2C, Small single-storey non-residential buildings and annexes: Wall types considered in this section Internal load-bearing walls."
+    ]
+   },
+   "reason": "One-column list with two bold group headings; the column has no printed heading (named from the table title).",
+   "evidence": "page image corpus/parsed/ada/approved-document-a-structure@2013-09-01-96a5a374/pages/p15.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "8bf01f8c30a1927e",
+   "kind": "table",
+   "target": "table-3: Minimum thickness of certain external walls, compartment walls and separating walls",
+   "value": {
+    "columns": [
+     "Height of wall",
+     "Length of wall",
+     "Minimum thickness of wall"
+    ],
+    "rows": [
+     [
+      "Not exceeding 3.5m",
+      "Not exceeding 12m",
+      "190mm for whole of its height"
+     ],
+     [
+      "Exceeding 3.5m but not exceeding 9m",
+      "Not exceeding 9m",
+      "190mm for whole of its height"
+     ],
+     [
+      "Exceeding 3.5m but not exceeding 9m",
+      "Exceeding 9m but not exceeding 12m",
+      "290mm from the base for the height of one storey and 190mm for the rest of its height"
+     ],
+     [
+      "Exceeding 9m but not exceeding 12m",
+      "Not exceeding 9m",
+      "290mm from the base for the height of one storey and 190mm for the rest of its height"
+     ],
+     [
+      "Exceeding 9m but not exceeding 12m",
+      "Exceeding 9m but not exceeding 12m",
+      "290mm from the base for the height of two storeys and 190mm for the rest of its height"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Minimum thickness of certain external walls, compartment walls and separating walls: Height of wall Not exceeding 3.5m; Length of wall Not exceeding 12m; Minimum thickness of wall 190mm for whole of its height.",
+     "Minimum thickness of certain external walls, compartment walls and separating walls: Height of wall Exceeding 3.5m but not exceeding 9m; Length of wall Not exceeding 9m; Minimum thickness of wall 190mm for whole of its height.",
+     "Minimum thickness of certain external walls, compartment walls and separating walls: Height of wall Exceeding 3.5m but not exceeding 9m; Length of wall Exceeding 9m but not exceeding 12m; Minimum thickness of wall 290mm from the base for the height of one storey and 190mm for the rest of its height.",
+     "Minimum thickness of certain external walls, compartment walls and separating walls: Height of wall Exceeding 9m but not exceeding 12m; Length of wall Not exceeding 9m; Minimum thickness of wall 290mm from the base for the height of one storey and 190mm for the rest of its height.",
+     "Minimum thickness of certain external walls, compartment walls and separating walls: Height of wall Exceeding 9m but not exceeding 12m; Length of wall Exceeding 9m but not exceeding 12m; Minimum thickness of wall 290mm from the base for the height of two storeys and 190mm for the rest of its height."
+    ]
+   },
+   "reason": "Three-column table; a height printed once beside two lengths is repeated on both rows.",
+   "evidence": "page image corpus/parsed/ada/approved-document-a-structure@2013-09-01-96a5a374/pages/p18.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "64887e47bdc0bbd8",
+   "kind": "table",
+   "target": "table-4: Imposed loads",
+   "value": {
+    "columns": [
+     "Element",
+     "Loading"
+    ],
+    "rows": [
+     [
+      "Distributed loads",
+      ""
+     ],
+     [
+      "Roof",
+      "1.00kN/m² for spans not exceeding 12m; 1.5kN/m² for spans not exceeding 6m"
+     ],
+     [
+      "Floors",
+      "Distributed load: 2.00kN/m²"
+     ],
+     [
+      "Ceilings",
+      "Distributed load: 0.25kN/m² together with concentrated load: 0.9kN"
+     ]
+    ],
+    "heading_rows": [
+     0
+    ],
+    "sentences": [
+     "Imposed loads, Distributed loads: Element Roof; Loading 1.00kN/m² for spans not exceeding 12m; 1.5kN/m² for spans not exceeding 6m.",
+     "Imposed loads, Distributed loads: Element Floors; Loading Distributed load: 2.00kN/m².",
+     "Imposed loads, Distributed loads: Element Ceilings; Loading Distributed load: 0.25kN/m² together with concentrated load: 0.9kN."
+    ]
+   },
+   "reason": "Two-column table; 'Distributed loads' is a sub-heading row.",
+   "evidence": "page image corpus/parsed/ada/approved-document-a-structure@2013-09-01-96a5a374/pages/p20.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "64e84fe828061fc7",
+   "kind": "table",
+   "target": "table-5: Cavity wall ties",
+   "value": {
+    "columns": [
+     "Nominal cavity width mm (Note 1)",
+     "Tie length mm (Note 2)",
+     "BS EN 845-1 tie"
+    ],
+    "rows": [
+     [
+      "50 to 75",
+      "200",
+      "Type 1, 2, 3 or 4 to BSI PD 6697:2010 and selected on the basis of the design loading and design cavity width."
+     ],
+     [
+      "76 to 100",
+      "225",
+      "Type 1, 2, 3 or 4 to BSI PD 6697:2010 and selected on the basis of the design loading and design cavity width."
+     ],
+     [
+      "101 to 125",
+      "250",
+      "Type 1, 2, 3 or 4 to BSI PD 6697:2010 and selected on the basis of the design loading and design cavity width."
+     ],
+     [
+      "126 to 150",
+      "275",
+      "Type 1, 2, 3 or 4 to BSI PD 6697:2010 and selected on the basis of the design loading and design cavity width."
+     ],
+     [
+      "151 to 175",
+      "300",
+      "Type 1, 2, 3 or 4 to BSI PD 6697:2010 and selected on the basis of the design loading and design cavity width."
+     ],
+     [
+      "176 to 300",
+      "(See Note 3)",
+      "Type 1, 2, 3 or 4 to BSI PD 6697:2010 and selected on the basis of the design loading and design cavity width."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Cavity wall ties: Nominal cavity width mm (Note 1) 50 to 75; Tie length mm (Note 2) 200; BS EN 845-1 tie Type 1, 2, 3 or 4 to BSI PD 6697:2010 and selected on the basis of the design loading and design cavity width.",
+     "Cavity wall ties: Nominal cavity width mm (Note 1) 76 to 100; Tie length mm (Note 2) 225; BS EN 845-1 tie Type 1, 2, 3 or 4 to BSI PD 6697:2010 and selected on the basis of the design loading and design cavity width.",
+     "Cavity wall ties: Nominal cavity width mm (Note 1) 101 to 125; Tie length mm (Note 2) 250; BS EN 845-1 tie Type 1, 2, 3 or 4 to BSI PD 6697:2010 and selected on the basis of the design loading and design cavity width.",
+     "Cavity wall ties: Nominal cavity width mm (Note 1) 126 to 150; Tie length mm (Note 2) 275; BS EN 845-1 tie Type 1, 2, 3 or 4 to BSI PD 6697:2010 and selected on the basis of the design loading and design cavity width.",
+     "Cavity wall ties: Nominal cavity width mm (Note 1) 151 to 175; Tie length mm (Note 2) 300; BS EN 845-1 tie Type 1, 2, 3 or 4 to BSI PD 6697:2010 and selected on the basis of the design loading and design cavity width.",
+     "Cavity wall ties: Nominal cavity width mm (Note 1) 176 to 300; Tie length mm (Note 2) (See Note 3); BS EN 845-1 tie Type 1, 2, 3 or 4 to BSI PD 6697:2010 and selected on the basis of the design loading and design cavity width."
+    ]
+   },
+   "reason": "The tie type is printed once beside all rows and is repeated; notes are not rows (page image).",
+   "evidence": "page image corpus/parsed/ada/approved-document-a-structure@2013-09-01-96a5a374/pages/p25.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "fa0863f2fa2951fb",
+   "kind": "table",
+   "target": "table-6: Declared compressive strength of masonry units complying with BS EN 771-1 to -5 (N/mm2)",
+   "value": {
+    "columns": [
+     "Masonry unit",
+     "Clay masonry units to BS EN 771-1, Group 1",
+     "Clay masonry units to BS EN 771-1, Group 2",
+     "Calcium silicate masonry units to BS EN 771-2, Group 1",
+     "Calcium silicate masonry units to BS EN 771-2, Group 2",
+     "Aggregate concrete masonry units to BS EN 771-3",
+     "Autoclaved aerated conc. masonry units to BS EN 771-4",
+     "Manufactured stone masonry units to BS EN 771-5"
+    ],
+    "rows": [
+     [
+      "Condition A (See Diagram 9)",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "Brick",
+      "6.0",
+      "9.0",
+      "6.0",
+      "9.0",
+      "6.0",
+      "–",
+      "Any unit complying with BS EN 771-5 will be acceptable for conditions A, B and C"
+     ],
+     [
+      "Block",
+      "See Table 7",
+      "See Table 7",
+      "See Table 7",
+      "See Table 7",
+      "2.9*",
+      "2.9",
+      "Any unit complying with BS EN 771-5 will be acceptable for conditions A, B and C"
+     ],
+     [
+      "Condition B (See Diagram 9)",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "Brick",
+      "9.0",
+      "13.0",
+      "9.0",
+      "13.0",
+      "9.0",
+      "–",
+      "Any unit complying with BS EN 771-5 will be acceptable for conditions A, B and C"
+     ],
+     [
+      "Block",
+      "See Table 7",
+      "See Table 7",
+      "See Table 7",
+      "See Table 7",
+      "7.3*",
+      "7.3",
+      "Any unit complying with BS EN 771-5 will be acceptable for conditions A, B and C"
+     ],
+     [
+      "Condition C (See Diagram 9)",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "Brick",
+      "18.0",
+      "25.0",
+      "18.0",
+      "25.0",
+      "18.0",
+      "–",
+      "Any unit complying with BS EN 771-5 will be acceptable for conditions A, B and C"
+     ],
+     [
+      "Block",
+      "See Table 7",
+      "See Table 7",
+      "See Table 7",
+      "See Table 7",
+      "7.3*",
+      "7.3",
+      "Any unit complying with BS EN 771-5 will be acceptable for conditions A, B and C"
+     ]
+    ],
+    "heading_rows": [
+     0,
+     3,
+     6
+    ],
+    "sentences": [
+     "Declared compressive strength of masonry units complying with BS EN 771-1 to -5 (N/mm2), Condition A (See Diagram 9): Masonry unit Brick; Clay masonry units to BS EN 771-1, Group 1 6.0; Clay masonry units to BS EN 771-1, Group 2 9.0; Calcium silicate masonry units to BS EN 771-2, Group 1 6.0; Calcium silicate masonry units to BS EN 771-2, Group 2 9.0; Aggregate concrete masonry units to BS EN 771-3 6.0; Autoclaved aerated conc. masonry units to BS EN 771-4 –; Manufactured stone masonry units to BS EN 771-5 Any unit complying with BS EN 771-5 will be acceptable for conditions A, B and C.",
+     "Declared compressive strength of masonry units complying with BS EN 771-1 to -5 (N/mm2), Condition A (See Diagram 9): Masonry unit Block; Clay masonry units to BS EN 771-1, Group 1 See Table 7; Clay masonry units to BS EN 771-1, Group 2 See Table 7; Calcium silicate masonry units to BS EN 771-2, Group 1 See Table 7; Calcium silicate masonry units to BS EN 771-2, Group 2 See Table 7; Aggregate concrete masonry units to BS EN 771-3 2.9*; Autoclaved aerated conc. masonry units to BS EN 771-4 2.9; Manufactured stone masonry units to BS EN 771-5 Any unit complying with BS EN 771-5 will be acceptable for conditions A, B and C.",
+     "Declared compressive strength of masonry units complying with BS EN 771-1 to -5 (N/mm2), Condition B (See Diagram 9): Masonry unit Brick; Clay masonry units to BS EN 771-1, Group 1 9.0; Clay masonry units to BS EN 771-1, Group 2 13.0; Calcium silicate masonry units to BS EN 771-2, Group 1 9.0; Calcium silicate masonry units to BS EN 771-2, Group 2 13.0; Aggregate concrete masonry units to BS EN 771-3 9.0; Autoclaved aerated conc. masonry units to BS EN 771-4 –; Manufactured stone masonry units to BS EN 771-5 Any unit complying with BS EN 771-5 will be acceptable for conditions A, B and C.",
+     "Declared compressive strength of masonry units complying with BS EN 771-1 to -5 (N/mm2), Condition B (See Diagram 9): Masonry unit Block; Clay masonry units to BS EN 771-1, Group 1 See Table 7; Clay masonry units to BS EN 771-1, Group 2 See Table 7; Calcium silicate masonry units to BS EN 771-2, Group 1 See Table 7; Calcium silicate masonry units to BS EN 771-2, Group 2 See Table 7; Aggregate concrete masonry units to BS EN 771-3 7.3*; Autoclaved aerated conc. masonry units to BS EN 771-4 7.3; Manufactured stone masonry units to BS EN 771-5 Any unit complying with BS EN 771-5 will be acceptable for conditions A, B and C.",
+     "Declared compressive strength of masonry units complying with BS EN 771-1 to -5 (N/mm2), Condition C (See Diagram 9): Masonry unit Brick; Clay masonry units to BS EN 771-1, Group 1 18.0; Clay masonry units to BS EN 771-1, Group 2 25.0; Calcium silicate masonry units to BS EN 771-2, Group 1 18.0; Calcium silicate masonry units to BS EN 771-2, Group 2 25.0; Aggregate concrete masonry units to BS EN 771-3 18.0; Autoclaved aerated conc. masonry units to BS EN 771-4 –; Manufactured stone masonry units to BS EN 771-5 Any unit complying with BS EN 771-5 will be acceptable for conditions A, B and C.",
+     "Declared compressive strength of masonry units complying with BS EN 771-1 to -5 (N/mm2), Condition C (See Diagram 9): Masonry unit Block; Clay masonry units to BS EN 771-1, Group 1 See Table 7; Clay masonry units to BS EN 771-1, Group 2 See Table 7; Calcium silicate masonry units to BS EN 771-2, Group 1 See Table 7; Calcium silicate masonry units to BS EN 771-2, Group 2 See Table 7; Aggregate concrete masonry units to BS EN 771-3 7.3*; Autoclaved aerated conc. masonry units to BS EN 771-4 7.3; Manufactured stone masonry units to BS EN 771-5 Any unit complying with BS EN 771-5 will be acceptable for conditions A, B and C."
+    ]
+   },
+   "reason": "Each condition is a heading row; the Group 1 and Group 2 values printed in each clay and calcium silicate cell become their own columns; the sideways manufactured stone note spans all rows and is repeated. '*' means a dry strength to BS EN 772-1 (printed under the table).",
+   "evidence": "page image corpus/parsed/ada/approved-document-a-structure@2013-09-01-96a5a374/pages/p25.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "4958cb9bf6f458a4",
+   "kind": "table",
+   "target": "table-7: Normalised compressive strength of masonry units of clay and calcium silicate blocks complying with BS EN 771-1 and 2 (N/mm2)",
+   "value": {
+    "columns": [
+     "Standard",
+     "Condition (See Diagram 9)",
+     "Group 1 masonry units",
+     "Group 2 masonry units"
+    ],
+    "rows": [
+     [
+      "Clay masonry units to BS EN 771-1; Calcium silicate masonry units to BS EN 771-2",
+      "A",
+      "5.0",
+      "8.0"
+     ],
+     [
+      "Clay masonry units to BS EN 771-1; Calcium silicate masonry units to BS EN 771-2",
+      "B",
+      "7.5",
+      "11.0"
+     ],
+     [
+      "Clay masonry units to BS EN 771-1; Calcium silicate masonry units to BS EN 771-2",
+      "C",
+      "15.0",
+      "21.0"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Normalised compressive strength of masonry units of clay and calcium silicate blocks complying with BS EN 771-1 and 2 (N/mm2): Standard Clay masonry units to BS EN 771-1; Calcium silicate masonry units to BS EN 771-2; Condition (See Diagram 9) A; Group 1 masonry units 5.0; Group 2 masonry units 8.0.",
+     "Normalised compressive strength of masonry units of clay and calcium silicate blocks complying with BS EN 771-1 and 2 (N/mm2): Standard Clay masonry units to BS EN 771-1; Calcium silicate masonry units to BS EN 771-2; Condition (See Diagram 9) B; Group 1 masonry units 7.5; Group 2 masonry units 11.0.",
+     "Normalised compressive strength of masonry units of clay and calcium silicate blocks complying with BS EN 771-1 and 2 (N/mm2): Standard Clay masonry units to BS EN 771-1; Calcium silicate masonry units to BS EN 771-2; Condition (See Diagram 9) C; Group 1 masonry units 15.0; Group 2 masonry units 21.0."
+    ]
+   },
+   "reason": "The two standards are printed once beside all three conditions and are repeated; notes are not rows (page image).",
+   "evidence": "page image corpus/parsed/ada/approved-document-a-structure@2013-09-01-96a5a374/pages/p27.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "a71dd2cf1cb06b10",
+   "kind": "figure_description",
+   "target": "diagram-10: Maximum span of floors",
+   "value": "Diagram showing the maximum span of floors, see para 2C23. Two wall sections: a. floor member bearing on wall, and b. floor member bearing on joist hanger; in each the floor span, measured from the centre line of bearing, is 'maximum 6m'.",
+   "reason": "Short description from the figure image, caption and labels.",
+   "evidence": "page image corpus/parsed/ada/approved-document-a-structure@2013-09-01-96a5a374/figures/diagram-10.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "e5e36ddfc8576dec",
+   "kind": "table",
+   "target": "table-8: Value of Factor ‘X’ (see Diagram 14)",
+   "value": {
+    "columns": [
+     "Nature of roof span",
+     "Maximum roof span (m)",
+     "Minimum thickness of wall inner (mm)",
+     "Value of Factor 'X': span of floor is parallel to wall",
+     "Value of Factor 'X': span of timber floor into wall max 4.5m",
+     "Value of Factor 'X': span of timber floor into wall max 6.0m",
+     "Value of Factor 'X': span of concrete floor into wall max 4.5m",
+     "Value of Factor 'X': span of concrete floor into wall max 6.0m"
+    ],
+    "rows": [
+     [
+      "Roof spans parallel to wall",
+      "Not applicable",
+      "100",
+      "6",
+      "6",
+      "6",
+      "6",
+      "6"
+     ],
+     [
+      "Roof spans parallel to wall",
+      "Not applicable",
+      "90",
+      "6",
+      "6",
+      "6",
+      "6",
+      "5"
+     ],
+     [
+      "Timber roof spans into wall",
+      "9",
+      "100",
+      "6",
+      "6",
+      "5",
+      "4",
+      "3"
+     ],
+     [
+      "Timber roof spans into wall",
+      "9",
+      "90",
+      "6",
+      "4",
+      "4",
+      "3",
+      "3"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Value of Factor ‘X’ (see Diagram 14): Nature of roof span Roof spans parallel to wall; Maximum roof span (m) Not applicable; Minimum thickness of wall inner (mm) 100; Value of Factor 'X': span of floor is parallel to wall 6; Value of Factor 'X': span of timber floor into wall max 4.5m 6; Value of Factor 'X': span of timber floor into wall max 6.0m 6; Value of Factor 'X': span of concrete floor into wall max 4.5m 6; Value of Factor 'X': span of concrete floor into wall max 6.0m 6.",
+     "Value of Factor ‘X’ (see Diagram 14): Nature of roof span Roof spans parallel to wall; Maximum roof span (m) Not applicable; Minimum thickness of wall inner (mm) 90; Value of Factor 'X': span of floor is parallel to wall 6; Value of Factor 'X': span of timber floor into wall max 4.5m 6; Value of Factor 'X': span of timber floor into wall max 6.0m 6; Value of Factor 'X': span of concrete floor into wall max 4.5m 6; Value of Factor 'X': span of concrete floor into wall max 6.0m 5.",
+     "Value of Factor ‘X’ (see Diagram 14): Nature of roof span Timber roof spans into wall; Maximum roof span (m) 9; Minimum thickness of wall inner (mm) 100; Value of Factor 'X': span of floor is parallel to wall 6; Value of Factor 'X': span of timber floor into wall max 4.5m 6; Value of Factor 'X': span of timber floor into wall max 6.0m 5; Value of Factor 'X': span of concrete floor into wall max 4.5m 4; Value of Factor 'X': span of concrete floor into wall max 6.0m 3.",
+     "Value of Factor ‘X’ (see Diagram 14): Nature of roof span Timber roof spans into wall; Maximum roof span (m) 9; Minimum thickness of wall inner (mm) 90; Value of Factor 'X': span of floor is parallel to wall 6; Value of Factor 'X': span of timber floor into wall max 4.5m 4; Value of Factor 'X': span of timber floor into wall max 6.0m 4; Value of Factor 'X': span of concrete floor into wall max 4.5m 3; Value of Factor 'X': span of concrete floor into wall max 6.0m 3."
+    ]
+   },
+   "reason": "Two header levels: each Factor X column joins 'Value of Factor X', the floor span heading and the max span; roof span cells printed once beside two wall thicknesses are repeated (page image).",
+   "evidence": "page image corpus/parsed/ada/approved-document-a-structure@2013-09-01-96a5a374/pages/p31.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "c3bbd2694daf2cb6",
+   "kind": "table",
+   "target": "table-9: Lateral support for walls",
+   "value": {
+    "columns": [
+     "Wall type",
+     "Wall length",
+     "Lateral support required"
+    ],
+    "rows": [
+     [
+      "Solid or cavity: external compartment separating",
+      "Any length",
+      "Roof lateral support by every roof forming a junction with the supported wall"
+     ],
+     [
+      "Solid or cavity: external compartment separating",
+      "Greater than 3m",
+      "Floor lateral support by every floor forming a junction with the supported wall"
+     ],
+     [
+      "Internal load-bearing wall (not being a compartment or separating wall)",
+      "Any length",
+      "Roof or floor lateral support at the top of each storey"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Lateral support for walls: Wall type Solid or cavity: external compartment separating; Wall length Any length; Lateral support required Roof lateral support by every roof forming a junction with the supported wall.",
+     "Lateral support for walls: Wall type Solid or cavity: external compartment separating; Wall length Greater than 3m; Lateral support required Floor lateral support by every floor forming a junction with the supported wall.",
+     "Lateral support for walls: Wall type Internal load-bearing wall (not being a compartment or separating wall); Wall length Any length; Lateral support required Roof or floor lateral support at the top of each storey."
+    ]
+   },
+   "reason": "The first wall type is printed once beside two lengths and is repeated (page image).",
+   "evidence": "page image corpus/parsed/ada/approved-document-a-structure@2013-09-01-96a5a374/pages/p31.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "21a52ea1db1b6f8d",
+   "kind": "figure_description",
+   "target": "diagram-14: Sizes of openings and recesses",
+   "value": "Diagram of a wall elevation (see para 2C29) showing openings W1, W2, a recess W3 and the piers P1 to P4 between them along the length of wall L between centre lines of buttressing walls, piers or chimneys, and a second wall at the corner of two external walls with an opening W4, pier P5 and height H, which should not be greater than 2.1 m. The notes give the rules: W1 + W2 + W3 should not exceed 2L/3; W1, W2 or W3 should not exceed 3m; P1 should be at least W1/X, P2 at least (W1 + W2)/X, P3 at least (W2 + W3)/X, P4 at least W3/X, and P5 at least W4/X but not less than 665mm; Factor X comes from Table 8, or can be 6 where the declared compressive strength of the bricks or blocks is not less than 7.3N/mm2.",
+   "reason": "Short description from the page image, caption, labels and notes.",
+   "evidence": "page image corpus/parsed/ada/approved-document-a-structure@2013-09-01-96a5a374/figures/diagram-14.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "ee1f9b216d53cbed",
+   "kind": "table",
+   "target": "table-10: Minimum width of strip footings",
+   "value": {
+    "columns": [
+     "Type of ground (including engineered fill)",
+     "Condition of ground",
+     "Field test applicable",
+     "Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 20 kN/linear metre",
+     "Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 30 kN/linear metre",
+     "Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 40 kN/linear metre",
+     "Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 50 kN/linear metre",
+     "Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 60 kN/linear metre",
+     "Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 70 kN/linear metre"
+    ],
+    "rows": [
+     [
+      "I Rock",
+      "Not inferior to sandstone, limestone or firm chalk",
+      "Requires at least a pneumatic or other mechanically operated pick for excavation",
+      "In each case equal to the width of wall",
+      "In each case equal to the width of wall",
+      "In each case equal to the width of wall",
+      "In each case equal to the width of wall",
+      "In each case equal to the width of wall",
+      "In each case equal to the width of wall"
+     ],
+     [
+      "II Gravel or sand",
+      "Medium dense",
+      "Requires pick for excavation. Wooden peg 50mm square in cross section hard to drive beyond 150mm",
+      "250",
+      "300",
+      "400",
+      "500",
+      "600",
+      "650"
+     ],
+     [
+      "III Clay",
+      "Stiff",
+      "Can be indented slightly by thumb",
+      "250",
+      "300",
+      "400",
+      "500",
+      "600",
+      "650"
+     ],
+     [
+      "III Sandy clay",
+      "Stiff",
+      "Can be indented slightly by thumb",
+      "250",
+      "300",
+      "400",
+      "500",
+      "600",
+      "650"
+     ],
+     [
+      "IV Clay",
+      "Firm",
+      "Thumb makes impression easily",
+      "300",
+      "350",
+      "450",
+      "600",
+      "750",
+      "850"
+     ],
+     [
+      "IV Sandy clay",
+      "Firm",
+      "Thumb makes impression easily",
+      "300",
+      "350",
+      "450",
+      "600",
+      "750",
+      "850"
+     ],
+     [
+      "V Sand",
+      "Loose",
+      "Can be excavated with a spade. Wooden peg 50mm square in cross section can be easily driven",
+      "400",
+      "600",
+      "Note: Foundations on soil types V and VI do not fall within the provisions of this section if the total load exceeds 30kN/m.",
+      "",
+      "",
+      ""
+     ],
+     [
+      "V Silty sand",
+      "Loose",
+      "Can be excavated with a spade. Wooden peg 50mm square in cross section can be easily driven",
+      "400",
+      "600",
+      "Note: Foundations on soil types V and VI do not fall within the provisions of this section if the total load exceeds 30kN/m.",
+      "",
+      "",
+      ""
+     ],
+     [
+      "V Clayey sand",
+      "Loose",
+      "Can be excavated with a spade. Wooden peg 50mm square in cross section can be easily driven",
+      "400",
+      "600",
+      "Note: Foundations on soil types V and VI do not fall within the provisions of this section if the total load exceeds 30kN/m.",
+      "",
+      "",
+      ""
+     ],
+     [
+      "VI Silt",
+      "Soft",
+      "Finger pushed in up to 10mm",
+      "450",
+      "650",
+      "Note: Foundations on soil types V and VI do not fall within the provisions of this section if the total load exceeds 30kN/m.",
+      "",
+      "",
+      ""
+     ],
+     [
+      "VI Clay",
+      "Soft",
+      "Finger pushed in up to 10mm",
+      "450",
+      "650",
+      "Note: Foundations on soil types V and VI do not fall within the provisions of this section if the total load exceeds 30kN/m.",
+      "",
+      "",
+      ""
+     ],
+     [
+      "VI Sandy clay",
+      "Soft",
+      "Finger pushed in up to 10mm",
+      "450",
+      "650",
+      "Note: Foundations on soil types V and VI do not fall within the provisions of this section if the total load exceeds 30kN/m.",
+      "",
+      "",
+      ""
+     ],
+     [
+      "VI Clay or silt",
+      "Soft",
+      "Finger pushed in up to 10mm",
+      "450",
+      "650",
+      "Note: Foundations on soil types V and VI do not fall within the provisions of this section if the total load exceeds 30kN/m.",
+      "",
+      "",
+      ""
+     ],
+     [
+      "VII Silt",
+      "Very soft",
+      "Finger easily pushed in up to 25mm",
+      "Refer to specialist advice",
+      "Refer to specialist advice",
+      "Refer to specialist advice",
+      "Refer to specialist advice",
+      "Refer to specialist advice",
+      "Refer to specialist advice"
+     ],
+     [
+      "VII Clay",
+      "Very soft",
+      "Finger easily pushed in up to 25mm",
+      "Refer to specialist advice",
+      "Refer to specialist advice",
+      "Refer to specialist advice",
+      "Refer to specialist advice",
+      "Refer to specialist advice",
+      "Refer to specialist advice"
+     ],
+     [
+      "VII Sandy clay",
+      "Very soft",
+      "Finger easily pushed in up to 25mm",
+      "Refer to specialist advice",
+      "Refer to specialist advice",
+      "Refer to specialist advice",
+      "Refer to specialist advice",
+      "Refer to specialist advice",
+      "Refer to specialist advice"
+     ],
+     [
+      "VII Clay or silt",
+      "Very soft",
+      "Finger easily pushed in up to 25mm",
+      "Refer to specialist advice",
+      "Refer to specialist advice",
+      "Refer to specialist advice",
+      "Refer to specialist advice",
+      "Refer to specialist advice",
+      "Refer to specialist advice"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Minimum width of strip footings: Type of ground (including engineered fill) I Rock; Condition of ground Not inferior to sandstone, limestone or firm chalk; Field test applicable Requires at least a pneumatic or other mechanically operated pick for excavation; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 20 kN/linear metre In each case equal to the width of wall; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 30 kN/linear metre In each case equal to the width of wall; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 40 kN/linear metre In each case equal to the width of wall; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 50 kN/linear metre In each case equal to the width of wall; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 60 kN/linear metre In each case equal to the width of wall; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 70 kN/linear metre In each case equal to the width of wall.",
+     "Minimum width of strip footings: Type of ground (including engineered fill) II Gravel or sand; Condition of ground Medium dense; Field test applicable Requires pick for excavation. Wooden peg 50mm square in cross section hard to drive beyond 150mm; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 20 kN/linear metre 250; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 30 kN/linear metre 300; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 40 kN/linear metre 400; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 50 kN/linear metre 500; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 60 kN/linear metre 600; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 70 kN/linear metre 650.",
+     "Minimum width of strip footings: Type of ground (including engineered fill) III Clay; Condition of ground Stiff; Field test applicable Can be indented slightly by thumb; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 20 kN/linear metre 250; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 30 kN/linear metre 300; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 40 kN/linear metre 400; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 50 kN/linear metre 500; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 60 kN/linear metre 600; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 70 kN/linear metre 650.",
+     "Minimum width of strip footings: Type of ground (including engineered fill) III Sandy clay; Condition of ground Stiff; Field test applicable Can be indented slightly by thumb; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 20 kN/linear metre 250; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 30 kN/linear metre 300; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 40 kN/linear metre 400; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 50 kN/linear metre 500; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 60 kN/linear metre 600; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 70 kN/linear metre 650.",
+     "Minimum width of strip footings: Type of ground (including engineered fill) IV Clay; Condition of ground Firm; Field test applicable Thumb makes impression easily; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 20 kN/linear metre 300; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 30 kN/linear metre 350; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 40 kN/linear metre 450; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 50 kN/linear metre 600; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 60 kN/linear metre 750; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 70 kN/linear metre 850.",
+     "Minimum width of strip footings: Type of ground (including engineered fill) IV Sandy clay; Condition of ground Firm; Field test applicable Thumb makes impression easily; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 20 kN/linear metre 300; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 30 kN/linear metre 350; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 40 kN/linear metre 450; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 50 kN/linear metre 600; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 60 kN/linear metre 750; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 70 kN/linear metre 850.",
+     "Minimum width of strip footings: Type of ground (including engineered fill) V Sand; Condition of ground Loose; Field test applicable Can be excavated with a spade. Wooden peg 50mm square in cross section can be easily driven; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 20 kN/linear metre 400; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 30 kN/linear metre 600; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 40 kN/linear metre Note: Foundations on soil types V and VI do not fall within the provisions of this section if the total load exceeds 30kN/m.",
+     "Minimum width of strip footings: Type of ground (including engineered fill) V Silty sand; Condition of ground Loose; Field test applicable Can be excavated with a spade. Wooden peg 50mm square in cross section can be easily driven; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 20 kN/linear metre 400; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 30 kN/linear metre 600; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 40 kN/linear metre Note: Foundations on soil types V and VI do not fall within the provisions of this section if the total load exceeds 30kN/m.",
+     "Minimum width of strip footings: Type of ground (including engineered fill) V Clayey sand; Condition of ground Loose; Field test applicable Can be excavated with a spade. Wooden peg 50mm square in cross section can be easily driven; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 20 kN/linear metre 400; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 30 kN/linear metre 600; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 40 kN/linear metre Note: Foundations on soil types V and VI do not fall within the provisions of this section if the total load exceeds 30kN/m.",
+     "Minimum width of strip footings: Type of ground (including engineered fill) VI Silt; Condition of ground Soft; Field test applicable Finger pushed in up to 10mm; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 20 kN/linear metre 450; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 30 kN/linear metre 650; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 40 kN/linear metre Note: Foundations on soil types V and VI do not fall within the provisions of this section if the total load exceeds 30kN/m.",
+     "Minimum width of strip footings: Type of ground (including engineered fill) VI Clay; Condition of ground Soft; Field test applicable Finger pushed in up to 10mm; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 20 kN/linear metre 450; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 30 kN/linear metre 650; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 40 kN/linear metre Note: Foundations on soil types V and VI do not fall within the provisions of this section if the total load exceeds 30kN/m.",
+     "Minimum width of strip footings: Type of ground (including engineered fill) VI Sandy clay; Condition of ground Soft; Field test applicable Finger pushed in up to 10mm; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 20 kN/linear metre 450; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 30 kN/linear metre 650; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 40 kN/linear metre Note: Foundations on soil types V and VI do not fall within the provisions of this section if the total load exceeds 30kN/m.",
+     "Minimum width of strip footings: Type of ground (including engineered fill) VI Clay or silt; Condition of ground Soft; Field test applicable Finger pushed in up to 10mm; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 20 kN/linear metre 450; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 30 kN/linear metre 650; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 40 kN/linear metre Note: Foundations on soil types V and VI do not fall within the provisions of this section if the total load exceeds 30kN/m.",
+     "Minimum width of strip footings: Type of ground (including engineered fill) VII Silt; Condition of ground Very soft; Field test applicable Finger easily pushed in up to 25mm; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 20 kN/linear metre Refer to specialist advice; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 30 kN/linear metre Refer to specialist advice; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 40 kN/linear metre Refer to specialist advice; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 50 kN/linear metre Refer to specialist advice; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 60 kN/linear metre Refer to specialist advice; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 70 kN/linear metre Refer to specialist advice.",
+     "Minimum width of strip footings: Type of ground (including engineered fill) VII Clay; Condition of ground Very soft; Field test applicable Finger easily pushed in up to 25mm; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 20 kN/linear metre Refer to specialist advice; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 30 kN/linear metre Refer to specialist advice; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 40 kN/linear metre Refer to specialist advice; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 50 kN/linear metre Refer to specialist advice; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 60 kN/linear metre Refer to specialist advice; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 70 kN/linear metre Refer to specialist advice.",
+     "Minimum width of strip footings: Type of ground (including engineered fill) VII Sandy clay; Condition of ground Very soft; Field test applicable Finger easily pushed in up to 25mm; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 20 kN/linear metre Refer to specialist advice; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 30 kN/linear metre Refer to specialist advice; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 40 kN/linear metre Refer to specialist advice; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 50 kN/linear metre Refer to specialist advice; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 60 kN/linear metre Refer to specialist advice; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 70 kN/linear metre Refer to specialist advice.",
+     "Minimum width of strip footings: Type of ground (including engineered fill) VII Clay or silt; Condition of ground Very soft; Field test applicable Finger easily pushed in up to 25mm; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 20 kN/linear metre Refer to specialist advice; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 30 kN/linear metre Refer to specialist advice; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 40 kN/linear metre Refer to specialist advice; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 50 kN/linear metre Refer to specialist advice; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 60 kN/linear metre Refer to specialist advice; Minimum width of strip foundations (mm) for total load of load-bearing walling not more than 70 kN/linear metre Refer to specialist advice."
+    ]
+   },
+   "reason": "One row per soil listed under each ground type; widths and field tests printed once per ground type are repeated; the note printed across the 40-70 kN columns for types V and VI is kept in the 40 kN cell (page image).",
+   "evidence": "page image corpus/parsed/ada/approved-document-a-structure@2013-09-01-96a5a374/pages/p39.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "1f875db58851b87c",
+   "kind": "table",
+   "target": "table-11: Building consequence classes",
+   "value": {
+    "columns": [
+     "Consequence Classes",
+     "Building type and occupancy"
+    ],
+    "rows": [
+     [
+      "1",
+      "Houses not exceeding 4 storeys"
+     ],
+     [
+      "1",
+      "Agricultural buildings"
+     ],
+     [
+      "1",
+      "Buildings into which people rarely go, provided no part of the building is closer to another building, or area where people do go, than a distance of 1.5 times the building height"
+     ],
+     [
+      "2a Lower Risk Group",
+      "5 storey single occupancy houses"
+     ],
+     [
+      "2a Lower Risk Group",
+      "Hotels not exceeding 4 storeys"
+     ],
+     [
+      "2a Lower Risk Group",
+      "Flats, apartments and other residential buildings not exceeding 4 storeys"
+     ],
+     [
+      "2a Lower Risk Group",
+      "Offices not exceeding 4 storeys"
+     ],
+     [
+      "2a Lower Risk Group",
+      "Industrial buildings not exceeding 3 storeys"
+     ],
+     [
+      "2a Lower Risk Group",
+      "Retailing premises not exceeding 3 storeys of less than 2000m² floor area in each storey"
+     ],
+     [
+      "2a Lower Risk Group",
+      "Single-storey educational buildings"
+     ],
+     [
+      "2a Lower Risk Group",
+      "All buildings not exceeding 2 storeys to which members of the public are admitted and which contain floor areas not exceeding 2000m² at each storey"
+     ],
+     [
+      "2b Upper Risk Group",
+      "Hotels, blocks of flats, apartments and other residential buildings greater than 4 storeys but not exceeding 15 storeys"
+     ],
+     [
+      "2b Upper Risk Group",
+      "Educational buildings greater than 1 storey but not exceeding 15 storeys"
+     ],
+     [
+      "2b Upper Risk Group",
+      "Retailing premises greater than 3 storeys but not exceeding 15 storeys"
+     ],
+     [
+      "2b Upper Risk Group",
+      "Hospitals not exceeding 3 storeys"
+     ],
+     [
+      "2b Upper Risk Group",
+      "Offices greater than 4 storeys but not exceeding 15 storeys"
+     ],
+     [
+      "2b Upper Risk Group",
+      "All buildings to which members of the public are admitted which contain floor areas exceeding 2000m² but less than 5000m² at each storey"
+     ],
+     [
+      "2b Upper Risk Group",
+      "Car parking not exceeding 6 storeys"
+     ],
+     [
+      "3",
+      "All buildings defined above as Consequence Class 2a and 2b that exceed the limits on area and/or number of storeys"
+     ],
+     [
+      "3",
+      "Grandstands accommodating more than 5000 spectators"
+     ],
+     [
+      "3",
+      "Buildings containing hazardous substances and/or processes"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Building consequence classes: Consequence Classes 1; Building type and occupancy Houses not exceeding 4 storeys.",
+     "Building consequence classes: Consequence Classes 1; Building type and occupancy Agricultural buildings.",
+     "Building consequence classes: Consequence Classes 1; Building type and occupancy Buildings into which people rarely go, provided no part of the building is closer to another building, or area where people do go, than a distance of 1.5 times the building height.",
+     "Building consequence classes: Consequence Classes 2a Lower Risk Group; Building type and occupancy 5 storey single occupancy houses.",
+     "Building consequence classes: Consequence Classes 2a Lower Risk Group; Building type and occupancy Hotels not exceeding 4 storeys.",
+     "Building consequence classes: Consequence Classes 2a Lower Risk Group; Building type and occupancy Flats, apartments and other residential buildings not exceeding 4 storeys.",
+     "Building consequence classes: Consequence Classes 2a Lower Risk Group; Building type and occupancy Offices not exceeding 4 storeys.",
+     "Building consequence classes: Consequence Classes 2a Lower Risk Group; Building type and occupancy Industrial buildings not exceeding 3 storeys.",
+     "Building consequence classes: Consequence Classes 2a Lower Risk Group; Building type and occupancy Retailing premises not exceeding 3 storeys of less than 2000m² floor area in each storey.",
+     "Building consequence classes: Consequence Classes 2a Lower Risk Group; Building type and occupancy Single-storey educational buildings.",
+     "Building consequence classes: Consequence Classes 2a Lower Risk Group; Building type and occupancy All buildings not exceeding 2 storeys to which members of the public are admitted and which contain floor areas not exceeding 2000m² at each storey.",
+     "Building consequence classes: Consequence Classes 2b Upper Risk Group; Building type and occupancy Hotels, blocks of flats, apartments and other residential buildings greater than 4 storeys but not exceeding 15 storeys.",
+     "Building consequence classes: Consequence Classes 2b Upper Risk Group; Building type and occupancy Educational buildings greater than 1 storey but not exceeding 15 storeys.",
+     "Building consequence classes: Consequence Classes 2b Upper Risk Group; Building type and occupancy Retailing premises greater than 3 storeys but not exceeding 15 storeys.",
+     "Building consequence classes: Consequence Classes 2b Upper Risk Group; Building type and occupancy Hospitals not exceeding 3 storeys.",
+     "Building consequence classes: Consequence Classes 2b Upper Risk Group; Building type and occupancy Offices greater than 4 storeys but not exceeding 15 storeys.",
+     "Building consequence classes: Consequence Classes 2b Upper Risk Group; Building type and occupancy All buildings to which members of the public are admitted which contain floor areas exceeding 2000m² but less than 5000m² at each storey.",
+     "Building consequence classes: Consequence Classes 2b Upper Risk Group; Building type and occupancy Car parking not exceeding 6 storeys.",
+     "Building consequence classes: Consequence Classes 3; Building type and occupancy All buildings defined above as Consequence Class 2a and 2b that exceed the limits on area and/or number of storeys.",
+     "Building consequence classes: Consequence Classes 3; Building type and occupancy Grandstands accommodating more than 5000 spectators.",
+     "Building consequence classes: Consequence Classes 3; Building type and occupancy Buildings containing hazardous substances and/or processes."
+    ]
+   },
+   "reason": "Each building type is a row; the consequence class printed once beside its group is repeated; notes are not rows (page image).",
+   "evidence": "page image corpus/parsed/ada/approved-document-a-structure@2013-09-01-96a5a374/pages/p46.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "5aa410893f6710f1",
+   "kind": "figure_description",
+   "target": "diagram-1: Size and proportion of residential buildings of not more than three storeys",
+   "value": "Diagram of house sections and a plan view showing size and proportion limits for residential buildings of not more than three storeys (see para 2C4). Height H, measured from the lowest ground level, is not to exceed 15m; the minimum width W1 is to be not less than 0.5 H. For a wing, if the projection P is more than 2W2, then W2 is to be not less than 0.5 H2.",
+   "reason": "Short description from the figure image, caption and labels.",
+   "evidence": "page image corpus/parsed/ada/approved-document-a-structure@2013-09-01-96a5a374/figures/diagram-1.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "502cbffa396a0d1e",
+   "kind": "figure_description",
+   "target": "diagram-2: Size and proportion of non-residential buildings and annexes",
+   "value": "Diagram of small buildings showing size limits (see paras 2C4b and 2C4c). a. Non-residential buildings: flat roof buildings 3.0m max. height H; pitched roof buildings 3.0m max. to the eaves and 3.6m max. overall, maximum roof slope 40°. b. Annexes to a residential building: flat roof annexes 3.0m max.; pitched roof annexes (type 1 and type 2) 3.0m max. at the eaves, 3.5m max. and 4.5m max. overall, maximum roof slope 40°. The note says height H is measured from the top of the foundation or the underside of the floor slab where this gives effective lateral restraint.",
+   "reason": "Short description from the figure image, caption and labels.",
+   "evidence": "page image corpus/parsed/ada/approved-document-a-structure@2013-09-01-96a5a374/figures/diagram-2.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "c2764372caea231a",
+   "kind": "figure_description",
+   "target": "diagram-3: Determination of wall thickness",
+   "value": "Flow chart for determining wall thickness (see para 2C5). Check the conditions relating to the building (size and proportion, paragraphs 2C4 and 2C38; floor areas, 2C14; imposed and wind loads, 2C15 and 2C16); if not satisfied the wall is outside the scope of this part. Then check the conditions relating to the wall (length and height, 2C17–2C18; materials and workmanship, 2C19–2C22; loading, 2C23–2C24; end restraints, 2C25–2C27; openings, recesses, overhangs and chases, 2C28–2C31; lateral support, 2C32–2C37; small single storey non-residential buildings and annexes, 2C38); if satisfied, the wall thickness given in paragraphs 2C6 to 2C13 may be used.",
+   "reason": "Flow chart steps in order from the figure image.",
+   "evidence": "page image corpus/parsed/ada/approved-document-a-structure@2013-09-01-96a5a374/figures/diagram-3.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "4d15017ff10d80dc",
+   "kind": "figure_description",
+   "target": "diagram-4: Parapet walls: height",
+   "value": "Diagram of parapet walls with a table of maximum parapet heights (see para 2C11). Type A cavity wall: t1 + t2 equal or less than 200mm, parapet height Hp not more than 600mm; t1 + t2 greater than 200mm and equal or less than 250mm, not more than 860mm. Type B solid wall: t = 150mm, 600mm; t = 190mm, 760mm; t = 215mm, 860mm. Hp is measured from the level of junction of wall and structural roof; t should be less than or equal to T.",
+   "reason": "Short description from the figure image, its embedded table and labels.",
+   "evidence": "page image corpus/parsed/ada/approved-document-a-structure@2013-09-01-96a5a374/figures/diagram-4.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "1ccd26351825002c",
+   "kind": "figure_description",
+   "target": "diagram-5: Maximum floor area enclosed by structural walls",
+   "value": "Plan diagrams of the maximum floor area enclosed by structural walls (see para 2C14). a. With structural walls on all sides, each area is not exceeding 70m2. b. With structural walls on three sides, each area is not exceeding 36m2.",
+   "reason": "Short description from the figure image, caption and labels.",
+   "evidence": "page image corpus/parsed/ada/approved-document-a-structure@2013-09-01-96a5a374/figures/diagram-5.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "1d8cc920a6f8b468",
+   "kind": "figure_description",
+   "target": "diagram-6: Map showing wind speeds in m/s for maximum height of buildings",
+   "value": "Figure 1 is a map of Great Britain with lines of wind speed (V) in m/s, from about 21.5 around Oxford and London to 25 in the far west, with the Channel Islands at 24m/s (see para 2C16). Figure 2 shows orographic zones for Factor O: for hills and ridges, zone 1 and zone 2 extend 0.4Lu and 0.4Ld either side of the crest; for cliffs and escarpments, zones of 0.25Lu, 0.4Lu and zone 3 of 1.5Lu downwind; Lu is the slope on the upwind side and Ld on the downwind side.",
+   "reason": "Short description from the figure image, caption and labels.",
+   "evidence": "page image corpus/parsed/ada/approved-document-a-structure@2013-09-01-96a5a374/figures/diagram-6.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "0202438946016ad7",
+   "kind": "figure_description",
+   "target": "diagram-6-continued: Map showing wind speeds in m/s for maximum height of buildings",
+   "value": "Continuation of Diagram 6: Figure 3, an alternative graphical method for determining Orography Factor O. Figure 3a (hills and ridges) and Figure 3b (cliffs and escarpments) plot Factor O, from 1.00 to 1.40, against X/Lu and X/Ld for steep (< 1/3.3), moderate (= 1/5) and shallow (≤ 1/10) slopes, peaking at about 1.35, 1.24 and 1.12 at the crest; insets show where orography is significant (shaded area). Interpolation between curves may be used.",
+   "reason": "Short description from the figure image, caption and labels.",
+   "evidence": "page image corpus/parsed/ada/approved-document-a-structure@2013-09-01-96a5a374/figures/diagram-6-continued.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "eca0db3caa3ce930",
+   "kind": "figure_description",
+   "target": "diagram-7: Maximum height of buildings",
+   "value": "Flow chart with three tables for finding the maximum height of buildings: read map wind speed V from Figure 1 Diagram 6; find the orographic zone and obtain Factor O from Table a (or Figure 3 Diagram 6); obtain Factor A from Table b; calculate Factor S = V × O × A; obtain the maximum allowable building height from Table c. Table a gives Factor O for zones 1, 2 and 3 by orographic category, from 1.0 for nominally flat terrain to 1.36, 1.20 and 1.15 for steep terrain (average slope > 1/5). Table b gives Factor A by site altitude, from 1.00 at 0m to 1.50 at 500m. Table c gives maximum heights in metres for country and town sites by distance to the coast (< 2km, 2 to 20km, > 50km), 15m for Factor S up to 25 and falling to 3m at higher values of S.",
+   "reason": "Description of the flow chart and its embedded tables from the figure image; Table c values are summarised, not listed.",
+   "evidence": "page image corpus/parsed/ada/approved-document-a-structure@2013-09-01-96a5a374/figures/diagram-7.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "f3d9076f896720f5",
+   "kind": "figure_description",
+   "target": "diagram-8: Measuring storey and wall heights",
+   "value": "Section through a three-storey building showing how to measure storey and wall heights (see para 2C18). Storey heights A, A1, B, B1, C and D are each 2.7m max., measured from the top of foundation or base of wall, with lines of lateral support to the gable at ceiling level and along the roof slope. Wall heights: H1 is an external wall without a gable, H2 an internal or separating wall built up to the underside of the roof, H3 an external wall with a gable, and Hp a parapet; if Hp is more than 1.2m add Hp to H1.",
+   "reason": "Short description from the figure image and its key.",
+   "evidence": "page image corpus/parsed/ada/approved-document-a-structure@2013-09-01-96a5a374/figures/diagram-8.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "581c9e736acd2fce",
+   "kind": "figure_description",
+   "target": "diagram-9: Declared compressive strength of masonry units",
+   "value": "Sections through one, two and three storey buildings showing which compressive strength condition (A, B or C) of masonry unit is needed in each wall (see para 2C21); the key shows Condition A, B and C, and below ground Condition A where Hf is less than or equal to 1m and Condition B where Hf is greater than 1m. Walls below ground floor level are to be at least 140mm thick in blockwork or 215mm in brickwork if Hf exceeds 1m. Notes: if storey height Hs is greater than 2.7m use at least Condition B; solid external walls need the strength shown for the internal leaf of a cavity wall; the guidance for two and three storey buildings applies only where the roof is of timber.",
+   "reason": "Short description from the figure image, key and notes.",
+   "evidence": "page image corpus/parsed/ada/approved-document-a-structure@2013-09-01-96a5a374/figures/diagram-9.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "f1c629694d4898be",
+   "kind": "figure_description",
+   "target": "diagram-11: Differences in ground levels",
+   "value": "Diagram of walls with different ground levels on each side (see para 2C24b). a. Situations where differences in level may occur: ground supported floor slab, suspended ground floor, and a suspended floor with ground level for a distance of not less than 1.25H. b. Maximum permitted differences: retained height H should be less than or equal to 1m and less than or equal to 4t for a solid wall, or 4(t1 + t2) for a cavity wall with concrete fill to the wall cavity. The combined dead and imposed load W should not exceed 70kN/m at base of wall; cavity walls should be tied in accordance with Table 5.",
+   "reason": "Short description from the figure image, labels and notes.",
+   "evidence": "page image corpus/parsed/ada/approved-document-a-structure@2013-09-01-96a5a374/figures/diagram-11.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "fc4f9a873ad2748c",
+   "kind": "figure_description",
+   "target": "diagram-12: Openings in a buttressing wall",
+   "value": "Three-dimensional diagram of a buttressing wall supporting a wall (see para 2C26). The length of the buttressing wall should be at least 1/6 of the overall height of the supported wall; there may be one opening or recess not more than 0.1m2 at any position, and an opening or recess greater than 0.1m2 shall be at least 550mm from the supported wall. The opening height should not be more than 0.9 times the floor to ceiling height, and the lintel depth including masonry over the opening not less than 150mm.",
+   "reason": "Short description from the figure image, labels and notes.",
+   "evidence": "page image corpus/parsed/ada/approved-document-a-structure@2013-09-01-96a5a374/figures/diagram-12.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "92b11a27f38f38cf",
+   "kind": "figure_description",
+   "target": "diagram-13: Buttressing",
+   "value": "Three-dimensional diagram of buttressing by a buttressing wall, piers and a chimney along a wall of thickness T (see para 2C27). Piers project at least min. 3 x T wide and the chimney min. 2 x T, and pier or chimney projection H is min. 190mm. The buttressing wall, pier or chimney should provide support to the full height of the wall from base to top of wall.",
+   "reason": "Short description from the figure image and labels.",
+   "evidence": "page image corpus/parsed/ada/approved-document-a-structure@2013-09-01-96a5a374/figures/diagram-13.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "d9ff2bc85c6ce53b",
+   "kind": "figure_description",
+   "target": "diagram-17: Size and location of openings",
+   "value": "Plan of a small single-storey building showing the size and location of openings (see para 2C38). Major openings are restricted to one wall, with aggregate width not exceeding 5.0m and height not greater than 2.1m, and no other openings within 2.0m of that wall; an isolated column is shown. Openings in other walls should not exceed 2.4m2 in aggregate, with not more than one opening between piers, and a window or door should be at least 390mm from a corner unless there is a corner pier.",
+   "reason": "Short description from the figure image, labels and notes.",
+   "evidence": "page image corpus/parsed/ada/approved-document-a-structure@2013-09-01-96a5a374/figures/diagram-17.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "dbff3db76cd544df",
+   "kind": "figure_description",
+   "target": "diagram-19: Lateral restraint at roof level",
+   "value": "Three-dimensional diagram of a small single-storey pitched-roof building showing lateral restraint fixings at roof level (see para 2C38). The key marks fixings at eaves level, fixings at base of gable (including the fixing at the isolated column position) and fixings along the roof slope (including near the ridge). Fixings should be in accordance with Diagram 16.",
+   "reason": "Short description from the figure image, key and note.",
+   "evidence": "page image corpus/parsed/ada/approved-document-a-structure@2013-09-01-96a5a374/figures/diagram-19.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "a76091b189e326da",
+   "kind": "figure_description",
+   "target": "diagram-20: Proportions for masonry chimneys",
+   "value": "Elevation diagram of masonry chimneys showing their proportions (see para 2D1): the height H of the chimney above the level of the highest point of intersection with the roof, and the least horizontal width W of the chimney at that level.",
+   "reason": "Short description from the figure image and labels; the ratio itself is given in paragraph 2D1, not in the drawing.",
+   "evidence": "page image corpus/parsed/ada/approved-document-a-structure@2013-09-01-96a5a374/figures/diagram-20.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "487a7e4880d73345",
+   "kind": "figure_description",
+   "target": "diagram-21: Elevation of stepped foundation",
+   "value": "Elevation of a stepped foundation (see paras 2E2d and e). Foundations should unite at each change in level; the minimum overlap L is twice the height of step, the thickness of foundation or 300mm, whichever is greater, and the step S should not be greater than the foundation thickness T. For trench fill foundations the minimum overlap L is twice the height of step or 1m, whichever is greater.",
+   "reason": "Short description from the figure image and labels.",
+   "evidence": "page image corpus/parsed/ada/approved-document-a-structure@2013-09-01-96a5a374/figures/diagram-21.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "c24d6de2bea527b6",
+   "kind": "figure_description",
+   "target": "diagram-22: Piers and chimneys",
+   "value": "Plan diagram of a strip foundation under walls with piers and chimneys (see para 2E2f): the foundation projection X beyond each pier or chimney should not be less than the projection P of the foundation beyond the wall.",
+   "reason": "Short description from the figure image and labels.",
+   "evidence": "page image corpus/parsed/ada/approved-document-a-structure@2013-09-01-96a5a374/figures/diagram-22.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "ae5f8612acc2d6b7",
+   "kind": "figure_description",
+   "target": "diagram-23: Foundation dimensions",
+   "value": "Section of a strip foundation showing its dimensions (see para 2E2c). The wall should be central on the foundation, with projection P each side of wall width W; the foundation width should be not less than the dimension in Table 10, and the minimum thickness T should be P or 150mm, whichever is greater. Trench fill foundations may be used as an alternative to strip foundations.",
+   "reason": "Short description from the figure image and labels.",
+   "evidence": "page image corpus/parsed/ada/approved-document-a-structure@2013-09-01-96a5a374/figures/diagram-23.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "0f29984f0b77738a",
+   "kind": "figure_description",
+   "target": "diagram-24: Area at risk of collapse in the event of an accident",
+   "value": "Plan and section of a framed building showing the area at risk of collapse in the event of an accident (see para 5.1d): the area at risk is limited to 15% of the floor area of that storey or 100m2, whichever is the lesser, and does not extend further than the immediate adjacent storeys.",
+   "reason": "Short description from the figure image and labels.",
+   "evidence": "page image corpus/parsed/ada/approved-document-a-structure@2013-09-01-96a5a374/figures/diagram-24.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "7f9d4f664ef27ed0",
+   "kind": "figure_description",
+   "target": "diagram-14: Sizes of openings and recesses",
+   "value": "Diagram of a wall elevation (see para 2C29) showing openings W1, W2, a recess W3 and the piers P1 to P4 between them along the length of wall L between centre lines of buttressing walls, piers or chimneys, and a second wall at the corner of two external walls with an opening W4, pier P5 and height H, which should not be greater than 2.1 m. The notes give the rules: W1 + W2 + W3 should not exceed 2L/3; W1, W2 or W3 should not exceed 3m; P1 should be at least W1/X, P2 at least (W1 + W2)/X, P3 at least (W2 + W3)/X, P4 at least W3/X, and P5 at least W4/X but not less than 665mm; Factor X comes from Table 8, or can be 6 where the declared compressive strength of the bricks or blocks is not less than 7.3N/mm2.",
+   "reason": "Short description from the page image, caption, labels and notes.",
+   "evidence": "page image corpus/parsed/ada/approved-document-a-structure@2013-09-01-96a5a374/figures/diagram-14.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "1f2a74520a626001",
+   "kind": "figure_description",
+   "target": "diagram-15: Lateral support by floors",
+   "value": "Details of lateral support of walls by floors (see para 2C35): tension strap details (a) and (b) use 30 x 5mm galvanised mild steel or other durable straps at least 1200mm long, held tight against the masonry wall and fixed across 3 joists at 2m max spacing, with noggings minimum 38mm wide extending at least 1/2 the depth of the joist. Detail (c) shows a restraint type joist hanger and detail (d) restraint by a concrete floor or roof with bearing X not less than 90mm. Detail (e), restraint of internal walls, shows floors at about the same level on each side and, where joists are not hard up to the wall, blockings at not greater than 2m centres on both sides.",
+   "reason": "Short description from the figure image and labels.",
+   "evidence": "page image corpus/parsed/ada/approved-document-a-structure@2013-09-01-96a5a374/figures/diagram-15.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "a64428dc96cd1ce7",
+   "kind": "figure_description",
+   "target": "diagram-16: Lateral support at roof level",
+   "value": "Details of lateral support of walls at roof level (see para 2C36): on a gable end wall (a), tension straps go at not more than 2m centres along the roof slope and at the highest point that will provide a secure connection, and if h is greater than 16 t (t = sum of thicknesses of leaves + 10mm) restraint is needed at not greater than 2m centres. Detail (b) shows effective strapping at the gable wall with nogging and pack and the strap turned over an uncut block. Details (c) and (d) show vertical strapping at eaves for flat and pitched roofs, with straps anchored to the wall and turned over the wall-plate or fixed to the rafter, and joists or rafters fixed with framing anchors, skew nails or truss clips.",
+   "reason": "Short description from the figure image and labels.",
+   "evidence": "page image corpus/parsed/ada/approved-document-a-structure@2013-09-01-96a5a374/figures/diagram-16.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  },
+  {
+   "key": "9567fb32e1a451de",
+   "kind": "figure_description",
+   "target": "diagram-18: Wall thickness",
+   "value": "Plans of wall thickness and piers for small single-storey buildings (see para 2C38): a wall without a major opening is 90mm min. with piers (Ap x Bp) at 3.0m max. centres; walls with a single major opening show the pier orientation for opening width G not greater than 2.5m and greater than 2.5m; a wall with two major openings has an isolated column Cc. The notes give the minimum pier size as 390mm x 190mm or 327mm x 215mm depending on the masonry units, and the isolated column as 325mm x 325mm minimum.",
+   "reason": "Short description from the figure image, labels and notes.",
+   "evidence": "page image corpus/parsed/ada/approved-document-a-structure@2013-09-01-96a5a374/figures/diagram-18.png",
+   "by": "model check, Claude Code (AD parser agent, page images)",
+   "confidence": "high",
+   "date": "2026-11-20"
+  }
+ ]
+}

@@ -165,6 +165,249 @@ def test_tree_is_json(tree):
     json.dumps(tree)
 
 
+# ---------------------------------------------------------------- 2019 layout: more rules (AD F, L, P)
+
+def test_a_ligature_printed_twice_is_repaired_and_counted():
+    L = page_furniture(1, "1") + [ln(1, 84, bold("Section", "1:", "Heat"), 26.0, "Agenda-Bold"),
+                                  ln(1, 140, [("1.1", B), "The", "specifification", "of", "the", "flfloor", "and",
+                                              "effiffifficiency."], font="Agenda-Semibold")]
+    t = build_tree({"lines": L, "tables": [], "page_width": 595.0}, META)
+    assert sec(t, "para-1.1")["text"] == "The specification of the floor and efficiency."
+    assert t["repairs"]["specifification -> specification"] == 1 and t["repairs"]["effiffifficiency. -> efficiency."] == 1
+
+
+def test_text_below_the_caption_of_a_page_picture_is_kept():
+    # AD P page 14: a drawing made of many tiny words, its caption, then a heading and paragraph 2.5 below it.
+    L = page_furniture(1, "1") + [ln(1, 84, bold("Section", "2:", "Scope"), 26.0, "Agenda-Bold")]
+    L += [ln(1, 120 + 8 * k, ["label", str(k)], 8.0, "Agenda-Medium") for k in range(12)]
+    L += [ln(1, 400, [("Diagram", {"c": WHITE}), ("1", {"c": WHITE}), ("Scope", {"c": WHITE})]),
+          ln(1, 445, bold("Notifiable", "work"), 15.0, "Agenda-Bold"),
+          ln(1, 464, [("2.5", B), "Notifiable", "work", "is", "set", "out."], font="Agenda-Semibold")]
+    t = build_tree({"lines": L, "tables": [], "page_width": 595.0}, META)
+    assert sec(t, "para-2.5")["text"] == "Notifiable work is set out."
+    assert len(sec(t, "diagram-1")["labels"]) == 12
+
+
+def test_diagram_labels_a_little_larger_than_small_print_stay_in_the_drawing():
+    # AD K Diagram 10.2: the labels are 10.9pt, and the whole page above the caption is the drawing.
+    L = page_furniture(1, "1") + [ln(1, 84, bold("Section", "10:", "Doors"), 26.0, "Agenda-Bold"),
+                                  ln(1, 140, [("10.1", B), "Doors", "text."], font="Agenda-Semibold")]
+    L += page_furniture(2, "2") + [ln(2, 105, ["See", "para", "10.2"]),
+                                   ln(2, 194, ["Guarding", "with"], 10.9), ln(2, 206, ["cane", "detection"], 10.9),
+                                   ln(2, 316, bold("Plan"), 10.9, "Agenda-Bold"),
+                                   ln(2, 651, [("Diagram", {"c": WHITE}), ("10.2", {"c": WHITE}), ("Avoiding", {"c": WHITE}),
+                                               ("doors", {"c": WHITE})])]
+    t = build_tree({"lines": L, "tables": [], "page_width": 595.0}, META)
+    assert sec(t, "diagram-10.2")["labels"] == ["See para 10.2", "Guarding with", "cane detection", "Plan"]
+    assert sec(t, "para-10.1")["text"] == "Doors text."
+
+
+def test_key_terms_in_the_accent_colour_on_their_own_line():
+    # AD P 2013: the term is printed in a spot colour, its meaning on the lines below; "*" marks a term from the
+    # Building Regulations.
+    spot = {"c": [1.0]}
+    L = page_furniture(1, "11") + [ln(1, 86, bold("Appendix", "A:", "Key", "terms"), 26.0, "Agenda-Bold"),
+                                   ln(1, 190, [("Building", spot), ("control", spot), ("body", spot)]),
+                                   ln(1, 204, ["A", "local", "authority", "or", "approved"]),
+                                   ln(1, 218, ["inspector"]),
+                                   ln(1, 238, [("Electrical", spot), ("installation*", spot)]),
+                                   ln(1, 252, ["Fixed", "electric", "cables"])]
+    t = build_tree({"lines": L, "tables": [], "page_width": 595.0}, META)
+    d = {x["term"]: x for x in t["definitions"]}
+    assert set(d) == {"Building control body", "Electrical installation"}
+    assert sec(t, d["Building control body"]["section_id"])["text"] == "A local authority or approved inspector"
+    assert d["Electrical installation"]["from_building_regulations"] is True
+
+
+def test_chapters_with_the_same_code_or_title_get_distinct_ids():
+    L = page_furniture(1, "1") + [ln(1, 84, bold("Regulation", "23(2):", "New", "elements"), 26.0, "Agenda-Bold"),
+                                  ln(1, 140, ["Text", "one."])]
+    L += page_furniture(2, "2") + [ln(2, 84, bold("Regulation", "23(1):", "Renovation"), 26.0, "Agenda-Bold"),
+                                   ln(2, 140, ["Text", "two."])]
+    L += page_furniture(3, "3") + [ln(3, 84, bold("Guidance"), 26.0, "Agenda-Bold"), ln(3, 140, ["Three."])]
+    L += page_furniture(4, "4") + [ln(4, 84, bold("Guidance"), 26.0, "Agenda-Bold"), ln(4, 140, ["Four."])]
+    t = build_tree({"lines": L, "tables": [], "page_width": 595.0}, META)
+    ids = [s["id"] for s in t["sections"] if s["type"] == "chapter"]
+    assert ids == ["regulation-23", "regulation-23-1", "guidance", "guidance-2"] and not t["issues"][:-1]
+
+
+# ---------------------------------------------------------------- classic layout (2004-2016 editions: A, C, G, J)
+
+def classic_doc():
+    """Two pages of the older two-column layout: 10.5pt body, 23pt chapter titles, 14pt headings, a gutter at 292
+    (even pages) or 326 (odd pages), captions in 12pt roman type above the drawing or table."""
+    def cl(page, top, words, size=10.5, font="HelveticaNeue-Roman", x0=36.9):
+        return ln(page, top, words, size, font, x0)
+
+    def both(page, top, left, right, size=10.5, g=292.0, x0=36.9):
+        a, b = cl(page, top, left, size, x0=x0), cl(page, top, right, size, x0=g)
+        a["words"] += b["words"]
+        a["text"] += " " + b["text"]
+        return a
+
+    L = []
+    for p in (1, 2, 3):
+        L += [cl(p, 16, list("ONLINE"), 20.0, "HelveticaNeue-Bold", 188.9), cl(p, 24.1, ["A1/2"], 18.0, x0=519.4),
+              cl(p, 27.1, ["RUNNING", "HEADER"], 14.0, x0=70.9),
+              cl(p, 814.9, ["O", "N", "L", "I", "N", "E", "V", "E", "R", "S", "I", "O", "N", str(p + 10)], 20.0, x0=188.9)]
+    L += [cl(1, 45.4, bold("The", "Requirements"), 23.0, "HelveticaNeue-Bold"),
+          cl(1, 160, ["Requirement", "Limits", "on", "application"], 8.5, "TimesNewRomanPS-Italic", 90.7),
+          cl(1, 189, [("A1.", B), "The", "building", "shall", "be", "constructed", "so", "that", "loads", "are"], 8.5, "TimesNewRomanPS", 90.7),
+          cl(1, 199, ["sustained", "and", "transmitted", "to", "the", "ground."], 8.5, "TimesNewRomanPS", 90.7)]
+    L += [cl(2, 45.4, bold("Section", "2C:", "Thickness", "of", "walls"), 23.0, "HelveticaNeue-Bold"),
+          both(2, 106, [("Application", {"b": True, "s": 14.0})], [(w, {"s": 10.5}) for w in ("e.", "the", "guidance", "is", "based")], 14.0),
+          both(2, 125, [("2C1", B), "This", "section", "applies", "to"], ["on", "compressive", "strengths."]),
+          cl(2, 136, ["the", "following", "buildings:"]),
+          cl(2, 141.5, [("2C4", B), "This", "section", "applies", "only"], x0=292.0),
+          both(2, 152.5, ["a.", "houses", "(see", "paragraphs"], ["to", "small", "buildings."]),
+          cl(2, 163.5, [("2C14", B), "to", "2C16);", "and"], x0=53.9),
+          cl(2, 180, [("2C2", B), "Only", "the", "wall", "types", "in"]),
+          cl(2, 191, [("Table", B), ("2", B), ("are", B), ("considered", B)]),
+          both(2, 202, ["here."], ["Continued", "on", "page", "3"], g=450.0),
+          cl(2, 400, ["Table", "2", "Wall", "types", "considered"], 12.0, x0=42.5),
+          cl(2, 420, bold("Residential", "buildings", "of", "up", "to", "three", "storeys"), 8.0, "HelveticaNeue-Bold", 42.5),
+          cl(2, 437, ["External", "walls", "Internal", "load-bearing", "walls", "across", "the", "gutter", "too"], 8.0, x0=42.5),
+          cl(2, 700, ["Next", "column", "text."], x0=292.0),
+          cl(2, 760, [("7", {"s": 3.8}), ("National", {"s": 6.5}), ("Planning", {"s": 6.5}), ("Policy", {"s": 6.5})], 3.8, x0=306.1),
+          cl(2, 768, ["Framework,", "2012."], 6.5, x0=320.3)]
+    L += [cl(3, 60, ["Diagram", "1", "Size", "and", "proportion"], 12.0, x0=76.5),
+          cl(3, 83, ["See", "para", "2C4"], 6.0, x0=77.4),
+          cl(3, 300, ["H", "W1", "W2"], 7.0, x0=150.0),
+          cl(3, 440, bold("Thickness", "of", "walls"), 14.0, "HelveticaNeue-Bold", 70.9),
+          cl(3, 460, [("2C5", B), "General", "wall", "thickness."], x0=70.9)]
+    return {"lines": L, "tables": [], "page_width": 595.0}
+
+
+@pytest.fixture(scope="module")
+def ctree():
+    return build_tree(classic_doc(), META)
+
+
+def test_classic_page_furniture_and_printed_page(ctree):
+    text = " ".join(s["text"] + " " + (s["title"] or "") for s in ctree["sections"])
+    assert "RUNNING" not in text and "A1/2" not in text and "Continued on page" not in text
+    assert sec(ctree, "para-2c1")["printed_page"] == "12"
+
+
+def test_classic_requirement_box(ctree):
+    box = [s for s in ctree["sections"] if s["type"] == "requirement"]
+    assert len(box) == 1 and box[0]["text"].startswith("Requirement Limits on application\nA1. The building")
+
+
+def test_classic_two_columns_are_read_left_then_right(ctree):
+    assert sec(ctree, "para-2c1")["text"] == "This section applies to the following buildings:\na. houses (see paragraphs 2C14 to 2C16); and"
+    assert sec(ctree, "para-2c4")["text"] == "This section applies only to small buildings. Next column text."
+    assert sec(ctree, "section-2c-application")["level"] == 2
+
+
+def test_classic_bold_run_on_line_and_cross_reference_are_not_new_sections(ctree):
+    assert "para-2c14" not in {s["id"] for s in ctree["sections"]}
+    # the right column's first line carries on the last paragraph of the left column
+    assert sec(ctree, "para-2c2")["text"] == "Only the wall types in Table 2 are considered here.\ne. the guidance is based on compressive strengths."
+    assert not [s for s in ctree["sections"] if s["type"] == "heading" and s["title"].startswith("Table 2")]
+
+
+def test_classic_caption_above_its_table_and_drawing(ctree):
+    t = sec(ctree, "table-2")
+    assert t["title"] == "Wall types considered" and t["text"].startswith("Residential buildings of up to three storeys\nExternal walls")
+    d = sec(ctree, "diagram-1")
+    assert d["title"] == "Size and proportion" and d["labels"] == ["See para 2C4", "H W1 W2"]
+    assert d["area"]["top"] < 60 and 300 < d["area"]["bottom"] < 440
+    assert sec(ctree, "para-2c5")["text"] == "General wall thickness."
+
+
+def test_classic_footnotes_are_kept_on_the_section(ctree):
+    notes = [f for s in ctree["sections"] for f in s["footnotes"]]
+    assert notes == ["7 National Planning Policy Framework, 2012."]
+
+
+# ---------------------------------------------------------------- booklets and notes without chapter titles
+
+def booklet():
+    L = [ln(1, 270, bold("Amendments", "to", "the"), 36.0, "Agenda-Bold"), ln(1, 785, ["For", "use", "in", "England"], 26.0)]
+    L += page_furniture(2, "2") + [ln(2, 83, bold("Introduction"), 15.0, "Agenda-Bold"),
+                                   ln(2, 107, ["These", "changes", "take", "effect", "on", "2", "February", "2023."])]
+    for p, vol in ((3, "1"), (4, "2")):
+        L += page_furniture(p, str(p)) + [
+            ln(p, 83, ["The", "Building", "Regulations", "2010"], 20.0),
+            ln(p, 107, bold("Approved", "Document", "L"), 20.0, "Agenda-Bold"),
+            ln(p, 128, bold("Volume", vol), 20.0, "Agenda-Bold"),
+            ln(p, 150, ["2021", "edition"], 20.0),
+            ln(p, 188, bold("List", "of", "amendments"), 20.0, "Agenda-Bold"),
+            ln(p, 296, bold("Page", "15", "Replace", "paragraph", "2.10."), 12.0, "Agenda-Bold"),
+            ln(p, 316, [("2.10", B), "New", "text", "for", "volume", vol + "."], font="Agenda-Semibold")]
+    L += [ln(5, 24, bold("List", "of", "Approved", "Documents"), 26.0, "Agenda-Bold"), ln(5, 120, ["Approved", "Document", "A"])]
+    return {"lines": L, "tables": [], "page_width": 595.0}
+
+
+def test_booklet_without_chapter_titles():
+    t = build_tree(booklet(), META)
+    chaps = [s for s in t["sections"] if s["type"] == "chapter"]
+    assert [c["title"] for c in chaps] == ["Introduction", "Approved Document L Volume 1 2021 edition List of amendments",
+                                           "Approved Document L Volume 2 2021 edition List of amendments"]
+    paras = [s for s in t["sections"] if s["type"] == "paragraph"]
+    assert [p["text"] for p in paras] == ["New text for volume 1.", "New text for volume 2."]
+    assert len({p["id"] for p in paras}) == 2 and not t["issues"]
+    assert "Approved Document A" not in " ".join(s["text"] for s in t["sections"])  # the back page list
+
+
+def test_part_prefix_rule_and_ids():
+    from system.rag.parse_adoc import part_prefix
+    parts = ["approved-document-l-volume-1", "approved-document-l-volume-2", "february-2023-amendments-to-approved-document-l",
+             "frequently-asked-questions", "corrections-to-approved-document-g", "approved-document-g-sanitation"]
+    assert [part_prefix(p, parts) for p in parts] == ["v1-", "v2-", "amendments-february-2023-", "faq-", "corrections-", ""]
+    assert part_prefix("approved-document-b-volume-1", ["approved-document-b-volume-1"]) == ""
+    t = build_tree(booklet(), {**META, "id_prefix": "v2-"})
+    assert all(s["id"].startswith("v2-") for s in t["sections"])
+    assert all(s["parent_id"] is None or s["parent_id"].startswith("v2-") for s in t["sections"])
+
+
+# ---------------------------------------------------------------- real files: the other Approved Documents
+
+REAL = [  # source, part (start of the part name), counts from the parsed document, checked by eye against the PDF
+    ("adl", "approved-document-l-conservation-of-fuel-and-power-volume-1", {"paragraph": 246, "figure": 3, "table": 22, "definition": 63}),
+    ("adl", "approved-document-l-conservation-of-fuel-and-power-volume-2", {"paragraph": 264, "figure": 3, "table": 34, "definition": 74}),
+    ("adf", "approved-document-f-volume-1", {"paragraph": 182, "figure": 5, "table": 16, "definition": 36}),
+    ("adf", "approved-document-f-volume-2", {"paragraph": 93, "figure": 1, "table": 5, "definition": 33}),
+    ("adp", "approved-document-p", {"paragraph": 32, "figure": 2, "requirement": 1, "definition": 7}),
+    ("ada", "approved-document-a", {"paragraph": 89, "figure": 25, "table": 11, "requirement": 2}),
+    ("adc", "approved-document-c", {"paragraph": 139, "figure": 14, "table": 4, "requirement": 1}),
+    ("adg", "approved-document-g-sanitation", {"paragraph": 153, "figure": 3, "table": 23, "requirement": 6}),
+    ("adj", "approved-document-j", {"paragraph": 248, "figure": 45, "table": 16, "requirement": 2}),
+    ("ad7", "approved-document-7", {"paragraph": 42, "requirement": 1}),
+    ("adk", "approved-document-k", {"paragraph": 91, "figure": 32, "table": 1, "requirement": 9, "definition": 26}),
+    ("adl", "february-2023-amendments", {"chapter": 3, "paragraph": 3}),
+]
+
+
+def _real_tree(source, part):
+    pytest.importorskip("pdfplumber")
+    import yaml
+    from system.rag.parse_adoc import part_prefix, read_adoc_pdf
+    recs = [json.loads(p.read_text(encoding="utf-8")) for p in (ROOT / "corpus" / "versions" / source).glob("*.json")]
+    cur = [r for r in recs if r["valid_to"] is None and r["part"].startswith(part)]
+    if not cur or not (ROOT / cur[0]["raw_path"]).exists():
+        pytest.skip(f"{source} {part} raw file not on this machine")
+    r = cur[0]
+    srcs = yaml.safe_load((ROOT / "corpus" / "sources.yaml").read_text(encoding="utf-8"))["sources"]
+    parts = next(s for s in srcs if s["id"] == source)["parser"]["parts"]
+    meta = {**r, "title": r.get("part_title") or source, "id_prefix": part_prefix(r["part"], parts)}
+    return build_tree(read_adoc_pdf(ROOT / r["raw_path"]), meta, fixes=load_fixes(source))
+
+
+@pytest.mark.parametrize("source,part,counts", REAL, ids=[f"{s}-{p[:30]}" for s, p, _ in REAL])
+def test_real_approved_documents_counts_and_all_checks_settled(source, part, counts):
+    t = _real_tree(source, part)
+    got = {k: sum(1 for s in t["sections"] if s["type"] == k) for k in counts}
+    assert got == counts
+    assert t["checks"] == []
+    assert not [i for i in t["issues"] if "duplicate" in i]
+    ids = [s["id"] for s in t["sections"]]
+    assert len(ids) == len(set(ids))
+    for s in t["sections"]:
+        assert "O N L I N E" not in s["text"] and "specifification" not in s["text"] and "flfl" not in s["text"]
+
+
 # ---------------------------------------------------------------- real file
 
 def _vol1():
