@@ -1537,6 +1537,9 @@ def render_images(pdf_path, tree: dict, out_dir: Path, scale: float = 2.0) -> No
             if s.get("image_bbox"):
                 a = s["area"] = photo_box(page_image(a["page"]), a, s["caption_box"], scale,
                                           _next_caption_x(tree, s))
+            if a["x1"] <= a["x0"] or a["bottom"] <= a["top"]:  # empty or upside-down box (fso-guidance-collection)
+                tree.setdefault("issues", []).append(f"figure {s['id']}: empty image box {a}, image not cut")
+                continue
             img = page_image(a["page"]).crop((int(a["x0"] * scale), int(a["top"] * scale),
                                               int(a["x1"] * scale), int(a["bottom"] * scale)))
             path = out_dir / "figures" / f"{s['id']}.png"
