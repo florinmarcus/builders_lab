@@ -1,6 +1,14 @@
-**Ce vindem:** o legătură sigură între AI-ul firmei și emailurile, documentele lor și regulile de construcții din Anglia. Fiecare răspuns are sursa și e verificat înainte să ajungă la constructor.
+**Ce vindem:** un asistent AI care ține evidența firmei și o ține în regulă legal. Vorbești cu el pe telefon, în română sau engleză.
+- **Emailuri:** citește emailurile de la clienți și de la consiliu (council), le pune pe lucrări și îți spune ce e important.
+- **Legal:** verifică dacă emailurile primite și cele pe care le trimiți sunt în regulă cu legea din Anglia.
+- **Documente:** nu se mai pierde nimic, totul e pus pe lucrarea potrivită.
+- **Plăți și termene:** când ești plătit, ce notificări trebuie trimise și până când.
+- **Întârzieri:** când ești în urmă, îți spune următorul pas legal: pe cine anunți, până când și ce riști.
+- **Calendar:** termenele ajung în calendarul tău.
+- **Rezumat:** pe scurt, cum stă firma azi.
+- **Contabilitate:** citește plățile din programul de contabilitate (Xero, QuickBooks).
 
-**De ce contează regulile:** când scrii un email către client, sistemul te avertizează dacă ceva nu e în regulă legal: un termen ratat, o notificare care lipsește, o formulare riscantă. Când ești în întârziere sau lucrurile nu merg bine, îți spune următorul pas legal: pe cine anunți, până când și ce riști.
+Fiecare răspuns are sursa și e verificat înainte să ajungă la constructor.
 
 **Prețul normal (per firmă):**
 - £250 instalare, o singură dată (include instruirea și 30 de zile de ajutor)
