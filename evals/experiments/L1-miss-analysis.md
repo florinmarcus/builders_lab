@@ -103,3 +103,15 @@ It needs its own strategy: one section per real heading, with the full heading p
 5. **Then the vocabulary gap:** query expansion with the glossary, or extra queries (E5).
 
 Each change is measured on dev, the holdout is checked once at the end, and McNemar is used against L1.
+
+## V0, V1: vector search only (no keyword search, no rerank), dev 299
+
+| Run | Recall@5 | Recall@50 | MRR@5 | nDCG@5 |
+|---|---|---|---|---|
+| V0 full corpus | 0.51 | 0.80 | 0.35 | 0.23 |
+| V1 without out-of-date sources (adb-historical 8,297 chunks, manual-br 110) | 0.51 | 0.80 | 0.36 | 0.24 |
+
+- McNemar on Recall@50: 4 questions gained, 2 lost, χ² 0.67. No real difference.
+- Keep the removal anyway (19% of the index was out of date), but it is not why recall is low.
+- Next: what text is embedded for the missed chunks, then one change at a time (heading path and document title in
+  the embedded text, merging tiny chunks, the fire safety parser).
