@@ -29,4 +29,4 @@ Florin will pitch to builders. He stays in his full-time job; a marketing partne
 - No Google review, no OAuth build for email in the pilot. Microsoft 365 needs the firm's admin at install.
 - The London server may need the next size up (about £14 more a month) for the corpus.
 - Business costs (accountant, insurance) are bigger than hosting; real quotes needed.
-- Insurance and the cap must be in place before the first paying firm.
+- Insurance and the cap must be in place before the first paying firm. **Changed 21 Nov 2026 (Florin):** the company, accountant and insurance wait until after the pilot; the pilot runs on a strict agreement. Cloud now about £20 to £30 a month, about £40 to £60 once pilots start (guess).

@@ -55,7 +55,7 @@ Prices are a starting guess to test in the pilot. Price per firm, not per person
 
 - A **limited company** in the partner's name (about £50 to register, guess). Florin keeps the code and **licenses** it to the company.
 - **Profit split 50/50** after costs, written down. Also write: who pays costs before there is income, and what happens to the licence if either stops.
-- Before the first paying firm: **cyber insurance** (a leak) and **professional indemnity** (a wrong answer). Our liability is **capped at 12 months' fees** in our terms.
+- After the pilot, if it works (changed 21 Nov 2026; was "before the first paying firm"): **cyber insurance** (a leak) and **professional indemnity** (a wrong answer). Our liability is **capped at 12 months' fees** in our terms.
 - Florin's task: check his employment contract for side work and code ownership.
 - Anthropic's own liability is probably capped low; insurance is the real cover (Q7).
 
@@ -66,16 +66,20 @@ Prices are a starting guess to test in the pilot. Price per firm, not per person
 
 ## Costs per month (estimate)
 
+**Cloud, now: about £20 to £30 a month.** Updated 21 Nov 2026 (Florin): company, accountant and insurance are decided after the pilot.
+
 | Item | £ a month | Note |
 |---|---|---|
-| London server (EC2 t4g.small) | about 16 | $20.15 (`research/hosting-costs/`); next size up about £14 more if the corpus needs it |
-| Regulations database | 0 extra | Moves from the Frankfurt lab RDS onto the London server (N17); the lab gets switched off |
-| Bedrock embedding and re-ranking | under 1 | Pilot volumes |
+| London server (EC2 t4g.small) | about 16 | $20.15 (`research/hosting-costs/`); about 27 on t4g.medium (4 GB), needed for the corpus (N17) |
+| Regulations database | 0 extra | Moves from the Frankfurt lab RDS onto the London server (N17); the RDS costs until it is switched off |
+| Bedrock embedding and re-ranking | under 1 | Demo volumes |
 | Logs, secrets, backups | 2 to 3 | Guess |
-| Accountant | 40 to 85 | £500 to £1,000 a year, guess |
-| Insurance (cyber and PI) | 25 to 65 | £300 to £800 a year, guess; real quotes needed |
-| ICO data protection fee | about 4 | About £52 a year, from memory, not checked |
-| **Total** | **about 90 to 175** | Business costs are bigger than servers |
+
+**When the pilots start, it goes up:** real emails and documents, more questions, more backups. Guess: about £40 to £60 a month. Still under the £100 budget.
+
+**Later, after the pilot (if it works):** limited company (about £50 once), accountant (£500 to £1,000 a year), cyber and PI insurance (£300 to £800 a year), ICO fee (about £52 a year). All guesses.
+
+**Spent so far:** not known here; check AWS Billing. The server's budget alarm is set at $30 a month.
 
 No API Gateway needed: Caddy and per-firm API keys already do that job (ADR 0007). No model on our server (ADR 0006).
 
