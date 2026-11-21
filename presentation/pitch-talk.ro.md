@@ -7,7 +7,7 @@ Pentru prezentarea lui Florin la constructori, în română. Stil vorbit. De raf
 Ridicați mâna cine a folosit ChatGPT sau alt AI pentru firmă: un email, o ofertă, o întrebare despre reguli.
 Bun. Atunci trebuie să știți câteva lucruri.
 
-- **AI-ul gratuit e AI public.** ChatGPT sau Claude gratuit ori pe cont personal pot învăța din ce scrieți. Și nu vă dau niciun acord pentru date.
+- **AI-ul pe cont personal e AI public, chiar dacă plătiți.** ChatGPT sau Claude, gratuit sau plătit (Plus, Pro), pe cont personal pot învăța din ce scrieți, dacă nu opriți asta din setări. Și nu vă dau niciun acord pentru datele firmei.
 - **Datele clienților nu sunt ale voastre.** Numele, adresa, telefonul clientului, documentele de la consiliu (council): dacă le puneți într-un AI personal, încălcați GDPR. Amenzile vin de la ICO, iar răspunderea e a firmei voastre.
 - **Pe contul personal, nimeni nu vă garantează confidențialitatea.** Ce puneți în ChatGPT pe cont personal ajunge pe serverele lor din SUA, fără niciun acord pentru date. Dacă datele scapă, compania de AI practic nu își asumă nicio răspundere. Și s-ar putea ca nici asigurarea voastră să nu vă acopere, pentru că ați pus datele clienților acolo fără acord.
 - **Contractul vă poate interzice asta.** Multe consilii și antreprenori generali (main contractors) cer acord scris înainte să le puneți documentele într-un program din afară.
