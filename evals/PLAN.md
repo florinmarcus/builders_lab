@@ -14,6 +14,25 @@ Owner: Florin. Status report: [REPORT-2026-11-21.md](REPORT-2026-11-21.md). Each
 | 4. Multi-turn scenarios | on hold |
 | 5. Traces and logs | on hold |
 
+**Order of work (Florin, 21 Nov late): bottom up, one document at a time.**
+1. **Parse.** Every guidance document parses cleanly, PDFs first (they matter most; legislation is already good).
+   Per document, follow the runbook `.claude/skills/corpus-document/SKILL.md`:
+   - fix structure in the parser code, with a test (a strategy per document family where needed)
+   - run the model checks through packets, with Sonnet subagents in Claude Code (not Bedrock)
+   - check every figure crop against its page image; nothing moves until the crops are right
+   - review sheet, tests, commit
+2. **Chunk.** Only when every document is parsed: check each document's chunks (size, heading path, context, no
+   mixed topics).
+3. **Ingest and verify the vectors.** Load, then measure vector-only recall on dev.
+
+Inventory (21 Nov): 139 non-legislation sources. 47 have open model checks, 1,468 in total. The biggest are:
+- fso-guidance-collection: 511
+- br-circulars: 129
+- supplier-information: 91
+- Approved Documents E, M, H: 89, 73, 45
+- HSG247: 73
+- HSG33: 55
+
 Main metric now: vector-only Recall@5 and Recall@50 on dev 299, before keyword search and rerank. Baseline (V0):
 0.51 and 0.80. Runs use the full corpus in a throwaway local Postgres; live is not touched.
 
