@@ -10,7 +10,7 @@
 
 Fiecare răspuns are sursa și e verificat înainte să ajungă la constructor.
 
-**Prețul normal (per firmă):**
+**Prețul normal (firme mici):**
 - £250 instalare, o singură dată (include instruirea și 30 de zile de ajutor)
 - £49/lună
 - Plus abonamentul lor Claude Team: aprox. £20/persoană/lună, minim 2 persoane
@@ -21,6 +21,8 @@ Primele 3 firme ne ajută să dăm forma produsului. În schimb, primesc preț r
 - Ne dau acces la datele lor, ca să instalăm și să îmbunătățim produsul (cu acord semnat)
 - Un call scurt la 2 săptămâni: ce merge, ce lipsește, ce ar vrea
 - Dacă rămân după pilot: £39/lună în primul an, în loc de £49
+
+**Firme mari:** integrare personalizată cu sistemele lor interne (contabilitate, programe proprii, server de email propriu). Întâi analizăm ce au și ce le trebuie; costul îl stabilim după, nu îl putem estima acum.
 
 **Ce îi cerem oricărei firme:** Claude Team, acordul semnat, și numele persoanei care se ocupă de IT-ul lor (pentru conectarea emailului).
 
