@@ -57,3 +57,15 @@ The live MCP server still answers from the fallback. Testing in the Claude app f
 5. **Relevance floor:** passages with a re-rank score below `RAG_MIN_SCORE` are dropped. **Off since 21 Nov 2026** (default 0): Amazon Rerank scores are not calibrated, and 0.05 emptied 58% of answerable builders' questions (`evals/experiments/J1-answers-live-vs-E5.md`). An unrelated question now returns passages, and the answer model says the sources do not cover it. Keyword (BM25) search is on by default (`RAG_HYBRID=1`).
 
 Errors: AWS or network trouble raises `SearchError` with `retryable = True`. Passages also carry `legal_weight` ("law", "statutory-guidance", "approved-code", "guidance") and `printed_page`; the server's output currently keeps only `source, section, edition_date, url, text, score, edition_note`. Passing `legal_weight` through would let answers say "the law requires" vs "the guidance says". `as_of_date` empty means today.
+
+## Requested next (server session, 21 Nov 2026): extra queries in `search`
+
+The best eval setup (E5: Recall@5 pooled 0.82, Recall@50 0.93) fuses the builder's question with two extra queries the regulations specialist writes (plain words, legal words), then re-ranks against the original question. Today that fusion lives only in `evals/retrieval.py` (`fused_search`).
+
+Please add to `system/rag/pgsearch.py`:
+
+```python
+def search(question, as_of_date=None, country="E", limit=5, embed=None, rerank_fn=None, url=None, queries=None) -> list[dict]
+```
+
+`queries`: optional list of up to 2 extra search strings. Candidates from the question and each query are fused (RRF, one per section, top_k), then re-ranked against `question` only. Without `queries`, behaviour is unchanged. When it is in, the server session adds an optional `queries` argument to the `search_regulations` tool and step 1 in `plugin/agents/regulations.md` (write a plain-words and a legal-words query). After the demo; not before 7:30 on 21 Nov.
