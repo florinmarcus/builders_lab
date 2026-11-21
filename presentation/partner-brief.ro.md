@@ -1,6 +1,4 @@
-**Ce vindem:** un asistent AI care ține evidența firmei și o ține în regulă legal. Vorbești cu el pe telefon, în română sau engleză.
-
-**Nu un singur AI, ci o echipă de agenți:** fiecare agent e specializat pe o meserie (emailuri, plăți, întârzieri, documente, reglementări, traducere), iar la final o verificare automată controlează fiecare răspuns.
+**Ce vindem:** o echipă de agenți AI care ține evidența firmei și o ține în regulă legal. Vorbești cu ea pe telefon, în română sau engleză.
 
 - **Emailuri:** citește emailurile de la clienți și de la consiliu (council), le pune pe lucrări și îți spune ce e important.
 - **Legal:** verifică dacă emailurile primite și cele pe care le trimiți sunt în regulă cu legea din Anglia.
@@ -10,6 +8,8 @@
 - **Calendar (în curând):** termenele ajung în calendarul tău.
 - **Rezumat (în curând):** pe scurt, cum stă firma azi.
 - **Contabilitate (în curând, pentru firmele mari):** citește plățile din programul de contabilitate (Xero, QuickBooks).
+
+**Nu un singur AI, ci o echipă de agenți:** fiecare agent e specializat pe o meserie (emailuri, plăți, întârzieri, documente, reglementări, traducere), iar la final o verificare automată controlează fiecare răspuns.
 
 Fiecare răspuns are sursa și e verificat înainte să ajungă la constructor.
 
