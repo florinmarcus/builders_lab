@@ -45,7 +45,7 @@ Voi sunteți și constructorul, și biroul, și contabilul.
 
 - **Vorbiți, nu scrieți.** Întrebați pe șantier: „A aprobat clientul priza în plus?" Vă răspunde cu cuvintele clientului și data.
 - **Nu se mai pierd hârtii.** Fiecare email și atașament e pus pe lucrare.
-- **Plătiți la timp.** Vă spune când trebuie trimise notificările de plată (payment notice) și ce se întâmplă dacă clientul ratează una.
+- **Încasați la timp.** Vă spune când trebuie trimise notificările de plată (payment notice) și ce se întâmplă dacă clientul ratează una.
 - **Când întârziați.** Vă spune următorul pas legal: pe cine anunțați, până când și ce riscați. Vă scrie emailul în engleză corectă. Voi verificați și trimiteți.
 - **În română, ca lumea.** Termenii din UK rămân în engleză, ca să folosiți cuvântul corect cu clienții și cu consiliul.
 
