@@ -23,6 +23,7 @@ Florin's own lab (`agentic-rag-lab`, ADRs 0010 and 0012, experiments E7, E9, E15
 - **Permissions:** the deploy user (for building the index) and later the server role (for questions) get `bedrock:InvokeModel` on Titan V2 in London and on the re-rank model in Frankfurt, plus `bedrock:Rerank`. Managed policy `deploy/iam/corpus-bedrock-policy.json` (separate from the inline deployer policy, which is at the 2,048-byte limit); the server role change stays in parking lot S26.
 
 - **Server, first version (20 Nov 2026):** vector top 50, re-rank to 5, relevance floor; keyword (BM25) postponed at Florin's request. Switched on by `rag_enabled` in Parameter Store after the server role has its Bedrock rights.
+- **Update 21 Nov 2026 (Florin's yes):** keyword (BM25) search on by default, fused with vectors by RRF (k=60); relevance floor off (`RAG_MIN_SCORE` 0). On 342 builder test questions the floor of 0.05 made 58% of answerable questions get "not in the sources"; answers judged correct and grounded went from 31% to 57% (`evals/experiments/J1-answers-live-vs-E5.md`). Out-of-scope questions now reach the answer model with weak passages; it declined them in 77-85% of cases in the evals.
 
 ## Options considered
 

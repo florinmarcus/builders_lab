@@ -6,14 +6,14 @@ package is imported as "rag", so this file uses no "system.rag" imports.
 
 Steps: embed the question (Titan V2, London) -> the 50 nearest chunks by cosine distance that apply on the
 date and to the country -> one per section -> Amazon Rerank (Frankfurt) -> drop passages below the relevance
-floor -> the best few. With RAG_HYBRID=1 (off by default, evals first): BM25 keyword search over the same
+floor -> the best few. Hybrid by default (RAG_HYBRID=1, 21 Nov 2026 after evals/experiments/J1): BM25 keyword search over the same
 chunks (words with English stemming, plus codes such as B1, 7(2), FD30 kept whole and weighted higher) is fused
 with the vector list by reciprocal rank fusion (k=60) before the re-rank (ADR 0013).
 
 Settings (environment): CORPUS_READER_URL, RAG_EMBED_REGION (eu-west-2), RAG_EMBED_MODEL
 (amazon.titan-embed-text-v2:0), RAG_RERANK (1 or 0), RAG_RERANK_REGION (eu-central-1), RAG_RERANK_MODEL
-(amazon.rerank-v1:0), RAG_TOP_K (50), RAG_MIN_SCORE (re-rank score below which a passage is dropped, 0.05),
-RAG_HYBRID (0 or 1), RAG_CODES_WEIGHT (2.0: a code match counts this many times a word match).
+(amazon.rerank-v1:0), RAG_TOP_K (50), RAG_MIN_SCORE (re-rank score below which a passage is dropped; 0 = off,
+the answer model declines out-of-scope questions itself; 0.05 emptied most builders' questions), RAG_HYBRID (1 or 0), RAG_CODES_WEIGHT (2.0: a code match counts this many times a word match).
 """
 
 from __future__ import annotations
@@ -35,9 +35,9 @@ def cfg() -> dict:
         "rerank_region": os.environ.get("RAG_RERANK_REGION", "eu-central-1"),
         "rerank_model": os.environ.get("RAG_RERANK_MODEL", "amazon.rerank-v1:0"),
         "top_k": int(os.environ.get("RAG_TOP_K", "50")),
-        "min_score": float(os.environ.get("RAG_MIN_SCORE", "0.05")),
+        "min_score": float(os.environ.get("RAG_MIN_SCORE", "0")),
         "schema": _schema(os.environ.get("RAG_SCHEMA", "corpus")),
-        "hybrid": os.environ.get("RAG_HYBRID", "0") == "1",
+        "hybrid": os.environ.get("RAG_HYBRID", "1") == "1",
         "codes_weight": float(os.environ.get("RAG_CODES_WEIGHT", "2.0")),
     }
 

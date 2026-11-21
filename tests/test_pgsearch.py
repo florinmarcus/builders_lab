@@ -18,7 +18,15 @@ def row(i, section=None, **kw):
             "url": "https://x#page=38", "text": f"text {i}", "embed_text": f"AD B › Section 3\ntext {i}", "distance": 0.1 * i}
 
 
+def test_defaults_are_hybrid_with_no_floor(monkeypatch):
+    monkeypatch.delenv("RAG_HYBRID", raising=False)
+    monkeypatch.delenv("RAG_MIN_SCORE", raising=False)
+    assert P.cfg()["hybrid"] is True and P.cfg()["min_score"] == 0.0
+
+
 def test_rerank_order_floor_and_one_passage_per_section(monkeypatch):
+    monkeypatch.setenv("RAG_MIN_SCORE", "0.05")
+    monkeypatch.setenv("RAG_HYBRID", "0")
     rows = [row(1), row(2, section="para-1"), row(3), row(4)]
     monkeypatch.setattr(P, "nearest", lambda v, d, c, n, url=None: rows)
     seen = {}
@@ -33,7 +41,9 @@ def test_rerank_order_floor_and_one_passage_per_section(monkeypatch):
     assert got[0]["section"] == "Paragraph 3.4" and got[0]["edition_date"] == "2026-09-30"
 
 
-def test_nothing_relevant_returns_empty(monkeypatch):
+def test_nothing_relevant_returns_empty_when_a_floor_is_set(monkeypatch):
+    monkeypatch.setenv("RAG_MIN_SCORE", "0.05")
+    monkeypatch.setenv("RAG_HYBRID", "0")
     monkeypatch.setattr(P, "nearest", lambda v, d, c, n, url=None: [row(1)])
     assert P.search("best pizza", embed=lambda q: [0.0] * 1024, rerank_fn=lambda q, t, n: [(0, 0.001)]) == []
     assert P.search("   ") == []
