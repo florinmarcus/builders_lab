@@ -29,8 +29,6 @@ Primele 3 firme ne ajută să dăm forma produsului. În schimb, primesc preț r
 
 **Ce îi cerem oricărei firme:** Claude Team, acordul semnat, și numele persoanei care se ocupă de IT-ul lor (pentru conectarea emailului).
 
-**Primele întrebări:** Unde vă e emailul (Gmail sau Outlook)? Cine se ocupă de IT? Vă limitează contractele folosirea altor programe?
-
 **Tu:** găsești firmele și ești primul contact. **Eu:** partea tehnică.
 
 **Regula:** după 6 luni, dacă nu avem 3 firme care plătesc și îl folosesc săptămânal, ne oprim.
