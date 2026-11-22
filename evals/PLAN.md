@@ -34,7 +34,7 @@ flowchart LR
     subgraph parse["1. Parse: one parser per document family"]
         leg["Legislation XML<br/>parse_legislation"]:::done
         adoc["Approved Documents PDF<br/>parse_adoc<br/>clean: 413 crops ok, 0 checks open"]:::done
-        hse["HSE and other guidance PDFs<br/>parse_pdf<br/>404 of 459 crops ok, 55 bad (S98)<br/>model checks next"]:::wip
+        hse["HSE and other guidance PDFs, 62 sources<br/>parse_pdf<br/>clean: 1309 crops ok, 0 checks open"]:::done
         guide["Fire safety collection, 18 PDFs<br/>parse_guide (13), parse_flats (1),<br/>parse_booklet (4)<br/>clean: 813 crops ok, 0 checks open"]:::done
         html["GOV.UK and HSE web pages, 75<br/>parse_html<br/>next after the PDFs: 29 HSE first"]:::todo
     end
@@ -73,13 +73,15 @@ Lex ties with our index on laws but adds Northern Ireland and revoked laws; GOV.
 against our 0.94. Report: [experiments/X-external-mcp.md](experiments/X-external-mcp.md).
 
 - Generic guidance PDFs (parse_pdf, 22 Nov): false figures removed and crops cut from their ink (c6492e4,
-  2a86e19). 404 of 459 crops ok, 55 bad and listed in S98. Open model checks are not run yet; the new table pages
-  need table checks.
+  2a86e19); all 1309 crops ok or kept with a named defect (S98). Model checks done the same day: 537 open checks
+  in 36 sources answered through Sonnet packets (Claude Code headless); false tables the answers found
+  (footnotes, imprints, formula subscripts, lone labels) now parse as text, with tests. 0 checks open. Other
+  false tables were settled as one-column tables (S102); empty header cells got neutral headings (S104).
 
 **Parse absolutely everything before moving on (Florin, 22 Nov).** Chunks start only when every ingested
 document is clean: legislation, every PDF and every web page. Web pages had been left out under "PDFs first", but
 166 of the 342 golden questions expect one (36 an HSE page). Order:
-1. Generic guidance PDFs: last bad crops (S98), then their model checks.
+1. ~~Generic guidance PDFs: last bad crops (S98), then their model checks.~~ Done 22 Nov: 0 bad crops, 0 checks open.
 2. Web pages (`parse_html`), 75 sources: the 29 HSE pages first, then GOV.UK (Awaab's Law, CIS 340, VAT Notice
    708, fire doors ...). Same runbook: structure fixed in code with a test, model checks, review sheet, commit.
 3. Traceable and repeatable parsing (below).

@@ -1,0 +1,2355 @@
+{
+ "source_id": "supplier-information",
+ "about": "Saved model fixes for supplier-information (ADR 0010).",
+ "fixes": [
+  {
+   "key": "bb24abbaa40ad0c4",
+   "kind": "table",
+   "target": "section-71-digital-implementation-table-1: Digital Implementation",
+   "value": {
+    "columns": [
+     "Deliverable",
+     "Legislative Commencement",
+     "(CA) timing",
+     "Implementation"
+    ],
+    "rows": [
+     [
+      "Section 69 (Payments compliance notices (PCN))",
+      "Legislation commenced 1st January 2026",
+      "For CAs this means: • First reporting period will run legally from 1 Jan 2026-31 March 2026. But we recommend CAs report from 1 Oct 2025-31 March 2026. • Must publish a PCN between 31st March 2026 and 29 April 2026. • CAs will be reporting on the timings of payments made under public contracts during that reporting period (i.e. looking back and collecting information on timings of payments during relevant reporting period).",
+      "Notice available in the Find a Tender Service (FTS) interface by end of March 2026. E-Senders will be provided with details of the schema, however E-Sender build will be optional. Contracting authorities should contact their E-Senders to confirm if they plan to support the notice."
+     ],
+     [
+      "Implementation of Section 70",
+      "SI commencing 1st April 2026",
+      "CAs publish payment info £30k made against public contracts for procurements that are commenced under the Procurement Act from 1st April 2026 Frequency- Quarterly within 30 days of the end of each quarter. 2026/27 dates: Q1 April to June - publication due by end July 2026 Q2 July to Sept - publication due by end Oct 2026 Q3 Oct to Dec - publication due by end Jan 2027 Q4 Jan to March - publication due by end April 2027",
+      "Digital functionality available in FTS interface ahead of the publication window opening at the start of July."
+     ],
+     [
+      "Section 71 (Assessment of contract performance notices (CPN))",
+      "Legislation commenced 1st January 2026",
+      "For CAs reporting KPI performance: • As the legislative trigger for publishing a CPN is within each 12 months of the lifecycle of a contract irrespective of whether the contract was commenced before or after the commencement of s71 (1st January 2026)(this is because the requirement to publish CPN only relates to where KPIs have been set i.e. public contracts under the PA23 above £5m) • However CAs could publish CPN as soon as section 71 is commenced. For CAs reporting breach: • The earliest a CA might have to publish a CPN would be within 30 days of a breach after section 71 came into force i.e. 30 January 2026.",
+      "The Contract Performance Notice will be available on the Find a Tender Service by 30 January 2026 to enable reporting of breaches. Schema details were shared with E-Senders on 15th of December 2025 to allow for expected use on KPI reporting by 24th Feb 2026."
+     ],
+     [
+      "Below Threshold Identifiers",
+      "Legislation commences 1st April 2026",
+      "From 1st April, this means that CAs will be required to ensure their suppliers have registered on CDP and provide them with the unique identifier provided by the platform before publishing the CDN in relation to a notifiable below-threshold contract.",
+      "Validation updates sent to E-Senders to allow for expected use by 1st April 2026."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Digital Implementation: for Section 69 (Payments compliance notices (PCN)), legislation commenced 1st January 2026; the first reporting period runs legally from 1 Jan 2026-31 March 2026 but CAs are recommended to report from 1 Oct 2025-31 March 2026, a PCN must be published between 31st March 2026 and 29 April 2026, and CAs report on the timings of payments made under public contracts during that period; the notice is available in the Find a Tender Service (FTS) interface by end of March 2026, E-Senders will be given schema details, E-Sender build is optional, and contracting authorities should contact their E-Senders to confirm if they plan to support the notice.",
+     "Digital Implementation: for Implementation of Section 70, an SI commences 1st April 2026; CAs publish payment info for £30k made against public contracts for procurements commenced under the Procurement Act from 1st April 2026, quarterly within 30 days of the end of each quarter, with 2026/27 dates Q1 April to June due by end July 2026, Q2 July to Sept due by end Oct 2026, Q3 Oct to Dec due by end Jan 2027 and Q4 Jan to March due by end April 2027; digital functionality is available in the FTS interface ahead of the publication window opening at the start of July.",
+     "Digital Implementation: for Section 71 (Assessment of contract performance notices (CPN)), legislation commenced 1st January 2026; for CAs reporting KPI performance, the trigger for publishing a CPN is within each 12 months of the lifecycle of a contract whether the contract began before or after s71 commenced (1st January 2026), because the requirement only relates to where KPIs have been set, i.e. public contracts under the PA23 above £5m, and CAs could publish a CPN as soon as section 71 is commenced; for CAs reporting breach, the earliest a CA might have to publish a CPN is within 30 days of a breach after section 71 came into force, i.e. 30 January 2026; the Contract Performance Notice will be available on the Find a Tender Service by 30 January 2026 to enable reporting of breaches, and schema details were shared with E-Senders on 15th of December 2025 to allow for expected use on KPI reporting by 24th Feb 2026.",
+     "Digital Implementation: for Below Threshold Identifiers, legislation commences 1st April 2026; from 1st April CAs must ensure their suppliers have registered on CDP and give them the unique identifier provided by the platform before publishing the CDN for a notifiable below-threshold contract; validation updates were sent to E-Senders to allow for expected use by 1st April 2026."
+    ]
+   },
+   "reason": "Table spans pages 18 and 19 with four columns. Page 18 holds the header and the Section 69 and Section 70 rows; page 19 continues with the Section 71 and Below Threshold Identifiers rows. No sub-heading rows. Bullets are written with the bullet symbol and joined into one cell.",
+   "evidence": "Page 18 header row: Deliverable | Legislative Commencement | (CA) timing | Implementation. Page 19 titled 'Annex A - Summary of Key Dates (Continued)' shows Section 71 and Below Threshold Identifiers rows.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "9e6dbb065c29ce80",
+   "kind": "figure_description",
+   "target": "photo-1: 5",
+   "value": "This is a screenshot of a laptop showing the GOV.UK Find a Tender website. The page header reads 'GOV.UK' and 'Find a Tender', with links 'Search', 'My notices', 'My account' and 'Sign out'. The main heading is 'Find information on UK public procurements and contracts' with a 'Search' button, and below it the heading 'How you sign in to Find a Tender has changed'.",
+   "reason": "The image is a laptop mockup with a readable Find a Tender home page. Only the large headings and header links are legible, so small body text is left out.",
+   "evidence": "Visible text: GOV.UK; Find a Tender; Search; My notices; My account; Sign out; Find information on UK public procurements and contracts; Search; How you sign in to Find a Tender has changed.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "06ce8f17825d83d1",
+   "kind": "figure_description",
+   "target": "figure-p106: Decision tree",
+   "value": "This is a flow chart (decision tree) for finding a contract threshold. It starts with \"Is your contract a utilities contract?\". If Yes, it asks \"Is your utilities contract a light touch contract?\": No gives Threshold = £429,809 and Yes gives Threshold = £884,720. If No, it asks \"Is your contract a light touch contract?\": Yes gives Threshold = £663,540; No leads to \"Is your contract for a central government authority?\", where Yes gives Threshold = £139,688 and No gives Threshold = £214,904 (your contract should be for a sub-central government authority).",
+   "reason": "Flow chart with yes/no questions and threshold boxes; steps listed in order using the printed labels.",
+   "evidence": "Labels on the image: the three questions, the Yes/No arrows and the thresholds £429,809, £884,720, £663,540, £139,688, £214,904.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "e884f3fad5ae7eac",
+   "kind": "table",
+   "target": "table-p111: of transparency notice requirements for below-threshold contracts",
+   "value": {
+    "columns": [
+     "Procurement activity",
+     "Notice publication",
+     "Frequency"
+    ],
+    "rows": [
+     [
+      "Procurement planning",
+      "Planned procurement notice",
+      "Once or more to advise the market of an upcoming procurement, however there is no advantage of reducing minimum tender timescales for a below-threshold contract"
+     ],
+     [
+      "Preliminary market engagement",
+      "Preliminary market engagement notice",
+      "Once or more to inform the market of upcoming pre-market engagement or to provide details of any conducted pre-market engagement activities - if a preliminary market engagement notice is not published an explanation for non-publication is not required in the below-threshold tender notice"
+     ],
+     [
+      "After tender assessment and before entering into a public contract",
+      "Contract award notice",
+      "Once to inform the market you are about to award a contract"
+     ],
+     [
+      "End of the contract",
+      "Contract termination notice",
+      "Once when the contract ends"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Voluntary transparency notice requirements for below-threshold contracts: for procurement planning, the notice publication is the planned procurement notice, with the frequency once or more to advise the market of an upcoming procurement, however there is no advantage of reducing minimum tender timescales for a below-threshold contract.",
+     "Voluntary transparency notice requirements for below-threshold contracts: for preliminary market engagement, the notice publication is the preliminary market engagement notice, with the frequency once or more to inform the market of upcoming pre-market engagement or to provide details of any conducted pre-market engagement activities - if a preliminary market engagement notice is not published an explanation for non-publication is not required in the below-threshold tender notice.",
+     "Voluntary transparency notice requirements for below-threshold contracts: for after tender assessment and before entering into a public contract, the notice publication is the contract award notice, with the frequency once to inform the market you are about to award a contract.",
+     "Voluntary transparency notice requirements for below-threshold contracts: for the end of the contract, the notice publication is the contract termination notice, with the frequency once when the contract ends."
+    ]
+   },
+   "reason": "Three-column table with printed headers and four data rows; matches the grid. Page heading 'Voluntary' is the table context.",
+   "evidence": "Header row: Procurement activity, Notice publication, Frequency; four rows on the image.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "09634376f9080538",
+   "kind": "table",
+   "target": "table-p123: 3.1 Transparency Notices Summary",
+   "value": {
+    "columns": [
+     "Ref.",
+     "Transparency Notices",
+     "Requirement"
+    ],
+    "rows": [
+     [
+      "UK1",
+      "Pipeline notice",
+      "Mandatory (for organisations where spend is £100m+ PA). 18-month forward-look at planned procurements £2m+ value."
+     ],
+     [
+      "UK2",
+      "Preliminary market engagement notice",
+      "Mandatory where engagement is anticipated or has taken place (or, explain in tender notice why it hasn’t been published)."
+     ],
+     [
+      "UK3",
+      "Planned procurement notice",
+      "Optional and Best Practice Advises the market of an upcoming procurement. A qualifying planned procurement notice can reduce tender timescales."
+     ],
+     [
+      "UK4",
+      "Tender notice Including to establish a framework and below-threshold notices",
+      "Mandatory (for a competitive procedure) Publish when undertaking an open or competitive flexible procedure (including to establish a framework contract and procuring using a dynamic market²) or procuring a regulated below-threshold contract."
+     ],
+     [
+      "UK5",
+      "Transparency notice",
+      "Mandatory (for a direct award) Publish prior to award when undertaking a direct award."
+     ],
+     [
+      "UK6",
+      "Contract award notice",
+      "Mandatory Publish to communicate the outcome of the procurement and to commence the standstill period prior to awarding a contract under the open or competitive flexible procedure (and voluntary standstill periods for direct awards)."
+     ],
+     [
+      "UK7",
+      "Contract details notice",
+      "Mandatory Publish details of the awarded contract (including the contract, for public contracts £5m+), inc. regulated below-threshold contracts above a certain value and those procured by direct award."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "3.1 Transparency Notices Summary: UK1 is the Pipeline notice. Mandatory (for organisations where spend is £100m+ PA). 18-month forward-look at planned procurements £2m+ value.",
+     "3.1 Transparency Notices Summary: UK2 is the Preliminary market engagement notice. Mandatory where engagement is anticipated or has taken place (or, explain in tender notice why it hasn’t been published).",
+     "3.1 Transparency Notices Summary: UK3 is the Planned procurement notice. Optional and Best Practice. Advises the market of an upcoming procurement. A qualifying planned procurement notice can reduce tender timescales.",
+     "3.1 Transparency Notices Summary: UK4 is the Tender notice, including to establish a framework and below-threshold notices. Mandatory (for a competitive procedure). Publish when undertaking an open or competitive flexible procedure (including to establish a framework contract and procuring using a dynamic market) or procuring a regulated below-threshold contract.",
+     "3.1 Transparency Notices Summary: UK5 is the Transparency notice. Mandatory (for a direct award). Publish prior to award when undertaking a direct award.",
+     "3.1 Transparency Notices Summary: UK6 is the Contract award notice. Mandatory. Publish to communicate the outcome of the procurement and to commence the standstill period prior to awarding a contract under the open or competitive flexible procedure (and voluntary standstill periods for direct awards).",
+     "3.1 Transparency Notices Summary: UK7 is the Contract details notice. Mandatory. Publish details of the awarded contract (including the contract, for public contracts £5m+), inc. regulated below-threshold contracts above a certain value and those procured by direct award."
+    ]
+   },
+   "reason": "Printed header row and seven data rows UK1 to UK7. The grid's last row ('118') is the page number, so it is left out. Footnote 2 ('Exemptions apply') is not part of a row.",
+   "evidence": "Image shows header Ref., Transparency Notices, Requirement and rows UK1 to UK7; page number 118 sits below the table.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "c2247b2e8e270eec",
+   "kind": "table",
+   "target": "table-p139: Table of transparency notices Fact sheet",
+   "value": {
+    "columns": [
+     "Procurement lifecycle",
+     "Reference",
+     "Notice name",
+     "Requirement",
+     "Purpose / variations",
+     "Exemptions"
+    ],
+    "rows": [
+     [
+      "Plan",
+      "UK1",
+      "Pipeline notice",
+      "Mandatory (for organisations where spend is £100m+ PA) 12-month forward-look at planned procurements £2m+ value",
+      "N/A",
+      "• Private utilities • Contracts awarded by transferred Northern Ireland (NI) authorities"
+     ],
+     [
+      "Define",
+      "UK2",
+      "Preliminary market engagement notice",
+      "Mandatory where pre-market engagement is anticipated or has taken place (or, explain in the tender notice reason for not publishing)",
+      "N/A",
+      "Private utilities"
+     ],
+     [
+      "Procure",
+      "UK3",
+      "Planned procurement notice",
+      "Optional and best practice advises the market of an upcoming procurement. A qualifying planned procurement notice can reduce tender timescales to 10 days",
+      "N/A",
+      "N/A"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "In the Table of transparency notices Fact sheet, for the Plan stage, UK1 Pipeline notice has the requirement: Mandatory (for organisations where spend is £100m+ PA) 12-month forward-look at planned procurements £2m+ value; purpose / variations: N/A; exemptions: • Private utilities • Contracts awarded by transferred Northern Ireland (NI) authorities.",
+     "In the Table of transparency notices Fact sheet, for the Define stage, UK2 Preliminary market engagement notice has the requirement: Mandatory where pre-market engagement is anticipated or has taken place (or, explain in the tender notice reason for not publishing); purpose / variations: N/A; exemptions: Private utilities.",
+     "In the Table of transparency notices Fact sheet, for the Procure stage, UK3 Planned procurement notice has the requirement: Optional and best practice advises the market of an upcoming procurement. A qualifying planned procurement notice can reduce tender timescales to 10 days; purpose / variations: N/A; exemptions: N/A."
+    ]
+   },
+   "reason": "Three data rows match the image; page number row dropped.",
+   "evidence": "Page image p139 shows UK1, UK2, UK3 under six headings.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "ff37ff7919e6a08c",
+   "kind": "table",
+   "target": "table-p140: Table of transparency notices Fact sheet",
+   "value": {
+    "columns": [
+     "Procurement lifecycle",
+     "Reference",
+     "Notice name",
+     "Requirement",
+     "Purpose / variations",
+     "Exemptions"
+    ],
+    "rows": [
+     [
+      "Procure",
+      "UK4",
+      "Tender notice",
+      "Mandatory when undertaking an open or competitive flexible procedure (including to establish a framework and award a contract under an existing dynamic market) or a regulated below-threshold procedure",
+      "• Below-threshold tender notice • Tender notice: open procedure • Tender notice: competitive flexible • Tender notice: frameworks • Tender notice: dynamic markets (for procurements awarding a contracting using an existing dynamic market or utilities dynamic market - not to establish a new dynamic market) • Tender notice: utilities dynamic markets",
+      "Qualifying utilities dynamic markets (existing members of the market may be invited directly)"
+     ],
+     [
+      "Procure",
+      "UK5",
+      "Transparency notice",
+      "Mandatory when undertaking a direct award (publish prior to award)",
+      "N/A",
+      "Direct award: user choice contracts"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "In the Table of transparency notices Fact sheet, for the Procure stage, UK4 Tender notice has the requirement: Mandatory when undertaking an open or competitive flexible procedure (including to establish a framework and award a contract under an existing dynamic market) or a regulated below-threshold procedure; purpose / variations: • Below-threshold tender notice • Tender notice: open procedure • Tender notice: competitive flexible • Tender notice: frameworks • Tender notice: dynamic markets (for procurements awarding a contracting using an existing dynamic market or utilities dynamic market - not to establish a new dynamic market) • Tender notice: utilities dynamic markets; exemptions: Qualifying utilities dynamic markets (existing members of the market may be invited directly).",
+     "In the Table of transparency notices Fact sheet, for the Procure stage, UK5 Transparency notice has the requirement: Mandatory when undertaking a direct award (publish prior to award); purpose / variations: N/A; exemptions: Direct award: user choice contracts."
+    ]
+   },
+   "reason": "Two data rows match the image; the page number row is dropped. The printed typo 'awarding a contracting' is kept.",
+   "evidence": "Page image p140 shows UK4 and UK5 under six headings.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "722f80cad0ddba6b",
+   "kind": "table",
+   "target": "table-p141: Table of transparency notices Fact sheet",
+   "value": {
+    "columns": [
+     "Procurement lifecycle",
+     "Reference",
+     "Notice name",
+     "Requirement",
+     "Purpose / variations",
+     "Exemptions"
+    ],
+    "rows": [
+     [
+      "Procure",
+      "UK6",
+      "Contract award notice",
+      "Mandatory communicates the outcome of the procurement and (commences standstill prior to awarding a contract open or competitive flexible procedure)",
+      "• Contract award notices except those published by private utilities • Contract award notices published by private utilities • Contract award notices published by private utilities: direct awards • Contract award notices published by private utilities: frameworks",
+      "• Direct award: user choice contracts • Defence and security contracts awarded under a defence and security framework"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "In the Table of transparency notices Fact sheet, for the Procure stage, UK6 Contract award notice has the requirement: Mandatory communicates the outcome of the procurement and (commences standstill prior to awarding a contract open or competitive flexible procedure); purpose / variations: • Contract award notices except those published by private utilities • Contract award notices published by private utilities • Contract award notices published by private utilities: direct awards • Contract award notices published by private utilities: frameworks; exemptions: • Direct award: user choice contracts • Defence and security contracts awarded under a defence and security framework."
+    ]
+   },
+   "reason": "One data row matches the image; page number row dropped. Requirement wording kept as printed.",
+   "evidence": "Page image p141 shows a single row UK6 under six headings.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "8cabef98eb8633bb",
+   "kind": "table",
+   "target": "table-p143: Table of transparency notices Fact sheet",
+   "value": {
+    "columns": [
+     "Procurement lifecycle",
+     "Reference",
+     "Notice name",
+     "Requirement",
+     "Purpose / variations",
+     "Exemptions"
+    ],
+    "rows": [
+     [
+      "Manage",
+      "UK8",
+      "Contract payment notice",
+      "Mandatory details of payments over £30,000 made under a public contract (quarterly)",
+      "N/A",
+      "• Utilities contracts awarded by a private utility • Concessions contracts • Contracts awarded by a school • Contracts awarded by a transferred NI authority / under a transferred NI procurement arrangement (unless awarded under a reserved procurement arrangement or devolved Welsh procurement arrangement)"
+     ],
+     [
+      "Manage",
+      "UK9",
+      "Contract performance notice",
+      "Mandatory to report: a. annual KPI scores for public contracts valued £5m+ b. poor supplier performance / breach of contract (within 30 days of event)",
+      "• Performance against KPIs • Notification of supplier poor performance / breach of contract",
+      "• Private utilities - exempt from both • Light touch - exempt from both • Concession contracts - exempt from publishing KPIs only"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "In the Table of transparency notices Fact sheet, for the Manage stage, UK8 Contract payment notice has the requirement: Mandatory details of payments over £30,000 made under a public contract (quarterly); purpose / variations: N/A; exemptions: • Utilities contracts awarded by a private utility • Concessions contracts • Contracts awarded by a school • Contracts awarded by a transferred NI authority / under a transferred NI procurement arrangement (unless awarded under a reserved procurement arrangement or devolved Welsh procurement arrangement).",
+     "In the Table of transparency notices Fact sheet, for the Manage stage, UK9 Contract performance notice has the requirement: Mandatory to report: a. annual KPI scores for public contracts valued £5m+ b. poor supplier performance / breach of contract (within 30 days of event); purpose / variations: • Performance against KPIs • Notification of supplier poor performance / breach of contract; exemptions: • Private utilities - exempt from both • Light touch - exempt from both • Concession contracts - exempt from publishing KPIs only."
+    ]
+   },
+   "reason": "Two data rows match the image; page number row dropped.",
+   "evidence": "Page image p143 shows UK8 and UK9 under six headings.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "5de556bf72a39fac",
+   "kind": "table",
+   "target": "table-p144: Table of transparency notices Fact sheet",
+   "value": {
+    "columns": [
+     "Procurement lifecycle",
+     "Reference",
+     "Notice name",
+     "Requirement",
+     "Purpose / variations",
+     "Exemptions"
+    ],
+    "rows": [
+     [
+      "Manage",
+      "UK10",
+      "Contract change notice",
+      "Mandatory prior to a qualifying modification taking place (copy of modified contract for public contracts over £5m)",
+      "Convertible contracts: contract change notice",
+      "• Defence and security contracts • Private utilities • Light touch contracts • Contracts awarded by a transferred NI authority / under a transferred NI procurement arrangement (unless awarded as part of a procurement under a reserved procurement arrangement or devolved Welsh procurement arrangement) • Contracts awarded by a devolved Welsh authority or under a devolved Welsh procurement arrangement (unless awarded as part of a procurement under a reserved procurement arrangement) - exempt from publishing modified contract only"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "In the Table of transparency notices Fact sheet, for the Manage stage, UK10 Contract change notice has the requirement: Mandatory prior to a qualifying modification taking place (copy of modified contract for public contracts over £5m); purpose / variations: Convertible contracts: contract change notice; exemptions: • Defence and security contracts • Private utilities • Light touch contracts • Contracts awarded by a transferred NI authority / under a transferred NI procurement arrangement (unless awarded as part of a procurement under a reserved procurement arrangement or devolved Welsh procurement arrangement) • Contracts awarded by a devolved Welsh authority or under a devolved Welsh procurement arrangement (unless awarded as part of a procurement under a reserved procurement arrangement) - exempt from publishing modified contract only."
+    ]
+   },
+   "reason": "One data row matches the image; page number row dropped.",
+   "evidence": "Page image p144 shows a single row UK10 under six headings.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "b8f3c6a1dc13994f",
+   "kind": "table",
+   "target": "table-p147: Thresholds and exemptions for publishing notices",
+   "value": {
+    "columns": [
+     "Notice name",
+     "Threshold for publication",
+     "Exemptions"
+    ],
+    "rows": [
+     [
+      "Tender notice",
+      "When inviting a request to participate or tender. Tender notice: above threshold contracts. Below-threshold tender notice: contract above regulated below-threshold tender threshold.",
+      "Qualifying utilities dynamic markets (no requirement to publish the tender notice, just provided directly to existing members of the market)"
+     ],
+     [
+      "Transparency notice",
+      "Before awarding an above threshold contract via direct award.",
+      "Direct award: user choice contracts"
+     ],
+     [
+      "Contract award notice",
+      "Before awarding an above threshold contracts (can be used voluntary for below-threshold contract).",
+      "• Direct award: user choice contracts • Defence and security contracts awarded under a defence and security framework"
+     ],
+     [
+      "Contract details notice",
+      "Within the 30 days following when a contract is entered into for above threshold and regulated below threshold contracts (120 days for light touch contracts). Where total value of the contract is over £5m, publish the contract documents and details of KPIs (unless exemption applies).",
+      "• Private utilities • Direct award: user choice contracts • Contracts awarded by a devolved Welsh authority or transferred NI authority (unless it is awarded as part of a procurement under a reserved procurement arrangement) • Contracts awarded under a devolved Welsh or transferred NI procurement arrangement - exempt from publishing contract documents only"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Thresholds and exemptions for publishing notices: the tender notice has the threshold: when inviting a request to participate or tender; tender notice: above threshold contracts; below-threshold tender notice: contract above regulated below-threshold tender threshold, and the exemption: qualifying utilities dynamic markets (no requirement to publish the tender notice, just provided directly to existing members of the market).",
+     "Thresholds and exemptions for publishing notices: the transparency notice has the threshold: before awarding an above threshold contract via direct award, and the exemption: direct award: user choice contracts.",
+     "Thresholds and exemptions for publishing notices: the contract award notice has the threshold: before awarding an above threshold contracts (can be used voluntary for below-threshold contract), and the exemptions: direct award: user choice contracts, and defence and security contracts awarded under a defence and security framework.",
+     "Thresholds and exemptions for publishing notices: the contract details notice has the threshold: within the 30 days following when a contract is entered into for above threshold and regulated below threshold contracts (120 days for light touch contracts), and where total value of the contract is over £5m, publish the contract documents and details of KPIs (unless exemption applies); the exemptions are private utilities, direct award: user choice contracts, contracts awarded by a devolved Welsh authority or transferred NI authority (unless it is awarded as part of a procurement under a reserved procurement arrangement), and contracts awarded under a devolved Welsh or transferred NI procurement arrangement - exempt from publishing contract documents only."
+    ]
+   },
+   "reason": "Rebuilt the 3-column table from the page image; four data rows, no sub-heading rows. Bullets kept as printed with a bullet mark.",
+   "evidence": "Page image p147 shows header Notice name, Threshold for publication, Exemptions and four rows: Tender notice, Transparency notice, Contract award notice, Contract details notice.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "84ec88cbf662bfe6",
+   "kind": "figure_description",
+   "target": "figure-p185: Cheat sheet / decision tree",
+   "value": "This is a flow chart (decision tree) titled for determining minimum time limits. It starts with 'Is your procurement for a light touch contract?': Yes leads to 'There are no minimum time limits for light touch contracts.' and No leads to 'Are you undertaking an open or competitive flexible procedure?'. Competitive flexible leads to 'Are you including a conditions of participation period at the start of your procedure?' (Yes: 'Do you consider there to be a state of urgency?' with Yes 'Participation period can be 10 days.' and No 'Participation period should be 25 days.', then Continue; No: 'Have you published a qualifying planned procurement notice?'). Open also leads to that question: Yes gives 'Tender period can be reduced to 10 days.' and No leads to 'Do you consider there to be a state of urgency?' (Yes: 'Tender period can be reduced to 10 days.'; No: 'Are you awarding the contract under a dynamic market?' with Yes and No branches continuing on the next page).",
+   "reason": "Described the flow chart steps in order from the image.",
+   "evidence": "Figure image p185 shows the boxes and Yes/No/Continue arrows as described.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "9d477fe3b147a54d",
+   "kind": "figure_description",
+   "target": "figure-p186: Cheat sheet / decision tree",
+   "value": "This is a flow chart (decision tree) continuing from the previous page. The Yes branch leads to 'Tender period is 10 days.' and the No branch leads to 'Are you a central government authority?'. If Yes, 'Will you issue the tender notice and tender documents at the same time?' gives: Yes and tenders may be submitted electronically: Minimum 25 days; Yes and tenders may not be submitted electronically: Minimum 30 days; No and tenders may be submitted electronically: Minimum 30 days; No and tenders may not be submitted electronically: Minimum 35 days. If not a central government authority, 'Will you use a conditions of participation stage to pre-select suppliers to invite to tender?': Yes gives 'Tender period can be reduced to 10 days, or less if you agree the timescale with suppliers', and No leads to the tender notice question.",
+   "reason": "Described the flow chart from the image, with the four minimum-day outcomes.",
+   "evidence": "Figure image p186 shows the boxes: Tender period is 10 days; central government authority question; four Minimum days boxes (25, 30, 30, 35); conditions of participation stage question.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "a7a6a10655f910a7",
+   "kind": "figure_description",
+   "target": "figure-p189: Decision tree",
+   "value": "This is a flow chart (decision tree) on mixed procurement. After Continue, 'If the elements are not separable, you must determine whether the main purpose of the contract is works?': No gives 'The contract should be treated as a services / suppliers contract and the lower services / works threshold applied.' and Yes gives 'The entire contract should be treated as a works contract and the works threshold applied.' Under the heading 'Part B - mixed procurement - special regime', 'Does the mixed contract involve at least one special regime element?': No gives 'Not a mixed special regime contract - go to part A.'; Yes leads to 'Is an element covered by the general rules (supplies / services / works)?', where No gives 'You have a mixed special regime contract.' and Yes gives 'You have a mixed general and special regime contract.' Both continue to 'Are the elements reasonably separable (for example, are there any practical or financial consequences of splitting the requirement)?' with No and Yes branches.",
+   "reason": "Described the flow chart steps in order from the image.",
+   "evidence": "Figure image p189 shows the Part A end boxes, the Part B heading, and the special regime questions.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "67746386de472218",
+   "kind": "figure_description",
+   "target": "figure-p197: Choosing a procedure",
+   "value": "This is a flow chart for choosing a procedure. 'Is the requirement fully known and you wish to assess the conditions of participation before inviting them to submit a bid?': Yes gives 'A 2 stage competitive flexible procedure may be best suited to this requirement - see designing a competitive flexible procedure.' If No, 'Is the requirement not fully known and you would want to formally engage with suppliers after you have assessed their conditions of participation?': Yes gives 'A multistage competitive flexible procedure with additional stages may be best suited to this requirement - see designing a competitive flexible procedure.'",
+   "reason": "Described the two-question flow chart from the image. The printed disclaimer line is on the page but outside the figure image.",
+   "evidence": "Figure image p197 shows two question boxes with Yes arrows to two outcome boxes.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "4474228faf5bb4be",
+   "kind": "figure_description",
+   "target": "figure-p245: Reserving contracts Decision tree and checklist",
+   "value": "Flow chart (decision tree) titled for reserving contracts. It asks \"Do you want to reserve the contract to public service mutual?\" (No: \"You cannot reserve the contract under any other circumstances.\"), then \"Is the contract for a reservable light touch contract (see CPV codes)?\" (No: \"You cannot reserve the contract.\"). It then asks \"Have you established there is sufficient competition within the market where suppliers meet all of the following criteria:\" with three bullets (delivers public services and mainly one or more reservable light touch services; run on a not-for profit basis or distributes profits only to members; under the management and control of its employees). The answers lead to: Yes - \"You can reserve the contract via a competitive flexible procedure. Refer to the following checklist.\"; No - \"You should consider whether reserving the contract would offer value for money and maximise public benefit.\"; Don't know - \"You should undertake pre-market engagement to understand the market.\"",
+   "reason": "Followed the arrows and boxes in the image; labels copied from the printed text.",
+   "evidence": "Image figure-p245.png shows three question boxes with Yes/No arrows and five outcome boxes.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "98e1c32d69bd404d",
+   "kind": "figure_description",
+   "target": "figure-p406: Decision tree",
+   "value": "Flow chart (decision tree) about not proceeding with one or more lots without cancelling the whole procurement. It starts with \"You have decided not to proceed with one or more lots but not to cancel the entire procurement. Are you using the open procedure?\"; Yes leads to \"Have you received tenders?\" and No leads to \"Are you using the competitive flexible procedure?\". If tenders were received, the box says lot changes after submission are notified via the award notice and suppliers should be directly notified \"as soon as possible\" to avoid wasted tendering costs; if not, lots can be changed by modifying the procurement and republishing the tender notice and documents, with any extension to the deadline. For the competitive flexible procedure, Yes leads to \"Have you received requests to participate or where no such request has been made, have you received tenders?\" (Yes: notify via award notice and directly; No: modify and republish), and No leads to \"You are undertaking a direct award.\" with changes notified via the award notice after a transparency notice.",
+   "reason": "Followed the arrows between the boxes in the image and copied the printed labels.",
+   "evidence": "Image figure-p406.png shows three question boxes with Yes/No arrows and three outcome boxes.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "07158bf932c22a0f",
+   "kind": "figure_description",
+   "target": "figure-p408: Decision tree",
+   "value": "Flow chart (decision tree) of questions about whether you can switch to a direct award. In order: \"Do any of the tenders or requests to participate satisfy the award criteria when assessed in accordance with the assessment methodology?\" (No: switch to direct award), \"Are all the tendered prices abnormally low?\" (Yes: switch), \"Is there evidence of corruption or collusion between suppliers or between suppliers and the CA?\" (Yes: switch, and record the evidence and submit it to the Procurement Review Unit), and \"Do you have at least one suitable tender that doesn't materially breach the procedural requirements in the tender notice and who is not an excluded or excludable supplier?\" (No: switch, but first consider whether the supplier is an excluded or excludable supplier). Each outcome box starts \"Yes, you can switch to a direct award procedure if the circumstances you are now in do not allow for a successful competitive tendering procedure.\" The Yes path from the last question continues down the page.",
+   "reason": "Followed the downward arrows and side boxes; labels copied from the image.",
+   "evidence": "Image figure-p408.png shows four question boxes on the left with Yes/No arrows and four outcome boxes on the right.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "b15b41e8445ada0d",
+   "kind": "figure_description",
+   "target": "figure-p479: Fact sheet",
+   "value": "Flow chart titled in the source as Appendix 2: process flowchart for setting, monitoring and measuring KPIs, with nine boxes joined by arrows in three rows: (1) \"Prior to contract signature agree a minimum of 3 KPIs with your supplier.\" (2) \"Agree the basis on which KPIs will be assessed and linked to overall performance management.\" (3) \"Agree the criteria and frequency with which KPIs will be measured and published.\" (4) \"Publish details of the agreed KPIs as part of the contract details notice.\" (5) \"Measure KPI scores during the agreed period (e.g. monthly, quarterly).\" (6) \"Publish a contract performance notice at least annually to record and report KPI scores.\" (7) \"Continue the process of measurement and publication through the lifetime of the contract.\" (8) \"Amend KPIs if required e.g. if one or more become redundant - publish a contract performance notice.\" (9) \"Prior to contract termination, publish a final contract performance notice with a final KPI assessment.\"",
+   "reason": "Read the nine boxes and arrows in order (row 1 left to right, row 2 right to left, row 3 left to right).",
+   "evidence": "Image figure-p479.png shows nine boxes joined by arrows; the Appendix 2 title is in the extracted labels, not in the image.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "370e30093fe00184",
+   "kind": "figure_description",
+   "target": "figure-p502: Step by step guide",
+   "value": "Flow chart with three steps for early termination due to supplier breach or poor performance. Step 1: supplier breach / poor performance occurs - 'Has a supplier breached the contract, and / or failed to perform the contract to your satisfaction?' (a breach must be sufficiently serious: full / partial contract termination, the award of damages or a settlement agreement; for poor performance the supplier must have been given 'proper opportunity' to improve). Yes goes to Step 2: contract termination - 'Will the breach or poor performance result in full termination of the contract (either alone, or as part of a wider settlement agreement between you and the supplier)?'; No at either step gives 'This process does not apply' boxes (identify an alternative process, or follow guidance on managing poor performance and breach of contract). Yes at Step 2 goes to Step 3: supplier notification - notify the supplier of your intention to terminate, confirm the reasons and provide evidence where needed (e.g. a copy of a failed performance improvement plan), then Continue.",
+   "reason": "Flow chart with boxes and Yes/No arrows; labels transcribed from the image.",
+   "evidence": "Image figure-p502 shows Step 1, Step 2, Step 3 boxes with Yes/No branches and a Continue arrow.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "219548f7bcdfc5d0",
+   "kind": "figure_description",
+   "target": "figure-p506: Step by step guide",
+   "value": "Flow chart continuing the termination process, showing a box 'You no longer need to terminate the contract, and should formally notify the supplier.' on a Yes branch, then Step 5: discretion ('Is the supplier, their associated person or subcontractor subject to a discretionary exclusion?'; Yes: 'You may choose to exercise discretion as to whether or not you exclude them.', then 'If you decide not to exercise discretion'). Step 6: national security ('Is the supplier, associated person or subcontractor subject to the mandatory or discretionary grounds relating to National Security (schedule 6 (34A) or schedule 7(14)?'; Yes: 'You must notify a minister of the crown before termination.', then Continue). Step 7: finalise outstanding matters ('Have you formally notified the supplier of contract termination, made all outstanding payments and settled any outstanding disputes?'; No: 'Ensure all outstanding matters are finalised.', then Continue).",
+   "reason": "Flow chart page with Steps 5 to 7 and Yes/No branches; labels transcribed from the image.",
+   "evidence": "Image figure-p506 shows Step 5: discretion, Step 6: national security, Step 7: finalise outstanding matters, with Yes/No and Continue arrows.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "ef78508ed69049ec",
+   "kind": "figure_description",
+   "target": "figure-p513: Flowcharts",
+   "value": "Flow chart for Process A: termination on expiry or completion of deliverables. It starts with 'Give supplier reasonable notice of intention to terminate and opportunity to respond.', then Continue to 'Are all outstanding disputes settled and payments made?' (No: 'All final matters must be resolved before termination.'). If Yes: 'Did you publish contract performance notices for KPI scores under this contract?' Yes goes to 'Complete final KPI assessment and publish contract performance notice.' then Continue; No (or Continue) goes to 'Are you exempt from publishing a contract termination notice?' Yes: 'Confirm with supplier that contract is terminated.' No: 'Publish a contract termination notice and confirm with supplier that contract is terminated.'",
+   "reason": "Flow chart with boxes and Yes/No arrows; the Process A title is in the extracted labels, not visible in the image crop.",
+   "evidence": "Image figure-p513 shows the boxes and branches as described; the title text comes from the packet labels.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "bef26a392bffd738",
+   "kind": "figure_description",
+   "target": "figure-p514: Flowcharts",
+   "value": "Flow chart for Process B: early termination due to supplier breach or poor performance. It starts with 'Has supplier breach / poor performance resulted in full termination of the contract?' (No: 'You cannot terminate under this ground. Refer to the other termination grounds implied by the act, or your own contract clauses for further options.'). Yes goes to 'Is the breach 'sufficiently serious' and/or has the supplier been given 'proper opportunity' to improve?' (No leads to the same 'cannot terminate' box), then Yes to 'Give supplier reasonable notice of intention to terminate and opportunity to respond.' and Continue to 'Are all outstanding disputes settled and payments made?' (No: 'Are final matters must be resolved before termination.'). If Yes, it asks 'Did you publish contract performance notices for KPI scores under this contract?' (Yes: 'Complete final KPI assessment and publish contract performance notice.'), then 'Are you exempt from publishing a contract termination notice?' Yes: 'Confirm with supplier that contract is terminated.' No: 'Publish a contract termination notice and confirm with supplier that contract is terminated.'",
+   "reason": "Flow chart with boxes and Yes/No arrows; labels transcribed as printed, including the printed wording 'Are final matters must be resolved before termination.'",
+   "evidence": "Image figure-p514 shows the branching boxes as described; the Process B title comes from the packet labels.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "49bc07160c21f000",
+   "kind": "figure_description",
+   "target": "figure-p516: Flowcharts",
+   "value": "Flow chart, the continuation of Process C, starting from a No arrow into 'Confirm termination with supplier. Are all outstanding disputes settled and payments made?' (No: 'All final matters must be resolved before termination.'). If Yes: 'Did you publish contract performance notices for KPI scores under this contract?' Yes goes to 'Complete final KPI assessment and publish contract performance notice.' then Continue; No (or Continue) goes to 'Are you exempt from publishing a contract termination notice?' Yes: 'Confirm with supplier that contract is terminated.' No: 'Publish a contract termination notice and confirm with supplier that contract is terminated.'",
+   "reason": "Flow chart with boxes and Yes/No arrows; labels transcribed from the image.",
+   "evidence": "Image figure-p516 shows the boxes and branches as described.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "b458a2324911dfd6",
+   "kind": "table",
+   "target": "table-p519: A. Introduction",
+   "value": {
+    "columns": [
+     "Definition",
+     "Procurement Act",
+     "DSPCR 2011 - Change"
+    ],
+    "rows": [
+     [
+      "Defence and Security Contract a. military equipment b. sensitive equipment c. goods, services or works necessary for the development, production, maintenance or decommissioning of military equipment or sensitive equipment d. logistics services relating to military equipment or sensitive equipment e. goods, services or works for wholly military purposes¹ f. sensitive services or sensitive works; g. goods, services or works that are otherwise relevant to the operational capability, effectiveness, readiness for action, safety or security of the armed forces. This definition also applies to frameworks for the future award of contracts for the supply of goods, services or works as described in points (a) to (g) above. For more information on the scope of defence and security contracts, see the definitions of key terms (section 7(7)) in Appendix 1.",
+      "Section 7(1)",
+      "Reg. 6(a) - broadly unchanged save for the addition of section 7(1)(g)."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "In the key definitions table, the definition of Defence and Security Contract (a. military equipment; b. sensitive equipment; c. goods, services or works necessary for the development, production, maintenance or decommissioning of military equipment or sensitive equipment; d. logistics services relating to military equipment or sensitive equipment; e. goods, services or works for wholly military purposes; f. sensitive services or sensitive works; g. goods, services or works that are otherwise relevant to the operational capability, effectiveness, readiness for action, safety or security of the armed forces, and it also applies to frameworks for the future award of contracts as described in points (a) to (g)) is in the Procurement Act at Section 7(1), and the DSPCR 2011 change is Reg. 6(a) - broadly unchanged save for the addition of section 7(1)(g)."
+    ]
+   },
+   "reason": "One data row with a long definition cell; page image shows 3 columns and a single row. Grid matches the page; footnote marker 1 is a superscript.",
+   "evidence": "Page p519 (printed 514): header Definition / Procurement Act / DSPCR 2011 - Change; one row with Section 7(1) and Reg. 6(a) text.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "12c0360d00c90339",
+   "kind": "table",
+   "target": "table-p537: D. Single Source Defence Contracts",
+   "value": {
+    "columns": [
+     "Amendment",
+     "Defence Reform Act 2014",
+     "Summary of Key Amendment(s)"
+    ],
+    "rows": [
+     [
+      "Definition of qualifying defence contract (QDC)",
+      "Section 14",
+      "• Expands the definition of a QDC to include contracts partially for defence purposes, where appropriate. • Provides for the SSCRs to specify circumstances where a contract is and is not to be treated as an existing contract amendment. • Clarifies that amendments to existing contracts not within scope of the DRA will be brought into scope where appropriate."
+     ],
+     [
+      "Pricing of qualifying defence contracts",
+      "Section 15",
+      "Permits the use of alternative method(s) to calculate contract prices and price amendments, in addition to the formula set out in the DRA."
+     ],
+     [
+      "Contract profit rate",
+      "Section 17",
+      "Changes and simplifies the calculation used to determine contract profit rate."
+     ],
+     [
+      "Reports",
+      "Section 25",
+      "Enables flexibility to be introduced into some reporting requirements, where this is appropriate."
+     ],
+     [
+      "Single Source Regulations Office (SSRO)",
+      "Section 35",
+      "Broadens the scope and strengthens the powers of the SSRO (who regulate single-source contracts) referrals and guidance."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "In the overview of key amendments for single source defence contracts, the amendment Definition of qualifying defence contract (QDC) is in Defence Reform Act 2014 Section 14, and the summary is: Expands the definition of a QDC to include contracts partially for defence purposes, where appropriate; provides for the SSCRs to specify circumstances where a contract is and is not to be treated as an existing contract amendment; clarifies that amendments to existing contracts not within scope of the DRA will be brought into scope where appropriate.",
+     "In the overview of key amendments for single source defence contracts, the amendment Pricing of qualifying defence contracts is in Defence Reform Act 2014 Section 15, and the summary is: Permits the use of alternative method(s) to calculate contract prices and price amendments, in addition to the formula set out in the DRA.",
+     "In the overview of key amendments for single source defence contracts, the amendment Contract profit rate is in Defence Reform Act 2014 Section 17, and the summary is: Changes and simplifies the calculation used to determine contract profit rate.",
+     "In the overview of key amendments for single source defence contracts, the amendment Reports is in Defence Reform Act 2014 Section 25, and the summary is: Enables flexibility to be introduced into some reporting requirements, where this is appropriate.",
+     "In the overview of key amendments for single source defence contracts, the amendment Single Source Regulations Office (SSRO) is in Defence Reform Act 2014 Section 35, and the summary is: Broadens the scope and strengthens the powers of the SSRO (who regulate single-source contracts) referrals and guidance."
+    ]
+   },
+   "reason": "Grid matches page image: 3 columns, 5 data rows, bullets in first row.",
+   "evidence": "Page p537 (printed 532): header Amendment / Defence Reform Act 2014 / Summary of Key Amendment(s); five rows Sections 14, 15, 17, 25, 35.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "95a82c4e05ab741b",
+   "kind": "table",
+   "target": "table-p596: Utilities transparency requirements",
+   "value": {
+    "columns": [
+     "Procurement lifecycle stage",
+     "Notice name",
+     "Publication requirement (in the regulations some notices are listed as having separate versions depending on the procurement process, e.g. open, competitive flexible and below-threshold)",
+     "Exemptions",
+     "Change from UCR 2016"
+    ],
+    "rows": [
+     [
+      "Procure",
+      "Planned procurement notice",
+      "Optional and best practice, advises the market of an upcoming procurement. A qualifying planned procurement notice can reduce tender timescales to 10 days.",
+      "",
+      "Periodic indicative notice"
+     ],
+     [
+      "Procure",
+      "Tender notice (separate versions of the notice for open, competitive flexible, frameworks, dynamic markets and below-threshold contract)",
+      "Mandatory for below-threshold open, competitive flexible and regulated procurements; to establish a framework; to award a contract under an existing dynamic market.",
+      "Qualifying utilities dynamic markets (existing or pending members of the market may be invited directly without publishing a tender notice)",
+      "Contract notice"
+     ],
+     [
+      "Procure",
+      "Transparency notice",
+      "Mandatory when undertaking a direct award (publish prior to award).",
+      "",
+      "Voluntary Ex Ante Transparency (VEAT) Notice"
+     ],
+     [
+      "Procure",
+      "Contract award notice (separate versions of the notice for private utilities)",
+      "Mandatory (communicates the outcome of the procurement and commences standstill prior to awarding a contract).",
+      "",
+      "N/A - new notice"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "In the utilities transparency requirements, the Planned procurement notice at the Procure stage is: Optional and best practice, advises the market of an upcoming procurement. A qualifying planned procurement notice can reduce tender timescales to 10 days; the change from UCR 2016 is Periodic indicative notice.",
+     "In the utilities transparency requirements, the Tender notice (separate versions of the notice for open, competitive flexible, frameworks, dynamic markets and below-threshold contract) at the Procure stage is: Mandatory for below-threshold open, competitive flexible and regulated procurements; to establish a framework; to award a contract under an existing dynamic market; the exemptions are Qualifying utilities dynamic markets (existing or pending members of the market may be invited directly without publishing a tender notice); the change from UCR 2016 is Contract notice.",
+     "In the utilities transparency requirements, the Transparency notice at the Procure stage is: Mandatory when undertaking a direct award (publish prior to award); the change from UCR 2016 is Voluntary Ex Ante Transparency (VEAT) Notice.",
+     "In the utilities transparency requirements, the Contract award notice (separate versions of the notice for private utilities) at the Procure stage is: Mandatory (communicates the outcome of the procurement and commences standstill prior to awarding a contract); the change from UCR 2016 is N/A - new notice."
+    ]
+   },
+   "reason": "Grid matches page image: 5 columns, 4 data rows; empty Exemptions cells are empty on the page. The last grid row is only the page number and is dropped.",
+   "evidence": "Page p596 (printed 591): header row and four Procure rows.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "d85489e2cf1c3878",
+   "kind": "table",
+   "target": "table-p598: Utilities transparency requirements",
+   "value": {
+    "columns": [
+     "Procurement lifecycle stage",
+     "Notice name",
+     "Publication requirement (in the regulations some notices are listed as having separate versions depending on the procurement process, e.g. open, competitive flexible and below-threshold)",
+     "Exemptions",
+     "Change from UCR 2016"
+    ],
+    "rows": [
+     [
+      "Manage",
+      "Contract termination notice",
+      "Mandatory when a public contract ends.",
+      "Private utilities",
+      "N/A - new notice"
+     ],
+     [
+      "Procure",
+      "Procurement termination notice",
+      "Mandatory where, after publishing a tender or transparency notice, the process is terminated without awarding a contract.",
+      "Private utilities",
+      "Corrigendum notice"
+     ],
+     [
+      "Procure",
+      "Dynamic market notice",
+      "Mandatory for advertising, establishing, changing or terminating a dynamic market.",
+      "Private utilities are not required to update the dynamic market notice when the market ceases to operate",
+      "Qualification system"
+     ],
+     [
+      "Manage",
+      "Payments compliance notice",
+      "Mandatory - details of contracting authority performance against 30-day payment terms (twice annually).",
+      "Private utilities",
+      "N/A - new notice"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "In the utilities transparency requirements, the Contract termination notice at the Manage stage is: Mandatory when a public contract ends; the exemptions are Private utilities; the change from UCR 2016 is N/A - new notice.",
+     "In the utilities transparency requirements, the Procurement termination notice at the Procure stage is: Mandatory where, after publishing a tender or transparency notice, the process is terminated without awarding a contract; the exemptions are Private utilities; the change from UCR 2016 is Corrigendum notice.",
+     "In the utilities transparency requirements, the Dynamic market notice at the Procure stage is: Mandatory for advertising, establishing, changing or terminating a dynamic market; the exemptions are Private utilities are not required to update the dynamic market notice when the market ceases to operate; the change from UCR 2016 is Qualification system.",
+     "In the utilities transparency requirements, the Payments compliance notice at the Manage stage is: Mandatory - details of contracting authority performance against 30-day payment terms (twice annually); the exemptions are Private utilities; the change from UCR 2016 is N/A - new notice."
+    ]
+   },
+   "reason": "Grid matches page image: 5 columns, 4 data rows. The last grid row is only the page number and is dropped.",
+   "evidence": "Page p598 (printed 593): header row and four rows (Manage, Procure, Procure, Manage).",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "5c1e8ff14c352707",
+   "kind": "table",
+   "target": "table-p632: Procurement Act sections Which sections apply to light touch and user choice?",
+   "value": {
+    "columns": [
+     "Section number",
+     "Section title",
+     "Applicable to light touch contracts",
+     "Key changes or part exemptions",
+     "Applicable to user choice direct award contracts"
+    ],
+    "rows": [
+     [
+      "2",
+      "Contracting authorities",
+      "Yes",
+      "N/A",
+      "Yes"
+     ],
+     [
+      "3",
+      "Public contracts",
+      "Yes",
+      "N/A",
+      "Yes"
+     ],
+     [
+      "4",
+      "Valuation of contracts",
+      "Yes",
+      "N/A",
+      "Yes"
+     ],
+     [
+      "5",
+      "Mixed procurement: above and below threshold",
+      "Yes",
+      "N/A",
+      "Yes"
+     ],
+     [
+      "6",
+      "Utilities contracts",
+      "Yes",
+      "N/A",
+      "Yes"
+     ],
+     [
+      "7",
+      "Defence and security contracts",
+      "Yes",
+      "N/A",
+      "Yes"
+     ],
+     [
+      "8",
+      "Concession contracts",
+      "Yes",
+      "N/A",
+      "Yes"
+     ],
+     [
+      "9",
+      "Light touch contracts",
+      "Yes",
+      "Light touch services (within stated common procurement vocabulary (CPV) designated by appropriate authority) contracts now include light touch frameworks which are public contracts providing for the future award of contracts that are either wholly or mainly for light touch services.",
+      "Yes"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "In the Procurement Act sections that apply to light touch and user choice, section 2 Contracting authorities is applicable to light touch contracts: Yes; key changes or part exemptions: N/A; applicable to user choice direct award contracts: Yes.",
+     "In the Procurement Act sections that apply to light touch and user choice, section 3 Public contracts is applicable to light touch contracts: Yes; key changes or part exemptions: N/A; applicable to user choice direct award contracts: Yes.",
+     "In the Procurement Act sections that apply to light touch and user choice, section 4 Valuation of contracts is applicable to light touch contracts: Yes; key changes or part exemptions: N/A; applicable to user choice direct award contracts: Yes.",
+     "In the Procurement Act sections that apply to light touch and user choice, section 5 Mixed procurement: above and below threshold is applicable to light touch contracts: Yes; key changes or part exemptions: N/A; applicable to user choice direct award contracts: Yes.",
+     "In the Procurement Act sections that apply to light touch and user choice, section 6 Utilities contracts is applicable to light touch contracts: Yes; key changes or part exemptions: N/A; applicable to user choice direct award contracts: Yes.",
+     "In the Procurement Act sections that apply to light touch and user choice, section 7 Defence and security contracts is applicable to light touch contracts: Yes; key changes or part exemptions: N/A; applicable to user choice direct award contracts: Yes.",
+     "In the Procurement Act sections that apply to light touch and user choice, section 8 Concession contracts is applicable to light touch contracts: Yes; key changes or part exemptions: N/A; applicable to user choice direct award contracts: Yes.",
+     "In the Procurement Act sections that apply to light touch and user choice, section 9 Light touch contracts is applicable to light touch contracts: Yes; key changes or part exemptions: Light touch services (within stated common procurement vocabulary (CPV) designated by appropriate authority) contracts now include light touch frameworks which are public contracts providing for the future award of contracts that are either wholly or mainly for light touch services.; applicable to user choice direct award contracts: Yes."
+    ]
+   },
+   "reason": "Grid matches page image: 5 columns, 8 data rows (sections 2 to 9). The last grid row is only the page number and is dropped.",
+   "evidence": "Page p632 (printed 627): header row and rows for sections 2-9.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "022b5a8bb85fbd38",
+   "kind": "table",
+   "target": "table-p633: Procurement Act sections Which sections apply to light touch and user choice?",
+   "value": {
+    "columns": [
+     "Section number",
+     "Section title",
+     "Applicable to light touch contracts",
+     "Key changes or part exemptions",
+     "Applicable to user choice direct award contracts"
+    ],
+    "rows": [
+     [
+      "10",
+      "Mixed procurement: special regime contracts",
+      "Yes",
+      "A light touch contract is a “special regime contract” for the purposes of a mixed procurement.Where a contract is not solely for light touch services the mixed procurement special regime rules apply.",
+      "Yes"
+     ],
+     [
+      "Section number",
+      "Section title",
+      "Applicable to light touch contracts",
+      "Key changes / or part exemptions",
+      "Applicable to user choice direct award contracts"
+     ],
+     [
+      "11",
+      "Covered procurement only in accordance with this act",
+      "Yes",
+      "N/A",
+      "Yes"
+     ],
+     [
+      "12",
+      "Covered procurement: objectives",
+      "Yes",
+      "N/A",
+      "Yes"
+     ],
+     [
+      "13",
+      "The national procurement policy statement",
+      "Yes",
+      "N/A",
+      "Yes"
+     ],
+     [
+      "14",
+      "The Wales procurement policy statement",
+      "Yes",
+      "N/A",
+      "Yes"
+     ]
+    ],
+    "heading_rows": [
+     1
+    ],
+    "sentences": [
+     "In the Procurement Act sections that apply to light touch and user choice, section 10 Mixed procurement: special regime contracts is applicable to light touch contracts: Yes; key changes or part exemptions: A light touch contract is a “special regime contract” for the purposes of a mixed procurement.Where a contract is not solely for light touch services the mixed procurement special regime rules apply.; applicable to user choice direct award contracts: Yes.",
+     "In the Procurement Act sections that apply to light touch and user choice, section 11 Covered procurement only in accordance with this act is applicable to light touch contracts: Yes; key changes or part exemptions: N/A; applicable to user choice direct award contracts: Yes.",
+     "In the Procurement Act sections that apply to light touch and user choice, section 12 Covered procurement: objectives is applicable to light touch contracts: Yes; key changes or part exemptions: N/A; applicable to user choice direct award contracts: Yes.",
+     "In the Procurement Act sections that apply to light touch and user choice, section 13 The national procurement policy statement is applicable to light touch contracts: Yes; key changes or part exemptions: N/A; applicable to user choice direct award contracts: Yes.",
+     "In the Procurement Act sections that apply to light touch and user choice, section 14 The Wales procurement policy statement is applicable to light touch contracts: Yes; key changes or part exemptions: N/A; applicable to user choice direct award contracts: Yes."
+    ]
+   },
+   "reason": "Page shows two stacked tables with the same columns; the second header (under 'Part 2 principles and objectives') is kept as a heading row at index 1. Its printed wording is 'Key changes / or part exemptions'. The page number row is dropped. The first table header is used as the columns.",
+   "evidence": "Page p633 (printed 628): header, section 10 row, 'Part 2 principles and objectives' heading, second header, rows 11-14.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "c1313be4493ff97f",
+   "kind": "table",
+   "target": "table-p642: Procurement Act sections Which sections apply to light touch and user choice?",
+   "value": {
+    "columns": [
+     "Section number",
+     "Section title",
+     "Applicable to light touch contracts",
+     "Key changes / or part exemptions",
+     "Applicable to user choice direct award contracts"
+    ],
+    "rows": [
+     [
+      "63",
+      "Debarment decisions: interim relief",
+      "Yes",
+      "Exclusions now apply to light touch contracts.",
+      "Yes"
+     ],
+     [
+      "64",
+      "Debarment list: application for approval",
+      "Yes",
+      "Exclusions now apply to light touch contracts.",
+      "Yes"
+     ],
+     [
+      "65",
+      "Debarment decisions: appeals",
+      "Yes",
+      "Exclusions now apply to light touch contracts.",
+      "Yes"
+     ],
+     [
+      "66",
+      "Debarment proceedings and closed material procedure",
+      "Yes",
+      "Exclusions now apply to light touch contracts.",
+      "Yes"
+     ],
+     [
+      "67",
+      "Electronic invoicing: implied term",
+      "Yes",
+      "N/A",
+      "Yes"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Procurement Act sections Which sections apply to light touch and user choice? Section 63 (Debarment decisions: interim relief): applicable to light touch contracts: Yes; key changes / or part exemptions: Exclusions now apply to light touch contracts.; applicable to user choice direct award contracts: Yes.",
+     "Procurement Act sections Which sections apply to light touch and user choice? Section 64 (Debarment list: application for approval): applicable to light touch contracts: Yes; key changes / or part exemptions: Exclusions now apply to light touch contracts.; applicable to user choice direct award contracts: Yes.",
+     "Procurement Act sections Which sections apply to light touch and user choice? Section 65 (Debarment decisions: appeals): applicable to light touch contracts: Yes; key changes / or part exemptions: Exclusions now apply to light touch contracts.; applicable to user choice direct award contracts: Yes.",
+     "Procurement Act sections Which sections apply to light touch and user choice? Section 66 (Debarment proceedings and closed material procedure): applicable to light touch contracts: Yes; key changes / or part exemptions: Exclusions now apply to light touch contracts.; applicable to user choice direct award contracts: Yes.",
+     "Procurement Act sections Which sections apply to light touch and user choice? Section 67 (Electronic invoicing: implied term): applicable to light touch contracts: Yes; key changes / or part exemptions: N/A; applicable to user choice direct award contracts: Yes."
+    ]
+   },
+   "reason": "Rebuilt from the page image; the grid matched the print. The Part 4 title line and the repeated header row between the two tables are not data rows, and the page-number row was dropped.",
+   "evidence": "Page image p642: five data rows (63-67) read against the printed tables.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "6b4a4745edbe5d94",
+   "kind": "table",
+   "target": "table-p645: Procurement Act sections Which sections apply to light touch and user choice?",
+   "value": {
+    "columns": [
+     "Section number",
+     "Section title",
+     "Applicable to light touch contracts",
+     "Key changes / or part exemptions",
+     "Applicable to user choice direct award contracts"
+    ],
+    "rows": [
+     [
+      "79",
+      "Terminating public contracts: national security",
+      "Yes",
+      "N/A",
+      "Yes"
+     ],
+     [
+      "80",
+      "Contract termination notices",
+      "Yes",
+      "Except when awarding a contract via a direct award on the ground of user choice.",
+      "No"
+     ],
+     [
+      "81",
+      "Conflicts of interest: duty to identify",
+      "Yes",
+      "N/A",
+      "Yes"
+     ],
+     [
+      "82",
+      "Conflicts of interest: duty to mitigate",
+      "Yes",
+      "N/A",
+      "Yes"
+     ],
+     [
+      "83",
+      "Conflicts assessments",
+      "Yes",
+      "Applies to all light touch contracts except those awarded via a direct award under the ground of user choice as there is no obligation to publish any of the relevant notices defined in this section.",
+      "No"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Procurement Act sections Which sections apply to light touch and user choice? Section 79 (Terminating public contracts: national security): applicable to light touch contracts: Yes; key changes / or part exemptions: N/A; applicable to user choice direct award contracts: Yes.",
+     "Procurement Act sections Which sections apply to light touch and user choice? Section 80 (Contract termination notices): applicable to light touch contracts: Yes; key changes / or part exemptions: Except when awarding a contract via a direct award on the ground of user choice.; applicable to user choice direct award contracts: No.",
+     "Procurement Act sections Which sections apply to light touch and user choice? Section 81 (Conflicts of interest: duty to identify): applicable to light touch contracts: Yes; key changes / or part exemptions: N/A; applicable to user choice direct award contracts: Yes.",
+     "Procurement Act sections Which sections apply to light touch and user choice? Section 82 (Conflicts of interest: duty to mitigate): applicable to light touch contracts: Yes; key changes / or part exemptions: N/A; applicable to user choice direct award contracts: Yes.",
+     "Procurement Act sections Which sections apply to light touch and user choice? Section 83 (Conflicts assessments): applicable to light touch contracts: Yes; key changes / or part exemptions: Applies to all light touch contracts except those awarded via a direct award under the ground of user choice as there is no obligation to publish any of the relevant notices defined in this section.; applicable to user choice direct award contracts: No."
+    ]
+   },
+   "reason": "Rebuilt from the page image; the grid matched the print. The Part 5 title line and the repeated header row between the two tables are not data rows, and the page-number row was dropped.",
+   "evidence": "Page image p645: five data rows (79-83) read against the printed tables.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "884c19f6531f6f45",
+   "kind": "table",
+   "target": "table-p646: Procurement Act sections Which sections apply to light touch and user choice?",
+   "value": {
+    "columns": [
+     "Section number",
+     "Section title",
+     "Applicable to light touch contracts",
+     "Key changes / or part exemptions",
+     "Applicable to user choice direct award contracts"
+    ],
+    "rows": [
+     [
+      "84",
+      "Regulated below-threshold contracts",
+      "Yes",
+      "N/A",
+      "Yes"
+     ],
+     [
+      "85",
+      "Regulated below-threshold contracts: procedure",
+      "Yes",
+      "N/A",
+      "Yes"
+     ],
+     [
+      "86",
+      "Regulated below-threshold contracts: duty to consider small and medium-sized enterprises",
+      "Yes",
+      "N/A",
+      "Yes"
+     ],
+     [
+      "87",
+      "Regulated below-threshold contracts: notices",
+      "Yes",
+      "N/A",
+      "Yes"
+     ],
+     [
+      "88",
+      "Regulated below-threshold contracts: implied payment terms",
+      "Yes",
+      "N/A",
+      "Yes"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Procurement Act sections Which sections apply to light touch and user choice? Section 84 (Regulated below-threshold contracts): applicable to light touch contracts: Yes; key changes / or part exemptions: N/A; applicable to user choice direct award contracts: Yes.",
+     "Procurement Act sections Which sections apply to light touch and user choice? Section 85 (Regulated below-threshold contracts: procedure): applicable to light touch contracts: Yes; key changes / or part exemptions: N/A; applicable to user choice direct award contracts: Yes.",
+     "Procurement Act sections Which sections apply to light touch and user choice? Section 86 (Regulated below-threshold contracts: duty to consider small and medium-sized enterprises): applicable to light touch contracts: Yes; key changes / or part exemptions: N/A; applicable to user choice direct award contracts: Yes.",
+     "Procurement Act sections Which sections apply to light touch and user choice? Section 87 (Regulated below-threshold contracts: notices): applicable to light touch contracts: Yes; key changes / or part exemptions: N/A; applicable to user choice direct award contracts: Yes.",
+     "Procurement Act sections Which sections apply to light touch and user choice? Section 88 (Regulated below-threshold contracts: implied payment terms): applicable to light touch contracts: Yes; key changes / or part exemptions: N/A; applicable to user choice direct award contracts: Yes."
+    ]
+   },
+   "reason": "Rebuilt from the page image; the grid matched the print. The Part 6 title line is not a data row, and the page-number row was dropped. The printed line break 'below- threshold' is joined as 'below-threshold'.",
+   "evidence": "Page image p646: five data rows (84-88) read against the printed table.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "45b6a20b9dcf1ab8",
+   "kind": "table",
+   "target": "table-p647: Procurement Act sections Which sections apply to light touch and user choice?",
+   "value": {
+    "columns": [
+     "Section number",
+     "Section title",
+     "Applicable to light touch contracts",
+     "Key changes / or part exemptions",
+     "Applicable to user choice direct award contracts"
+    ],
+    "rows": [
+     [
+      "89",
+      "Treaty state suppliers",
+      "Yes",
+      "N/A",
+      "Yes"
+     ],
+     [
+      "90",
+      "Treaty state suppliers: non-discrimination",
+      "Yes",
+      "N/A",
+      "Yes"
+     ],
+     [
+      "91",
+      "Treaty state suppliers: non discrimination in Scotland",
+      "Yes",
+      "N/A",
+      "Yes"
+     ],
+     [
+      "92",
+      "Trade disputes",
+      "Yes",
+      "N/A",
+      "Yes"
+     ],
+     [
+      "93",
+      "Pipeline notices",
+      "Yes",
+      "N/A",
+      "Yes"
+     ],
+     [
+      "94",
+      "General exemptions from duties to publish or disclose information",
+      "Yes",
+      "N/A",
+      "Yes"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Procurement Act sections Which sections apply to light touch and user choice? Section 89 (Treaty state suppliers): applicable to light touch contracts: Yes; key changes / or part exemptions: N/A; applicable to user choice direct award contracts: Yes.",
+     "Procurement Act sections Which sections apply to light touch and user choice? Section 90 (Treaty state suppliers: non-discrimination): applicable to light touch contracts: Yes; key changes / or part exemptions: N/A; applicable to user choice direct award contracts: Yes.",
+     "Procurement Act sections Which sections apply to light touch and user choice? Section 91 (Treaty state suppliers: non discrimination in Scotland): applicable to light touch contracts: Yes; key changes / or part exemptions: N/A; applicable to user choice direct award contracts: Yes.",
+     "Procurement Act sections Which sections apply to light touch and user choice? Section 92 (Trade disputes): applicable to light touch contracts: Yes; key changes / or part exemptions: N/A; applicable to user choice direct award contracts: Yes.",
+     "Procurement Act sections Which sections apply to light touch and user choice? Section 93 (Pipeline notices): applicable to light touch contracts: Yes; key changes / or part exemptions: N/A; applicable to user choice direct award contracts: Yes.",
+     "Procurement Act sections Which sections apply to light touch and user choice? Section 94 (General exemptions from duties to publish or disclose information): applicable to light touch contracts: Yes; key changes / or part exemptions: N/A; applicable to user choice direct award contracts: Yes."
+    ]
+   },
+   "reason": "Rebuilt from the page image; the grid matched the print. The Part 7 and Part 8 title lines and the repeated header row between the two tables are not data rows, and the page-number row was dropped.",
+   "evidence": "Page image p647: six data rows (89-94) read against the printed tables.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "9f5b19872f89345e",
+   "kind": "table",
+   "target": "table-p648: Procurement Act sections Which sections apply to light touch and user choice?",
+   "value": {
+    "columns": [
+     "Section number",
+     "Section title",
+     "Applicable to light touch contracts",
+     "Key changes / or part exemptions",
+     "Applicable to user choice direct award contracts"
+    ],
+    "rows": [
+     [
+      "95",
+      "Notices, documents and information: regulations and online system",
+      "Yes",
+      "N/A",
+      "Yes"
+     ],
+     [
+      "96",
+      "Electronic communications",
+      "Yes",
+      "N/A",
+      "Yes"
+     ],
+     [
+      "97",
+      "Information relating to a procurement",
+      "Yes",
+      "N/A",
+      "Yes"
+     ],
+     [
+      "98",
+      "Record-keeping",
+      "Yes",
+      "N/A",
+      "Yes"
+     ],
+     [
+      "99",
+      "Data protection",
+      "Yes",
+      "N/A",
+      "Yes"
+     ],
+     [
+      "100",
+      "Duties under this act enforceable in civil proceedings",
+      "Yes",
+      "N/A",
+      "Yes"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Procurement Act sections Which sections apply to light touch and user choice? Section 95 (Notices, documents and information: regulations and online system): applicable to light touch contracts: Yes; key changes / or part exemptions: N/A; applicable to user choice direct award contracts: Yes.",
+     "Procurement Act sections Which sections apply to light touch and user choice? Section 96 (Electronic communications): applicable to light touch contracts: Yes; key changes / or part exemptions: N/A; applicable to user choice direct award contracts: Yes.",
+     "Procurement Act sections Which sections apply to light touch and user choice? Section 97 (Information relating to a procurement): applicable to light touch contracts: Yes; key changes / or part exemptions: N/A; applicable to user choice direct award contracts: Yes.",
+     "Procurement Act sections Which sections apply to light touch and user choice? Section 98 (Record-keeping): applicable to light touch contracts: Yes; key changes / or part exemptions: N/A; applicable to user choice direct award contracts: Yes.",
+     "Procurement Act sections Which sections apply to light touch and user choice? Section 99 (Data protection): applicable to light touch contracts: Yes; key changes / or part exemptions: N/A; applicable to user choice direct award contracts: Yes.",
+     "Procurement Act sections Which sections apply to light touch and user choice? Section 100 (Duties under this act enforceable in civil proceedings): applicable to light touch contracts: Yes; key changes / or part exemptions: N/A; applicable to user choice direct award contracts: Yes."
+    ]
+   },
+   "reason": "Rebuilt from the page image; the grid matched the print. The Part 9 title line and the repeated header row between the two tables are not data rows, and the page-number row was dropped.",
+   "evidence": "Page image p648: six data rows (95-100) read against the printed tables.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "0306170c7ebae955",
+   "kind": "table",
+   "target": "table-p651: Procurement Act sections Which sections apply to light touch and user choice?",
+   "value": {
+    "columns": [
+     "Section number",
+     "Section title",
+     "Applicable to light touch contracts",
+     "Key changes / or part exemptions",
+     "Applicable to user choice direct award contracts"
+    ],
+    "rows": [
+     [
+      "108",
+      "Procurement investigations",
+      "Yes",
+      "N/A",
+      "Yes"
+     ],
+     [
+      "109",
+      "Recommendations following procurement investigations",
+      "Yes",
+      "N/A",
+      "Yes"
+     ],
+     [
+      "110",
+      "Guidance following procurement investigations",
+      "Yes",
+      "N/A",
+      "Yes"
+     ],
+     [
+      "111",
+      "Welsh Ministers: restrictions on the exercise of powers",
+      "Yes",
+      "N/A",
+      "Yes"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Procurement Act sections Which sections apply to light touch and user choice? Section 108 (Procurement investigations): applicable to light touch contracts: Yes; key changes / or part exemptions: N/A; applicable to user choice direct award contracts: Yes.",
+     "Procurement Act sections Which sections apply to light touch and user choice? Section 109 (Recommendations following procurement investigations): applicable to light touch contracts: Yes; key changes / or part exemptions: N/A; applicable to user choice direct award contracts: Yes.",
+     "Procurement Act sections Which sections apply to light touch and user choice? Section 110 (Guidance following procurement investigations): applicable to light touch contracts: Yes; key changes / or part exemptions: N/A; applicable to user choice direct award contracts: Yes.",
+     "Procurement Act sections Which sections apply to light touch and user choice? Section 111 (Welsh Ministers: restrictions on the exercise of powers): applicable to light touch contracts: Yes; key changes / or part exemptions: N/A; applicable to user choice direct award contracts: Yes."
+    ]
+   },
+   "reason": "Rebuilt from the page image; the grid matched the print. The Part 10 and Part 11 title lines and the repeated header row between the two tables are not data rows, and the page-number row was dropped.",
+   "evidence": "Page image p651: four data rows (108-111) read against the printed tables.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "5f9cf2504024e3b7",
+   "kind": "table",
+   "target": "table-p653: Procurement Act sections Which sections apply to light touch and user choice?",
+   "value": {
+    "columns": [
+     "Section number",
+     "Section title",
+     "Applicable to light touch contracts",
+     "Key changes / or part exemptions",
+     "Applicable to user choice direct award contracts"
+    ],
+    "rows": [
+     [
+      "116",
+      "Disapplication of duty in section 17 of the Local Government Act 1988",
+      "Yes",
+      "Applies to the contracting authority - applicable where the contracting authority procuring the light touch contract is relevant authority defined under the Local Government Act 1988.",
+      "Yes"
+     ],
+     [
+      "117",
+      "Single source defence contracts",
+      "Yes",
+      "N/A",
+      "Yes"
+     ],
+     [
+      "118",
+      "Concurrent powers and the Government of Wales Act 2006",
+      "Yes",
+      "N/A",
+      "Yes"
+     ],
+     [
+      "119",
+      "Repeals etc",
+      "Yes",
+      "N/A",
+      "Yes"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Procurement Act sections Which sections apply to light touch and user choice? Section 116, Disapplication of duty in section 17 of the Local Government Act 1988, is applicable to light touch contracts: Yes; key changes / or part exemptions: Applies to the contracting authority - applicable where the contracting authority procuring the light touch contract is relevant authority defined under the Local Government Act 1988.; applicable to user choice direct award contracts: Yes.",
+     "Procurement Act sections Which sections apply to light touch and user choice? Section 117, Single source defence contracts, is applicable to light touch contracts: Yes; key changes / or part exemptions: N/A; applicable to user choice direct award contracts: Yes.",
+     "Procurement Act sections Which sections apply to light touch and user choice? Section 118, Concurrent powers and the Government of Wales Act 2006, is applicable to light touch contracts: Yes; key changes / or part exemptions: N/A; applicable to user choice direct award contracts: Yes.",
+     "Procurement Act sections Which sections apply to light touch and user choice? Section 119, Repeals etc, is applicable to light touch contracts: Yes; key changes / or part exemptions: N/A; applicable to user choice direct award contracts: Yes."
+    ]
+   },
+   "reason": "Rebuilt from page image; matches the grid, minus the page-number row.",
+   "evidence": "Page image shows Part 12 table with sections 116 to 119.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "c2b20735cc139117",
+   "kind": "table",
+   "target": "table-p654: Procurement Act sections Which sections apply to light touch and user choice?",
+   "value": {
+    "columns": [
+     "Section number",
+     "Section title",
+     "Applicable to light touch contracts",
+     "Key changes / or part exemptions",
+     "Applicable to user choice direct award contracts"
+    ],
+    "rows": [
+     [
+      "120",
+      "Application of this act to procurement by NHS England",
+      "Yes",
+      "For healthcare procurement there will be further exemptions where the act will be disapplied in relation to healthcare procurement by NHS in England (where the Provider Selection Regime (PSR 2023 regulations) will apply).",
+      "Yes"
+     ],
+     [
+      "121",
+      "Power to amend this act in relation to private utilities",
+      "No",
+      "N/A",
+      "No"
+     ],
+     [
+      "122",
+      "Regulations",
+      "Yes",
+      "N/A",
+      "Yes"
+     ],
+     [
+      "123",
+      "Interpretation",
+      "Yes",
+      "N/A",
+      "Yes"
+     ],
+     [
+      "124",
+      "Index of defined expressions",
+      "Yes",
+      "N/A",
+      "Yes"
+     ],
+     [
+      "125",
+      "Power to make consequential, etc, provision",
+      "Yes",
+      "N/A",
+      "Yes"
+     ],
+     [
+      "126",
+      "Extent",
+      "Yes",
+      "N/A",
+      "Yes"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Procurement Act sections Which sections apply to light touch and user choice? Section 120, Application of this act to procurement by NHS England, is applicable to light touch contracts: Yes; key changes / or part exemptions: For healthcare procurement there will be further exemptions where the act will be disapplied in relation to healthcare procurement by NHS in England (where the Provider Selection Regime (PSR 2023 regulations) will apply).; applicable to user choice direct award contracts: Yes.",
+     "Procurement Act sections Which sections apply to light touch and user choice? Section 121, Power to amend this act in relation to private utilities, is applicable to light touch contracts: No; key changes / or part exemptions: N/A; applicable to user choice direct award contracts: No.",
+     "Procurement Act sections Which sections apply to light touch and user choice? Section 122, Regulations, is applicable to light touch contracts: Yes; key changes / or part exemptions: N/A; applicable to user choice direct award contracts: Yes.",
+     "Procurement Act sections Which sections apply to light touch and user choice? Section 123, Interpretation, is applicable to light touch contracts: Yes; key changes / or part exemptions: N/A; applicable to user choice direct award contracts: Yes.",
+     "Procurement Act sections Which sections apply to light touch and user choice? Section 124, Index of defined expressions, is applicable to light touch contracts: Yes; key changes / or part exemptions: N/A; applicable to user choice direct award contracts: Yes.",
+     "Procurement Act sections Which sections apply to light touch and user choice? Section 125, Power to make consequential, etc, provision, is applicable to light touch contracts: Yes; key changes / or part exemptions: N/A; applicable to user choice direct award contracts: Yes.",
+     "Procurement Act sections Which sections apply to light touch and user choice? Section 126, Extent, is applicable to light touch contracts: Yes; key changes / or part exemptions: N/A; applicable to user choice direct award contracts: Yes."
+    ]
+   },
+   "reason": "Rebuilt from page image; matches the grid, minus the page-number row.",
+   "evidence": "Page image shows Part 13 table with sections 120 to 126.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "959598a4c2620c69",
+   "kind": "table",
+   "target": "table-p655: Procurement Act sections Which sections apply to light touch and user choice?",
+   "value": {
+    "columns": [
+     "Section number",
+     "Section title",
+     "Applicable to light touch contracts",
+     "Key changes / or part exemptions",
+     "Applicable to user choice direct award contracts"
+    ],
+    "rows": [
+     [
+      "127",
+      "Commencement",
+      "Yes",
+      "N/A",
+      "Yes"
+     ],
+     [
+      "128",
+      "Short title",
+      "Yes",
+      "N/A",
+      "Yes"
+     ],
+     [
+      "1",
+      "Threshold amounts",
+      "Yes",
+      "There are different thresholds for light touch contracts.",
+      "Yes"
+     ],
+     [
+      "2",
+      "Exempted contracts",
+      "Yes",
+      "N/A",
+      "Yes"
+     ],
+     [
+      "3",
+      "Estimating the value of a contract",
+      "Yes",
+      "N/A",
+      "Yes"
+     ],
+     [
+      "4",
+      "Utility activities",
+      "Yes",
+      "N/A",
+      "Yes"
+     ],
+     [
+      "5",
+      "Direct award justifications",
+      "Yes",
+      "In particular, user choice contracts.",
+      "Yes"
+     ],
+     [
+      "6",
+      "Mandatory exclusion grounds",
+      "Yes",
+      "N/A",
+      "Yes"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Procurement Act sections Which sections apply to light touch and user choice? Section 127, Commencement, is applicable to light touch contracts: Yes; key changes / or part exemptions: N/A; applicable to user choice direct award contracts: Yes.",
+     "Procurement Act sections Which sections apply to light touch and user choice? Section 128, Short title, is applicable to light touch contracts: Yes; key changes / or part exemptions: N/A; applicable to user choice direct award contracts: Yes.",
+     "Procurement Act sections Which sections apply to light touch and user choice? Schedule 1, Threshold amounts, is applicable to light touch contracts: Yes; key changes / or part exemptions: There are different thresholds for light touch contracts.; applicable to user choice direct award contracts: Yes.",
+     "Procurement Act sections Which sections apply to light touch and user choice? Schedule 2, Exempted contracts, is applicable to light touch contracts: Yes; key changes / or part exemptions: N/A; applicable to user choice direct award contracts: Yes.",
+     "Procurement Act sections Which sections apply to light touch and user choice? Schedule 3, Estimating the value of a contract, is applicable to light touch contracts: Yes; key changes / or part exemptions: N/A; applicable to user choice direct award contracts: Yes.",
+     "Procurement Act sections Which sections apply to light touch and user choice? Schedule 4, Utility activities, is applicable to light touch contracts: Yes; key changes / or part exemptions: N/A; applicable to user choice direct award contracts: Yes.",
+     "Procurement Act sections Which sections apply to light touch and user choice? Schedule 5, Direct award justifications, is applicable to light touch contracts: Yes; key changes / or part exemptions: In particular, user choice contracts.; applicable to user choice direct award contracts: Yes.",
+     "Procurement Act sections Which sections apply to light touch and user choice? Schedule 6, Mandatory exclusion grounds, is applicable to light touch contracts: Yes; key changes / or part exemptions: N/A; applicable to user choice direct award contracts: Yes."
+    ]
+   },
+   "reason": "Page holds two tables with the same headings, a sections table (127-128) and a Schedules table (1-6); merged as one, repeated header and the Schedules heading left out.",
+   "evidence": "Page image shows sections 127 and 128, a Schedules heading, then schedules 1 to 6.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "72b4a5dcac2c4dfb",
+   "kind": "table",
+   "target": "table-p656: Procurement Act sections Which sections apply to light touch and user choice?",
+   "value": {
+    "columns": [
+     "Section number",
+     "Section title",
+     "Applicable to light touch contracts",
+     "Key changes / or part exemptions",
+     "Applicable to user choice direct award contracts"
+    ],
+    "rows": [
+     [
+      "7",
+      "Discretionary exclusion grounds",
+      "Yes",
+      "N/A",
+      "Yes"
+     ],
+     [
+      "8",
+      "Permitted contract modifications",
+      "No",
+      "Light touch contracts are not subject to this section meaning that there is greater flexibility for modification to light touch contracts.",
+      "No"
+     ],
+     [
+      "9",
+      "Treaty state suppliers (specified international agreements)",
+      "Yes",
+      "N/A",
+      "Yes"
+     ],
+     [
+      "10",
+      "Single source defence contracts",
+      "No",
+      "N/A",
+      "No"
+     ],
+     [
+      "11",
+      "Repeals and revocations",
+      "Yes",
+      "N/A",
+      "Yes"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Procurement Act sections Which sections apply to light touch and user choice? Schedule 7, Discretionary exclusion grounds, is applicable to light touch contracts: Yes; key changes / or part exemptions: N/A; applicable to user choice direct award contracts: Yes.",
+     "Procurement Act sections Which sections apply to light touch and user choice? Schedule 8, Permitted contract modifications, is applicable to light touch contracts: No; key changes / or part exemptions: Light touch contracts are not subject to this section meaning that there is greater flexibility for modification to light touch contracts.; applicable to user choice direct award contracts: No.",
+     "Procurement Act sections Which sections apply to light touch and user choice? Schedule 9, Treaty state suppliers (specified international agreements), is applicable to light touch contracts: Yes; key changes / or part exemptions: N/A; applicable to user choice direct award contracts: Yes.",
+     "Procurement Act sections Which sections apply to light touch and user choice? Schedule 10, Single source defence contracts, is applicable to light touch contracts: No; key changes / or part exemptions: N/A; applicable to user choice direct award contracts: No.",
+     "Procurement Act sections Which sections apply to light touch and user choice? Schedule 11, Repeals and revocations, is applicable to light touch contracts: Yes; key changes / or part exemptions: N/A; applicable to user choice direct award contracts: Yes."
+    ]
+   },
+   "reason": "Rebuilt from page image; matches the grid, minus the page-number row. Continues the Schedules table.",
+   "evidence": "Page image shows rows 7 to 11 under the repeated header.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "62eda5a875d16197",
+   "kind": "figure_description",
+   "target": "figure-p671: Decision tree",
+   "value": "This is a flow chart (decision tree) for the Procurement Act 2023 about the PSR 2023 and user choice contracts. It starts with \"Are you a relevant authority (meaning a combined authority, an integrated care board, a local authority in England, NHS England, an NHS foundation trust or an NHS trust established under section 25 of the National Health Service Act 20) with the ability to use the PSR 2023 for this procurement?\"; Yes leads to \"Have you considered procuring under the PSR 2023?\" (No: \"Consider using PSR 2023.\"), and No or Yes lead to \"Is the proposed contract for a service to an individual for whose benefit the services are to be supplied (a “service recipient”) and is the contracting authority required to have regard to the views of such a service recipient, or carer to a service recipient?\". If No, Outcome A is likely to apply; if Yes, it asks whether the service recipient or their carer expressed a preference as to who should supply the services, or only one supplier is capable (No: Outcome B is likely to apply), then \"Does the contracting authority consider that it is not in the best interests of the individual to award the contract under section 19?\" (Yes: Outcome B is likely to apply; No: Outcome A is likely to apply).",
+   "reason": "Flow chart read from the image; steps given in order with printed labels.",
+   "evidence": "Boxes with Yes/No arrows ending in Outcome A and Outcome B boxes.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "f4980cd5f77428ca",
+   "kind": "figure_description",
+   "target": "6-example-processes-figure-1: 6. Example Processes",
+   "value": "This is a flow chart with a Time arrow running left to right through three sections: Conditions of Participation Stage, Tender Stage and Award Stage. In the first section the steps are Publish Tender Notice and tender documents to invite suppliers to participate, Receive requests to participate, Assess requests to participate and shortlist suppliers, then Notify suppliers and invite successful suppliers to tender stage. In the Tender Stage the steps are Issue ITT, Receive tenders and Assess tenders; in the Award Stage they are Notify suppliers and issue assessment summaries, Publish contract award notice and commence standstill, and Award Contract.",
+   "reason": "Labels and steps read directly from the figure image.",
+   "evidence": "Figure headings: Conditions of Participation Stage, Tender Stage, Award Stage, with a central Time arrow.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "00ddea14de0cca1f",
+   "kind": "figure_description",
+   "target": "6-example-processes-figure-2: 6. Example Processes",
+   "value": "This is a flow chart with a Time arrow running left to right through three sections: Tender Stage 1, Tender Stage 2 and Award Stage. In Tender Stage 1 the steps are Publish Tender notice and tender documents, Receive tenders, Assess tenders to shortlist those to be invited to stage 2, then Notify shortlisted suppliers and invite to stage 2. In Tender Stage 2 the steps are Conduct presentations and Assess presentations; in the Award Stage they are Notify suppliers and issue assessment summaries, Publish contract award notice and commence standstill, and Award Contract.",
+   "reason": "Labels and steps read directly from the figure image.",
+   "evidence": "Figure headings: Tender Stage 1, Tender Stage 2, Award Stage, with a central Time arrow.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "e542a65526e88803",
+   "kind": "table",
+   "target": "6-example-processes-table-1: 6. Example Processes",
+   "value": {
+    "columns": [
+     "Stage",
+     "Steps above the Time arrow",
+     "Steps below the Time arrow"
+    ],
+    "rows": [
+     [
+      "Conditions of Participation stage",
+      "Publish Tender Notice to invite suppliers to participate; Assess requests to participate and shortlist suppliers",
+      "Receive requests to participate; Notify suppliers"
+     ],
+     [
+      "Tender Stages: Stage 1",
+      "Issue ITT; Assess tenders and shortlist suppliers",
+      "Receive tenders"
+     ],
+     [
+      "Tender Stages: Stage 2",
+      "Assess demos and shortlist suppliers",
+      "Notify shortlisted suppliers and invite to demos"
+     ],
+     [
+      "Tender Stages: Stage 3",
+      "Negotiate with selected suppliers",
+      "Notify suppliers and invite shortlisted suppliers to negotiate"
+     ],
+     [
+      "Tender Stages: Stage 4",
+      "Assess BAFO",
+      "BAFO"
+     ],
+     [
+      "Award Stage",
+      "Publish contract award notice and commence standstill",
+      "Notify suppliers and issue assessment summaries; Award contract"
+     ],
+     [
+      "Conditions of Participation stage (second diagram)",
+      "Publish Tender Notice and tender documents to invite suppliers to participate; Assess requests to participate and shortlist suppliers",
+      "Receive requests to participate; Notify suppliers and invite successful suppliers to tender stage"
+     ],
+     [
+      "Design and development",
+      "Iterative design and test phase to reduce the number of suppliers",
+      "Design; Develop; Test; Reduce suppliers"
+     ],
+     [
+      "Tender Stage",
+      "Issue ITT; Assess tenders",
+      "Receive tenders"
+     ],
+     [
+      "Award Stage (second diagram)",
+      "Publish contract award notice and commence standstill; Award Contract",
+      "Notify suppliers and issue assessment summaries; Conduct post tender negotiation during standstill"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Example Processes: in the Conditions of Participation stage, above the Time arrow are Publish Tender Notice to invite suppliers to participate and Assess requests to participate and shortlist suppliers, and below it are Receive requests to participate and Notify suppliers.",
+     "Example Processes: in Tender Stages, Stage 1, above the Time arrow are Issue ITT and Assess tenders and shortlist suppliers, and below it is Receive tenders.",
+     "Example Processes: in Tender Stages, Stage 2, above the Time arrow is Assess demos and shortlist suppliers, and below it is Notify shortlisted suppliers and invite to demos.",
+     "Example Processes: in Tender Stages, Stage 3, above the Time arrow is Negotiate with selected suppliers, and below it is Notify suppliers and invite shortlisted suppliers to negotiate.",
+     "Example Processes: in Tender Stages, Stage 4, above the Time arrow is Assess BAFO, and below it is BAFO.",
+     "Example Processes: in the Award Stage, above the Time arrow is Publish contract award notice and commence standstill, and below it are Notify suppliers and issue assessment summaries and Award contract.",
+     "Example Processes, second diagram: in the Conditions of Participation stage, above the Time arrow are Publish Tender Notice and tender documents to invite suppliers to participate and Assess requests to participate and shortlist suppliers, and below it are Receive requests to participate and Notify suppliers and invite successful suppliers to tender stage.",
+     "Example Processes, second diagram: in Design and development, above the Time arrow is Iterative design and test phase to reduce the number of suppliers, and below it are Design, Develop, Test and Reduce suppliers.",
+     "Example Processes, second diagram: in the Tender Stage, above the Time arrow are Issue ITT and Assess tenders, and below it is Receive tenders.",
+     "Example Processes, second diagram: in the Award Stage, above the Time arrow are Publish contract award notice and commence standstill and Award Contract, and below it are Notify suppliers and issue assessment summaries and Conduct post tender negotiation during standstill."
+    ]
+   },
+   "reason": "Not a real table: the two page images hold two process diagrams with stages and steps above and below a Time arrow. Rebuilt as one row per stage, with steps split by position; the column headings are descriptive because none are printed.",
+   "evidence": "Page 233 multi-stage diagram (Stages 1 to 4, BAFO) and page 236 diagram (Design and development stage).",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "low",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "ecb95edbca911cde",
+   "kind": "table",
+   "target": "3-frameworks-table-1: 3. Frameworks",
+   "value": {
+    "columns": [
+     "Competitive Tender Procedure",
+     "Framework 1",
+     "Framework 2",
+     "Framework 3"
+    ],
+    "rows": [
+     [
+      "Assessment; Award of contracts for framework 1",
+      "Re-open within 3 years of award of framework 1; Award of contracts for framework 2",
+      "Re-open within 5 years of award of framework 2; Award of contracts for framework 3",
+      "Expires 8 years after award of framework 1"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Frameworks: under Competitive Tender Procedure there is assessment and award of contracts for framework 1; for Framework 1, re-open within 3 years of award of framework 1 and award of contracts for framework 2; for Framework 2, re-open within 5 years of award of framework 2 and award of contracts for framework 3; for Framework 3, it expires 8 years after award of framework 1."
+    ]
+   },
+   "reason": "The page shows a four-step arrow diagram with bullets under each heading; rebuilt as one row with bullets joined by semicolons.",
+   "evidence": "Page p271 (printed 266) diagram 'Reopening and awarding an open framework' with headings Competitive Tender Procedure, Framework 1, Framework 2, Framework 3.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "5e5fbabbd0c43c18",
+   "kind": "table",
+   "target": "2-contract-modifications-table-1: 2. Contract Modifications",
+   "value": {
+    "columns": [
+     "Modification Ground",
+     "Procurement Act 2023"
+    ],
+    "rows": [
+     [
+      "New Grounds",
+      ""
+     ],
+     [
+      "Urgency and the protection of life, etc.",
+      "Section 74(1)(a) and Schedule 8 paras (2)-(3)"
+     ],
+     [
+      "Materialisation of a known risk",
+      "Section 74(1)(a) and Schedule 8 paras (5)-(7)"
+     ],
+     [
+      "For defence authority contracts on developments in technology",
+      "Section 74(1)(a) and Schedule 8 para (10)"
+     ],
+     [
+      "For defence authority contracts to ensure continuous supply",
+      "Section 74(1)(a) and Schedule 8 para (11)"
+     ],
+     [
+      "Existing Grounds (with amendments)",
+      ""
+     ],
+     [
+      "Provided for in the contract",
+      "Section 74(1)(a) and Schedule 8 para (1)"
+     ],
+     [
+      "Unforeseeeable circumstances",
+      "Section 74(1)(a) and Schedule 8 para (4)"
+     ],
+     [
+      "Additional goods, services or works",
+      "Section 74(1)(a) and Schedule 8 para (8)"
+     ],
+     [
+      "Transfer on corporate restructuring",
+      "Section 74(1)(a) and Schedule 8 para (9)"
+     ],
+     [
+      "Non-substantial modifications",
+      "Section 74(1)(b) and (3)"
+     ],
+     [
+      "Below-threshold modifications",
+      "Section 74(1)(c) and(4)"
+     ]
+    ],
+    "heading_rows": [
+     0,
+     5
+    ],
+    "sentences": [
+     "In the Table of Modification Grounds under the Procurement Act, the new ground 'Urgency and the protection of life, etc.' is in Procurement Act 2023 Section 74(1)(a) and Schedule 8 paras (2)-(3).",
+     "In the Table of Modification Grounds under the Procurement Act, the new ground 'Materialisation of a known risk' is in Procurement Act 2023 Section 74(1)(a) and Schedule 8 paras (5)-(7).",
+     "In the Table of Modification Grounds under the Procurement Act, the new ground 'For defence authority contracts on developments in technology' is in Procurement Act 2023 Section 74(1)(a) and Schedule 8 para (10).",
+     "In the Table of Modification Grounds under the Procurement Act, the new ground 'For defence authority contracts to ensure continuous supply' is in Procurement Act 2023 Section 74(1)(a) and Schedule 8 para (11).",
+     "In the Table of Modification Grounds under the Procurement Act, the existing ground (with amendments) 'Provided for in the contract' is in Procurement Act 2023 Section 74(1)(a) and Schedule 8 para (1).",
+     "In the Table of Modification Grounds under the Procurement Act, the existing ground (with amendments) 'Unforeseeeable circumstances' is in Procurement Act 2023 Section 74(1)(a) and Schedule 8 para (4).",
+     "In the Table of Modification Grounds under the Procurement Act, the existing ground (with amendments) 'Additional goods, services or works' is in Procurement Act 2023 Section 74(1)(a) and Schedule 8 para (8).",
+     "In the Table of Modification Grounds under the Procurement Act, the existing ground (with amendments) 'Transfer on corporate restructuring' is in Procurement Act 2023 Section 74(1)(a) and Schedule 8 para (9).",
+     "In the Table of Modification Grounds under the Procurement Act, the existing ground (with amendments) 'Non-substantial modifications' is in Procurement Act 2023 Section 74(1)(b) and (3).",
+     "In the Table of Modification Grounds under the Procurement Act, the existing ground (with amendments) 'Below-threshold modifications' is in Procurement Act 2023 Section 74(1)(c) and(4)."
+    ]
+   },
+   "reason": "Page 440 (printed 435) has a real two-column table with two full-width sub-heading rows ('New Grounds', 'Existing Grounds (with amendments)'). The 'Unforeseeeable' typo and 'and(4)' spacing are kept as printed.",
+   "evidence": "Page image p440: 'Table of Modification Grounds under the Procurement Act' with header 'Modification Ground | Procurement Act 2023' and 10 data rows.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "c715949545864144",
+   "kind": "table",
+   "target": "table-p5: information suppliers enter 9 registered on Find a",
+   "value": {
+    "columns": [
+     "Information"
+    ],
+    "rows": [
+     [
+      "Sign up for the TPP newsletter"
+     ],
+     [
+      "Any queries: contact us at procurement.reform@cabinetoffice.gov.uk"
+     ],
+     [
+      "For more information Transforming Public Procurement on GOV.UK Procurement Act 2023 Procurement Act 2023 - A short guide for suppliers Knowledge Drop videos Factsheets Technical Guidance E-learning manual"
+     ],
+     [
+      "Contracting Authorities can access more support via the Communities of Practice on the Government Commercial College. We encourage contracting authorities to sign up."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "On page 5 of the Find a Tender factsheet, one box says: Sign up for the TPP newsletter.",
+     "On page 5 of the Find a Tender factsheet, one box says: Any queries: contact us at procurement.reform@cabinetoffice.gov.uk.",
+     "On page 5 of the Find a Tender factsheet, the box For more information lists Transforming Public Procurement on GOV.UK, Procurement Act 2023, Procurement Act 2023 - A short guide for suppliers, Knowledge Drop videos, Factsheets, Technical Guidance and E-learning manual.",
+     "On page 5 of the Find a Tender factsheet, one box says: Contracting Authorities can access more support via the Communities of Practice on the Government Commercial College. We encourage contracting authorities to sign up."
+    ]
+   },
+   "reason": "The page has no real grid; the right column holds four separate boxes, so each is one row of a single column. The column name Information is a placeholder because the boxes print no heading. The left-hand questions 11 and 12 and the footer are body text, not table rows.",
+   "evidence": "Page 5 image: four rounded boxes on the right (newsletter, queries, more information, contracting authorities support).",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "low",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "45a62b3e983143bb",
+   "kind": "table",
+   "target": "document-table-1: Information and guidance for suppliers (collection)",
+   "value": {
+    "columns": [
+     "Central Digital Platform"
+    ],
+    "rows": [
+     [
+      "Noticing"
+     ],
+     [
+      "Sign-in and registration"
+     ],
+     [
+      "Supplier information"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "In the Information and guidance for suppliers (collection), the Central Digital Platform includes Noticing.",
+     "In the Information and guidance for suppliers (collection), the Central Digital Platform includes Sign-in and registration.",
+     "In the Information and guidance for suppliers (collection), the Central Digital Platform includes Supplier information."
+    ]
+   },
+   "reason": "The only table-like element on the page is the diagram with the heading box Central Digital Platform above three boxes. The GUIDANCE and SUPPORT signs and the body text are not table rows.",
+   "evidence": "Page 2 image: diagram with Central Digital Platform over Noticing, Sign-in and registration, Supplier information.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "low",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "803cae8879f4a54c",
+   "kind": "table",
+   "target": "table-p64: Defence and security",
+   "value": {
+    "columns": [
+     "Topic",
+     "Detail"
+    ],
+    "rows": [
+     [
+      "Thresholds (schedule 1) Note: • schedule 1 of the act will be amended to reflect the currently in force thresholds set out here • a contract that is a defence and security contract only by virtue of subsection 7(1)(g) is not to be treated as a defence and security contract for the purposes of schedule 1 (thresholds)",
+      "Defence and security works contracts or concession contracts - £5,372,609. Defence and security goods and service contracts - £429,809. Light touch contracts (including defence and security light touch contracts) - £663,540."
+     ],
+     [
+      "Exempted contracting authorities (schedule 2)",
+      "The following contracting authorities are fully exempt from the act: The Security Service, the Secret Intelligence Service and the Government Communications Headquarters."
+     ],
+     [
+      "Exempted contracts (schedule 2)",
+      "The following contracting authorities are fully exempt from the act: • Contracts that the contracting authority determines should not, in the interests of national security, be subject to the Procurement Act • Contracts for the purposes of carrying out, facilitating or supporting intelligence activities • Contracts awarded in an international agreement relating to the stationing of military personnel • Contracts for the implementation of a joint project between the signatories to that agreement (e.g. a joint project for works and services with a host country under a Status of Forces Agreement.)"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Defence and security, thresholds (schedule 1): defence and security works contracts or concession contracts - £5,372,609, defence and security goods and service contracts - £429,809, and light touch contracts (including defence and security light touch contracts) - £663,540, with the note that schedule 1 of the act will be amended to reflect the currently in force thresholds set out here and that a contract that is a defence and security contract only by virtue of subsection 7(1)(g) is not to be treated as a defence and security contract for the purposes of schedule 1 (thresholds).",
+     "Defence and security, exempted contracting authorities (schedule 2): the following contracting authorities are fully exempt from the act: The Security Service, the Secret Intelligence Service and the Government Communications Headquarters.",
+     "Defence and security, exempted contracts (schedule 2): the following contracting authorities are fully exempt from the act: contracts that the contracting authority determines should not, in the interests of national security, be subject to the Procurement Act; contracts for the purposes of carrying out, facilitating or supporting intelligence activities; contracts awarded in an international agreement relating to the stationing of military personnel; and contracts for the implementation of a joint project between the signatories to that agreement (e.g. a joint project for works and services with a host country under a Status of Forces Agreement)."
+    ]
+   },
+   "reason": "Two-column table with no printed column headings; Topic and Detail are placeholders because the save step needs a heading. Section title Scope, definitions and general principles is above the table. Cell text copied as printed, including the repeated wording in the last row.",
+   "evidence": "Page image: three rows, labels on the left and details on the right.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "fa2ee969316b9002",
+   "kind": "table",
+   "target": "table-p67: Defence and security",
+   "value": {
+    "columns": [
+     "Topic",
+     "Detail"
+    ],
+    "rows": [
+     [
+      "",
+      "• where, if treated as a modification to an existing contract, the award would result in the existing contract becoming “a qualifying defence contract” under the Defence Reform Act 2014 • for most defence authority contracts where direct award is essential to enhance or maintain certain aspects of armed forces operations"
+     ],
+     [
+      "N/A",
+      "N/A"
+     ],
+     [
+      "Framework agreements: maximum term (section 47)",
+      "The maximum term for defence and security framework is eight years."
+     ],
+     [
+      "Direct award and excluded suppliers (section 41)",
+      "Contracts may be awarded to an excluded supplier where there is “overriding public interest” • where it is needed to ensure the proper functioning of a sector on which the defence, security or economic stability of the UK relies • where failure to do so would put the functioning of military and security operations, the armed forces or intelligence services at risk"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Defence and security: the following also apply where, if treated as a modification to an existing contract, the award would result in the existing contract becoming “a qualifying defence contract” under the Defence Reform Act 2014, and for most defence authority contracts where direct award is essential to enhance or maintain certain aspects of armed forces operations.",
+     "Defence and security, competitive flexible procedure: N/A.",
+     "Defence and security, framework agreements: maximum term (section 47): the maximum term for defence and security framework is eight years.",
+     "Defence and security, direct award and excluded suppliers (section 41): contracts may be awarded to an excluded supplier where there is “overriding public interest”, where it is needed to ensure the proper functioning of a sector on which the defence, security or economic stability of the UK relies, and where failure to do so would put the functioning of military and security operations, the armed forces or intelligence services at risk."
+    ]
+   },
+   "reason": "Two-column table with no printed headings; Topic and Detail are placeholders. The first row continues from the previous page, so its left cell is empty on the page. The N/A row sits under the printed section title Competitive flexible procedure.",
+   "evidence": "Page image: four boxes, the first with an empty left side, then N/A N/A, framework term, direct award.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "07441938246aecd3",
+   "kind": "table",
+   "target": "table-p68: Defence and security",
+   "value": {
+    "columns": [
+     "Topic",
+     "Detail"
+    ],
+    "rows": [
+     [
+      "Contract award notices and assessment summaries (section 50)",
+      "An assessment summary is not required for a defence and security contract awarded under a defence and security framework."
+     ],
+     [
+      "Contract award notices and assessment summaries (section 50)",
+      "A contract award notice is not required for the award of defence and security contracts under a defence and security framework."
+     ],
+     [
+      "N/A",
+      "N/A"
+     ],
+     [
+      "Permitted contract modifications (schedule 8)",
+      "Additional grounds under which contract modifications may be made (set out in schedule 8 of the act) apply specifically to certain defence authority contracts: • to take advantage of developments in technology, or to mitigate against their adverse effects • modification is permitted to ensure the continuous supply of goods, works or services to maintain the operational capabilities, effectiveness, readiness for action, safety, security or logistical capabilities of the armed forces"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Defence and security, contract award notices and assessment summaries (section 50): an assessment summary is not required for a defence and security contract awarded under a defence and security framework.",
+     "Defence and security, contract award notices and assessment summaries (section 50): a contract award notice is not required for the award of defence and security contracts under a defence and security framework.",
+     "Defence and security, remedies, procurement oversight and the debarment list: N/A.",
+     "Defence and security, permitted contract modifications (schedule 8): additional grounds under which contract modifications may be made (set out in schedule 8 of the act) apply specifically to certain defence authority contracts, to take advantage of developments in technology, or to mitigate against their adverse effects, and modification is permitted to ensure the continuous supply of goods, works or services to maintain the operational capabilities, effectiveness, readiness for action, safety, security or logistical capabilities of the armed forces."
+    ]
+   },
+   "reason": "Two-column table with no printed headings; Topic and Detail are placeholders. Section titles on the page (Assessment and award, Remedies, procurement oversight and the debarment list, Contract governance) are not rows. The first label is repeated as printed on two rows.",
+   "evidence": "Page image: four boxes, two section 50 rows, N/A N/A, schedule 8 row.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "575d5b563d84a6b1",
+   "kind": "table",
+   "target": "table-p124: 3. Notices",
+   "value": {
+    "columns": [
+     "Ref.",
+     "Transparency Notices",
+     "Requirement"
+    ],
+    "rows": [
+     [
+      "UK8",
+      "Contract payment notice3",
+      "Mandatory Publish details of payments over £30,000 made under a public contract (quarterly)."
+     ],
+     [
+      "UK9",
+      "Contract performance notice",
+      "Mandatory Publish KPI scores for public contracts £5m+ (at least annually). Publish within 30 days of supplier poor performance / breach of contract."
+     ],
+     [
+      "UK10",
+      "Contract change notice",
+      "Mandatory Publish prior to a qualifying modification taking place, inc., for contracts £5m+, publication of modification."
+     ],
+     [
+      "UK11",
+      "Contract termination notice",
+      "Mandatory Publish when a public contract is terminated / comes to an end"
+     ],
+     [
+      "UK12",
+      "Procurement termination notice",
+      "Mandatory Publish where, after publishing a tender or transparency notice, the process is terminated without awarding a contract."
+     ],
+     [
+      "UK13-16",
+      "Dynamic market notices",
+      "Mandatory Publish and update when advertising, establishing, changing or terminating a dynamic market (inc. utilities dynamic markets and qualifying utilities dynamic markets)."
+     ],
+     [
+      "UK17",
+      "Payments compliance notice",
+      "Mandatory Publish details of performance against 30-day payment terms (twice annually)."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "In 3. Notices, UK8 is the Contract payment notice3 and its requirement is Mandatory Publish details of payments over £30,000 made under a public contract (quarterly).",
+     "In 3. Notices, UK9 is the Contract performance notice and its requirement is Mandatory Publish KPI scores for public contracts £5m+ (at least annually). Publish within 30 days of supplier poor performance / breach of contract.",
+     "In 3. Notices, UK10 is the Contract change notice and its requirement is Mandatory Publish prior to a qualifying modification taking place, inc., for contracts £5m+, publication of modification.",
+     "In 3. Notices, UK11 is the Contract termination notice and its requirement is Mandatory Publish when a public contract is terminated / comes to an end.",
+     "In 3. Notices, UK12 is the Procurement termination notice and its requirement is Mandatory Publish where, after publishing a tender or transparency notice, the process is terminated without awarding a contract.",
+     "In 3. Notices, UK13-16 is the Dynamic market notices and its requirement is Mandatory Publish and update when advertising, establishing, changing or terminating a dynamic market (inc. utilities dynamic markets and qualifying utilities dynamic markets).",
+     "In 3. Notices, UK17 is the Payments compliance notice and its requirement is Mandatory Publish details of performance against 30-day payment terms (twice annually)."
+    ]
+   },
+   "reason": "Printed header row Ref., Transparency Notices, Requirement. Seven data rows copied as printed, including the superscript 3 after notice in UK8 and the missing full stop in UK11 (I added a full stop only at the end of the sentence). The 119 in the grid is the page number, not a row.",
+   "evidence": "Page image: bordered table with a header row and rows UK8 to UK17.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "5df946018c986b14",
+   "kind": "table",
+   "target": "table-p148: Thresholds and exemptions for publishing notices",
+   "value": {
+    "columns": [
+     "Notice name",
+     "Threshold for publication",
+     "Exemptions"
+    ],
+    "rows": [
+     [
+      "Contract payment notice",
+      "Payment(s) of £30,000 or more, under an above threshold contract. Publish quarterly.",
+      "• Contracts awarded by a private utility • Concessions contracts • Contracts awarded by a school • Contracts awarded by a transferred NI authority or or under a NI procurement arrangement (unless it is awarded as part of a procurement under a reserved procurement arrangement or devolved Welsh procurement arrangement)"
+     ],
+     [
+      "Contract performance notice",
+      "Contracts over £5m with KPIs set: publish KPI scores at least annually. All public contracts: in the event of poor performance/breach of contract: publish within 30 days of the event.",
+      "• Private utilities - exempt from both • Light touch - exempt from both • Concession contracts - exempt from publishing KPIs only • Framework contracts - exempt from publishing KPIs only"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Thresholds and exemptions for publishing notices: the contract payment notice has the threshold: payment(s) of £30,000 or more, under an above threshold contract; publish quarterly, and the exemptions: contracts awarded by a private utility, concessions contracts, contracts awarded by a school, and contracts awarded by a transferred NI authority or or under a NI procurement arrangement (unless it is awarded as part of a procurement under a reserved procurement arrangement or devolved Welsh procurement arrangement).",
+     "Thresholds and exemptions for publishing notices: the contract performance notice has the threshold: contracts over £5m with KPIs set: publish KPI scores at least annually; all public contracts: in the event of poor performance/breach of contract: publish within 30 days of the event, and the exemptions: private utilities - exempt from both, light touch - exempt from both, concession contracts - exempt from publishing KPIs only, and framework contracts - exempt from publishing KPIs only."
+    ]
+   },
+   "reason": "Page image shows a header row and two data rows; text copied from the image, bullets joined with ' • ' as in the template.",
+   "evidence": "Page p148 (printed 143): columns Notice name, Threshold for publication, Exemptions; rows Contract payment notice and Contract performance notice.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "6e9c9b569b33e84b",
+   "kind": "table",
+   "target": "table-p149: Thresholds and exemptions for publishing notices",
+   "value": {
+    "columns": [
+     "Notice name",
+     "Threshold for publication",
+     "Exemptions"
+    ],
+    "rows": [
+     [
+      "Contract change notice",
+      "Above threshold contracts before a qualifying modification takes place. Convertible contracts before a qualifying modification takes place. Contracts over £5m: publish copy of modified contract or contract modification.",
+      "• Defence and security contracts • Private utilities • Light touch contracts • Contracts awarded by a transferred NI authority (unless it is awarded as part of a procurement under a reserved procurement arrangement or devolved Welsh procurement arrangement) or under a transferred NI procurement arrangement • Contracts awarded by a devolved Welsh authority or a devolved Welsh procurement arrangement (unless it is awarded as part of a procurement under a reserved procurement arrangement) exempt from publishing the modified contract only"
+     ],
+     [
+      "Contract termination notice",
+      "Above threshold contracts (can be used voluntary for below-threshold contract) when the contract terminates/ends.",
+      "• Private utilities • Direct award: user choice contracts"
+     ],
+     [
+      "Procurement termination notice",
+      "Above threshold contracts (can be used voluntary for below-threshold contract) when required.",
+      "Private utilities"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Thresholds and exemptions for publishing notices: the contract change notice has the threshold: above threshold contracts before a qualifying modification takes place; convertible contracts before a qualifying modification takes place; contracts over £5m: publish copy of modified contract or contract modification, and the exemptions: defence and security contracts, private utilities, light touch contracts, contracts awarded by a transferred NI authority (unless it is awarded as part of a procurement under a reserved procurement arrangement or devolved Welsh procurement arrangement) or under a transferred NI procurement arrangement, and contracts awarded by a devolved Welsh authority or a devolved Welsh procurement arrangement (unless it is awarded as part of a procurement under a reserved procurement arrangement) exempt from publishing the modified contract only.",
+     "Thresholds and exemptions for publishing notices: the contract termination notice has the threshold: above threshold contracts (can be used voluntary for below-threshold contract) when the contract terminates/ends, and the exemptions: private utilities, and direct award: user choice contracts.",
+     "Thresholds and exemptions for publishing notices: the procurement termination notice has the threshold: above threshold contracts (can be used voluntary for below-threshold contract) when required, and the exemption: private utilities."
+    ]
+   },
+   "reason": "Page image shows a header row and three data rows; text copied from the image.",
+   "evidence": "Page p149 (printed 144): rows Contract change notice, Contract termination notice, Procurement termination notice.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "ffe4eec777ae88ee",
+   "kind": "table",
+   "target": "table-p150: Thresholds and exemptions for publishing notices",
+   "value": {
+    "columns": [
+     "Notice name",
+     "Threshold for publication",
+     "Exemptions"
+    ],
+    "rows": [
+     [
+      "Dynamic market notice",
+      "When advertising, establishing, changing or terminating a dynamic market.",
+      "Private utilities are not required to update the dynamic market notice when the market ceases to operate"
+     ],
+     [
+      "Payments compliance notice",
+      "Above threshold contracts.",
+      "• Private utilities • Concessions contracts • Contracts awarded by a transferred NI authority (unless it is awarded as part of a procurement under a reserved procurement arrangement or devolved Welsh procurement arrangement) or under a NI procurement arrangement • Contracts awarded by a school"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Thresholds and exemptions for publishing notices: the dynamic market notice has the threshold: when advertising, establishing, changing or terminating a dynamic market, and the exemption: private utilities are not required to update the dynamic market notice when the market ceases to operate.",
+     "Thresholds and exemptions for publishing notices: the payments compliance notice has the threshold: above threshold contracts, and the exemptions: private utilities, concessions contracts, contracts awarded by a transferred NI authority (unless it is awarded as part of a procurement under a reserved procurement arrangement or devolved Welsh procurement arrangement) or under a NI procurement arrangement, and contracts awarded by a school."
+    ]
+   },
+   "reason": "Page image shows a header row and two data rows; text copied from the image.",
+   "evidence": "Page p150 (printed 145): rows Dynamic market notice and Payments compliance notice.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "da5162505d394191",
+   "kind": "figure_description",
+   "target": "figure-p188: Decision tree",
+   "value": "This is a flow chart (decision tree) for deciding whether the mixed procurement rules apply. It starts with 'Are all elements above threshold?': Yes leads to 'Above-threshold contract therefore the mixed procurement rules do not apply.', and No leads to 'Is one of the elements for works?', where No means 'If your contract is for supplies and services then the same threshold applies therefore mixed procurement rules do not apply.' and Yes leads to 'You have a mixed contract for works and services / supplies.' Then, after Continue, 'Are the elements reasonably separable (for example, are there any practical or financial consequences of splitting the requirement)?' gives No: 'If the elements are not reasonably separable, you will need to determine the relevant threshold.' and Yes: 'If the elements are reasonably separable, you cannot treat this as a works contract at the higher threshold. You can either: a. separate the elements and treat each element according to the relevant threshold, or b. procure as a mixed contract using the lower services and supplies threshold'.",
+   "reason": "Shortened to three sentences as required; steps given in order with printed labels.",
+   "evidence": "Figure p188 flow chart with boxes, Yes/No/Continue arrows as described.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "53c867237a1aecd0",
+   "kind": "table",
+   "target": "table-p289: Cheat sheet",
+   "value": {
+    "columns": [
+     "Feature",
+     "Framework",
+     "Open framework",
+     "Dynamic market"
+    ],
+    "rows": [
+     [
+      "Can the number of suppliers be limited",
+      "Yes",
+      "Yes",
+      "No"
+     ],
+     [
+      "Ability to add additional suppliers throughout the term",
+      "No Suppliers are fixed from the point of award to termination (up to 4 years)",
+      "Yes Suppliers may be refreshed during the term of the open framework",
+      "Yes Suppliers can apply to join at any time"
+     ],
+     [
+      "Market conditions",
+      "Stagnant / stable",
+      "Developing / limited new entrants",
+      "Emerging / new entrants"
+     ],
+     [
+      "Resource to establish and maintain",
+      "• Any competitive tendering procedure can be used to establish • May choose to reassess exclusions during the life of the framework",
+      "• Any competitive tendering procedure can be used to establish • Competitive process process must be repeated within required timescales to appoint new suppliers • May choose to reassess exclusions",
+      "• Assess applications for membership • Applications can be submitted at any time and must be assessed within a reasonable time period • May choose to reassess exclusions and conditions of membership during the life of the dynamic market"
+     ],
+     [
+      "Awarding a contract (calling off)",
+      "Award with or without competition from fixed pool of suppliers",
+      "Award with or without competition from fixed pool of suppliers within a framework in the scheme",
+      "Award with competition - must consider potential new members for every call off"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Cheat sheet: for can the number of suppliers be limited, the framework is: yes; the open framework is: yes; and the dynamic market is: no.",
+     "Cheat sheet: for ability to add additional suppliers throughout the term, the framework is: no suppliers are fixed from the point of award to termination (up to 4 years); the open framework is: yes suppliers may be refreshed during the term of the open framework; and the dynamic market is: yes suppliers can apply to join at any time.",
+     "Cheat sheet: for market conditions, the framework is: stagnant / stable; the open framework is: developing / limited new entrants; and the dynamic market is: emerging / new entrants.",
+     "Cheat sheet: for resource to establish and maintain, the framework is: any competitive tendering procedure can be used to establish, and may choose to reassess exclusions during the life of the framework; the open framework is: any competitive tendering procedure can be used to establish, competitive process process must be repeated within required timescales to appoint new suppliers, and may choose to reassess exclusions; and the dynamic market is: assess applications for membership, applications can be submitted at any time and must be assessed within a reasonable time period, and may choose to reassess exclusions and conditions of membership during the life of the dynamic market.",
+     "Cheat sheet: for awarding a contract (calling off), the framework is: award with or without competition from fixed pool of suppliers; the open framework is: award with or without competition from fixed pool of suppliers within a framework in the scheme; and the dynamic market is: award with competition - must consider potential new members for every call off."
+    ]
+   },
+   "reason": "Printed top-left header cell is empty, but the save step needs a heading for every column, so the first column is named 'Feature' (a neutral label, not printed). Other cells copied from the image.",
+   "evidence": "Page p289 (printed 284): header cells blank, Framework, Open framework, Dynamic market; five data rows.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "22b1ed407cf2493e",
+   "kind": "table",
+   "target": "table-p290: Cheat sheet",
+   "value": {
+    "columns": [
+     "Feature",
+     "Framework",
+     "Open framework",
+     "Dynamic market"
+    ],
+    "rows": [
+     [
+      "Flexibility to adapt during lifetime",
+      "None",
+      "• Reopen and re-award framework as needed (within minimum parameters) • Can add or remove suppliers in accordance with the processes set in the framework",
+      "• Unlimited • Open for new suppliers to join at any time • Suppliers can only be removed based on exclusion grounds or failure to continue to meet conditions of membership"
+     ],
+     [
+      "Best for…",
+      "• Fixed need • Small supply base • Supplier and product certainty (quality, lead time)",
+      "• Some flexibility required due to market development • Value through repeated competition • Manageable supply base",
+      "• Large supply base with a mix of big suppliers and SMEs • Agile response to innovation • Social value, can be less resource intensive for SMEs and small local suppliers to participate"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Cheat sheet: for flexibility to adapt during lifetime, the framework is: none; the open framework is: reopen and re-award framework as needed (within minimum parameters), and can add or remove suppliers in accordance with the processes set in the framework; and the dynamic market is: unlimited, open for new suppliers to join at any time, and suppliers can only be removed based on exclusion grounds or failure to continue to meet conditions of membership.",
+     "Cheat sheet: for best for…, the framework is: fixed need, small supply base, and supplier and product certainty (quality, lead time); the open framework is: some flexibility required due to market development, value through repeated competition, and manageable supply base; and the dynamic market is: large supply base with a mix of big suppliers and SMEs, agile response to innovation, and social value, can be less resource intensive for SMEs and small local suppliers to participate."
+    ]
+   },
+   "reason": "Printed top-left header cell is empty, but the save step needs a heading for every column, so the first column is named 'Feature' (a neutral label, not printed). Other cells copied from the image. The note below the table is outside the table.",
+   "evidence": "Page p290 (printed 285): header cells blank, Framework, Open framework, Dynamic market; two data rows.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "4270f45fb3f7170f",
+   "kind": "figure_description",
+   "target": "figure-p515: Flowcharts",
+   "value": "Flow chart (Process C: termination due to supplier exclusion) that starts with \"Is it the supplier or the subcontractor who is excluded / excludable?\". The Supplier branch goes to \"Give supplier reasonable notice of intention to terminate and opportunity to respond.\", then \"Continue\" to \"Has the supplier demonstrated sufficient self-cleaning / ended their subcontract arrangement?\" (Yes: \"Discontinue the termination process and notify the supplier.\") and, on No, \"Is this a discretionary exclusion ground and do you wish to use your discretion to not exclude the supplier?\" (Yes: \"Discontinue the termination process and notify the supplier.\"; No: arrow continues down the page). The Subcontractor branch asks \"Prior to contract award: 1. Did you request information from the supplier about their intention to subcontract?\" and, if Yes, \"2. Did the supplier fail to advise of their intention to subcontract? Or 3. Did you try to determine if the subcontractor was excluded or excludable?\", where Yes leads to the supplier notice box and No on either question leads to \"You cannot terminate the contract under this ground. Refer to the other termination grounds implied by the act, or your own contract clauses for further options.\"",
+   "reason": "Read the printed boxes and arrow labels in the figure and summarised them in three sentences.",
+   "evidence": "Image figure-p515.png shows boxes and Yes/No/Continue/Supplier/Subcontractor arrow labels as quoted.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "968b1f9004259434",
+   "kind": "table",
+   "target": "document-table-1: Information and guidance for suppliers (collection)",
+   "value": {
+    "columns": [
+     "Central Digital Platform"
+    ],
+    "rows": [
+     [
+      "New procurement notices"
+     ],
+     [
+      "Registration service for suppliers to store details"
+     ],
+     [
+      "Unique identifiers"
+     ],
+     [
+      "Built to allow future functionality"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "In the Information and guidance for suppliers (collection), the Central Digital Platform includes New procurement notices.",
+     "In the Information and guidance for suppliers (collection), the Central Digital Platform includes Registration service for suppliers to store details.",
+     "In the Information and guidance for suppliers (collection), the Central Digital Platform includes Unique identifiers.",
+     "In the Information and guidance for suppliers (collection), the Central Digital Platform includes Built to allow future functionality."
+    ]
+   },
+   "reason": "The pages are slides, not a printed table. The only list that fits the template's single column 'Central Digital Platform' is the bullet list on slide 15 'Why is the Central Digital Platform important?'. I used the template's column and sentence pattern with those bullets. The template's own rows (Noticing, Sign-in and registration, Supplier information) do not appear on any page image, so I did not copy them.",
+   "evidence": "Slide 15 (p15.png): 'A more open and transparent public procurement regime' followed by bullets: New procurement notices; Registration service for suppliers to store details; Unique identifiers; Built to allow future functionality.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "low",
+   "date": "2026-11-22"
+  }
+ ]
+}
