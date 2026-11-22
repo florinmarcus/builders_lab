@@ -916,3 +916,58 @@ def test_real_l56_labels_and_paragraphs():
     assert main[0] == 1 and main[-1] >= 340 and len(main) >= 335
     assert len([s for s in t["sections"] if s["type"] == "note"]) <= 2
     assert {"figure-7a", "figure-11c"} <= {s["id"] for s in t["sections"]}
+
+
+def _doc(lines, images=(), shapes=(), tables=()):
+    return {"lines": lines, "rects": [], "images": list(images), "page_count": 2, "graphics": list(shapes),
+            "pages": PAGES, "tables": list(tables)}
+
+
+def test_leaflet_cover_thumbnail_is_not_a_photo():
+    lines = [ln(1, 300, "This is a web-friendly", 8.0, x0=60), ln(1, 310, "version of leaflet INDG463", 8.0, x0=60)]
+    lines += _page_with_body(1, [400, 412, 424], x0=60)
+    images = [{"page": 1, "top": 200.0, "bottom": 296.0, "x0": 60.0, "x1": 140.0}]
+    t = build_tree(drawn_doc(lines, images=images), META)
+    assert not [s for s in t["sections"] if s["type"] == "figure"]
+
+
+def test_caption_saying_left_or_above_takes_that_photo():
+    lines = [ln(1, 98, "1 Roofs", 28.0, "HelveticaNeue-Medium")]
+    lines += [ln(1, 590, "Figure 37 (left) Permanent walkway", 8.0, "HelveticaNeue", x0=303),
+              ln(1, 626, "Figure 38 (above) Lighting panels", 8.0, "HelveticaNeue", x0=303)]
+    lines += _page_with_body(1, [700, 712, 724, 736, 748], x0=60)
+    images = [{"page": 1, "top": 438.0, "bottom": 748.0, "x0": 56.0, "x1": 292.0},
+              {"page": 1, "top": 438.0, "bottom": 580.0, "x0": 303.0, "x1": 538.0}]
+    t = build_tree(_doc(lines, images), META)
+    assert sec(t, "figure-37")["area"]["x0"] == 56.0 and sec(t, "figure-38")["area"]["x0"] == 303.0
+
+
+def test_flow_chart_box_as_wide_as_the_text_column_does_not_end_the_figure():
+    lines = [ln(1, 98, "1 Control", 28.0, "HelveticaNeue-Medium")]
+    lines += _page_with_body(1, [114, 126, 138, 150, 162, 174], x0=180)
+    lines += [ln(1, 200, "Figure 1 Route map for adequate control", 10.0, "HelveticaNeue-Bold", x0=180)]
+    lines += [ln(1, 360, BODY, 10.0, x0=180)]  # running text inside the wide box
+    shapes = [_shape(1, 180, 220, 360, 320), _shape(1, 270, 320, 272, 348, "line"),
+              _shape(1, 178, 348, 540, 416), _shape(1, 270, 416, 272, 444, "line"), _shape(1, 180, 444, 360, 500)]
+    t = build_tree(_doc(lines, shapes=shapes), META)
+    assert sec(t, "figure-1")["area"]["bottom"] >= 500
+
+
+def test_note_line_under_a_drawing_and_a_side_panel_belong_to_it():
+    lines = [ln(1, 98, "1 Lifting", 28.0, "HelveticaNeue-Medium")]
+    lines += _page_with_body(1, [114, 126, 138, 150, 162, 174], x0=60)
+    lines += [ln(1, 200, "Figure 1 Flow of the checks", 10.0, "HelveticaNeue-Bold", x0=60)]
+    lines += [ln(1, 505, "Note: LGA Guide see Fire safety in purpose-built blocks of flats", 10.0, x0=60)]
+    shapes = [_shape(1, 60, 220, 300, 500), _shape(1, 320, 260, 420, 460)]
+    t = build_tree(_doc(lines, shapes=shapes), META)
+    a = sec(t, "figure-1")["area"]
+    assert a["bottom"] >= 515 and a["x1"] >= 420
+
+
+def test_large_picture_on_its_own_keeps_all_its_parts():
+    lines = [ln(1, 98, "1 Filters", 28.0, "HelveticaNeue-Medium"),
+             ln(1, 767, "Figure A1.5 Cowl being loaded", 8.0, "HelveticaNeue", x0=176)]
+    lines += _page_with_body(1, [114, 126, 138, 150, 162, 174], x0=176)
+    images = [{"page": 1, "top": 518.0, "bottom": 760.0, "x0": 176.0, "x1": 538.0}]
+    t = build_tree(_doc(lines, images), META)
+    assert sec(t, "figure-a1-5")["photo_whole"]
