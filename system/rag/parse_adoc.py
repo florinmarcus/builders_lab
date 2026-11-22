@@ -558,8 +558,21 @@ class AdocBuilder:
         where n numbers the region on the page."""
         out: dict[int, tuple[str, int]] = {}
         n = 0
+        # Requirement boxes set in body-size type inside a ruled frame (classic editions, AD M volume 2, AD Q): the
+        # frame is a ruled table whose first cell starts "Requirement" and which has a "Limits on application"
+        # column. Every line inside it is the box (small-print boxes are found below, as before).
+        for t in self.doc_tables:
+            if t["page"] != page or not t["rows"] or not (t["rows"][0][0] or "").startswith("Requirement") \
+                    or "Limits on application" not in " ".join(c or "" for r in t["rows"] for c in r):
+                continue
+            inside = [k for k, m in enumerate(lines) if k not in out and t["top"] - 2 <= m["top"] <= t["bottom"]
+                      and t["x0"] - 2 <= m["x0"] <= t["x1"]]
+            if any(SMALL <= lines[k]["size"] < 14.5 for k in inside):  # body-size text, not just bands
+                n += 1
+                for k in inside:
+                    out[k] = ("reqbox", n)
         if self.classic:
-            n = self._regions_classic(page, lines, out)
+            n = self._regions_classic(page, lines, out, n)
         # Diagrams: white caption, then labels back to the last body-size line above.
         i = 0
         while i < len(lines):
@@ -686,12 +699,11 @@ class AdocBuilder:
             prev = i
         return out
 
-    def _regions_classic(self, page: int, lines: list[dict], out: dict) -> int:
+    def _regions_classic(self, page: int, lines: list[dict], out: dict, n: int = 0) -> int:
         """Classic layout: the caption sits above its table or drawing. The region is the small print below the
         caption, in the caption's column (or both columns when the small print crosses the gutter), down to the
         next body-size line or caption there."""
         g = self.gutter.get(page, 310.0)
-        n = 0
         caps = [i for i, l in enumerate(lines) if l.get("cap")]
         for i in caps:
             if i in out:
@@ -865,6 +877,15 @@ class AdocBuilder:
                 if skipping or self.chapter is None:
                     continue
                 parent_h = h3 or h2 or h1 or self.chapter
+                if kind == "reqbox":
+                    sec = region_secs.get(n)
+                    if sec is None:
+                        k = 1 + sum(1 for s in self.sections if s["parent_id"] == self.chapter["id"] and s["type"] == "requirement")
+                        sec = region_secs[n] = self.add(f"{self.chapter['id']}-box-{k}", "requirement", self.chapter,
+                                                        None, self.chapter["title"], page)
+                    sec["text"] = (sec["text"] + "\n" + t) if sec["text"] else t
+                    self.span(sec, page, l["top"], l["top"] + l["size"] + 2)
+                    continue
                 # Diagrams
                 if kind in ("caption", "diagram"):
                     sec = region_secs.get(n)

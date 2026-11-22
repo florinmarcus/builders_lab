@@ -367,6 +367,30 @@ def test_classic_main_changes_page_before_the_first_chapter_is_kept_and_its_repe
     assert any("file page 5: a repeat of the Main changes page (file page 2)" in i for i in t["issues"])
 
 
+def test_classic_requirement_box_in_body_type_inside_a_ruled_frame_is_a_requirement():
+    def cl(page, top, words, size=10.5, font="HelveticaNeue-Roman", x0=56.7):
+        return ln(2, top, words, size, font, x0)  # page 1 is the cover
+    L = [ln(1, 300, bold("APPROVED", "DOCUMENT"), 30.0, "HelveticaNeue-Bold"),
+         cl(1, 814.9, ["O", "N", "L", "I", "N", "E", "V", "E", "R", "S", "I", "O", "N", "12"], 20.0, x0=188.9),
+         cl(1, 45.4, bold("The", "Requirement"), 23.0, "HelveticaNeue-Bold", 36.9),
+         cl(1, 100, ["This", "Approved", "Document", "deals", "with", "the", "following", "Requirement."], x0=36.9),
+         cl(1, 154, ["Requirement", "Limits", "on", "application"], 10.0, "TimesNewRomanPS-Italic"),
+         cl(1, 184, bold("Means", "of", "warning", "and", "escape"), 10.0, "TimesNewRomanPS-Bold"),
+         cl(1, 201, [("B1.", B), "The", "building", "shall", "be", "designed", "and", "constructed."], 10.0, "TimesNewRomanPS"),
+         cl(1, 330, [("1.1", B), "Guidance", "text", "after", "the", "box."], x0=36.9)]
+    frame = {"page": 2, "top": 133.5, "bottom": 312.5, "x0": 36.9, "x1": 522.7,
+             "rows": [["Requirement Limits on application", ""], ["Means of warning and escape B1. The building ...", ""]]}
+    t = build_tree({"lines": L, "tables": [frame], "page_width": 595.0}, META)
+    req = [s for s in t["sections"] if s["type"] == "requirement"]
+    assert len(req) == 1 and req[0]["id"] == "the-requirement-box-1"
+    assert req[0]["text"] == ("Requirement Limits on application\nMeans of warning and escape\n"
+                              "B1. The building shall be designed and constructed.")
+    assert req[0]["grid"][0] == ["Requirement Limits on application", ""]  # the frame goes to the model check
+    intro = next(s for s in t["sections"] if s["id"] == "the-requirement-text-1")
+    assert intro["text"] == "This Approved Document deals with the following Requirement."
+    assert not [s for s in t["sections"] if s["type"] == "heading"]
+
+
 # ---------------------------------------------------------------- booklets and notes without chapter titles
 
 def booklet():

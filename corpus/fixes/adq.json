@@ -34,6 +34,32 @@
    "by": "model check, Claude Code headless Sonnet (packet)",
    "confidence": "low",
    "date": "2026-11-22"
+  },
+  {
+   "key": "7edca1e379c9c5f9",
+   "kind": "table",
+   "target": "requirement-q1-box-1: Requirement Q1: Unauthorised access",
+   "value": {
+    "columns": [
+     "Requirement",
+     "Limits on application"
+    ],
+    "rows": [
+     [
+      "PART Q SECURITY Unauthorised access Q1 Reasonable provision must be made to resist unauthorised access to— (a) any dwelling; and (b) any part of a building from which access can be gained to a flat within the building.",
+      "Requirement Q1 applies only in relation to new dwellings."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Requirement Q1: Unauthorised access: under Part Q Security, Unauthorised access, Q1, reasonable provision must be made to resist unauthorised access to (a) any dwelling; and (b) any part of a building from which access can be gained to a flat within the building, and the limits on application are that Requirement Q1 applies only in relation to new dwellings."
+    ]
+   },
+   "reason": "The page shows a single box with one header row (Requirement, Limits on application) and one data row; the library grid split the title bar and header into extra rows, and the (b) text had a stray space.",
+   "evidence": "Page p10 (printed page 2): green box headed Requirement, italic column labels Requirement and Limits on application, Q1 text on the left, limits text on the right.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
   }
  ]
 }

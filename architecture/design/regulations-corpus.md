@@ -150,6 +150,12 @@ volume 2) print a "Main changes" page there (page 2); a bold heading starting "M
 chapter, read like any other. AD A and AD C 2013 print that page again near the back (the inside cover spread): the
 repeat is a tree issue, and the document ends there.
 
+Requirement boxes are `requirement` sections. In the 2019 layout they are small print under green bands; in the
+classic editions (AD B 2006, AD M volume 2, AD Q) they are body-size type in a ruled frame, which used to come out
+as running text with "Requirement Limits on application" glued to the line before. A ruled table whose first cell
+starts "Requirement", with a "Limits on application" column and body-size lines inside, is now the box; its grid
+goes to the model check like any requirement box.
+
 ### Home Office fire risk assessment guides (parse_guide, built 22 Nov 2026)
 
 The 2006 "Fire safety risk assessment" sector guides and the disabled people supplement share one template that
