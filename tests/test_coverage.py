@@ -24,6 +24,7 @@ def test_scope_is_ingest_and_fetched_only():
 # on the real trees and raw files where this machine has them.
 
 import pytest
+from collections import Counter
 
 A4 = (595.0, 842.0)
 
@@ -242,12 +243,12 @@ def test_accept_records_a_flagged_item(tmp_path, monkeypatch):
 
 
 def test_real_trees_have_no_open_coverage_items():
-    """Every current PDF tree on this machine against its raw file: no flagged item that is not accepted.
-    Skips where no raw file or tree is on this machine. Raw words are cached, so a second run is quick."""
+    """Every current tree on this machine (PDF, web page, legislation XML) against its raw file: no flagged item
+    that is not accepted. Skips where no raw file or tree is on this machine. Raw files are read once and cached."""
     pytest.importorskip("pdfplumber")
     versions = [v for v in C.versions_in_scope() if (C.ROOT / v[0]["raw_path"]).exists()]
     if not versions:
-        pytest.skip("no parsed PDF trees with raw files on this machine")
+        pytest.skip("no parsed trees with raw files on this machine")
     C.fill_caches(versions)
     by_src = {}
     for v in versions:
@@ -386,3 +387,112 @@ def test_coverage_uses_the_parsers_signature_rule_with_signed_on_the_left():
     p3["words"] += [W("Signed", 72, 660), W("by", 112, 660), W("Date:", 450, 660)]
     im = C.check_version({"source_id": "x", "version_id": "v", "sha256": "ab" * 32}, _tree(raw), raw)["images"]
     assert im["explained"] == {"signature": 1} and not im["items"]
+
+
+# ---------------------------------------------------------------- web pages and legislation XML (S106)
+# Hand-made pages and XML (mock text). The readers are plain lxml, not the parsers' own readers.
+
+PAGE = """<!doctype html><html><head><title>Demo - HSE</title><script>var x=1;</script></head><body>
+<a class="skip" href="#c">Skip to content</a><header><nav><a>Guidance</a></nav></header>
+<nav class="hse-breadcrumb"><a>Home</a></nav>
+<main><h1>Demo page</h1><h2 id="searching-for-work">Searching for work</h2>
+<p>Use the <abbr>HMRC</abbr> <abbr>CIS</abbr> online service.<span class="visually-hidden">opens in a new tab</span></p>
+<p>Write to us at:<br>HM Revenue and Customs<br>BX9 1BX</p>
+<ul><li>first item</li><li>second item</li></ul>
+<table><tr><th>Who</th><th>Rate</th></tr><tr><td>Registered</td><td>20%</td></tr></table>
+<img src="/media/plan.svg" alt=""><img src="/media/door.jpg" alt="A fire door with a self-closing device fitted">
+<div class="hse-back-to-top"><a>Back to top</a></div><div class="research-note"><p>Research is kept.</p></div>
+<p class="hse-lastupdated">Updated 2025-01-01</p></main>
+<aside><p>Related links</p></aside><div class="hse-feedback"><p>Is this page useful?</p></div>
+<footer><p>Crown copyright</p></footer></body></html>"""
+
+
+def _html_raw(tmp_path, text=PAGE):
+    p = tmp_path / "page.html"
+    p.write_text(text, encoding="utf-8")
+    return C.read_html_raw(p)
+
+
+def test_html_reader_names_why_page_chrome_is_dropped(tmp_path):
+    raw = _html_raw(tmp_path)
+    reasons = Counter()
+    for b in raw["blocks"]:
+        for text, r in b["parts"]:
+            reasons[r] += len(C.tokens(text))
+    for r in ("skip-link", "site-header", "navigation", "screen-reader", "back-to-top", "last-updated", "sidebar",
+              "feedback", "site-footer"):
+        assert reasons[r] > 0, r
+    content = " ".join(t for b in raw["blocks"] for t, r in b["parts"] if r is None)
+    assert "Research is kept" in content  # "research" is not the mark "search"
+    assert "var x" not in content and "Skip" not in content
+    words = C.tokens(content)
+    assert "hmrc" in words and "cis" in words and "customs" in words and "bx9" in words  # spaces and <br> part words
+    assert [i["alt"] for i in raw["images"]] == ["", "A fire door with a self-closing device fitted"]
+    assert raw["tables"][0]["rows"] == [["Who", "Rate"], ["Registered", "20%"]]
+
+
+def _html_tree(sections):
+    return {"title": "Demo page", "sections": sections, "issues": []}
+
+
+def _s(id_, text="", type_="text", title=None, **kw):
+    return {"id": id_, "type": type_, "title": title, "heading_path": ["Demo page"] + ([title] if title else []),
+            "text": text, "number": None, "file_page": None, "footnotes": [], **kw}
+
+
+GOOD = [_s("searching-for-work", type_="chapter", title="Searching for work"),
+        _s("t1", "Use the HMRC CIS online service.\nWrite to us at:\nHM Revenue and Customs\nBX9 1BX\n"
+                 "• first item\n• second item\nResearch is kept."),
+        _s("tab", "Who | Rate\nRegistered | 20%", type_="table", title="Searching for work", columns=["Who", "Rate"],
+           grid=[["Registered", "20%"]]),
+        _s("img", "A fire door with a self-closing device fitted", type_="figure", title="A fire door ...")]
+
+
+def test_html_check_passes_a_full_tree_and_flags_a_lost_heading_and_a_picture(tmp_path):
+    raw = _html_raw(tmp_path)
+    rec = {"source_id": "x", "version_id": "v", "sha256": "ab" * 32}
+    r = C.check_version(rec, _html_tree(GOOD), raw)
+    assert [i["kind"] for i in r["items"]] == ["image"]  # the picture with no alt text is in no figure section
+    assert r["items"][0]["key"].endswith(":image:plan.svg")
+    assert r["tables"]["found"] == 1 and r["images"]["in_crop"] == 1
+    lost = _html_tree(GOOD[1:])  # the heading "Searching for work" is gone (only its words in the table title)
+    lost["sections"][1] = {**lost["sections"][1], "title": "Rates"}
+    r = C.check_version(rec, lost, raw)
+    assert any(i["kind"] == "block" and "searching for work" in i["detail"] for i in r["items"])
+    no_table = _html_tree([s for s in GOOD if s["type"] != "table"] + [_s("t2", "Who Rate Registered 20%")])
+    assert [i["kind"] for i in C.check_version(rec, no_table, raw)["items"]].count("table") == 1
+
+
+LEG = """<Legislation xmlns="http://www.legislation.gov.uk/namespaces/legislation"
+ xmlns:ukm="http://www.legislation.gov.uk/namespaces/metadata" xmlns:dc="http://purl.org/dc/elements/1.1/">
+<ukm:Metadata><dc:title>The Demo Regulations</dc:title></ukm:Metadata>
+<Secondary><SecondaryPrelims><Title>The Demo Regulations</Title><MadeDate><Text>Made</Text></MadeDate></SecondaryPrelims>
+<Body><P1group><Title>Citation</Title><P1 id="regulation-1"><Pnumber>1</Pnumber><P1para><Text>These Regulations
+ are the <Addition>Demo</Addition> Regulations<CommentaryRef Ref="c1"/>.</Text>
+<P2 id="regulation-1-2"><Pnumber>2</Pnumber><P2para><Text>They apply to m<Superior>2</Superior> of floor.</Text>
+</P2para></P2></P1para></P1></P1group></Body>
+<Schedules><Title>SCHEDULES</Title><Schedule id="schedule-1"><Number>SCHEDULE 1</Number>
+<ScheduleBody><P1group><Title>Lost</Title><P1 id="schedule-1-paragraph-1"><Pnumber>1</Pnumber><P1para>
+<Text>A whole paragraph the parser lost.</Text></P1para></P1></P1group></ScheduleBody></Schedule></Schedules>
+<SignedSection><Signatory><Para><Text>Signed by the Minister</Text></Para></Signatory></SignedSection>
+<ExplanatoryNotes><P><Text>This note is not part of the Regulations.</Text></P></ExplanatoryNotes>
+<Footnotes><Footnote id="f1"><FootnoteText><Para><Text>S.I. 2010/1</Text></Para></FootnoteText></Footnote></Footnotes>
+</Secondary><Commentaries><Commentary id="c1" Type="F"><Para><Text>Words inserted by S.I. 2020/2</Text></Para>
+</Commentary></Commentaries></Legislation>"""
+
+
+def test_xml_reader_drops_notes_by_name_and_flags_a_lost_provision(tmp_path):
+    p = tmp_path / "leg.xml"
+    p.write_text(LEG, encoding="utf-8")
+    raw = C.read_xml_raw(p)
+    from system.rag.parse_legislation import parse_legislation
+
+    tree = parse_legislation(LEG.encode(), {"source_id": "x", "version_id": "v"})
+    r = C.check_version({"source_id": "x", "version_id": "v", "sha256": "cd" * 32}, tree, raw)
+    assert set(r["text"]["explained"]) == {"metadata", "prelims", "schedules-title", "signature",
+                                           "explanatory-note", "footnote", "annotation"}
+    assert r["items"] == []  # "m<Superior>2</Superior>" is one word on both sides
+    tree["sections"] = [s for s in tree["sections"] if not s["id"].startswith("schedule-1-paragraph")]
+    items = C.check_version({"source_id": "x", "version_id": "v", "sha256": "cd" * 32}, tree, raw)["items"]
+    assert [i["key"] for i in items if i["kind"] == "block"] == [
+        "cdcdcdcd:schedule-1:title:lost", "cdcdcdcd:schedule-1-paragraph-1:a-whole-paragraph-the-parser-lost"]

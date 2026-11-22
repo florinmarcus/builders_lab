@@ -49,7 +49,8 @@ DROP_TAGS = {"script", "style", "noscript", "nav", "aside", "footer", "header", 
 # Classes and ids of page furniture (HSE and GOV.UK site parts).
 DROP_MARKS = ("breadcrumb", "back-to-top", "sidebar", "feedback", "cookie", "visually-hidden", "related",
               "skip", "share", "print-link", "gem-c-contents", "contents-list", "lastupdated", "search",
-              "report-a-problem", "hse-page-header__aside")
+              "report-a-problem", "hse-page-header__aside", "pagination", "next-page", "printable-version")
+HEADING_TAGS = {"h1", "h2", "h3", "h4", "h5", "h6"}
 BLOCK_TAGS = {"p", "h1", "h2", "h3", "h4", "h5", "h6", "ul", "ol", "li", "table", "div", "section", "article",
               "main", "figure", "figcaption", "blockquote", "pre", "dl", "dt", "dd", "hr", "details", "summary",
               "address", "fieldset", "img", "body"}
@@ -71,8 +72,23 @@ def clean(text: str) -> str:
     return "\n".join(ln for ln in lines if ln)
 
 
-def _classes(e) -> str:
-    return f"{e.get('class', '')} {e.get('id', '')}".lower()
+def _name_parts(e) -> list[list[str]]:
+    """Class names (and the id, except on headings, whose id is a slug of their text) split at - and _."""
+    names = (e.get("class") or "").lower().split()
+    if not (isinstance(e.tag, str) and e.tag.lower() in HEADING_TAGS):
+        names.append((e.get("id") or "").lower())
+    return [[p for p in re.split(r"[-_]+", n) if p] for n in names if n]
+
+
+def has_mark(e, marks=DROP_MARKS) -> bool:
+    """A mark matches whole parts of a class name: "hse-back-to-top__link" has "back-to-top", but the heading id
+    "searching-for-opportunities" does not have "search" (S106: that heading and its chapter title were lost)."""
+    parts = _name_parts(e)
+    for m in marks:
+        want = m.split("-")
+        if any(name[k:k + len(want)] == want for name in parts for k in range(len(name) - len(want) + 1)):
+            return True
+    return False
 
 
 def is_furniture(e) -> bool:
@@ -81,8 +97,9 @@ def is_furniture(e) -> bool:
     tag = e.tag.lower()
     if tag in DROP_TAGS or e.get("hidden") is not None or e.get("aria-hidden") == "true":
         return True
-    marks = _classes(e)
-    return any(m in marks for m in DROP_MARKS)
+    if (e.get("role") or "").lower() == "navigation":  # HSE "Next page" links of a multi-page guide
+        return True
+    return has_mark(e)
 
 
 def inline_text(e, skip: set[str] | frozenset = frozenset()) -> str:
@@ -231,7 +248,10 @@ def list_items(e, blocks: list[dict], depth: int = 0) -> None:
     except ValueError:
         n = 1
     for li in e:
+        stray = clean((li.tail or "").replace("\n", " "))  # text in the list but outside any item (broken HTML)
         if not isinstance(li.tag, str) or li.tag.lower() != "li" or is_furniture(li):
+            if stray:
+                _add_stray(blocks, stray, depth)
             continue
         text = inline_text(li, skip={"ul", "ol", "table"})
         mark = "  " * depth + (f"{n}. " if ordered else "• ")
@@ -246,6 +266,17 @@ def list_items(e, blocks: list[dict], depth: int = 0) -> None:
         for img in li.iter("img"):
             if next(img.iterancestors("li"), None) is li:  # images in nested lists are done there
                 _figure(img, blocks)
+        if stray:
+            _add_stray(blocks, stray, depth)
+
+
+def _add_stray(blocks: list[dict], text: str, depth: int) -> None:
+    """Text inside a list but after an item's end tag (HSE wood dust: "<li>... time</li> period</ul>"): it ends
+    that item, so it joins the last item's line; with no item before it, it is a line of its own."""
+    if blocks and blocks[-1]["kind"] == "line" and blocks[-1]["list"]:
+        blocks[-1]["text"] += " " + text
+    else:
+        blocks.append({"kind": "line", "text": "  " * depth + text, "list": True})
 
 
 def read_table(t) -> dict:
@@ -309,6 +340,32 @@ def _int(v) -> int:
 
 # ---------------------------------------------------------------- the tree
 
+def group_headings(blocks: list[dict]) -> list[dict]:
+    """A heading (h3 or lower) with nothing under it, followed straight away by a heading of the same level, is
+    a group label ("Named standards" over FAQ 25 in the AD B FAQ, "Payment to third parties" over 6.4 in CIS 340).
+    The page does not say where the group ends, so the label takes only the heading right after it (with that
+    heading's own sub-headings), one level down, instead of the label being dropped as an empty heading (S106)."""
+    out = [dict(b) for b in blocks]
+    heads = [i for i, b in enumerate(out) if b["kind"] == "heading"]
+    labels = {i for i in heads if out[i]["level"] >= 3 and i + 1 < len(out)
+              and out[i + 1]["kind"] == "heading" and out[i + 1]["level"] == out[i]["level"]}
+    active: int | None = None  # level of the open group
+    first = False  # the heading right after the label
+    for i in heads:
+        lv = blocks[i]["level"]
+        if active is not None and lv <= active and not first:
+            active = None
+        first = False
+        if i in labels:
+            active, first = lv, True
+            continue
+        if active is not None:
+            out[i]["level"] = lv + 1
+            if lv == active:
+                out[i]["grouped"] = True  # keeps the id it had before (evals and fixes point to section ids)
+    return out
+
+
 class Builder:
     def __init__(self, page: dict, meta: dict):
         self.page = page
@@ -355,9 +412,8 @@ class Builder:
 
     def container(self) -> dict | None:
         """Where running text goes: the latest heading or numbered paragraph at any level."""
-        for lv in (4, 3, 2):
-            if lv in self.stack:
-                return self.stack[lv]
+        for lv in sorted(self.stack, reverse=True):  # 2 to 4, or 5 under a group label
+            return self.stack[lv]
         return None
 
     def path_of(self, parent: dict | None) -> list[str]:
@@ -392,6 +448,7 @@ class Builder:
         if not h1:
             self.issues.append("no <h1>; page title taken from <title>" if title else "no <h1> and no <title>")
         self.title = title or self.meta.get("part_title") or self.meta.get("title") or self.meta.get("source_id", "")
+        blocks = group_headings(blocks)
         seen_h1 = False
         for b in blocks:
             k = b["kind"]
@@ -462,7 +519,10 @@ class Builder:
                            anchor=anchor)
             self.para = sec
         else:
-            sid = f"{parent['id']}-{slugify(text)}" if parent else slugify(text)
+            base = parent
+            if b.get("grouped") and parent is not None:  # under a group label: the id it has without the label
+                base = self.by_id.get(parent["parent_id"]) if parent["parent_id"] else None
+            sid = f"{base['id']}-{slugify(text)}" if base else slugify(text)
             sec = self.new(sid, "heading", parent, None, text, [*self.path_of(parent), text], anchor=anchor,
                            level=level)
         self.stack = {lv: s for lv, s in self.stack.items() if lv < level}

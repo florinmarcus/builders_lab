@@ -13,7 +13,7 @@
     python -m system.rag.coverage report [--source ID ...] [--verbose]
     python -m system.rag.coverage accept --source ID --item KEY --reason "..." --by "..."
 
-   Three checks per current version (valid_to null) whose raw file is a PDF and whose tree is in corpus/parsed:
+   Three checks per current version (valid_to null) whose tree is in corpus/parsed. For a PDF:
    - text: the raw words (pdfplumber extract_words, read here, not through the parser's reader) against every
      text-bearing field of the tree, as a multiset of normalised words, per document and per page. Words the
      parsers drop by rule (running headers and footers, page numbers, cover, contents, index, sideways text,
@@ -25,7 +25,14 @@
    Flagged items not yet accepted make the report fail (exit 1) and the real-tree test fail. A person who looked
    at a flagged item and keeps it records why with `accept` (corpus/coverage/<source>.json, in git).
    Raw words, images and tables are cached per raw file under corpus/parsed/<source>/coverage-cache/ (not in git).
-   Web pages and legislation XML can be added as readers later (READERS): visible text against the tree.
+
+   Web pages (read_html_raw) and legislation XML (read_xml_raw) are read as blocks of visible text: a page's block
+   elements, a law's provisions. Page chrome (header, footer, menus, breadcrumbs, cookie banner, feedback, back to
+   top, screen-reader text, "last updated") and the law's editorial parts (annotations, metadata, title page,
+   explanatory note, signature, footnotes) are counted under named reasons (HTML_REASONS, XML_REASONS). check_blocks
+   then flags a block with 3 or more words in no 3-word run of the tree, a document with over 1% of its words
+   missing, a table whose cells are not in a table section (web pages) or the tree (laws), and a picture in no
+   figure section and with no named reason.
 """
 
 from __future__ import annotations
@@ -220,25 +227,404 @@ def read_pdf_raw(path: Path) -> dict:
     return {"pages": pages}
 
 
-READERS = {PDF: read_pdf_raw}  # later: "text/html" (visible text), "application/xml" (legislation)
+# ---------------------------------------------------------------- web pages and legislation XML (S106)
+# Both are read as blocks of visible text in reading order: a web page's block elements (p, li, td, h2 ...), a
+# legislation file's provisions (the nearest element with an id). Each piece of text carries the reason it is not
+# content (site header, footer, menus, editorial notes ...) or None. The check is the same for both
+# (check_blocks): every block of content must be in the tree as a run of words, every table's cells must be in
+# the tree, and every picture must be a figure section or have a named reason.
+
+HTML = "text/html"
+XML = "application/xml"
+HTML_INLINE = {"a", "abbr", "acronym", "b", "bdi", "bdo", "big", "br", "cite", "code", "data", "del", "dfn", "em",
+               "font", "i", "img", "ins", "kbd", "mark", "q", "s", "samp", "small", "span", "strong", "sub", "sup",
+               "time", "tt", "u", "var", "wbr"}
+HTML_REASONS = {  # web page text the parser drops on purpose, and why (the nearest named element wins)
+    "not-shown": "not shown on the page (script, style, template, a hidden element)",
+    "screen-reader": "text for screen readers only ('visually-hidden')",
+    "site-header": "the site header (logo, search, menu)",
+    "site-footer": "the site footer",
+    "navigation": "menus, breadcrumbs and 'next page' links",
+    "skip-link": "'skip to main content' link",
+    "cookie-banner": "cookie banner",
+    "feedback": "page feedback ('Is this page useful?', report a problem)",
+    "back-to-top": "'back to top' link",
+    "sidebar": "sidebar (related links beside the content)",
+    "related": "related content links",
+    "form": "form controls and buttons",
+    "contents-list": "the page's own contents list (links to its headings)",
+    "last-updated": "'last updated' or 'published' line (page metadata)",
+    "share-print": "share and print links",
+    "search": "search box",
+    "embedded": "embedded frame, video or drawing (iframe, svg)",
+}
+# (reason, tags, ARIA roles, class or id marks). A mark matches whole parts of a class name split at - and _
+# ("hse-back-to-top__link" has back-to-top; "research" does not have search).
+HTML_RULES = (
+    ("screen-reader", set(), set(), ("visually-hidden", "sr-only")),
+    ("not-shown", {"script", "style", "noscript", "template", "head", "title", "meta", "link"}, set(),
+     ("hide", "hidden", "js-hidden")),
+    ("site-header", {"header"}, {"banner"}, ()),
+    ("site-footer", {"footer"}, {"contentinfo"}, ()),
+    ("navigation", {"nav"}, {"navigation"}, ("breadcrumb", "multistep-navigation", "pagination", "next-page")),
+    ("skip-link", set(), set(), ("skip", "skip-link")),
+    ("cookie-banner", set(), set(), ("cookie", "cookie-banner")),
+    ("feedback", set(), set(), ("feedback", "report-a-problem")),
+    ("back-to-top", set(), set(), ("back-to-top",)),
+    ("sidebar", {"aside"}, {"complementary"}, ("sidebar",)),
+    ("related", set(), set(), ("related",)),
+    ("form", {"form", "button", "input", "select", "option", "textarea", "label", "dialog"}, {"search"}, ()),
+    ("contents-list", set(), set(), ("contents-list",)),
+    ("last-updated", set(), set(), ("lastupdated", "last-updated", "metadata")),
+    ("share-print", set(), set(), ("share", "print-link", "printable-version")),
+    ("search", set(), set(), ("search",)),
+    ("embedded", {"svg", "iframe", "object", "embed", "video", "audio", "canvas"}, set(), ()),
+)
+HIDDEN_STYLE_RE = re.compile(r"display\s*:\s*none|visibility\s*:\s*hidden", re.I)
 
 
-def cache_path(source_id: str, sha256: str) -> Path:
-    return CORPUS_DIR / "parsed" / source_id / "coverage-cache" / f"{sha256[:16]}.v{CACHE_VERSION}.json"
+def _mark_parts(e) -> list[list[str]]:
+    names = (e.get("class") or "").lower().split() + [(e.get("id") or "").lower()]
+    return [[p for p in re.split(r"[-_]+", n) if p] for n in names if n]
+
+
+def _has_mark(parts: list[list[str]], mark: str) -> bool:
+    want = mark.split("-")
+    return any(name[k:k + len(want)] == want for name in parts for k in range(len(name) - len(want) + 1))
+
+
+def html_reason(e) -> str | None:
+    """Why this element (with everything inside it) is not page content, or None."""
+    tag = e.tag.lower() if isinstance(e.tag, str) else ""
+    if e.get("hidden") is not None or e.get("aria-hidden") == "true" or HIDDEN_STYLE_RE.search(e.get("style") or ""):
+        return "not-shown"
+    role = (e.get("role") or "").lower()
+    parts = _mark_parts(e)
+    for reason, tags, roles, marks in HTML_RULES:
+        if tag in tags or role in roles or any(_has_mark(parts, m) for m in marks):
+            return reason
+    return None
+
+
+def _cell_text(e) -> str:
+    return " ".join(" ".join(t for t in e.itertext()).split())
+
+
+def read_html_raw(path: Path) -> dict:
+    """A web page as blocks of visible text in reading order, each part with its reason (None: content), plus
+    its images and tables. Read with lxml directly, not through parse_html, so a parser rule that drops too much
+    shows. Text after a block element inside another block goes into a new block (a list after a paragraph's
+    opening words is not one run of words)."""
+    import lxml.html
+
+    doc = lxml.html.document_fromstring(path.read_bytes())
+    body = doc.find("body")
+    if body is None:
+        body = doc
+    blocks: list[dict] = []
+    images: list[dict] = []
+    tables: list[dict] = []
+
+    def new(tag: str) -> int:
+        blocks.append({"tag": tag, "parts": []})
+        return len(blocks) - 1
+
+    def add(b: int, text: str | None, reason: str | None) -> None:
+        parts = blocks[b]["parts"]
+        if not text or not text.strip():
+            if text and parts:
+                parts[-1][0] += " "  # a space between two inline elements ("<abbr>HMRC</abbr> <abbr>CIS</abbr>")
+            return
+        if parts and parts[-1][1] == reason:
+            parts[-1][0] += text
+        else:
+            parts.append([text, reason])
+
+    def walk(e, reason: str | None, b: int) -> int:
+        tag = e.tag.lower()
+        r = reason or html_reason(e)
+        if tag == "img":
+            images.append({"alt": " ".join((e.get("alt") or "").split()), "src": e.get("src") or "",
+                           "width": e.get("width"), "height": e.get("height"), "reason": r, "block": b})
+        elif tag == "table":
+            rows = [[_cell_text(c) for c in tr if isinstance(c.tag, str) and c.tag.lower() in ("td", "th")]
+                    for tr in e.iter("tr")]
+            tables.append({"rows": [x for x in rows if any(x)], "reason": r})
+        if tag == "br" and blocks[b]["parts"]:
+            blocks[b]["parts"][-1][0] += "\n"  # a line break parts words ("England<br>HM Revenue")
+        inline = tag in HTML_INLINE
+        cur = b if inline else new(tag)
+        add(cur, e.text, r)
+        for c in e:
+            if isinstance(c.tag, str):
+                cur = walk(c, r, cur)
+            add(cur, c.tail, r)
+        return cur if inline else new(blocks[b]["tag"])
+
+    walk(body, None, new("body"))
+    keep = [i for i, bl in enumerate(blocks) if bl["parts"]]
+    renum = {old: new_ for new_, old in enumerate(keep)}
+    for im in images:
+        im["block"] = renum.get(im["block"])
+    return {"kind": "html", "blocks": [blocks[i] for i in keep], "images": images, "tables": tables}
+
+
+LEG_NS = "http://www.legislation.gov.uk/namespaces/legislation"
+XML_REASONS = {  # legislation XML text parse_legislation leaves out on purpose, and why
+    "metadata": "legislation.gov.uk metadata (dates, effects, statistics), not printed text",
+    "contents": "table of contents",
+    "annotation": "editorial annotations (amendment and commencement notes): kept on sections as amendments",
+    "prelims": "the title page and preamble (title, made, laid and in force dates, enacting words)",
+    "explanatory-note": "the explanatory note ('This note is not part of the Regulations') and earlier orders",
+    "signature": "the signature block (who signed and when)",
+    "footnote": "the printed footnotes: citations of the enabling and amended laws",
+    "resources": "attached files and images listed at the end of the file",
+    "equation-image": "a picture of a formula whose text is in the provision (parse_legislation skips it)",
+    "schedules-title": "the word 'SCHEDULES' over the Schedules (each Schedule has its own number and title)",
+}
+XML_RULES = {"Metadata": "metadata", "Contents": "contents", "Commentaries": "annotation", "Commentary": "annotation",
+             "PrimaryPrelims": "prelims", "SecondaryPrelims": "prelims", "ExplanatoryNotes": "explanatory-note",
+             "EarlierOrders": "explanatory-note", "SignedSection": "signature", "Footnotes": "footnote",
+             "Footnote": "footnote", "Resources": "resources"}
+
+
+XML_INLINE = {"Superior", "Inferior", "Emphasis", "Strong", "Underline", "SmallCaps", "Uppercase", "Addition",
+              "Substitution", "Repeal", "Citation", "CitationSubRef", "InternalLink", "ExternalLink", "Term",
+              "Definition", "Acronym", "Abbreviation", "Span", "Character", "InlineAmendment", "CommentaryRef",
+              "FootnoteRef", "Proviso", "Strike"}
+XML_LABELS = {"Number", "Title"}  # each its own block (and a P1's Pnumber): the tree keeps them in their own fields
+
+
+def xml_reason(e) -> str | None:
+    q = etree_qname(e)
+    if q is None:
+        return None
+    ns, name = q
+    if ns != LEG_NS:
+        return "metadata" if "metadata" in ns or ns.startswith("http://purl.org/dc") or "Atom" in ns else None
+    if name == "Version" and "equation" in (e.get("Description") or "").lower():
+        return "equation-image"
+    if name == "Title" and etree_qname(e.getparent()) == (LEG_NS, "Schedules"):
+        return "schedules-title"
+    return XML_RULES.get(name)
+
+
+def etree_qname(e) -> tuple[str, str] | None:
+    if not isinstance(e.tag, str) or not e.tag.startswith("{"):
+        return None
+    ns, name = e.tag[1:].split("}", 1)
+    return ns, name
+
+
+def read_xml_raw(path: Path) -> dict:
+    """A legislation.gov.uk XML file as blocks of text, one per provision (the nearest element with an id, else
+    the nearest Part, Schedule or the body), each part with its reason (None: content); plus its pictures
+    (Figure, Image) and tables (Tabular). Read with lxml directly, not through parse_legislation."""
+    from lxml import etree
+
+    root = etree.parse(str(path), etree.XMLParser(resolve_entities=False, no_network=True, huge_tree=True)).getroot()
+    blocks: list[dict] = []
+    images: list[dict] = []
+    tables: list[dict] = []
+    skip_marks = {f"{{{LEG_NS}}}CommentaryRef", f"{{{LEG_NS}}}FootnoteRef"}  # markers: no printed text
+
+    def new(name: str) -> int:
+        blocks.append({"tag": name, "parts": []})
+        return len(blocks) - 1
+
+    def add(b: int, text: str | None, reason: str | None) -> None:
+        parts = blocks[b]["parts"]
+        if not text or not text.strip():
+            if text and parts:
+                parts[-1][0] += " "  # spaces between two amendments ("care homes</Addition> <Addition>, which")
+            return
+        if parts and parts[-1][1] == reason:
+            parts[-1][0] += text
+        else:
+            parts.append([text, reason])
+
+    def gap(b: int) -> None:  # a word break between two block elements (two Text elements, a number and its text)
+        if blocks[b]["parts"]:
+            blocks[b]["parts"][-1][0] += " "
+
+    def walk(e, reason: str | None, b: int) -> int:
+        q = etree_qname(e)
+        name = q[1] if q else ""
+        r = reason or xml_reason(e)
+        p1_number = name == "Pnumber" and etree_qname(e.getparent()) == (LEG_NS, "P1")
+        if (name in XML_LABELS or p1_number) and q[0] == LEG_NS:  # the tree keeps it in its own field
+            lb = new(f"{blocks[b]['tag']}:{name.lower()}")
+            add(lb, "".join(e.itertext()), r)
+            return b
+        if name not in XML_INLINE:
+            gap(b)
+        if name == "Figure" and q[0] == LEG_NS:
+            images.append({"alt": "", "src": " ".join(i.get("ResourceRef") or "" for i in e.iter(f"{{{LEG_NS}}}Image")),
+                           "reason": r, "block": b, "unit": e.get("id") or blocks[b]["tag"]})
+        elif name == "Tabular" and q[0] == LEG_NS:
+            rows = [[" ".join(" ".join(c.itertext()).split()) for c in tr if isinstance(c.tag, str)
+                     and c.tag.endswith(("}td", "}th"))] for tr in e.iter("{http://www.w3.org/1999/xhtml}tr")]
+            tables.append({"rows": [x for x in rows if any(x)], "reason": r, "unit": e.get("id") or blocks[b]["tag"]})
+        own = e.get("id") and q and q[0] == LEG_NS
+        cur = new(e.get("id")) if own else b
+        add(cur, e.text, r)
+        for c in e:
+            if isinstance(c.tag, str) and c.tag not in skip_marks:
+                cur = walk(c, r, cur)
+            add(cur, c.tail, r)
+        if name not in XML_INLINE:
+            gap(cur)
+        return new(blocks[b]["tag"]) if own else cur
+
+    walk(root, None, new("body"))
+    keep = [i for i, bl in enumerate(blocks) if bl["parts"]]
+    renum = {old: new_ for new_, old in enumerate(keep)}
+    for im in images:
+        im["block"] = renum.get(im["block"])
+    return {"kind": "xml", "blocks": [blocks[i] for i in keep], "images": images, "tables": tables}
+
+
+BLOCK_MISSING = 3          # a block is flagged when 3 or more of its words are in no run of words in the tree
+HTML_DOC_UNEXPLAINED = 0.01  # ... and a document when over 1% of its content words are missing
+
+
+def check_blocks(raw: dict, tree: dict, sha8: str) -> dict:
+    """Web page or legislation file against its tree. Text: every content word as a multiset (coverage), and every
+    block as runs of three words found in the tree's word sequence (a short block: all its words in a row), so a
+    lost paragraph shows even when its words occur elsewhere. Tables: each table's cell words in one table section
+    (web pages) or in the tree (legislation, whose tables are rows of the provision's text). Images: a figure
+    section with the image's alt text, or a named reason."""
+    whole, _, seq, pdf_t, model_t = tree_pools(tree)
+    grams = {n: {tuple(seq[k:k + n]) for k in range(len(seq) - n + 1)} for n in (1, 2, 3)}
+    explained, items, examples = Counter(), [], []
+    content_toks: list[str] = []
+    raw_set: set[str] = set()
+    seen_keys: Counter = Counter()
+    for bl in raw["blocks"]:
+        toks: list[str] = []
+        for text, reason in bl["parts"]:
+            ts = tokens(text)
+            raw_set.update(ts)
+            if reason:
+                explained[reason] += len(ts)
+            else:
+                toks.extend(ts)
+        if not toks:
+            continue
+        content_toks.extend(toks)
+        n = len(toks)
+        if n < 3:
+            ok = [tuple(toks) in grams[n]] * n
+        else:
+            ok = [False] * n
+            for k in range(n - 2):
+                if tuple(toks[k:k + 3]) in grams[3]:
+                    ok[k] = ok[k + 1] = ok[k + 2] = True
+        miss = [t for t, g in zip(toks, ok) if not g]
+        if len(miss) >= BLOCK_MISSING or (n < BLOCK_MISSING and miss):
+            base = f"{sha8}:{bl['tag'] if raw.get('kind') == 'xml' else 'text'}:{'-'.join(toks[:6])}"
+            seen_keys[base] += 1
+            key = base if seen_keys[base] == 1 else f"{base}#{seen_keys[base]}"
+            items.append({"key": key, "kind": "block", "page": None,
+                          "detail": f"{len(miss)} of {n} words in no run of words in the tree: \"{_snippet(miss, 14)}\""
+                                    f" in \"{_snippet(toks, 14)}\""})
+    pool = Counter(whole)
+    got = match(content_toks, pool, seq)
+    n_content = len(content_toks)
+    matched = sum(got)
+    share = (n_content - matched) / n_content if n_content else 0.0
+    if share > HTML_DOC_UNEXPLAINED:
+        lost = [t for t, g in zip(content_toks, got) if not g]
+        examples.append(_snippet(lost, 14))
+        items.append({"key": f"{sha8}:doc:text", "kind": "doc", "page": None,
+                      "detail": f"{share:.0%} of {n_content} words missing: \"{_snippet(lost, 14)}\""})
+
+    def novel(c: Counter) -> Counter:
+        return Counter({t: k for t, k in c.items() if t not in raw_set})
+
+    extra_pdf, extra_model = novel(pdf_t), novel(model_t)
+    text = {"raw_words": n_content + sum(explained.values()), "content_words": n_content, "matched": matched,
+            "unexplained": n_content - matched, "unexplained_share": share, "explained": dict(explained),
+            "coverage": matched / n_content if n_content else 1.0, "pages": [], "items": items, "examples": examples,
+            "facts": {}, "extra_pdf": sum(extra_pdf.values()), "extra_pdf_words": [t for t, _ in extra_pdf.most_common(8)],
+            "extra_model": sum(extra_model.values()), "extra_model_words": [t for t, _ in extra_model.most_common(8)],
+            "tree_words": sum(whole.values())}
+    return {"text": text, "images": _check_block_images(raw, tree, sha8), "tables": _check_block_tables(raw, tree, sha8, whole, seq)}
+
+
+def _check_block_images(raw: dict, tree: dict, sha8: str) -> dict:
+    figs = [Counter(t for t, _ in section_words(s)) for s in tree.get("sections") or [] if s.get("type") == "figure"]
+    issues = " ".join(str(i) for i in tree.get("issues") or [])
+    total, in_tree, explained, items, seen = 0, 0, Counter(), [], Counter()
+    for k, im in enumerate(raw["images"]):
+        total += 1
+        if im.get("reason"):
+            explained[im["reason"]] += 1
+            continue
+        alt = tokens(im.get("alt"))
+        if alt and any(not (Counter(alt) - f) for f in figs):
+            in_tree += 1
+            continue
+        if raw.get("kind") == "xml" and im.get("unit") and f"Figure inside {im['unit']}" in issues:
+            explained["named in a tree issue (picture not parsed)"] += 1
+            continue
+        name = (im.get("src") or "").rsplit("/", 1)[-1].split("?")[0][-80:] or f"{k}"
+        seen[name] += 1
+        key = f"{sha8}:image:{name}" + (f"#{seen[name]}" if seen[name] > 1 else "")
+        items.append({"key": key, "kind": "image", "page": None,
+                      "detail": f"image {name!r} alt \"{im.get('alt', '')[:80]}\" in no figure section"
+                                + (f" (in {im['unit']})" if im.get("unit") else "")})
+    return {"images": total, "in_crop": in_tree, "explained": dict(explained), "items": items}
+
+
+def _check_block_tables(raw: dict, tree: dict, sha8: str, whole: Counter, seq: list[str]) -> dict:
+    homes = [Counter(t for t, _ in section_words(s)) for s in tree.get("sections") or [] if s.get("type") == "table"]
+    total, found, explained, items = 0, 0, Counter(), []
+    for k, t in enumerate(raw["tables"]):
+        total += 1
+        if t.get("reason"):
+            explained[t["reason"]] += 1
+            continue
+        cell = [w for r in t["rows"] for c in r for w in tokens(c)]
+        if not cell:
+            explained["empty table"] += 1
+            continue
+        pools = [whole] if raw.get("kind") == "xml" else homes
+        share = max((sum(match(cell, Counter(p), seq)) / len(cell) for p in pools), default=0.0)
+        if share >= 0.9:
+            found += 1
+            continue
+        first = " | ".join(c for c in (t["rows"] or [[]])[0] if c)[:70]
+        where = "in the tree" if raw.get("kind") == "xml" else "in any one table section"
+        items.append({"key": f"{sha8}:table:{t.get('unit') or k}:{'-'.join(cell[:4])}", "kind": "table", "page": None,
+                      "table": "missing", "detail": f"{len(t['rows'])}-row table: {share:.0%} of its cell words {where}; "
+                                                    f"first row \"{first}\""})
+    return {"tables": total, "found": found, "explained": dict(explained), "items": items}
+
+
+READERS = {PDF: read_pdf_raw, HTML: read_html_raw, XML: read_xml_raw}
+CACHE_VERSIONS = {PDF: CACHE_VERSION, HTML: 3, XML: 4}  # bump one when its reader changes
+
+
+def cache_path(source_id: str, sha256: str, media_type: str = PDF) -> Path:
+    v = CACHE_VERSIONS.get(media_type, CACHE_VERSION)
+    kind = "" if media_type == PDF else {HTML: "html.", XML: "xml."}.get(media_type, "")
+    return CORPUS_DIR / "parsed" / source_id / "coverage-cache" / f"{sha256[:16]}.{kind}v{v}.json"
 
 
 def raw_doc(record: dict, use_cache: bool = True) -> dict:
     """The raw file's words, images and tables, from the cache when it holds this file (by SHA-256)."""
-    cp = cache_path(record["source_id"], record["sha256"])
+    cp = cache_path(record["source_id"], record["sha256"], record["media_type"])
+    version = CACHE_VERSIONS.get(record["media_type"], CACHE_VERSION)
     if use_cache and cp.exists():
         try:
             d = json.loads(cp.read_text(encoding="utf-8"))
-            if d.get("cache_version") == CACHE_VERSION and d.get("sha256") == record["sha256"]:
+            if d.get("cache_version") == version and d.get("sha256") == record["sha256"]:
                 return d
         except (json.JSONDecodeError, OSError):
             pass
     d = READERS[record["media_type"]](ROOT / record["raw_path"])
-    d.update(cache_version=CACHE_VERSION, sha256=record["sha256"])
+    d.update(cache_version=version, sha256=record["sha256"])
     cp.parent.mkdir(parents=True, exist_ok=True)
     cp.write_text(json.dumps(d, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     return d
@@ -267,13 +653,15 @@ def section_words(s: dict) -> list[tuple[str, str]]:
         prefix = hp[-1][: -len(title)]
         if len(tokens(prefix)) <= 3:
             add(prefix)
-    elif hp and not title and s.get("type") in ("figure", "table") and len(tokens(hp[-1])) <= 3:
+    elif hp and not title and s.get("type") in ("figure", "table", "schedule", "part", "chapter") \
+            and len(tokens(hp[-1])) <= 3:  # "Schedule 6" with no title (a repealed Schedule)
         add(hp[-1])
     add(title)
     if s.get("number") and not (hp and title and tokens(s["number"])[:1] and hp[-1].endswith(title)
                                 and set(tokens(s["number"])) <= set(tokens(hp[-1][: -len(title)]))):
         add(str(s["number"]))
     add(s.get("text"))
+    add(s.get("limits"))  # a Schedule 1 requirement's limits on application (parse_legislation)
     for f in s.get("footnotes") or []:
         add(f.get("text") if isinstance(f, dict) else f)
     for x in s.get("labels") or []:
@@ -895,7 +1283,7 @@ def check_tables(raw: dict, tree: dict, text: dict, sha8: str) -> dict:
 # ---------------------------------------------------------------- versions in scope, accepted items, report
 
 def versions_in_scope(source_ids: list[str] | None = None) -> list[tuple[dict, Path]]:
-    """(version record, tree path) for every current version whose raw file is a PDF and whose tree is parsed."""
+    """(version record, tree path) for every current version with a reader for its file type and a parsed tree."""
     out = []
     parsed = CORPUS_DIR / "parsed"
     ids = source_ids or sorted(p.name for p in parsed.iterdir() if p.is_dir()) if parsed.exists() else []
@@ -927,6 +1315,14 @@ def load_accepted(source_id: str) -> dict:
 def check_version(rec: dict, tree: dict, raw: dict | None = None) -> dict:
     raw = raw if raw is not None else raw_doc(rec)
     sha8 = rec["sha256"][:8]
+    if raw.get("kind") in ("html", "xml"):
+        r = check_blocks(raw, tree, sha8)
+        items = r["text"]["items"] + r["images"]["items"] + r["tables"]["items"]
+        if not tree.get("sections") and r["text"]["content_words"]:
+            items.insert(0, {"key": f"{sha8}:doc:empty", "kind": "empty", "page": None,
+                             "detail": f"the tree has no sections; the file has {r['text']['content_words']} words"})
+        return {"source_id": rec["source_id"], "version_id": rec["version_id"], "parser": tree.get("parser"),
+                "pages": 0, "blocks": len(raw["blocks"]), **r, "items": items}
     text = check_text(raw, tree, sha8)
     images = check_images(raw, tree, text, sha8)
     tables = check_tables(raw, tree, text, sha8)
@@ -951,7 +1347,7 @@ def check_source(source_id: str, versions: list[tuple[dict, Path]]) -> list[dict
 
 def fill_caches(versions: list[tuple[dict, Path]], workers: int = 3) -> None:
     todo = [rec for rec, _ in versions
-            if not (cache_path(rec["source_id"], rec["sha256"]).exists() and (ROOT / rec["raw_path"]).exists())]
+            if not (cache_path(rec["source_id"], rec["sha256"], rec["media_type"]).exists() and (ROOT / rec["raw_path"]).exists())]
     todo = [r for r in todo if (ROOT / r["raw_path"]).exists()]
     if not todo:
         return

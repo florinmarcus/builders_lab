@@ -90,34 +90,87 @@ def requirement_tables(body) -> bool:
 def table_rows(tab) -> list[str]:
     """A table as text lines, cells joined by ' | ' (header row included)."""
     rows = []
-    for tr in tab.iter(f"{X}tr"):
-        cells = [inline(c) for c in tr if c.tag in (f"{X}td", f"{X}th")]
+    for tr in tab.iter(f"{X}tr"):  # a cell's paragraphs are parted by a space ("Column 1" "Type of work", S106)
+        cells = [" ".join(t for t, _ in cell_paragraphs(c)) for c in tr if c.tag in (f"{X}td", f"{X}th")]
         if any(cells):
             rows.append(" | ".join(cells))
     return rows
 
 
-def lines(e) -> list[str]:
-    """Block text of a provision as numbered lines: '(1) ...', '(a) ...'."""
+MATH = "{http://www.w3.org/1998/Math/MathML}"
+
+
+def math_text(e) -> str:
+    """A MathML formula as one line of text: 'A ( 8 ) = a_{h v} √(( T ) / ( T_{0} ))'. Every identifier, number
+    and operator stays a word of its own, as legislation.gov.uk prints them."""
+    name = e.tag[len(MATH):] if isinstance(e.tag, str) and e.tag.startswith(MATH) else ""
+    if name in ("mi", "mn", "mo", "mtext", "ms"):
+        return " ".join((e.text or "").split())
+    kids = [k for k in (math_text(c) for c in e if isinstance(c.tag, str)) if k]
+    if name == "mfrac" and len(kids) == 2:
+        return f"( {kids[0]} ) / ( {kids[1]} )"
+    if name == "msqrt":
+        return f"√( {' '.join(kids)} )"
+    if name == "mroot" and len(kids) == 2:
+        return f"root {kids[1]} of ( {kids[0]} )"
+    if name == "msub" and len(kids) == 2:
+        return f"{kids[0]}_{{{kids[1]}}}"
+    if name == "msup" and len(kids) == 2:
+        return f"{kids[0]}^{{{kids[1]}}}"
+    if name in ("msubsup", "munderover") and len(kids) == 3:
+        return f"{kids[0]}_{{{kids[1]}}}^{{{kids[2]}}}"
+    return " ".join(kids)
+
+
+def table_text(tab, title: bool = True) -> list[str]:
+    """A table inside a provision: its title ("Table 1"), its caption text (TableText) and its rows."""
+    out = []
+    t = tab.find(f"{L}Title")
+    if title and t is not None and inline(t):
+        out.append(inline(t))
+    for tt in tab.findall(f"{L}TableText"):
+        out.extend(x for x in (inline(p) for p in tt.iter(f"{L}Text")) if x)
+    return out + table_rows(tab)
+
+
+def lines(e, quoted: bool = False) -> list[str]:
+    """Block text of a provision as numbered lines: '(1) ...', '(a) ...'. Inside a BlockAmendment (text inserted
+    into another law) the quoted provisions' titles and numbers are part of the text: '30C (1) This section ...'
+    (S106: they were dropped). A Formula is a line of its own (math_text), then its 'where' list."""
     out: list[str] = []
     for c in e:
         t = tag(c)
         if t in ("Pnumber", "Title", "Number", "TitleBlock", "Reference"):
+            if quoted and t != "Pnumber":
+                s = inline(c)
+                if s:
+                    out.append(s)
             continue
         if t == "Text":
             s = inline(c)
             if s:
                 out.append(s)
         elif t == "Tabular":  # e.g. the HHSRS hazard bands in a regulation
-            out.extend(table_rows(c))
+            out.extend(table_text(c))
+        elif t == "Formula":
+            m = c.find(f"{MATH}math")
+            if m is not None and math_text(m):
+                out.append(math_text(m))
+            out.extend(lines(c, quoted))
         elif c.tag in P_LEVELS:
             num = c.find(f"{L}Pnumber")
-            sub = lines(c)
+            sub = lines(c, quoted)
             if num is not None and sub:
                 sub[0] = f"({inline(num)}) {sub[0]}"
             out.extend(sub)
+        elif t == "P1" and quoted:
+            num = c.find(f"{L}Pnumber")
+            sub = lines(c, quoted)
+            if num is not None and sub and inline(num):
+                sub[0] = f"{inline(num)} {sub[0]}"
+            out.extend(sub)
         elif isinstance(c.tag, str):
-            out.extend(lines(c))
+            out.extend(lines(c, quoted or t == "BlockAmendment"))
     return out
 
 
@@ -245,15 +298,19 @@ class Parser:
             number = raw_num or None
             head = heading(None, sentence(raw_num) if raw_num else None, title)
         sid = e.get("id") or f"{parent['id'] if parent else 'body'}-{kind}-{slugify(title or number or '')}"
+        ref = e.find(f"{L}Reference")  # "Regulation 12(7)" printed under a Schedule's title (S106: it was dropped)
         return self.add({
             "id": sid, "parent_id": parent["id"] if parent else None, "type": kind, "number": number, "title": title,
             "heading_path": [*path, head], "applies_to": extent(e), "status": status(e),
-            "text": "", "amendments": self.amendments_own(e), "references": [], "url": e.get("DocumentURI"),
+            "text": inline(ref) if ref is not None else "", "amendments": self.amendments_own(e), "references": [],
+            "url": e.get("DocumentURI"),
         })
 
     def provision(self, holder, parent: dict, path: list[str], kind: str = "regulation", suffix: str = "",
-                  applies_to: str | None = None) -> dict | None:
-        """A regulation (P1group/P1 in the Body) or a Schedule paragraph, with its numbered paragraphs."""
+                  applies_to: str | None = None, group_title: str | None = None, group=None) -> dict | None:
+        """A regulation (P1group/P1 in the Body) or a Schedule paragraph, with its numbered paragraphs. A P1group
+        that holds several P1 (a cross-heading over paragraphs 15 and 16) is split by walk(): each P1 comes here
+        on its own, with the group's title."""
         p1 = holder if holder.tag in (f"{L}P1", f"{L}P") else holder.find(f"{L}P1")
         if p1 is None:
             p1 = holder.find(f"{L}P")  # "wrapper" paragraphs: a P1group holding an unnumbered P
@@ -263,19 +320,29 @@ class Parser:
             self.issues.append(f"{tag(holder)} without P1 under {parent['id'] if parent else 'top level'}")
             return None
         title_el = holder.find(f"{L}Title") if holder is not p1 else None
-        title = inline(title_el) if title_el is not None else None
+        title = inline(title_el) if title_el is not None else group_title
         num_el = p1.find(f"{L}Pnumber")
         number = inline(num_el) if num_el is not None else ""
         sid = (p1.get("id") or f"{parent['id'] if parent else 'body'}-{number}") + suffix  # amending SIs: no Part above
         label = ("Section" if sid.startswith("section-") else "Regulation") if kind == "regulation" else "Paragraph"  # Acts have sections
         hp = [*path, heading(label, number, title)]
         st = status(p1)
+        text = lines(p1)
+        more = [x for x in holder.findall(f"{L}P") if x is not p1] if p1.tag == f"{L}P" and holder is not p1 else []
+        for x in more:  # wrapper paragraphs: a P1group of several unnumbered P (S106: only the first was kept)
+            text.extend(lines(x))
         reg = self.add({
             "id": sid, "parent_id": parent["id"] if parent else None, "type": kind, "number": number, "title": title,
             "heading_path": hp, "applies_to": applies_to or extent(p1), "status": st,
-            "text": "\n".join(lines(p1)), "amendments": self.amendments(holder), "references": self.references(p1),
+            "text": "\n".join(text), "amendments": self.amendments(holder), "references": self.references(p1),
             "url": p1.get("DocumentURI"),
         })
+        if group is not None:  # notes on the shared cross-heading belong to each paragraph under it
+            reg["amendments"] += [a for a in self.amendments_own(group) if a not in reg["amendments"]]
+        for x in more:
+            for ref in self.references(x):
+                if ref not in reg["references"]:
+                    reg["references"].append(ref)
         for para_block in p1.findall(f"{L}P1para"):
             for p2 in para_block.findall(f"{L}P2"):
                 num = p2.find(f"{L}Pnumber")
@@ -294,6 +361,9 @@ class Parser:
                     self.table(odd, reg, hp)
                 elif tag(odd) == "Figure":
                     self.issues.append(f"Figure inside {sid}: not parsed yet")
+        for fig in p1:  # a picture beside the paragraphs (noise2005's formulas are images): named too (S106)
+            if tag(fig) == "Figure":
+                self.issues.append(f"Figure inside {sid}: not parsed yet")
         self.collect_definitions(p1, sid)
         for x in (holder, p1):
             for v in (x.get("AltVersionRefs") or "").split():
@@ -306,6 +376,11 @@ class Parser:
             if t in ("Part", "Chapter", "Pblock"):
                 s = self.container(c, {"Part": "part", "Chapter": "chapter", "Pblock": "block"}[t], parent, path)
                 self.walk(c, s, s["heading_path"], in_schedule)
+            elif t == "P1group" and len(c.findall(f"{L}P1")) > 1:
+                title_el = c.find(f"{L}Title")
+                for p1 in c.findall(f"{L}P1"):
+                    self.provision(p1, parent, path, "schedule-paragraph" if in_schedule else "regulation",
+                                   group_title=inline(title_el) if title_el is not None else None, group=c)
             elif t in ("P1group", "P1"):
                 self.provision(c, parent, path, "schedule-paragraph" if in_schedule else "regulation")
             elif t == "Schedule":
@@ -329,7 +404,7 @@ class Parser:
         """A table in a Schedule other than Schedule 1: rows as text, cells joined by ' | '."""
         title_el = tab.find(f"{L}Title")
         title = inline(title_el) if title_el is not None else None
-        rows = table_rows(tab)
+        rows = table_text(tab, title=False)
         pid = parent["id"] if parent else None
         n = 1 + sum(1 for s in self.sections if s["parent_id"] == pid and s["type"] == "table")
         self.add({
@@ -364,6 +439,7 @@ class Parser:
         cur: dict | None = None
         pending: str | None = None
         loose: list[str] = []
+        loose_limits: list[str] = []
         for tr in tab.iter(f"{X}tr"):
             col = 0
             for cell in tr:
@@ -371,6 +447,7 @@ class Parser:
                     continue
                 span = int(cell.get("colspan") or 1)
                 is_th = cell.tag == f"{X}th"
+                started = False  # this cell starts a requirement: its later paragraphs are that requirement's text
                 for text, bold in cell_paragraphs(cell):
                     m = CODE_RE.match(text)
                     if is_th and text in HEADER_CELLS:
@@ -379,9 +456,12 @@ class Parser:
                         cur = {"code": m.group(1) + (m.group(2) or ""), "title": pending, "text": [text],
                                "limits": [], "els": [cell]}
                         pending = None
+                        started = True
                         reqs.append(cur)
                     elif not title and re.match(r"^PART\s+[A-Z]+\b", text):
                         title = text
+                    elif started and not bold:  # RA1 is a header cell of 15 paragraphs: (a) to (d) were lost (S106)
+                        cur["text"].append(text)
                     elif bold or (is_th and col == 0):
                         pending = text
                     elif col == 0:
@@ -393,11 +473,13 @@ class Parser:
                     elif cur is not None:
                         cur["limits"].append(text)
                         cur["els"].append(cell)
+                    else:  # limits beside a requirement whose code is not printed (Part T): kept with it (S106)
+                        loose_limits.append(text)
                 col += span
         m = re.match(r"^PART\s+([A-Z]+)\s*(.*)$", title, flags=re.I)
         letter, ptitle = (m.group(1).upper(), m.group(2)) if m else ("?", title)
         if not reqs and loose:
-            reqs.append({"code": None, "title": pending, "text": loose, "limits": [], "els": [tab]})
+            reqs.append({"code": None, "title": pending, "text": loose, "limits": loose_limits, "els": [tab]})
         return {"el": tab, "letter": letter, "title": sentence(ptitle) if ptitle else None, "reqs": reqs,
                 "notes": self.amendments(tab), "key": content_key(inline(tab))}
 

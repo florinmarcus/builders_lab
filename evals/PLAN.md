@@ -46,11 +46,11 @@ Grey: not started. Each parser's own diagram is in
 ```mermaid
 flowchart LR
     subgraph parse["1. Parse: one parser per document family"]
-        leg["Legislation XML<br/>parse_legislation"]:::done
+        leg["Legislation XML, 47 trees<br/>parse_legislation<br/>coverage: 0 open"]:::done
         adoc["Approved Documents PDF<br/>parse_adoc<br/>clean: 413 crops ok, 0 checks open"]:::done
         hse["HSE and other guidance PDFs, 62 sources<br/>parse_pdf<br/>clean: 1309 crops ok, 0 checks open"]:::done
         guide["Fire safety collection, 18 PDFs<br/>parse_guide (13), parse_flats (1),<br/>parse_booklet (4)<br/>clean: 813 crops ok, 0 checks open"]:::done
-        html["GOV.UK and HSE web pages, 75<br/>parse_html<br/>next after the PDFs: 29 HSE first"]:::todo
+        html["GOV.UK and HSE web pages,<br/>56 sources, 111 pages<br/>parse_html<br/>coverage: 0 open, 0 checks"]:::done
     end
     crop["Crop check<br/>Sonnet: crop next to its page,<br/>box in red; 0 bad"]:::wip
     mc["Model checks<br/>Sonnet packets: tables and<br/>figure descriptions; 0 open"]:::wip
@@ -107,8 +107,12 @@ against our 0.94. Report: [experiments/X-external-mcp.md](experiments/X-external
 document is clean: legislation, every PDF and every web page. Web pages had been left out under "PDFs first", but
 166 of the 342 golden questions expect one (36 an HSE page). Order:
 1. ~~Generic guidance PDFs: last bad crops (S98), then their model checks.~~ Done 22 Nov: 0 bad crops, 0 checks open.
-2. Web pages (`parse_html`), 75 sources: the 29 HSE pages first, then GOV.UK (Awaab's Law, CIS 340, VAT Notice
-   708, fire doors ...). Same runbook: structure fixed in code with a test, model checks, review sheet, commit.
+2. ~~Web pages (`parse_html`)~~ Done 22 Nov: 56 sources (111 pages, HSE 19 first). The coverage check now reads web
+   pages and legislation XML (S106): 0 open items in every PDF, web page and XML tree. Parser fixes with tests:
+   parse_html (headings lost to substring furniture marks, group labels, pagination, stray list text) and
+   parse_legislation (195 paragraphs lost in multi-paragraph cross-headings, quoted titles, formulas, table
+   captions, Schedule 1 header cells and limits). Web pages have no model checks or crops; 38 pictures with no alt
+   text are kept out with a reason (S121).
 3. Traceable and repeatable parsing (below).
 
 **Then (Florin, 22 Nov): make parsing traceable and repeatable.**

@@ -256,3 +256,56 @@ def test_pages_of_a_multi_page_source_get_their_page_in_every_id():
     assert [s["id"] for s in multi["sections"]] == ["vatrevcon05000-" + s["id"] for s in plain["sections"]]
     ids = {s["id"] for s in multi["sections"]}
     assert all(s["parent_id"] is None or s["parent_id"] in ids for s in multi["sections"])
+
+
+# ---------------------------------------------------------------- S106: losses the coverage check found
+
+def test_furniture_marks_match_whole_name_parts_not_substrings():
+    """A heading id is a slug of its text: "searching-for-opportunities" holds "search" and "declare-and-share"
+    holds "share", and both headings (with their chapter) were dropped as page furniture."""
+    tree = parse_html(govuk(
+        '<h2 id="searching-for-opportunities">Searching for opportunities</h2><p>Use the search tools.</p>'
+        '<h2 id="declare-and-share">Declare and Share</h2><p>You are now bid ready.</p>'
+        '<div class="hse-back-to-top__container"><a>Back to top</a></div><p class="research-note">Kept.</p>'), META)
+    s = by_id(tree)
+    assert s["searching-for-opportunities"]["type"] == "chapter"
+    assert s["searching-for-opportunities-text-1"]["text"] == "Use the search tools."
+    assert s["declare-and-share-text-1"]["text"] == "You are now bid ready.\nKept."
+    assert "Back to top" not in json.dumps(tree["sections"])
+
+
+def test_hse_next_page_links_and_printable_version_are_dropped():
+    tree = parse_html(govuk(
+        '<h2 id="v">Video</h2><p>The following video sets out the steps.</p>'
+        '<div id="pagination" role="navigation"><ul><li class="next-page"><a><span class="pagination-icon">Next'
+        '<span class="hide">page</span></span> <span class="pagination-text">Check your duty</span></a></li></ul></div>'
+        '<div role="note" class="printable-version"><p><a>View a printable version of the whole guide</a></p></div>'),
+        META)
+    assert by_id(tree)["video-text-1"]["text"] == "The following video sets out the steps."
+
+
+def test_text_left_inside_a_list_joins_the_item_before_it():
+    """HSE wood dust: "<li>... over a representative time</li> period</ul>" lost "period"."""
+    tree = parse_html(govuk('<h2 id="h">Health</h2><ul><li>Lead in<ul><li>over a representative time</li> period'
+                            '</ul></li><li>next</li></ul>'), META)
+    assert by_id(tree)["health-text-1"]["text"].split("\n") == ["• Lead in", "  • over a representative time period",
+                                                          "• next"]
+
+
+def test_a_group_label_heading_holds_the_next_heading_and_ids_stay():
+    """AD B FAQ: an h3 topic label with an h3 question straight after it. The label was dropped as an empty
+    heading; now it holds the question (one level down). The question keeps its id (evals point to it), and the
+    next question after it is not moved: the page does not say where the group ends."""
+    html = govuk('<h2 id="scope">The scope</h2><h3 id="named">Named standards</h3>'
+                 '<h3 id="q25">25. Should I use the newer version?</h3><p>Answer 25.</p><h4>Note</h4><p>A note.</p>'
+                 '<h3 id="q26">26. Another question?</h3><p>Answer 26.</p>')
+    s = by_id(parse_html(html, META))
+    label, q25, q26 = (s["the-scope-named-standards"], s["the-scope-25-should-i-use-the-newer-version"],
+                       s["the-scope-26-another-question"])
+    assert label["type"] == "heading" and label["parent_id"] == "the-scope" and label["level"] == 3
+    assert q25["parent_id"] == label["id"] and q25["level"] == 4
+    assert q25["heading_path"] == ["Demo guide", "The scope", "Named standards", "25. Should I use the newer version?"]
+    assert s["the-scope-25-should-i-use-the-newer-version-note"]["level"] == 5
+    assert s["the-scope-25-should-i-use-the-newer-version-note-text-1"]["text"] == "A note."
+    assert q26["parent_id"] == "the-scope" and q26["level"] == 3
+    assert s["the-scope-26-another-question-text-1"]["text"] == "Answer 26."

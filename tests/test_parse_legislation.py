@@ -333,8 +333,8 @@ def table_tree():
 
 def test_table_inside_a_regulation_is_text_and_a_table_section(table_tree):
     reg = sec(table_tree, "regulation-7")
-    assert reg["text"] == ("The hazard band is given by the following table—\nScore | Band\n5,000 or more | A\n"
-                           "2,000 to 4,999 | B\nBands A to C are category 1 hazards.")
+    assert reg["text"] == ("The hazard band is given by the following table—\nHazard bands\nScore | Band\n"
+                           "5,000 or more | A\n2,000 to 4,999 | B\nBands A to C are category 1 hazards.")  # title: S106
     tables = [s for s in table_tree["sections"] if s["type"] == "table" and s["parent_id"] == "regulation-7"]
     assert len(tables) == 1 and tables[0]["title"] == "Hazard bands"
     assert tables[0]["text"].splitlines()[1] == "5,000 or more | A"
@@ -351,3 +351,121 @@ def test_a_schedule_1_that_is_not_a_requirements_table_is_an_ordinary_table(tabl
     assert not [s for s in table_tree["sections"] if s["type"] in ("requirement", "schedule-part")]
     t = [s for s in table_tree["sections"] if s["type"] == "table" and s["parent_id"] == "schedule-1"]
     assert len(t) == 1 and "1961 c. 34 | The Demo Factories Act 1961" in t[0]["text"]
+
+
+# ---------------------------------------------------------------- S106: losses the coverage check found
+# Hand-made XML in the legislation.gov.uk shape (mock text, not real law).
+
+NS_DECL = ('xmlns="http://www.legislation.gov.uk/namespaces/legislation" '
+           'xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:math="http://www.w3.org/1998/Math/MathML"')
+
+
+def leg(body: str, schedules: str = "") -> dict:
+    xml = (f'<Legislation {NS_DECL}><Secondary><Body>{body}</Body>'
+           + (f"<Schedules><Title>SCHEDULES</Title>{schedules}</Schedules>" if schedules else "")
+           + "</Secondary></Legislation>")
+    return parse_legislation(xml.encode(), META)
+
+
+def by(tree: dict) -> dict:
+    return {s["id"]: s for s in tree["sections"]}
+
+
+def test_a_cross_heading_over_two_paragraphs_gives_two_provisions():
+    """Procurement Act Schedule 10: one P1group (cross-heading) held paragraphs 15 and 16; only 15 was kept."""
+    s = by(leg('<P1group><Title>Qualifying sub-contracts</Title>'
+               '<P1 id="regulation-15"><Pnumber>15</Pnumber><P1para><Text>Section 29 is amended.</Text></P1para></P1>'
+               '<P1 id="regulation-16"><Pnumber>16</Pnumber><P1para><Text>In section 30—</Text>'
+               '<P3 id="regulation-16-a"><Pnumber>a</Pnumber><P3para><Text>after “for the” insert '
+               '<InlineAmendment>“primary contractor or”</InlineAmendment>;</Text></P3para></P3></P1para></P1>'
+               '</P1group>'))
+    assert s["regulation-15"]["title"] == s["regulation-16"]["title"] == "Qualifying sub-contracts"
+    assert s["regulation-16"]["text"] == "In section 30—\n(a) after “for the” insert “primary contractor or”;"
+
+
+def test_wrapper_paragraphs_after_the_first_are_kept():
+    """Vibration Regulations Schedule 1: a P1group of several unnumbered P; only the first was kept."""
+    s = by(leg('<P1group><Title>Daily exposure</Title><P id="schedule-1-paragraph-1n1"><Text>First.</Text></P>'
+               '<P><Text>Second.</Text></P><P><Text>Third.</Text></P></P1group>'))
+    assert s["schedule-1-paragraph-1n1"]["text"] == "First.\nSecond.\nThird."
+
+
+def test_quoted_provisions_keep_their_titles_and_numbers():
+    """An amending Act inserts whole sections: "30C Implied terms ... (1) This section applies"."""
+    s = by(leg('<P1group><Title>Implied terms</Title><P1 id="section-1"><Pnumber>1</Pnumber><P1para>'
+               '<Text>After section 30B insert—</Text><BlockAmendment><P1group><Title>Implied terms relating to '
+               'building safety</Title><P1><Pnumber>30C</Pnumber><P1para><P2><Pnumber>1</Pnumber><P2para>'
+               '<Text>This section applies to a lease.</Text></P2para></P2></P1para></P1></P1group>'
+               '</BlockAmendment></P1para></P1></P1group>'))
+    assert s["section-1"]["text"] == ("After section 30B insert—\nImplied terms relating to building safety\n"
+                                      "30C (1) This section applies to a lease.")
+
+
+def test_a_schedule_keeps_the_reference_under_its_title():
+    s = by(leg("", '<Schedule id="schedule-7"><Number>SCHEDULE 7</Number><TitleBlock><Title>Particulars</Title>'
+                   '</TitleBlock><Reference>Regulation 12(7)</Reference><ScheduleBody><P1group><Title>One</Title>'
+                   '<P1 id="schedule-7-paragraph-1"><Pnumber>1</Pnumber><P1para><Text>Name.</Text></P1para></P1>'
+                   '</P1group></ScheduleBody></Schedule>'))
+    assert s["schedule-7"]["text"] == "Regulation 12(7)" and s["schedule-7"]["title"] == "Particulars"
+
+
+def test_a_formula_is_a_line_of_text_before_its_where_list():
+    from system.rag.parse_legislation import math_text
+    from lxml import etree
+
+    s = by(leg('<P1group><Title>Exposure</Title><P1 id="regulation-1"><Pnumber>1</Pnumber><P1para><Text>Use the '
+               'formula:</Text><Formula><math:math><math:mi>A</math:mi><math:mo>=</math:mo><math:msub><math:mi>a'
+               '</math:mi><math:mi>hv</math:mi></math:msub><math:msqrt><math:mfrac><math:mi>T</math:mi><math:msub>'
+               '<math:mi>T</math:mi><math:mn>0</math:mn></math:msub></math:mfrac></math:msqrt></math:math><Where>'
+               '<Para><Text>where T is the time.</Text></Para></Where></Formula></P1para></P1></P1group>'))
+    assert s["regulation-1"]["text"] == "Use the formula:\nA = a_{hv} √( ( T ) / ( T_{0} ) )\nwhere T is the time."
+    m = etree.fromstring('<math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>m</mi><mn>2</mn></msup></math>')
+    assert math_text(m) == "m^{2}"
+
+
+def test_table_cells_part_their_paragraphs_and_keep_title_and_caption():
+    """CIS regulations Table 1: "Column 1" and "Type of work" ran together ("1Type"), and the table's title and
+    caption text were dropped."""
+    s = by(leg('<P1group><Title>Recovery</Title><P1 id="regulation-16"><Pnumber>16</Pnumber><P1para><Text>As shown '
+               'in Table 1.</Text><Tabular><Title>Table 1</Title><TableText><Para><Text>Period for proceedings</Text>'
+               '</Para></TableText><xhtml:table><xhtml:tbody><xhtml:tr><xhtml:th><Para><Text>Column 1</Text></Para>'
+               '<Para><Text>Type of work</Text></Para></xhtml:th><xhtml:th>Period</xhtml:th></xhtml:tr><xhtml:tr>'
+               '<xhtml:td>Regulation 12(2)</xhtml:td><xhtml:td>12 months</xhtml:td></xhtml:tr></xhtml:tbody>'
+               '</xhtml:table></Tabular></P1para></P1></P1group>'))
+    assert s["regulation-16"]["text"] == ("As shown in Table 1.\nTable 1\nPeriod for proceedings\n"
+                                          "Column 1 Type of work | Period\nRegulation 12(2) | 12 months")
+    t = s["regulation-16-table-1"]
+    assert t["title"] == "Table 1" and t["text"].split("\n")[0] == "Period for proceedings"
+
+
+def test_a_picture_beside_the_paragraphs_is_named_in_an_issue():
+    tree = leg('<P1group><Title>Noise</Title><P1 id="regulation-1"><Pnumber>1</Pnumber><P1para><Text>Use the formula:'
+               '</Text></P1para><Figure><Image ResourceRef="r00001"/></Figure></P1></P1group>')
+    assert "Figure inside regulation-1: not parsed yet" in tree["issues"]
+
+
+REQ_TABLE = ('<Schedule id="schedule-1"><Number>SCHEDULE 1</Number><TitleBlock><Title>Requirements</Title></TitleBlock>'
+             '<ScheduleBody>{}</ScheduleBody></Schedule>')
+
+
+def test_a_requirement_header_cell_keeps_all_its_paragraphs():
+    """Building Regulations RA1 is one header cell of 15 paragraphs; (a) to (d) were read as headings and lost."""
+    tab = ('<Tabular><Title>PART R INFRASTRUCTURE</Title><xhtml:table><xhtml:tbody><xhtml:tr><xhtml:th>'
+           '<Para><Text><Strong>RA1.</Strong>—(1) Work must reach—</Text></Para><Para><Text>(a) a distribution point, '
+           'or</Text></Para><Para><Text>(b) an access point.</Text></Para></xhtml:th><xhtml:th/></xhtml:tr>'
+           '</xhtml:tbody></xhtml:table></Tabular>')
+    s = by(leg("", REQ_TABLE.format(tab)))
+    assert s["schedule-1-RA1"]["text"] == "RA1.—(1) Work must reach—\n(a) a distribution point, or\n(b) an access point."
+
+
+def test_limits_beside_a_requirement_with_no_printed_code_are_kept():
+    """Part T prints no code (a saved model fix gives T1); its limits column was dropped."""
+    tab = ('<Tabular><Title>PART T TOILETS</Title><xhtml:table><xhtml:tbody><xhtml:tr><xhtml:th>Requirement</xhtml:th>'
+           '<xhtml:th>Limits on application</xhtml:th></xhtml:tr><xhtml:tr><xhtml:td><P><Text>Toilets must be '
+           'provided.</Text></P></xhtml:td><xhtml:td><P><Text>Requirement T1 does not apply to—</Text><P3>'
+           '<Pnumber>a</Pnumber><P3para><Text>schools.</Text></P3para></P3></P></xhtml:td></xhtml:tr></xhtml:tbody>'
+           '</xhtml:table></Tabular>')
+    s = by(leg("", REQ_TABLE.format(tab)))
+    (req,) = [x for x in s.values() if x["type"] == "requirement"]
+    assert req["text"] == "Toilets must be provided."
+    assert req["limits"] == "Requirement T1 does not apply to—\nschools."
