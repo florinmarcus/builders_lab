@@ -13,7 +13,7 @@ flowchart LR
     src["Source sites<br/>legislation.gov.uk,<br/>GOV.UK, HSE"] --> harvest["harvest.py<br/>versions by hash"]
     harvest --> raw[("corpus/raw<br/>+ S3 eu-west-2")]
     harvest --> rec["corpus/versions<br/>records (git)"]
-    raw --> lib["Parser: library pass<br/>lxml for XML and HTML,<br/>pdfplumber (parse_pdf,<br/>parse_guide, parse_adoc)"]
+    raw --> lib["Parser: library pass<br/>lxml for XML and HTML,<br/>pdfplumber (parse_pdf,<br/>parse_guide, parse_flats,<br/>parse_booklet, parse_adoc)"]
     lib -.-> chk["Model check<br/>(Claude Code)<br/>tables, diagrams,<br/>unclear cases"]
     fixes[("Saved fixes (git)<br/>by content fingerprint")] -.-> chk
     chk -.-> fixes
@@ -70,6 +70,28 @@ flowchart TB
 
 Known source quirks are listed as tree issues (a figure or table number printed twice, a heading printed without
 its number). Shortcuts: parking lot S90 to S92.
+
+### Purpose-built flats guide and Home Office booklets (parse_flats, parse_booklet, built 22 Nov 2026)
+
+The other five PDFs of `fso-guidance-collection` have two more layouts, so each has its own parser
+(`sources.yaml` `parser.files`). Both reuse GuideBuilder's helpers (drawn objects, ruled tables, sections) and
+parse_pdf's reading and rendering; their own passes leave parse_guide's output unchanged.
+
+```mermaid
+flowchart TB
+    pdf["read_pdf (shared, as parse_guide)"] --> kind{"Layout"}
+    kind -->|"Fire safety in purpose-built<br/>blocks of flats (193 pages)"| fl["parse_flats: drop footer,<br/>put drawn bullets back,<br/>frames with a bold lead = boxes"]
+    kind -->|"4 booklets 2023-2024<br/>(two columns)"| bk["parse_booklet: drop running header,<br/>callouts = boxes, form answer<br/>boxes dropped, two-column order"]
+    fl --> figs["Figures: bold caption ABOVE,<br/>picture in its column, grown from<br/>what is drawn nearest the caption;<br/>a key across two pictures goes to both"]
+    bk --> figs
+    figs --> pics["Pictures without caption: what is<br/>drawn close together (photos 2pt,<br/>drawings 4pt); booklet drawings take<br/>in their small-print labels and keys"]
+    pics --> blank["drop_blank_pictures: an image<br/>that renders as one flat colour"]
+    fl --> tree1["Part › 41. Introduction › sub-heading ›<br/>one paragraph per numbered paragraph<br/>(41.1, A1.49), run on across boxes,<br/>figures and pages; Key points box;<br/>glossary = 55 definitions"]
+    bk --> tree2["Chapter › 16pt heading › 15pt › bold 12pt ›<br/>paragraph; ids &lt;booklet&gt;:&lt;local id&gt;"]
+```
+
+Printing gaps (paragraphs 71.6, 82.2, 83.3 not printed; 79.9 to 79.11 blacked out; "1.62" for A1.62) are tree
+issues and listed in `corpus/README.md`. Shortcuts: parking lot S93 to S95.
 
 ### The model-check step (built 20 Nov 2026)
 

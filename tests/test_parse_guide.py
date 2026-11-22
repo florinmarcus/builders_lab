@@ -336,7 +336,22 @@ def test_real_means_of_escape_for_disabled_people(disabled):
     assert not disabled["issues"]
 
 
+def _other_tree(module, prefix):
+    """A tree of another fso-guidance-collection file (parse_flats, parse_booklet), for the id test."""
+    pytest.importorskip("pdfplumber")
+    src = next(s for s in load_sources()["sources"] if s["id"] == SOURCE)
+    rec = next((r for r in G.records(SOURCE, src, module.MODULE) if r["version_id"].startswith(prefix)), None)
+    if rec is None or not (ROOT / rec["raw_path"]).exists():
+        pytest.skip(f"{prefix} raw file not on this machine")
+    return module.build_tree(G.read_guide(ROOT / rec["raw_path"]), {**rec, "title": rec["part_title"]})
+
+
 def test_real_ids_are_unique_across_the_guides(offices, animal, disabled):
-    ids = [s["id"] for t in (offices, animal, disabled) for s in t["sections"]]
+    from system.rag import parse_booklet, parse_flats
+
+    others = [_other_tree(parse_flats, "fire-safety-in-purpose-built-blocks-of-flats--")] + [
+        _other_tree(parse_booklet, p) for p in parse_booklet.SLUGS]
+    ids = [s["id"] for t in (offices, animal, disabled, *others) for s in t["sections"]]
     assert len(ids) == len(set(ids))
+    assert len({i.split(":")[0] for i in ids}) == 8  # one prefix per file
     assert json.loads(json.dumps(offices))["sections"]

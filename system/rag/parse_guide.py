@@ -986,11 +986,11 @@ def read_guide(path) -> dict:
 
 # ---------------------------------------------------------------- command line
 
-def records(source_id: str, src: dict | None) -> list[dict]:
-    """Current PDF versions of the source that sources.yaml sends to this parser."""
+def records(source_id: str, src: dict | None, module: str = MODULE) -> list[dict]:
+    """Current PDF versions of the source that sources.yaml sends to this parser (or to another module)."""
     recs = [json.loads(p.read_text(encoding="utf-8")) for p in (CORPUS_DIR / "versions" / source_id).glob("*.json")]
     return sorted((r for r in recs if r["valid_to"] is None and r["media_type"] == "application/pdf"
-                   and src and parser_for(src, r["version_id"]) == MODULE), key=lambda r: r["version_id"])
+                   and src and parser_for(src, r["version_id"]) == module), key=lambda r: r["version_id"])
 
 
 def main(argv: list[str] | None = None) -> int:

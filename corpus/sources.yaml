@@ -993,8 +993,9 @@ sources:
   status: current
   notes: Collection of 22 items; body only stores the index. Add the small blocks, 5-step checklist and sleeping accommodation items as their own entries.
   checked: 2026-11-19
-  # The Home Office fire risk assessment guides (2006 series, one template) go to parse_guide; the rest stay
-  # with parse_pdf. Prefixes of version ids (corpus/versions/fso-guidance-collection).
+  # The Home Office fire risk assessment guides (2006 series, one template) go to parse_guide, the purpose-built
+  # flats guide to parse_flats, the 2023-2024 booklets to parse_booklet; the rest stay with parse_pdf. Prefixes of version ids
+  # (corpus/versions/fso-guidance-collection).
   parser:
     module: parse_pdf
     files:
@@ -1012,6 +1013,13 @@ sources:
         - fire-safety-risk-assessment-small-and-medium-place--
         - fire-safety-risk-assessment-theatres-cinemas-and-s--
         - fire-safety-risk-assessment-transport-premises-and--
+      parse_flats:
+        - fire-safety-in-purpose-built-blocks-of-flats--
+      parse_booklet:
+        - check-your-fire-safety-responsibilities-under-sect--
+        - check-your-fire-safety-responsibilities-under-the--check-your-fire-safety-responsibilities-under-the-fire-safe
+        - making-your-small-block-of-flats-safe-from-fire--
+        - making-your-small-paying-guest-accommodation-safe--
   fetch: {method: govuk, page: /government/collections/fire-safety-legislation-guidance-for-those-with-legal-duties, attachments: none, body: true}
 
 - id: fire-pbbf

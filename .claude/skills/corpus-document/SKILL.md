@@ -31,6 +31,8 @@ If the source now gives different bytes, stop and ask Florin. Do not parse a fil
 ```
 python -m system.rag.parse_pdf --source <source_id>                  # HSE-style guidance PDFs
 python -m system.rag.parse_guide --source fso-guidance-collection   # Home Office fire risk assessment guides
+python -m system.rag.parse_flats --source fso-guidance-collection   # Fire safety in purpose-built blocks of flats
+python -m system.rag.parse_booklet --source fso-guidance-collection # Home Office booklets 2023-2024 (small flats, paying guests, s156, FSR 2022)
 python -m system.rag.parse_adoc --source <source_id> --part <part>     # Approved Documents (2019 layout)
 python -m system.rag.parse_html --source <source_id>                 # GOV.UK and HSE web pages (no model checks)
 python -m system.rag.parse_legislation --source <source_id> --current   # legislation XML
