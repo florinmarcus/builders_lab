@@ -36,7 +36,7 @@ flowchart LR
         adoc["Approved Documents PDF<br/>parse_adoc<br/>clean: 413 crops ok, 0 checks open"]:::done
         hse["HSE and other guidance PDFs<br/>parse_pdf<br/>404 of 459 crops ok, 55 bad (S98)<br/>model checks next"]:::wip
         guide["Fire safety collection, 18 PDFs<br/>parse_guide (13), parse_flats (1),<br/>parse_booklet (4)<br/>clean: 813 crops ok, 0 checks open"]:::done
-        html["GOV.UK and HSE web pages<br/>parse_html<br/>weak structure, not in scope yet"]:::todo
+        html["GOV.UK and HSE web pages, 75<br/>parse_html<br/>next after the PDFs: 29 HSE first"]:::todo
     end
     crop["Crop check<br/>Sonnet: crop next to its page,<br/>box in red; 0 bad"]:::wip
     mc["Model checks<br/>Sonnet packets: tables and<br/>figure descriptions; 0 open"]:::wip
@@ -49,7 +49,7 @@ flowchart LR
     guide --> crop
     crop --> mc --> rev
     leg --> rev
-    html -.-> chunk
+    html --> rev
     rev --> chunk --> emb --> rec
     classDef done fill:#cfe8cf,stroke:#3a7d3a
     classDef wip fill:#fde9c4,stroke:#b07d1a
@@ -76,7 +76,15 @@ against our 0.94. Report: [experiments/X-external-mcp.md](experiments/X-external
   2a86e19). 404 of 459 crops ok, 55 bad and listed in S98. Open model checks are not run yet; the new table pages
   need table checks.
 
-**Next after the crops (Florin, 22 Nov): make parsing traceable and repeatable.**
+**Parse absolutely everything before moving on (Florin, 22 Nov).** Chunks start only when every ingested
+document is clean: legislation, every PDF and every web page. Web pages had been left out under "PDFs first", but
+166 of the 342 golden questions expect one (36 an HSE page). Order:
+1. Generic guidance PDFs: last bad crops (S98), then their model checks.
+2. Web pages (`parse_html`), 75 sources: the 29 HSE pages first, then GOV.UK (Awaab's Law, CIS 340, VAT Notice
+   708, fire doors ...). Same runbook: structure fixed in code with a test, model checks, review sheet, commit.
+3. Traceable and repeatable parsing (below).
+
+**Then (Florin, 22 Nov): make parsing traceable and repeatable.**
 1. Each tree records the git commit and a hash of its parser file, not only the label (the labels were not bumped
    when the code changed).
 2. A test parses a few small PDFs twice and checks the trees are identical (covers S97).
