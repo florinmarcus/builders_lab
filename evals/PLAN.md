@@ -25,6 +25,13 @@ Owner: Florin. Status report: [REPORT-2026-11-21.md](REPORT-2026-11-21.md). Each
    mixed topics).
 3. **Ingest and verify the vectors.** Load, then measure vector-only recall on dev.
 
+Progress (22 Nov night, working alone while Florin sleeps):
+- Fire safety risk assessment guides (13 files): new parser `parse_guide.py` (commit 8e8e8f5). Model checks running
+  with Sonnet, headless Claude Code.
+- Flats guide and 4 short fire safety guides: parser work in progress.
+- Crop check (`system/rag/cropcheck.py`): Sonnet judges every crop against its page. It was chosen over Haiku on
+  HSG33. It is now running over every PDF source; bad crops are parser bugs to fix before the model checks.
+
 Inventory (21 Nov): 139 non-legislation sources. 47 have open model checks, 1,468 in total. The biggest are:
 - fso-guidance-collection: 511
 - br-circulars: 129
