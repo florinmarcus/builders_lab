@@ -1081,3 +1081,24 @@ def test_real_parsed_guidance_trees_have_no_open_checks(source_id):
         pytest.skip(f"{source_id} not parsed on this machine")
     open_checks = {t["version_id"]: len(t["checks"]) for t in trees if t["checks"]}
     assert open_checks == {}
+
+
+def test_chapter_titles_found_from_the_contents_page_when_only_contents_is_large():
+    """HHSRS Parts 1-2 and Procurement Act short guides: "Contents" is the only line large enough to be a chapter
+    title, so the whole document used to be skipped as front matter (S103). Chapter titles are then the largest
+    later lines whose text is a contents entry, and every line in that style."""
+    lines = [ln(1, 200, "Demo guide title", 24.0, "ArialMT"),
+             ln(2, 100, "Contents", 16.0, "Calibri-Light"),
+             ln(2, 140, "Introduction ........................ 3", 11.0, "Calibri"),
+             ln(2, 160, "Assessing hazards ................... 4", 11.0, "Calibri"),
+             ln(3, 80, "Introduction", 16.0, "Calibri-Light"),
+             ln(3, 110, "Housing is a key factor of both physical and mental health for people.", 11.0, "Calibri"),
+             ln(4, 80, "Assessing hazards", 16.0, "Calibri-Light"),
+             ln(4, 110, "Inspect the whole dwelling before you score any hazard at all.", 11.0, "Calibri"),
+             ln(5, 80, "Annex", 16.0, "Calibri-Light"),  # not listed, but in the same style
+             ln(5, 110, "Further notes for assessors on how to record what they found.", 11.0, "Calibri")]
+    t = build_tree({"lines": lines, "rects": [], "images": [], "page_count": 5}, META)
+    chapters = [s["title"] for s in t["sections"] if s["type"] == "chapter"]
+    assert chapters == ["Introduction", "Assessing hazards", "Annex"]
+    assert any("Housing is a key factor" in (s.get("text") or "") for s in t["sections"])
+    assert not any("...." in (s.get("text") or "") for s in t["sections"])  # the contents page stays skipped

@@ -48,6 +48,21 @@ flowchart TB
     model --> out["Document tree"]
 ```
 
+### Guidance PDF chapters (parse_pdf, 22 Nov 2026)
+
+```mermaid
+flowchart TD
+    line["line after page 1"] --> big{"2x body size, or 1.5x in a condensed font,<br/>or PART / SCHEDULE / Contents set larger?"}
+    big -->|yes| ch["chapter title"]
+    big -->|no| only{"is 'Contents' the only chapter title after page 1?<br/>(the whole document would be skipped as front matter)"}
+    only -->|no| body["heading or body text"]
+    only -->|yes| style["chapter style = the largest later lines whose text<br/>is a contents-page entry; every line in that style"]
+    style --> ch
+```
+
+HHSRS operating guidance Parts 1 and 2, the HHSRS enforcement guidance and three Procurement Act short guides parsed
+to empty trees before this rule (parking lot S103).
+
 ### Guidance PDF figures (parse_pdf, 22 Nov 2026)
 
 parse_pdf reads the drawn shapes and page sizes too (`read_guidance`). A figure is only made where there is ink

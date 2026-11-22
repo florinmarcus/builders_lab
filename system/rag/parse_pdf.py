@@ -1209,6 +1209,9 @@ class Builder:
                 fonts[l["font"]] += len(l["text"])
         self.body_font = fonts.most_common(1)[0][0] if fonts else ""
         self.part_size = max((l["size"] for l in self.lines if PART_RE.match(l["text"].strip())), default=0.0)
+        # Chapter titles set only a little larger than body text, when "Contents" is the only larger title.
+        self.contents_style: set[tuple[float, str]] = set()
+        self.contents_style = self._contents_style()
         # Where running text starts: the left edges many long body-size lines share (columns, bullet indents).
         # A long label beside a drawing starts elsewhere.
         starts = Counter(round(l["x0"]) for l in self.lines if l["size"] >= self.body_size - 0.5 and len(l["text"].split()) >= 6)
@@ -1395,7 +1398,36 @@ class Builder:
             self.area_tops[k] = stop_bottom
         return areas
 
+    def _contents_style(self) -> set[tuple[float, str]]:
+        """The style of chapter titles set only a little larger than body text, found from the contents page.
+
+        Used only when "Contents" is the only chapter title after page 1, which would otherwise skip the whole
+        document. Chapter titles are the largest later lines whose text is an entry on the contents page
+        (HHSRS Parts 1 and 2: 16pt Calibri Light on 11pt body; Procurement Act short guides: 20pt Arial Bold on 12pt).
+        """
+        later = [l for l in self.lines if l["page"] > 1 and self.is_chapter(l)]
+        if not later or any(l["text"].strip().lower() not in SKIP_TITLES for l in later):
+            return set()
+        contents_pages = {l["page"] for l in later}
+
+        def norm(t: str) -> str:
+            t = re.sub(r"\.{3,}.*$", "", t)                  # dot leaders and the page number after them
+            t = re.sub(r"^\d+\s+|\s+\d+$", "", t.strip())   # a page number before or after the entry
+            return re.sub(r"\s+", " ", t).strip().lower()
+
+        entries = {norm(l["text"]) for l in self.lines if l["page"] in contents_pages}
+        entries = {e for e in entries if re.search(r"[a-z]", e) and e not in SKIP_TITLES}
+        matches = [l for l in self.lines if l["page"] > max(contents_pages) and l["size"] > self.body_size + 0.4
+                   and norm(l["text"]) in entries]
+        if not matches:
+            return set()
+        top = max(l["size"] for l in matches)
+        return {(l["size"], l["font"]) for l in matches if l["size"] == top}
+
     def is_chapter(self, l) -> bool:
+        if self.contents_style and (l["size"], l["font"]) in self.contents_style and l["page"] > 1 \
+                and re.search(r"[A-Za-z]", l["text"]):
+            return True  # a chapter title in the style the contents page points to
         # HSG264/HSG227 chapters are at least twice the body size; L143 uses 16pt condensed on 10pt body.
         if not re.search(r"[A-Za-z]", l["text"]):
             return False  # a large number or bullet on a section tab, not a title
