@@ -65,7 +65,9 @@ flowchart TD
     cap["caption"] --> side{"document prints captions<br/>above figures? (vote)"}
     side -->|no| up["ink between the caption and the<br/>running text above it, in its column"]
     side -->|yes| down["ink between the caption and the<br/>running text below it"]
-    up & down --> panel["+ a tinted panel behind both"]
+    up & down --> panel["+ a tinted panel behind both, a frame under the caption,<br/>side panels level with the drawing, labels near it,<br/>Note/Source/Key/* lines under it"]
+    capf["'Figure N' in another weight of the body font<br/>with ink ending just above it"] --> cap
+    dir["'(left)' / '(above)' in the caption"] --> photo
     img["image"] --> sig{"signature or logo?"}
     sig -->|"'Yours faithfully'/'Signed' above,<br/>name + job title below,<br/>letterhead on page 1, © or www below"| none["not a figure"]
     sig -->|"barcode over a web address"| none
@@ -73,10 +75,16 @@ flowchart TD
     photo -->|"labels beside the image,<br/>or image cut into tiles"| up
 ```
 
-Running text is body-size text of six words or more, starting at a left edge many long lines share (or a
-bullet), not set in a drawn box; plus the short last line of a paragraph, headings, chapter titles, captions and
-lines hanging under a caption (a source line). A long thin line is a rule only when no other shape touches it (a
-pipe in a gas diagram is not). Hand-made test documents without `graphics` keep the older text rules.
+Running text is body-size text of six words or more not set in a drawn box, starting at a left edge many long
+lines share, at a bullet or list number, or in a block of such lines; plus the lines hanging under it, subheadings
+over it, bold-italic callouts, "Box N" titles, headings, captions (also caption-like lines the caption rules did not
+take) and lines hanging under a caption. Sub-captions ("3b Machined ...") are labels and widen the figure's column
+to every part. A ruled table that does not reach the caption is not the figure's ink; one level with the drawing is
+(a key). A large picture on its own is trimmed only of white margin (`photo_whole`). Labels join a drawing when a
+run of their words is within 30pt (60pt for a short label) and is not a text column's run (`page_edges`). A long
+thin line is a rule only when no other shape touches it (a pipe in a gas diagram is not). Hand-made test documents
+without `graphics` keep the older text rules. Crops a rule cannot fix are kept with a named defect
+(`cropcheck accept`, parking lot S98).
 
 ### Approved Documents (parse_adoc, built 20 Nov 2026)
 

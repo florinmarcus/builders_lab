@@ -971,3 +971,34 @@ def test_large_picture_on_its_own_keeps_all_its_parts():
     images = [{"page": 1, "top": 518.0, "bottom": 760.0, "x0": 176.0, "x1": 538.0}]
     t = build_tree(_doc(lines, images), META)
     assert sec(t, "figure-a1-5")["photo_whole"]
+
+
+def test_medium_weight_caption_with_ink_above_is_a_caption():
+    lines = [ln(1, 98, "1 Noise", 28.0, "HelveticaNeue-Medium")]
+    lines += _page_with_body(1, [114, 126, 138, 150, 162, 174], x0=60)
+    lines += [ln(1, 420, "Figure 9 The direct noise path is blocked", 10.0, "HelveticaNeueLTStd-MdCn", x0=60)]
+    lines += [ln(1, 450 + 12 * i, BODY, 10.0, x0=60) for i in range(3)]
+    shapes = [_shape(1, 60, 200, 400, 410, "curve")]
+    t = build_tree(_doc(lines, shapes=shapes), META)
+    f = sec(t, "figure-9")
+    assert f["area"]["top"] <= 200 and f["area"]["bottom"] < 450  # the drawing and caption, not the text below
+
+
+def test_caption_like_line_in_another_font_still_ends_the_figure_above_it():
+    lines = [ln(1, 98, "1 Fibres", 28.0, "HelveticaNeue-Medium")]
+    lines += _page_with_body(1, [114, 126, 138, 150, 162, 174], x0=60)
+    lines += [ln(1, 400, "Figure A1.10 g–h Examples of counting rules", 10.0, "HelveticaNeueLTStd-MdCn", x0=60),
+              ln(1, 700, "Figure A1.10i Example of counting rules", 9.0, "HelveticaNeue-Bold", x0=60)]
+    shapes = [_shape(1, 80, 200, 300, 390, "curve"), _shape(1, 80, 420, 300, 690, "curve")]
+    t = build_tree(_doc(lines, shapes=shapes), META)
+    assert sec(t, "figure-a1-10i")["area"]["top"] >= 405
+
+
+def test_labels_beside_a_drawing_join_it_but_text_in_the_next_column_does_not():
+    lines = [ln(1, 98, "1 Charts", 28.0, "HelveticaNeue-Medium")]
+    lines += _page_with_body(1, [114, 126, 138, 150, 162, 174], x0=60)
+    lines += [wl(1, 250, [(80, "Falls from a height", 8.0, "Light", False), (330, "97", 8.0, "Light", False)])]
+    lines += [ln(1, 420, "Figure 1 Falls are the biggest killer", 8.0, "HelveticaNeue", x0=60)]
+    shapes = [_shape(1, 160, 245, 320, 260)]
+    t = build_tree(_doc(lines, shapes=shapes), META)
+    assert sec(t, "figure-1")["area"]["x1"] >= 340
