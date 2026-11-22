@@ -25,6 +25,41 @@ Owner: Florin. Status report: [REPORT-2026-11-21.md](REPORT-2026-11-21.md). Each
    mixed topics).
 3. **Ingest and verify the vectors.** Load, then measure vector-only recall on dev.
 
+**Flow per document family, parse to vectors (status 22 Nov night).** Green: done. Amber: in progress.
+Grey: not started. Each parser's own diagram is in
+[regulations-corpus.md](../architecture/design/regulations-corpus.md).
+
+```mermaid
+flowchart LR
+    subgraph parse["1. Parse: one parser per document family"]
+        leg["Legislation XML<br/>parse_legislation"]:::done
+        adoc["Approved Documents PDF<br/>parse_adoc<br/>27 bad crops being fixed"]:::wip
+        hse["HSE and other guidance PDFs<br/>parse_pdf<br/>~320 bad crops and false figures<br/>being fixed"]:::wip
+        guide["Fire risk assessment guides, 13 PDFs<br/>parse_guide<br/>907 checks saved, 0 open"]:::done
+        flats["Flats guide<br/>parse_flats"]:::wip
+        book["4 Home Office booklets<br/>parse_booklet"]:::wip
+        html["GOV.UK and HSE web pages<br/>parse_html<br/>weak structure, not in scope yet"]:::todo
+    end
+    crop["Crop check<br/>Sonnet: crop next to its page,<br/>box in red; 0 bad"]:::wip
+    mc["Model checks<br/>Sonnet packets: tables and<br/>figure descriptions; 0 open"]:::wip
+    rev["Review sheet + tests<br/>document is clean"]:::wip
+    chunk["2. Chunk: chunk.py<br/>check size, heading path,<br/>no mixed topics"]:::todo
+    emb["3. Embed: Titan v2<br/>load local Postgres<br/>corpus_next"]:::todo
+    rec["Vector-only recall, dev 299<br/>baseline R@5 0.51, R@50 0.80"]:::todo
+    adoc --> crop
+    hse --> crop
+    guide --> crop
+    flats --> crop
+    book --> crop
+    crop --> mc --> rev
+    leg --> rev
+    html -.-> chunk
+    rev --> chunk --> emb --> rec
+    classDef done fill:#cfe8cf,stroke:#3a7d3a
+    classDef wip fill:#fde9c4,stroke:#b07d1a
+    classDef todo fill:#e6e6e6,stroke:#888
+```
+
 Progress (22 Nov night, working alone while Florin sleeps):
 - Fire safety risk assessment guides (13 files): new parser `parse_guide.py` (commit 8e8e8f5). Model checks running
   with Sonnet, headless Claude Code.
