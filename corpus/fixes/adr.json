@@ -1,0 +1,599 @@
+{
+ "source_id": "adr",
+ "about": "Saved model fixes for adr (ADR 0010).",
+ "fixes": [
+  {
+   "key": "8393b0a9e73f4250",
+   "kind": "figure_description",
+   "target": "v1-diagram-i: The relationship between regulations and guidance in the approved documents",
+   "value": "This is a diagram of a sample page layout titled \"Diagram i: The relationship between regulations and guidance in the approved documents\", using Requirement B2: Internal fire spread (linings) as the example. A box marked 1 holds the requirement text (\"Requirement\" and \"Limits on application\", B2 (1) and (2)), and a box marked 2 holds the \"Intention\" text, which lists what B2 does not cover: \"a. Generation of smoke and fumes; b. The upper surfaces of floors and stairs; c. Furniture and fittings\". The key reads \"1 The law: extract from the Building Regulations 2010; 2 Statutory guidance\".",
+   "reason": "Read the labels and layout from the image.",
+   "evidence": "Image shows B2 heading, boxes 1 and 2, and a Key with two entries.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "aa7d8021ef96d84e",
+   "kind": "table",
+   "target": "v1-section-1-requirement-table-1: Requirement",
+   "value": {
+    "columns": [
+     "Requirement",
+     "Limits on application"
+    ],
+    "rows": [
+     [
+      "Part R Infrastructure for electronic communications Gigabit-ready physical infrastructure RA1 (1) Building work must be carried out so as to ensure that each dwelling is equipped with gigabit-ready physical infrastructure that extends from a network termination point for gigabit-capable public electronic communications networks and reaches— (a) a distribution point, or (b) where the person carrying out the building work (“the developer”) has no right to install gigabit-ready physical infrastructure in land in which it would have to be installed if it were to reach a distribution point, as close as is reasonably practicable to a distribution point, or (c) where the developer has no such right and requirement RA2 is excluded or modified by regulation 44ZC, and would be so excluded or modified even if the gigabit-ready physical infrastructure were required to reach as close as is reasonably practicable to a distribution point— (i) as close as is reasonably practicable to a location at which a distribution point is likely to be installed within the relevant 2-year period (a “likely future location”), or (ii) where there is no likely future location that is closer to the building than the closest distribution point already installed, an access point for gigabit-capable public electronic communications networks, or (d) where the developer has no right to install gigabit-ready physical infrastructure in land beyond the building, an access point for gigabit-capable public electronic communications networks.",
+      "Requirements RA1 and RA2 apply to the erection of a dwelling or of a building that contains one or more dwellings."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Requirement: Part R Infrastructure for electronic communications, Gigabit-ready physical infrastructure, RA1 (1) Building work must be carried out so as to ensure that each dwelling is equipped with gigabit-ready physical infrastructure that extends from a network termination point for gigabit-capable public electronic communications networks and reaches— (a) a distribution point, or (b) where the person carrying out the building work (“the developer”) has no right to install gigabit-ready physical infrastructure in land in which it would have to be installed if it were to reach a distribution point, as close as is reasonably practicable to a distribution point, or (c) where the developer has no such right and requirement RA2 is excluded or modified by regulation 44ZC, and would be so excluded or modified even if the gigabit-ready physical infrastructure were required to reach as close as is reasonably practicable to a distribution point— (i) as close as is reasonably practicable to a location at which a distribution point is likely to be installed within the relevant 2-year period (a “likely future location”), or (ii) where there is no likely future location that is closer to the building than the closest distribution point already installed, an access point for gigabit-capable public electronic communications networks, or (d) where the developer has no right to install gigabit-ready physical infrastructure in land beyond the building, an access point for gigabit-capable public electronic communications networks; limits on application: Requirements RA1 and RA2 apply to the erection of a dwelling or of a building that contains one or more dwellings."
+    ]
+   },
+   "reason": "One data row; the Requirement cell is one box of text with bold sub-headings inside it.",
+   "evidence": "Page 10 shows a two-column box headed Requirement and Limits on application.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "c65c8fbdb6845b32",
+   "kind": "table",
+   "target": "v1-section-1-requirement-table-2: Requirement",
+   "value": {
+    "columns": [
+     "Requirement"
+    ],
+    "rows": [
+     [
+      "Part R Infrastructure for electronic communications continued (2) Where the work concerns a building containing more than one dwelling, the work must be carried out so as to ensure that the building is equipped in addition with a common access point for gigabit-capable public electronic communications networks. (3) In this paragraph— “distribution point” means a distribution point for a gigabit-capable public electronic communications network; “the relevant 2-year period” means the period of 2 years beginning with the earlier of the following— (a) the day on which a building notice, initial notice or public body’s notice relating to work to which this paragraph applies is given; (b) the day on which full plans relating to building work to which this paragraph applies are deposited."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Requirement: Part R Infrastructure for electronic communications continued, (2) Where the work concerns a building containing more than one dwelling, the work must be carried out so as to ensure that the building is equipped in addition with a common access point for gigabit-capable public electronic communications networks; (3) In this paragraph— “distribution point” means a distribution point for a gigabit-capable public electronic communications network; “the relevant 2-year period” means the period of 2 years beginning with the earlier of the following— (a) the day on which a building notice, initial notice or public body’s notice relating to work to which this paragraph applies is given; (b) the day on which full plans relating to building work to which this paragraph applies are deposited."
+    ]
+   },
+   "reason": "Single-column box continued from the previous page, so one column named from the table title.",
+   "evidence": "Page 11 top box has only one column of text.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "374842a7b00c52ad",
+   "kind": "figure_description",
+   "target": "v1-diagram-1: Requirement RA1 – schematic example of gigabit-ready physical infrastructure from the network termination point to the network distribution point",
+   "value": "This is a schematic diagram titled \"Diagram 1: Requirement RA1 – schematic example of gigabit-ready physical infrastructure from the network termination point to the network distribution point\". It shows a \"Dwelling/building containing more than one dwelling\" with a \"Network termination point (for each dwelling in building, see Diagrams 5 and 6)\", a small \"Access point/ common access point\" beside it, and a \"Network distribution point\" box on the right. A green line labelled \"Gigabit-ready physical infrastructure (ducting)\" runs from the building through the access point to the distribution point, which joins the \"Gigabit-capable public electronic communications network (spine network)\".",
+   "reason": "Labels and the green ducting line read from the image.",
+   "evidence": "Image shows building, access point, distribution point, green line reaching the distribution point.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "245bc8d549380917",
+   "kind": "figure_description",
+   "target": "v1-diagram-2: Requirement RA1 – schematic example of gigabit-ready physical infrastructure from the network termination point to a point as close as is reasonably practicable to the network distribution point, where there is no right to install infrastructure in land to reach the network distribution point",
+   "value": "This is a schematic diagram titled \"Diagram 2: Requirement RA1 – schematic example of gigabit-ready physical infrastructure from the network termination point to a point as close as is reasonably practicable to the network distribution point, where there is no right to install infrastructure in land to reach the network distribution point\". It shows a \"Dwelling/building containing more than one dwelling\" with a \"Network termination point (for each dwelling in building, see Diagrams 5 and 6)\" and an \"Access point/ common access point\", and a \"Network distribution point\" box on the right. A black bar labelled \"Land in relation to which the developer has no right to install infrastructure\" lies between them, and the green \"Gigabit-ready physical infrastructure (ducting)\" line stops short of the bar, while the \"Gigabit-capable public electronic communications network (spine network)\" joins the distribution point.",
+   "reason": "Labels and line ending read from the image.",
+   "evidence": "Image shows green line ending before black bar; distribution point on right.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "66776f7dc7e158e0",
+   "kind": "figure_description",
+   "target": "v1-diagram-3: Requirement RA1 – a. schematic example where gigabit-ready physical infrastructure is installed from a network termination point to a point as close as is reasonably practicable to a likely future location for a network distribution point, and b. schematic example where, due to the absence of a likely future location for a network distribution point, and a lack of developer access rights, gigabit-ready physical infrastructure is built from the network termination point to the access point or common access point only",
+   "value": "This is a schematic diagram titled \"Diagram 3\" about Requirement RA1, in two parts: \"a.\" and \"b.\", each showing two grey dwellings on green land marked \"Land to which developer has access to install infrastructure\", with a \"Network termination point (one each per dwelling in building)\" and an \"Access point/ common access point\". In part a, gigabit-ready infrastructure runs from the access point to a \"Point as close as is reasonably practicable to a location at which a distribution point is likely to be installed within the relevant 2-year period (a 'likely future location')\", next to a dotted square marking the \"Location at which a distribution point is likely to be installed within the relevant 2-year period (a 'likely future location')\". In part b, the infrastructure goes only from the network termination points to the access point or common access point, with an \"Inset: in-building infrastructure example. In this case, network termination points for two dwellings connect inside the building to a common access point.\"; the key also lists \"Likely future network distribution points\", \"Dwelling/building containing more than one dwelling\" and \"Gigabit-ready physical infrastructure\".",
+   "reason": "Labels, legend and both parts read from the image.",
+   "evidence": "Image shows parts a and b, inset box, and legend with four entries.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "deed58b3853ddc0c",
+   "kind": "figure_description",
+   "target": "v1-diagram-4: Requirement RA1 – a. schematic example of gigabit-ready physical infrastructure from the network termination point to the access point in an individual dwelling, and b. schematic example of gigabit-ready physical infrastructure from the network termination points in dwellings in a building containing more than one dwelling, in this case containing multiple dwellings, to the common access point in or on the building",
+   "value": "Diagram 4 is a line diagram in two parts, a. and b., showing schematic gigabit-ready physical infrastructure for Requirement RA1. Part a. shows a single house outline with a linked pair of boxes labelled \"Network termination point\" and \"Access point\" on the ground floor wall. Part b. shows a taller building with four floors and two dwellings on each floor, where a black line from a \"Network termination point in each dwelling\" runs to a vertical line labelled \"Ducting/ trays in riser\" that leads down to the \"Common access point\" on the ground floor.",
+   "reason": "Labels and layout read directly from the figure image.",
+   "evidence": "Printed labels: a.; b.; Network termination point; Access point; Ducting/ trays in riser; Network termination point in each dwelling; Common access point.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "fe8d42901e71fa98",
+   "kind": "figure_description",
+   "target": "v1-diagram-5: Schematic example of gigabit-ready physical infrastructure for an individual dwelling",
+   "value": "Diagram 5 is a line diagram of a two-storey house outline showing schematic gigabit-ready physical infrastructure for an individual dwelling. On the ground floor wall an \"Access point\" box is linked to a \"Network termination point\" box, and a dashed black line runs from the access point below ground and off to the left. A printed note says: \"Gigabit-ready physical infrastructure (ducting) to the distribution point or, where there is no access right up to the distribution point, as close as is reasonably practicable to a distribution point. In some cases, there will be no gigabit-ready physical infrastructure beyond the access point.\"",
+   "reason": "Labels and note read directly from the figure image.",
+   "evidence": "Printed labels: Access point; Network termination point; the ducting note beginning \"Gigabit-ready physical infrastructure (ducting) to the distribution point\".",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "f72c542ab123d28c",
+   "kind": "figure_description",
+   "target": "v1-diagram-6: Schematic example of gigabit-ready physical infrastructure for a block of flats (a building that contains more than one dwelling, in this case containing multiple dwellings)",
+   "value": "Diagram 6 is a line diagram of a block of flats with four floors and two dwellings on each floor, showing schematic gigabit-ready physical infrastructure. A \"Network termination point in each dwelling\" is joined by a black line to a vertical line labelled \"Ducting/ trays in riser\", which leads down to the \"Common access point\" on the ground floor. A dashed black line runs from the common access point below ground to the left, with a printed note: \"Gigabit-ready physical infrastructure (ducting) to the distribution point or, where there is no access right up to the distribution point, as close as is reasonably practicable to a distribution point. In some cases, there will be no gigabit-ready physical infrastructure beyond the common access point.\"",
+   "reason": "Labels and note read directly from the figure image.",
+   "evidence": "Printed labels: Ducting/ trays in riser; Network termination point in each dwelling; Common access point; the ducting note ending \"beyond the common access point.\"",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "eafa9ec8f9df72da",
+   "kind": "table",
+   "target": "v1-section-2-requirement-table-1: Requirement",
+   "value": {
+    "columns": [
+     "Requirement",
+     "Limits on application"
+    ],
+    "rows": [
+     [
+      "Part R Infrastructure for electronic communications. Connection to gigabit-capable network. RA2 Each dwelling must in addition be provided with a connection to a gigabit-capable public electronic communications network.",
+      "Requirements RA1 and RA2 apply to the erection of a dwelling or of a building that contains one or more dwellings."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "In the Requirement table, for Part R Infrastructure for electronic communications, Connection to gigabit-capable network, RA2 says each dwelling must in addition be provided with a connection to a gigabit-capable public electronic communications network, and the limits on application are that requirements RA1 and RA2 apply to the erection of a dwelling or of a building that contains one or more dwellings."
+    ]
+   },
+   "reason": "One requirement row with two printed column headings, read from page 13 image.",
+   "evidence": "Page image p21: Requirement box with columns Requirement and Limits on application.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "306cfb9f8b97c31a",
+   "kind": "table",
+   "target": "v1-section-2-regulation-table-1: Regulation",
+   "value": {
+    "columns": [
+     "Regulation"
+    ],
+    "rows": [
+     [
+      "Cases in which paragraph RA2 of Schedule 1 is modified or excluded"
+     ],
+     [
+      "44ZC. (1) The requirement in paragraph RA2 of Schedule 1 has effect subject to paragraphs (2) to (4)."
+     ],
+     [
+      "(2) Where a person carrying out building work of the kind described in the second column of paragraph RA1 of Schedule 1 (“the developer”)— (a) is unable to secure the provision of a connection with a gigabit-capable public electronic communications network for a cost not exceeding the cost cap, but (b) is able to secure the provision of a connection with a high-speed public electronic communications network for such a cost, paragraph RA2 of Schedule 1 is to be read as requiring the provision of a connection with a high-speed public electronic communications network."
+     ],
+     [
+      "(3) Where the developer— (a) is unable to secure the provision of a connection with a high-speed public electronic communications network for a cost not exceeding the cost cap, but (b) is able to secure the provision of a connection with a USO-standard public electronic communications network for such a cost, paragraph RA2 of Schedule 1 is to be read as requiring the provision of a connection with a USO-standard public electronic communications network."
+     ],
+     [
+      "(4) Where the developer is unable to secure the provision of a connection with a USO-standard public electronic communications network for a cost not exceeding the cost cap, paragraph RA2 of Schedule 1 does not apply."
+     ]
+    ],
+    "heading_rows": [
+     0
+    ],
+    "sentences": [
+     "Regulation 44ZC (1): the requirement in paragraph RA2 of Schedule 1 has effect subject to paragraphs (2) to (4).",
+     "Regulation 44ZC (2): where a person carrying out building work of the kind described in the second column of paragraph RA1 of Schedule 1 (“the developer”) is unable to secure the provision of a connection with a gigabit-capable public electronic communications network for a cost not exceeding the cost cap, but is able to secure the provision of a connection with a high-speed public electronic communications network for such a cost, paragraph RA2 of Schedule 1 is to be read as requiring the provision of a connection with a high-speed public electronic communications network.",
+     "Regulation 44ZC (3): where the developer is unable to secure the provision of a connection with a high-speed public electronic communications network for a cost not exceeding the cost cap, but is able to secure the provision of a connection with a USO-standard public electronic communications network for such a cost, paragraph RA2 of Schedule 1 is to be read as requiring the provision of a connection with a USO-standard public electronic communications network.",
+     "Regulation 44ZC (4): where the developer is unable to secure the provision of a connection with a USO-standard public electronic communications network for a cost not exceeding the cost cap, paragraph RA2 of Schedule 1 does not apply."
+    ]
+   },
+   "reason": "Single-column regulation box; bold title is a sub-heading row, each numbered paragraph is a row.",
+   "evidence": "Page image p21: Regulation box with title 'Cases in which paragraph RA2 of Schedule 1 is modified or excluded' and paragraphs 44ZC (1) to (4).",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "3fdec6569ef91248",
+   "kind": "table",
+   "target": "v1-section-2-regulation-table-2: Regulation",
+   "value": {
+    "columns": [
+     "Regulation"
+    ],
+    "rows": [
+     [
+      "(5) In paragraphs (2) to (4)— “high-speed public electronic communications network” means a public electronic communications network that is a high-speed electronic communications network; “USO-standard public electronic communications network” means a public electronic communications network that provides at least the minimum download speed for the time being specified by virtue of section 65(2B)(a) of the Communications Act 2003 in the universal service order (as defined by section 151(1) of that Act)."
+     ],
+     [
+      "(6) The developer is to be treated as being able to secure the provision of a connection mentioned in any of paragraphs (2) to (4) for a cost not exceeding the cost cap unless— (a) the developer has invited at least two suitable providers to make, before the end of the 30th day after the date of the invitation, an offer to provide a connection of the kind mentioned in the paragraph in question, and (b) none of those providers has before that time offered to provide that connection free of charge or at a cost not exceeding the cost cap."
+     ],
+     [
+      "(7) The cost cap is £2,000 in respect of each dwelling."
+     ],
+     [
+      "(8) In calculating the cost to the developer of securing the provision of a connection— (a) there is to be included value added tax; (b) there is to be excluded— (i) the cost to the developer of installing gigabit-ready physical infrastructure in accordance with paragraph RA1 of Schedule 1, (ii) administrative costs of the developer, and (iii) the cost to an end-user (as defined by section 151(1) of the Communications Act 2003) of the provision of a public electronic communications service."
+     ],
+     [
+      "(9) In paragraph (6)(a) “suitable provider” means the provider of a public electronic communications network whom the developer reasonably considers to be likely to be able to provide the connection referred to."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Regulation (5): in paragraphs (2) to (4), “high-speed public electronic communications network” means a public electronic communications network that is a high-speed electronic communications network, and “USO-standard public electronic communications network” means a public electronic communications network that provides at least the minimum download speed for the time being specified by virtue of section 65(2B)(a) of the Communications Act 2003 in the universal service order (as defined by section 151(1) of that Act).",
+     "Regulation (6): the developer is to be treated as being able to secure the provision of a connection mentioned in any of paragraphs (2) to (4) for a cost not exceeding the cost cap unless (a) the developer has invited at least two suitable providers to make, before the end of the 30th day after the date of the invitation, an offer to provide a connection of the kind mentioned in the paragraph in question, and (b) none of those providers has before that time offered to provide that connection free of charge or at a cost not exceeding the cost cap.",
+     "Regulation (7): the cost cap is £2,000 in respect of each dwelling.",
+     "Regulation (8): in calculating the cost to the developer of securing the provision of a connection, there is to be included value added tax, and there is to be excluded (i) the cost to the developer of installing gigabit-ready physical infrastructure in accordance with paragraph RA1 of Schedule 1, (ii) administrative costs of the developer, and (iii) the cost to an end-user (as defined by section 151(1) of the Communications Act 2003) of the provision of a public electronic communications service.",
+     "Regulation (9): in paragraph (6)(a) “suitable provider” means the provider of a public electronic communications network whom the developer reasonably considers to be likely to be able to provide the connection referred to."
+    ]
+   },
+   "reason": "Single-column continuation box; 'Regulation continued' is the header, paragraphs (5) to (9) are rows.",
+   "evidence": "Page image p22: box headed 'Regulation continued' with paragraphs (5) to (9).",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "9d860d06d018b175",
+   "kind": "table",
+   "target": "v1-appendix-b-part-a-table-1: Part A",
+   "value": {
+    "columns": [
+     "Item",
+     "Entry"
+    ],
+    "rows": [
+     [
+      "Guidance for completing this connectivity plan is available in Approved Document R, Volume 1: Physical infrastructure and network connection for new dwellings (at www.gov.uk/government/collections/approved-documents). Part A of this connectivity plan is to be completed when gigabit-ready physical infrastructure is to be installed, and connection to a gigabit-capable public electronic communications network is to be provided.",
+      ""
+     ],
+     [
+      "1 Building control",
+      ""
+     ],
+     [
+      "Building control body name (local authority or approved inspector):",
+      ""
+     ],
+     [
+      "Building control application number:",
+      ""
+     ],
+     [
+      "2 Development",
+      ""
+     ],
+     [
+      "Development/address/plot number(s):",
+      ""
+     ],
+     [
+      "Please also indicate where further phases of development are to be considered at a later date.",
+      ""
+     ],
+     [
+      "3 Developer key person contact details",
+      ""
+     ],
+     [
+      "Full name:",
+      ""
+     ],
+     [
+      "Company/organisation:",
+      ""
+     ],
+     [
+      "Address:",
+      ""
+     ],
+     [
+      "Email:",
+      ""
+     ],
+     [
+      "Telephone/mobile number:",
+      ""
+     ],
+     [
+      "4 Network operator contact details",
+      ""
+     ],
+     [
+      "Contact name:",
+      ""
+     ],
+     [
+      "Company/organisation:",
+      ""
+     ],
+     [
+      "Address:",
+      ""
+     ],
+     [
+      "Email:",
+      ""
+     ],
+     [
+      "Telephone/mobile number:",
+      ""
+     ],
+     [
+      "Reference number (of contract/ transaction with developer):",
+      ""
+     ],
+     [
+      "5 Physical infrastructure provision",
+      ""
+     ],
+     [
+      "a. Will you provide each dwelling on the development site with gigabit-ready physical infrastructure from the network termination point at each dwelling to the network distribution point?",
+      "Yes. Please complete section 6 of Part A; No. Please complete section 5b of Part A"
+     ],
+     [
+      "b. Will you provide each dwelling on the development site with gigabit-ready physical infrastructure from a network termination point to a point as close as is reasonably practicable to a current or likely future location of a network distribution point?",
+      "Yes. Please complete section 6 of Part A; No. Please complete section 5c of Part A"
+     ],
+     [
+      "c. Will you provide each dwelling on the development site with gigabit-ready physical infrastructure from a network termination point to an access point or common access point?",
+      "Yes. Please complete section 6 of Part A; No. Please continue to Part B"
+     ]
+    ],
+    "heading_rows": [
+     1,
+     4,
+     7,
+     13,
+     20
+    ],
+    "sentences": [
+     "Part A of the model connectivity plan opens with a note: guidance for completing this connectivity plan is available in Approved Document R, Volume 1: Physical infrastructure and network connection for new dwellings (at www.gov.uk/government/collections/approved-documents), and Part A is to be completed when gigabit-ready physical infrastructure is to be installed, and connection to a gigabit-capable public electronic communications network is to be provided.",
+     "Part A, 1 Building control, has the field Building control body name (local authority or approved inspector), with no entry printed.",
+     "Part A, 1 Building control, has the field Building control application number, with no entry printed.",
+     "Part A, 2 Development, has the field Development/address/plot number(s), with no entry printed.",
+     "Part A, 2 Development, also says: Please also indicate where further phases of development are to be considered at a later date.",
+     "Part A, 3 Developer key person contact details, has the field Full name, with no entry printed.",
+     "Part A, 3 Developer key person contact details, has the field Company/organisation, with no entry printed.",
+     "Part A, 3 Developer key person contact details, has the field Address, with no entry printed.",
+     "Part A, 3 Developer key person contact details, has the field Email, with no entry printed.",
+     "Part A, 3 Developer key person contact details, has the field Telephone/mobile number, with no entry printed.",
+     "Part A, 4 Network operator contact details, has the field Contact name, with no entry printed.",
+     "Part A, 4 Network operator contact details, has the field Company/organisation, with no entry printed.",
+     "Part A, 4 Network operator contact details, has the field Address, with no entry printed.",
+     "Part A, 4 Network operator contact details, has the field Email, with no entry printed.",
+     "Part A, 4 Network operator contact details, has the field Telephone/mobile number, with no entry printed.",
+     "Part A, 4 Network operator contact details, has the field Reference number (of contract/ transaction with developer), with no entry printed.",
+     "Part A, 5 Physical infrastructure provision, question a asks: Will you provide each dwelling on the development site with gigabit-ready physical infrastructure from the network termination point at each dwelling to the network distribution point? Yes means please complete section 6 of Part A, and No means please complete section 5b of Part A.",
+     "Part A, 5 Physical infrastructure provision, question b asks: Will you provide each dwelling on the development site with gigabit-ready physical infrastructure from a network termination point to a point as close as is reasonably practicable to a current or likely future location of a network distribution point? Yes means please complete section 6 of Part A, and No means please complete section 5c of Part A.",
+     "Part A, 5 Physical infrastructure provision, question c asks: Will you provide each dwelling on the development site with gigabit-ready physical infrastructure from a network termination point to an access point or common access point? Yes means please complete section 6 of Part A, and No means please continue to Part B."
+    ]
+   },
+   "reason": "Form with two columns (label and blank entry); numbered section bars are heading rows; question rows carry Yes/No options in the second column.",
+   "evidence": "Page 22 image of Appendix B Part A: grey section bars 1 to 5, label cells with empty entry cells, questions 5a to 5c with Yes/No tick boxes.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "d8abb1c45dff9290",
+   "kind": "table",
+   "target": "v1-appendix-b-part-a-table-2: Part A",
+   "value": {
+    "columns": [
+     "Text"
+    ],
+    "rows": [
+     [
+      "d. Will you provide each dwelling on the development site with connection to a gigabit-capable public electronic communications network? Yes. Please complete section 6 of Part A; No. Please complete Part B"
+     ],
+     [
+      "6 Evidence to support section 5"
+     ],
+     [
+      "Please attach evidence to support your answer to section 5. This should include written confirmation that a suitable provider of public electronic communications networks has offered for each dwelling to provide a connection to a gigabit-capable public electronic communications network as stated at section 5d, and details of which technology will be used to deliver this, e.g. full fibre, satellite, fixed wireless or other technologies. Developers may also wish to include information explaining why the relevant gigabit-ready physical infrastructure in sections 5a, 5b or 5c is being installed – this includes circumstances in which there is no current network distribution point towards which such infrastructure can be built to a reasonably practicable point of proximity, because the developer does not have the right to install the infrastructure on the relevant land. Where this form refers to a likely future location of a network distribution point, this should be supported by evidence of where it is reasonable to expect the network distribution point to be located. Evidence would constitute information from a network operator confirming that a network distribution point will be installed within the relevant 2-year period and its location. Where this form refers to the lack of a likely future location of a network distribution point, this should be supported by evidence of the efforts to ascertain from a network operator if a relevant network distribution point is to be installed within the relevant 2-year period. To assist with the building control process, developers may wish to demonstrate planned infrastructure routes in relation to development site layouts and explain any factors that the infrastructure installation may need to take account of, such as specific conservation area conditions for current and future infrastructure installation, or obstacles that need to be circumvented."
+     ]
+    ],
+    "heading_rows": [
+     1
+    ],
+    "sentences": [
+     "Part A, question 5d asks: Will you provide each dwelling on the development site with connection to a gigabit-capable public electronic communications network? Yes means please complete section 6 of Part A, and No means please complete Part B.",
+     "Part A, 6 Evidence to support section 5, says: Please attach evidence to support your answer to section 5. This should include written confirmation that a suitable provider of public electronic communications networks has offered for each dwelling to provide a connection to a gigabit-capable public electronic communications network as stated at section 5d, and details of which technology will be used to deliver this, e.g. full fibre, satellite, fixed wireless or other technologies. Developers may also wish to include information explaining why the relevant gigabit-ready physical infrastructure in sections 5a, 5b or 5c is being installed – this includes circumstances in which there is no current network distribution point towards which such infrastructure can be built to a reasonably practicable point of proximity, because the developer does not have the right to install the infrastructure on the relevant land. Where this form refers to a likely future location of a network distribution point, this should be supported by evidence of where it is reasonable to expect the network distribution point to be located. Evidence would constitute information from a network operator confirming that a network distribution point will be installed within the relevant 2-year period and its location. Where this form refers to the lack of a likely future location of a network distribution point, this should be supported by evidence of the efforts to ascertain from a network operator if a relevant network distribution point is to be installed within the relevant 2-year period. To assist with the building control process, developers may wish to demonstrate planned infrastructure routes in relation to development site layouts and explain any factors that the infrastructure installation may need to take account of, such as specific conservation area conditions for current and future infrastructure installation, or obstacles that need to be circumvented."
+    ]
+   },
+   "reason": "Single-column box continuing Part A; the section 6 bar is a heading row.",
+   "evidence": "Page 31 image top box: question d with Yes/No tick boxes, grey bar 6 Evidence to support section 5, then italic text.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "e45b59750b9aac12",
+   "kind": "table",
+   "target": "v1-appendix-b-part-b-table-1: Part B",
+   "value": {
+    "columns": [
+     "Text"
+    ],
+    "rows": [
+     [
+      "Part B of this form is to be completed when an exemption is being relied upon."
+     ],
+     [
+      "1 Exemption from requirement RA1"
+     ],
+     [
+      "a. Is/are the building/s exempt from the requirement to install gigabit-ready physical infrastructure? Yes. Please complete section 1b and/or 1c, as appropriate; No. Please continue to section 3"
+     ],
+     [
+      "b. The following applies: The building/s is/are to be occupied by the Ministry of Defence or the armed forces of the Crown, or to be otherwise occupied for purposes connected to national security."
+     ],
+     [
+      "c. Both of the following apply: The building/s is/are in an area isolated from a relevant public electronic communications network of the kind mentioned in regulation 44ZC(2) of the Building Regulations 2010, where the cost of a gigabit-capable, high-speed and USO-standard public electronic communications network connection exceeds the cost cap. The prospect of a gigabit-capable, high-speed and USO-standard public electronic communications network connection is considered too remote to justify equipping the building with gigabit-ready physical infrastructure (for full fibre, satellite, fixed wireless or other technologies) or an access point as set out in sections 5a, 5b or 5c in Part A of this form. Please note other exemptions in the Building Regulations 2010, which are not included in this connectivity plan, including those set out in Classes 1 to 7 of Schedule 2 to the Building Regulations 2010."
+     ],
+     [
+      "2 Evidence of exemption"
+     ],
+     [
+      "Please attach evidence to show how exemption 1b and/or 1c applies."
+     ],
+     [
+      "3 Exemption from requirement RA2"
+     ],
+     [
+      "a. Is/are the building/s exempt from the requirement to provide a connection to a gigabit-capable public electronic communications network? Yes. Please complete section 3b or 3c, as appropriate; No."
+     ]
+    ],
+    "heading_rows": [
+     1,
+     5,
+     7
+    ],
+    "sentences": [
+     "Part B of the model connectivity plan says: Part B of this form is to be completed when an exemption is being relied upon.",
+     "Part B, 1 Exemption from requirement RA1, question a asks: Is/are the building/s exempt from the requirement to install gigabit-ready physical infrastructure? Yes means please complete section 1b and/or 1c, as appropriate, and No means please continue to section 3.",
+     "Part B, 1 Exemption from requirement RA1, item b: The following applies: the building/s is/are to be occupied by the Ministry of Defence or the armed forces of the Crown, or to be otherwise occupied for purposes connected to national security.",
+     "Part B, 1 Exemption from requirement RA1, item c: Both of the following apply: the building/s is/are in an area isolated from a relevant public electronic communications network of the kind mentioned in regulation 44ZC(2) of the Building Regulations 2010, where the cost of a gigabit-capable, high-speed and USO-standard public electronic communications network connection exceeds the cost cap; the prospect of a gigabit-capable, high-speed and USO-standard public electronic communications network connection is considered too remote to justify equipping the building with gigabit-ready physical infrastructure (for full fibre, satellite, fixed wireless or other technologies) or an access point as set out in sections 5a, 5b or 5c in Part A of this form; and a note says: Please note other exemptions in the Building Regulations 2010, which are not included in this connectivity plan, including those set out in Classes 1 to 7 of Schedule 2 to the Building Regulations 2010.",
+     "Part B, 2 Evidence of exemption, says: Please attach evidence to show how exemption 1b and/or 1c applies.",
+     "Part B, 3 Exemption from requirement RA2, question a asks: Is/are the building/s exempt from the requirement to provide a connection to a gigabit-capable public electronic communications network? Yes means please complete section 3b or 3c, as appropriate, and No has no further instruction."
+    ]
+   },
+   "reason": "Single-column box; numbered section bars are heading rows; bullets folded into the item text.",
+   "evidence": "Page 31 image lower box: Part B intro, bars 1, 2 and 3, items a, b, c with tick boxes.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "529bf21db1e40c42",
+   "kind": "table",
+   "target": "v1-appendix-b-part-b-table-2: Part B",
+   "value": {
+    "columns": [
+     "Text"
+    ],
+    "rows": [
+     [
+      "b. The cost to provide each dwelling on the development site with the following exceed(s) the cost cap: Tick all that apply: Gigabit-capable public electronic communications network connection; High-speed public electronic communications network connection; USO-standard public electronic communications network connection. Note: Connection should be provided to the fastest public electronic communications network within the cost cap."
+     ],
+     [
+      "c. The following applies: At least two suitable providers of public electronic communications networks have declined to provide a connection free of charge or at a cost not exceeding the cost cap, or have failed to respond to requests within 30 working days."
+     ],
+     [
+      "4 Evidence of exemption"
+     ],
+     [
+      "Please attach the following, from suitable providers of public electronic communications networks. Evidence that the providers are suitable for the purposes in question. One of the following: At least two offers from the providers showing that the cost of the relevant connection exceeds the cost cap (where 3b applies); At least two requests for offers for a relevant connection to which the providers have failed to respond within 30 working days (developers may wish to provide further evidence including evidence of follow-up requests) (where 3c applies); Correspondence from at least two of the providers that declined to provide any connection to a relevant connection, clearly stating the reason why (where 3c applies)."
+     ]
+    ],
+    "heading_rows": [
+     2
+    ],
+    "sentences": [
+     "Part B, section 3, item b says: The cost to provide each dwelling on the development site with the following exceed(s) the cost cap, tick all that apply: gigabit-capable public electronic communications network connection; high-speed public electronic communications network connection; USO-standard public electronic communications network connection; and a note says: Connection should be provided to the fastest public electronic communications network within the cost cap.",
+     "Part B, section 3, item c says: The following applies: at least two suitable providers of public electronic communications networks have declined to provide a connection free of charge or at a cost not exceeding the cost cap, or have failed to respond to requests within 30 working days.",
+     "Part B, 4 Evidence of exemption, says: Please attach the following, from suitable providers of public electronic communications networks; evidence that the providers are suitable for the purposes in question; one of the following: at least two offers from the providers showing that the cost of the relevant connection exceeds the cost cap (where 3b applies), at least two requests for offers for a relevant connection to which the providers have failed to respond within 30 working days (developers may wish to provide further evidence including evidence of follow-up requests) (where 3c applies), or correspondence from at least two of the providers that declined to provide any connection to a relevant connection, clearly stating the reason why (where 3c applies)."
+    ]
+   },
+   "reason": "Single-column box continuing Part B; section 4 bar is a heading row.",
+   "evidence": "Page 32 image: items b and c with tick boxes, grey bar 4 Evidence of exemption, bullet list.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "34bae274bb40c108",
+   "kind": "figure_description",
+   "target": "v2-diagram-i: The relationship between regulations and guidance in the approved documents",
+   "value": "This is a diagram of a sample page for Requirement B2: Internal fire spread (linings), used to show the relationship between regulations and guidance in the approved documents. A box headed Requirement, with columns Requirement and Limits on application, holds the text of B2 (1) and (2) and is marked with a circled 1; a section headed Intention, covering restricted spread of flame over internal linings and what B2 does not include, is marked with a circled 2. The key reads: 1 The law: extract from the Building Regulations 2010; 2 Statutory guidance.",
+   "reason": "Annotated sample page with two dashed outlines and a two-item key.",
+   "evidence": "Image shows B2 title, green Requirement box with circled 1, Intention text with circled 2, Key and caption Diagram i.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "7b11ae51f4110fbe",
+   "kind": "table",
+   "target": "v2-requirement-r1-box-1: Requirement R1: High-speed-ready in-building physical infrastructure",
+   "value": {
+    "columns": [
+     "Requirement",
+     "Limits on application"
+    ],
+    "rows": [
+     [
+      "Part R Infrastructure for electronic communications. High-speed-ready in-building physical infrastructure. R1 (1) Building work must be carried out so as to ensure that the building is equipped with a high-speed-ready in-building physical infrastructure, up to a network termination point for high-speed electronic communications networks. (2) Where the work concerns a building containing more than one dwelling, the work must be carried out so as to ensure that the building is equipped in addition with a common access point for high-speed electronic communications networks.",
+      "Requirement R1 applies to building work, other than building work to which paragraph RA1 applies, that consists of— (a) the erection of buildings; or (b) major renovation works to buildings."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Requirement R1: High-speed-ready in-building physical infrastructure, under Part R Infrastructure for electronic communications, requires that (1) building work must be carried out so as to ensure that the building is equipped with a high-speed-ready in-building physical infrastructure, up to a network termination point for high-speed electronic communications networks, and (2) where the work concerns a building containing more than one dwelling, the work must be carried out so as to ensure that the building is equipped in addition with a common access point for high-speed electronic communications networks; its limits on application are that Requirement R1 applies to building work, other than building work to which paragraph RA1 applies, that consists of (a) the erection of buildings; or (b) major renovation works to buildings."
+    ]
+   },
+   "reason": "Requirement box with one data row under two printed column headings; the green Requirement bar is the box title, not a column.",
+   "evidence": "Page 10 image: italic headings Requirement and Limits on application, one text cell under each.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "d7fb258e188da4d6",
+   "kind": "table",
+   "target": "v2-section-1-ductwork-for-copper-and-fibre-optic-cables-table-1: Ductwork for copper and fibre-optic cables",
+   "value": {
+    "columns": [
+     "Note",
+     "Text"
+    ],
+    "rows": [
+     [
+      "1",
+      "The diagrams show underground ducts for network cables outside the building, but this does not preclude the use of overhead lines."
+     ],
+     [
+      "2",
+      "For copper cables, the duct may simply be a hole drilled in the wall. Note the downwards slope to the outside to prevent rainwater ingress."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Ductwork for copper and fibre-optic cables, note 1: The diagrams show underground ducts for network cables outside the building, but this does not preclude the use of overhead lines.",
+     "Ductwork for copper and fibre-optic cables, note 2: For copper cables, the duct may simply be a hole drilled in the wall. Note the downwards slope to the outside to prevent rainwater ingress."
+    ]
+   },
+   "reason": "The page image has no real table under this heading; the only matching content is the two numbered footnotes at the foot of page 4, so they were rebuilt as a two-column table with plain headings Note and Text.",
+   "evidence": "Footnotes 1 and 2 printed at the bottom of page 4, matching the section text.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "7b3d114193a7e5ac",
+   "kind": "figure_description",
+   "target": "v2-diagram-1: Schematic example of the in-building physical infrastructure for a single- occupancy building",
+   "value": "Diagram 1 is a schematic line drawing of a two-storey house with a pitched roof, titled \"Schematic example of the in-building physical infrastructure for a single-occupancy building\". An \"Access point\" box on the outside wall at ground level is joined by a short link to a \"Network termination point\" box inside the wall, and a dashed black line labelled \"Service provider's duct\" runs underground to the access point. A note reads \"NOTE: The diagram shows future connectivity by underground ducts for network cables outside the building. However, it should be noted that alternative forms of connectivity may be used.\"",
+   "reason": "Described the printed title, labels and note from the figure image.",
+   "evidence": "Labels seen: Access point; Network termination point; Service provider's duct; NOTE text; Diagram 1 caption.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "4eaf86c281b2007e",
+   "kind": "figure_description",
+   "target": "v2-diagram-2: Schematic example of the in-building physical infrastructure for a multi-dwelling building that is subject to major renovation works",
+   "value": "Diagram 2 is a schematic line drawing of a multi-storey building with a pitched roof and two columns of dwellings, titled \"Schematic example of the in-building physical infrastructure for a multi-dwelling building that is subject to major renovation works\". A \"Common access point\" at ground level is fed by a dashed black line labelled \"Service provider's duct\", and a vertical line labelled \"Ducting/ trays in riser\" runs up the middle with horizontal lines on each of four floors to a \"Network termination point in each dwelling\" on the left and right. A note reads \"NOTE: The diagram shows future connectivity by underground ducts for network cables outside the building. However, it should be noted that alternative forms of connectivity may be used.\"",
+   "reason": "Described the printed title, labels and note from the figure image in three sentences.",
+   "evidence": "Labels seen: Ducting/ trays in riser; Network termination point in each dwelling; Common access point; Service provider's duct; NOTE text; Diagram 2 caption.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  }
+ ]
+}
