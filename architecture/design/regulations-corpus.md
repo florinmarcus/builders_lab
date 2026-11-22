@@ -395,7 +395,8 @@ erDiagram
 ### Scope: versions in force from 1 January 2025 (ADR 0016, built 22 Nov 2026)
 
 One rule in `system/rag/corpus.py` (`in_scope`): a version is in scope when its `valid_to` is empty or on or
-after 1 January 2025. `chunk.py`, `load.py`, model checks and crop checks (`checks.current_trees`) use it. Older
+after 1 January 2025. `chunk.py`, `load.py`, model checks and crop checks (`checks.current_trees`) and the coverage check
+(`coverage.versions_in_scope`, S120) use it. Older
 versions keep their records and raw files; their trees are not chunked, loaded or checked, and their open checks
 stay open. Pages that list old editions side by side (`adb-historical`) give every file the page's date and an open
 end, so `sources.yaml` lists each part's own dates from the documents (`in_force_parts`); chunks of those parts
@@ -405,7 +406,7 @@ carry the edition's dates, not the page's.
 flowchart LR
     rec["version record<br/>valid_to"] --> rule{"in_scope<br/>valid_to empty or<br/>>= 2025-01-01"}
     over["sources.yaml<br/>in_force_parts<br/>(dates printed in<br/>the documents)"] -.-> rule
-    rule -->|yes| work["chunk, load,<br/>model checks,<br/>crop checks"]
+    rule -->|yes| work["chunk, load,<br/>model checks,<br/>crop checks,<br/>coverage check"]
     rule -->|no| keep["record and raw file kept;<br/>not chunked or checked"]
 ```
 

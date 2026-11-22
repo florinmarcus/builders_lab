@@ -1,5 +1,7 @@
 """Coverage audit (system/rag/coverage.py): which parser fits a source, and what is in scope."""
 
+import json
+
 from system.rag import coverage as C
 
 
@@ -240,6 +242,23 @@ def test_accept_records_a_flagged_item(tmp_path, monkeypatch):
     assert C.accept("x", item["key"], "page is a blank form", "Florin", today="2026-11-22") == 0
     saved = C.load_accepted("x")["accepted"][item["key"]]
     assert saved["reason"] == "page is a blank form" and saved["by"] == "Florin" and saved["date"] == "2026-11-22"
+
+
+def test_versions_follow_the_shared_scope_rule(tmp_path, monkeypatch):
+    """S120: coverage picks versions by corpus.in_scope (in force on or after 1 January 2025, with a source's
+    in_force_parts), not by an empty valid_to."""
+    monkeypatch.setattr(C, "CORPUS_DIR", tmp_path)
+    monkeypatch.setattr(C, "load_sources", lambda: {"sources": [
+        {"id": "s", "in_force_parts": {"old-part": {"from": "2019-08-30", "to": "2020-11-26"}}}]})
+    recs = {"now": {"valid_to": None}, "ended-2025": {"valid_to": "2025-03-02"}, "ended-2024": {"valid_to": "2024-12-31"},
+            "collated-old": {"valid_to": None, "part": "old-part"}}
+    for vid, extra in recs.items():
+        for d in ("versions", "parsed"):
+            (tmp_path / d / "s").mkdir(parents=True, exist_ok=True)
+        (tmp_path / "versions" / "s" / f"{vid}.json").write_text(json.dumps(
+            {"source_id": "s", "version_id": vid, "media_type": C.PDF, "valid_from": "2019-01-01", **extra}))
+        (tmp_path / "parsed" / "s" / f"{vid}.json").write_text("{}")
+    assert sorted(r["version_id"] for r, _ in C.versions_in_scope(["s"])) == ["ended-2025", "now"]
 
 
 def test_real_trees_have_no_open_coverage_items():

@@ -13,7 +13,7 @@
     python -m system.rag.coverage report [--source ID ...] [--verbose]
     python -m system.rag.coverage accept --source ID --item KEY --reason "..." --by "..."
 
-   Three checks per current version (valid_to null) whose tree is in corpus/parsed. For a PDF:
+   Three checks per version in scope (corpus.in_scope, ADR 0016) whose tree is in corpus/parsed. For a PDF:
    - text: the raw words (pdfplumber extract_words, read here, not through the parser's reader) against every
      text-bearing field of the tree, as a multiset of normalised words, per document and per page. Words the
      parsers drop by rule (running headers and footers, page numbers, cover, contents, index, sideways text,
@@ -1283,7 +1283,11 @@ def check_tables(raw: dict, tree: dict, text: dict, sha8: str) -> dict:
 # ---------------------------------------------------------------- versions in scope, accepted items, report
 
 def versions_in_scope(source_ids: list[str] | None = None) -> list[tuple[dict, Path]]:
-    """(version record, tree path) for every current version with a reader for its file type and a parsed tree."""
+    """(version record, tree path) for every version in scope (corpus.in_scope, ADR 0016: in force on or after
+    1 January 2025) with a reader for its file type and a parsed tree."""
+    from system.rag.corpus import in_scope as version_in_scope
+
+    sources = {s["id"]: s for s in load_sources()["sources"]}
     out = []
     parsed = CORPUS_DIR / "parsed"
     ids = source_ids or sorted(p.name for p in parsed.iterdir() if p.is_dir()) if parsed.exists() else []
@@ -1294,7 +1298,7 @@ def versions_in_scope(source_ids: list[str] | None = None) -> list[tuple[dict, P
             if not rp.exists():
                 continue
             rec = json.loads(rp.read_text(encoding="utf-8"))
-            if rec.get("valid_to") is None and rec.get("media_type") in READERS:
+            if version_in_scope(rec, sources.get(sid)) and rec.get("media_type") in READERS:
                 out.append((rec, tp))
     return out
 
