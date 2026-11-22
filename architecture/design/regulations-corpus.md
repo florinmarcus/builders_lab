@@ -131,6 +131,20 @@ flowchart LR
     join -->|"band only"| old["text rule<br/>(labels back to the last body line)"]
 ```
 
+Amendment booklets and short notes have no 26pt chapters, so the largest heading size used on two or more pages
+is the chapter size (simple mode). A booklet is also known by its "List of amendments" title pages, one per volume
+(22 Nov 2026). The June 2022 AD B booklet reprints whole sections in the 2019 layout, with 26pt titles; it used
+to lose Volume 1 (pages 2 to 17), because the parser skipped everything before the first 26pt title.
+
+```mermaid
+flowchart LR
+    pdf["Booklet PDF"] --> list{"'List of amendments'<br/>title page?"}
+    list -->|"yes"| simple["simple mode:<br/>its size = chapters"]
+    list -->|"no, but no 26pt titles"| simple2["simple mode:<br/>largest heading size<br/>on 2+ pages = chapters"]
+    simple --> re["26pt title of a reprinted<br/>section = heading in the<br/>booklet's chapter"]
+    simple --> vol["'Volume N' in the list title:<br/>a chapter code used in<br/>another volume gets vN-<br/>(v2-section-3)"]
+```
+
 ### Home Office fire risk assessment guides (parse_guide, built 22 Nov 2026)
 
 The 2006 "Fire safety risk assessment" sector guides and the disabled people supplement share one template that

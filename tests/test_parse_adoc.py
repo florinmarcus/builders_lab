@@ -369,6 +369,51 @@ def test_booklet_without_chapter_titles():
     assert "Approved Document A" not in " ".join(s["text"] for s in t["sections"])  # the back page list
 
 
+def booklet_with_a_reprinted_section():
+    """A two-volume booklet that reprints a whole section in the 2019 layout (June 2022 AD B): the reprinted
+    section has a 26pt chapter title, which used to make the parser skip everything before it."""
+    L = [ln(1, 270, bold("Amendments", "to", "the"), 36.0, "Agenda-Bold")]
+    L += page_furniture(2, "2") + [ln(2, 83, bold("Introduction"), 15.0, "Agenda-Bold"),
+                                   ln(2, 107, ["These", "changes", "take", "effect", "on", "1", "December", "2022."])]
+    p = 3
+    for vol in ("1", "2"):
+        L += page_furniture(p, str(p)) + [
+            ln(p, 107, bold("Approved", "Document", "B"), 20.0, "Agenda-Bold"),
+            ln(p, 128, bold("Volume", vol), 20.0, "Agenda-Bold"),
+            ln(p, 152, ["2019", "edition"], 20.0),
+            ln(p, 190, bold("List", "of", "amendments"), 20.0, "Agenda-Bold"),
+            ln(p, 300, bold("Section", "3:", "Means", "of", "escape"), 20.0, "Agenda-Bold", 100),
+            ln(p, 330, bold("Page", "21") + ["Replace", "paragraph", "3.14."]),
+            ln(p, 350, [("3.14", B), "Escape", "text", "for", "volume", vol + "."], font="Agenda-Semibold", x0=100)]
+        p += 1
+        L += page_furniture(p, str(p)) + [
+            ln(p, 83, bold("Section", "10:", "External", "walls"), 20.0, "Agenda-Bold", 100),
+            ln(p, 111, bold("Pages", "79") + ["Replace", "Section", "10", "with", "the", "following."]),
+            ln(p, 150, bold("Section", "10:", "Resisting", "fire", "spread", "over"), 26.0, "Agenda-Bold"),
+            ln(p, 180, bold("external", "walls"), 26.0, "Agenda-Bold"),
+            ln(p, 263, bold("Introduction"), 20.0, "Agenda-Bold"),
+            ln(p, 291, [("10.1", B), "Walls", "for", "volume", vol + "."], font="Agenda-Semibold")]
+        p += 1
+    L += [ln(p, 24, bold("List", "of", "Approved", "Documents"), 26.0, "Agenda-Bold"), ln(p, 120, ["Approved", "Document", "A"])]
+    return {"lines": L, "tables": [], "page_width": 595.0}
+
+
+def test_booklet_that_reprints_a_section_keeps_both_volumes_apart():
+    t = build_tree(booklet_with_a_reprinted_section(), META)
+    paras = {s["id"]: s["text"] for s in t["sections"] if s["type"] == "paragraph"}
+    # Volume 1 is kept (it was skipped up to the first 26pt title), and Volume 2 does not take Volume 1's ids.
+    assert sorted(paras.values()) == ["Escape text for volume 1.", "Escape text for volume 2.",
+                                      "Walls for volume 1.", "Walls for volume 2."]
+    chaps = [s["id"] for s in t["sections"] if s["type"] == "chapter"]
+    assert "section-3" in chaps and "v2-section-3" in chaps and "section-10" in chaps and "v2-section-10" in chaps
+    assert paras["v2-section-3-para-3.14"] == "Escape text for volume 2."
+    # the reprinted 26pt title is one heading, joined over its two lines
+    heads = [s["title"] for s in t["sections"] if s["type"] == "heading" and s["title"].startswith("Section 10")]
+    assert heads == ["Section 10: Resisting fire spread over external walls"] * 2
+    assert not [i for i in t["issues"] if "duplicate" in i]
+    assert "Approved Document A" not in " ".join(s["text"] for s in t["sections"])
+
+
 def test_part_prefix_rule_and_ids():
     from system.rag.parse_adoc import part_prefix
     parts = ["approved-document-l-volume-1", "approved-document-l-volume-2", "february-2023-amendments-to-approved-document-l",

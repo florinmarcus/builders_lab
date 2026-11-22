@@ -144,9 +144,19 @@ class AdocBuilder:
         has_chapters = any(chap_range[0] <= l["size"] <= chap_range[1] and l["page"] > 1 and l["top"] < 200
                            and l.get("words") and _bold(l["words"][0]) and l["text"].strip().lower() not in STOP_CHAPTERS
                            for l in doc["lines"])
-        self.simple = not has_chapters
+        # An amendment booklet has a "List of amendments" title page per volume. A booklet that reprints a whole
+        # section in the 2019 layout (June 2022: Section 10 of Volume 1, Section 12 of Volume 2) has 26pt chapter
+        # titles too; it is still read as a booklet, with the size of its "List of amendments" titles as chapters.
+        lists = [l["size"] for l in doc["lines"] if l["page"] > 1 and l["top"] < 400 and l["size"] >= 18
+                 and l["text"].strip() == "List of amendments" and l.get("words") and _bold(l["words"][0])]
+        self.simple = not has_chapters or bool(lists)
+        self.volume = None  # booklet: the volume whose list of amendments is being read ("Volume 2")
+        self._chap_volume: dict[str, str | None] = {}  # booklet: chapter id -> its volume
         self.chapter_size = 0.0
-        if self.simple:
+        if self.simple and has_chapters:
+            self.classic = False
+            self.chapter_size = Counter(lists).most_common(1)[0][0]
+        elif self.simple:
             self.classic = False
             pages_by_size = defaultdict(set)
             for l in doc["lines"]:
@@ -225,6 +235,10 @@ class AdocBuilder:
         s, ws = l["size"], l.get("words") or []
         if self.chapter_size and abs(s - self.chapter_size) < 0.3:
             return {**l, "size": 26.0, "words": [{**w, "b": True} for w in ws]}
+        if self.chapter_size and self.chapter_size + 3 < s and 25 <= s <= 27.5 and ws and _bold(ws[0]) \
+                and l["text"].strip().lower() not in STOP_CHAPTERS:
+            # A booklet that reprints a whole section: its 26pt title is a heading in the booklet's chapter.
+            return {**l, "size": 20.0, "orig_size": s, "words": [{**w, "b": True} for w in ws]}
         if self.body + 2 <= s < self.chapter_size:
             return {**l, "size": 15.0, "words": [{**w, "b": True} for w in ws]}
         if abs(s - self.body) <= 0.6:
@@ -790,6 +804,7 @@ class AdocBuilder:
                         self.chapter["title"] = (f"{self.chapter['title']} {t}")
                         self.chapter["heading_path"][-1] = self.chapter["title"]
                         self.chapter["_top"] = l["top"]
+                        self._volume(self.chapter["title"])
                         continue
                     title = (t)
                     low = title.lower()
@@ -810,9 +825,13 @@ class AdocBuilder:
                     chap["number"] = m.group(2) if m else None
                     base = f"{m.group(1).lower()}-{m.group(2).lower()}" if m else slugify(title)[:60]
                     chap["id"] = base + self.suffix()
+                    self._volume(title)
                     if chap["id"] in self.by_id and m:  # "Regulation 23(1) ..." and "Regulation 23(2) ...": use the code words
                         chap["id"] = slugify(title.split(":")[0])[:60] + self.suffix()
-                    if chap["id"] in self.by_id and not m:  # a second "Guidance" chapter: number it
+                    if chap["id"] in self.by_id and m and self.volume and self._chap_volume.get(chap["id"]) != self.volume:
+                        # A booklet with two volumes: "Section 3" of Volume 2 is not "Section 3" of Volume 1.
+                        chap["id"] = f"v{self.volume}-{base}" + self.suffix()
+                    if chap["id"] in self.by_id and (not m or self.volume):  # a second "Guidance" chapter: number it
                         k = 2
                         while f"{chap['id']}-{k}" in self.by_id:
                             k += 1
@@ -821,6 +840,7 @@ class AdocBuilder:
                         self.issues.append(f"duplicate section id {chap['id']} (file page {page})")
                         chap["id"] += f"-p{page}"
                     self.by_id[chap["id"]] = chap
+                    self._chap_volume[chap["id"]] = self.volume
                     chap["_top"] = l["top"]
                     h1 = h2 = h3 = None
                     current = chap
@@ -938,7 +958,7 @@ class AdocBuilder:
                 # Headings
                 if all_bold and l["size"] >= 14.5 and current is not None and current["type"] == "heading" \
                         and current.get("_heading_top") is not None and current.get("_size") == l["size"] \
-                        and 0 < l["top"] - current["_heading_top"] < l["size"] * 1.3:
+                        and 0 < l["top"] - current["_heading_top"] < l.get("orig_size", l["size"]) * 1.3:
                     current["title"] = f"{current['title']} {t}"
                     current["heading_path"][-1] = current["title"]
                     current["_heading_top"] = l["top"]
@@ -995,6 +1015,12 @@ class AdocBuilder:
                     self._diagram(page, r, h3 or h2 or h1 or self.chapter, self._diagram_top.get((page, n), 0.0),
                                   self._diagram_area.get((page, n)))
         return self.finish()
+
+    def _volume(self, title: str) -> None:
+        """Booklet: a chapter "Approved Document B ... Volume 2 ... List of amendments" starts that volume's list."""
+        vol = re.search(r"\bVolume (\d)\b", title)
+        if self.simple and vol and "list of amendments" in title.lower():
+            self.volume = vol.group(1)
 
     def _redo_duplicate_id(self, sec) -> None:
         """A heading whose first line repeats an earlier heading ("MAIN CHANGES MADE BY THE" / "2013 AMENDMENTS"):
