@@ -902,7 +902,10 @@ def test_real_awaab_consolidated_regulations():
     t = _real("awaab-consolidated", "Awaab's law regulations")
     paras = [int(s["number"]) for s in t["sections"] if s["type"] == "paragraph"]
     assert paras == list(range(1, 24))
-    assert [s["id"] for s in t["sections"] if s["type"] == "chapter"] == [f"part-{n}" for n in range(1, 8)]
+    # The enacting words before Part 1 are kept in "Front matter" (S105), with the end of the contents list
+    # above them on the same page (parking lot).
+    assert [s["id"] for s in t["sections"] if s["type"] == "chapter"] == ["front-matter"] + [f"part-{n}" for n in range(1, 8)]
+    assert "The Secretary of State makes the following regulations" in sec(t, "front-matter-text-1")["text"]
     assert t["checks"] == [] and not t["issues"]
 
 
@@ -1102,3 +1105,125 @@ def test_chapter_titles_found_from_the_contents_page_when_only_contents_is_large
     assert chapters == ["Introduction", "Assessing hazards", "Annex"]
     assert any("Housing is a key factor" in (s.get("text") or "") for s in t["sections"])
     assert not any("...." in (s.get("text") or "") for s in t["sections"])  # the contents page stays skipped
+
+
+BLURB = ["This book contains the Approved Code of Practice and guidance on the Regulations for",
+         "employers and the self-employed who carry out work with hazardous substances at work and",
+         "it explains what the law requires and what you must do to protect your employees and others",
+         "who may be affected by the work, with practical advice on control measures and records."]
+
+
+def test_content_before_the_first_chapter_is_kept_but_not_the_imprint_or_contents():
+    """Coverage S105: everything before the first chapter title was skipped as front matter, so a cover blurb
+    (HSE ACOPs), a key-facts page after the contents (HSG227) or a whole leaflet (INDG285) was lost. Content
+    pages (40+ words of body-size running text) are kept in a "Front matter" chapter; the imprint and the
+    contents page are still skipped."""
+    lines = [ln(1, 100, "Control of demo substances", 37.0, "HelveticaNeue-BoldCond", 54),
+             ln(1, 184, "Approved Code of Practice and guidance", 18.0, "HelveticaNeue-Light", 54),
+             *[ln(1, 273 + 12 * k, t) for k, t in enumerate(BLURB)],
+             ln(1, 300, "Cover thumbnail words", 1.6, "HelveticaNeue-Bold", 143),
+             ln(2, 100, "© Crown copyright 2013. First published 2005. ISBN 978 0 7176 6582 2"),
+             *[ln(2, 120 + 12 * k, t) for k, t in enumerate(BLURB)],
+             ln(3, 98, "Contents", 28.0, "HelveticaNeue-Medium"), ln(3, 140, "Introduction 5"),
+             ln(4, 100, "The key facts", 11.0, "HelveticaNeue-Bold"),
+             *[ln(4, 120 + 12 * k, t.replace("book", "page")) for k, t in enumerate(BLURB)],
+             ln(4, 180, "Approved Document B Volume 1 (2006 Edition, ISBN: 978 185946 261 4) is now available."),
+             ln(5, 98, "Introduction", 28.0, "HelveticaNeue-Medium"),
+             ln(5, 150, "1 The Regulations apply to employers."),
+             ln(6, 98, "Duties", 28.0, "HelveticaNeue-Medium"),
+             ln(6, 150, "2 Employers must assess the risk.")]
+    t = build_tree({"lines": lines, "rects": [], "images": [], "page_count": 6}, META)
+    front = sec(t, "front-matter")
+    assert front["file_page"] == 1 and front["title"] == "Front matter"
+    kept = all_text(t)
+    assert "This book contains the Approved Code" in kept and "This page contains the Approved Code" in kept
+    assert sec(t, "front-matter-the-key-facts")["file_page"] == 4
+    assert "2006 Edition, ISBN" in kept  # an ISBN in running text does not make the page an imprint
+    assert "ISBN 978 0 7176" not in kept and "Introduction 5" not in kept and "thumbnail" not in kept
+    assert [s["title"] for s in t["sections"] if s["type"] == "chapter"] == ["Front matter", "Introduction", "Duties"]
+
+
+def test_a_chapter_title_on_page_one_with_text_under_it_is_a_chapter():
+    """MS34 and DETR circulars: "Introduction" on page 1 under the document's title, with paragraphs under it,
+    was taken for part of the cover and skipped. A later large title on page 1 is a chapter when running text
+    follows it; one without (a subtitle such as "Part 1: An introductory guide") is not."""
+    lines = [ln(1, 100, "Guidance for doctors on medical", 36.0, "HelveticaNeueLT-BoldCond", 54),
+             ln(1, 135, "surveillance of demo workers", 36.0, "HelveticaNeueLT-BoldCond", 54),
+             ln(1, 230, "Introduction", 30.0, "HelveticaNeueLT-Condensed"),
+             ln(1, 280, "1 This document provides guidance for doctors on medical surveillance."),
+             ln(1, 294, "It updates the earlier version following a review by the regulator."),
+             ln(1, 308, "There is no change to the frequency of medical surveillance."),
+             ln(1, 600, "Related diseases", 30.0, "HelveticaNeueLT-Condensed"),
+             ln(1, 650, "2 Most deaths are associated with very high past exposures at work."),
+             ln(1, 664, "Many buildings still contain the material in walls and ceilings."),
+             ln(1, 678, "Those now most at risk are maintenance workers and tradespeople."),
+             ln(2, 100, "Who can do it", 30.0, "HelveticaNeueLT-Condensed"),
+             ln(2, 150, "3 Any registered medical practitioner can do the surveillance.")]
+    t = build_tree({"lines": lines, "rects": [], "images": [], "page_count": 2}, META)
+    assert [s["title"] for s in t["sections"] if s["type"] == "chapter"] == ["Introduction", "Related diseases", "Who can do it"]
+    assert sec(t, "para-1")["file_page"] == 1 and sec(t, "para-2")["file_page"] == 1
+    cover = [ln(1, 230, "Demo rating system", 24.0, "ArialMT", 72), ln(1, 311, "Part 1: An introductory guide", 18.0, "ArialMT", 72),
+             ln(1, 390, "Presented to Parliament", 14.0, "ArialMT", 72), ln(2, 76, "Contents", 16.0, "Calibri-Light"),
+             ln(3, 76, "Introduction", 24.0, "ArialMT"), ln(3, 110, "Housing is a key factor of health.", 11.0, "Calibri")]
+    t = build_tree({"lines": cover, "rects": [], "images": [], "page_count": 3}, META)
+    assert [s["title"] for s in t["sections"] if s["type"] == "chapter"] == ["Introduction"]
+
+
+def test_a_phone_number_or_a_schedule_named_in_running_text_is_not_a_chapter():
+    """INDG285: "Tel: 0800 300 363" in 21pt on the back page was the only chapter title, so pages 1-4 were skipped
+    as front matter. Circular 01/2015: a body line "Schedule 3 to the Building Regulations 2010 ..." set a little
+    larger was taken for a SCHEDULE heading. Neither is a chapter: the document is one chapter from page 1."""
+    for big in (ln(3, 273, "Tel: 0800 300 363", 21.0, "HelveticaNeueLTPro-Bd"),
+                ln(3, 197, "Schedule 3 to the Building Regulations 2010 (S.I. 2010/2214):", 11.0, "GoudyOldStyleBT-Roman")):
+        lines = [ln(1, 97, "Landlords", 37.0, "HelveticaNeueLTStd-BdC", 54),
+                 ln(1, 531, "What type of property is covered?", 12.0, "HelveticaNeueLTPro-Bd"),
+                 ln(1, 556, "The duties generally apply to appliances and flues provided for tenants."),
+                 ln(2, 100, "Any lease under seven years is covered by the duties in the Regulations."),
+                 ln(2, 112, "Landlords must keep the record of the safety check for two years."), big,
+                 ln(3, 300, "This guidance is issued by the regulator and is not compulsory.")]
+        t = build_tree({"lines": lines, "rects": [], "images": [], "page_count": 3}, META)
+        assert [s["id"] for s in t["sections"] if s["type"] == "chapter"] == ["document"]
+        assert "The duties generally apply" in all_text(t)
+
+
+def test_cover_thumbnail_is_not_a_photo_and_its_caption_is_text():
+    """HSE leaflets and books print a small picture of their own cover with the publication's name under it
+    ("This is a web-friendly version of leaflet INDG231(rev1)", read on the same line as the text column beside
+    it; "HSG85 (Third edition) Published 2013"). It is not a figure, and the lines under it are text, not a
+    table. The same rule is used by the coverage check (S107)."""
+    two_col = [{"x0": 54.0, "x1": 160.0, "text": w} for w in "This is a web-friendly version".split()]
+    two_col += [{"x0": 179.0 + 6 * i, "x1": 183.0 + 6 * i, "text": w} for i, w in enumerate("also cause death or".split())]
+    lines = [ln(1, 100, "Electrical safety", 37.0, "HelveticaNeue-BoldCond", 54),
+             ln(1, 388, "This is a web-friendly version also cause death or", 9.0, x0=54, words=two_col),
+             ln(1, 400, "of leaflet INDG231(rev1), careful planning", 9.0, x0=54),
+             ln(1, 412, "published 04/12", 9.0, x0=54),
+             ln(1, 300, "Text on the thumbnail", 3.8, x0=60),
+             ln(1, 500, "Electricity can kill or severely injure people and cause damage to property.")]
+    images = [{"page": 1, "top": 229.0, "bottom": 378.0, "x0": 54.0, "x1": 168.0}]
+    t = build_tree(drawn_doc(lines, images=images), META)
+    assert not [s for s in t["sections"] if s["type"] in ("figure", "table")]
+    assert "web-friendly version" in all_text(t) and "thumbnail" not in all_text(t)
+    lines = [ln(1, 100, "Safe working practices", 37.0, "HelveticaNeue-BoldCond", 54),
+             ln(1, 405, "HSG85 (Third edition)", 10.0, x0=54), ln(1, 417, "Published 2013", 10.0, x0=54),
+             ln(1, 500, "The guidance covers the key elements to consider when devising safe working practices.")]
+    images = [{"page": 1, "top": 236.0, "bottom": 396.0, "x0": 54.0, "x1": 167.0}]
+    t = build_tree(drawn_doc(lines, images=images), META)
+    assert not [s for s in t["sections"] if s["type"] == "figure"]
+
+
+def test_a_contents_page_with_its_page_numbers_in_a_column_stays_skipped():
+    """HSG33: the contents run on to a second page with no "Contents" title, the page numbers set as a column
+    of their own lines. That page is not front content; the 12pt cover blurb on page 1 is."""
+    entries = ["Training and competence for roof workers", "The role of the client", "The role of the designer",
+               "The role of the principal contractor", "The role of the contractor", "Issues for method statements",
+               "Further reading and useful contacts", "Glossary of terms used in this book"]
+    lines = [ln(1, 197, "Health and safety in roof work", 30.0, "HelveticaNeueLTStd-XBl", 57),
+             *[ln(1, 316 + 14 * k, t, 12.0, "HelveticaNeueLTStd-LtC") for k, t in enumerate(BLURB)],
+             ln(2, 100, "CONTENTS", 30.0, "HelveticaNeueLTStd-BdC"), ln(2, 176, "Preface"), ln(2, 176, "5", x0=531),
+             *[ln(3, 100 + 14 * k, t) for k, t in enumerate(entries)],
+             *[ln(3, 100 + 14 * k, str(40 + 2 * k), x0=526) for k in range(len(entries))],
+             ln(4, 100, "PREFACE", 30.0, "HelveticaNeueLTStd-BdC"),
+             ln(4, 150, "Every year many construction site workers are killed or injured at work.")]
+    t = build_tree({"lines": lines, "rects": [], "images": [], "page_count": 4}, META)
+    kept = all_text(t)
+    assert "This book contains the Approved Code" in kept and "The role of the client" not in kept

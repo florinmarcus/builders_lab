@@ -138,6 +138,7 @@ PAGE_EMPTY = 0.10          # ... and flagged when the tree holds under 10% of th
 DOC_UNEXPLAINED = 0.05     # a document is flagged when over 5% of its raw words are missing for no named reason
 TABLE_WORDS = 0.60         # a ruled table is found when 60% of its cell words are in the tree on that page
 IMAGE_IN_CROP = 0.50       # an image is inside a figure crop when half of it lies in the crop
+PAGE_FRAME = 0.85          # a "ruled table" this wide and this tall is a border round the page (Procurement guides)
 
 REASONS = {  # raw words the parsers drop on purpose, and why (first match wins, in this order)
     "sideways": "sideways or upside-down text (the reader skips it)",
@@ -162,7 +163,7 @@ IMAGE_REASONS = {
     "background": "background behind a page of text (60% of the page or more)",
     "band": "a thin decorative band or rule",
     "repeated": "the same image on 3 or more pages (logo, band, tab)",
-    "signature": "a signature, letterhead logo or publisher's logo (parse_pdf's rule)",
+    "signature": "a signature, letterhead logo, publisher's logo or cover thumbnail (parse_pdf's rule)",
     "issue": "named in a tree issue (no caption below it)",
     "table": "inside a table's rows",
 }
@@ -490,7 +491,20 @@ def word_reasons(raw: dict, tree: dict) -> tuple[list[list[str | None]], dict]:
     for b, t in furniture:
         fur_texts[b].append(t)
     # pages: where the tree starts, contents, index
-    starts = [p for ps in section_pages(tree.get("sections") or []) for p in ps]
+    # The first page of content after the cover. parse_pdf keeps content found before the first chapter in a
+    # "front-matter" chapter (a cover blurb on page 1) and still drops the imprint and contents pages around it,
+    # so that chapter does not end the front matter.
+    secs = tree.get("sections") or []
+    parent = {s.get("id"): s.get("parent_id") for s in secs}
+
+    def root(sid):
+        seen = set()
+        while parent.get(sid) and sid not in seen:
+            seen.add(sid)
+            sid = parent[sid]
+        return sid
+
+    starts = [p for s, ps in zip(secs, section_pages(secs)) if root(s.get("id")) != "front-matter" for p in ps]
     first = min(starts, default=count + 1)
     front_ok = first - 1 <= max(4, int(0.15 * count))  # a long run before the first section is not front matter
     contents, index_from = set(), None
@@ -707,18 +721,19 @@ def table_spans(tree: dict) -> dict[int, list[tuple[float, float, str]]]:
     return out
 
 
-SIGNED_RE = re.compile(r"^(Signed\b|Yours\s+(faithfully|sincerely))", re.I)
-ROLE_RE = re.compile(r"(Director|Secretary|Inspector|Minister|Chief Executive|Head of)")
-
-
 def _signature_or_logo(im: tuple, n: int, ls: list[dict]) -> bool:
-    """parse_pdf.Builder._signature_or_logo, on this module's own lines."""
+    """parse_pdf.Builder._signature_or_logo, on this module's own lines, with parse_pdf's own patterns and cover
+    thumbnail rule (S107: one rule, not a copy). A raw line here can hold two text columns, so the lines under
+    the image are cut to the words under it."""
+    from system.rag.parse_pdf import ROLE_RE, SIGNED_RE, is_cover_thumbnail
+
     x0, top, x1, bottom = im
     tall, wide = bottom - top, x1 - x0
     small = tall <= 130 and wide <= 260
     above = sorted((l for l in ls if top - 40 <= l["top"] <= top + 8), key=lambda l: l["top"])
     below = sorted((l for l in ls if bottom - 2 <= l["top"] <= bottom + 45 and l["x0"] < x1 and l["x1"] > x0),
                    key=lambda l: l["top"])
+    under = [" ".join(w[0] for w in l["words"] if w[1] < x1 and w[3] > x0) or l["text"] for l in below]
     first = below[0]["text"].strip() if below else ""
     if small and above and SIGNED_RE.match(above[-1]["text"].strip()):
         return True
@@ -729,8 +744,7 @@ def _signature_or_logo(im: tuple, n: int, ls: list[dict]) -> bool:
         return True
     if small and any(re.search(r"\bwww\.|\bISBN\b|^©", l["text"].strip()) for l in below[:3]):
         return True
-    near = " ".join(l["text"] for l in below[:4])
-    if tall <= 220 and re.search(r"\b(web-friendly|language)?\s*version\s+of\s+(the\s+)?(leaflet|pocket|booklet|INDG)", near, re.I):
+    if is_cover_thumbnail(tall, under):
         return True
     return n == 1 and top < 90 and small
 
@@ -818,6 +832,9 @@ def check_tables(raw: dict, tree: dict, text: dict, sha8: str) -> dict:
         for t in p["tables"]:
             total += 1
             x0, top, x1, bottom = t["bbox"]
+            if (x1 - x0) >= PAGE_FRAME * p["width"] and (bottom - top) >= PAGE_FRAME * p["height"]:
+                explained["a frame round the whole page, not a table"] += 1  # its words are in the text check
+                continue
             if n < facts["first_page"] and facts["front_ok"] or n in facts["contents"] or n in facts["issue_pages"] \
                     or facts["index_from"] and n >= facts["index_from"]:
                 explained["front or back matter, contents, index"] += 1

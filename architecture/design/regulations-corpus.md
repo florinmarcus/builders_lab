@@ -58,10 +58,26 @@ flowchart TD
     only -->|no| body["heading or body text"]
     only -->|yes| style["chapter style = the largest later lines whose text<br/>is a contents-page entry; every line in that style"]
     style --> ch
+    big -->|"yes, but a phone number or web address ('Tel: 0800 ...'),<br/>or 'Schedule 3 to the ...' (running text)"| body
+```
+
+Before the first chapter title (coverage check, S105, 22 Nov 2026):
+
+```mermaid
+flowchart TD
+    p1["page 1"] --> t{"large line?"}
+    t -->|"first block"| title["the document's title (skipped)"]
+    t -->|"a later large line with 3+ body lines under it"| ch1["chapter (MS34 'Introduction')"]
+    pg["page before the first chapter"] --> kind{"what is on it?"}
+    kind -->|"'Contents', or most lines are entries<br/>or page numbers (also in their own column)"| skip["skipped"]
+    kind -->|"© or Crown copyright (imprint)"| skip
+    kind -->|"under 40 words near body size"| skip
+    kind -->|"40+ words near body size<br/>(cover blurb, key facts, a circular's letter)"| front["kept in a 'Front matter' chapter;<br/>small print there is text;<br/>a cover thumbnail's own text is dropped"]
 ```
 
 HHSRS operating guidance Parts 1 and 2, the HHSRS enforcement guidance and three Procurement Act short guides parsed
-to empty trees before this rule (parking lot S103).
+to empty trees before the contents-page rule (parking lot S103). Before the front-matter rule INDG285 kept only its
+back page, MS34 lost paragraphs 1 to 12, and three circulars lost their letter (S105).
 
 ### Guidance PDF figures (parse_pdf, 22 Nov 2026)
 
@@ -86,6 +102,7 @@ flowchart TD
     img["image"] --> sig{"signature or logo?"}
     sig -->|"'Yours faithfully'/'Signed' above,<br/>name + job title below,<br/>letterhead on page 1, © or www below"| none["not a figure"]
     sig -->|"barcode over a web address"| none
+    sig -->|"cover thumbnail: 'web-friendly version of leaflet INDG231',<br/>'HSG85 (Third edition) Published 2013' under it<br/>(is_cover_thumbnail, shared with coverage.py)"| none
     sig -->|no| photo["photo of the caption below it (or above, by the vote);<br/>photos stacked with no text between, a grid named<br/>'Top row ... Bottom row', or a block of photos for<br/>'(a)–(c)' / '12a and b', make one figure;<br/>running text or another photo beside it limits the crop"]
     photo -->|"labels beside the image,<br/>or image cut into tiles"| up
 ```
@@ -215,6 +232,11 @@ flowchart LR
     flag --> acc{"Accepted by a person<br/>(corpus/coverage, git)?"}
     acc -->|no| fail["Report and test fail"]
 ```
+
+Pages before the first section are judged as front matter; a parse_pdf "Front matter" chapter (content kept from
+before the first chapter title) does not end them, so the imprint page after a cover blurb is still front matter.
+A "ruled table" as large as the page is a frame round it, not a table. Images use parse_pdf's own signature, logo and
+cover-thumbnail rule (S107).
 
 Words are compared as a multiset after normalising (case, ligatures, punctuation, hyphens, bullets). Split words
 ("W hat") and ligatures the font dropped ("fre" for "fire") still match. The report also lists tree words that

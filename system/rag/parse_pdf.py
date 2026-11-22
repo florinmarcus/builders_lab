@@ -49,6 +49,25 @@ PARA_RE = re.compile(r"^(\d{1,3})(?:\.—|\.\s|\s)\s*(\S.*)$")
 DEC_PARA_RE = re.compile(r"^(A?\d{1,2})\.(\d{1,3})\s+(\S.*)$")  # "2.14 Text": paragraph 14 of chapter 2 (HSG248)
 SIGNED_RE = re.compile(r"^(Signed\b|Yours\s+(faithfully|sincerely))", re.I)  # just above or below a signature
 ROLE_RE = re.compile(r"(Director|Secretary|Inspector|Minister|Chief Executive|Head of)")  # the signer's job title
+# A picture of the printed cover beside the web version's text ("This is a web-friendly version of leaflet
+# INDG136(rev5)", "HSG85 (Third edition) Published 2013", "L153 Published 2015"): not a figure. Shared with
+# coverage.py (S107).
+THUMBNAIL_RE = re.compile(r"\b(web-friendly|language)?\s*version\s+of\s+(the\s+)?(leaflet|pocket|booklet|INDG)"
+                          r"|^\(?(INDG|HSG|HSR|L|CIS|MS|EH|GS)\s?\d+[A-Z]?\b[^.]{0,40}?\b(edition|published|revised)\b", re.I)
+
+
+def is_cover_thumbnail(height: float, below: list[str]) -> bool:
+    """An image at most 220pt tall with the leaflet's own name and edition in the lines just under it (one
+    line each, top to bottom, only the words under the image)."""
+    return height <= 220 and (bool(THUMBNAIL_RE.search(" ".join(below[:4])))
+                              or any(THUMBNAIL_RE.search(t.strip()) for t in below[:4]))
+
+
+# A phone number or web address set large on a back page ("Tel: 0800 300 363") is not a chapter title.
+CONTACT_RE = re.compile(r"^(Tel|Telephone|Phone|Fax|E-?mail|Web|Website)\b\s*:?|^(www\.|https?://)", re.I)
+# The publisher's imprint page carries the copyright notice. (An ISBN or "published by" alone also turns up in
+# running text: a circular listing the new Approved Documents with their ISBNs.)
+IMPRINT_RE = re.compile(r"©|\bCrown copyright\b", re.I)
 
 
 # ---------------------------------------------------------------- reading the PDF
@@ -429,6 +448,7 @@ class Builder:
         self._margin_labels()
         self._metrics()
         self._body_captions()
+        self.thumbnails = self._thumbnail_boxes()
         self._diagram_pages()
         self._photo_captions()
         self._caption_sides()
@@ -965,10 +985,37 @@ class Builder:
             return True
         if small and any(re.search(r"\bwww\.|\bISBN\b|^©", l["text"].strip()) for l in below[:3]):
             return True  # a barcode or publisher's logo on the back cover
-        near = " ".join(l["text"] for l in below[:4])
-        if tall <= 220 and re.search(r"\b(web-friendly|language)?\s*version\s+of\s+(the\s+)?(leaflet|pocket|booklet|INDG)", near, re.I):
+        if is_cover_thumbnail(tall, [self._words_under(l, im) for l in below]):
             return True  # a thumbnail of the printed leaflet's cover ("This is a web-friendly version of leaflet INDG463")
         return im["page"] == 1 and im["top"] < 90 and small
+
+    @staticmethod
+    def _words_under(l: dict, im: dict) -> str:
+        """The words of a line that lie under an image (a line read across two columns holds both)."""
+        ws = [w for w in l.get("words") or [] if w["x0"] < im["x1"] and w.get("x1", w["x0"] + 5 * len(w["text"])) > im["x0"]]
+        return " ".join(w["text"] for w in ws) if ws else l["text"]
+
+    def _thumbnail_boxes(self) -> dict[int, list[dict]]:
+        """Cover thumbnails (is_cover_thumbnail) by page: the small print drawn on them is their own text."""
+        out: dict[int, list[dict]] = {}
+        by_page: dict[int, list[dict]] = {}
+        for l in self.lines:
+            by_page.setdefault(l["page"], []).append(l)
+        for im in self.images:
+            on_page = by_page.get(im["page"], [])
+            below = sorted((l for l in on_page if im["bottom"] - 2 <= l["top"] <= im["bottom"] + 45
+                            and l["x0"] < im["x1"] and self._line_x1(l) > im["x0"]), key=lambda l: l["top"])
+            if is_cover_thumbnail(im["bottom"] - im["top"], [self._words_under(l, im) for l in below]):
+                out.setdefault(im["page"], []).append(im)
+        return out
+
+    def in_thumbnail(self, l) -> bool:
+        return any(im["x0"] - 12 <= l["x0"] <= im["x1"] and im["top"] - 20 <= l["top"] <= im["bottom"]
+                   for im in self.thumbnails.get(l["page"], []))
+
+    def under_thumbnail(self, l) -> bool:
+        return any(im["x0"] - 12 <= l["x0"] <= im["x1"] and im["bottom"] - 2 <= l["top"] <= im["bottom"] + 45
+                   for im in self.thumbnails.get(l["page"], []))
 
     def _photo_captions(self) -> None:
         """Photos named by a short line printed just below them, with no "Figure N" (task sheets: "Asbestos
@@ -1425,6 +1472,8 @@ class Builder:
         return {(l["size"], l["font"]) for l in matches if l["size"] == top}
 
     def is_chapter(self, l) -> bool:
+        if CONTACT_RE.match(l["text"].strip()):
+            return False
         if self.contents_style and (l["size"], l["font"]) in self.contents_style and l["page"] > 1 \
                 and re.search(r"[A-Za-z]", l["text"]):
             return True  # a chapter title in the style the contents page points to
@@ -1440,7 +1489,10 @@ class Builder:
             t = l["text"].strip()
             if t.lower() in SKIP_TITLES:
                 return l["size"] >= 1.3 * self.body_size  # not a "Contents" heading inside a chapter (L143)
-            if PART_RE.match(t):
+            m = PART_RE.match(t)
+            if m:
+                if t[m.end():].lstrip(" ,")[:1].islower():
+                    return False  # "Schedule 3 to the Building Regulations ...": running text naming a Schedule
                 return l["size"] >= self.part_size - 0.5
         return False
 
@@ -1453,6 +1505,85 @@ class Builder:
                 and not self.is_chapter(nxt):
             return f"{title} {nxt['text']}", i + 1
         return title, i
+
+    def _chapter_groups(self, page: int) -> list[list[dict]]:
+        """Chapter-size lines on a page, grouped as build() merges them (wrapped title lines)."""
+        groups: list[list[dict]] = []
+        for l in self.lines:
+            if l["page"] != page or not self.is_chapter(l):
+                continue
+            if groups and groups[-1][-1] is self.lines[self.lines.index(l) - 1] and l["top"] - groups[-1][-1]["top"] < 45:
+                groups[-1].append(l)
+            else:
+                groups.append([l])
+        return groups
+
+    def _body_size_line(self, l) -> bool:
+        return abs(l["size"] - self.body_size) <= 1.0 and len(l["text"].split()) >= 4 and not self.is_chapter(l)
+
+    def _page_one_chapters(self) -> set[int]:
+        """Chapter titles on page 1 after the document's own title, with running text under them (MS34:
+        "Introduction" at 30pt under a 36pt title; DETR circulars: "Introduction" then paragraph 1). Page 1 is
+        otherwise a cover, and its large lines are the title. Returns id() of each such title's first line."""
+        out = set()
+        p1 = [l for l in self.lines if l["page"] == 1]
+        for g in self._chapter_groups(1)[1:]:
+            k = p1.index(g[-1])
+            after = []
+            for l in p1[k + 1:]:
+                if self.is_chapter(l):
+                    break
+                after.append(l)
+            if sum(1 for l in after if self._body_size_line(l)) >= 3:
+                out.add(id(g[0]))
+        return out
+
+    def _front_pages(self) -> set[int]:
+        """Pages before the first chapter that hold content: 40 or more words of body-size text, and not
+        a contents page or the publisher's imprint (©). A cover blurb (HSE ACOPs), a leaflet's opening
+        pages or a circular's letter before its first Annex are content, not front matter (coverage, S105)."""
+        if not self.has_chapters:
+            return set()
+        first = next((l for l in self.lines if self.is_chapter(l) and l["text"].strip().lower() not in SKIP_TITLES
+                      and (l["page"] > 1 or id(l) in self.page_one_chapters)), None)
+        last = first["page"] if first else self.page_count
+        out = set()
+        for p in range(1, last + 1):
+            ls = [l for l in self.lines if l["page"] == p]
+            if first is not None and p == last:
+                ls = [l for l in ls if l["top"] < first["top"]]
+            if not ls or any(l["text"].strip().lower() in SKIP_TITLES for l in ls):
+                continue
+            entries = sum(1 for l in ls if re.search(r"(\.\s?){3,}\s*\d+$|\s\d{1,3}$", l["text"].strip())
+                          and len(l["text"].split()) >= 2 or re.fullmatch(r"\d{1,3}", l["text"].strip()))
+            # (a contents page lists page numbers at the end of its lines, or in a column of their own)
+            if entries >= 0.4 * len(ls) or IMPRINT_RE.search(" ".join(l["text"] for l in ls)):
+                continue  # a contents page, or the imprint
+            if sum(len(l["text"].split()) for l in ls
+                   if self.body_size - 1 <= l["size"] < 1.3 * self.body_size and not self.is_chapter(l)) >= 40:
+                out.add(p)  # an address block or a table set at body size counts too (a circular's Annex)
+        return out
+
+    def _bullet_continuation(self, k: int) -> bool:
+        """The second or later line of a bulleted item, set at its hanging indent just under it: not a heading,
+        even when the list is set bold and larger than body text (HSG227's "10 key facts")."""
+        l = self.lines[k]
+        j = k - 1
+        while j >= 0:
+            p = self.lines[j]
+            if p["page"] != l["page"] or not 0 < self.lines[j + 1]["top"] - p["top"] <= 1.6 * l["size"]:
+                return False
+            if BULLET_RE.match(p["text"]) or LIST_MARK_RE.match(p["text"]):
+                return l["x0"] > p["x0"] + 6
+            if abs(p["x0"] - l["x0"]) > 2:
+                return False
+            j -= 1
+        return False
+
+    def _front_chapter(self, page: int) -> dict:
+        """The chapter that holds content before the first chapter title (one per document)."""
+        return self.by_id.get("front-matter") or self.new("front-matter", "chapter", None, None, "Front matter",
+                                                           [self.title, "Front matter"], page)
 
     def _next_is(self, k: int, number: int) -> bool:
         """The next numbered line at the left margin (within 80 lines) carries this number: confirms a jump."""
@@ -1521,6 +1652,9 @@ class Builder:
         # Short documents (task sheets, leaflets) have a title on page 1 and no chapter titles after it: the whole
         # document is one chapter and page 1 is content, not a cover.
         self.has_chapters = any(self.is_chapter(l) for l in self.lines if l["page"] > 1)
+        self.page_one_chapters = self._page_one_chapters() if self.has_chapters else set()
+        front_pages = self._front_pages()  # content before the first chapter title (not cover, contents, imprint)
+        front_caption = False    # content mode entered at a captioned figure before chapter 1 (HSG227)
         mode = "skip" if self.has_chapters else "content"  # skip (cover, contents), content, back
         chapter = heading = None  # current chapter and heading sections
         para = None              # current numbered paragraph or text section
@@ -1556,7 +1690,7 @@ class Builder:
                     continue  # the document's own title (page 1)
                 para = None
                 heading = None
-                if l["page"] == 1 or low in SKIP_TITLES:
+                if (l["page"] == 1 and id(l) not in self.page_one_chapters) or low in SKIP_TITLES:
                     mode = "skip"
                     self.lines_seen_contents = self.lines_seen_contents or low in SKIP_TITLES
                     continue
@@ -1598,13 +1732,24 @@ class Builder:
                 continue
             k_line = i
             i += 1
+            if mode == "content" and chapter is not None and chapter["id"] == "front-matter" and not front_caption \
+                    and l["page"] not in front_pages:
+                mode = "skip"  # past a page of front content: the imprint or contents page after it
+            elif mode == "content" and chapter is not None and chapter["id"] == "front-matter" and not front_caption \
+                    and l["size"] < 0.6 * self.body_size:
+                continue  # the cover's thumbnail of itself (1.6pt text)
             if mode == "skip":
                 # A captioned figure or table between the contents and chapter 1 is content (HSG227's flow chart).
                 if l["page"] > 1 and self.is_caption(l) and self.lines_seen_contents:
                     mode = "content"
-                    chapter = self.new("front-matter", "chapter", None, None, "Front matter",
-                                       [self.title, "Front matter"], l["page"])
+                    front_caption = True
+                    chapter = self._front_chapter(l["page"])
                     heading = None
+                elif l["page"] in front_pages and l["size"] >= 0.6 * self.body_size:  # not a cover thumbnail's text
+                    mode = "content"
+                    if chapter is None or chapter["id"] != "front-matter":
+                        chapter = self._front_chapter(l["page"])
+                        heading = para = None
                 else:
                     continue
             if k_line in consumed and mode == "content":
@@ -1715,7 +1860,13 @@ class Builder:
                 continue
             prev_caption_line = None
             # ---- small print: footnotes, figure labels, table rows
-            if self.is_small(l) or (l["size"] < self.body_size - 0.5 and "Dingbat" not in l["font"] and not self.rect_of(l)):
+            if self.is_small(l) and self.in_thumbnail(l):
+                continue  # the text printed on a thumbnail of the cover
+            # Small print on a cover, and the line naming a cover thumbnail ("This is a web-friendly version of
+            # leaflet INDG231"), are text: not table rows, not figure labels.
+            front_text = (chapter["id"] == "front-matter" and not front_caption) or self.under_thumbnail(l)
+            if (self.is_small(l) or (l["size"] < self.body_size - 0.5 and "Dingbat" not in l["font"]
+                                     and not self.rect_of(l))) and not front_text:
                 mark = l["text"].lstrip()[:1]
                 m_fn = re.match(r"^\(([a-z])\)\s", l["text"].lstrip())  # "(a) 1985 c. 70." (legislation footnotes)
                 if m_fn and last_body and l["top"] > 0.75 * self.page_height:
@@ -1793,7 +1944,7 @@ class Builder:
                 continue
             # ---- headings (merge wrapped heading lines)
             expected = counters.get(counter_key, 0) + 1
-            if self.is_heading(l) or self.is_runin_heading(k_line, expected):
+            if (self.is_heading(l) and not self._bullet_continuation(k_line)) or self.is_runin_heading(k_line, expected):
                 title = l["text"]
                 while i < len(self.lines) and self.is_heading(self.lines[i]) and self.lines[i]["page"] == l["page"] \
                         and self.lines[i]["top"] - l["top"] < 16 and not self.rect_of(self.lines[i]):

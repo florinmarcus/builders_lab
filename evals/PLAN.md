@@ -77,6 +77,9 @@ against our 0.94. Report: [experiments/X-external-mcp.md](experiments/X-external
   in 36 sources answered through Sonnet packets (Claude Code headless); false tables the answers found
   (footnotes, imprints, formula subscripts, lone labels) now parse as text, with tests. 0 checks open. Other
   false tables were settled as one-column tables (S102); empty header cells got neutral headings (S104).
+- Coverage check, parse_pdf sources (22 Nov, S105): content before the first chapter title is kept (cover
+  blurbs, key facts, circular letters, whole leaflets) and chapter titles on page 1 are found. No lost pages or
+  documents left (561 open items to 475). Next: tables kept as text, images in no crop.
 
 **Parse absolutely everything before moving on (Florin, 22 Nov).** Chunks start only when every ingested
 document is clean: legislation, every PDF and every web page. Web pages had been left out under "PDFs first", but

@@ -1,0 +1,30 @@
+{
+ "source_id": "hse-indg285",
+ "about": "Saved model fixes for hse-indg285 (ADR 0010).",
+ "fixes": [
+  {
+   "key": "1086755c8f45eb74",
+   "kind": "table",
+   "target": "document-table-1: INDG285 Landlords: a guide to landlords' duties (gas, 2018)",
+   "value": {
+    "columns": [
+     "Landlords"
+    ],
+    "rows": [
+     [
+      "A guide to landlords’ duties: Gas Safety (Installation and Use) Regulations 1998 as amended Approved Code of Practice and guidance"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "INDG285 Landlords: a guide to landlords' duties (gas, 2018) is headed Landlords, A guide to landlords’ duties: Gas Safety (Installation and Use) Regulations 1998 as amended Approved Code of Practice and guidance."
+    ]
+   },
+   "reason": "Page 1 shows no real data table. The detected grid is only the cover title block (a heading 'Landlords' and a subtitle), so I rebuilt it as a single-column box with one row.",
+   "evidence": "Page 1 image: large 'Landlords' heading and subtitle 'A guide to landlords’ duties: Gas Safety (Installation and Use) Regulations 1998 as amended Approved Code of Practice and guidance' under the HSE banner; no table grid or rows of data are visible.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "low",
+   "date": "2026-11-22"
+  }
+ ]
+}

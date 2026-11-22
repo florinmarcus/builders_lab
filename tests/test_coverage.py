@@ -302,3 +302,40 @@ def test_bullet_letters_margin_labels_and_form_boxes_are_reasons():
     assert rs[0] == "bullet" and rs[4:6] == ["margin-label", "margin-label"] and rs[-1] is None
     tree["parser"] = "home-office-booklet-pdf/0.1"
     assert C.word_reasons(raw, tree)[0][0][-3:] == ["form", "form", "form"]
+
+
+def test_a_ruled_frame_round_the_whole_page_is_not_a_table():
+    """Procurement Act short guides draw a border round each page; pdfplumber reads it as a two-column 'table'
+    holding the whole page. It is not a table (its words are in the text check), so it is not flagged."""
+    raw = _doc()
+    rows = [["What is Find a Tender, the central digital platform? Find a Tender is", ""], ["", "monly used"]]
+    raw["pages"][2]["tables"] = [{"bbox": [0, -8, 596.5, 861], "rows": rows}]
+    tb = C.check_version({"source_id": "x", "version_id": "v", "sha256": "ab" * 32}, _tree(raw), raw)["tables"]
+    assert tb["items"] == [] and tb["explained"] == {"a frame round the whole page, not a table": 1}
+
+
+def test_cover_thumbnail_is_explained_by_the_parsers_own_rule():
+    """S107: the image rule is parse_pdf's (is_cover_thumbnail), not a copy. The raw line under the thumbnail
+    holds the text column beside it too; only the words under the image count."""
+    raw = _doc()
+    p3 = raw["pages"][2]
+    p3["images"] = [[54, 229, 168, 378]]
+    p3["words"] += [W("This", 54, 388), W("is", 80, 388), W("a", 94, 388), W("web-friendly", 102, 388),
+                    W("version", 150, 388)] + line("also cause death or injury", 388, x0=240)
+    p3["words"] += line("of leaflet INDG231(rev1),", 400, x0=54) + line("published 04/12", 412, x0=54)
+    im = C.check_version({"source_id": "x", "version_id": "v", "sha256": "ab" * 32}, _tree(raw), raw)["images"]
+    assert im["explained"] == {"signature": 1} and not im["items"]
+
+
+def test_a_front_matter_chapter_does_not_end_the_front_matter():
+    """parse_pdf keeps a cover blurb in a "front-matter" chapter on page 1 and still drops the imprint page after
+    it: the imprint stays explained (front), it is not flagged as a lost page."""
+    raw = _doc(n_pages=8, contents=False)
+    raw["pages"][1] = page(2, *body_lines(text="© Crown copyright 2013. First published 1995. " + page_text(2)))
+    tree = _tree(raw, skip=(1, 2))
+    tree["sections"].insert(0, sec("front-matter", 1, "", type_="chapter", title="Front matter"))
+    tree["sections"].insert(1, sec("front-matter-text-1", 1, "Managing asbestos A guide for clients", type_="text",
+                                   parent_id="front-matter"))
+    r = C.check_version({"source_id": "x", "version_id": "v", "sha256": "ab" * 32}, tree, raw)
+    assert not [i for i in r["items"] if i["page"] == 2]
+    assert r["text"]["facts"]["first_page"] == 3
