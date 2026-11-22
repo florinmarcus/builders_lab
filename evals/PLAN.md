@@ -35,9 +35,7 @@ flowchart LR
         leg["Legislation XML<br/>parse_legislation"]:::done
         adoc["Approved Documents PDF<br/>parse_adoc<br/>27 bad crops being fixed"]:::wip
         hse["HSE and other guidance PDFs<br/>parse_pdf<br/>~320 bad crops and false figures<br/>being fixed"]:::wip
-        guide["Fire risk assessment guides, 13 PDFs<br/>parse_guide<br/>907 checks saved, 0 open"]:::done
-        flats["Flats guide<br/>parse_flats"]:::wip
-        book["4 Home Office booklets<br/>parse_booklet"]:::wip
+        guide["Fire safety collection, 18 PDFs<br/>parse_guide (13), parse_flats (1),<br/>parse_booklet (4)<br/>clean: 813 crops ok, 0 checks open"]:::done
         html["GOV.UK and HSE web pages<br/>parse_html<br/>weak structure, not in scope yet"]:::todo
     end
     crop["Crop check<br/>Sonnet: crop next to its page,<br/>box in red; 0 bad"]:::wip
@@ -49,8 +47,6 @@ flowchart LR
     adoc --> crop
     hse --> crop
     guide --> crop
-    flats --> crop
-    book --> crop
     crop --> mc --> rev
     leg --> rev
     html -.-> chunk
@@ -63,7 +59,9 @@ flowchart LR
 Progress (22 Nov night, working alone while Florin sleeps):
 - Fire safety risk assessment guides (13 files): new parser `parse_guide.py` (commit 8e8e8f5). Model checks running
   with Sonnet, headless Claude Code.
-- Flats guide and 4 short fire safety guides: parser work in progress.
+- Flats guide and 4 short fire safety guides: new parsers `parse_flats.py`, `parse_booklet.py` (a80151b); 87 model
+  checks saved. **The whole fire safety collection is clean:** 813 of 813 crops ok, 0 open checks.
+- Golden set: the 8 fire safety questions relabelled to the new flats paragraph ids (3903d45).
 - Crop check (`system/rag/cropcheck.py`): Sonnet judges every crop against its page. It was chosen over Haiku on
   HSG33. It is now running over every PDF source; bad crops are parser bugs to fix before the model checks.
 
