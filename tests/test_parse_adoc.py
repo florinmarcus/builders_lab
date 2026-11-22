@@ -624,7 +624,14 @@ def test_real_adb1_all_checks_settled_by_saved_fixes(adb1):
     assert all(s.get("grid_source") == "model" and s.get("row_sentences") for s in S if s["type"] == "table")
     old = next(s for s in S if s["id"] == "table-b1-until-2029-09-01")
     new = next(s for s in S if s["id"] == "table-b1-from-2029-09-02")
-    assert old["columns"] == new["columns"]  # one family, one layout
+    # S123: the printed 2029 tables drop the BS 476 columns, so they are not one family with the 2025 tables.
+    assert len(old["columns"]) == 7 and len(new["columns"]) == 6
+    assert old["grid"][0][2] == "R see Table B2" and new["grid"][0][2:] == ["See Table B2", "Not applicable",
+                                                                           "Not applicable", "Exposed faces"]
+    c_old = next(s for s in S if s["id"] == "table-c1-until-2029-09-01")
+    c_new = next(s for s in S if s["id"] == "table-c1-from-2029-09-02")
+    assert any("BS 476" in c for c in c_old["columns"]) and not any("BS 476" in c for c in c_new["columns"])
+    assert len(c_old["columns"]) == 4 and len(c_new["columns"]) == 3 and all(all(r) or r[1] == "" for r in c_new["grid"])
 
 
 # ---------------------------------------------------------------- figure frames (the crop is the drawn frame)

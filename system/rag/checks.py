@@ -108,6 +108,9 @@ NOT_A_FAMILY = {
     ("adb-historical", "v2-table-b1-from-2029-09-02"): "2029 Table B1: 5 printed columns, no BS 476 column (page 187).",
     ("adb-historical", "v1-table-c1-from-2029-09-02"): "2029 Table C1: 2 columns, no BS 476-22 column (page 193).",
     ("adb-historical", "v2-table-c1-from-2029-09-02"): "2029 Table C1: 2 columns, no BS 476-22 column (page 204).",
+    # The same two tables in source adb (S123, checked on pages 153 and 168 of volume 1, 22 Nov 2026).
+    ("adb", "table-b1-from-2029-09-02"): "2029 Table B1: 5 printed columns, no BS 476 group (page 153); 2025 has 6.",
+    ("adb", "table-c1-from-2029-09-02"): "2029 Table C1: 2 columns, no BS 476-22 column (page 168); 2025 has 3.",
     ("adb-historical", "v2-table-5.1"): "Escape lighting (use of building, areas): 2 columns; not Table C1 fire doorsets.",
 }
 
