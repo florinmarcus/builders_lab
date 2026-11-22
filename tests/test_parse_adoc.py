@@ -176,6 +176,37 @@ def test_a_ligature_printed_twice_is_repaired_and_counted():
     assert t["repairs"]["specifification -> specification"] == 1 and t["repairs"]["effiffifficiency. -> efficiency."] == 1
 
 
+def test_a_line_printed_twice_over_is_repaired_and_counted():
+    L = page_furniture(1, "1") + [ln(1, 84, bold("Section", "2:", "Scope"), 26.0, "Agenda-Bold"),
+                                  ln(1, 140, [("2.5", B), "Notifiable", "work", "is", "set", "out", "below."], font="Agenda-Semibold"),
+                                  ln(1, 154, ["1122..——((66AA))", "AA", "ppeerrssoonn", "iinntteennddiinngg", "ttoo", "ccaarrrryy", "oouutt"]),
+                                  ln(1, 168, ["Ladders", "need", "a", "well", "lit", "room."])]  # "ll" alone: not doubled
+    t = build_tree({"lines": L, "tables": [], "page_width": 595.0}, META)
+    assert sec(t, "para-2.5")["text"] == ("Notifiable work is set out below. 12.—(6A) A person intending to carry out "
+                                          "Ladders need a well lit room.")
+    assert t["repairs"]["ppeerrssoonn -> person"] == 1 and t["repairs"]["1122..——((66AA)) -> 12.—(6A)"] == 1
+
+
+def test_ruled_table_without_caption_in_body_type_is_a_table():
+    L = page_furniture(1, "1") + [ln(1, 84, bold("Which", "edition", "applies?"), 26.0, "Agenda-Bold"),
+                                  ln(1, 140, ["The", "table", "below", "shows", "which", "edition", "applies."]),
+                                  ln(1, 212, ["Work", "started", "Edition"], x0=98),
+                                  ln(1, 266, ["Before", "1", "October", "2015", "2010", "edition"], x0=98),
+                                  ln(1, 300, ["After", "1", "October", "2015", "2015", "edition"], x0=98),
+                                  ln(1, 366, ["Note:", "a", "later", "edition", "may", "be", "used."])]
+    grid = {"page": 1, "top": 206.8, "bottom": 350.8, "x0": 90.0, "x1": 500.0,
+            "rows": [["Work started", "Edition"], ["Before 1 October 2015", "2010 edition"], ["After 1 October 2015", "2015 edition"]]}
+    quote = {"page": 1, "top": 360.0, "bottom": 380.0, "x0": 50.0, "x1": 500.0,  # one filled row: not a grid
+             "rows": [["Note:", "a later edition may be used."], ["", ""], ["", ""]]}
+    t = build_tree({"lines": L, "tables": [grid, quote], "page_width": 595.0}, META)
+    tab = [s for s in t["sections"] if s["type"] == "table"]
+    assert len(tab) == 1 and tab[0]["id"] == "which-edition-applies-table-1"
+    assert tab[0]["text"].split("\n") == ["Work started Edition", "Before 1 October 2015 2010 edition", "After 1 October 2015 2015 edition"]
+    assert tab[0]["grid"] == grid["rows"] and t["checks"][0]["section_id"] == tab[0]["id"]
+    texts = [s["text"] for s in t["sections"] if s["type"] == "text"]
+    assert texts == ["The table below shows which edition applies. Note: a later edition may be used."]
+
+
 def test_text_below_the_caption_of_a_page_picture_is_kept():
     # AD P page 14: a drawing made of many tiny words, its caption, then a heading and paragraph 2.5 below it.
     L = page_furniture(1, "1") + [ln(1, 84, bold("Section", "2:", "Scope"), 26.0, "Agenda-Bold")]
@@ -419,6 +450,14 @@ def test_booklet_without_chapter_titles():
     assert [p["text"] for p in paras] == ["New text for volume 1.", "New text for volume 2."]
     assert len({p["id"] for p in paras}) == 2 and not t["issues"]
     assert "Approved Document A" not in " ".join(s["text"] for s in t["sections"])  # the back page list
+
+
+def test_booklet_replacement_row_in_small_print_is_kept():
+    d = booklet()
+    d["lines"].append(ln(3, 340, ["17.", "Cavity", "barrier", "E", "30", "and", "I", "15", "Not", "applicable"], 8.0))
+    t = build_tree(d, META)
+    assert "17. Cavity barrier E 30 and I 15 Not applicable" in [s["text"] for s in t["sections"] if s["type"] == "text"]
+    assert not [i for i in t["issues"] if "very small print skipped" in i]
 
 
 def booklet_with_a_reprinted_section():

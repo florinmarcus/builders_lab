@@ -150,6 +150,7 @@ class AdocBuilder:
         lists = [l["size"] for l in doc["lines"] if l["page"] > 1 and l["top"] < 400 and l["size"] >= 18
                  and l["text"].strip() == "List of amendments" and l.get("words") and _bold(l["words"][0])]
         self.simple = not has_chapters or bool(lists)
+        self.booklet = bool(lists)
         self.volume = None  # booklet: the volume whose list of amendments is being read ("Volume 2")
         self._chap_volume: dict[str, str | None] = {}  # booklet: chapter id -> its volume
         self.chapter_size = 0.0
@@ -356,8 +357,20 @@ class AdocBuilder:
                     return len(t3) >= 3 and len(t3) % 3 == 0 and all(t3[i] == t3[i + 1] == t3[i + 2] for i in range(0, len(t3), 3))
                 def doubled(t2):  # "CCoonntteennttss" (AD M volume 2 contents title)
                     return len(t2) >= 8 and len(t2) % 2 == 0 and all(t2[i] == t2[i + 1] for i in range(0, len(t2), 2))
+                def twice(t2):  # every character printed twice: "AA", "ppeerrssoonn", "((66AA))"
+                    return len(t2) >= 2 and len(t2) % 2 == 0 and all(t2[i] == t2[i + 1] for i in range(0, len(t2), 2))
                 ws3 = l.get("words") or []
                 whole = len(ws3) >= 2 and sum(tripled(w["text"]) for w in ws3) * 2 >= len(ws3)
+                # a whole line printed twice over for a bold effect (AD P 2013, regulation 12(6A) quoted on page 14)
+                whole2 = not whole and len(ws3) >= 2 and sum(twice(w["text"]) for w in ws3) * 4 >= len(ws3) * 3 \
+                    and any(len(w["text"]) >= 8 and twice(w["text"]) for w in ws3)
+                if whole2:
+                    for w in ws3:
+                        if twice(w["text"]):
+                            good = w["text"][::2]
+                            self.repairs[f"{w['text']} -> {good}"] += 1
+                            w["text"], changed = good, True
+                    ws3 = []
                 if len(ws3) <= 3 and ws3 and all(doubled(w["text"]) for w in ws3):
                     for w in ws3:
                         good = w["text"][::2]
@@ -687,6 +700,17 @@ class AdocBuilder:
                             out[i] = ("table", n2)
                             tl[n2] = l
                             break
+        # A ruled table with no caption, set in body-size type (FAQ notes: which edition applies; checklists in
+        # appendices): a table, as long as none of its lines belongs to anything else.
+        for t in self.doc_tables:
+            if t["page"] != page or len(t["rows"]) < 3 or sum(1 for r in t["rows"] if sum(1 for c in r if c) >= 2) < 2:
+                continue  # a grid: two rows or more with two filled cells (not a framed quote with hanging indents)
+            inside = [k for k, m in enumerate(lines) if t["top"] - 2 <= m["top"] <= t["bottom"]
+                      and t["x0"] - 2 <= m["x0"] <= t["x1"]]
+            if inside and not any(k in out for k in inside) and any(SMALL <= lines[k]["size"] < 14.5 for k in inside):
+                n += 1
+                for k in inside:
+                    out[k] = ("rtable", n)
         # Small print outside diagrams and tables: requirement boxes and similar.
         prev = None
         for i, l in enumerate(lines):
@@ -877,6 +901,18 @@ class AdocBuilder:
                 if skipping or self.chapter is None:
                     continue
                 parent_h = h3 or h2 or h1 or self.chapter
+                if kind == "rtable":
+                    sec = region_secs.get(n)
+                    if sec is None:
+                        host = h3 or h2 or h1 or self.chapter
+                        k = 1 + sum(1 for s in self.sections if s["parent_id"] == host["id"] and s["type"] == "table")
+                        sec = region_secs[n] = self.add(f"{host['id']}-table-{k}", "table", host, None,
+                                                        host["title"] or self.chapter["title"], page)
+                        sec["kind_label"] = "table"
+                        last_table = sec
+                    sec["text"] = (sec["text"] + "\n" + t) if sec["text"] else t
+                    self.span(sec, page, l["top"], l["top"] + l["size"] + 2)
+                    continue
                 if kind == "reqbox":
                     sec = region_secs.get(n)
                     if sec is None:
@@ -951,7 +987,8 @@ class AdocBuilder:
                             last_table = sec
                         elif page == max(self.pages):  # the publisher's back cover
                             sec = {"_skip": True}
-                        elif self.classic or len(block) >= 3:
+                        elif self.classic or len(block) >= 3 or self.booklet:
+                            # (a booklet's one- or two-line small print is a replacement table row, not a picture)
                             # Classic notes boxes; and (2019 layout) the labels of a drawing whose caption is not
                             # text (AD K Diagrams 9.1 and 9.2): kept as a text box, not a table.
                             # Classic layout: worked examples, notes and keys are set in 8pt: keep them as a text box.

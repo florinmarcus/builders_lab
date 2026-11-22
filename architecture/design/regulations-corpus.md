@@ -173,6 +173,12 @@ as running text with "Requirement Limits on application" glued to the line befor
 starts "Requirement", with a "Limits on application" column and body-size lines inside, is now the box; its grid
 goes to the model check like any requirement box.
 
+Three smaller rules (22 Nov 2026): a line with every character printed twice ("AA ppeerrssoonn", AD P 2013's
+quoted regulation 12(6A), AD K's Diagram 9.1 caption) is halved and counted in `repairs`, as tripled lines already
+were; a ruled table with no caption, set in body type, with two or more filled rows (the FAQ notes' "which edition
+applies" tables) is a table named after the heading above it; and in a booklet a one- or two-line block of small
+print is a replacement table row, kept as text, not skipped as a picture of a page.
+
 ### Home Office fire risk assessment guides (parse_guide, built 22 Nov 2026)
 
 The 2006 "Fire safety risk assessment" sector guides and the disabled people supplement share one template that

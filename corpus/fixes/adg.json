@@ -2120,6 +2120,42 @@
    "by": "model check, Claude Code (AD parser agent, page images)",
    "confidence": "high",
    "date": "2026-11-20"
+  },
+  {
+   "key": "9536fad4ad5e9d11",
+   "kind": "table",
+   "target": "faq-applies-to-my-project-table-1: applies to my project?",
+   "value": {
+    "columns": [
+     "Work started or building notice, full plans application or initial notice submitted",
+     "Edition"
+    ],
+    "rows": [
+     [
+      "Before 1 October 2015",
+      "2010 edition with 2010 and 2013 amendments"
+     ],
+     [
+      "Between 1 October 2015 and 15 February 2016",
+      "Volume 1: 2015 edition"
+     ],
+     [
+      "After 15 February 2016",
+      "Volume 1: 2015 edition with 2016 amendments"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Which version of the Approved Document applies to my project: for work started or building notice, full plans application or initial notice submitted before 1 October 2015, the edition is 2010 edition with 2010 and 2013 amendments.",
+     "Which version of the Approved Document applies to my project: for work started or building notice, full plans application or initial notice submitted between 1 October 2015 and 15 February 2016, the edition is Volume 1: 2015 edition.",
+     "Which version of the Approved Document applies to my project: for work started or building notice, full plans application or initial notice submitted after 15 February 2016, the edition is Volume 1: 2015 edition with 2016 amendments."
+    ]
+   },
+   "reason": "Page image shows a two-column table with one header row and three data rows; the grid had empty split columns which were dropped.",
+   "evidence": "Header: 'Work started or building notice, full plans application or initial notice submitted' | 'Edition'; rows as printed on page 12.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
   }
  ]
 }
