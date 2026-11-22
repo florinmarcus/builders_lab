@@ -150,6 +150,838 @@
    "by": "model check, Sonnet (Claude Code headless, packet)",
    "confidence": "medium",
    "date": "2026-11-22"
+  },
+  {
+   "key": "7c85aa82bba20b00",
+   "kind": "table",
+   "target": "document-table-p7: Awaab's Law: guidance for tenants in social housing",
+   "value": {
+    "columns": [
+     "أين تسكن؟",
+     "وهل ينطبق عليك قانون أواب؟"
+    ],
+    "rows": [
+     [
+      "منزل مستأجر من المجلس المحلي",
+      "نعم"
+     ],
+     [
+      "منزل مستأجر من جمعية إسكان",
+      "نعم"
+     ],
+     [
+      "سكن مدعوم",
+      "تحقق"
+     ],
+     [
+      "سكن مؤقت",
+      "تحقق"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "المساكن الخاضعة لقانون أواب: إذا كنت تسكن في منزل مستأجر من المجلس المحلي، فهل ينطبق عليك قانون أواب؟ نعم.",
+     "المساكن الخاضعة لقانون أواب: إذا كنت تسكن في منزل مستأجر من جمعية إسكان، فهل ينطبق عليك قانون أواب؟ نعم.",
+     "المساكن الخاضعة لقانون أواب: إذا كنت تسكن في سكن مدعوم، فهل ينطبق عليك قانون أواب؟ تحقق.",
+     "المساكن الخاضعة لقانون أواب: إذا كنت تسكن في سكن مؤقت، فهل ينطبق عليك قانون أواب؟ تحقق."
+    ]
+   },
+   "reason": "Grid matched the image: two columns, four data rows, no sub-heading rows. Arabic text copied in logical order (first column is on the right of the page).",
+   "evidence": "Page 7 image shows the table with header 'أين تسكن؟' / 'وهل ينطبق عليك قانون أواب؟' and rows نعم, نعم, تحقق, تحقق.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "a008f6dd69fd133f",
+   "kind": "table",
+   "target": "document-4-mieszkania-obj-te-prawem-awaaba-table-p8: 4 Mieszkania objęte Prawem Awaaba",
+   "value": {
+    "columns": [
+     "Gdzie mieszkasz?",
+     "Czy Prawo Awaaba ma zastosowanie?"
+    ],
+    "rows": [
+     [
+      "Mieszkanie wynajmowane od jednostki samorządu lokalnego [council]",
+      "Tak"
+     ],
+     [
+      "Mieszkanie wynajmowane od towarzystwa budownictwa społecznego [housing association]",
+      "Tak"
+     ],
+     [
+      "Mieszkanie wspomagane [supported housing]",
+      "Sprawdź"
+     ],
+     [
+      "Lokal tymczasowy",
+      "Sprawdź"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Mieszkania objęte Prawem Awaaba: jeśli mieszkasz w mieszkaniu wynajmowanym od jednostki samorządu lokalnego [council], to czy Prawo Awaaba ma zastosowanie? Tak.",
+     "Mieszkania objęte Prawem Awaaba: jeśli mieszkasz w mieszkaniu wynajmowanym od towarzystwa budownictwa społecznego [housing association], to czy Prawo Awaaba ma zastosowanie? Tak.",
+     "Mieszkania objęte Prawem Awaaba: jeśli mieszkasz w mieszkaniu wspomaganym [supported housing], to czy Prawo Awaaba ma zastosowanie? Sprawdź.",
+     "Mieszkania objęte Prawem Awaaba: jeśli mieszkasz w lokalu tymczasowym, to czy Prawo Awaaba ma zastosowanie? Sprawdź."
+    ]
+   },
+   "reason": "Grid matched the image exactly: 2 columns, 4 data rows, no sub-heading rows.",
+   "evidence": "Page 8 image shows the table with header 'Gdzie mieszkasz?' / 'Czy Prawo Awaaba ma zastosowanie?' and answers Tak, Tak, Sprawdź, Sprawdź.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "62238eac630900c4",
+   "kind": "table",
+   "target": "document-5-co-nale-y-rozumie-przez-zagro-enie-table-p9: 5 Co należy rozumieć przez „zagrożenie”?",
+   "value": {
+    "columns": [
+     "Czym jest „zagrożenie” i jakie powinno być postępowanie w razie jego wystąpienia?",
+     "Nagłe zagrożenie",
+     "Poważne zagrożenie związane z wilgocią i pleśnią"
+    ],
+    "rows": [
+     [
+      "Na czym polega takie zagrożenie?",
+      "Nagłe zagrożenie to sytuacja w Twoim mieszkaniu, która wymaga niezwłocznej interwencji, ponieważ powoduje lub mogłaby spowodować poważne szkody dla Twojego zdrowia lub bezpieczeństwa, lub zdrowia lub bezpieczeństwa osób z Tobą współzamieszkujących.",
+      "Poważne zagrożenie to sytuacja w Twoim mieszkaniu, która mogłaby spowodować lub już powoduje poważne szkody dla Twojego zdrowia lub bezpieczeństwa, lub zdrowia lub bezpieczeństwa osób z Tobą współzamieszkujących. Obecnie Prawo Awaaba koncentruje się na poważnych zagrożeniach związanych z wilgocią lub pleśnią."
+     ],
+     [
+      "Szczegółowy opis",
+      "W rozumieniu przepisów Prawa Awaaba zagrożenie uważa się za „nagłe”, jeżeli: • mogłoby stwarzać bezpośrednie ryzyko dla Twojego zdrowia lub bezpieczeństwa, lub zdrowia lub bezpieczeństwa osób z Tobą współzamieszkujących; • oznacza to, że właściciel mieszkania powinien uznać taką sytuację za pilną i podjąć działania służące wyeliminowaniu problemu w ciągu 24 godzin, na podstawie informacji, które są mu wiadome lub które otrzymał od Ciebie na temat zaistniałej sytuacji.",
+      "W rozumieniu przepisów Prawa Awaaba zagrożenie związane z wilgocią lub pleśnią uważa się za zagrożenie „poważne”, jeżeli: • mogłoby stwarzać ryzyko dla Twojego zdrowia lub bezpieczeństwa; • oznacza to, że właściciel mieszkania powinien uznać taką sytuację za pilną i podjąć działania służące wyeliminowaniu problemu możliwie szybko (ale niekoniecznie w ciągu 24 godzin), na podstawie informacji, które są mu wiadome oraz które otrzymał od Ciebie na temat zaistniałej sytuacji."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Co należy rozumieć przez „zagrożenie”? Na czym polega takie zagrożenie? Nagłe zagrożenie to sytuacja w Twoim mieszkaniu, która wymaga niezwłocznej interwencji, ponieważ powoduje lub mogłaby spowodować poważne szkody dla Twojego zdrowia lub bezpieczeństwa, lub zdrowia lub bezpieczeństwa osób z Tobą współzamieszkujących. Poważne zagrożenie związane z wilgocią i pleśnią to sytuacja w Twoim mieszkaniu, która mogłaby spowodować lub już powoduje poważne szkody dla Twojego zdrowia lub bezpieczeństwa, lub zdrowia lub bezpieczeństwa osób z Tobą współzamieszkujących; obecnie Prawo Awaaba koncentruje się na poważnych zagrożeniach związanych z wilgocią lub pleśnią.",
+     "Co należy rozumieć przez „zagrożenie”? Szczegółowy opis: zagrożenie uważa się za „nagłe”, jeżeli mogłoby stwarzać bezpośrednie ryzyko dla Twojego zdrowia lub bezpieczeństwa, lub zdrowia lub bezpieczeństwa osób z Tobą współzamieszkujących, a właściciel mieszkania powinien uznać taką sytuację za pilną i podjąć działania służące wyeliminowaniu problemu w ciągu 24 godzin, na podstawie informacji, które są mu wiadome lub które otrzymał od Ciebie. Zagrożenie związane z wilgocią lub pleśnią uważa się za „poważne”, jeżeli mogłoby stwarzać ryzyko dla Twojego zdrowia lub bezpieczeństwa, a właściciel mieszkania powinien uznać taką sytuację za pilną i podjąć działania możliwie szybko (ale niekoniecznie w ciągu 24 godzin), na podstawie informacji, które są mu wiadome oraz które otrzymał od Ciebie."
+    ]
+   },
+   "reason": "Grid matched the image: 3 columns, 2 data rows, no sub-heading rows. Text copied exactly, bullets kept as inline bullets.",
+   "evidence": "Page 9 image shows header row with 3 columns and rows 'Na czym polega takie zagrożenie?' and 'Szczegółowy opis'.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "62a21c9d2195e6ba",
+   "kind": "table",
+   "target": "document-7-zbadanie-zagro-enia-table-p15: 7 Zbadanie zagrożenia",
+   "value": {
+    "columns": [
+     "Rodzaj zbadania zagrożenia",
+     "Opis"
+    ],
+    "rows": [
+     [
+      "Zbadanie zagrożenia w sytuacjach nagłych",
+      "Jeżeli sytuacja ma charakter nagłego zagrożenia, właściciel mieszkania musi przystąpić do jej zbadania w ciągu 24 godzin. Zbadanie zagrożenia powinno potwierdzić, czy wystąpiło nagłe zagrożenie oraz czy potrzebne są pilne naprawy, aby przywrócić bezpieczne warunki w Twoim domu."
+     ],
+     [
+      "Zbadanie zagrożenia w sytuacjach standardowych",
+      "Jeżeli sytuacja ma charakter poważnego zagrożenia, właściciel mieszkania musi przystąpić do jej zbadania w ciągu 10 dni roboczych. Powinno ono potwierdzić występowanie zagrożenia i ustalić ewentualną potrzebę wykonania napraw. Jeżeli w trackie zbadania zagrożenia ustalone zostanie, że zagrożenie ma charakter nagły, zaczynają obowiązywać krótsze terminy działania w sytuacjach nagłych."
+     ],
+     [
+      "Powtórne zbadanie zagrożenia",
+      "Jeżeli właściciel mieszkania zbada zagrożenie zdalnie, ale Twoim zdaniem jest to niewystarczające, możesz wnioskować o przeprowadzanie zbadania zagrożenia osobiście. Właściciel mieszania musi ponownie zbadać zagrożenie na miejscu w ciągu 10 dni roboczych od Twojego wniosku – więc zaleca się złożenie takiego wniosku możliwie na wczesnym etapie."
+     ],
+     [
+      "Dalsze badania zagrożenia",
+      "Czasami właściciel mieszkania może nie wiedzieć od razu, co powoduje poważny problem, taki jak zawilgocenie lub obecność pleśni. Jeżeli właściciel mieszkania ustali, że konieczne jest przeprowadzenie dalszych prac w celu należytego wyeliminowania zagrożenia, musi przeprowadzić dalsze kontrole. Może się na przykład okazać, że konieczne jest badanie konstrukcji budynku. W czasie prowadzenia badania właściciel"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "7 Zbadanie zagrożenia: w przypadku rodzaju „Zbadanie zagrożenia w sytuacjach nagłych” opis brzmi: jeżeli sytuacja ma charakter nagłego zagrożenia, właściciel mieszkania musi przystąpić do jej zbadania w ciągu 24 godzin, a zbadanie powinno potwierdzić, czy wystąpiło nagłe zagrożenie oraz czy potrzebne są pilne naprawy, aby przywrócić bezpieczne warunki w Twoim domu.",
+     "7 Zbadanie zagrożenia: w przypadku rodzaju „Zbadanie zagrożenia w sytuacjach standardowych” opis brzmi: jeżeli sytuacja ma charakter poważnego zagrożenia, właściciel mieszkania musi przystąpić do jej zbadania w ciągu 10 dni roboczych; powinno ono potwierdzić występowanie zagrożenia i ustalić ewentualną potrzebę wykonania napraw, a jeżeli w trackie zbadania zagrożenia ustalone zostanie, że zagrożenie ma charakter nagły, zaczynają obowiązywać krótsze terminy działania w sytuacjach nagłych.",
+     "7 Zbadanie zagrożenia: w przypadku rodzaju „Powtórne zbadanie zagrożenia” opis brzmi: jeżeli właściciel mieszkania zbada zagrożenie zdalnie, ale Twoim zdaniem jest to niewystarczające, możesz wnioskować o przeprowadzanie zbadania zagrożenia osobiście, a właściciel mieszania musi ponownie zbadać zagrożenie na miejscu w ciągu 10 dni roboczych od Twojego wniosku – więc zaleca się złożenie takiego wniosku możliwie na wczesnym etapie.",
+     "7 Zbadanie zagrożenia: w przypadku rodzaju „Dalsze badania zagrożenia” opis brzmi: czasami właściciel mieszkania może nie wiedzieć od razu, co powoduje poważny problem, taki jak zawilgocenie lub obecność pleśni; jeżeli ustali, że konieczne jest przeprowadzenie dalszych prac w celu należytego wyeliminowania zagrożenia, musi przeprowadzić dalsze kontrole, a może się na przykład okazać, że konieczne jest badanie konstrukcji budynku (tekst w tabeli kończy się na słowach „W czasie prowadzenia badania właściciel”)."
+    ]
+   },
+   "reason": "Rebuilt from the page image: 2 columns, 4 data rows, no sub-heading rows. Text copied as printed, including the typos 'trackie' and 'mieszania'. The last cell is cut off at the page end and is copied as cut.",
+   "evidence": "Page 15 shows the header 'Rodzaj zbadania zagrożenia | Opis' and four rows; the last row ends with 'W czasie prowadzenia badania właściciel'.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "1f46fdbf0d56073c",
+   "kind": "table",
+   "target": "document-4-locuin-ele-n-cazul-c-rora-se-aplic-legea-awaab-table-p8: 4 Locuințele în cazul cărora se aplică Legea Awaab",
+   "value": {
+    "columns": [
+     "Unde locuiți?",
+     "Se aplică Legea Awaab?"
+    ],
+    "rows": [
+     [
+      "Locuință închiriată de la consiliul local",
+      "Da"
+     ],
+     [
+      "Locuință închiriată de la o asociație pentru locuințe",
+      "Da"
+     ],
+     [
+      "Locuințe cu servicii de sprijin conexe",
+      "Verificați"
+     ],
+     [
+      "Locuință temporară",
+      "Verificați"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Locuințele în cazul cărora se aplică Legea Awaab: dacă locuiți într-o „Locuință închiriată de la consiliul local”, la întrebarea „Se aplică Legea Awaab?” răspunsul este Da.",
+     "Locuințele în cazul cărora se aplică Legea Awaab: dacă locuiți într-o „Locuință închiriată de la o asociație pentru locuințe”, la întrebarea „Se aplică Legea Awaab?” răspunsul este Da.",
+     "Locuințele în cazul cărora se aplică Legea Awaab: dacă locuiți în „Locuințe cu servicii de sprijin conexe”, la întrebarea „Se aplică Legea Awaab?” răspunsul este Verificați.",
+     "Locuințele în cazul cărora se aplică Legea Awaab: dacă locuiți într-o „Locuință temporară”, la întrebarea „Se aplică Legea Awaab?” răspunsul este Verificați."
+    ]
+   },
+   "reason": "Rebuilt from the page image: 2 columns, 4 data rows, no sub-heading rows. Matches the library grid.",
+   "evidence": "Page 8 table: header 'Unde locuiți? | Se aplică Legea Awaab?' then Da, Da, Verificați, Verificați.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "973bbeefaece96b6",
+   "kind": "table",
+   "target": "document-5-ce-este-un-pericol-table-p9: 5 Ce este un „pericol”?",
+   "value": {
+    "columns": [
+     "Ce este un „pericol” și ce ar trebui să se întâmple?",
+     "Pericol iminent",
+     "Pericol semnificativ asociat cu igrasia și mucegaiul"
+    ],
+    "rows": [
+     [
+      "Ce este acesta?",
+      "Un pericol iminent este reprezentat de un aspect din locuința dumneavoastră care trebuie remediat imediat deoarece cauzează sau ar putea cauza prejudicii grave sănătății sau siguranței dumneavoastră – ori sănătății sau siguranței oricărei persoane care locuiește cu dumneavoastră.",
+      "Un pericol semnificativ este reprezentat de un aspect din locuința dumneavoastră care ar putea cauza sau cauzează deja prejudicii grave sănătății sau siguranței dumneavoastră – ori sănătății sau siguranței oricărei persoane care locuiește cu dumneavoastră. Pentru moment, Legea Awaab se concentrează asupra pericolelor semnificative cauzate de igrasie sau mucegai"
+     ],
+     [
+      "Descriere detaliată",
+      "În temeiul Legii Awaab, un pericol este considerat „iminent” dacă: • Ar putea reprezenta un risc imediat pentru sănătatea și siguranța dumneavoastră sau pentru sănătatea și siguranța oricărei persoane care locuiește cu dumneavoastră; • Acest lucru înseamnă că un proprietar responsabil ar considera că este urgent și ar lua măsuri pentru a rezolva problema în termen de 24 de ore, pe baza a ceea ce știe sau a ceea ce îi spuneți despre situația dumneavoastră.",
+      "În temeiul Legii Awaab, un pericol cauzat de igrasie sau mucegai este considerat un pericol „semnificativ” dacă: • Ar putea reprezenta un risc pentru sănătatea sau siguranța dumneavoastră; • Acest lucru înseamnă că un proprietar responsabil ar considera că este urgent și ar lua măsuri pentru a rezolva rapid problema (deși nu în termen de 24 de ore), pe baza a ceea ce știe și a ceea ce îi spuneți despre situația dumneavoastră."
+     ],
+     [
+      "Investigații",
+      "Proprietarii trebuie să investigheze în termen de 24 de ore.",
+      "Proprietarii trebuie să investigheze în termen de 10 zile lucrătoare."
+     ],
+     [
+      "Luarea de măsuri pentru ca locuința să devină sigură",
+      "Proprietarii trebuie să ia măsuri pentru ca locuința să devină sigură în termen de 24 de ore din momentul în care află despre pericol.",
+      "Proprietarii trebuie să ia măsuri pentru ca locuința să devină sigură în termen de 5 zile lucrătoare de la încheierea investigației."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Tabelul „5 Ce este un „pericol”?” spune la „Ce este acesta?”: un pericol iminent este reprezentat de un aspect din locuința dumneavoastră care trebuie remediat imediat deoarece cauzează sau ar putea cauza prejudicii grave sănătății sau siguranței dumneavoastră – ori sănătății sau siguranței oricărei persoane care locuiește cu dumneavoastră; un pericol semnificativ este reprezentat de un aspect din locuința dumneavoastră care ar putea cauza sau cauzează deja prejudicii grave sănătății sau siguranței dumneavoastră – ori sănătății sau siguranței oricărei persoane care locuiește cu dumneavoastră, iar pentru moment Legea Awaab se concentrează asupra pericolelor semnificative cauzate de igrasie sau mucegai.",
+     "Tabelul „5 Ce este un „pericol”?” spune la „Descriere detaliată”: în temeiul Legii Awaab, un pericol este considerat „iminent” dacă ar putea reprezenta un risc imediat pentru sănătatea și siguranța dumneavoastră sau pentru sănătatea și siguranța oricărei persoane care locuiește cu dumneavoastră, ceea ce înseamnă că un proprietar responsabil ar considera că este urgent și ar lua măsuri pentru a rezolva problema în termen de 24 de ore, pe baza a ceea ce știe sau a ceea ce îi spuneți despre situația dumneavoastră; un pericol cauzat de igrasie sau mucegai este considerat „semnificativ” dacă ar putea reprezenta un risc pentru sănătatea sau siguranța dumneavoastră, ceea ce înseamnă că un proprietar responsabil ar considera că este urgent și ar lua măsuri pentru a rezolva rapid problema (deși nu în termen de 24 de ore), pe baza a ceea ce știe și a ceea ce îi spuneți despre situația dumneavoastră.",
+     "Tabelul „5 Ce este un „pericol”?” spune la „Investigații”: pentru un pericol iminent, proprietarii trebuie să investigheze în termen de 24 de ore; pentru un pericol semnificativ asociat cu igrasia și mucegaiul, proprietarii trebuie să investigheze în termen de 10 zile lucrătoare.",
+     "Tabelul „5 Ce este un „pericol”?” spune la „Luarea de măsuri pentru ca locuința să devină sigură”: pentru un pericol iminent, proprietarii trebuie să ia măsuri pentru ca locuința să devină sigură în termen de 24 de ore din momentul în care află despre pericol; pentru un pericol semnificativ asociat cu igrasia și mucegaiul, proprietarii trebuie să ia măsuri pentru ca locuința să devină sigură în termen de 5 zile lucrătoare de la încheierea investigației."
+    ]
+   },
+   "reason": "Rebuilt from the page image; the grid matched the printed table (3 columns, 4 data rows, no sub-heading rows). Bullets kept inline with the bullet sign.",
+   "evidence": "Page 9 image shows the header row 'Ce este un „pericol” și ce ar trebui să se întâmple? | Pericol iminent | Pericol semnificativ asociat cu igrasia și mucegaiul' and four rows: Ce este acesta?, Descriere detaliată, Investigații, Luarea de măsuri pentru ca locuința să devină sigură.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "cb06e3b95a2d8eb4",
+   "kind": "table",
+   "target": "document-4-table-p8: 4 আওয়ােবর আইেনর আওতায় থাকা আবাসন",
+   "value": {
+    "columns": [
+     "আপনি কোথায় থাকেন?",
+     "আওয়াবের আইন কি প্রযোজ্য?"
+    ],
+    "rows": [
+     [
+      "কাউন্সিলের কাছ থেকে ভাড়া নেওয়া বাসা",
+      "হ্যাঁ"
+     ],
+     [
+      "একটি হাউজিং অ্যাসোসিয়েশন থেকে ভাড়া নেওয়া বাসা",
+      "হ্যাঁ"
+     ],
+     [
+      "সহায়তাপ্রাপ্ত আবাসন",
+      "চেক করুন"
+     ],
+     [
+      "অস্থায়ী আবাসন",
+      "চেক করুন"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Housing covered by Awaab's Law: if you live in a home rented from the council, does Awaab's Law apply? Yes.",
+     "Housing covered by Awaab's Law: if you live in a home rented from a housing association, does Awaab's Law apply? Yes.",
+     "Housing covered by Awaab's Law: if you live in supported housing, does Awaab's Law apply? Check.",
+     "Housing covered by Awaab's Law: if you live in temporary housing, does Awaab's Law apply? Check."
+    ]
+   },
+   "reason": "Two printed columns and four data rows match the page image.",
+   "evidence": "Page 8 image of the Bangla guidance, table under heading 4.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "d101436b990c0224",
+   "kind": "table",
+   "target": "document-5-table-p9: 5 'িবপদ' বলেত কী েবাঝায়?",
+   "value": {
+    "columns": [
+     "'বিপদ' কী এবং কীভাবে তা ঘটে?",
+     "জরুরি বিপদ",
+     "উল্লেখযোগ্য স্যাঁতসেঁতে অবস্থা এবং ছত্রাকের বিপদ"
+    ],
+    "rows": [
+     [
+      "এটি কী?",
+      "জরুরি বিপদ হলো আপনার বাসাতে এমন কিছু যা তাৎক্ষণিকভাবে ঠিক করা প্রয়োজন কারণ এটি আপনার স্বাস্থ্য বা নিরাপত্তার জন্য—অথবা আপনার সাথে বসবাসকারী যে কারো স্বাস্থ্য বা নিরাপত্তার জন্য গুরুতর ক্ষতি করছে বা করতে পারে।",
+      "একটি উল্লেখযোগ্য বিপদ হলো আপনার বাসাতে এমন কিছু যা আপনার স্বাস্থ্য বা নিরাপত্তার জন্য—অথবা আপনার সাথে বসবাসকারী যে কারো স্বাস্থ্য বা নিরাপত্তার জন্য ইতিমধ্যেই গুরুতর ক্ষতি করতে পারে বা করছে। এই মুহূর্তে, আওয়াবের আইন স্যাঁতসেঁতে অবস্থা বা ছত্রাকের কারণে সৃষ্ট উল্লেখযোগ্য বিপদের উপর মনোযোগ দিয়েছে"
+     ],
+     [
+      "বিস্তারিত বিবরণ",
+      "আওয়াবের আইনের অধীনে, একটি বিপদকে \"জরুরি\" হিসেবে বিবেচনা করা হয় যদি: • এটি আপনার স্বাস্থ্য এবং নিরাপত্তার জন্য অথবা আপনার সাথে বসবাসকারী যে কারো স্বাস্থ্য এবং নিরাপত্তার জন্য তাৎক্ষণিক ঝুঁকি হতে পারে; • এর অর্থ হল একজন দায়িত্বশীল বাড়িওয়ালা এটিকে জরুরি হিসেবে দেখবেন এবং আপনার পরিস্থিতি সম্পর্কে তারা যা জানেন বা আপনি তাদের যা বলেছেন তার উপর ভিত্তি করে 24 ঘণ্টার মধ্যে এটি ঠিক করার জন্য পদক্ষেপ নেবেন।",
+      "আওয়াবের আইন অনুসারে, স্যাঁতসেঁতে অবস্থা বা ছত্রাকজনিত বিপদকে \"উল্লেখযোগ্য\" বিপদ হিসেবে বিবেচনা করা হয় যদি: • এটি আপনার স্বাস্থ্য বা নিরাপত্তার জন্য ঝুঁকিপূর্ণ হতে পারে • এর অর্থ হল একজন দায়িত্বশীল বাড়িওয়ালা এটিকে জরুরি হিসেবে দেখবেন এবং আপনার পরিস্থিতি সম্পর্কে তারা যা জানেন এবং আপনি তাদের যা বলেছেন তার উপর ভিত্তি করে দ্রুত (যদিও 24 ঘণ্টার মধ্যে নয়) এটি ঠিক করার জন্য পদক্ষেপ নেবেন।"
+     ],
+     [
+      "তদন্তসমূহ",
+      "বাড়িওয়ালাদের অবশ্যই 24 ঘণ্টার মধ্যে তদন্ত করতে হবে",
+      "বাড়িওয়ালাদের অবশ্যই 10 কর্মদিবসের মধ্যে তদন্ত করতে হবে"
+     ],
+     [
+      "আপনার বাসা নিরাপদ করা",
+      "বাড়িওয়ালাদের অবশ্যই বিপদ সম্পর্কে জানতে পারার 24 ঘণ্টার মধ্যে আপনার বাসাকে নিরাপদ করতে হবে।",
+      "তদন্ত শেষ হওয়ার 5 কর্মদিবসের মধ্যে বাড়িওয়ালাদের অবশ্যই"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "What is meant by hazard: for what it is, an emergency hazard is something in your home that needs fixing straight away because it may cause serious harm to the health or safety of you or anyone living with you, and a significant hazard is something that may already cause serious harm, where Awaab's Law now focuses on significant hazards from damp and mould.",
+     "What is meant by hazard: in detail, a hazard is emergency if it may be an immediate risk to health and safety and a responsible landlord will act to fix it within 24 hours, and a damp and mould hazard is significant if it may be a risk to health or safety and the landlord will act quickly but not within 24 hours.",
+     "What is meant by hazard: for investigations, landlords must investigate within 24 hours for an emergency hazard and within 10 working days for a significant hazard.",
+     "What is meant by hazard: for making your home safe, landlords must make your home safe within 24 hours of knowing about an emergency hazard, and for a significant hazard the page text stops after 5 working days of the end of the investigation, landlords must."
+    ]
+   },
+   "reason": "Three columns and four data rows match the page image. The last cell is cut off as printed.",
+   "evidence": "Page 9 image of the Bangla guidance, table under heading 5.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "ffd816d6460bdecf",
+   "kind": "table",
+   "target": "document-7-table-p15: 7 তদ�সমূহ",
+   "value": {
+    "columns": [
+     "তদন্তের ধরন",
+     "বর্ণনা"
+    ],
+    "rows": [
+     [
+      "জরুরি তদন্ত",
+      "যদি কোনো জরুরি অবস্থা দেখা দেয়, তাহলে বাড়িওয়ালাকে 24 ঘণ্টার মধ্যে অবশ্যই জরুরি তদন্ত শুরু করতে হবে। তদন্তে নিশ্চিত হওয়া উচিত যে কোনো জরুরি বিপদ আছে কিনা এবং আপনার বাসাকে নিরাপদ করার জন্য কী কী জরুরি মেরামতের প্রয়োজন।"
+     ],
+     [
+      "মানসম্মত তদন্তসমূহ",
+      "যদি কোনো উল্লেখযোগ্য বিপদ দেখা দেয়, তাহলে বাড়িওয়ালাকে 10 কর্মদিবসের মধ্যে অবশ্যই একটি মানসম্মত তদন্ত শুরু করতে হবে। এটি নিশ্চিত করবে যে এটি একটি বিপদ এবং কোনো মেরামত করা প্রয়োজনীয় কিনা তা সনাক্ত করবে। যদি তদন্তে বিপদটিকে জরুরি বলে মনে হয়, তাহলে দ্রুততর জরুরি সময়সীমা প্রযোজ্য হওয়া শুরু হবে।"
+     ],
+     [
+      "নতুন করে তদন্ত",
+      "যদি আপনার বাড়িওয়ালা দূর থেকে কোনো বিপদ নিয়ে তদন্ত করেন এবং আপনি মনে করেন যে এটি যথেষ্ট ছিল না, তাহলে আপনি সশরীরে পরিদর্শন এর জন্য অনুরোধ করতে পারেন। আপনার বাড়িওয়ালাকে অবশ্যই আপনার অনুরোধের 10 কর্মদিবসের মধ্যে সশরীরে একটি নতুন তদন্ত করতে হবে – তাই আমরা প্রক্রিয়ার শুরুতেই এটি করার পরামর্শ দিচ্ছি।"
+     ],
+     [
+      "আরও তদন্ত করা",
+      "কখনও কখনও, আপনার বাড়িওয়ালা হয়তো তাৎক্ষণিকভাবে নাও জানতে পারেন যে স্যাঁতসেঁতে অবস্থা বা ছত্রাকের মতো গুরুতর সমস্যার কারণ কী। আপনার বাড়িওয়ালা যদি দেখেন যে কোনো বিপদ সঠিকভাবে মেরামত করার জন্য আরও কাজ প্রয়োজন, তাহলে তাদের অবশ্যই আরও পরীক্ষা করা উচিত। উদাহরণস্বরূপ, তাদের একটি কাঠামোগত জরিপের ব্যবস্থা করার প্রয়োজন হতে পারে। যখন তারা তদন্ত করছে, তখনও তাদের"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Investigations under Awaab's Law: for an emergency investigation, if an emergency arises the landlord must start an emergency investigation within 24 hours, and it should confirm whether there is an emergency hazard and what urgent repairs make your home safe.",
+     "Investigations under Awaab's Law: for standard investigations, if a significant hazard arises the landlord must start a standard investigation within 10 working days, and it will confirm that it is a hazard and find out whether any repair is needed, and if the hazard is found to be an emergency the faster emergency time limits begin to apply.",
+     "Investigations under Awaab's Law: for a new investigation, if the landlord investigated a hazard remotely and you think it was not enough, you can ask for an in-person visit, and the landlord must do a new in-person investigation within 10 working days of your request, so it is advised to ask at the start of the process.",
+     "Investigations under Awaab's Law: for further investigation, the landlord may not know straight away the cause of a serious problem such as damp or mould, and if more work is needed to repair a hazard properly they should do more checks, for example arrange a structural survey, and the printed text stops with while they are investigating, they still."
+    ]
+   },
+   "reason": "Two columns and four data rows match the page image. The last cell is cut off as printed.",
+   "evidence": "Page 15 image of the Bangla guidance, table of four types of investigation under heading 7.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "31d3f39b1926e3cc",
+   "kind": "table",
+   "target": "document-4-table-p8: 4 ਅਵਾਬਜ਼ ਲਾਅ ਦਆੁ ਰਾ ਕਵਰ ਕੀਤੀ ਗਈ ਿਰਹਾਇਸ਼",
+   "value": {
+    "columns": [
+     "ਤੁਸੀਂ ਕਿੱਥੇ ਰਹਿੰਦੇ ਹੋ?",
+     "ਕੀ ਅਵਾਬਜ਼ ਲਾਅ ਲਾਗੂ ਹੁੰਦਾ ਹੈ?"
+    ],
+    "rows": [
+     [
+      "ਕੌਂਸਲ ਤੋਂ ਕਿਰਾਏ ’ਤੇ ਲਿਆ ਘਰ",
+      "ਹਾਂ"
+     ],
+     [
+      "ਹਾਊਸਿੰਗ ਐਸੋਸੀਏਸ਼ਨ ਤੋਂ ਕਿਰਾਏ ’ਤੇ ਲਿਆ ਘਰ",
+      "ਹਾਂ"
+     ],
+     [
+      "ਸਹਾਇਤਾ-ਪ੍ਰਾਪਤ ਰਿਹਾਇਸ਼",
+      "ਚੈੱਕ ਕਰੋ"
+     ],
+     [
+      "ਅਸਥਾਈ ਰਿਹਾਇਸ਼",
+      "ਚੈੱਕ ਕਰੋ"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Housing covered by Awaab's Law: if you live in a home rented from the council, does Awaab's Law apply? Yes.",
+     "Housing covered by Awaab's Law: if you live in a home rented from a housing association, does Awaab's Law apply? Yes.",
+     "Housing covered by Awaab's Law: if you live in supported housing, does Awaab's Law apply? Check.",
+     "Housing covered by Awaab's Law: if you live in temporary housing, does Awaab's Law apply? Check."
+    ]
+   },
+   "reason": "Two printed columns and four data rows match the page image.",
+   "evidence": "Page 8 image of the Punjabi guidance, table under heading 4.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "02a9d7c47a041cd3",
+   "kind": "table",
+   "target": "document-5-table-p9: 5 ‘ਖਤਰਾ’ ਕੀ ਹੰਦੁ ਾ ਹੈ?",
+   "value": {
+    "columns": [
+     "‘ਖਤਰਾ’ ਕੀ ਹੁੰਦਾ ਹੈ ਅਤੇ ਕੀ ਹੋਣਾ ਚਾਹੀਦਾ ਹੈ?",
+     "ਐਮਰਜੈਂਸੀ ਖਤਰਾ",
+     "ਨਮੀ ਅਤੇ ਉੱਲੀ ਨਾਲ ਜੁੜਿਆ ਅਹਿਮ ਖਤਰਾ"
+    ],
+    "rows": [
+     [
+      "ਉਹ ਕੀ ਹੁੰਦਾ ਹੈ?",
+      "ਇੱਕ ਐਮਰਜੈਂਸੀ ਖਤਰਾ ਤੁਹਾਡੇ ਘਰ ਵਿੱਚ ਕੁਝ ਅਜਿਹਾ ਹੁੰਦਾ ਹੈ ਜਿਸਨੂੰ ਤੁਰੰਤ ਦੂਰ ਕਰਨ ਦੀ ਲੋੜ ਹੁੰਦੀ ਹੈ ਕਿਉਂਕਿ ਇਹ ਤੁਹਾਡੀ ਸਿਹਤ ਜਾਂ ਸੁਰੱਖਿਆ—ਜਾਂ ਤੁਹਾਡੇ ਨਾਲ ਰਹਿਣ ਵਾਲੇ ਕਿਸੇ ਵੀ ਵਿਅਕਤੀ ਦੀ ਸਿਹਤ ਜਾਂ ਸੁਰੱਖਿਆ—ਨੂੰ ਗੰਭੀਰ ਨੁਕਸਾਨ ਪਹੁੰਚਾਉਂਦਾ ਹੈ ਜਾਂ ਪਹੁੰਚਾ ਸਕਦਾ ਹੈ।",
+      "ਇੱਕ ਅਹਿਮ ਖਤਰਾ ਤੁਹਾਡੇ ਘਰ ਵਿੱਚ ਕੁਝ ਅਜਿਹਾ ਹੁੰਦਾ ਹੈ ਜੋ ਤੁਹਾਡੀ ਸਿਹਤ ਜਾਂ ਸੁਰੱਖਿਆ—ਜਾਂ ਤੁਹਾਡੇ ਨਾਲ ਰਹਿਣ ਵਾਲੇ ਕਿਸੇ ਵੀ ਵਿਅਕਤੀ ਦੀ ਸਿਹਤ ਜਾਂ ਸੁਰੱਖਿਆ—ਨੂੰ ਗੰਭੀਰ ਨੁਕਸਾਨ ਪਹੁੰਚਾ ਸਕਦਾ ਹੈ ਜਾਂ ਪਹਿਲਾਂ ਹੀ ਪਹੁੰਚਾ ਰਿਹਾ ਹੈ। ਫਿਲਹਾਲ, ਅਵਾਬਜ਼ ਲਾਅ ਨਮੀ ਜਾਂ ਉੱਲੀ ਕਰਕੇ ਹੋਣ ਵਾਲੇ ਅਹਿਮ ਖਤਰਿਆਂ 'ਤੇ ਕੇਂਦ੍ਰਿਤ ਹੈ"
+     ],
+     [
+      "ਵਿਸਤ੍ਰਿਤ ਵੇਰਵਾ",
+      "ਅਵਾਬਜ਼ ਲਾਅ ਦੇ ਤਹਿਤ, ਕਿਸੇ ਖਤਰੇ ਨੂੰ “ਐਮਰਜੈਂਸੀ” ਮੰਨਿਆ ਜਾਂਦਾ ਹੈ ਜੇਕਰ: • ਉਹ ਤੁਹਾਡੀ ਸਿਹਤ ਅਤੇ ਸੁਰੱਖਿਆ ਲਈ ਜਾਂ ਤੁਹਾਡੇ ਨਾਲ ਰਹਿਣ ਵਾਲੇ ਕਿਸੇ ਵੀ ਵਿਅਕਤੀ ਦੀ ਸਿਹਤ ਅਤੇ ਸੁਰੱਖਿਆ ਲਈ ਤਤਕਾਲ ਜੋਖਮ ਹੋ ਸਕਦਾ ਹੈ; • ਇਸਦਾ ਮਤਲਬ ਹੈ ਕਿ ਇੱਕ ਜ਼ਿੰਮੇਵਾਰ ਮਕਾਨ ਮਾਲਕ ਉਸਨੂੰ ਜ਼ਰੂਰੀ ਸਮਝੇਗਾ ਅਤੇ ਇਸ ਅਧਾਰ 'ਤੇ 24 ਘੰਟਿਆਂ ਦੇ ਅੰਦਰ ਉਸਨੂੰ ਠੀਕ ਕਰਨ ਲਈ ਕਦਮ ਚੁੱਕੇਗਾ ਕਿ ਉਸਨੂੰ ਕੀ ਪਤਾ ਹੈ ਜਾਂ ਤੁਸੀਂ ਉਸਨੂੰ ਆਪਣੀ ਸਥਿਤੀ ਬਾਰੇ ਕੀ ਦੱਸਦੇ ਹੋ।",
+      "ਅਵਾਬਜ਼ ਲਾਅ ਦੇ ਤਹਿਤ, ਨਮੀ ਜਾਂ ਉੱਲੀ ਕਰਕੇ ਹੋਣ ਵਾਲੇ ਕਿਸੇ ਖਤਰੇ ਨੂੰ “ਅਹਿਮ” ਮੰਨਿਆ ਜਾਂਦਾ ਹੈ ਜੇਕਰ: • ਉਹ ਤੁਹਾਡੀ ਸਿਹਤ ਜਾਂ ਸੁਰੱਖਿਆ ਲਈ ਖਤਰਾ ਹੋ ਸਕਦਾ ਹੈ • ਇਸਦਾ ਮਤਲਬ ਹੈ ਕਿ ਇੱਕ ਜ਼ਿੰਮੇਵਾਰ ਮਕਾਨ ਮਾਲਕ ਉਸਨੂੰ ਜ਼ਰੂਰੀ ਸਮਝੇਗਾ ਅਤੇ ਇਸ ਅਧਾਰ 'ਤੇ ਉਸਨੂੰ ਛੇਤੀ ਠੀਕ ਕਰਨ (ਹਾਲਾਂਕਿ 24 ਘੰਟਿਆਂ ਦੇ ਅੰਦਰ ਨਹੀਂ) ਲਈ ਕਦਮ ਚੁੱਕੇਗਾ ਕਿ ਉਸਨੂੰ ਕੀ ਪਤਾ ਹੈ ਜਾਂ ਤੁਸੀਂ ਉਸਨੂੰ ਆਪਣੀ ਸਥਿਤੀ ਬਾਰੇ ਕੀ ਦੱਸਦੇ ਹੋ।"
+     ],
+     [
+      "ਪੜਚੋਲ",
+      "ਮਕਾਨ ਮਾਲਕ ਨੂੰ 24 ਘੰਟਿਆਂ ਦੇ ਅੰਦਰ ਪੜਚੋਲ ਕਰਨੀ ਪਵੇਗੀ",
+      "ਮਕਾਨ ਮਾਲਕ ਨੂੰ 10 ਕੰਮਕਾਜੀ ਦਿਨਾਂ ਦੇ ਅੰਦਰ ਪੜਚੋਲ ਕਰਨੀ ਪਵੇਗੀ"
+     ],
+     [
+      "ਤੁਹਾਡੇ ਘਰ ਨੂੰ ਸੁਰੱਖਿਅਤ ਬਣਾਉਣਾ",
+      "ਮਕਾਨ ਮਾਲਕ ਨੂੰ ਖਤਰੇ ਬਾਰੇ ਪਤਾ ਲੱਗਣ ਤੋਂ ਬਾਅਦ 24 ਘੰਟਿਆਂ ਦੇ ਅੰਦਰ ਤੁਹਾਡੇ ਘਰ ਨੂੰ ਸੁਰੱਖਿਅਤ ਬਣਾਉਣਾ ਪਵੇਗਾ।",
+      "ਤੁਹਾਡੇ ਮਕਾਨ ਮਾਲਕ ਨੂੰ ਪੜਚੋਲ ਖ਼ਤਮ ਹੋਣ ਤੋਂ ਬਾਅਦ 5 ਕੰਮਕਾਜੀ ਦਿਨਾਂ ਦੇ ਅੰਦਰ ਤੁਹਾਡੇ ਘਰ ਨੂੰ ਸੁਰੱਖਿਅਤ ਬਣਾਉਣਾ ਪਵੇਗਾ।"
+     ],
+     [
+      "ਹੋਰ ਕੰਮ",
+      "ਪੜਚੋਲ ਪੂਰੀ ਹੋਣ 'ਤੇ, ਮਕਾਨ ਮਾਲਕ ਨੂੰ 5 ਕੰਮਕਾਜੀ ਦਿਨਾਂ ਦੇ ਅੰਦਰ ਕੰਮ ਸ਼ੁਰੂ ਕਰਨਾ ਪਵੇਗਾ ਜਾਂ ਸ਼ੁਰੂ ਕਰਨ ਦੀ ਯੋਜਨਾ ਬਣਾਉਣੀ ਪਵੇਗੀ। ਸਾਰਾ ਕੰਮ 12 ਹਫ਼ਤਿਆਂ ਦੇ ਅੰਦਰ ਸ਼ੁਰੂ ਹੋਣਾ ਚਾਹੀਦਾ ਹੈ।",
+      "ਪੜਚੋਲ ਪੂਰੀ ਹੋਣ 'ਤੇ, ਮਕਾਨ ਮਾਲਕ ਨੂੰ 5 ਕੰਮਕਾਜੀ ਦਿਨਾਂ ਦੇ ਅੰਦਰ ਕੰਮ ਸ਼ੁਰੂ ਕਰਨਾ ਪਵੇਗਾ ਜਾਂ ਸ਼ੁਰੂ ਕਰਨ ਦੀ ਯੋਜਨਾ ਬਣਾਉਣੀ ਪਵੇਗੀ। ਸਾਰਾ ਕੰਮ 12 ਹਫ਼ਤਿਆਂ ਦੇ ਅੰਦਰ ਸ਼ੁਰੂ ਹੋਣਾ ਚਾਹੀਦਾ ਹੈ।"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "What a hazard is under Awaab's Law, what it is: an emergency hazard is something in your home that must be put right straight away because it causes or could cause serious harm to the health or safety of you or anyone living with you, and a significant hazard linked to damp and mould is something that could cause or is already causing such serious harm, and for now Awaab's Law focuses on significant hazards caused by damp or mould.",
+     "What a hazard is under Awaab's Law, detailed description: a hazard is an emergency if it may be an immediate risk to the health and safety of you or anyone living with you, so a responsible landlord would treat it as urgent and act to fix it within 24 hours, while a damp and mould hazard is significant if it may be a risk to your health or safety, so a responsible landlord would act to fix it quickly but not necessarily within 24 hours, based on what they know or what you tell them about your situation.",
+     "What a hazard is under Awaab's Law, investigation: for an emergency hazard the landlord must investigate within 24 hours, and for a significant damp and mould hazard the landlord must investigate within 10 working days.",
+     "What a hazard is under Awaab's Law, making your home safe: for an emergency hazard the landlord must make your home safe within 24 hours of finding out about the hazard, and for a significant damp and mould hazard the landlord must make your home safe within 5 working days of the end of the investigation.",
+     "What a hazard is under Awaab's Law, further work: for both an emergency hazard and a significant damp and mould hazard, when the investigation is complete the landlord must start work or plan to start work within 5 working days, and all work should start within 12 weeks."
+    ]
+   },
+   "reason": "Rebuilt from page 9 image: one printed header row, five data rows, three columns; both hazard columns copied as printed and heading text restored from the image because the library grid had broken marks.",
+   "evidence": "Page 9 image shows the three printed column headings and the rows What is it, Detailed description, Investigation, Making your home safe and Further work.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "03e37562de56cc0c",
+   "kind": "table",
+   "target": "document-5-table-p10: 5 ‘ਖਤਰਾ’ ਕੀ ਹੰਦੁ ਾ ਹੈ?",
+   "value": {
+    "columns": [
+     "Row heading",
+     "Emergency hazard column",
+     "Damp and mould significant hazard column"
+    ],
+    "rows": [
+     [
+      "ਲਿਖਤੀ ਸਾਰ",
+      "ਜਿੱਥੇ ਹੋਰ ਕੰਮ ਦੀ ਲੋੜ ਹੋਵੇ ਉੱਥੇ ਪੜਚੋਲ ਖ਼ਤਮ ਹੋਣ ਤੋਂ ਬਾਅਦ 3 ਕੰਮਕਾਜੀ ਦਿਨਾਂ ਦੇ ਅੰਦਰ ਇੱਕ ਲਿਖਤੀ ਸਾਰ ਪ੍ਰਦਾਨ ਕੀਤਾ ਜਾਣਾ ਚਾਹੀਦਾ ਹੈ।",
+      "ਪੜਚੋਲ ਖ਼ਤਮ ਹੋਣ ਤੋਂ ਬਾਅਦ 3 ਕੰਮਕਾਜੀ ਦਿਨਾਂ ਦੇ ਅੰਦਰ।"
+     ],
+     [
+      "ਖਤਰਿਆਂ ਦੇ ਉਦਾਰਹਨ",
+      "• ਗੈਸ ਜਾਂ ਕਾਰਬਨ ਮੋਨੋਆਕਸਾਈਡ ਲੀਕ ਹੋਣਾ • ਟੁੱਟੇ ਹੋਏ ਬੌਇਲਰ • ਪਾਣੀ ਦੀ ਸਪਲਾਈ ਬਿਲਕੁਲ ਨਾ ਹੋਣਾ • ਬਿਜਲੀ-ਸੰਬੰਧੀ ਖਤਰਨਾਕ ਸਮੱਸਿਆਵਾਂ (ਜਿਵੇਂ ਕਿ ਖੁੱਲ੍ਹੀਆਂ ਤਾਰਾਂ) • ਵੱਡੇ ਲੀਕ • ਟੁੱਟੇ ਹੋਏ ਬਾਹਰਲੇ ਦਰਵਾਜ਼ੇ ਜਾਂ ਖਿੜਕੀਆਂ ਜੋ ਤੁਹਾਡੇ ਘਰ ਨੂੰ ਅਸੁਰੱਖਿਅਤ ਬਣਾਉਂਦੀਆਂ ਹਨ • ਬਹੁਤ ਜ਼ਿਆਦਾ ਮਾਤਰਾ ਵਿੱਖ ਨਮੀ ਜਾਂ ਉੱਲੀ • ਢਾਂਚੇ-ਸੰਬੰਧੀ ਵੱਡੀਆਂ ਸਮੱਸਿਆਵਾਂ",
+      "• ਕੋਈ ਵੀ ਨਮੀ ਅਤੇ ਉੱਲੀ ਤੁਹਾਡੇ ਅਤੇ ਤੁਹਾਡੇ ਨਾਲ ਰਹਿਣ ਵਾਲੇ ਕਿਸੇ ਵੀ ਵਿਅਕਤੀ ਦੀ ਸਰੀਰਕ ਸਿਹਤ ਲਈ ਜੋਖਮ ਹੋ ਸਕਦੀ ਹੈ। ਇਹ ਸਾਹ ਦੀਆਂ ਨਲੀਆਂ ਅਤੇ ਫੇਫੜਿਆਂ 'ਤੇ ਹੀ ਨਹੀਂ, ਬਲਕਿ ਤੁਹਾਡੀਆਂ ਅੱਖਾਂ ਅਤੇ ਚਮੜੀ 'ਤੇ ਵੀ ਅਸਰ ਕਰਦਾ ਹੈ • ਨਮੀ ਅਤੇ ਉੱਲੀ ਤੁਹਾਡੀ ਮਾਨਸਿਕ ਸਿਹਤ ਨੂੰ ਪ੍ਰਭਾਵਿਤ ਕਰ ਸਕਦੇ ਹਨ, ਜਿਵੇਂ ਕਿ, ਸਿਹਤ ਪ੍ਰਭਾਵਾਂ ਜਾਂ ਰਹਿਣ-ਸਹਿਣ ਦੀਆਂ ਅਣਸੁਖਾਵੀਆਂ ਸਥਿਤੀਆਂ ਬਾਰੇ ਫ਼ਿਕਰ ਕਰਨਾ • ਹਰ ਕਿਸੇ ਨੂੰ ਨਮੀ ਅਤੇ ਉੱਲੀ ਦੇ ਸਿਹਤ ਪ੍ਰਭਾਵਾਂ ਦਾ ਜੋਖਮ ਹੋ ਸਕਦਾ ਹੈ, ਪਰ ਜੇਕਰ ਤੁਹਾਡੀ ਕੋਈ ਖ਼ਾਸ ਸਿਹਤ ਸਥਿਤੀ ਹੈ ਤਾਂ ਤੁਹਾਨੂੰ ਜ਼ਿਆਦਾ ਜੋਖਮ ਹੋ ਸਕਦਾ ਹੈ • ਨਮੀ ਅਤੇ ਉੱਲੀ ਦੇ ਜੋਖਮਾਂ ਬਾਰੇ ਹੋਰ ਮਾਰਗਦਰਸ਼ਨ ਇੱਥੇ ਮਿਲ ਸਕਦਾ ਹੈ: ਨਮੀ ਅਤੇ ਉੱਲੀ: ਕਿਰਾਏ ਦੀ ਰਿਹਾਇਸ਼ ਦੇ ਪ੍ਰਦਾਤਾਵਾਂ ਲਈ ਸਿਹਤ-ਸੰਬੰਧੀ ਜੋਖਮਾਂ ਨੂੰ ਸਮਝਣਾ ਅਤੇ ਉਨ੍ਹਾਂਨੂੰ ਦੂਰ ਕਰਨਾ - GOV.UK"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "What a hazard is under Awaab's Law, written summary: for an emergency hazard, where more work is needed, a written summary should be given within 3 working days of the end of the investigation, and for a significant damp and mould hazard it should be given within 3 working days of the end of the investigation.",
+     "What a hazard is under Awaab's Law, examples of hazards: emergency hazards include a gas or carbon monoxide leak, broken boilers, no water supply at all, dangerous electrical problems such as exposed wires, major leaks, broken external doors or windows that make your home unsafe, a very large amount of damp or mould and major structural problems, while for damp and mould any damp and mould may be a risk to the physical health of you and anyone living with you, can affect your mental health, may be a greater risk if you have a particular health condition, and more guidance is in the GOV.UK page on damp and mould for rental housing providers."
+    ]
+   },
+   "reason": "Page 10 continues the table from page 9 and prints no header row, so the three columns got short neutral headings; two data rows copied from the image.",
+   "evidence": "Page 10 image shows rows Written summary and Examples of hazards, with no column headings above them.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "a37da9de19fb21cf",
+   "kind": "table",
+   "target": "document-7-table-p15: 7 ਪੜਚੋਲ",
+   "value": {
+    "columns": [
+     "ਪੜਚੋਲ ਦੀ ਕਿਸਮ",
+     "ਵੇਰਵਾ"
+    ],
+    "rows": [
+     [
+      "ਐਮਰਜੈਂਸੀ ਪੜਚੋਲਾਂ",
+      "ਜੇਕਰ ਕੋਈ ਐਮਰਜੈਂਸੀ ਹੋ ਸਕਦੀ ਹੈ, ਤਾਂ ਮਕਾਨ ਮਾਲਕ ਨੂੰ 24 ਘੰਟਿਆਂ ਦੇ ਅੰਦਰ ਐਮਰਜੈਂਸੀ ਪੜਚੋਲ ਸ਼ੁਰੂ ਕਰਨੀ ਪਵੇਗੀ। ਪੜਚੋਲ ਤੋਂ ਇਹ ਪੁਸ਼ਟੀ ਹੋਣੀ ਚਾਹੀਦੀ ਹੈ ਕਿ ਕੀ ਕੋਈ ਐਮਰਜੈਂਸੀ ਖਤਰਾ ਹੈ ਅਤੇ ਤੁਹਾਡੇ ਘਰ ਨੂੰ ਸੁਰੱਖਿਅਤ ਬਣਾਉਣ ਲਈ ਕਿਹੜੀਆਂ ਜ਼ਰੂਰੀ ਮੁਰੰਮਤਾਂ ਦੀ ਲੋੜ ਹੈ।"
+     ],
+     [
+      "ਮਿਆਰੀ ਪੜਚੋਲਾਂ",
+      "ਜੇਕਰ ਕੋਈ ਅਹਿਮ ਖਤਰਾ ਹੋ ਸਕਦਾ ਹੈ, ਤਾਂ ਮਕਾਨ ਮਾਲਕ ਨੂੰ 10 ਕੰਮਕਾਜੀ ਦਿਨਾਂ ਦੇ ਅੰਦਰ ਇੱਕ ਮਿਆਰੀ ਜਾਂਚ ਸ਼ੁਰੂ ਕਰਨੀ ਪਵੇਗੀ। ਇਸ ਨਾਲ ਇਹ ਪੁਸ਼ਟੀ ਹੋਣੀ ਚਾਹੀਦੀ ਹੈ ਕਿ ਉਹ ਇੱਕ ਖਤਰਾ ਹੈ, ਅਤੇ ਕਿਸੇ ਵੀ ਲੋੜੀਂਦੀ ਮੁਰੰਮਤ ਦੀ ਪਛਾਣ ਕੀਤੀ ਜਾਣੀ ਚਾਹੀਦੀ ਹੈ। ਜੇਕਰ ਪੜਚੋਲ ਵਿੱਚ ਇਹ ਪਤਾ ਲੱਗਦਾ ਹੈ ਕਿ ਖਤਰਾ ਇੱਕ ਐਮਰਜੈਂਸੀ ਹੈ, ਤਾਂ ਤੀਬਰ ਐਮਰਜੈਂਸੀ ਸਮੇਂ-ਸੀਮਾਵਾਂ ਲਾਗੂ ਹੋਣੀਆਂ ਸ਼ੁਰੂ ਹੋ ਜਾਣਗੀਆਂ।"
+     ],
+     [
+      "ਨਵੀਆਂ ਪੜਚੋਲਾਂ",
+      "ਜੇਕਰ ਤੁਹਾਡਾ ਮਕਾਨ-ਮਾਲਕ ਦੂਰੋਂ ਕਿਸੇ ਖਤਰੇ ਦੀ ਪੜਚੋਲ ਕਰਦਾ ਹੈ ਅਤੇ ਤੁਹਾਨੂੰ ਲੱਗਦਾ ਹੈ ਕਿ ਉਹ ਕਾਫ਼ੀ ਨਹੀਂ ਸੀ, ਤਾਂ ਤੁਸੀਂ ਵਿਅਕਤਕ ਤੌਰ 'ਤੇ ਨਿਰੀਖਣ ਦੀ ਮੰਗ ਕਰ ਸਕਦੇ ਹੋ। ਤੁਹਾਡੇ ਮਕਾਨ-ਮਾਲਕ ਨੂੰ ਤੁਹਾਡੀ ਬੇਨਤੀ ਤੋਂ ਬਾਅਦ 10 ਕੰਮਕਾਜੀ ਦਿਨਾਂ ਦੇ ਅੰਦਰ ਵਿਅਕਤਕ ਤੌਰ 'ਤੇ ਇੱਕ ਨਵੀਂ ਪੜਚੋਲ ਕਰਨੀ ਪਵੇਗੀ - ਇਸ ਲਈ ਅਸੀਂ ਪ੍ਰਕਿਰਿਆ ਦੀ ਸ਼ੁਰੂਆਤ ਵਿੱਚ ਉਸ ਲਈ ਬੇਨਤੀ ਕਰਨ ਦੀ ਸਿਫ਼ਾਰਸ਼ ਕਰਦੇ ਹਾਂ।"
+     ],
+     [
+      "ਹੋਰ ਪੜਚੋਲਾਂ",
+      "ਕਦੇ-ਕਦਾਈਂ, ਤੁਹਾਡੇ ਮਕਾਨ ਮਾਲਕ ਨੂੰ ਤੁਰੰਤ ਪਤਾ ਨਹੀਂ ਲੱਗ ਸਕਦਾ ਕਿ ਨਮੀ ਜਾਂ ਉੱਲੀ ਵਰਗੀ ਗੰਭੀਰ ਸਮੱਸਿਆ ਦੀ ਵਜ੍ਹਾ ਕੀ ਹੈ। ਜੇਕਰ ਤੁਹਾਡੇ ਮਕਾਨ ਮਾਲਕ ਨੂੰ ਪਤਾ ਲੱਗਦਾ ਹੈ ਕਿ ਕਿਸੇ ਖਤਰੇ ਨੂੰ ਸਹੀ ਢੰਗ ਨਾਲ ਦੂਰ ਕਰਨ ਲਈ ਹੋਰ ਕੰਮ ਦੀ ਲੋੜ ਹੈ, ਤਾਂ ਉਸਨੂੰ ਹੋਰ ਪੜਚੋਲਾਂ ਕਰਨੀਆਂ ਚਾਹੀਦੀਆਂ ਹਨ। ਉਦਾਹਰਨ ਲਈ, ਉਸਨੂੰ ਇੱਕ ਢਾਂਚਾ-ਸੰਬੰਧੀ ਸਰਵੇਖਣ ਦਾ ਇੰਤਜ਼ਾਮ ਕਰਨਾ ਪੈ ਸਕਦਾ ਹੈ। ਪੜਚੋਲ ਦੇ ਦੌਰਾਨ, ਉਸਨੂੰ ਅਜੇ ਵੀ ਤੁਹਾਨੂੰ ਸੁਰੱਖਿਅਤ ਰੱਖਣ ਲਈ ਕਦਮ ਚੁੱਕਣੇ ਪੈਣਗੇ, ਜਿਵੇਂ ਕਿ ਵਿਖਾਈ ਦੇਣ ਵਾਲੇ ਉੱਲੀ ਨੂੰ ਦੂਰ ਕਰਨਾ ਜਾਂ ਇੱਕ ਡੀਹਿਊਮਿਡੀਫਾਇਰ ਪ੍ਰਦਾਨ ਕਰਨਾ।"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Investigations under Awaab's Law, emergency investigations: if there may be an emergency, the landlord must start an emergency investigation within 24 hours, and it should confirm whether there is an emergency hazard and which urgent repairs are needed to make your home safe.",
+     "Investigations under Awaab's Law, standard investigations: if there may be a significant hazard, the landlord must start a standard investigation within 10 working days, it should confirm that it is a hazard and identify any repairs needed, and if it finds the hazard is an emergency, the faster emergency timescales start to apply.",
+     "Investigations under Awaab's Law, new investigations: if your landlord investigates a hazard remotely and you think it was not enough, you can ask for an in-person inspection, and the landlord must carry out a new in-person investigation within 10 working days of your request, so it is recommended to ask for this at the start of the process.",
+     "Investigations under Awaab's Law, other investigations: sometimes your landlord may not know straight away what causes a serious problem such as damp or mould, and if more work is needed to remove a hazard properly the landlord should carry out more investigations, for example a structural survey, and during the investigation the landlord must still take steps to keep you safe, such as removing visible mould or providing a dehumidifier."
+    ]
+   },
+   "reason": "Page 15 shows one header row and four data rows in two columns; cell text was copied from the image, with the printed spelling kept.",
+   "evidence": "Page 15 image shows the headings for type of investigation and details, and the rows for emergency, standard, new and other investigations.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "13935fc9e7eab833",
+   "kind": "table",
+   "target": "document-7-investiga-ii-table-p15: 7 Investigații",
+   "value": {
+    "columns": [
+     "Tip de investigație",
+     "Descriere"
+    ],
+    "rows": [
+     [
+      "Investigații de urgență",
+      "În cazul în care ar putea exista o urgență, proprietarul trebuie să înceapă o investigație de urgență în termen de 24 de ore. Investigația ar trebui să confirme dacă există un pericol iminent și ce reparații urgente sunt necesare pentru ca locuința să devină sigură."
+     ],
+     [
+      "Investigații standard",
+      "În cazul în care ar putea exista un pericol semnificativ, proprietarul trebuie să înceapă o investigație standard în termen de 10 zile lucrătoare. Aceasta ar trebui să confirme că există un pericol și să identifice orice reparații necesare. În cazul în care investigația stabilește că pericolul reprezintă o urgență, se vor aplica termenele de urgență mai rapide."
+     ],
+     [
+      "Investigații reluate",
+      "Dacă proprietarul dumneavoastră investighează un pericol de la distanță și considerați că acest lucru nu a fost suficient, puteți solicita o inspecție în persoană. Proprietarul trebuie să efectueze o nouă investigație în persoană în termen de 10 zile lucrătoare de la solicitarea dumneavoastră – așadar vă recomandăm să solicitați acest lucru la începutul procesului."
+     ],
+     [
+      "Investigații suplimentare",
+      "Uneori, este posibil ca proprietarul dumneavoastră să nu știe imediat care este cauza unei probleme grave precum igrasia sau mucegaiul. În cazul în care proprietarul constată că sunt necesare mai multe lucrări pentru eliminarea corespunzătoare a unui pericol, acesta trebuie să efectueze verificări suplimentare. De exemplu, ar putea fi necesar să dispună efectuarea unei analize structurale. În timp ce investigează, acesta trebuie totuși să ia măsuri pentru a proteja siguranța dumneavoastră,"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Investigations under Awaab's Law, emergency investigations: if there may be an emergency, the landlord must start an emergency investigation within 24 hours, and it should confirm whether there is an imminent hazard and which urgent repairs are needed to make the home safe.",
+     "Investigations under Awaab's Law, standard investigations: if there may be a significant hazard, the landlord must start a standard investigation within 10 working days, it should confirm that a hazard exists and identify any repairs needed, and if it finds the hazard is an emergency, the faster emergency timescales apply.",
+     "Investigations under Awaab's Law, repeat investigations: if your landlord investigates a hazard remotely and you think that was not enough, you can ask for an in-person inspection, and the landlord must carry out a new in-person investigation within 10 working days of your request, so it is recommended to ask for this at the start of the process.",
+     "Investigations under Awaab's Law, further investigations: sometimes your landlord may not know straight away what causes a serious problem such as damp or mould, and if more work is needed to remove a hazard properly the landlord must carry out more checks, for example a structural survey, and while investigating the landlord must still take steps to protect your safety."
+    ]
+   },
+   "reason": "Page 15 shows one header row and four data rows in two columns; the text matches the library grid and the image, and the last cell is cut off at the page end.",
+   "evidence": "Page 15 image shows headings Tip de investigație and Descriere with four rows: urgență, standard, reluate, suplimentare.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "61c1bfdeaa630166",
+   "kind": "table",
+   "target": "document-table-p7: Awaab's Law: guidance for tenants in social housing",
+   "value": {
+    "columns": [
+     "أين تسكن؟",
+     "وهل ينطبق عليك قانون أواب؟"
+    ],
+    "rows": [
+     [
+      "کونسل سے کرایہ پر لیا گیا گھر",
+      "ہاں"
+     ],
+     [
+      "ہاؤسنگ ایسوسی ایشن سے کرایہ پر لیا گیا گھر",
+      "ہاں"
+     ],
+     [
+      "معاونت یافتہ ہاؤسنگ",
+      "جانچ کر لیں"
+     ],
+     [
+      "عارضی رہائش",
+      "جانچ کر لیں"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Housing covered by Awaab's Law: if you live in a home rented from the council, does Awaab's Law apply to you? Yes.",
+     "Housing covered by Awaab's Law: if you live in a home rented from a housing association, does Awaab's Law apply to you? Yes.",
+     "Housing covered by Awaab's Law: if you live in supported housing, does Awaab's Law apply to you? Check.",
+     "Housing covered by Awaab's Law: if you live in temporary accommodation, does Awaab's Law apply to you? Check."
+    ]
+   },
+   "reason": "Columns follow the packet template as required; rows copied from the Urdu page image, which has four data rows (the template lists only three, so temporary accommodation was added from the page).",
+   "evidence": "Page 7 image shows a two-column table with rows council home yes, housing association home yes, supported housing check, temporary accommodation check.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "ce400b3bc01aad0c",
+   "kind": "table",
+   "target": "document-table-p8: Awaab's Law: guidance for tenants in social housing",
+   "value": {
+    "columns": [
+     "ما المقصود بـ\"الخطر\"؛ وما الذي يجب فعله عند اكتشافه؟",
+     "الخطر الطارئ",
+     "الخطر الجسيم الناتج عن الرطوبة والعفن"
+    ],
+    "rows": [
+     [
+      "ما هو؟",
+      "الخطر الطارئ: هو أي شيء في منزلك يستلزم الإصلاح الفوري لأنه قد يسبب أو يهدد بالتسبب في ضرر جسيم لصحتك أو سلامتك، أو لصحة وسلامة أي شخص يعيش معك.",
+      "الخطر الجسيم: هو أي حالة في منزلك قد تسبب أو تسبب بالفعل ضررًا جسيمًا لصحتك أو سلامتك، أو لصحة وسلامة المقيمين معك. حاليًا، يركّز قانون أواب على المخاطر الجسيمة الناتجة عن الرطوبة والعفن."
+     ],
+     [
+      "الوصف التفصيلي",
+      "وفقًا لقانون أواب، يُعتبر الخطر \"طارئًا\" في الحالة التالية: • إذا كان يشكّل خطرًا مباشرًا على صحتك وسلامتك أو على صحة وسلامة أي شخص يعيش معك. • وهذا يعني أن المالك المسؤول سيعتبره عاجلاً، وسيتخذ الإجراءات اللازمة لإصلاحه خلال 24 ساعة استنادًا إلى ما يعرفه أو إلى ما تزوده به من معلومات.",
+      "وفقًا لقانون أواب، يُعتبر الخطر الناتج عن الرطوبة أو العفن خطرًا \"جسيمًا\" في الحالة التالية: • إذا كان يشكّل خطرًا على صحتك أو سلامتك. • هذا يعني أن المالك المسؤول سيعتبر الأمر عاجلاً وسيتخذ إجراءات لإصلاحه بسرعة (ولكن ليس خلال 24 ساعة) بناءً على ما يعرفه وما تخبره به عن وضعك."
+     ],
+     [
+      "التحقيقات",
+      "يجب على المالك إجراء التحقيق خلال 24 ساعة",
+      "يجب على المالك إجراء التحقيق خلال 10 أيام عمل"
+     ],
+     [
+      "جعل منزلك آمنًا",
+      "يجب على المالك جعل منزلك آمنًا خلال 24 ساعة من علمه بالخطر الطارئ.",
+      "يجب على المالك جعل منزلك آمنًا خلال 5 أيام عمل بعد الانتهاء من التحقيق."
+     ],
+     [
+      "الأعمال الإضافية",
+      "بعد انتهاء التحقيق، يجب على المالك بدء الأعمال اللازمة أو وضع خطة لبدء الأعمال خلال 5 أيام عمل. يجب أن تبدأ كل الأعمال فعليًا خلال 12 أسبوعًا على الأكثر.",
+      "بعد انتهاء التحقيق، يجب على المالك بدء الأعمال اللازمة أو وضع خطة لبدء الأعمال خلال 5 أيام عمل. يجب أن تبدأ كل الأعمال فعليًا خلال 12 أسبوعًا على الأكثر."
+     ],
+     [
+      "الملخص المكتوب",
+      "إذا كانت هناك حاجة إلى أعمال إضافية، يجب على المالك تقديم ملخص مكتوب خلال 3 أيام عمل من تاريخ انتهاء التحقيق.",
+      "خلال 3 أيام عمل بعد الانتهاء من التحقيق"
+     ],
+     [
+      "أمثلة على المخاطر",
+      "• تسرب غازي أو تسرب أول أكسيد الكربون. • انكسار السخانات • انقطاع المياه بالكامل • المشاكل الكهربائية الخطيرة (مثل الأسلاك المكشوفة) • التسربات الكبيرة للمياه • الأبواب أو النوافذ الخارجية المكسورة التي تجعل منزلك غير آمن • الرطوبة أو العفن الخطير جدًا • المشاكل الهيكلية الكبيرة",
+      "• أي حالة من الرطوبة والعفن قد تشكّل خطرًا عليك وعلى صحة أي شخص يعيش معك. فهي تؤثر في الممرات الهوائية والرئتين، بالإضافة إلى العينين والجلد. • قد تؤثر أيضًا في الصحة النفسية، مثل القلق بشأن المخاطر الصحية أو ظروف المعيشة غير الملائمة. • الجميع معرضون لمخاطر الرطوبة والعفن، لكن قد يكون خطرها أكبر إذا كنت تعاني من حالة صحية معينة."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "In Awaab's Law: guidance for tenants in social housing, the row \"What is it?\" says an emergency hazard is anything in your home that needs fixing right away because it could cause serious harm, or threatens to, to the health or safety of you or anyone living with you, and a significant hazard from damp and mould is any condition that could cause, or already causes, serious harm, and for now Awaab's Law focuses on significant damp and mould hazards.",
+     "In Awaab's Law: guidance for tenants in social housing, the row \"Detailed description\" says a hazard is emergency if it is an immediate risk to your health and safety, so a responsible landlord treats it as urgent and acts to fix it within 24 hours based on what they know or what you tell them, and a damp and mould hazard is significant if it could be a risk to your health or safety, so the landlord treats it as urgent and acts quickly, but not within 24 hours, based on what they know and what you tell them about your situation.",
+     "In Awaab's Law: guidance for tenants in social housing, the row \"Investigations\" says the landlord must carry out the investigation within 24 hours for an emergency hazard and within 10 working days for a significant damp and mould hazard.",
+     "In Awaab's Law: guidance for tenants in social housing, the row \"Making your home safe\" says the landlord must make your home safe within 24 hours of knowing about an emergency hazard and within 5 working days after the investigation ends for a significant damp and mould hazard.",
+     "In Awaab's Law: guidance for tenants in social housing, the row \"Additional work\" says that after the investigation the landlord must start the needed work or make a plan to start it within 5 working days, and all the work must actually start within 12 weeks at the most, for both kinds of hazard.",
+     "In Awaab's Law: guidance for tenants in social housing, the row \"Written summary\" says that if more work is needed the landlord must give a written summary within 3 working days of the end of the investigation, for both kinds of hazard.",
+     "In Awaab's Law: guidance for tenants in social housing, the row \"Examples of hazards\" lists emergency examples such as a gas or carbon monoxide leak, broken boilers, no water at all, serious electrical problems like exposed wires, major water leaks, broken doors or outside windows that leave your home unsafe, very serious damp or mould and major structural problems, and says significant damp and mould can affect the airways, lungs, eyes, skin and mental health, and that everyone is at risk but the risk may be greater if you have a particular health condition."
+    ]
+   },
+   "reason": "Rebuilt from the Arabic page 8 image. Columns are in reading order, right to left. The row heading column is first. Cells with bullets are joined with a bullet sign.",
+   "evidence": "Page 8 image of the Arabic guidance shows a three column table with seven data rows, from \"What is it?\" to \"Examples of hazards\".",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "b07561ff19931031",
+   "kind": "table",
+   "target": "document-table-p12: Awaab's Law: guidance for tenants in social housing",
+   "value": {
+    "columns": [
+     "نوع التحقيق",
+     "الوصف"
+    ],
+    "rows": [
+     [
+      "التحقيقات الطارئة",
+      "إذا كان هناك احتمال وجود حالة طارئة، يجب على المالك بدء تحقيق طارئ خلال 24 ساعة. يجب أن يؤكد التحقيق ما إذا كان هناك خطر طارئ وما هي الإصلاحات العاجلة اللازمة لجعل منزلك آمنًا."
+     ],
+     [
+      "التحقيقات الروتينية",
+      "إذا كان هناك احتمال وجود خطر كبير، يجب على المالك بدء تحقيق روتيني خلال 10 أيام عمل. يجب أن يؤكد التحقيق وجود الخطر وأن يحدد الإصلاحات اللازمة. إذا تبين أن الخطر طارئ، فسيتم تطبيق الأطر الزمنية الطارئة الأسرع."
+     ],
+     [
+      "التحقيقات المُجددة",
+      "إذا قام المالك بالتحقيق عن بُعد ولم تشعر بأن ذلك كافٍ، يمكنك طلب فحص شخصي. يجب على المالك إجراء تحقيق جديد شخصيًا خلال 10 أيام عمل من طلبك – لذلك يُنصح بطلب ذلك مبكرًا في العملية."
+     ],
+     [
+      "التحقيقات الإضافية",
+      "أحيانًا قد لا يعرف المالك على الفور السبب في وقوع مشكلة خطيرة مثل الرطوبة أو العفن. إذا وجد المالك أن هناك حاجة إلى مزيد من العمل لإصلاح الخطر بشكل صحيح، يجب عليه إجراء فحوصات إضافية مثل إجراء مسح لتقييم هيكل المنزل. في أثناء التحقيق، لا يزال يتعين عليه اتخاذ خطوات لضمان سلامتك، مثل معالجة العفن الظاهر أو توفير جهاز مزيل للرطوبة."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "In Awaab's Law: guidance for tenants in social housing, the investigation type \"Emergency investigations\" means that if an emergency may exist, the landlord must start an emergency investigation within 24 hours, and it must confirm whether there is an emergency hazard and what urgent repairs are needed to make your home safe.",
+     "In Awaab's Law: guidance for tenants in social housing, the investigation type \"Routine investigations\" means that if a significant hazard may exist, the landlord must start a routine investigation within 10 working days, and it must confirm the hazard and set out the repairs needed, and if the hazard turns out to be an emergency the faster emergency timescales apply.",
+     "In Awaab's Law: guidance for tenants in social housing, the investigation type \"Repeat investigations\" means that if the landlord investigated remotely and you do not feel that was enough, you can ask for an in-person inspection, and the landlord must carry out a new investigation in person within 10 working days of your request, so it is best to ask early.",
+     "In Awaab's Law: guidance for tenants in social housing, the investigation type \"Additional investigations\" means that if the landlord does not at once know the cause of a serious problem like damp or mould and finds more work is needed to fix the hazard properly, it must carry out further checks such as a survey of the structure of the home, and during the investigation it must still take steps to keep you safe, such as treating visible mould or providing a dehumidifier."
+    ]
+   },
+   "reason": "Rebuilt from the Arabic page 12 image. Two columns, type of investigation then description, four data rows.",
+   "evidence": "Page 12 image of the Arabic guidance shows a table headed with the investigation type and description columns and four rows.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "0b98fcf70cc43b3f",
+   "kind": "table",
+   "target": "document-table-p8: Awaab's Law: guidance for tenants in social housing",
+   "value": {
+    "columns": [
+     "’خطرہ‘ کیا ہے اور کیا ہونا چاہیے؟",
+     "ہنگامی خطرہ",
+     "نمایاں نمی اور پھپھوندی کا خطرہ"
+    ],
+    "rows": [
+     [
+      "یہ کیا ہے؟",
+      "ہنگامی خطرہ وہ چیز ہے جو آپ کے گھر میں فوراً ٹھیک کیا جانا چاہیے کیونکہ یہ آپ کی صحت یا حفاظت — یا آپ کے ساتھ رہنے والے کسی بھی فرد کی صحت یا حفاظت — کو شدید نقصان پہنچا رہا ہے یا پہنچا سکتا ہے۔",
+      "نمایاں خطرہ وہ چیز ہے جو آپ کے گھر میں آپ کی صحت یا حفاظت — یا آپ کے ساتھ رہنے والے کسی بھی فرد کی صحت یا حفاظت — کو شدید نقصان پہنچا سکتا ہے یا پہلے ہی پہنچا رہا ہے۔ فی الحال، اوابز لاء نمی یا پھپھوندی کی وجہ سے پیدا ہونے والے نمایاں خطرات پر توجہ دیتا ہے"
+     ],
+     [
+      "تفصیلی وضاحت",
+      "اوابز لاء کے تحت، کسی خطرے کو \"ہنگامی\" سمجھا جاتا ہے اگر: • یہ آپ کی صحت اور حفاظت اور آپ کے ساتھ رہنے والے کسی بھی فرد کی صحت اور حفاظت کے لیے فوری خطرہ ہو سکتا ہے؛ • اس کا مطلب ہے کہ ایک ذمہ دار مکان مالک اسے فوری معاملہ سمجھے گا اور دستیاب معلومات یا آپ کی فراہم کردہ تفصیلات کی بنیاد پر 24 گھنٹوں کے اندر اسے درست کرنے کے لیے کارروائی کرے گا۔",
+      "اوابز لاء کے تحت، نمی یا پھپھوندی کی وجہ سے پیدا ہونے والے خطرے کو \"نمایاں\" خطرہ سمجھا جاتا ہے اگر: • یہ آپ کی صحت یا حفاظت کے لیے خطرہ بن سکتا ہے • اس کا مطلب ہے کہ ایک ذمہ دار مکان مالک اسے فوری معاملہ سمجھے گا اور دستیاب معلومات یا آپ کی فراہم کردہ تفصیلات کی بنیاد پر اسے جلد از جلد (اگرچہ 24 گھنٹوں کے اندر نہیں) درست کرنے کے لیے کارروائی کرے گا۔"
+     ],
+     [
+      "تفتیشات",
+      "مکان مالکان کو 24 گھنٹوں کے اندر اندر تفتیش کرنی ہوگی",
+      "مکان مالکان کو 10 کاروباری دنوں کے اندر تفتیش کرنی ہوگی"
+     ],
+     [
+      "آپ کے گھر کو محفوظ بنانا",
+      "خطرے کے بارے میں معلوم ہونے کے 24 گھنٹوں کے اندر مکان مالکان کو آپ کے گھر کو محفوظ بنانا لازمی ہے۔",
+      "مکان مالکان کو تفتیش ختم ہونے کے 5 کاروباری دنوں کے اندر آپ کے گھر کو محفوظ بنانا لازمی ہے۔"
+     ],
+     [
+      "مزید کام",
+      "جب تفتیش مکمل ہو جائے تو مکان مالک 5 کاروباری دنوں کے اندر مرمت کے کام کا آغاز کرے یا اس کے آغاز کا منصوبہ تیار کرے۔ تمام کام زیادہ سے زیادہ 12 ہفتوں کے اندر شروع ہونا لازمی ہے۔",
+      "جب تفتیش مکمل ہو جائے تو مکان مالک 5 کاروباری دنوں کے اندر مرمت کے کام کا آغاز کرے یا اس کے آغاز کا منصوبہ تیار کرے۔ تمام کام زیادہ سے زیادہ 12 ہفتوں کے اندر شروع ہونا لازمی ہے۔"
+     ],
+     [
+      "تحریری خلاصہ",
+      "جہاں مزید کام درکار ہو، وہاں تفتیش مکمل ہونے کے 3 کاروباری دنوں کے اندر ایک تحریری خلاصہ فراہم کرنا لازمی ہے۔",
+      "تفتیش ختم ہونے کے بعد 3 کاروباری دنوں کے اندر۔"
+     ],
+     [
+      "خطرات کی مثالیں",
+      "• گیس یا کاربن مونو آکسائیڈ کا اخراج • ٹوٹے ہوئے بوائلر • پانی کی فراہمی کا بالکل نہ ہونا • خطرناک برقی مسائل (جیسے ننگی تاریں) • بڑے پیمانے پر رساؤ",
+      "• کسی بھی قسم کی نمی اور پھپھوندی آپ کے لیے اور آپ کے ساتھ رہنے والے کسی بھی فرد کی جسمانی صحت کے لیے خطرہ بن سکتی ہے۔ یہ سانس کی نالیوں اور پھیپھڑوں کو"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "In Awaab's Law: guidance for tenants in social housing, the row \"What is it?\" says an emergency hazard is something in your home that must be fixed at once because it is causing or could cause serious harm to the health or safety of you or anyone living with you, and a significant hazard is something that could cause or already causes such serious harm, and for now Awaab's Law focuses on significant hazards from damp or mould.",
+     "In Awaab's Law: guidance for tenants in social housing, the row \"Detailed explanation\" says a hazard is treated as an emergency if it could be an immediate risk to health and safety, so a responsible landlord treats it as urgent and acts within 24 hours based on the information available or what you have given, and a damp or mould hazard is treated as significant if it could be a risk to your health or safety, so the landlord acts as soon as possible, though not within 24 hours.",
+     "In Awaab's Law: guidance for tenants in social housing, the row \"Investigations\" says landlords must investigate within 24 hours for an emergency hazard and within 10 working days for a significant hazard.",
+     "In Awaab's Law: guidance for tenants in social housing, the row \"Making your home safe\" says landlords must make your home safe within 24 hours of learning about an emergency hazard and within 5 working days of the end of the investigation for a significant hazard.",
+     "In Awaab's Law: guidance for tenants in social housing, the row \"More work\" says that when the investigation is complete the landlord must start repair work or prepare a plan to start it within 5 working days, and all work must start within 12 weeks at the most, for both kinds of hazard.",
+     "In Awaab's Law: guidance for tenants in social housing, the row \"Written summary\" says that where more work is needed the landlord must give a written summary within 3 working days of the end of the investigation, for both kinds of hazard.",
+     "In Awaab's Law: guidance for tenants in social housing, the row \"Examples of hazards\" lists emergency examples such as a gas or carbon monoxide leak, broken boilers, no water supply at all, dangerous electrical problems like exposed wires and large leaks, and says any kind of damp and mould can be a risk to the physical health of you and anyone living with you, with the printed text stopping at the end of the page."
+    ]
+   },
+   "reason": "Rebuilt from the Urdu page 8 image. Columns are in reading order, right to left. The last cell is cut off at the end of the page, so it is copied as printed.",
+   "evidence": "Page 8 image of the Urdu guidance shows a three column table with seven data rows, and the last cell ends mid sentence.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "5900c9f577a617eb",
+   "kind": "table",
+   "target": "document-table-p12: Awaab's Law: guidance for tenants in social housing",
+   "value": {
+    "columns": [
+     "تفتیش کے اقسام",
+     "وضاحت"
+    ],
+    "rows": [
+     [
+      "ہنگامی تفتیشات",
+      "اگر کسی ہنگامی صورتحال کا امکان ہو تو مکان مالک کو 24 گھنٹوں کے اندر ہنگامی تفتیش شروع کرنی چاہیے۔ تفتیش میں یہ طے کرنا چاہیے کہ آیا کوئی ہنگامی خطرہ موجود ہے یا نہیں اور آپ کے گھر کو محفوظ بنانے کے لیے کون سی فوری مرمت درکار ہے۔"
+     ],
+     [
+      "معیاری تفتیشات",
+      "اگر کسی نمایاں خطرے کا امکان ہو تو مکان مالک کو 10 کاروباری دنوں کے اندر ایک معیاری تفتیش شروع کرنی ہوگی۔ تفتیش یہ طے کرے کہ یہ ایک خطرہ ہے اور یہ شناخت کرے کہ کون سی مرمت درکار ہے۔ اگر تفتیش میں یہ ثابت ہو جائے کہ خطرہ ہنگامی نوعیت کا ہے تو تیز تر ہنگامی نظام الاوقات لاگو ہوں گے۔"
+     ],
+     [
+      "از سر نو تفتیشات",
+      "اگر آپ کا مکان مالک کسی خطرے کے لیے دور سے تفتیش کرے اور آپ سمجھیں کہ یہ کافی نہیں تھا تو آپ ذاتی طور پر معائنے کی درخواست کر سکتے ہیں۔ آپ کی درخواست کے 10 کاروباری دنوں کے اندر آپ کا مکان مالک ذاتی طور پر نئی تفتیش انجام دے– لہٰذا ہم تجویز کرتے ہیں کہ آپ یہ درخواست عمل کے آغاز میں ہی کر دیں۔"
+     ],
+     [
+      "مزید تفتیشات",
+      "کبھار کبھار آپ کا مکان مالک فوراً یہ نہیں جان پاتا کہ کسی سنگین مسئلے جیسے نمی یا پھپھوندی، کی اصل وجہ کیا ہے۔ اگر آپ کا مکان مالک یہ پائے کہ خطرے کو درست طور پر حل کرنے کے لیے مزید کام کی ضرورت ہے تو اسے اضافی جانچ پڑتال کرنی ہوگی۔ مثال کے طور پر، انہیں ڈھانچے سے متعلق معائنے کا انتظام کرنا پڑ سکتا ہے۔ تفتیش کے دوران بھی وہ آپ کی حفاظت کے لیے اقدامات کرے جیسے نظر آنے والی پھپھوندی سے نمٹنا یا نمی دور کرنے والا آلہ فراہم کرنا۔"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "In Awaab's Law: guidance for tenants in social housing, the investigation type \"Emergency investigations\" means that if an emergency situation may exist, the landlord should start an emergency investigation within 24 hours, and it should decide whether an emergency hazard exists and what urgent repairs are needed to make your home safe.",
+     "In Awaab's Law: guidance for tenants in social housing, the investigation type \"Standard investigations\" means that if a significant hazard may exist, the landlord must start a standard investigation within 10 working days, and it should decide that it is a hazard and identify what repairs are needed, and if it proves to be an emergency the faster emergency timescales apply.",
+     "In Awaab's Law: guidance for tenants in social housing, the investigation type \"Fresh investigations\" means that if your landlord investigates a hazard remotely and you think that was not enough, you can ask for an in-person inspection, and your landlord must carry out a new investigation in person within 10 working days of your request, so it is best to ask at the start of the process.",
+     "In Awaab's Law: guidance for tenants in social housing, the investigation type \"Further investigations\" means that sometimes your landlord does not at once know the real cause of a serious problem like damp or mould, and if the landlord finds more work is needed to deal with the hazard properly it must do extra checks, such as arranging a structural inspection, and during the investigation it must still take steps to protect you, such as dealing with visible mould or providing a dehumidifier."
+    ]
+   },
+   "reason": "Rebuilt from the Urdu page 12 image. Two columns, types of investigation then explanation, four data rows.",
+   "evidence": "Page 12 image of the Urdu guidance shows a table with the types of investigation and explanation columns and four rows.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
   }
  ]
 }

@@ -93,6 +93,10 @@ def family(title: str | None) -> str | None:
 NOT_A_FAMILY = {
     ("adh", "table-12"): "Manholes: 6 columns, no depth column; Table 11 (access fittings) has 7.",
     ("adl-2026", "v2-table-5.4"): "Warm air heaters: type, efficiency, product standard; Table 5.3 is for boilers.",
+    # Tables without a caption are named after the document ("Awaab's Law: guidance for tenants ..."), so in the
+    # Arabic and Urdu tenant guides three different tables looked like one family (22 Nov 2026).
+    ("awaab-tenants", "document-table-p8"): "Hazard types and timescales (3 columns); the page 7 table is where you live.",
+    ("awaab-tenants", "document-table-p12"): "Types of investigation (2 columns, other headings); not the page 7 table.",
 }
 
 

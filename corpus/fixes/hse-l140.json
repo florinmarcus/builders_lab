@@ -1795,6 +1795,405 @@
    "by": "model check, Sonnet (Claude Code headless, packet)",
    "confidence": "medium",
    "date": "2026-11-22"
+  },
+  {
+   "key": "286ac234b920891a",
+   "kind": "table",
+   "target": "table-2: Durations after which it is likely that the action value or limit value will have been reached",
+   "value": {
+    "columns": [
+     "Power tool or machine type",
+     "Time to EAV",
+     "Time to ELV"
+    ],
+    "rows": [
+     [
+      "Rotary",
+      "1 hour",
+      "4 hours"
+     ],
+     [
+      "Percussive",
+      "15 mins",
+      "1 hour"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Durations after which it is likely that the action value or limit value will have been reached: for the power tool or machine type Rotary, the time to EAV is 1 hour and the time to ELV is 4 hours.",
+     "Durations after which it is likely that the action value or limit value will have been reached: for the power tool or machine type Percussive, the time to EAV is 15 mins and the time to ELV is 1 hour."
+    ]
+   },
+   "reason": "Page image shows a header row and two data rows. Note 1 and Note 2 are full-width note boxes under the table, not data rows, so they are left out of rows.",
+   "evidence": "Page 33, Table 2: Rotary 1 hour / 4 hours; Percussive 15 mins / 1 hour; header Power tool or machine type, Time to EAV, Time to ELV.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "94ebfc6fd6d28886",
+   "kind": "table",
+   "target": "part-2-reduce-exposure-by-good-process-control-table-p37: Reduce exposure by good process control",
+   "value": {
+    "columns": [
+     "Industry",
+     "Problem",
+     "Solution"
+    ],
+    "rows": [
+     [
+      "Amenity horticulture",
+      "Use of power tools (eg hedge trimmers, chainsaws, strimmers and mowers) for park maintenance",
+      "Consider allowing more natural meadow, hedge and tree growth Select slow-growing/low-growing shrubs Use vehicle-mounted machinery such as a side-arm flail"
+     ],
+     [
+      "Construction",
+      "Use of scabbling tools and needle scalers for architectural finishes",
+      "Specify architectural finishes and processes that don’t require the use of powered hand tools (eg chemical retardants, shuttering)"
+     ],
+     [
+      "Construction",
+      "Cutting and patching of stone, wood or concrete products to fit using powered hand tools on site",
+      "Prefabricate components using factory-based machining"
+     ],
+     [
+      "Construction",
+      "Use of demolition hammers to break up large concrete blocks and walls",
+      "Split large blocks using hydraulic expanding devices inserted into pre-drilled holes (bursting) or use driven or remote control plant which can be fitted with nibblers and peckers"
+     ],
+     [
+      "Construction",
+      "De-scaling of steel structures after fabrication using pneumatic scaling tools",
+      "Use abrasive blasting or high-pressure water jetting instead of pneumatic scaling tools"
+     ],
+     [
+      "Foundries",
+      "Hand finishing (fettling) of cast components",
+      "Design metal castings to minimise the need for remedial work, including design of moulds, selecting the most suitable materials and casting process"
+     ],
+     [
+      "Foundries",
+      "Removal of large amounts of material from castings using powered hand tools",
+      "Use arc-air and other flame-cutting or gouging methods"
+     ],
+     [
+      "Light and heavy fabrication",
+      "Remedial work with powered hand tools on components plasma cut from sheet or plate metal",
+      "Cut sheet and plate metal using laser profilers which give accurate cuts, produce minimal heat distortion and virtually eliminate edge burring"
+     ],
+     [
+      "Light fabrication",
+      "Use of hand-held, hand-guided or hand-fed machines",
+      "Mechanise or automate processes"
+     ],
+     [
+      "Light fabrication",
+      "Use of pneumatic riveting hammers",
+      "Change fabrication methods, eg use adhesives, welding, hydraulic squeezing etc"
+     ],
+     [
+      "Light fabrication",
+      "Polishing of plated components",
+      "Use preliminary, chemical-polishing processes to minimise need for hand polishing"
+     ],
+     [
+      "Light fabrication and foundries",
+      "Metal-removal or fettling using powered hand tools",
+      "Use milling, turning or other machining operations (it can be more economic, and less hazardous, to rough machine, rather than hand fettle, surfaces which can later be machine finished)"
+     ],
+     [
+      "Utilities and construction",
+      "Use of hand-operated road breakers for cable laying, water and mains repairs and similar work",
+      "Use machine-mounted breakers, tampers, mobile road-cutting machines and/or trenching machines"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Reduce exposure by good process control: in Amenity horticulture, the problem is use of power tools (eg hedge trimmers, chainsaws, strimmers and mowers) for park maintenance; the solution is to consider allowing more natural meadow, hedge and tree growth, select slow-growing/low-growing shrubs, and use vehicle-mounted machinery such as a side-arm flail.",
+     "Reduce exposure by good process control: in Construction, the problem is use of scabbling tools and needle scalers for architectural finishes; the solution is to specify architectural finishes and processes that don’t require the use of powered hand tools (eg chemical retardants, shuttering).",
+     "Reduce exposure by good process control: in Construction, the problem is cutting and patching of stone, wood or concrete products to fit using powered hand tools on site; the solution is to prefabricate components using factory-based machining.",
+     "Reduce exposure by good process control: in Construction, the problem is use of demolition hammers to break up large concrete blocks and walls; the solution is to split large blocks using hydraulic expanding devices inserted into pre-drilled holes (bursting) or use driven or remote control plant which can be fitted with nibblers and peckers.",
+     "Reduce exposure by good process control: in Construction, the problem is de-scaling of steel structures after fabrication using pneumatic scaling tools; the solution is to use abrasive blasting or high-pressure water jetting instead of pneumatic scaling tools.",
+     "Reduce exposure by good process control: in Foundries, the problem is hand finishing (fettling) of cast components; the solution is to design metal castings to minimise the need for remedial work, including design of moulds, selecting the most suitable materials and casting process.",
+     "Reduce exposure by good process control: in Foundries, the problem is removal of large amounts of material from castings using powered hand tools; the solution is to use arc-air and other flame-cutting or gouging methods.",
+     "Reduce exposure by good process control: in Light and heavy fabrication, the problem is remedial work with powered hand tools on components plasma cut from sheet or plate metal; the solution is to cut sheet and plate metal using laser profilers which give accurate cuts, produce minimal heat distortion and virtually eliminate edge burring.",
+     "Reduce exposure by good process control: in Light fabrication, the problem is use of hand-held, hand-guided or hand-fed machines; the solution is to mechanise or automate processes.",
+     "Reduce exposure by good process control: in Light fabrication, the problem is use of pneumatic riveting hammers; the solution is to change fabrication methods, eg use adhesives, welding, hydraulic squeezing etc.",
+     "Reduce exposure by good process control: in Light fabrication, the problem is polishing of plated components; the solution is to use preliminary, chemical-polishing processes to minimise need for hand polishing.",
+     "Reduce exposure by good process control: in Light fabrication and foundries, the problem is metal-removal or fettling using powered hand tools; the solution is to use milling, turning or other machining operations (it can be more economic, and less hazardous, to rough machine, rather than hand fettle, surfaces which can later be machine finished).",
+     "Reduce exposure by good process control: in Utilities and construction, the problem is use of hand-operated road breakers for cable laying, water and mains repairs and similar work; the solution is to use machine-mounted breakers, tampers, mobile road-cutting machines and/or trenching machines."
+    ]
+   },
+   "reason": "Page image shows 13 data rows under Industry, Problem, Solution. Industry cells that span several rows (Construction x4, Foundries x2, Light fabrication x3) are repeated on each row. The three solution lines in the first row are joined in order.",
+   "evidence": "Page 37, Table 3 (printed title Examples of alternative work processes to eliminate or reduce exposure to vibration; sentences use the packet target title). All 13 rows match the image.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "2f04660f3f5fe964",
+   "kind": "table",
+   "target": "appendix-3-reducing-vibration-exposure-by-choosing-lower-vibration-mode-table-p69: Reducing vibration exposure by choosing lower-vibration models of machine",
+   "value": {
+    "columns": [
+     "Industry",
+     "Tool type",
+     "Tool characteristic, inserted tool, size, process",
+     "Notes",
+     "Range-lower (10th percentile) (m/s²)",
+     "Range upper (90th percentile) (m/s²)",
+     "Recommended initial value (75th percentile) (m/s²)"
+    ],
+    "rows": [
+     [
+      "Stone working/ mining/quarrying",
+      "Chipping hammers",
+      "Chipping stone, concrete, rust",
+      "Very high vibration values if the operator holds the chisel (more than 30–40 m/s²). Low-vibration machines are available that give magnitudes less than 10 m/s²",
+      "11",
+      "22",
+      "20"
+     ],
+     [
+      "Stone working/ mining/quarrying",
+      "Rock drills",
+      "",
+      "Vibration values can vary across the sub-categories (eg small and large drill bits and core drills and different materials being worked, such as concrete or stone). Maintaining sharp drill bits and not pushing too hard will achieve lower vibration values",
+      "10",
+      "28",
+      "26"
+     ],
+     [
+      "Stone working/ mining/quarrying",
+      "Stone hammers",
+      "",
+      "If you are not using a vibration-reducing sleeved chisel then vibration values are likely to be much higher on the chisel hand",
+      "7",
+      "22",
+      "18"
+     ],
+     [
+      "Woodworking",
+      "Jigsaws",
+      "",
+      "",
+      "9",
+      "17",
+      "11"
+     ],
+     [
+      "Woodworking",
+      "Routers",
+      "",
+      "",
+      "2",
+      "3",
+      "3"
+     ],
+     [
+      "Woodworking",
+      "Staplers",
+      "",
+      "",
+      "2",
+      "6",
+      "4"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Reducing vibration exposure by choosing lower-vibration models of machine: for Stone working/ mining/quarrying, the tool type is Chipping hammers, with the tool characteristic, inserted tool, size, process Chipping stone, concrete, rust; the notes say very high vibration values if the operator holds the chisel (more than 30–40 m/s²) and low-vibration machines are available that give magnitudes less than 10 m/s²; the range-lower (10th percentile) is 11 m/s², the range upper (90th percentile) is 22 m/s² and the recommended initial value (75th percentile) is 20 m/s².",
+     "Reducing vibration exposure by choosing lower-vibration models of machine: for Stone working/ mining/quarrying, the tool type is Rock drills; the notes say vibration values can vary across the sub-categories (eg small and large drill bits and core drills and different materials being worked, such as concrete or stone) and maintaining sharp drill bits and not pushing too hard will achieve lower vibration values; the range-lower (10th percentile) is 10 m/s², the range upper (90th percentile) is 28 m/s² and the recommended initial value (75th percentile) is 26 m/s².",
+     "Reducing vibration exposure by choosing lower-vibration models of machine: for Stone working/ mining/quarrying, the tool type is Stone hammers; the notes say if you are not using a vibration-reducing sleeved chisel then vibration values are likely to be much higher on the chisel hand; the range-lower (10th percentile) is 7 m/s², the range upper (90th percentile) is 22 m/s² and the recommended initial value (75th percentile) is 18 m/s².",
+     "Reducing vibration exposure by choosing lower-vibration models of machine: for Woodworking, the tool type is Jigsaws; the range-lower (10th percentile) is 9 m/s², the range upper (90th percentile) is 17 m/s² and the recommended initial value (75th percentile) is 11 m/s².",
+     "Reducing vibration exposure by choosing lower-vibration models of machine: for Woodworking, the tool type is Routers; the range-lower (10th percentile) is 2 m/s², the range upper (90th percentile) is 3 m/s² and the recommended initial value (75th percentile) is 3 m/s².",
+     "Reducing vibration exposure by choosing lower-vibration models of machine: for Woodworking, the tool type is Staplers; the range-lower (10th percentile) is 2 m/s², the range upper (90th percentile) is 6 m/s² and the recommended initial value (75th percentile) is 4 m/s²."
+    ]
+   },
+   "reason": "Seven columns and six data rows match the page image. The header in the image reads Range upper (no hyphen), unlike the library grid. Empty characteristic and notes cells are left empty as printed. The Note under the table is outside the table and is left out.",
+   "evidence": "Page 69: header row of seven columns; rows Chipping hammers 11/22/20, Rock drills 10/28/26, Stone hammers 7/22/18, Jigsaws 9/17/11, Routers 2/3/3, Staplers 2/6/4.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "098a129a358037e2",
+   "kind": "table",
+   "target": "table-7: Typical topics for training courses on HAV risk management",
+   "value": {
+    "columns": [
+     "Topic",
+     "Important content",
+     "Useful additional content"
+    ],
+    "rows": [
+     [
+      "Legal requirements",
+      "Duties of employers to assess and manage risks from HAV: ■ The Control of Vibration at Work Regulations 2005 ■ The Reporting of Injuries, Diseases and Dangerous Occurrences Regulations 2013 Duties of manufacturers and suppliers of machinery: ■ Supply of Machinery (Safety) Regulations 2008",
+      "■ The Health and Safety at Work etc Act 1974 ■ The Management of Health and Safety at Work Regulations 1999 ■ The Provision and Use of Work Equipment Regulations 1998 ■ The Personal Protective Equipment at Work Regulations 1992 ■ The Workplace (Health, Safety and Welfare) Regulations 1992 ■ The Physical Agents (Vibration) Directive 2002/44/EC ■ Harmonised European machinery safety standards"
+     ],
+     [
+      "Theory of vibration",
+      "Basic concepts: ■ displacement, velocity and acceleration ■ root-mean-square time averaging ■ vibration frequency",
+      "Typical characteristics of sources of HAV, eg rotary, reciprocating and percussive tools"
+     ],
+     [
+      "Effects on health",
+      "HAVS: ■ neurological effects ■ vascular effects ■ musculoskeletal effects Carpal tunnel syndrome",
+      "Development of symptoms, dose-effect relationships Clinical and laboratory techniques used in diagnosis of HAVS"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Typical topics for training courses on HAV risk management: for the topic Legal requirements, the important content is duties of employers to assess and manage risks from HAV (the Control of Vibration at Work Regulations 2005; the Reporting of Injuries, Diseases and Dangerous Occurrences Regulations 2013) and duties of manufacturers and suppliers of machinery (Supply of Machinery (Safety) Regulations 2008); the useful additional content is the Health and Safety at Work etc Act 1974, the Management of Health and Safety at Work Regulations 1999, the Provision and Use of Work Equipment Regulations 1998, the Personal Protective Equipment at Work Regulations 1992, the Workplace (Health, Safety and Welfare) Regulations 1992, the Physical Agents (Vibration) Directive 2002/44/EC and harmonised European machinery safety standards.",
+     "Typical topics for training courses on HAV risk management: for the topic Theory of vibration, the important content is basic concepts (displacement, velocity and acceleration; root-mean-square time averaging; vibration frequency); the useful additional content is typical characteristics of sources of HAV, eg rotary, reciprocating and percussive tools.",
+     "Typical topics for training courses on HAV risk management: for the topic Effects on health, the important content is HAVS (neurological effects; vascular effects; musculoskeletal effects) and carpal tunnel syndrome; the useful additional content is development of symptoms, dose-effect relationships, and clinical and laboratory techniques used in diagnosis of HAVS."
+    ]
+   },
+   "reason": "Template checked against the page image: three columns, three rows, bullet content and wording all match, so it is used unchanged.",
+   "evidence": "Page 81, Table 7: rows Legal requirements, Theory of vibration, Effects on health with the bullet lists as in the template.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "64929cc39ff41804",
+   "kind": "table",
+   "target": "appendix-7-training-table-p82: Training",
+   "value": {
+    "columns": [
+     "Topic",
+     "Important content",
+     "Useful additional content"
+    ],
+    "rows": [
+     [
+      "Determining vibration magnitudes",
+      "Interpretation of manufacturers’ declared emission values: ■ measurement conditions and standard methods ■ appreciation of uncertainty Principles of vibration measurement according to BS EN ISO 5349 Parts 1 and 2: ■ identifying the need for measurement in the workplace ■ frequency weighting ■ 3-axis vibration measurement techniques ■ sampling strategies and appreciation of uncertainty ■ recording and presenting vibration data",
+      "■ Harmonised European vibration test codes Required if measurement is to be undertaken: ■ instrumentation and calibration ■ accelerometers and mounting methods ■ sources of measurement error ■ practical experience"
+     ],
+     [
+      "Determining vibration exposures (calculation of A(8))",
+      "■ Understanding of daily vibration exposure A(8) according to BS EN ISO 5349-1 ■ Calculation of (partial) exposure from one tool or process ■ Calculation of overall daily exposure from multiple vibration magnitudes and exposure times ■ Recording and presenting the exposure results ■ Comparison with the EAV and ELV",
+      "Use of exposure assessment tools provided by HSE: ■ exposure points system ■ exposure calculator ■ exposure ready-reckoner"
+     ],
+     [
+      "Control of exposure",
+      "Elimination or reduction of vibration exposure by, for example: ■ substitution of new work processes ■ modification of process ■ improving quality of manufactured product Reduction of vibration exposure by, for example: ■ selecting lower-vibration machine and equipment ■ maintenance of equipment ■ operator training Reduction of daily exposure time by: ■ exposure points system ■ job rotation ■ permit-to-work systems ■ more efficient tools and machinery",
+      "Vibration sources – general principles of vibration generated by hand-held equipment and application of engineering principles to vibration control. For example: ■ auto-balancing for rotary machines ■ vibration isolation handles ■ energy absorption"
+     ],
+     [
+      "Health surveillance",
+      "■ Setting up a health surveillance scheme ■ Selecting an occupational health provider ■ Using health surveillance data to monitor control measures ■ Management of affected workers",
+      "Strategies and techniques for health surveillance"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Training: for the topic Determining vibration magnitudes, the important content is interpretation of manufacturers’ declared emission values (measurement conditions and standard methods; appreciation of uncertainty) and principles of vibration measurement according to BS EN ISO 5349 Parts 1 and 2 (identifying the need for measurement in the workplace; frequency weighting; 3-axis vibration measurement techniques; sampling strategies and appreciation of uncertainty; recording and presenting vibration data); the useful additional content is harmonised European vibration test codes and, required if measurement is to be undertaken, instrumentation and calibration, accelerometers and mounting methods, sources of measurement error and practical experience.",
+     "Training: for the topic Determining vibration exposures (calculation of A(8)), the important content is understanding of daily vibration exposure A(8) according to BS EN ISO 5349-1, calculation of (partial) exposure from one tool or process, calculation of overall daily exposure from multiple vibration magnitudes and exposure times, recording and presenting the exposure results, and comparison with the EAV and ELV; the useful additional content is use of exposure assessment tools provided by HSE (exposure points system; exposure calculator; exposure ready-reckoner).",
+     "Training: for the topic Control of exposure, the important content is elimination or reduction of vibration exposure by, for example, substitution of new work processes, modification of process and improving quality of manufactured product; reduction of vibration exposure by, for example, selecting lower-vibration machine and equipment, maintenance of equipment and operator training; and reduction of daily exposure time by exposure points system, job rotation, permit-to-work systems and more efficient tools and machinery; the useful additional content is vibration sources – general principles of vibration generated by hand-held equipment and application of engineering principles to vibration control, for example auto-balancing for rotary machines, vibration isolation handles and energy absorption.",
+     "Training: for the topic Health surveillance, the important content is setting up a health surveillance scheme, selecting an occupational health provider, using health surveillance data to monitor control measures and management of affected workers; the useful additional content is strategies and techniques for health surveillance."
+    ]
+   },
+   "reason": "Five bullet-style cells were read against the page image; four data rows, three columns, wording matches the library grid. Bullets are kept as ■ in cells, as in the table-7 template.",
+   "evidence": "Page 82: header Topic / Important content / Useful additional content; rows Determining vibration magnitudes, Determining vibration exposures (calculation of A(8)), Control of exposure, Health surveillance.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "3cd6b2c6de13c8de",
+   "kind": "table",
+   "target": "appendix-7-training-table-p83: Training",
+   "value": {
+    "columns": [
+     "Topic",
+     "Important content",
+     "Useful additional content"
+    ],
+    "rows": [
+     [
+      "Personal protective equipment",
+      "Use of clothing and gloves to keep warm to prevent blanching attacks etc Anti-vibration gloves, their role, likely performance limitations and challenges in assessing their performance",
+      "The standard for anti-vibration gloves, BS EN ISO 10819"
+     ],
+     [
+      "Guidance and literature",
+      "Introduction to sources of information, eg: ■ HSE publications ■ trade associations ■ trade unions ■ British, European and International standards",
+      "■ EU Non-binding guide to good practice for the implementation of Directive EC 2002/44/EC"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Training: for the topic Personal protective equipment, the important content is use of clothing and gloves to keep warm to prevent blanching attacks etc, and anti-vibration gloves, their role, likely performance limitations and challenges in assessing their performance; the useful additional content is the standard for anti-vibration gloves, BS EN ISO 10819.",
+     "Training: for the topic Guidance and literature, the important content is an introduction to sources of information, eg HSE publications, trade associations, trade unions and British, European and International standards; the useful additional content is the EU Non-binding guide to good practice for the implementation of Directive EC 2002/44/EC."
+    ]
+   },
+   "reason": "Two data rows under three headings match the page image. The library grid split EU as E U; the image shows EU, so it is corrected. The Note under the table is outside the table and is left out.",
+   "evidence": "Page 83: rows Personal protective equipment and Guidance and literature; second row useful content reads EU Non-binding guide to good practice for the implementation of Directive EC 2002/44/EC.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "48d937f6ea6c685b",
+   "kind": "table",
+   "target": "table-9: Scoring system for the standardised sensorineural tests",
+   "value": {
+    "columns": [
+     "Test condition",
+     "Lowest band",
+     "Middle band",
+     "Highest band"
+    ],
+    "rows": [
+     [
+      "Vibrotactile threshold test (index and little finger)",
+      "",
+      "",
+      ""
+     ],
+     [
+      "At 31.4 Hz",
+      "< 0.3 m/s² Score = 0",
+      "≥ 0.3 m/s², < 0.4 m/s² Score = 1",
+      "≥ 0.4 m/s² Score = 2"
+     ],
+     [
+      "At 125 Hz",
+      "< 0.7 m/s² Score = 0",
+      "≥ 0.7 m/s², < 1.0 m/s² Score = 1",
+      "≥ 1.0 m/s² Score = 2"
+     ],
+     [
+      "Thermal perception threshold test (1 degree/second, index and little finger)",
+      "",
+      "",
+      ""
+     ],
+     [
+      "Temperature neutral zone",
+      "< 21ºC Score = 0",
+      "≥ 21°C, < 27°C Score = 2",
+      "≥ 27°C Score = 4"
+     ]
+    ],
+    "heading_rows": [
+     0,
+     3
+    ],
+    "sentences": [
+     "In the scoring system for the standardised sensorineural tests, the vibrotactile threshold test (index and little finger) at 31.4 Hz scores 0 below 0.3 m/s², 1 from 0.3 m/s² to below 0.4 m/s², and 2 at 0.4 m/s² or more.",
+     "In the scoring system for the standardised sensorineural tests, the vibrotactile threshold test (index and little finger) at 125 Hz scores 0 below 0.7 m/s², 1 from 0.7 m/s² to below 1.0 m/s², and 2 at 1.0 m/s² or more.",
+     "In the scoring system for the standardised sensorineural tests, the thermal perception threshold test (1 degree/second, index and little finger) for the temperature neutral zone scores 0 below 21ºC, 2 from 21°C to below 27°C, and 4 at 27°C or more."
+    ]
+   },
+   "reason": "Page image shows two green banner rows (vibrotactile and thermal test headings) and three data rows; the template listed only the first three rows, so the thermal banner and temperature row were added. Banner rows are heading rows with no sentence.",
+   "evidence": "Table 9 on printed page 91: banners 'Vibrotactile threshold test (index and little finger)' and 'Thermal perception threshold test (1 degree/second, index and little finger)'; rows At 31.4 Hz, At 125 Hz, Temperature neutral zone with scores 0/1/2 and 0/2/4.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
   }
  ]
 }

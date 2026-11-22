@@ -73,6 +73,88 @@
    "by": "model check, Sonnet (Claude Code headless, packet)",
    "confidence": "high",
    "date": "2026-11-22"
+  },
+  {
+   "key": "8bf02fe54b18c40b",
+   "kind": "table",
+   "target": "document-building-act-1984-table-p4: Building Act 1984",
+   "value": {
+    "columns": [
+     "Document",
+     "Requirements of the Building Regulations 2010 in respect of which the document is approved"
+    ],
+    "rows": [
+     [
+      "Approved Document B (Fire safety) volume 1: Dwellings (2019 edition incorporating 2020, 2022, 2025 and 2026 amendments).",
+      "Part B, Schedule 1"
+     ],
+     [
+      "Approved Document B (Fire safety) volume 2: Buildings other than dwelling houses (2019 edition incorporating 2020, 2022, 2025 and 2026 amendments).",
+      "Part B, Schedule 1"
+     ],
+     [
+      "Signed by authority of the Secretary of State",
+      "J. Palmer An Assistant Secretary for the Ministry of Housing, Communities and Local Government 2 September 2024"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "In the Building Act 1984 notice of approval, the document Approved Document B (Fire safety) volume 1: Dwellings (2019 edition incorporating 2020, 2022, 2025 and 2026 amendments) is approved in respect of the requirements Part B, Schedule 1.",
+     "In the Building Act 1984 notice of approval, the document Approved Document B (Fire safety) volume 2: Buildings other than dwelling houses (2019 edition incorporating 2020, 2022, 2025 and 2026 amendments) is approved in respect of the requirements Part B, Schedule 1.",
+     "In the Building Act 1984 notice of approval, it is signed by authority of the Secretary of State by J. Palmer, An Assistant Secretary for the Ministry of Housing, Communities and Local Government, on 2 September 2024."
+    ]
+   },
+   "reason": "Table rebuilt from the page image: header row Document / Requirements, two document rows and the signature row. The title and notice paragraph above the header are spanning prose rows, not data rows, so they are left out. The signature is an image; its printed name and date are used.",
+   "evidence": "Page 4 image: header 'Document | Requirements of the Building Regulations 2010 in respect of which the document is approved'; both volumes list 'Part B, Schedule 1'; last row 'Signed by authority of the Secretary of State' with J. Palmer, 2 September 2024.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "5bb6431b973ce617",
+   "kind": "table",
+   "target": "document-building-act-1984-2-table-p5: Building Act 1984",
+   "value": {
+    "columns": [
+     "Part of notice",
+     "Text"
+    ],
+    "rows": [
+     [
+      "Notice title",
+      "NOTICE OF WITHDRAWAL OF APPROVAL OF DOCUMENTS GIVING PRACTICAL GUIDANCE WITH RESPECT TO THE REQUIREMENTS OF THE BUILDING REGULATIONS 2010"
+     ],
+     [
+      "Notice text",
+      "The Secretary of State hereby gives notice under section 6 of the Building Act 1984 that, in the exercise of the powers under section 6(5), the Secretary of State has withdrawn approval of the documents listed below for the purposes of giving practical guidance with respect to the specified requirements of the Building Regulations 2010. The withdrawal of approval takes effect on 30 September 2026 except in respect of work for which a building notice or initial notice has been given or a building control application with full plans has been made before that date and provided work is sufficiently progressed before 30 March 2028."
+     ],
+     [
+      "Document",
+      "Approved Document B (Fire safety) volume 1: Dwellings (2019 edition incorporating 2020, 2022 and 2025 amendments)."
+     ],
+     [
+      "Document",
+      "Approved Document B (Fire safety) volume 2: Buildings other than dwelling houses (2019 edition incorporating 2020, 2022 and 2025 amendments)."
+     ],
+     [
+      "Signed by authority of the Secretary of State",
+      "J. Palmer An Assistant Secretary for the Ministry of Housing, Communities and Local Government 2 September 2024"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "In the Building Act 1984 notice, the notice title is: NOTICE OF WITHDRAWAL OF APPROVAL OF DOCUMENTS GIVING PRACTICAL GUIDANCE WITH RESPECT TO THE REQUIREMENTS OF THE BUILDING REGULATIONS 2010.",
+     "In the Building Act 1984 notice, the Secretary of State gives notice under section 6 of the Building Act 1984 that, under section 6(5), approval of the documents listed below is withdrawn as practical guidance for the specified requirements of the Building Regulations 2010, and the withdrawal takes effect on 30 September 2026, except for work where a building notice or initial notice has been given or a building control application with full plans has been made before that date and the work is sufficiently progressed before 30 March 2028.",
+     "In the Building Act 1984 notice, a document whose approval is withdrawn is Approved Document B (Fire safety) volume 1: Dwellings (2019 edition incorporating 2020, 2022 and 2025 amendments).",
+     "In the Building Act 1984 notice, a document whose approval is withdrawn is Approved Document B (Fire safety) volume 2: Buildings other than dwelling houses (2019 edition incorporating 2020, 2022 and 2025 amendments).",
+     "In the Building Act 1984 notice, it is signed by authority of the Secretary of State by J. Palmer, An Assistant Secretary for the Ministry of Housing, Communities and Local Government, on 2 September 2024."
+    ]
+   },
+   "reason": "The page shows one boxed notice with a title row, a text row, a Document row with two bullets, and a signature row. It has no column headings, so neutral headings were used and each bullet is its own row.",
+   "evidence": "Page 5 image, Annex B Notice of Withdrawal, Building Act 1984.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
   }
  ]
 }

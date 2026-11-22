@@ -135,6 +135,18 @@ flowchart TD
     frame["ruled 'table' 85%+ of the page wide and tall"] --> fr["a frame round the page: not a table,<br/>and the text inside it is cut into columns"]
 ```
 
+Ruled tables with no caption (coverage check, S105, 22 Nov 2026). EH40 Table 1 (13 pages under a chapter title) and
+the circulars' Annex tables were running text:
+
+```mermaid
+flowchart TD
+    g["ruled table found by pdfplumber,<br/>no 'Table N' caption at or near it"] --> d{"2+ filled columns in 2+ rows, and cells of a few words,<br/>or a header row of short headings, or the same columns<br/>and edges as a data grid just before it (run-on)?"}
+    d -->|yes| tp{"'Table N' printed just above,<br/>its table still empty?"}
+    tp -->|yes| cap["that captioned table takes the rows (L108)"]
+    tp -->|no| tab["a table section per page, named after its heading<br/>(parent-table-pN); model check fills the grid"]
+    d -->|no| text["stays text: paragraphs in a frame, a form, a flow chart's boxes<br/>(coverage: accepted with a reason)"]
+```
+
 Running text is body-size text of six words or more not set in a drawn box, starting at a left edge many long
 lines share, at a bullet or list number, or in a block of such lines; plus the lines hanging under it, subheadings
 over it, bold-italic callouts, "Box N" titles, headings, captions (also caption-like lines the caption rules did not

@@ -95,6 +95,9 @@ against our 0.94. Report: [experiments/X-external-mcp.md](experiments/X-external
   documents left (561 open items to 475). Next: tables kept as text, images in no crop.
 - Citations name the right page: unnumbered text is cut at page breaks (bc-changes-2023 letter, Procurement Act
   short guides), and a frame round the page no longer stops two text columns being cut (CDP short guide).
+- Ruled tables with no caption are tables (EH40 Table 1, circulars' Annex tables, impact assessments, HHSRS
+  baseline indicators, the Procurement Act e-learning tables): 284 to 753 table sections, all model-checked;
+  layout grids (framed notices, forms, flow-chart boxes, screenshots) kept as text with reasons.
 
 **Parse absolutely everything before moving on (Florin, 22 Nov).** Chunks start only when every ingested
 document is clean: legislation, every PDF and every web page. Web pages had been left out under "PDFs first", but

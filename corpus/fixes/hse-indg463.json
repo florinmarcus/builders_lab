@@ -164,6 +164,82 @@
    "by": "model check, Sonnet (Claude Code headless, packet)",
    "confidence": "high",
    "date": "2026-11-22"
+  },
+  {
+   "key": "d96edf11c2070c52",
+   "kind": "table",
+   "target": "document-what-is-silica-table-p1: What is silica?",
+   "value": {
+    "columns": [
+     "Approximate crystalline silica content of different materials",
+     "Crystalline silica content (%w/w)"
+    ],
+    "rows": [
+     [
+      "Sandstone, gritstone, quartzite",
+      "above 70%"
+     ],
+     [
+      "Artificial stone *",
+      "up to 95% (but depends on the type of stone pieces or minerals used in its production)"
+     ],
+     [
+      "Mortar, concrete",
+      "25–70%"
+     ],
+     [
+      "Shale",
+      "40–60%"
+     ],
+     [
+      "China stone",
+      "up to 50%"
+     ],
+     [
+      "Granite",
+      "20–45% (typically 30%)"
+     ],
+     [
+      "Slate",
+      "20–40%"
+     ],
+     [
+      "Ironstone",
+      "Up to 15%"
+     ],
+     [
+      "Basalt, dolerite",
+      "Up to 5%"
+     ],
+     [
+      "Limestone, chalk",
+      "Up to 5% (typically less than 2%)"
+     ],
+     [
+      "Marble",
+      "Up to 5% (but can contain veins of crystalline silica so the overall content may be a lot higher)"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Approximate crystalline silica content of different materials: sandstone, gritstone, quartzite have a crystalline silica content (%w/w) of above 70%.",
+     "Approximate crystalline silica content of different materials: artificial stone * has a crystalline silica content (%w/w) of up to 95% (but depends on the type of stone pieces or minerals used in its production).",
+     "Approximate crystalline silica content of different materials: mortar, concrete have a crystalline silica content (%w/w) of 25–70%.",
+     "Approximate crystalline silica content of different materials: shale has a crystalline silica content (%w/w) of 40–60%.",
+     "Approximate crystalline silica content of different materials: china stone has a crystalline silica content (%w/w) of up to 50%.",
+     "Approximate crystalline silica content of different materials: granite has a crystalline silica content (%w/w) of 20–45% (typically 30%).",
+     "Approximate crystalline silica content of different materials: slate has a crystalline silica content (%w/w) of 20–40%.",
+     "Approximate crystalline silica content of different materials: ironstone has a crystalline silica content (%w/w) of Up to 15%.",
+     "Approximate crystalline silica content of different materials: basalt, dolerite have a crystalline silica content (%w/w) of Up to 5%.",
+     "Approximate crystalline silica content of different materials: limestone, chalk have a crystalline silica content (%w/w) of Up to 5% (typically less than 2%).",
+     "Approximate crystalline silica content of different materials: marble has a crystalline silica content (%w/w) of Up to 5% (but can contain veins of crystalline silica so the overall content may be a lot higher)."
+    ]
+   },
+   "reason": "Grid matches the printed table: two columns, header row plus 11 data rows, no sub-heading rows.",
+   "evidence": "Page 1 table under 'What is silica?' shows 11 materials with silica content values, matching the grid exactly.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
   }
  ]
 }

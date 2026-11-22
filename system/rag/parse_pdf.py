@@ -459,6 +459,7 @@ class Builder:
         self.lines_by_page: dict[int, list[dict]] = {}
         for l in self.lines:
             self.lines_by_page.setdefault(l["page"], []).append(l)
+        self.data_grids = self._data_grids()
         self._photo_captions()
         self._caption_sides()
 
@@ -1685,6 +1686,8 @@ class Builder:
         front_pages = self._front_pages()  # content before the first chapter title (not cover, contents, imprint)
         front_caption = False    # content mode entered at a captioned figure before chapter 1 (HSG227)
         text_page: dict[str, int] = {}  # the page of the last line added to each text section
+        grids_done: set[int] = set()     # ruled tables already made into table sections (grid_at)
+        grid_lines: set[int] = set()
         mode = "skip" if self.has_chapters else "content"  # skip (cover, contents), content, back
         chapter = heading = None  # current chapter and heading sections
         para = None              # current numbered paragraph or text section
@@ -1823,6 +1826,34 @@ class Builder:
                 diagram_lines.update(rest)
                 continue
             if k_line in diagram_lines:
+                continue
+            # ---- a ruled table with no caption inside running text (EH40 Table 1, circulars' Annex tables)
+            g = self.grid_at(l)
+            if g is not None and id(g) not in grids_done:
+                grids_done.add(id(g))
+                rest = [j for j in range(k_line, len(self.lines)) if self.lines[j]["page"] == l["page"]
+                        and j not in consumed and self._in_grid(g, self.lines[j])]
+                rows = [self.lines[j] for j in rest]
+                # "Table N" printed just above the grid, its table still empty: these are its rows (L108 prints
+                # table captions above tables and figure captions below, so the caption looked up, not down)
+                capd = next((c for c in reversed(captions_on_page) if c["type"] == "table" and not c["text"]
+                             and c["caption_box"]["page"] == l["page"] and 0 <= g["top"] - c["caption_box"]["top"] <= 40), None)
+                if capd is not None:
+                    capd["text"] = "\n".join(x["text"] for x in rows)
+                    capd.pop("spans", None)
+                    self.span(capd, l["page"], capd["caption_box"]["top"], g["bottom"])
+                    grid_lines.update(rest)
+                    continue
+                title = parent["title"] or self.title
+                sid = f"{parent['id']}-table-p{l['page']}"
+                while sid in self.by_id:
+                    sid += "-2"
+                sec = self.new(sid, "table", parent, None, title, [*parent["heading_path"], f"Table ({title})"],
+                               l["page"], "\n".join(x["text"] for x in rows))
+                self.span(sec, l["page"], g["top"], g["bottom"])
+                grid_lines.update(rest)
+                continue
+            if k_line in grid_lines:
                 continue
             # ---- sidebar (split_columns): notes beside the main text
             if l.get("aside"):
@@ -2276,6 +2307,41 @@ class Builder:
     def _ruled_grid(t: dict) -> bool:
         """A ruled table with two or more filled columns, not a box drawn round text (a one-column 'table')."""
         return len({k for r in t["rows"] for k, c in enumerate(r) if c and c.strip()}) >= 2
+
+    def _data_grids(self) -> dict[int, list[dict]]:
+        """Ruled tables that hold data, by page: two or more filled columns in at least two rows, cells of a few
+        words or a header row of short headings (not paragraphs side by side in boxes), not a whole-page table or
+        picture page, and no "Table N" caption at or near them except just above (captioned tables are placed
+        from their caption)."""
+        out: dict[int, list[dict]] = {}
+        for t in sorted(self.doc_tables, key=lambda t: (t["page"], t["top"])):
+            if t["page"] in self.table_pages or t["page"] in self.diagram_pages or not self._ruled_grid(t):
+                continue
+            rows = t["rows"]
+            # the same table run on from the page before (same columns and edges, the header printed once)
+            # (or a second grid of the same table under a sub-heading on the same page)
+            runs_on = any(len(p["rows"][0]) == len(rows[0]) and abs(p["x0"] - t["x0"]) <= 5 and abs(p["x1"] - t["x1"]) <= 5
+                          for p in out.get(t["page"] - 1, []) + out.get(t["page"], []))
+            if len(rows) < 2 or sum(1 for r in rows if sum(1 for c in r if c and c.strip()) >= 2) < (1 if runs_on else 2):
+                continue
+            words = sorted(len(c.split()) for r in rows for c in r if c and c.strip())
+            head = [c for c in rows[0] if c and c.strip()]
+            headed = len(head) >= 2 and len(head) == len(rows[0]) and all(len(c.split()) <= 6 for c in head)
+            if words[len(words) // 2] > 25 and not headed and not runs_on:
+                continue  # paragraphs set in a ruled frame: layout, not data (a header row makes it a table)
+            caps = [l for l in self.lines_by_page.get(t["page"], []) if CAPTION_RE.match(l["text"])
+                    and l["text"].startswith("Table") and t["top"] - 60 <= l["top"] <= t["bottom"] + 60]
+            if caps and not all(0 <= t["top"] - l["top"] <= 40 for l in caps):
+                continue  # placed from its caption (a caption just above may still need its rows: build)
+            out.setdefault(t["page"], []).append(t)
+        return out
+
+    @staticmethod
+    def _in_grid(t: dict, l: dict) -> bool:
+        return t["top"] - 2 <= l["top"] <= t["bottom"] and t["x0"] - 2 <= l["x0"] <= t["x1"]
+
+    def grid_at(self, l) -> dict | None:
+        return next((t for t in self.data_grids.get(l["page"], []) if self._in_grid(t, l)), None)
 
     def attach_grids(self) -> None:
         """Give each table section the PDF tables that overlap its lines; header rows repeated on later

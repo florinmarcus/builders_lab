@@ -61,6 +61,128 @@
    "by": "model check, Sonnet (Claude Code headless, packet)",
    "confidence": "medium",
    "date": "2026-11-22"
+  },
+  {
+   "key": "cc0bdafaf66a07e3",
+   "kind": "table",
+   "target": "document-what-are-exposure-control-measures-table-p5: What are exposure control measures?",
+   "value": {
+    "columns": [
+     "Substance, process",
+     "Control equipment",
+     "Way of working",
+     "Managing"
+    ],
+    "rows": [
+     [
+      "Cleaning with solvent on rag.",
+      "Use a rag holder. Provide a small bin with a lid for used rags.",
+      "Avoid skin contact. Reduce solvent vapour from used rags.",
+      "Check controls are used. Safe disposal."
+     ],
+     [
+      "Dust and sparks from abrasive wheel.",
+      "Put an enclosure around the wheel and extract the air to a safe place.",
+      "Check the airflow indicator. Make sure the extraction works.",
+      "Maintain controls. Test controls as required by law."
+     ],
+     [
+      "Fume from cutting demolition scrap.",
+      "Ventilated welding helmet, gloves. Washing facilities.",
+      "Work outdoors upwind of the fume wherever possible. Allow the fume to clear before removing helmet.",
+      "Check if there is any lead paint on the scrap being cut. Carry out health checks."
+     ],
+     [
+      "Cutting-fluid mist from a lathe. Swarf.",
+      "Put an enclosure around the lathe and extract the air to a safe place. Protective gloves.",
+      "Use skin-care products. Make sure the extraction works. Allow time for the mist to clear from the enclosure before opening it.",
+      "Train workers. Check and maintain fluid quality. Test controls as required by law. Carry out health checks."
+     ],
+     [
+      "Dust from disc cutter on stone worktop.",
+      "Use an enclosure to extract air to a safe place. High-efficiency vacuum cleaner.",
+      "Cut and polish worktops inside an enclosure. Vacuum up dust.",
+      "Test and maintain controls. Carry out health checks."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "For exposure control measures, for cleaning with solvent on rag, the control equipment is: use a rag holder, provide a small bin with a lid for used rags; the way of working is: avoid skin contact, reduce solvent vapour from used rags; managing is: check controls are used, safe disposal.",
+     "For exposure control measures, for dust and sparks from abrasive wheel, the control equipment is: put an enclosure around the wheel and extract the air to a safe place; the way of working is: check the airflow indicator, make sure the extraction works; managing is: maintain controls, test controls as required by law.",
+     "For exposure control measures, for fume from cutting demolition scrap, the control equipment is: ventilated welding helmet, gloves, washing facilities; the way of working is: work outdoors upwind of the fume wherever possible, allow the fume to clear before removing helmet; managing is: check if there is any lead paint on the scrap being cut, carry out health checks.",
+     "For exposure control measures, for cutting-fluid mist from a lathe and swarf, the control equipment is: put an enclosure around the lathe and extract the air to a safe place, protective gloves; the way of working is: use skin-care products, make sure the extraction works, allow time for the mist to clear from the enclosure before opening it; managing is: train workers, check and maintain fluid quality, test controls as required by law, carry out health checks.",
+     "For exposure control measures, for dust from disc cutter on stone worktop, the control equipment is: use an enclosure to extract air to a safe place, high-efficiency vacuum cleaner; the way of working is: cut and polish worktops inside an enclosure, vacuum up dust; managing is: test and maintain controls, carry out health checks."
+    ]
+   },
+   "reason": "Rebuilt from the page 5 image; five data rows, bullets removed and items joined in order. Page heading is 'Examples of control measures'; the packet title was used for the sentences.",
+   "evidence": "Page 5 table: header Substance, process / Control equipment / Way of working / Managing, with five bulleted rows matching the grid.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "bed5c82cf3901360",
+   "kind": "table",
+   "target": "document-getting-help-table-p9: Getting help",
+   "value": {
+    "columns": [
+     "What and who?",
+     "Trade association",
+     "HSE",
+     "Consultants/ service suppliers",
+     "Local health and safety groups"
+    ],
+    "rows": [
+     [
+      "Good control",
+      "✓",
+      "✓",
+      "✓",
+      "✓"
+     ],
+     [
+      "Testing LEV",
+      "✓",
+      "✓",
+      "✓",
+      ""
+     ],
+     [
+      "Training",
+      "✓",
+      "✓",
+      "✓",
+      "✓"
+     ],
+     [
+      "Monitoring",
+      "",
+      "✓",
+      "✓",
+      ""
+     ],
+     [
+      "Health checks",
+      "",
+      "✓",
+      "✓",
+      ""
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Getting help: for good control, help is available from Trade association, HSE, Consultants/ service suppliers and Local health and safety groups.",
+     "Getting help: for testing LEV, help is available from Trade association, HSE and Consultants/ service suppliers.",
+     "Getting help: for training, help is available from Trade association, HSE, Consultants/ service suppliers and Local health and safety groups.",
+     "Getting help: for monitoring, help is available from HSE and Consultants/ service suppliers.",
+     "Getting help: for health checks, help is available from HSE and Consultants/ service suppliers."
+    ]
+   },
+   "reason": "Rebuilt from the page 9 image; ticks are printed as check marks (the library grid shows them as '3'), empty cells left empty.",
+   "evidence": "Page 9 table: five columns, five rows; tick pattern read directly from the image.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
   }
  ]
 }

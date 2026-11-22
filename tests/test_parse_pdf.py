@@ -404,11 +404,11 @@ def test_real_boxes_figures_tables(hsg264):
 def test_real_table_grids(hsg264):
     S = {s["id"]: s for s in hsg264["sections"]}
     assert len(S["table-1"]["grid"][0]) == 11
-    a4 = S["appendix-4-table-1"]["grid"]
+    a4 = S["appendix-4-table-p67"]["grid"]  # a ruled table with no caption, one per page (S105)
     assert any(r and r[0].startswith("Product type") for r in a4)
-    a2 = S["appendix-2-table-1"]
-    assert a2["columns"][0] == "Asbestos product"
-    assert not [r for r in a2["grid"] if r and r[0] == "Asbestos product"]  # header not repeated across 5 pages
+    a2 = [S[f"appendix-2-table-p{p}"] for p in range(52, 57)]  # one table per page, one family (S105)
+    assert all(t["columns"][0] == "Asbestos product" for t in a2)
+    assert not [r for t in a2 for r in t["grid"] if r and r[0] == "Asbestos product"]  # header not repeated
 
 
 def test_real_text_is_clean(hsg264):
@@ -848,7 +848,9 @@ def test_real_l143_structure(l143):
     assert main == list(range(1, 538))
     regs = [s for s in secs if s["type"] == "chapter" and s["id"].startswith("regulation-")]
     assert len(regs) == 35
-    assert sorted(int(s["number"]) for s in secs if s["type"] == "table") == list(range(1, 8))
+    assert sorted(int(s["number"]) for s in secs if s["type"] == "table" and s["number"]) == list(range(1, 8))
+    assert [s["id"] for s in secs if s["type"] == "table" and not s["number"]] == ["schedule-3-table-p112",
+                                                                                  "schedule-3-table-p113"]
     S = {s["id"]: s for s in secs}
     assert S["para-46"]["status"] == "guidance" and S["para-36"]["status"] == "acop"
     assert S["para-46"]["text"].startswith("Licensable work does not meet")
@@ -1302,3 +1304,67 @@ def test_narrow_text_columns_inside_a_page_frame_are_not_a_picture():
     t = build_tree({"lines": lines, "rects": [], "images": [], "page_count": 5, "tables": frame, "graphics": shapes,
                     "pages": {str(p): {"width": 596.0, "height": 842.0} for p in range(1, 6)}}, META)
     assert not [s for s in t["sections"] if s["type"] in ("figure", "table")]
+
+
+def _grid(page, top, bottom, rows, x0=60.0, x1=540.0):
+    return {"page": page, "top": float(top), "bottom": float(bottom), "x0": x0, "x1": x1, "rows": rows}
+
+
+def test_a_ruled_table_with_no_caption_in_running_text_is_a_table_per_page():
+    """EH40 Table 1 (13 pages of workplace exposure limits under a chapter title, no "Table N" caption) and the
+    Annex tables of circulars were kept as running text (S105). A ruled grid with data (two or more filled columns
+    in two or more rows, short cells) is now a table section, one per page, titled from its chapter."""
+    rows = [["Substance", "CAS number", "Long-term limit ppm"], ["Acetone", "67-64-1", "500"], ["Ammonia", "7664-41-7", "25"]]
+    lines = [ln(2, 98, "Table 1: List of approved limits", 28.0, "HelveticaNeue-Medium"),
+             ln(2, 150, "15 This list is legally binding and reproduces the limits approved by the Executive."),
+             ln(2, 300, "Substance CAS number Long-term limit ppm", x0=61), ln(2, 314, "Acetone 67-64-1 500", x0=61),
+             ln(2, 328, "Ammonia 7664-41-7 25", x0=61),
+             ln(3, 102, "Substance CAS number Long-term limit ppm", x0=61), ln(3, 116, "Benzene 71-43-2 1", x0=61),
+             ln(3, 130, "Bromine 7726-95-6 0.1", x0=61)]
+    tables = [_grid(2, 296, 340, rows), _grid(3, 98, 142, [rows[0], ["Benzene", "71-43-2", "1"], ["Bromine", "7726-95-6", "0.1"]])]
+    t = build_tree({"lines": lines, "rects": [], "images": [], "page_count": 3, "tables": tables}, META)
+    tabs = [s for s in t["sections"] if s["type"] == "table"]
+    assert [(s["id"], s["file_page"]) for s in tabs] == [("table-1-list-of-approved-limits-table-p2", 2),
+                                                          ("table-1-list-of-approved-limits-table-p3", 3)]
+    assert tabs[0]["grid"] == rows and "Acetone" not in sec(t, "table-1-list-of-approved-limits-text-1")["text"]
+    assert {s["title"] for s in tabs} == {"Table 1: List of approved limits"} and len(t["checks"]) == 2
+
+
+def test_paragraphs_in_a_ruled_frame_stay_text_and_a_caption_just_above_takes_the_grid_rows():
+    """Two paragraphs set side by side in ruled boxes are layout, not data: they stay text. L108 prints table
+    captions above its tables (figure captions below), so "Table 1" looked up for its rows and found none: the
+    grid just under the caption gives them."""
+    long1 = "Find a Tender is the central place for the contracting authority to register its organisation and publish notices about each procurement it runs"
+    long2 = "Many buyers use a third party to publish their notices and will never need to visit the platform other than to register and to use the data"
+    lines = [ln(2, 98, "1 Introduction", 28.0, "HelveticaNeue-Medium"),
+             ln(2, 150, "1 The platform is where notices are published."),
+             ln(2, 300, long1[:60], x0=61), ln(2, 314, long2[:60], x0=300),
+             ln(2, 400, "Table 1 Simple tests to see if a noise risk assessment is needed", 10.0, "HelveticaNeueLTStd-MdC"),
+             ln(2, 421, "Test Probable noise level", 10.0, "HelveticaNeueLTStd-MdC", x0=61),
+             ln(2, 435, "Shout to talk 1 m away 90 dB(A)", x0=61), ln(2, 449, "Normal conversation 80 dB(A)", x0=61),
+             ln(2, 480, "2 For peak noise, some sources may lead to exposure above the lower action value.")]
+    tables = [_grid(2, 296, 360, [[long1, long2], [long2, long1]]),
+              _grid(2, 417, 462, [["Test", "Probable noise level"], ["Shout to talk 1 m away", "90 dB(A)"],
+                                  ["Normal conversation", "80 dB(A)"]])]
+    shade = [{"page": 2, "top": 417.0, "bottom": 431.0, "x0": 60.0, "x1": 540.0, "colour": (0.8, 0.8, 0.8)}]
+    t = build_tree({"lines": lines, "rects": shade, "images": [], "page_count": 2, "tables": tables}, META)
+    assert [s["id"] for s in t["sections"] if s["type"] == "table"] == ["table-1"]
+    assert "Shout to talk" in sec(t, "table-1")["text"] and sec(t, "table-1")["grid"][1][1] == "90 dB(A)"
+
+
+def test_a_ruled_table_run_on_without_its_header_stays_a_table():
+    """Circular 03/2001: the last rows of a regulations table run on to the next page with no header row, the first
+    of them with only its last cell filled. A grid with the same columns and edges as a data grid on the page
+    before is that table's continuation."""
+    head = ["SI 2000/2532 Regulation", "SI 2001/3336 Regulation", "Action"]
+    p2 = [head, ["3", "2(2)", "Amends the definition of building work"], ["4", "2(3)", "Adds a requirement to consult"]]
+    p3 = [["", "", "the introduction of the new requirement to consult the sewerage undertaker and the revision of ground"],
+          ["Schedules 3, 4, 6, 7, 8", "8", "Grounds for rejecting notices and certificates amended to reflect the repeal of section 18"]]
+    lines = [ln(2, 98, "Annex A", 28.0, "HelveticaNeue-Medium"),
+             ln(2, 150, "The following table lists the changes made by the Regulations to the earlier ones."),
+             ln(2, 300, " ".join(head), x0=61), ln(2, 314, " ".join(p2[1]), x0=61), ln(2, 328, " ".join(p2[2]), x0=61),
+             ln(3, 60, p3[0][2][:50], x0=330), ln(3, 120, " ".join(p3[1])[:70], x0=61),
+             ln(3, 300, "Enquiries about this circular should be sent to the department by email please.")]
+    tables = [_grid(2, 296, 340, p2, 58, 554), _grid(3, 54, 277, p3, 58, 554)]
+    t = build_tree({"lines": lines, "rects": [], "images": [], "page_count": 3, "tables": tables}, META)
+    assert [s["file_page"] for s in t["sections"] if s["type"] == "table"] == [2, 3]

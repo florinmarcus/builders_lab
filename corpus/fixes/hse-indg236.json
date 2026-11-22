@@ -91,6 +91,85 @@
    "by": "model check, Sonnet (Claude Code headless, packet)",
    "confidence": "high",
    "date": "2026-11-22"
+  },
+  {
+   "key": "275a703024d8a0b7",
+   "kind": "table",
+   "target": "table-1: Suggested initial intervals for checking portable electrical equipment",
+   "value": {
+    "columns": [
+     "Equipment/environment",
+     "User checks",
+     "Formal visual inspection",
+     "Combined inspection and testing"
+    ],
+    "rows": [
+     [
+      "Battery-operated: (less than 40 volts",
+      "No",
+      "No",
+      "No"
+     ],
+     [
+      "Extra low voltage: (less than 50 volts AC): Telephone equipment, low-voltage desk-lights",
+      "No",
+      "No",
+      "No"
+     ],
+     [
+      "Desktop computers, VDU screens",
+      "No",
+      "Yes, 2–4 years",
+      "No if double insulated, otherwise up to 5 years"
+     ],
+     [
+      "Photocopiers, fax machines: Not hand-held. Rarely moved",
+      "No",
+      "Yes, 2–4 years",
+      "No if double insulated, otherwise up to 5 years"
+     ],
+     [
+      "Double insulated (Class II) equipment: Not hand-held. Moved occasionally, eg fans, table lamps",
+      "No",
+      "Yes, 2–4 years",
+      "No"
+     ],
+     [
+      "Double insulated (Class II) equipment: Hand-held, eg some floor cleaners, some kitchen equipment",
+      "Yes",
+      "Yes, 6 months – 1 year",
+      "No"
+     ],
+     [
+      "Earthed equipment (Class I): Electric kettles, some floor cleaners, some kitchen equipment and irons",
+      "Yes",
+      "Yes, 6 months – 1 year",
+      "Yes, 1–2 years"
+     ],
+     [
+      "Cables (leads and plugs connected to the above) and mains voltage extension leads and battery-charging equipment",
+      "Yes",
+      "Yes, 6 months – 4 years depending on the type of equipment it is connected to",
+      "Yes, 1–5 years depending on the type of equipment it is connected to"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Suggested initial intervals for checking portable electrical equipment: for Battery-operated: (less than 40 volts, user checks: No; formal visual inspection: No; combined inspection and testing: No.",
+     "Suggested initial intervals for checking portable electrical equipment: for Extra low voltage: (less than 50 volts AC): Telephone equipment, low-voltage desk-lights, user checks: No; formal visual inspection: No; combined inspection and testing: No.",
+     "Suggested initial intervals for checking portable electrical equipment: for Desktop computers, VDU screens, user checks: No; formal visual inspection: Yes, 2–4 years; combined inspection and testing: No if double insulated, otherwise up to 5 years.",
+     "Suggested initial intervals for checking portable electrical equipment: for Photocopiers, fax machines: Not hand-held. Rarely moved, user checks: No; formal visual inspection: Yes, 2–4 years; combined inspection and testing: No if double insulated, otherwise up to 5 years.",
+     "Suggested initial intervals for checking portable electrical equipment: for Double insulated (Class II) equipment: Not hand-held. Moved occasionally, eg fans, table lamps, user checks: No; formal visual inspection: Yes, 2–4 years; combined inspection and testing: No.",
+     "Suggested initial intervals for checking portable electrical equipment: for Double insulated (Class II) equipment: Hand-held, eg some floor cleaners, some kitchen equipment, user checks: Yes; formal visual inspection: Yes, 6 months – 1 year; combined inspection and testing: No.",
+     "Suggested initial intervals for checking portable electrical equipment: for Earthed equipment (Class I): Electric kettles, some floor cleaners, some kitchen equipment and irons, user checks: Yes; formal visual inspection: Yes, 6 months – 1 year; combined inspection and testing: Yes, 1–2 years.",
+     "Suggested initial intervals for checking portable electrical equipment: for Cables (leads and plugs connected to the above) and mains voltage extension leads and battery-charging equipment, user checks: Yes; formal visual inspection: Yes, 6 months – 4 years depending on the type of equipment it is connected to; combined inspection and testing: Yes, 1–5 years depending on the type of equipment it is connected to."
+    ]
+   },
+   "reason": "Grid matches the page image row for row and column for column; the Class II symbol in the page is not text so it is left out as in the template.",
+   "evidence": "Page 5 image shows Table 1 with 4 columns and 8 data rows, values as in the grid.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
   }
  ]
 }

@@ -865,6 +865,229 @@
    "by": "model check, Claude Code subagent",
    "confidence": "high",
    "date": "2026-11-20"
+  },
+  {
+   "key": "1ac296ab89c46d22",
+   "kind": "table",
+   "target": "2-setting-up-the-site-first-aid-table-p20: First aid",
+   "value": {
+    "columns": [
+     "Numbers employed at any location",
+     "Number of first aid personnel"
+    ],
+    "rows": [
+     [
+      "Fewer than five",
+      "At least one appointed person"
+     ],
+     [
+      "5 to 50",
+      "At least one first aider"
+     ],
+     [
+      "More than 50",
+      "One additional first aider for every 50 employed"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "First aid: for fewer than five employed at any location, the number of first aid personnel is at least one appointed person.",
+     "First aid: for 5 to 50 employed at any location, the number of first aid personnel is at least one first aider.",
+     "First aid: for more than 50 employed at any location, the number of first aid personnel is one additional first aider for every 50 employed."
+    ]
+   },
+   "reason": "Page image shows a two-column, three-row table that matches the library grid exactly.",
+   "evidence": "Page 20 table under paragraph 96: header 'Numbers employed at any location' / 'Number of first aid personnel'; rows Fewer than five, 5 to 50, More than 50.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "ef266c0ed7fba528",
+   "kind": "table",
+   "target": "appendix-1-table-p129: Inspection recording form with timing and frequency chart",
+   "value": {
+    "columns": [
+     "Place of work or work equipment",
+     "Inspect before work at the start of every shift (see note 1)",
+     "Inspect after any event likely to have affected its strength or stability",
+     "Inspect after accidental fall of rock, earth or other material",
+     "Inspect after installation or assembly in any position (see notes 2 and 3)",
+     "Inspect at suitable intervals",
+     "Inspect after exceptional circumstances which are liable to jeopardise the safety of work equipment",
+     "Inspect at intervals not exceeding 7 days (see note 3)",
+     "Check on each occasion before use (REPORT NOT REQUIRED)",
+     "LOLER Thorough Examination (if work equipment subject to LOLER) (see note 4)"
+    ],
+    "rows": [
+     [
+      "Excavations which are supported to prevent any person being buried or trapped by an accidental collapse or a fall or dislodgement of material",
+      "✓",
+      "✓",
+      "✓",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "Cofferdams and caissons",
+      "✓",
+      "✓",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "The surface and every parapet or permanent rail of every existing place of work at height",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "✓",
+      ""
+     ],
+     [
+      "Guard rails, toe boards, barriers and similar collective means of fall protection",
+      "",
+      "",
+      "",
+      "✓",
+      "✓",
+      "✓",
+      "",
+      "",
+      ""
+     ],
+     [
+      "Scaffolds and other working platforms (including tower scaffolds and MEWPs) used for construction work and from which a person could fall more than 2m",
+      "",
+      "",
+      "",
+      "✓",
+      "",
+      "✓",
+      "✓",
+      "",
+      "✓"
+     ],
+     [
+      "All other working platforms",
+      "",
+      "",
+      "",
+      "✓",
+      "✓",
+      "✓",
+      "",
+      "",
+      "✓"
+     ],
+     [
+      "Collective safeguards for arresting falls (eg nets, airbags, soft landing systems)",
+      "",
+      "",
+      "",
+      "✓",
+      "✓",
+      "✓",
+      "",
+      "",
+      ""
+     ],
+     [
+      "Personal fall protection systems (including work positioning, rope access, work restraint and fall arrest systems)",
+      "",
+      "",
+      "",
+      "✓",
+      "✓",
+      "✓",
+      "",
+      "",
+      "✓"
+     ],
+     [
+      "Ladders and stepladders",
+      "",
+      "",
+      "",
+      "",
+      "✓",
+      "✓",
+      "",
+      "✓",
+      ""
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Inspection recording form with timing and frequency chart: excavations which are supported to prevent any person being buried or trapped by an accidental collapse or a fall or dislodgement of material need: inspect before work at the start of every shift (see note 1); inspect after any event likely to have affected its strength or stability; inspect after accidental fall of rock, earth or other material.",
+     "Inspection recording form with timing and frequency chart: cofferdams and caissons need: inspect before work at the start of every shift (see note 1); inspect after any event likely to have affected its strength or stability.",
+     "Inspection recording form with timing and frequency chart: the surface and every parapet or permanent rail of every existing place of work at height need: check on each occasion before use (REPORT NOT REQUIRED).",
+     "Inspection recording form with timing and frequency chart: guard rails, toe boards, barriers and similar collective means of fall protection need: inspect after installation or assembly in any position (see notes 2 and 3); inspect at suitable intervals; inspect after exceptional circumstances which are liable to jeopardise the safety of work equipment.",
+     "Inspection recording form with timing and frequency chart: scaffolds and other working platforms (including tower scaffolds and MEWPs) used for construction work and from which a person could fall more than 2m need: inspect after installation or assembly in any position (see notes 2 and 3); inspect after exceptional circumstances which are liable to jeopardise the safety of work equipment; inspect at intervals not exceeding 7 days (see note 3); LOLER Thorough Examination (if work equipment subject to LOLER) (see note 4).",
+     "Inspection recording form with timing and frequency chart: all other working platforms need: inspect after installation or assembly in any position (see notes 2 and 3); inspect at suitable intervals; inspect after exceptional circumstances which are liable to jeopardise the safety of work equipment; LOLER Thorough Examination (if work equipment subject to LOLER) (see note 4).",
+     "Inspection recording form with timing and frequency chart: collective safeguards for arresting falls (eg nets, airbags, soft landing systems) need: inspect after installation or assembly in any position (see notes 2 and 3); inspect at suitable intervals; inspect after exceptional circumstances which are liable to jeopardise the safety of work equipment.",
+     "Inspection recording form with timing and frequency chart: personal fall protection systems (including work positioning, rope access, work restraint and fall arrest systems) need: inspect after installation or assembly in any position (see notes 2 and 3); inspect at suitable intervals; inspect after exceptional circumstances which are liable to jeopardise the safety of work equipment; LOLER Thorough Examination (if work equipment subject to LOLER) (see note 4).",
+     "Inspection recording form with timing and frequency chart: ladders and stepladders need: inspect at suitable intervals; inspect after exceptional circumstances which are liable to jeopardise the safety of work equipment; check on each occasion before use (REPORT NOT REQUIRED)."
+    ]
+   },
+   "reason": "Checked every tick against the page image; the grid matched. Ticks are written as ✓ (the grid showed them as 3). The grid's two header rows are merged into one lowest header row of column headings.",
+   "evidence": "Page 129 chart: nine tick columns under 'Timing and frequency of checks, inspections and examinations'; ticks read per row from the image.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "764cf2b4ed5b8d72",
+   "kind": "table",
+   "target": "appendix-1-table-2: Inspection recording form with timing and frequency chart",
+   "value": {
+    "columns": [
+     "Note",
+     "Text"
+    ],
+    "rows": [
+     [
+      "1",
+      "Although an excavation must be inspected at the start of every shift, only one report is needed in any seven-day period. However, if something happens to affect its strength or stability, and/or an additional inspection is carried out, a report must then be completed. A record of this inspection must be made and retained for three months."
+     ],
+     [
+      "2",
+      "‘Installation’ means putting into position and ‘assembly’ means putting together. You are not required to inspect and provide a report every time a ladder, tower scaffold or mobile elevated work platform (MEWP) is moved on site or a personal fall protection system is clipped to a new location."
+     ],
+     [
+      "3",
+      "An inspection and a report is required for a tower scaffold or MEWP (used for construction work and from which a person could fall 2 metres) after installation or assembly and every seven days thereafter, providing the equipment is being used on the same site. A record of this inspection must be made and retained for three months. If a tower scaffold is reassembled rather than simply moved, then an additional, pre-use inspection and report is required. It is acceptable for this inspection to be carried out by the person responsible for erecting the tower scaffold, providing they are trained and competent. A visible tag system, which supplements inspection records as it is updated following each pre-use inspection, is a way of recording and keeping the results until the next inspection."
+     ],
+     [
+      "4",
+      "All work equipment subject to LOLER regulation 9, thorough examination and inspection requirements, will continue to be subject to LOLER regulation 9 requirements."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Inspection recording form with timing and frequency chart, note 1: Although an excavation must be inspected at the start of every shift, only one report is needed in any seven-day period. However, if something happens to affect its strength or stability, and/or an additional inspection is carried out, a report must then be completed. A record of this inspection must be made and retained for three months.",
+     "Inspection recording form with timing and frequency chart, note 2: ‘Installation’ means putting into position and ‘assembly’ means putting together. You are not required to inspect and provide a report every time a ladder, tower scaffold or mobile elevated work platform (MEWP) is moved on site or a personal fall protection system is clipped to a new location.",
+     "Inspection recording form with timing and frequency chart, note 3: An inspection and a report is required for a tower scaffold or MEWP (used for construction work and from which a person could fall 2 metres) after installation or assembly and every seven days thereafter, providing the equipment is being used on the same site. A record of this inspection must be made and retained for three months. If a tower scaffold is reassembled rather than simply moved, then an additional, pre-use inspection and report is required. It is acceptable for this inspection to be carried out by the person responsible for erecting the tower scaffold, providing they are trained and competent. A visible tag system, which supplements inspection records as it is updated following each pre-use inspection, is a way of recording and keeping the results until the next inspection.",
+     "Inspection recording form with timing and frequency chart, note 4: All work equipment subject to LOLER regulation 9, thorough examination and inspection requirements, will continue to be subject to LOLER regulation 9 requirements."
+    ]
+   },
+   "reason": "This packet's area (below the chart) is the numbered Notes 1 to 4, not a table. The library grid repeats the chart from packet 002. I kept the notes as a two-column list (note number, text) with no invented headings beyond that. Packet 002 holds the real chart.",
+   "evidence": "Page 129: 'Notes' block with numbered paragraphs 1 to 4 under the chart; text matches the section text.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "low",
+   "date": "2026-11-22"
   }
  ]
 }
