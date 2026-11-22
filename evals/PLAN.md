@@ -76,6 +76,12 @@ against our 0.94. Report: [experiments/X-external-mcp.md](experiments/X-external
   2a86e19). 404 of 459 crops ok, 55 bad and listed in S98. Open model checks are not run yet; the new table pages
   need table checks.
 
+**Next after the crops (Florin, 22 Nov): make parsing traceable and repeatable.**
+1. Each tree records the git commit and a hash of its parser file, not only the label (the labels were not bumped
+   when the code changed).
+2. A test parses a few small PDFs twice and checks the trees are identical (covers S97).
+3. A manifest per parse run in git: source, raw file hash, parser hash, tree hash, so output changes show as diffs.
+
 Inventory (21 Nov): 139 non-legislation sources. 47 have open model checks, 1,468 in total. The biggest are:
 - fso-guidance-collection: 511
 - br-circulars: 129
