@@ -1227,3 +1227,78 @@ def test_a_contents_page_with_its_page_numbers_in_a_column_stays_skipped():
     t = build_tree({"lines": lines, "rects": [], "images": [], "page_count": 4}, META)
     kept = all_text(t)
     assert "This book contains the Approved Code" in kept and "The role of the client" not in kept
+
+
+def test_running_text_without_numbers_is_cut_at_page_breaks_so_citations_name_the_page():
+    """bc-changes-2023 (a 25-page letter) and Procurement Act short guides were one text section each, cited as
+    page 1. Unnumbered text starts a new section on a new page when the last page ended a sentence, and always on
+    its third page; a sentence running over one page break stays whole."""
+    lines = [ln(1, 300, "Dear Sir or Madam, I am writing about the changes to building control.", x0=43),
+             ln(2, 100, "The new rules apply from 1 October 2023 to all building work in", x0=43),
+             ln(3, 100, "England. Applications must be made to the regulator before work starts", x0=43),
+             ln(4, 100, "and the regulator will decide them within twelve weeks of receipt", x0=43),
+             ln(5, 100, "Enquiries should be sent to the department by email.", x0=43)]
+    t = build_tree({"lines": [ln(1, 80, "Building control letter", 30.0, "Arial-Bold", 43)] + lines, "rects": [],
+                    "images": [], "page_count": 5}, META)
+    texts = [(s["file_page"], s["text"][:20]) for s in t["sections"] if s["type"] == "text"]
+    assert texts == [(1, "Dear Sir or Madam, I"), (2, "The new rules apply "), (4, "and the regulator wi")]
+
+
+def test_small_print_pages_apart_is_not_one_table_and_a_box_round_text_is_not_a_grid():
+    """bc-changes-2023: a one-line web address on page 1 and the legal text of Annex A on page 17, both small
+    print under the same chapter, were joined into one 'table' cited as page 1; the Annex is set in a ruled box
+    (a one-column 'table'), which made its sentences look tabular. Now: the address is text, the Annex is text."""
+    annex = ["(a) the name, address, telephone number and email address of the applicant;",
+             "(b) where the applicant is not the client, the name and address of the client;",
+             "(c) where known, the name and address of the principal contractor and designer;",
+             "(d) a statement that the application is for building control approval."]
+    lines = [ln(1, 80, "Building control letter", 30.0, "Arial-Bold", 43),
+             ln(1, 210, "www.gov.uk/dluhc", 8.0, "Arial-BoldMT", 326),
+             *[ln(p, 300 + 14 * k, "Dear Sir or Madam, I am writing to you about the changes to building control.", x0=43)
+               for p in (1, 2, 3) for k in range(8)],
+             *[ln(17, 200 + 24 * k, t, 8.0, x0=71) for k, t in enumerate(annex)]]
+    box = {"page": 17, "top": 173.0, "bottom": 772.0, "x0": 40.0, "x1": 560.0, "rows": [[a] for a in annex]}
+    t = build_tree({"lines": lines, "rects": [], "images": [], "page_count": 17, "tables": [box]}, META)
+    assert not [s for s in t["sections"] if s["type"] == "table"]
+    assert {s["file_page"] for s in t["sections"] if s.get("small_print")} == {1, 17}
+
+
+def test_a_frame_round_the_whole_page_does_not_stop_two_columns_being_split():
+    """Procurement Act short guides draw a border round each page; pdfplumber reads it as a 'table' holding the
+    whole page, and lines inside ruled tables are never cut into columns, so both columns were read across
+    ("What is Find a Tender, the What will this mean for"). A table as large as the page is a frame."""
+    rows = [("Find a Tender, the central digital", "Find a Tender is the central place for"),
+            ("platform, is where all UK contracting", "the contracting authority to register"),
+            ("authorities publish information relating", "their organisation initially and then"),
+            ("to procurement. It is also the place", "publish their procurement notices.")]
+    lines = []
+    for k, (a, b) in enumerate(rows):
+        words = [{"x0": 44.0 + 6 * i, "x1": 48.0 + 6 * i, "text": w} for i, w in enumerate(a.split())]
+        words += [{"x0": 314.0 + 6 * i, "x1": 318.0 + 6 * i, "text": w} for i, w in enumerate(b.split())]
+        lines.append(ln(2, 120 + 17 * k, f"{a} {b}", 13.0, x0=44, words=words))
+    frame = {"page": 2, "top": -7.8, "bottom": 860.9, "x0": 0.0, "x1": 596.5, "rows": [["...", ""], ["", "..."]]}
+    out = split_columns(lines, 13.0, 595.0, [frame], 842.0)
+    assert [l["text"] for l in out if l["col"] == 0][0] == "Find a Tender, the central digital"
+    assert len(out) == 8
+
+
+def test_narrow_text_columns_inside_a_page_frame_are_not_a_picture():
+    """CDP short guide page 5: once the page frame no longer stops the columns being cut, two narrow columns of
+    short lines (five or six words each) and a few drawn panels looked like a flow chart and became one figure.
+    On a page inside a frame, four or more body lines one under the other at the same left edge are running text."""
+    left = ["Public procurement will always be", "possible. The Procurement Act and", "the Regulations allow for contingency",
+            "arrangements to be enacted by the", "contracting authority, if a supplier", "cannot access Find a Tender."]
+    right = ["Sign up for the newsletter", "Any queries: contact us at", "For more information", "Knowledge Drop videos",
+             "Factsheets", "Technical Guidance", "E-learning manual"]
+    lines = [ln(1, 80, "Find a Tender factsheet", 40.0, "HelveticaNowText-Bold", 44)]
+    for p in (1, 2, 3, 4):
+        lines += [ln(p + 1, 116 + 17 * k, t, 13.0, x0=51) for k, t in enumerate(left)]
+        lines += [ln(p + 1, 116 + 23 * k, t, 13.0, x0=321) for k, t in enumerate(right)]
+        lines += [ln(p + 1, 40, "What happens if a", 13.3, x0=110), ln(p + 1, 60, "11", 24.3, x0=56),
+                  ln(p + 1, 300, "procurement.reform@cabinetoffice.gov.uk", 13.0, x0=371),
+              ln(p + 1, 480, "Contracting Authorities", 13.0, x0=200)]
+    frame = [{"page": p, "top": -8.0, "bottom": 861.0, "x0": 0.0, "x1": 596.0, "rows": [["...", ""]]} for p in range(1, 6)]
+    shapes = [_shape(p, 310, 100 + 25 * i, 560, 120 + 25 * i) for p in range(2, 6) for i in range(12)]
+    t = build_tree({"lines": lines, "rects": [], "images": [], "page_count": 5, "tables": frame, "graphics": shapes,
+                    "pages": {str(p): {"width": 596.0, "height": 842.0} for p in range(1, 6)}}, META)
+    assert not [s for s in t["sections"] if s["type"] in ("figure", "table")]

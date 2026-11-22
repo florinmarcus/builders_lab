@@ -184,13 +184,16 @@ def _segment(l: dict, ws: list[dict]) -> dict:
 
 
 def split_columns(lines: list[dict], body_size: float, page_width: float,
-                  tables: list[dict] | None = None) -> list[dict]:
+                  tables: list[dict] | None = None, page_height: float | None = None) -> list[dict]:
     """Pages set in columns (a sidebar beside the main text, or two text columns): pdfplumber joins words that
     sit at the same height in different columns into one line. Find each page's gutters (a wide gap in at least
     GUTTER_MIN_LINES lines, all at the same place, with body-size text on its right), cut lines there, and give
     every line its reading order: "band" (full-width lines separate bands) and "col". A narrow first column
     (under 36% of the page) is a sidebar: its lines are marked "aside".
-    Small print, and lines inside a ruled table, are never cut: table cells are not columns of text."""
+    Small print, and lines inside a ruled table, are never cut: table cells are not columns of text. A "table"
+    as large as the page is a frame drawn round it (Procurement Act short guides), not a table."""
+    ph = page_height or 1.414 * page_width
+    tables = [t for t in tables or [] if not (t["x1"] - t["x0"] >= 0.85 * page_width and t["bottom"] - t["top"] >= 0.85 * ph)]
     out: list[dict] = []
     pages: dict[int, list[dict]] = {}
     for l in lines:
@@ -372,7 +375,7 @@ def read_pdf(path, *, graphics: bool = False, superscripts: bool = False, common
             width, height = Counter((float(p.width), float(p.height)) for p in pdf.pages).most_common(1)[0][0]
     sizes = _size_weights(lines)
     body = sizes.most_common(1)[0][0] if sizes else 10.0
-    lines = split_columns(lines, body, width, tables)
+    lines = split_columns(lines, body, width, tables, height)
     out = {"lines": lines, "rects": rects, "images": images, "tables": tables, "page_count": count,
            "page_width": width, "page_height": height}
     if graphics:
@@ -418,18 +421,21 @@ class Builder:
     def __init__(self, doc: dict, meta: dict, fixes: list[dict] | None = None):
         self.meta = meta
         self.fixes = index(fixes)
-        self.doc_tables = doc.get("tables", [])
         self.page_width = doc.get("page_width") or 595.0
+        self.page_sizes = {int(k): v for k, v in (doc.get("pages") or {}).items()}
+        # A "ruled table" as large as the page is a frame drawn round it (Procurement Act short guides), not a table.
+        self.doc_tables = [t for t in doc.get("tables", []) if not self._page_frame(t, doc)]
+        self._frames_dropped = Counter(t["page"] for t in doc.get("tables", []) if self._page_frame(t, doc))
         self.title = meta.get("title") or meta.get("source_id", "")
         self.page_height = doc.get("page_height") or 842.0
         # Reading order: page, then band and column on pages set in columns (split_columns), then top to bottom.
         self.lines = sorted(doc["lines"], key=lambda l: (l["page"], l.get("band", 0), l.get("col", 0), l["top"], l["x0"]))
         self.rects = doc.get("rects", [])
+        self._rects_by_page: dict[int, list[dict]] | None = None
         self.images = doc.get("images", [])
         # Drawn shapes and page sizes (read_pdf(graphics=True)). None when the reader did not collect them: the
         # rules that need them are then skipped (hand-made test documents, older callers).
         self.graphics = doc.get("graphics")
-        self.page_sizes = {int(k): v for k, v in (doc.get("pages") or {}).items()}
         self._shape_cache: dict[int, list[dict]] = {}
         self._stoppers: dict[int, bool] = {}
         self._edges: dict[int, list[float]] = {}
@@ -450,6 +456,9 @@ class Builder:
         self._body_captions()
         self.thumbnails = self._thumbnail_boxes()
         self._diagram_pages()
+        self.lines_by_page: dict[int, list[dict]] = {}
+        for l in self.lines:
+            self.lines_by_page.setdefault(l["page"], []).append(l)
         self._photo_captions()
         self._caption_sides()
 
@@ -487,6 +496,18 @@ class Builder:
         """Images on a page, without a scan or background that fills most of it."""
         pw, ph = self.page_size(page)
         return [i for i in self.images if i["page"] == page and (i["x1"] - i["x0"]) * (i["bottom"] - i["top"]) < 0.6 * pw * ph]
+
+    def _column_runs(self, ls: list[dict]) -> list[dict]:
+        """Lines in runs of four or more body-size lines at the same left edge, each under the last."""
+        out, run = [], []
+        for l in sorted((l for l in ls if l["size"] == self.body_size), key=lambda l: (round(l["x0"]), l["top"])):
+            if run and abs(l["x0"] - run[-1]["x0"]) <= 2 and 0 < l["top"] - run[-1]["top"] <= 1.6 * l["size"]:
+                run.append(l)
+                continue
+            if len(run) >= 4:
+                out += run
+            run = [l]
+        return out + (run if len(run) >= 4 else [])
 
     def drawn_page(self, page: int, ls: list[dict]) -> str | None:
         """What ink a page of short scattered lines has besides words: "picture" (text set in drawn boxes as in a
@@ -934,6 +955,10 @@ class Builder:
                 continue
             running = [l for l in ls if l["size"] == self.body_size and abs(l["x0"] - self.left(l)) <= 3
                        and len(l["text"].split()) >= 7]
+            if self._frames_dropped.get(page):
+                # On a page inside a frame (Procurement Act short guides), narrow columns of text: four or more
+                # body-size lines one under the other at the same left edge are running text too.
+                running += [l for l in self._column_runs(ls) if l not in running]
             near_body = [l for l in ls if l["size"] >= self.body_size - 1]
             if len(running) > 0.15 * len(ls) or len(near_body) < 0.7 * len(ls):
                 continue
@@ -1305,8 +1330,12 @@ class Builder:
     # -------------------------------------------------- classification helpers
 
     def rect_of(self, l):
-        for r in self.rects:
-            if r["page"] == l["page"] and r["top"] - 3 <= l["top"] <= r["bottom"] and r["x0"] - 6 <= l["x0"] <= r["x1"]:
+        if self._rects_by_page is None:  # the same first match as a scan of all rects, page by page (speed)
+            self._rects_by_page = {}
+            for r in self.rects:
+                self._rects_by_page.setdefault(r["page"], []).append(r)
+        for r in self._rects_by_page.get(l["page"], ()):
+            if r["top"] - 3 <= l["top"] <= r["bottom"] and r["x0"] - 6 <= l["x0"] <= r["x1"]:
                 return r
         return None
 
@@ -1655,6 +1684,7 @@ class Builder:
         self.page_one_chapters = self._page_one_chapters() if self.has_chapters else set()
         front_pages = self._front_pages()  # content before the first chapter title (not cover, contents, imprint)
         front_caption = False    # content mode entered at a captioned figure before chapter 1 (HSG227)
+        text_page: dict[str, int] = {}  # the page of the last line added to each text section
         mode = "skip" if self.has_chapters else "content"  # skip (cover, contents), content, back
         chapter = heading = None  # current chapter and heading sections
         para = None              # current numbered paragraph or text section
@@ -1891,7 +1921,7 @@ class Builder:
                 if id(r) in rect_done:
                     continue
                 rect_done.add(id(r))
-                inside = [x for x in self.lines if self.rect_of(x) is r and not self.is_small(x)]
+                inside = [x for x in self.lines_by_page.get(r["page"], []) if self.rect_of(x) is r and not self.is_small(x)]
                 # The first line "Box N: title" is the title, bold or not; a wrapped title line joins it.
                 m = re.match(r"^Box\s+(\d+)\s*:\s*(.*)$", inside[0]["text"]) if inside else None
                 body = inside[1:] if m else inside
@@ -1996,12 +2026,19 @@ class Builder:
                                 l["page"], _join("", m.group(2).lstrip("—– ")), top=l["top"])
                 last_body = para
                 continue
-            if para is None or para["parent_id"] != parent["id"] and para["type"] == "text":
+            # Unnumbered running text starts a new section on a new page when the last page ended a sentence, and
+            # always on its third page: a citation then names the page the words are on (a 25-page letter was one
+            # section "on page 1").
+            new_page = para is not None and para["type"] == "text" and text_page.get(para["id"]) not in (None, l["page"]) \
+                and (bool(re.search(r"[.!?:;][\"”’)]*$", para["text"].rstrip())) and not l["text"].lstrip()[:1].islower()
+                     or text_page[para["id"]] > para["file_page"])
+            if para is None or para["parent_id"] != parent["id"] and para["type"] == "text" or new_page:
                 k = 1 + sum(1 for s in self.sections if s["parent_id"] == parent["id"] and s["type"] == "text")
                 para = self.new(f"{parent['id']}-text-{k}", "text", parent, None, None,
                                 [*parent["heading_path"], "Text"], l["page"], top=l["top"])
                 last_body = para
             para["text"] = _join(para["text"], l["text"])
+            text_page[para["id"]] = l["page"]
         self.place_small(small_lines, captions_on_page)
         self.place_images(captions_on_page)
         self.attach_grids()
@@ -2065,6 +2102,7 @@ class Builder:
             else:
                 blocks.append([l])
         unnamed: dict[str, dict] = {}
+        made: list[dict] = []  # every table without a caption made here, in order
         drawn: list[dict] = []  # drawings found from their labels (no caption)
         n_blocks: dict[int, int] = {}  # blocks of small print in each table without a caption
         for b in blocks:
@@ -2155,15 +2193,18 @@ class Builder:
             if not joins_table and not any(re.search(r"[A-Za-z]{2}", x) for x in texts):
                 continue  # no word, only stray letters and marks (",.\"'C;"): not a table
             t = unnamed.get(key)
+            if t is not None and page > max(int(pg) for pg in t["spans"]) + 1:
+                t = None  # small print pages later is another table, not more rows of this one (bc-changes-2023)
             if t is None:
                 k = 1 + sum(1 for s in self.sections if s["parent_id"] == key and s["type"] == "table")
                 t = self.new(f"{key}-table-{k}", "table", parent, None, parent["title"],
                              [*parent["heading_path"], f"Table ({parent['title']})"], page)
                 unnamed[key] = t
+                made.append(t)
             t["text"] = "\n".join(x for x in [t["text"], *texts] if x)
             self.span(t, page, top, bottom + b[-1]["size"] + 2)
             n_blocks[id(t)] = n_blocks.get(id(t), 0) + 1
-        for t in unnamed.values():
+        for t in made:
             # A lone label that nothing joined ("RCS dust" beside a photo, "4 October 2022" on a cover, "INDG401"
             # over a heading), with no ruled table under it: text, not a table.
             if n_blocks.get(id(t)) == 1 and "\n" not in t["text"] and len(t["text"].split()) <= 3 and not any(
@@ -2213,7 +2254,8 @@ class Builder:
         if len(block) == 1 and len(block[0]["text"].split()) >= 4 and not any(
                 t["page"] == page and t["top"] - 2 <= top <= t["bottom"] + 2 for t in self.doc_tables):
             return False  # one line of words outside any ruled table: a sentence
-        if any(t["page"] == page and t["top"] - 5 <= bottom and t["bottom"] + 5 >= top for t in self.doc_tables):
+        if any(t["page"] == page and t["top"] - 5 <= bottom and t["bottom"] + 5 >= top and self._ruled_grid(t)
+               for t in self.doc_tables):
             return True
         gapped = 0
         for x in block:
@@ -2224,6 +2266,16 @@ class Builder:
                    for k in range(first, len(ws))):
                 gapped += 1
         return gapped >= max(1, 0.25 * len(block)) or len(block) == 1 and len(block[0]["text"].split()) <= 3
+
+    def _page_frame(self, t: dict, doc: dict) -> bool:
+        p = self.page_sizes.get(t["page"])
+        pw, ph = (p["width"], p["height"]) if p else (doc.get("page_width") or 595.0, doc.get("page_height") or 842.0)
+        return t["x1"] - t["x0"] >= 0.85 * pw and t["bottom"] - t["top"] >= 0.85 * ph
+
+    @staticmethod
+    def _ruled_grid(t: dict) -> bool:
+        """A ruled table with two or more filled columns, not a box drawn round text (a one-column 'table')."""
+        return len({k for r in t["rows"] for k, c in enumerate(r) if c and c.strip()}) >= 2
 
     def attach_grids(self) -> None:
         """Give each table section the PDF tables that overlap its lines; header rows repeated on later

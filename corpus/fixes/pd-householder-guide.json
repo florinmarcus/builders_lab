@@ -186,6 +186,160 @@
    "by": "model check, Sonnet (Claude Code headless, packet)",
    "confidence": "low",
    "date": "2026-11-22"
+  },
+  {
+   "key": "33383f3381d77370",
+   "kind": "figure_description",
+   "target": "x-figure-3: X",
+   "value": "A plan diagram of a house and extension with a cross mark (X) beside it. A hatched extension box, marked 3m, sits beside wall A and extends more than 6m beyond wall B. Printed labels read: No more than half the width of the original house; 3m; A; B; Extends more than 6m beyond wall B; This is the width of the original house (measured at widest point) for the purpose of calculating the \"half width\" limit for the extension.",
+   "reason": "Figure shows a plan diagram with printed labels and an X mark.",
+   "evidence": "Labels read in image: 'Extends more than 6m beyond wall B', '3m', 'A', 'B', 'No more than half the width of the original house'.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "81c63c9a654e82d6",
+   "kind": "figure_description",
+   "target": "x-figure-4: X",
+   "value": "A plan diagram of a house with a side extension A and a rear extension B, with a tick mark beside it. Printed labels read: 3m; A; B; Enlarged part of house (A) that extends beyond side wall of house remains less than half the width of the original house; This is the width of the original house (measured at the widest point) for the purpose of calculating the \"half width\" limit for the extension.",
+   "reason": "Figure shows a labelled plan diagram with a tick mark.",
+   "evidence": "Image labels 'A', 'B', '3m' and the printed caption about enlarged part of house (A) remaining less than half the width.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "28e603a7c3a88f45",
+   "kind": "table",
+   "target": "class-a-enlargement-improvement-or-alteration-table-1: Class A – enlargement, improvement or alteration",
+   "value": {
+    "columns": [
+     "Diagram key"
+    ],
+    "rows": [
+     [
+      "Curtilage of house"
+     ],
+     [
+      "Original house"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Class A – enlargement, improvement or alteration: the diagram key lists Curtilage of house.",
+     "Class A – enlargement, improvement or alteration: the diagram key lists Original house."
+    ]
+   },
+   "reason": "The page prints no table; the only table-like part is the key beside the 50% curtilage diagram, with two labels and no heading, so a neutral heading was used.",
+   "evidence": "Page 10 diagram key: 'Curtilage of house' (white box) and 'Original house' (blue box).",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "a1c0c400aae2c77f",
+   "kind": "table",
+   "target": "class-a-enlargement-improvement-or-alteration-table-2: Class A – enlargement, improvement or alteration",
+   "value": {
+    "columns": [
+     "Drawing label"
+    ],
+    "rows": [
+     [
+      "The eaves of any extension can not be above the horizontal level of this line on this elevation of the house."
+     ],
+     [
+      "The eaves of any extension can not be above the horizontal level of this line on this elevation of the house."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Class A – enlargement, improvement or alteration: a drawing label says the eaves of any extension can not be above the horizontal level of this line on this elevation of the house.",
+     "Class A – enlargement, improvement or alteration: a second drawing label says the eaves of any extension can not be above the horizontal level of this line on this elevation of the house."
+    ]
+   },
+   "reason": "The page has no table, only a house drawing with the same label printed twice, once on each side; no heading is printed so a neutral one was used.",
+   "evidence": "Page 13 drawing under the eaves paragraph shows two identical labels pointing at the dashed eaves line.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "c32b1a16ce9d2571",
+   "kind": "table",
+   "target": "class-a-enlargement-improvement-or-alteration-table-3: Class A – enlargement, improvement or alteration",
+   "value": {
+    "columns": [
+     "Drawing label"
+    ],
+    "rows": [
+     [
+      "Any extension forward of this line will not be permitted development and will require an application for planning permission"
+     ],
+     [
+      "Bay windows form part of principal elevation"
+     ],
+     [
+      "Principal Elevation"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Class A – enlargement, improvement or alteration: a drawing label says any extension forward of this line will not be permitted development and will require an application for planning permission.",
+     "Class A – enlargement, improvement or alteration: a drawing label says bay windows form part of principal elevation.",
+     "Class A – enlargement, improvement or alteration: a drawing label says Principal Elevation."
+    ]
+   },
+   "reason": "No table is printed; these are the labels of the first principal elevation drawing on page 15. The extraction span is unclear about the second drawing, so only the first drawing's labels are used.",
+   "evidence": "Page 15 first diagram: labels 'Any extension forward of this line will not be permitted development...', 'Bay windows form part of principal elevation', 'Principal Elevation'.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "low",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "4477eef8942da3a4",
+   "kind": "table",
+   "target": "x-table-1: X",
+   "value": {
+    "columns": [
+     "Drawing label"
+    ],
+    "rows": [
+     [
+      "More than half the width of the original house"
+     ],
+     [
+      "This is the width of the original house (measured at the widest point) for the purpose of calculating the “half width” limit for the extension"
+     ],
+     [
+      "Total enlargement (A+B) is now more than half the width of the original house"
+     ],
+     [
+      "This is the width of the original house (measured at the widest point) for the purpose of calculating the “half width” limit for the extension"
+     ],
+     [
+      "Enlarged part of house (A) that extends beyond side wall of house remains less than half the width of the original house"
+     ],
+     [
+      "This is the width of the original house (measured at the widest point) for the purpose of calculating the “half width” limit for the extension"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "X: a drawing label says more than half the width of the original house.",
+     "X: a drawing label says this is the width of the original house (measured at the widest point) for the purpose of calculating the “half width” limit for the extension.",
+     "X: a drawing label says total enlargement (A+B) is now more than half the width of the original house.",
+     "X: a drawing label says this is the width of the original house (measured at the widest point) for the purpose of calculating the “half width” limit for the extension.",
+     "X: a drawing label says the enlarged part of house (A) that extends beyond side wall of house remains less than half the width of the original house.",
+     "X: a drawing label says this is the width of the original house (measured at the widest point) for the purpose of calculating the “half width” limit for the extension."
+    ]
+   },
+   "reason": "No table is printed; the cells are text labels in extension drawings on pages 26 to 28, with no headings. A neutral heading was used. The 3m, A and B marks were left out as dimension marks.",
+   "evidence": "Page 26 second drawing, page 27 drawing and page 28 drawing carry these labels.",
+   "by": "model check, Claude Code subagent (packet)",
+   "confidence": "low",
+   "date": "2026-11-22"
   }
  ]
 }

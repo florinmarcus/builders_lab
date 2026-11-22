@@ -116,11 +116,23 @@ flowchart TD
     sub -->|yes| drop["dropped: part of the formula"]
     sub -->|no| foot{"footnote at the page foot ('1 Exemptions apply'),<br/>or the publisher's imprint (ISBN, 'Printed and published by')?<br/>a one-cell 'table' (page number) is not a ruled table"}
     foot -->|yes| text["text (small print)"]
-    foot -->|no| tab{"cut into cells (gaps; not the gap after a bullet)<br/>or inside a ruled table?"}
+    foot -->|no| tab{"cut into cells (gaps; not the gap after a bullet)<br/>or inside a ruled table with 2+ filled columns?<br/>(a box drawn round text is not a grid)"}
     tab -->|no| text
     tab -->|yes| t["table without a caption (model check)"]
     t --> lone{"only one short line, nothing joined,<br/>no ruled table?"}
     lone -->|yes| text
+    t --> far{"small print more than a page after<br/>the last rows of this table?"}
+    far -->|yes| t2["a new table"]
+```
+
+Pages and frames (coverage check, S105, 22 Nov 2026):
+
+```mermaid
+flowchart TD
+    txt["unnumbered running text, next line on a new page"] --> ends{"last page ended a sentence,<br/>or the section already covers two pages?"}
+    ends -->|yes| new["new text section (cited on its own page)"]
+    ends -->|no| on["runs on (one sentence over the page break)"]
+    frame["ruled 'table' 85%+ of the page wide and tall"] --> fr["a frame round the page: not a table,<br/>and the text inside it is cut into columns"]
 ```
 
 Running text is body-size text of six words or more not set in a drawn box, starting at a left edge many long
