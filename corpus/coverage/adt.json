@@ -1,0 +1,24 @@
+{
+ "source_id": "adt",
+ "about": "Coverage items a person looked at and keeps, for adt (system/rag/coverage.py).",
+ "accepted": {
+  "c8303bc7:p28:table@130": {
+   "version_id": "toilet-accommodation-approved-document-t@2025-11-03-c8303bc7",
+   "kind": "table",
+   "page": 28,
+   "detail": "3x6 table at top 130: diagram-6.1 is there but only 33% of the cell words; first row \"540mm\"",
+   "reason": "Not a table: ruled lines of the dimensioned plan of Diagram 6.1, wholly inside the diagram's crop; the 'cell' words are rotated dimension labels ('mm012' is '210mm' printed sideways), kept in the figure's labels and description (checked against the page image).",
+   "by": "Claude Code (parse_adoc coverage pass), 22 Nov 2026",
+   "date": "2026-11-22"
+  },
+  "c8303bc7:p3:image@428,341": {
+   "version_id": "toilet-accommodation-approved-document-t@2025-11-03-c8303bc7",
+   "kind": "image",
+   "page": 3,
+   "detail": "image 133x187pt at (428, 341), 5% of the page, in no figure crop",
+   "reason": "Decorative: a small picture of the cover of the 'Manual to the Building Regulations', set beside the Introduction paragraph that names the manual and gives its web address; the picture carries no text or information of its own (checked against the page image).",
+   "by": "Claude Code (parse_adoc coverage pass), 22 Nov 2026",
+   "date": "2026-11-22"
+  }
+ }
+}
