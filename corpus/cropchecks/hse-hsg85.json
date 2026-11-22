@@ -1,0 +1,61 @@
+{
+ "source_id": "hse-hsg85",
+ "about": "Model verdicts on figure crops for hse-hsg85 (system/rag/cropcheck.py).",
+ "verdicts": {
+  "ddb36c78a5a39bcb": {
+   "version_id": "main@2024-12-06-dbdc937e",
+   "figure": "figure-1",
+   "page": 11,
+   "verdict": "cut",
+   "problem": "The box holds only the caption bar and a line of body text above it; the whole flow chart below the caption lies outside the box.",
+   "caption_inside": true,
+   "confidence": "high",
+   "by": "crop check, Sonnet (Claude Code headless)",
+   "date": "2026-11-22"
+  },
+  "639e44c50045ff33": {
+   "version_id": "main@2024-12-06-dbdc937e",
+   "figure": "figure-2",
+   "page": 13,
+   "verdict": "cut",
+   "problem": "The bottom of the flow chart is cut off: the DEAD WORKING and LIVE WORKING PERMITTED end boxes are only partly inside the box.",
+   "caption_inside": true,
+   "confidence": "high",
+   "by": "crop check, Sonnet (Claude Code headless)",
+   "date": "2026-11-22"
+  },
+  "d8c2a2cdd0187a74": {
+   "version_id": "main@2024-12-06-dbdc937e",
+   "figure": "figure-3",
+   "page": 16,
+   "verdict": "cut",
+   "problem": "The box covers only a blank strip above the figure; the caption and the whole flow chart lie below it, outside the box.",
+   "caption_inside": false,
+   "confidence": "high",
+   "by": "crop check, Sonnet (Claude Code headless)",
+   "date": "2026-11-22"
+  },
+  "3801f7dcc60d6116": {
+   "version_id": "main@2024-12-06-dbdc937e",
+   "figure": "figure-4",
+   "page": 20,
+   "verdict": "cut",
+   "problem": "The box holds only the caption bar and part of a body text line; the whole flow chart below it lies outside the box.",
+   "caption_inside": true,
+   "confidence": "high",
+   "by": "crop check, Sonnet (Claude Code headless)",
+   "date": "2026-11-22"
+  },
+  "0cbea41de34af092": {
+   "version_id": "main@2024-12-06-dbdc937e",
+   "figure": "figure-5",
+   "page": 27,
+   "verdict": "cut",
+   "problem": "Most of the flow chart lies below the box (only the first step is partly inside), and the box also holds body text of paragraph 85.",
+   "caption_inside": true,
+   "confidence": "high",
+   "by": "crop check, Sonnet (Claude Code headless)",
+   "date": "2026-11-22"
+  }
+ }
+}

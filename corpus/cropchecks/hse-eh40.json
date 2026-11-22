@@ -1,0 +1,28 @@
+{
+ "source_id": "hse-eh40",
+ "about": "Model verdicts on figure crops for hse-eh40 (system/rag/cropcheck.py).",
+ "verdicts": {
+  "36ae5588f0f424f4": {
+   "version_id": "main@2024-12-06-736c6fc0",
+   "figure": "figure-p33",
+   "page": 33,
+   "verdict": "wrong",
+   "problem": "The box covers almost the whole page: the running header and the shaded worked examples 3 and 4 (text and small tables), with no figure titled 'The 8-hour reference period' on this page.",
+   "caption_inside": false,
+   "confidence": "medium",
+   "by": "crop check, Sonnet (Claude Code headless)",
+   "date": "2026-11-22"
+  },
+  "25db4fcc7ced4df8": {
+   "version_id": "main@2024-12-06-736c6fc0",
+   "figure": "figure-p39",
+   "page": 39,
+   "verdict": "wrong",
+   "problem": "The box holds a full page of body text (OEL rounding, paragraphs 87-89, group values and the start of the white spirit example), not a figure showing the reciprocal calculation procedure.",
+   "caption_inside": false,
+   "confidence": "high",
+   "by": "crop check, Sonnet (Claude Code headless)",
+   "date": "2026-11-22"
+  }
+ }
+}

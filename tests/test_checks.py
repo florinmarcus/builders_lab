@@ -107,3 +107,15 @@ def test_single_column_rows_are_not_headings_and_abbreviations_do_not_end_senten
     f = {"key": "0123456789abcdef", "kind": "figure_description", "target": "diagram-12.1: D", "reason": "r",
          "by": "t", "date": "2026-11-20", "value": "Plan of rooflights, max. area 5m2 each. Spacing min. 3m apart."}
     assert lint_fixes("x", [f]) == []
+
+
+def test_sentence_rules_allow_closing_brackets_and_list_numbers():
+    from system.rag.checks import _lint_table, _sentence_count
+    v = {"columns": ["Term", "Meaning"], "rows": [["a", "b"], ["c", "d"]], "heading_rows": [],
+         "sentences": ["Term a means b (see the glossary.)", "Term c means ‘d.’"]}
+    assert _lint_table(v) == []
+    v["sentences"][1] = "Term c means d"
+    assert _lint_table(v) == ["every sentence must end with a full stop"]
+    sign = ("A fire action notice with three steps: 1. Operate nearest fire alarm. 2. Leave building by the "
+            "nearest exit. 3. Report to the assembly point. A red box gives two rules.")
+    assert _sentence_count(sign) == 4  # the list numbers do not end sentences

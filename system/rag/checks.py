@@ -95,9 +95,14 @@ def _target_title(target: str) -> str:
 ABBREVIATIONS = re.compile(r"\b(max|min|approx|eg|e\.g|ie|i\.e|etc|no|para|paras|fig|ref|incl|vol|ch)\.", re.I)
 
 
+LIST_NUMBER = re.compile(r"(?:(?<=\s)|^)\d{1,2}\.(?=\s)")
+SENTENCE_END = re.compile(r"[.?][)\"'’”\]]*$")
+
+
 def _sentence_count(text: str) -> int:
     """Sentences in a description; printed abbreviations ("max.", "e.g.") do not end a sentence."""
     text = ABBREVIATIONS.sub(lambda m: m.group(0)[:-1], text.strip())
+    text = LIST_NUMBER.sub(lambda m: m.group(0)[:-1], text)  # "1. Operate the alarm" on a sign is not a sentence end
     return len([s for s in re.split(r"(?<=[.!?])\s+", text) if s])
 
 
@@ -164,7 +169,7 @@ def _lint_table(v) -> list[str]:
     want = len(rows) - len(set(heads))
     if not isinstance(sents, list) or len(sents) != want:
         bad.append(f"one sentence per row that is not a heading: {want} rows, {len(sents or [])} sentences")
-    elif not all(isinstance(s, str) and s.strip().endswith((".", "?")) for s in sents):
+    elif not all(isinstance(s, str) and SENTENCE_END.search(s.strip()) for s in sents):
         bad.append("every sentence must end with a full stop")
     return bad
 

@@ -1,0 +1,50 @@
+{
+ "source_id": "hse-cis69",
+ "about": "Model verdicts on figure crops for hse-cis69 (system/rag/cropcheck.py).",
+ "verdicts": {
+  "9bf346a33b47df69": {
+   "version_id": "main@2024-12-06-428b6de2",
+   "figure": "figure-1",
+   "page": 1,
+   "verdict": "cut",
+   "problem": "The figure also includes the sanding block and sanding pad photo above the box, which lies outside the red box; only the grinder photo is boxed.",
+   "caption_inside": false,
+   "confidence": "medium",
+   "by": "crop check, Sonnet (Claude Code headless)",
+   "date": "2026-11-22"
+  },
+  "342696e845ff3fed": {
+   "version_id": "main@2024-12-06-428b6de2",
+   "figure": "figure-2",
+   "page": 2,
+   "verdict": "cut",
+   "problem": "The figure has two photos (grinder hood above, breaker below) but the box holds only the breaker photo, and it also includes the Figure 3 caption and body text.",
+   "caption_inside": false,
+   "confidence": "high",
+   "by": "crop check, Sonnet (Claude Code headless)",
+   "date": "2026-11-22"
+  },
+  "686941ec4fd2c7b4": {
+   "version_id": "main@2024-12-06-428b6de2",
+   "figure": "figure-3",
+   "page": 2,
+   "verdict": "cut",
+   "problem": "Figure 3 has three photos of extraction units, but the box holds only the yellow vacuum photo; the other two photos above it are outside the box.",
+   "caption_inside": false,
+   "confidence": "high",
+   "by": "crop check, Sonnet (Claude Code headless)",
+   "date": "2026-11-22"
+  },
+  "c517f0444e86b195": {
+   "version_id": "main@2024-12-06-428b6de2",
+   "figure": "figure-4",
+   "page": 3,
+   "verdict": "cut",
+   "problem": "The figure has two labels (H class above, M class below) but the box holds only the M label, and it also includes body text bullets on the right.",
+   "caption_inside": false,
+   "confidence": "high",
+   "by": "crop check, Sonnet (Claude Code headless)",
+   "date": "2026-11-22"
+  }
+ }
+}
