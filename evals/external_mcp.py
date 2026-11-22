@@ -270,11 +270,17 @@ def ours_rows(run: str) -> dict[str, dict]:
     return {r["id"]: r for r in map(json.loads, p.read_text(encoding="utf-8").splitlines())} if p.exists() else {}
 
 
-def ours_ranked(row: dict, k: int) -> list[str]:
-    """Our ranked section keys: the re-ranked top 5 first (what the user gets), then the remaining candidates."""
+def ours_ranked(row: dict, k: int, only: set[str] | None = None) -> list[str]:
+    """Our ranked section keys: the re-ranked top 5 first (what the user gets), then the remaining candidates.
+
+    `only` keeps just the keys of those sources (e.g. legislation), so our index is compared like for like with a
+    server that holds only laws: the external servers return k laws, our top k also holds guidance."""
     top = list(row.get("top5") or [])
     rest = [c for c in row.get("candidates") or [] if c not in top]
-    return (top + rest)[:k]
+    keys = top + rest
+    if only is not None:
+        keys = [c for c in keys if c.split(":", 1)[0] in only]
+    return keys[:k]
 
 
 def score_question(q: dict, g: dict, results: list[dict], leg: dict, gov: dict, k: int) -> dict:
@@ -317,6 +323,7 @@ def score(k_list=(5, 10)) -> dict:
     systems = {f"{s}-{m}": load_run(s, m) for s in SERVERS for m in ("raw", "keyword")}
     ours = {"ours-L1-raw": ours_rows("L1-full-hybrid"), "ours-V0-raw": ours_rows("V0-vector-only"),
             "ours-X1-keyword": ours_rows("X1-keyword-hybrid"), "ours-X2-keyword": ours_rows("X2-keyword-vector")}
+    ours.update({f"{n}-same-type": rows for n, rows in list(ours.items())})  # laws only vs law servers, pages vs GOV.UK
     table = {}
     for name, rows in {**systems, **ours}.items():
         if not rows:
@@ -327,6 +334,15 @@ def score(k_list=(5, 10)) -> dict:
             for q in qs:
                 r = rows.get(q["id"])
                 if r is None:
+                    continue
+                if name.startswith("ours") and name.endswith("-same-type"):
+                    law_res = ours_as_results(ours_ranked(r, k, set(leg)), leg, gov)
+                    page_res = ours_as_results(ours_ranked(r, k, set(gov)), leg, gov)
+                    s = score_question(q, G[q["id"]], law_res, leg, gov, k)
+                    s.update({m: v for m, v in score_question(q, G[q["id"]], page_res, leg, gov, k).items()
+                              if m == "page"})
+                    for m, v in s.items():
+                        agg.setdefault(m, []).append(v)
                     continue
                 if name.startswith("ours"):
                     res = ours_as_results(ours_ranked(r, k), leg, gov)

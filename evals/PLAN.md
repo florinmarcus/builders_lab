@@ -67,6 +67,11 @@ Progress (22 Nov night, working alone while Florin sleeps):
 - Crop check (`system/rag/cropcheck.py`): Sonnet judges every crop against its page. It was chosen over Haiku on
   HSG33. It is now running over every PDF source; bad crops are parser bugs to fix before the model checks.
 
+External servers (22 Nov, Florin's question): do we need the government documents in our own index, given the free
+MCP servers? Measured live on dev: **yes, keep them.** No server covers HSE guidance or Approved Document passages;
+Lex ties with our index on laws but adds Northern Ireland and revoked laws; GOV.UK search finds the right page 0.41
+against our 0.94. Report: [experiments/X-external-mcp.md](experiments/X-external-mcp.md).
+
 Inventory (21 Nov): 139 non-legislation sources. 47 have open model checks, 1,468 in total. The biggest are:
 - fso-guidance-collection: 511
 - br-circulars: 129

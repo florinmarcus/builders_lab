@@ -99,6 +99,7 @@ def test_ours_scored_with_the_same_rules():
     assert res[2] == {"page": GOV["vat-notice-708"]}
     row = {"top5": ["a:1", "b:2"], "candidates": ["b:2", "c:3", "a:1", "d:4"]}
     assert X.ours_ranked(row, 3) == ["a:1", "b:2", "c:3"]  # the re-ranked top 5 first, then the rest
+    assert X.ours_ranked(row, 3, only={"a", "c"}) == ["a:1", "c:3"]  # like for like: one source type only
 
 
 # ---------------------------------------------------------------- live runtime checks (third-party servers)

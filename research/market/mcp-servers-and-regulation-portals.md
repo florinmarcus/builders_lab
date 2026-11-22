@@ -55,5 +55,5 @@ Checked 20 Nov 2026. Sources are listed at the end and in `research/sources/link
 ## Not checked
 
 - My Research.ai pricing and API pages; uk-legal-mcp's README (PyPI page blocked automated reading; facts above come from the PyPI JSON API and search snippets).
-- Whether Lex is reliable enough to use as a fallback in a demo (experimental service, rate-limited per IP).
+- ~~Whether Lex is reliable enough to use as a fallback~~ Measured 22 Nov 2026 on the 299 dev questions: `evals/experiments/X-external-mcp.md`. Lex finds the right law as often as our index (0.64 in the top 5), with Northern Ireland and revoked laws mixed in; GOV.UK search finds the right page far less often (0.41 against 0.94); nothing covers HSE guidance. We keep our index; Lex is an optional second source for laws later.
 - Smaller registries (Smithery, PulseMCP, mcp.so) were not searched one by one; Claude's connector directory search found no building-regulation connector.
