@@ -172,6 +172,30 @@ flowchart TB
 Printing gaps (paragraphs 71.6, 82.2, 83.3 not printed; 79.9 to 79.11 blacked out; "1.62" for A1.62) are tree
 issues and listed in `corpus/README.md`. Shortcuts: parking lot S93 to S95.
 
+### Coverage check: raw file against tree (built 22 Nov 2026)
+
+Six PDFs once parsed to empty trees and nobody noticed (parking lot S103). `system/rag/coverage.py` now compares
+each raw PDF with its tree. Plain code, no model (ADR 0006). It reads the PDF itself with pdfplumber, not through
+the parser's reader, so reader bugs show up too.
+
+```mermaid
+flowchart LR
+    raw["Raw PDF<br/>(words, images,<br/>ruled tables)"] --> why["Name why a word may be dropped:<br/>header, footer, page number, cover,<br/>contents, index, back cover,<br/>sideways, overprint, tree issue,<br/>inside a figure crop"]
+    tree["Tree<br/>(title, text, labels,<br/>footnotes, grids)"] --> cmp
+    why --> cmp["Compare words<br/>per document and per page"]
+    cmp --> txt{"Page with 40+ words<br/>and under 10% in the tree?<br/>Document over 5%<br/>missing for no reason?"}
+    raw --> img{"Image of 1%+ of the page<br/>in no figure crop and<br/>no named reason?"}
+    raw --> tab{"Ruled table with no table<br/>section, or under 60% of<br/>its words in the tree?"}
+    txt & img & tab -->|yes| flag["Flagged item"]
+    flag --> acc{"Accepted by a person<br/>(corpus/coverage, git)?"}
+    acc -->|no| fail["Report and test fail"]
+```
+
+Words are compared as a multiset after normalising (case, ligatures, punctuation, hyphens, bullets). Split words
+("W hat") and ligatures the font dropped ("fre" for "fire") still match. The report also lists tree words that
+are not in the PDF: from text fields (parser glue, such as words run together) and from model-built grids apart.
+Web pages and legislation XML can get their own reader later; the checks stay the same.
+
 ### The model-check step (built 20 Nov 2026)
 
 Same steps for every document. Runbook: `.claude/skills/corpus-document/SKILL.md`. Code: `system/rag/checks.py`.

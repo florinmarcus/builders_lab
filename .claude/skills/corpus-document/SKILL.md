@@ -93,6 +93,17 @@ python -m system.rag.cropcheck report --source <source_id>      # must say 0 bad
 Verdicts are kept in `corpus/cropchecks/<source_id>.json` (commit it). A bad crop is a parser bug: fix, parse,
 export again. Do this before step 3, so figure descriptions are written from the right picture.
 
+Then the coverage check (plain code, no model). It compares the raw file with the tree: words, images, ruled tables.
+
+```
+python -m system.rag.coverage report --source <source_id> --verbose   # must show 0 open items
+```
+
+An open item is lost text, an image in no crop, or a ruled table not in the tree. Most are parser bugs: fix the
+parser, parse again, report again. Keep an item only when the source itself explains it, and say why:
+`python -m system.rag.coverage accept --source <source_id> --item <key> --reason "..." --by "..."`
+(saved in `corpus/coverage/<source_id>.json`; commit it). Never accept items just to make the report pass.
+
 ## 5. Tests
 
 ```
