@@ -13,7 +13,7 @@ flowchart LR
     src["Source sites<br/>legislation.gov.uk,<br/>GOV.UK, HSE"] --> harvest["harvest.py<br/>versions by hash"]
     harvest --> raw[("corpus/raw<br/>+ S3 eu-west-2")]
     harvest --> rec["corpus/versions<br/>records (git)"]
-    raw --> lib["Parser: library pass<br/>lxml for XML and HTML,<br/>pdfplumber (parse_pdf, parse_adoc)"]
+    raw --> lib["Parser: library pass<br/>lxml for XML and HTML,<br/>pdfplumber (parse_pdf,<br/>parse_guide, parse_adoc)"]
     lib -.-> chk["Model check<br/>(Claude Code)<br/>tables, diagrams,<br/>unclear cases"]
     fixes[("Saved fixes (git)<br/>by content fingerprint")] -.-> chk
     chk -.-> fixes
@@ -51,6 +51,25 @@ flowchart TB
 ### Approved Documents (parse_adoc, built 20 Nov 2026)
 
 The 2019-layout Approved Documents are read by fonts, sizes and colours: 26pt chapters, 20/15pt headings, semibold paragraph numbers, white diagram captions on a green band, bold table captions, green words as links to key terms. Edition banners ("Effective until 1 September 2029", "effective from 2 September 2029") date the two copies of Appendices B and C. Letters dropped from "fi"/"fl" by the PDF font are put back by checking the document's own words, and counted. Diagram crops are made for the model check; `images: check-only` in `sources.yaml` keeps them from users.
+
+### Home Office fire risk assessment guides (parse_guide, built 22 Nov 2026)
+
+The 2006 "Fire safety risk assessment" sector guides and the disabled people supplement share one template that
+parse_pdf (numbered paragraphs, captions under pictures) reads badly. `parse_guide` takes these 13 files of
+`fso-guidance-collection`; `sources.yaml` names them by version id prefix (`parser.files`), parse_pdf skips them
+and `build` runs both. Styles are told apart by role, since the guides use different fonts.
+
+```mermaid
+flowchart TB
+    pdf["read_pdf (shared)<br/>+ drawn shapes, page sizes,<br/>superscripts, column jumps"] --> clean["Drop side tab, page numbers,<br/>two-page covers, off-page copies"]
+    clean --> blocks["Blocks first: Case study boxes (shaded),<br/>figures and tables from captions<br/>(picture above or below: what is drawn<br/>next to the caption), ruled tables,<br/>bold flow charts without caption"]
+    blocks --> order["Reading order: gutter per page,<br/>wide blocks are their own band"]
+    order --> tree["Part › Section or Step › 1.3 heading ›<br/>sub-heading › paragraph (one per paragraph);<br/>ids &lt;guide&gt;:&lt;local id&gt;"]
+    tree --> crop["render_images: photos cut to their<br/>pixels below the caption (photo_box below=True)"]
+```
+
+Known source quirks are listed as tree issues (a figure or table number printed twice, a heading printed without
+its number). Shortcuts: parking lot S90 to S92.
 
 ### The model-check step (built 20 Nov 2026)
 

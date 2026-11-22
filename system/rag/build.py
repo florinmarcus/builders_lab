@@ -6,8 +6,9 @@
 
 Steps, each one the command the runbook (.claude/skills/corpus-document/SKILL.md) names:
 1. raw files: python -m system.rag.harvest --only <sources>  (fetches only what is missing, hash checked)
-2. parse: the parser named in sources.yaml (parse_legislation, parse_pdf, parse_adoc, parse_html); the saved
-   model fixes in corpus/fixes/ make the result the same as on the machine that made them
+2. parse: the parser named in sources.yaml (parse_legislation, parse_pdf, parse_adoc, parse_html), plus the modules
+   in parser.files that take some files of a source (parse_guide); the saved model fixes in corpus/fixes/ make the
+   result the same as on the machine that made them
 3. python -m system.rag.chunk
 4. python -m system.rag.embed      (Titan V2 in London; only new or changed chunks cost money)
 5. python -m system.rag.localsearch --build   (the local index, for testing)
@@ -41,7 +42,8 @@ def parse_commands(src: dict) -> list[list[str]]:
         return [[f"system.rag.{mod}", "--source", sid, "--current"]]
     if mod == "parse_adoc":
         return [[f"system.rag.{mod}", "--source", sid, "--part", part] for part in p.get("parts", [])]
-    return [[f"system.rag.{mod}", "--source", sid]]
+    # Files sent to another parser by version id prefix (parser.files) are parsed by that module too.
+    return [[f"system.rag.{m}", "--source", sid] for m in [mod, *(p.get("files") or {})]]
 
 
 def open_checks(ids: list[str]) -> list[str]:

@@ -113,6 +113,19 @@ def load_sources(path: Path | None = None) -> dict:
         return yaml.safe_load(f)
 
 
+def parser_for(src: dict, version_id: str) -> str | None:
+    """The parser module for one file of a source. A source names one module; some of its files may go to
+    another one by version id prefix (the Home Office fire risk assessment guides in fso-guidance-collection):
+
+        parser: {module: parse_pdf, files: {parse_guide: ["fire-safety-risk-assessment-offices-and-shops--"]}}
+    """
+    p = src.get("parser") or {}
+    for module, prefixes in (p.get("files") or {}).items():
+        if any(version_id.startswith(x) for x in prefixes):
+            return module
+    return p.get("module")
+
+
 def validate_sources(doc: dict) -> list[str]:
     """Return a list of problems. Empty list means the file is valid."""
     errors: list[str] = []
@@ -150,6 +163,10 @@ def validate_sources(doc: dict) -> list[str]:
             errors.append(f"{sid}: govuk needs fetch.page starting with /")
         if method == "url" and not str(fetch.get("url", s.get("url", ""))).startswith("http"):
             errors.append(f"{sid}: url method needs a URL")
+        files = (s.get("parser") or {}).get("files")
+        if files is not None and (not isinstance(files, dict) or not all(
+                isinstance(v, list) and v and all(isinstance(x, str) and x for x in v) for v in files.values())):
+            errors.append(f"{sid}: parser.files must map a module to a list of version id prefixes")
     return errors
 
 

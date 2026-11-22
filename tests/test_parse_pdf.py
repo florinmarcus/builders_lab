@@ -318,6 +318,37 @@ def test_photo_box_finds_the_photo_inside_a_padded_image_box():
     assert box["top"] == pytest.approx(15, abs=1) and box["bottom"] == pytest.approx(65.5, abs=1)
 
 
+def test_photo_box_with_the_caption_above_takes_the_photo_below_it():
+    """Home Office fire safety guides print the caption above the photo (below=True): the photo is the first
+    block under the caption, not the text or the photo above it, and the box is never upside down."""
+    from PIL import Image, ImageDraw
+    page = Image.new("RGB", (600, 400), "white")
+    d = ImageDraw.Draw(page)
+    d.rectangle([100, 0, 200, 60], fill="grey")      # another photo above the caption (points 0-30)
+    d.rectangle([100, 70, 300, 78], fill="black")    # the caption's own letters (points 35-39)
+    d.rectangle([100, 90, 240, 190], fill="black")   # the photo, points 50-120 x 45-95
+    area = {"page": 1, "top": 42.0, "bottom": 100.0, "x0": 48.0, "x1": 125.0}  # padded image box
+    caption = {"page": 1, "top": 35.0, "bottom": 40.0, "x0": 50.0}
+    box = photo_box(page, area, caption, 2.0, right_limit=150.0, below=True)
+    assert box["top"] == pytest.approx(45, abs=1) and box["bottom"] == pytest.approx(95.5, abs=1)
+    assert box["x0"] == pytest.approx(50, abs=1) and box["x1"] == pytest.approx(120.5, abs=1)
+    # the default (caption below the photo) is unchanged for the same caption: nothing tall above it
+    assert photo_box(page, area, caption, 2.0, right_limit=150.0) == area
+
+
+def test_superscripts_and_backwards_words():
+    """Raised footnote numbers become superscript digits; a jump back to the left starts a new word. Both are
+    options of read_pdf (off for the HSE guides)."""
+    from system.rag.parse_pdf import _words, mark_superscripts
+    chars = [{"text": t, "x0": x, "x1": x + 5, "size": s, "bottom": b, "fontname": "F", "top": b - s}
+             for t, x, s, b in [("O", 0, 10, 100), ("r", 5, 10, 100), ("d", 10, 10, 100), ("1", 15, 6, 96)]]
+    assert [w["text"] for w in _words(mark_superscripts(chars))] == ["Ord¹"]
+    jump = [{"text": t, "x0": x, "x1": x + 5, "size": 10, "fontname": "F", "top": 0}
+            for t, x in [("o", 300), ("u", 305), ("t", 310), ("F", 100), ("o", 105), ("r", 110)]]
+    assert [w["text"] for w in _words(jump)] == ["outFor"]
+    assert [w["text"] for w in _words(jump, split_backwards=True)] == ["out", "For"]
+
+
 def test_photo_box_keeps_the_image_box_when_nothing_is_drawn_above_the_caption():
     from PIL import Image
     area = {"page": 1, "top": 10.0, "bottom": 60.0, "x0": 50.0, "x1": 100.0}

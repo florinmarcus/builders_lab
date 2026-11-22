@@ -33,7 +33,7 @@ import sys
 from collections import Counter
 from pathlib import Path
 
-from system.rag.corpus import CORPUS_DIR, slugify
+from system.rag.corpus import CORPUS_DIR, parser_for, slugify
 from system.rag.fixes import content_key, index, load_fixes
 
 PARSER = "guidance-pdf/0.3"
@@ -50,8 +50,10 @@ DEC_PARA_RE = re.compile(r"^(A?\d{1,2})\.(\d{1,3})\s+(\S.*)$")  # "2.14 Text": p
 
 # ---------------------------------------------------------------- reading the PDF
 
-def _words(chars: list[dict]) -> list[dict]:
-    """Words with x positions, plus bold (b) and colour (c) of their first character, when the PDF gives them."""
+def _words(chars: list[dict], split_backwards: bool = False) -> list[dict]:
+    """Words with x positions, plus bold (b) and colour (c) of their first character, when the PDF gives them.
+    split_backwards: a character that starts left of the one before it begins a new word. pdfplumber can give
+    the last word of one column and the first of the next in one run ("carry outFor")."""
     words, cur, x0, x1, first = [], "", None, None, None
     prev = None
 
@@ -74,6 +76,8 @@ def _words(chars: list[dict]) -> list[dict]:
         if prev is not None and c["text"] == prev["text"] and abs(c["x0"] - prev["x0"]) < 1.0 and not c["text"].isspace():
             continue  # the same character printed twice on top of itself (bold faked by overprinting)
         gap = prev is not None and c["x0"] - prev["x1"] > 1.5  # some PDFs have no space characters, only gaps
+        if split_backwards and prev is not None and c["x0"] < prev["x0"] - 1:
+            gap = True
         if c["text"].isspace() or gap:
             if cur:
                 emit()
@@ -83,6 +87,8 @@ def _words(chars: list[dict]) -> list[dict]:
                 continue
         if not cur:
             x0, first = c["x0"], c
+        elif first.get("sup") and not c.get("sup"):
+            first = c  # a word that starts with a footnote number takes the size and font of its letters
         cur += c["text"]
         x1 = c["x1"]
         prev = c
@@ -258,21 +264,65 @@ def _size_weights(lines: list[dict]) -> Counter:
     return c
 
 
-def read_pdf(path) -> dict:
+SUPERSCRIPT = str.maketrans("0123456789", "⁰¹²³⁴⁵⁶⁷⁸⁹")
+
+
+def mark_superscripts(chars: list[dict]) -> list[dict]:
+    """Footnote numbers set small and raised ("the Order¹"): give them superscript digits, so they do not run
+    into the word ("Order1", "Regulations20027"). A digit is raised when it is at most 80% of the line's main
+    size and its bottom sits clearly above the line's baseline."""
+    sizes = Counter(round(c["size"], 1) for c in chars if not c["text"].isspace())
+    if not sizes:
+        return chars
+    main = sizes.most_common(1)[0][0]
+    base = max((c["bottom"] for c in chars if round(c["size"], 1) == main), default=0)
+    out = []
+    for c in chars:
+        if c["text"].isdigit() and c["size"] <= 0.8 * main and c["bottom"] < base - 0.2 * main:
+            c = {**c, "text": c["text"].translate(SUPERSCRIPT), "sup": True}
+        out.append(c)
+    return out
+
+
+def _graphic(n: int, o: dict, kind: str) -> dict:
+    """A drawn rectangle, line or curve as plain data. Colours may be a list or a single grey or tint value."""
+    def col(c):
+        if isinstance(c, (int, float)):
+            return (round(float(c), 2),)
+        return _colour(c)
+    return {"page": n, "kind": kind, "top": round(o["top"], 1), "bottom": round(o["bottom"], 1),
+            "x0": round(o["x0"], 1), "x1": round(o["x1"], 1), "fill": bool(o.get("fill")),
+            "stroke": bool(o.get("stroke")), "colour": col(o.get("non_stroking_color"))}
+
+
+def read_pdf(path, *, graphics: bool = False, superscripts: bool = False, common_size: bool = False,
+             split_backwards: bool = False) -> dict:
+    """The PDF as plain data. The options are off by default (the HSE trees depend on the default output):
+    graphics also returns every drawn rectangle, line and curve ("graphics") and each page's size ("pages");
+    superscripts marks raised footnote numbers (mark_superscripts); common_size takes the page size most pages
+    have, not page 1's (a cover printed as a two-page spread is twice as wide); split_backwards starts a new word
+    where the text jumps back to the left (_words)."""
     import pdfplumber
 
-    lines, rects, images, tables = [], [], [], []
+    lines, rects, images, tables, drawn, boxes = [], [], [], [], [], {}
     with pdfplumber.open(str(path)) as pdf:
         for n, page in enumerate(pdf.pages, start=1):
+            if graphics:
+                boxes[n] = {"width": round(float(page.width), 1), "height": round(float(page.height), 1)}
+                for kind in ("rects", "lines", "curves"):
+                    drawn.extend(_graphic(n, o, kind[:-1]) for o in getattr(page, kind))
             for l in page.extract_text_lines(return_chars=True):
                 first = l["chars"][0]
                 m = first.get("matrix") or (1, 0, 0, 1)
                 if not first.get("upright", True) or m[0] < 0 or m[3] < 0:  # sideways or upside-down text
                     continue
-                ws = _words(l["chars"])
+                if superscripts:
+                    l = {**l, "chars": mark_superscripts(l["chars"])}
+                    first = next((c for c in l["chars"] if not c.get("sup") and not c["text"].isspace()), first)
+                ws = _words(l["chars"], split_backwards)
                 text = l["text"]
-                if sum(len(w["text"]) for w in ws) < len(text.replace(" ", "")):  # overprinted characters dropped
-                    text = " ".join(w["text"] for w in ws)
+                if superscripts or split_backwards or sum(len(w["text"]) for w in ws) < len(text.replace(" ", "")):
+                    text = " ".join(w["text"] for w in ws)  # overprinted characters dropped, superscripts marked
                 lines.append(normalise_bullet({
                     "page": n, "top": round(l["top"], 1), "x0": round(l["x0"], 1),
                     "size": round(first["size"], 1), "font": first["fontname"].split("+")[-1],
@@ -296,11 +346,16 @@ def read_pdf(path) -> dict:
         count = len(pdf.pages)
         width = float(pdf.pages[0].width) if pdf.pages else 595.0
         height = float(pdf.pages[0].height) if pdf.pages else 842.0
+        if common_size and pdf.pages:
+            width, height = Counter((float(p.width), float(p.height)) for p in pdf.pages).most_common(1)[0][0]
     sizes = _size_weights(lines)
     body = sizes.most_common(1)[0][0] if sizes else 10.0
     lines = split_columns(lines, body, width, tables)
-    return {"lines": lines, "rects": rects, "images": images, "tables": tables, "page_count": count,
-            "page_width": width, "page_height": height}
+    out = {"lines": lines, "rects": rects, "images": images, "tables": tables, "page_count": count,
+           "page_width": width, "page_height": height}
+    if graphics:
+        out["graphics"], out["pages"] = drawn, boxes
+    return out
 
 
 # ---------------------------------------------------------------- building the tree
@@ -1453,18 +1508,24 @@ def _runs(flags: list[bool], min_gap: int) -> list[tuple[int, int]]:
 
 
 def photo_box(page_img, area: dict, caption: dict, scale: float, right_limit: float,
-              ink: int = 235, gap_pt: float = 4.0) -> dict:
+              ink: int = 235, gap_pt: float = 4.0, below: bool = False) -> dict:
     """The photo's real box, from the rendered page. pdfplumber's image box can be wider or taller than the
     photo that is drawn (white padding, soft edges), so a neighbour photo can fall inside it, and words printed
     on the photo can fall outside it (HSG227 figures 3, 5, 6, 9). Find the block of non-white pixels that sits
     directly above the caption and starts in the caption's column. right_limit is where the next caption on the
-    same line starts (or the page margin). Falls back to the image box if nothing is found."""
+    same line starts (or the page margin). Falls back to the image box if nothing is found.
+    below=True: the photo is below its caption (Home Office fire safety guides). The search starts under the
+    caption's bottom ("bottom" in caption, else one line below its top) and takes the highest block."""
     if caption["page"] != area["page"]:
         return area
     left = max(0.0, min(area["x0"], caption["x0"]) - 6)
     right = max(area["x1"] + 6, right_limit - 4)
-    top = max(0.0, area["top"] - 6)
-    bottom = caption["top"] - 1
+    if below:
+        top = caption.get("bottom", caption["top"] + 12) + 1
+        bottom = area["bottom"] + 6
+    else:
+        top = max(0.0, area["top"] - 6)
+        bottom = caption["top"] - 1
     if bottom - top < 20:
         return area
     win = page_img.crop((int(left * scale), int(top * scale), int(right * scale), int(bottom * scale)))
@@ -1480,12 +1541,14 @@ def photo_box(page_img, area: dict, caption: dict, scale: float, right_limit: fl
         return [r for r in _runs([mask.crop((x0, y, x1, y + 1)).getbbox() is not None for y in range(h)], gap)
                 if r[1] - r[0] > tall]
 
-    # 1. Rows, from a narrow strip at the caption's left edge: the lowest tall block above the caption.
+    # 1. Rows, from a narrow strip at the caption's left edge: the lowest tall block above the caption (or the
+    # highest below it).
+    pick = 0 if below else -1
     cap_x = int((max(caption["x0"], left) - left) * scale)
     rows = runs_y(cap_x, min(w, cap_x + int(30 * scale)))
     if not rows:
         return area
-    y0, y1 = rows[-1]
+    y0, y1 = rows[pick]
     # 2. Columns, only within those rows (so text above the photo cannot join two photos together).
     cols = runs_x(y0, y1 + 1)
     if not cols:
@@ -1499,7 +1562,7 @@ def photo_box(page_img, area: dict, caption: dict, scale: float, right_limit: fl
     # 3. Rows again, within that column, then trim.
     rows = runs_y(x0, x1 + 1)
     if rows:
-        y0, y1 = rows[-1]
+        y0, y1 = rows[pick]
     box = mask.crop((x0, y0, x1 + 1, y1 + 1)).getbbox() or (0, 0, x1 - x0 + 1, y1 - y0 + 1)
     return {"page": area["page"], "x0": round(left + (x0 + box[0]) / scale, 1),
             "x1": round(left + (x0 + box[2]) / scale, 1),
@@ -1526,7 +1589,13 @@ def render_images(pdf_path, tree: dict, out_dir: Path, scale: float = 2.0) -> No
 
     def page_image(n: int):
         if n not in cache:
-            cache[n] = pdf[n - 1].render(scale=scale).to_pil()
+            page = pdf[n - 1]
+            media = page.get_mediabox()
+            if tuple(page.get_cropbox()) != tuple(media):
+                # pdfplumber measures from the media box; pypdfium2 renders the crop box. Render the media box
+                # so the two agree (Home Office guides have a 29pt bleed around the crop box).
+                page.set_cropbox(*media)
+            cache[n] = page.render(scale=scale).to_pil()
         return cache[n]
 
     (out_dir / "figures").mkdir(parents=True, exist_ok=True)
@@ -1535,8 +1604,9 @@ def render_images(pdf_path, tree: dict, out_dir: Path, scale: float = 2.0) -> No
         if s["type"] == "figure" and s.get("area"):
             a = s["area"]
             if s.get("image_bbox"):
-                a = s["area"] = photo_box(page_image(a["page"]), a, s["caption_box"], scale,
-                                          _next_caption_x(tree, s))
+                limit = s.get("right_limit") or _next_caption_x(tree, s)  # a parser may know the photo's column
+                a = s["area"] = photo_box(page_image(a["page"]), a, s["caption_box"], scale, limit,
+                                          below=bool(s.get("caption_above")))
             if a["x1"] <= a["x0"] or a["bottom"] <= a["top"]:  # empty or upside-down box (fso-guidance-collection)
                 tree.setdefault("issues", []).append(f"figure {s['id']}: empty image box {a}, image not cut")
                 continue
@@ -1572,6 +1642,8 @@ def main(argv: list[str] | None = None) -> int:
     recs = [json.loads(p.read_text(encoding="utf-8")) for p in (CORPUS_DIR / "versions" / a.source).glob("*.json")]
     root = CORPUS_DIR.parent
     for r in [r for r in recs if r["valid_to"] is None and r["media_type"] == "application/pdf"]:
+        if src and parser_for(src, r["version_id"]) not in (None, "parse_pdf"):
+            continue  # this file goes to another parser (sources.yaml parser.files)
         raw = root / r["raw_path"]
         if not raw.exists():
             print(f"missing raw file: {r['raw_path']}")

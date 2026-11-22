@@ -30,12 +30,13 @@ If the source now gives different bytes, stop and ask Florin. Do not parse a fil
 
 ```
 python -m system.rag.parse_pdf --source <source_id>                  # HSE-style guidance PDFs
+python -m system.rag.parse_guide --source fso-guidance-collection   # Home Office fire risk assessment guides
 python -m system.rag.parse_adoc --source <source_id> --part <part>     # Approved Documents (2019 layout)
 python -m system.rag.parse_html --source <source_id>                 # GOV.UK and HSE web pages (no model checks)
 python -m system.rag.parse_legislation --source <source_id> --current   # legislation XML
 ```
 
-The parser for a source is named in `sources.yaml` (`parser:`). Read the `issues` and, for Approved Documents, the `repairs` (letters put back into words) in the tree. Structure problems (paragraph numbers, headings, captions, crops) are fixed in the parser code, with a test, then parse again. Never patch them with fixes.
+The parser for a source is named in `sources.yaml` (`parser:`); `parser.files` can send some files of a source to another parser by version id prefix. Read the `issues` and, for Approved Documents, the `repairs` (letters put back into words) in the tree. Structure problems (paragraph numbers, headings, captions, crops) are fixed in the parser code, with a test, then parse again. Never patch them with fixes.
 
 ## 3. Model checks, through packets
 
