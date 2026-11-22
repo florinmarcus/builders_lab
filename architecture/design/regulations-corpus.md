@@ -68,12 +68,15 @@ flowchart TD
     up & down --> panel["+ a tinted panel behind both"]
     img["image"] --> sig{"signature or logo?"}
     sig -->|"'Yours faithfully'/'Signed' above,<br/>name + job title below,<br/>letterhead on page 1, © or www below"| none["not a figure"]
-    sig -->|no| photo["photo of the caption below it (or above, by the vote);<br/>photos stacked with no text between, or a block<br/>of photos for '(a)–(c)', make one figure;<br/>running text beside it limits the crop"]
+    sig -->|"barcode over a web address"| none
+    sig -->|no| photo["photo of the caption below it (or above, by the vote);<br/>photos stacked with no text between, a grid named<br/>'Top row ... Bottom row', or a block of photos for<br/>'(a)–(c)' / '12a and b', make one figure;<br/>running text or another photo beside it limits the crop"]
+    photo -->|"labels beside the image,<br/>or image cut into tiles"| up
 ```
 
-Running text is body-size text of six words or more not set in a drawn box, plus the short last line of a
-paragraph, headings, chapter titles, captions and lines hanging under a caption (a source line). Hand-made test
-documents without `graphics` keep the older text rules.
+Running text is body-size text of six words or more, starting at a left edge many long lines share (or a
+bullet), not set in a drawn box; plus the short last line of a paragraph, headings, chapter titles, captions and
+lines hanging under a caption (a source line). A long thin line is a rule only when no other shape touches it (a
+pipe in a gas diagram is not). Hand-made test documents without `graphics` keep the older text rules.
 
 ### Approved Documents (parse_adoc, built 20 Nov 2026)
 

@@ -39,13 +39,15 @@ from system.rag.fixes import content_key, index, load_fixes
 PARSER = "guidance-pdf/0.3"
 SKIP_TITLES = {"contents"}
 BACK_MATTER = {"references": "references", "further information": "further-information"}
-CAPTION_RE = re.compile(r"^(Figure|Table)\s+(A?\d+(?:\.\d+)?(?:[a-z]|\([a-z]\))?)(?=[\s:.]|$)")  # "Figure 48d", "Table A1.2"
+CAPTION_RE = re.compile(r"^(Figure|Table)\s+(A?\d+(?:\.\d+)?(?:[a-z]|\([a-z]\)(?:[–-]\([a-z]\))?)?)(?=[\s:.]|$)")  # "Figure 48d", "Table A1.2", "Figure 35(a)–(c)"
 PAGE_NO_RE = re.compile(r"\bPage\s+(\S+)\s+of\s+\d+\b|^(\d+)\s+of\s+\d+\s+pages$")
 BULLET_RE = re.compile(r"^[■●•▪]+\s*")
 PART_RE = re.compile(r"^(PART|Part|SCHEDULE|Schedule|SECTION|Section)\s+(\d+[A-Z]?|[IVX]+|[A-H])\b")
 # A numbered paragraph: "12 Text" (HSE guides) or "12. Text" / "1.—(1) Text" (legislation printed as PDF).
 PARA_RE = re.compile(r"^(\d{1,3})(?:\.—|\.\s|\s)\s*(\S.*)$")
 DEC_PARA_RE = re.compile(r"^(A?\d{1,2})\.(\d{1,3})\s+(\S.*)$")  # "2.14 Text": paragraph 14 of chapter 2 (HSG248)
+SIGNED_RE = re.compile(r"^(Signed\b|Yours\s+(faithfully|sincerely))", re.I)  # just above or below a signature
+ROLE_RE = re.compile(r"(Director|Secretary|Inspector|Minister|Chief Executive|Head of)")  # the signer's job title
 
 
 # ---------------------------------------------------------------- reading the PDF
@@ -404,6 +406,13 @@ class Builder:
         self.lines = sorted(doc["lines"], key=lambda l: (l["page"], l.get("band", 0), l.get("col", 0), l["top"], l["x0"]))
         self.rects = doc.get("rects", [])
         self.images = doc.get("images", [])
+        # Drawn shapes and page sizes (read_pdf(graphics=True)). None when the reader did not collect them: the
+        # rules that need them are then skipped (hand-made test documents, older callers).
+        self.graphics = doc.get("graphics")
+        self.page_sizes = {int(k): v for k, v in (doc.get("pages") or {}).items()}
+        self._shape_cache: dict[int, list[dict]] = {}
+        self._stoppers: dict[int, bool] = {}
+        self._ink_cache: dict[int, list[dict]] = {}
         self.page_count = doc.get("page_count") or max((l["page"] for l in self.lines), default=0)
         self.sections: list[dict] = []
         self.by_id: dict[str, dict] = {}
@@ -418,6 +427,303 @@ class Builder:
         self._body_captions()
         self._diagram_pages()
         self._photo_captions()
+        self._caption_sides()
+
+    # -------------------------------------------------- drawn shapes
+
+    def page_size(self, page: int) -> tuple[float, float]:
+        p = self.page_sizes.get(page)
+        return (p["width"], p["height"]) if p else (self.page_width, self.page_height)
+
+    def shapes(self, page: int) -> list[dict]:
+        """Drawn shapes on a page that can be part of a picture: not page backgrounds, not decoration running off
+        the page edge, not the page-number tab in the footer."""
+        if page not in self._shape_cache:
+            pw, ph = self.page_size(page)
+            gs = [g for g in self.graphics or [] if g["page"] == page and g["x0"] >= -1 and g["x1"] <= pw + 1
+                  and g["top"] >= 30 and g["bottom"] <= ph - 20
+                  and not (g["x1"] - g["x0"] > 0.9 * pw and g["bottom"] - g["top"] > 0.5 * ph)]
+            for g in gs:
+                w, h = g["x1"] - g["x0"], g["bottom"] - g["top"]
+                if (h < 2 and w > 0.5 * pw) or (w < 2 and h > 300):
+                    # A long thin line is a rule (under a heading, in the margin) unless other shapes touch it
+                    # (a pipe in a gas installation diagram, a table border).
+                    g["rule"] = not any(o is not g and o["x0"] <= g["x1"] + 2 and o["x1"] >= g["x0"] - 2
+                                        and o["top"] <= g["bottom"] + 2 and o["bottom"] >= g["top"] - 2
+                                        and (o["bottom"] - o["top"] >= 2 or o["x1"] - o["x0"] <= 0.5 * pw) for o in gs)
+            self._shape_cache[page] = gs
+        return self._shape_cache[page]
+
+    @staticmethod
+    def _is_rule(g: dict, pw: float) -> bool:
+        """A long thin line that no other shape touches (set by shapes())."""
+        return bool(g.get("rule"))
+
+    def _pictures(self, page: int) -> list[dict]:
+        """Images on a page, without a scan or background that fills most of it."""
+        pw, ph = self.page_size(page)
+        return [i for i in self.images if i["page"] == page and (i["x1"] - i["x0"]) * (i["bottom"] - i["top"]) < 0.6 * pw * ph]
+
+    def drawn_page(self, page: int, ls: list[dict]) -> str | None:
+        """What ink a page of short scattered lines has besides words: "picture" (text set in drawn boxes as in a
+        flow chart, many drawn boxes as in a form, or images covering a tenth of the page), "table" (a ruled
+        table holding most lines), or None (a letter's address block, a title page, short paragraphs)."""
+        if self.graphics is None:
+            return "picture"
+        pw, ph = self.page_size(page)
+        boxes = [g for g in self.shapes(page) if g["kind"] in ("rect", "curve")
+                 and 12 < g["x1"] - g["x0"] < 0.7 * pw and 8 < g["bottom"] - g["top"] < 0.5 * ph]
+        inbox = sum(1 for l in ls if any(g["x0"] - 2 <= l["x0"] <= g["x1"] and g["top"] - 2 <= l["top"] <= g["bottom"]
+                                         for g in boxes))
+        intab = sum(1 for l in ls if any(t["page"] == page and t["x0"] - 2 <= l["x0"] <= t["x1"]
+                                         and t["top"] - 2 <= l["top"] <= t["bottom"] for t in self.doc_tables))
+        ims = sum((i["x1"] - i["x0"]) * (i["bottom"] - i["top"]) for i in self._pictures(page))
+        if (len(boxes) >= 3 and inbox >= 0.25 * len(ls) and intab < 0.5 * len(ls)) or ims >= 0.1 * pw * ph \
+                or (len(boxes) >= 10 and intab < 0.5 * len(ls)):
+            return "picture"
+        return "table" if intab >= 0.5 * len(ls) else None
+
+    def drawn_between(self, page: int, top: float, bottom: float) -> bool:
+        """Shapes or an image among a block of short small-print lines: they label a drawing. Without them the
+        lines are an address, a copyright notice or footnotes."""
+        if self.graphics is None:
+            return True
+        pw, _ = self.page_size(page)
+        n = sum(1 for g in self.shapes(page) if top - 5 <= (g["top"] + g["bottom"]) / 2 <= bottom + 5
+                and not self._is_rule(g, pw))
+        if n < 10 and any(t["page"] == page and t["top"] - 5 <= bottom and t["bottom"] + 5 >= top for t in self.doc_tables):
+            return False  # the few rules of a ruled table: its cells, not a drawing's labels
+        area = sum(max(0.0, min(i["bottom"], bottom) - max(i["top"], top)) * (i["x1"] - i["x0"])
+                   for i in self._pictures(page))
+        return n >= 6 or area >= 5000
+
+    def ink_extent(self, page: int, box: dict) -> dict:
+        """Grow a box (top, bottom, x0, x1) to take in the drawn shapes, ruled tables and images that touch it,
+        so a flow chart's last box or arrow and a table's last row are not cut off."""
+        pw, ph = self.page_size(page)
+        items = [g for g in self.shapes(page) if not self._is_rule(g, pw)]
+        items += [t for t in self.doc_tables if t["page"] == page]
+        items += [i for i in self._pictures(page) if i["top"] >= 30 and i["bottom"] <= ph - 20]
+        b = dict(box)
+        grown = True
+        while grown:
+            grown = False
+            for g in items:
+                if g["bottom"] < b["top"] - 6 or g["top"] > b["bottom"] + 6 or g["x1"] < b["x0"] or g["x0"] > b["x1"]:
+                    continue
+                if g["top"] < b["top"] or g["bottom"] > b["bottom"] or g["x0"] < b["x0"] or g["x1"] > b["x1"]:
+                    b = {"top": min(b["top"], g["top"]), "bottom": max(b["bottom"], g["bottom"]),
+                         "x0": min(b["x0"], g["x0"]), "x1": max(b["x1"], g["x1"])}
+                    grown = True
+        return b
+
+    # -------------------------------------------------- figure areas from ink
+
+    def _boxed(self, l) -> bool:
+        """The line is set inside a drawn box narrower than most of the page (a flow chart step, a label tag)."""
+        pw, _ = self.page_size(l["page"])
+        return any(g["kind"] in ("rect", "curve") and 12 < g["x1"] - g["x0"] < 0.6 * pw and g["bottom"] - g["top"] > 8
+                   and g["x0"] - 2 <= l["x0"] <= g["x1"] and g["top"] - 2 <= l["top"] <= g["bottom"]
+                   for g in self.shapes(l["page"]))
+
+    def is_stopper(self, l) -> bool:
+        """A line that is not part of any figure: running text (body size, six words or more, not set in a drawn
+        box), a heading, a chapter title or another caption."""
+        k = id(l)
+        if k not in self._stoppers:
+            def running(x):
+                return x["size"] >= self.body_size - 0.5 and len(x["text"].split()) >= 6 and not self._boxed(x) \
+                    and (not self.text_lefts or any(abs(x["x0"] - c) <= 2.5 for c in self.text_lefts)
+                         or BULLET_RE.match(x["text"]) is not None)  # a bullet point is running text
+            # The short last line of a paragraph ("Figure 2.") is running text too.
+            tail = l["size"] >= self.body_size - 0.5 and any(
+                x["page"] == l["page"] and 0 < l["top"] - x["top"] < 1.6 * l["size"] and abs(x["x0"] - l["x0"]) <= 3
+                and x["size"] == l["size"] and running(x) for x in self.lines)
+            self._stoppers[k] = self.is_caption(l) or self.is_chapter(l) or self.is_heading(l) or running(l) or tail \
+                or self.caption_tail(l) is not None
+        return self._stoppers[k]
+
+    def caption_tail(self, l) -> dict | None:
+        """The caption this line hangs under (a wrapped caption line or a source line such as "Western Power
+        Distribution (WPD)": just below it, left-aligned with it, not larger). None if it is not one."""
+        prev = l
+        for _ in range(3):
+            up = [x for x in self.lines if x["page"] == l["page"] and 0 < prev["top"] - x["top"] < 1.7 * max(x["size"], prev["size"])
+                  and abs(x["x0"] - prev["x0"]) <= 3]
+            if not up:
+                return None
+            x = max(up, key=lambda x: x["top"])
+            if l["size"] > x["size"] + 0.5:
+                return None
+            if self.is_caption(x):
+                return x
+            prev = x
+        return None
+
+    @staticmethod
+    def _seg_x1(l) -> float:
+        """Right end of the line's first run of words: pdfplumber can join a text column's line with a drawing's
+        label beside it (HSG33 Figure 2)."""
+        ws = _until_gap(sorted(l.get("words") or [], key=lambda w: w["x0"]))
+        return Builder._line_x1({**l, "words": ws}) if ws else Builder._line_x1(l)
+
+    @staticmethod
+    def _line_x1(l) -> float:
+        ws = l.get("words") or []
+        return max((w.get("x1", w["x0"] + 5 * len(w["text"])) for w in ws), default=l["x0"] + 5 * len(l["text"]))
+
+    def ink_items(self, page: int) -> list[dict]:
+        """Drawn shapes and images that can belong to a figure. A box holding running text is a note panel,
+        not a drawing."""
+        if page in self._ink_cache:
+            return self._ink_cache[page]
+        pw, ph = self.page_size(page)
+        stoppers = [l for l in self.lines if l["page"] == page and l["size"] >= self.body_size - 0.5
+                    and len(l["text"].split()) >= 6]
+        items = []
+        for g in self.shapes(page):
+            if self._is_rule(g, pw):
+                continue
+            if g["kind"] == "rect" and g["x1"] - g["x0"] >= 0.6 * pw and any(
+                    g["x0"] - 2 <= l["x0"] <= g["x1"] and g["top"] - 2 <= l["top"] <= g["bottom"] for l in stoppers):
+                continue
+            items.append(g)
+        items += [i for i in self._pictures(page) if i["top"] >= 30 and i["bottom"] <= ph - 20]
+        self._ink_cache[page] = items
+        return items
+
+    def ink_band(self, page: int, col: tuple[float, float], lo: float, hi: float) -> dict | None:
+        """The drawn shapes, images and label lines between lo and hi that sit in the column col (x0, x1); the
+        column widens to take in every item found. None when there is no drawn ink in the band."""
+        x0, x1 = col
+        # An image's box may reach a little past the band (white padding behind the caption, HSG247 Figure 8.2).
+        items = [g for g in self.ink_items(page) if (g["top"] >= lo - 2 and g["bottom"] <= hi + 2) or (
+            "kind" not in g and g["top"] >= lo - 40 and g["bottom"] <= hi + 40 and g["bottom"] - g["top"] > 100)]
+        found: list[dict] = []
+        rest = sorted(items, key=lambda g: g["x0"])
+        grown = True
+        while grown:
+            grown = False
+            keep = []
+            for g in rest:
+                if g["x1"] < x0 or g["x0"] > x1:
+                    keep.append(g)
+                    continue
+                found.append(g)
+                x0, x1 = min(x0, g["x0"]), max(x1, g["x1"])
+                grown = True
+            rest = keep
+        if not found:
+            return None
+        box = {"top": min(g["top"] for g in found), "bottom": max(g["bottom"] for g in found), "x0": x0, "x1": x1,
+               "lo": lo, "hi": hi}
+        for l in self.lines:  # labels around the drawing
+            if l["page"] != page or l["top"] < lo or l["top"] + l["size"] > hi + 2 or self.is_stopper(l):
+                continue
+            ws = _until_gap(sorted(l.get("words") or [], key=lambda w: w["x0"]))  # not words in the next column
+            lx1 = self._line_x1({**l, "words": ws})
+            if lx1 >= box["x0"] - 4 and l["x0"] <= box["x1"] + 4:
+                box.update(top=min(box["top"], l["top"]), bottom=max(box["bottom"], l["top"] + l["size"] + 1),
+                           x0=min(box["x0"], l["x0"]), x1=max(box["x1"], lx1))
+        return box
+
+    def _stop_above(self, page: int, y: float, col: tuple[float, float]) -> float:
+        """Bottom of the lowest stopper line above y that overlaps the column (or below the page header)."""
+        xs = [l["top"] + l["size"] + 1 for l in self.lines if l["page"] == page and l["top"] + l["size"] <= y
+              and self._seg_x1(l) >= col[0] and l["x0"] <= col[1] and self.is_stopper(l)]
+        return max(xs, default=45.0)
+
+    def _stop_below(self, page: int, y: float, col: tuple[float, float]) -> float:
+        """Top of the highest stopper line below y that overlaps the column (or above the page footer)."""
+        _, ph = self.page_size(page)
+        xs = [l["top"] - 1 for l in self.lines if l["page"] == page and l["top"] >= y
+              and self._seg_x1(l) >= col[0] and l["x0"] <= col[1] and self.is_stopper(l)]
+        return min(xs, default=ph - 40)
+
+    def _band_above(self, page: int, y: float, col: tuple[float, float]) -> dict | None:
+        band = self.ink_band(page, col, self._stop_above(page, y, col), y + 1)
+        if band:  # the column widened: text beside the caption no longer counts, text over the drawing does
+            wide = (band["x0"], band["x1"])
+            band = self.ink_band(page, wide, self._stop_above(page, y, wide), y + 1)
+        return band
+
+    def _band_below(self, page: int, y: float, col: tuple[float, float]) -> dict | None:
+        band = self.ink_band(page, col, y - 1, self._stop_below(page, y, col))
+        if band:
+            wide = (band["x0"], band["x1"])
+            band = self.ink_band(page, wide, y - 1, self._stop_below(page, y, wide))
+        return band
+
+    def caption_column(self, cap: dict) -> tuple[float, float, float]:
+        """The caption's column (x0, x1) and the right end of its words."""
+        cap_lines = [l for l in self.lines if l["page"] == cap["page"] and abs(l["top"] - cap["top"]) < 2]
+        ws = sorted((w for l in cap_lines for w in l.get("words") or [] if cap["x0"] - 1 <= w["x0"] < cap["x1"]),
+                    key=lambda w: w["x0"])
+        ws = _until_gap(ws) if ws else []  # text in the next column on the same line is not the caption
+        right = max((w.get("x1", w["x0"] + 5 * len(w["text"])) for w in ws), default=cap["x0"] + 100)
+        return cap["x0"] - 12, min(right, cap["x1"] - 4) + 12, right
+
+    def caption_ink_area(self, s: dict, top: float, bottom: float) -> dict | None:
+        """A captioned drawing cut from its ink: the shapes, images and labels between the caption and the
+        running text on the side the figure is on, in the caption's column. Above the caption first, or below
+        it first when the document sets its captions above figures (captions_above). None when no ink is found
+        there, or when labels above the caption have no ink near them: the caller keeps the area from the labels."""
+        cap = s["caption_box"]
+        page = cap["page"]
+        pw, ph = self.page_size(page)
+        x0, x1, right = self.caption_column(cap)
+        own = [l["top"] + l["size"] for l in self.lines if l["page"] == page and (abs(l["top"] - cap["top"]) < 2 or (
+            cap["top"] < l["top"] < cap["top"] + 60 and (self.caption_tail(l) or {}).get("top") == cap["top"]))]
+        cap_bottom = max([cap["top"] + 10, *own]) if self.captions_above else max(bottom, cap["top"] + 10)
+        if self.captions_above:  # a caption in the margin column may head a figure in the text column
+            band = self._band_below(page, cap_bottom, (x0, x1)) or self._band_below(page, cap_bottom, (36.0, pw - 36.0)) \
+                or self._band_above(page, cap["top"] - 1, (x0, x1))
+        else:
+            band = self._band_above(page, cap["top"] - 1, (x0, x1))
+            if band is None and top < cap["top"] - 30:
+                return None
+            band = band or self._band_below(page, cap_bottom, (x0, x1))
+        if band is None:
+            return None
+        if band["bottom"] <= cap["top"] + 2:  # above its caption: the caption is taken too, and lines under it
+            tails = [l["top"] + l["size"] + 1 for l in self.lines if l["page"] == page and cap["top"] < l["top"] < cap["top"] + 60
+                     and self.caption_tail(l) is not None and abs(self.caption_tail(l)["top"] - cap["top"]) < 2]
+            t, b = max(band["top"] - 3, band["lo"]), max([cap_bottom, *tails]) + 2
+        else:  # below its caption
+            t, b = cap["top"] - 2, min(band["bottom"] + 3, band["hi"])
+        x0, x1 = min(band["x0"], cap["x0"]) - 3, max(band["x1"], right) + 3
+        # A tinted panel behind the caption and the drawing (HSG85 flow charts) is part of the figure.
+        panels = [g for g in self.shapes(page) if g["kind"] == "rect" and g["fill"] and g["x0"] <= x0 + 6
+                  and g["x1"] >= x1 - 6 and g["top"] <= t + 6 and g["bottom"] >= b - 6
+                  and (g["x1"] - g["x0"]) * (g["bottom"] - g["top"]) < 0.8 * pw * ph]
+        if panels:
+            g = min(panels, key=lambda g: (g["x1"] - g["x0"]) * (g["bottom"] - g["top"]))
+            t, b, x0, x1 = min(t, g["top"] - 2), max(b, g["bottom"] + 2), min(x0, g["x0"] - 2), max(x1, g["x1"] + 2)
+        if any(o is not s and o["type"] == "figure" and o.get("caption_box") and o["caption_box"]["page"] == page
+               and abs(o["caption_box"]["top"] - cap["top"]) < 3 for o in self.sections):
+            # figures side by side over one caption line: each keeps to its caption's column
+            x0 = max(x0, cap["x0"] - 10)
+            if cap["x1"] < 10_000:
+                x1 = min(x1, cap["x1"] - 4)
+        return {"page": page, "top": max(0.0, t), "bottom": min(ph, b), "x0": max(0.0, x0), "x1": min(pw, x1)}
+
+    def drawn_ink_area(self, s: dict, top: float, bottom: float) -> dict | None:
+        """A drawing found from its labels (no caption), cut from the ink around the labels, between the
+        running text above and below them."""
+        cap = s["caption_box"]
+        page = cap["page"]
+        pw, ph = self.page_size(page)
+        ls = [l for l in self.lines if l["page"] == page and top - 1 <= l["top"] <= bottom and l["text"] in s["labels"]]
+        if not ls:
+            return None
+        col = (min(l["x0"] for l in ls) - 6, max(self._line_x1(l) for l in ls) + 6)
+        lo, hi = self._stop_above(page, top, col), self._stop_below(page, bottom, col)
+        band = self.ink_band(page, col, lo, hi)
+        if band is None:
+            return None
+        t, b = min(band["top"], top), max(band["bottom"], bottom)
+        return {"page": page, "top": max(0.0, max(t - 3, lo)), "bottom": min(ph, min(b + 3, hi)),
+                "x0": max(0.0, min(band["x0"], col[0]) - 3), "x1": min(pw, max(band["x1"], col[1]) + 3)}
 
     # -------------------------------------------------- pictures without "Figure N" captions
 
@@ -426,6 +732,7 @@ class Builder:
         numbered key (Asbestos essentials a0). Many short lines spread across the page at body size, almost no
         running text, no "Figure N" caption and no chapter title. The whole page becomes one figure."""
         self.diagram_pages: set[int] = set()
+        self.table_pages: set[int] = set()
         pages: dict[int, list[dict]] = {}
         for l in self.lines:
             pages.setdefault(l["page"], []).append(l)
@@ -439,7 +746,53 @@ class Builder:
                 continue
             short = sorted(len(l["text"].split()) for l in ls)[len(ls) // 2] <= 6  # boxes of a few words each
             if short and len({int(l["x0"] // 40) for l in ls}) >= 4:
-                self.diagram_pages.add(page)
+                ink = self.drawn_page(page, ls)
+                if ink == "picture":
+                    self.diagram_pages.add(page)
+                elif ink == "table":  # a page that is one ruled table with no caption: a table, not a figure
+                    self.table_pages.add(page)
+
+    def _caption_sides(self) -> None:
+        """Does this document print figure captions above their figures (HSG247, HSG85 flow charts)? A vote over
+        the figure captions: drawn ink or an image starting just below the caption and none ending just above
+        it counts for "above", the reverse for "below". Needs the drawn shapes."""
+        self.captions_above = False
+        if self.graphics is None:
+            return
+        above = below = 0
+        for l in self.lines:
+            if not self.is_caption(l) or not l["text"].startswith("Figure"):
+                continue
+            cap = {"page": l["page"], "top": l["top"], "x0": l["x0"], "x1": 10_000}
+            x0, x1, _ = self.caption_column(cap)
+            items = [g for g in self.ink_items(l["page"]) if g["x1"] >= x0 and g["x0"] <= x1]
+            a = any(l["top"] - 25 <= g["bottom"] <= l["top"] + 2 for g in items)
+            b = any(l["top"] + l["size"] <= g["top"] <= l["top"] + 35 for g in items)
+            above += b and not a
+            below += a and not b
+        self.captions_above = above >= 2 and above > 2 * below
+
+    def _signature_or_logo(self, im: dict, on_page: list[dict]) -> bool:
+        """An image that is not a picture of anything the text is about: a signature over the signer's name
+        ("Yours faithfully" or "Signed:" above it, or a name and a job title below it), a letterhead logo at the
+        top of page 1, or a publisher's logo or cover over a copyright line or web address."""
+        tall, wide = im["bottom"] - im["top"], im["x1"] - im["x0"]
+        small = tall <= 130 and wide <= 260
+        above = sorted((l for l in on_page if im["top"] - 40 <= l["top"] and l["top"] + l["size"] <= im["top"] + 8),
+                       key=lambda l: l["top"])
+        below = sorted((l for l in on_page if im["bottom"] - 2 <= l["top"] <= im["bottom"] + 45
+                        and l["x0"] < im["x1"] and self._line_x1(l) > im["x0"]), key=lambda l: l["top"])  # under it
+        first = below[0]["text"].strip() if below else ""
+        if small and above and SIGNED_RE.match(above[-1]["text"].strip()):
+            return True
+        if small and below and (re.fullmatch(r"Signed:?", first) or len(first.split()) <= 4
+                                and any(ROLE_RE.search(l["text"]) for l in below[:3])):
+            return True
+        if first.startswith("©") or re.search(r"\bwww\.|\bISBN\b", first):
+            return True
+        if small and any(re.search(r"\bwww\.|\bISBN\b|^©", l["text"].strip()) for l in below[:3]):
+            return True  # a barcode or publisher's logo on the back cover
+        return im["page"] == 1 and im["top"] < 90 and small
 
     def _photo_captions(self) -> None:
         """Photos named by a short line printed just below them, with no "Figure N" (task sheets: "Asbestos
@@ -449,11 +802,15 @@ class Builder:
         self.skip_lines: set[int] = set()
         claimed: dict[int, int] = {}  # line index -> words claimed by photo captions
         handled: set[int] = set()  # images already named (one caption can name a grid of photos)
+        self.not_pictures: set[int] = set()  # signatures and logos (id of the image)
         for im in self.images:
             if im["bottom"] - im["top"] < 40 or im["x1"] - im["x0"] < 60 or im["page"] in self.diagram_pages \
-                    or id(im) in handled:
+                    or im["page"] in self.table_pages or id(im) in handled:
                 continue
             on_page = [(j, l) for j, l in enumerate(self.lines) if l["page"] == im["page"]]
+            if self._signature_or_logo(im, [l for _, l in on_page]):
+                self.not_pictures.add(id(im))
+                continue
             if any(CAPTION_RE.match(l["text"]) and _caption_under(l["top"], im) for _, l in on_page):
                 continue
 
@@ -483,7 +840,7 @@ class Builder:
                         and g["bottom"] - g["top"] >= 40]
                 handled.update(id(g) for g in grid)
                 union = {"page": im["page"], "top": min(g["top"] for g in grid), "bottom": max(g["bottom"] for g in grid),
-                         "x0": min(g["x0"] for g in grid), "x1": max(g["x1"] for g in grid)}
+                         "x0": min(g["x0"] for g in grid), "x1": max(g["x1"] for g in grid), "grid": len(grid) > 1}
                 title = _join_all(l["text"].strip() for _, l in group)
                 box = {"page": first[1]["page"], "top": first[1]["top"], "x0": fw[0]["x0"], "x1": union["x1"]}
                 self.photo_caps.setdefault(min(j for j, _ in group), []).append((union, title, box))
@@ -676,6 +1033,12 @@ class Builder:
                 fonts[l["font"]] += len(l["text"])
         self.body_font = fonts.most_common(1)[0][0] if fonts else ""
         self.part_size = max((l["size"] for l in self.lines if PART_RE.match(l["text"].strip())), default=0.0)
+        # Where running text starts: the left edges many long body-size lines share (columns, bullet indents).
+        # A long label beside a drawing starts elsewhere.
+        starts = Counter(round(l["x0"]) for l in self.lines if l["size"] >= self.body_size - 0.5 and len(l["text"].split()) >= 6)
+        total = sum(starts.values())
+        self.text_lefts = sorted({x for x, n in starts.items()
+                                  if n + starts.get(x - 1, 0) + starts.get(x + 1, 0) >= max(5, 0.02 * total)})
 
     def left(self, l) -> float:
         """The left margin of running text on this line's page."""
@@ -803,6 +1166,9 @@ class Builder:
                 continue
             got = []
             j = -1 if id(l) in self.body_captions and l["text"].startswith("Table") else k - 1  # body-size table captions sit above
+            fig_above = self.captions_above and l["text"].startswith("Figure")
+            if fig_above:
+                j = -1  # the document prints figure captions above their figures: the labels are below
             stop_bottom = 72.0  # below the page header if nothing stops the walk
             while j >= 0 and self.lines[j]["page"] == l["page"]:
                 x = self.lines[j]
@@ -812,7 +1178,7 @@ class Builder:
                     break
                 got.append(j)
                 j -= 1
-            photo_above = any(im["page"] == l["page"] and _caption_under(l["top"], im) for im in self.images)
+            photo_above = not fig_above and any(im["page"] == l["page"] and _caption_under(l["top"], im) for im in self.images)
             if not got and not photo_above:  # nothing above: the caption may sit above its table or figure (HSG227)
                 j = k + 1
                 while j < len(self.lines) and self.lines[j]["page"] == l["page"]:
@@ -1039,6 +1405,21 @@ class Builder:
                 self.span(sec, l["page"], l["top"], bottom)
                 diagram_lines.update(rest)
                 continue
+            # ---- a whole page that is one ruled table with no caption
+            if l["page"] in self.table_pages and l["page"] not in diagram_done:
+                diagram_done.add(l["page"])
+                rest = [j for j in range(k_line, len(self.lines)) if self.lines[j]["page"] == l["page"]]
+                ws = l.get("words") or []
+                titled = bool(ws) and all(w.get("b") for w in ws) and len(ws) <= 14 and l["size"] >= self.body_size \
+                    and not any(t["page"] == l["page"] and t["top"] - 2 <= l["top"] <= t["bottom"] for t in self.doc_tables)
+                title = l["text"] if titled else (parent["title"] or self.title)
+                rows = [self.lines[j] for j in (rest[1:] if titled else rest)]
+                sec = self.new(f"table-p{l['page']}", "table", parent, None, title, [*parent["heading_path"], title],
+                               l["page"], "\n".join(x["text"] for x in rows))
+                sec["caption_box"] = {"page": l["page"], "top": l["top"], "x0": l["x0"], "x1": self.page_width - 36}
+                self.span(sec, l["page"], l["top"], max(x["top"] + x["size"] + 2 for x in [l, *rows]))
+                diagram_lines.update(rest)
+                continue
             if k_line in diagram_lines:
                 continue
             # ---- sidebar (split_columns): notes beside the main text
@@ -1060,6 +1441,8 @@ class Builder:
                     sec["labels"] = []
                     sec["caption_box"] = box
                     sec["image_bbox"] = {k2: im[k2] for k2 in ("page", "top", "bottom", "x0", "x1")}
+                    if im.get("grid") and self.graphics is not None:  # a grid of photos: all of them, not trimmed
+                        sec["images_bbox"] = dict(sec["image_bbox"])
                     self.span(sec, l["page"], im["top"], box["top"] + l["size"] + 2)
                 continue
             # ---- captions (figures and tables); two captions may share a line
@@ -1067,7 +1450,7 @@ class Builder:
                 prev_caption_line = []
                 for cap in self.split_captions(l):
                     kind = cap["kind"]
-                    sid = re.sub(r"[().]", lambda m: "-" if m.group(0) == "." else "", f"{kind}-{cap['number']}").lower()  # "Table 2.1" -> table-2-1
+                    sid = re.sub(r"[().–]", lambda m: "" if m.group(0) in "()" else "-", f"{kind}-{cap['number']}").lower()  # "Table 2.1" -> table-2-1
                     if sid in self.by_id and re.search(r"\(?continued\)?$", cap["title"], flags=re.I):
                         # "Table 5 ... (continued)" on the next page: more rows of the same table
                         captions_on_page.append(self.by_id[sid])
@@ -1261,7 +1644,7 @@ class Builder:
     def split_captions(self, l) -> list[dict]:
         words = l.get("words") or [{"x0": l["x0"], "text": w} for w in l["text"].split()]
         starts = [k for k in range(len(words) - 1)
-                  if words[k]["text"] in ("Figure", "Table") and re.match(r"^A?\d+(\.\d+)?([a-z]|\([a-z]\))?[:.]?$", words[k + 1]["text"])]
+                  if words[k]["text"] in ("Figure", "Table") and re.match(r"^A?\d+(\.\d+)?([a-z]|\([a-z]\)([–-]\([a-z]\))?)?[:.]?$", words[k + 1]["text"])]
         if not starts:  # words did not split as expected: fall back to the line's text
             m = CAPTION_RE.match(l["text"])
             self.issues.append(f"caption words not split on file page {l['page']}: {l['text'][:40]}")
@@ -1302,6 +1685,10 @@ class Builder:
             near = [c for c in captions if c["caption_box"]["page"] == page and
                     (0 <= c["caption_box"]["top"] - bottom <= 100 or 0 <= top - c["caption_box"]["top"] <= 40)]
             near.sort(key=lambda c: abs(c["caption_box"]["top"] - bottom))
+            if self.captions_above:  # labels belong to the figure caption printed above them
+                over = [c for c in captions if c["type"] == "figure" and c["caption_box"]["page"] == page
+                        and 0 <= top - c["caption_box"]["top"] <= 400]
+                near = sorted(over, key=lambda c: top - c["caption_box"]["top"])[:1] or near
             if not near and not any(c["type"] == "table" and c["caption_box"]["page"] == page for c in captions):
                 # Labels high up in a tall drawing: the figure whose caption is further below, with no running
                 # text in between (HSG150 figures 37, 41, 45).
@@ -1341,7 +1728,8 @@ class Builder:
                 near_fig["caption_box"]["top"] = bottom
                 self.span(near_fig, page, top, bottom + b[-1]["size"] + 2)
                 continue
-            if len(b) >= 4 and sum(words) / len(b) <= 3.5 and (not joins_table or not self.is_tabular(b)):
+            if len(b) >= 4 and sum(words) / len(b) <= 3.5 and (not joins_table or not self.is_tabular(b)) \
+                    and self.drawn_between(page, top, bottom + b[-1]["size"]):
                 # Scattered short labels ("h", "20 mm", "White 'a' on a black background"): a drawing with no
                 # caption, not a table (L143 Schedule 2, the asbestos label).
                 k = 1 + sum(1 for s in self.sections if s["id"].startswith(f"{key}-figure-"))
@@ -1412,12 +1800,23 @@ class Builder:
             if s["type"] != "figure":
                 continue
             cap = s["caption_box"]
-            if s.get("image_bbox"):
+            if s.get("images_bbox"):  # a stack of photos under one caption: all of them, as placed
+                im = s["images_bbox"]
+                s["area"] = {"page": im["page"], "top": im["top"], "bottom": im["bottom"], "x0": im["x0"], "x1": im["x1"]}
+                im = s.pop("image_bbox")  # no single photo to trim (render_images trims image_bbox photos)
+                s["images_bbox"]["single"] = im
+            elif s.get("image_bbox"):
                 im = s["image_bbox"]
                 # The photo only: its caption is kept as text.
                 s["area"] = {"page": im["page"], "top": im["top"], "bottom": im["bottom"], "x0": im["x0"], "x1": im["x1"]}
             else:
                 top, bottom = s.get("spans", {}).get(str(cap["page"]), (cap["top"] - 200, cap["top"] + 12))
+                if self.graphics is not None and not s.get("diagram"):
+                    # Cut from the drawing's ink (shapes, images, labels) between the running text and the caption.
+                    ink = self.drawn_ink_area(s, top, bottom) if s.get("drawn") else self.caption_ink_area(s, top, bottom)
+                    if ink:
+                        s["area"] = ink
+                        continue
                 if not s.get("drawn") and not s.get("diagram") and bottom - top < 40 and not s.get("labels"):
                     # A drawing with no words of its own above its caption (a utility plan, a wired plug): the
                     # picture is the space between the text above and the caption.
@@ -1440,9 +1839,14 @@ class Builder:
                     if cap["x1"] < 10_000:
                         x1 = cap["x1"] - 4
                 if s.get("diagram"):  # a whole page: from the leftmost to the rightmost text on it
+                    pw, ph = self.page_size(cap["page"])
                     on = [l for l in self.lines if l["page"] == cap["page"]]
                     x0 = max(0.0, min([x0, *(l["x0"] - 8 for l in on)]))
-                    x1 = min(self.page_width, max([x1, *(w.get("x1", l["x0"]) + 8 for l in on for w in l.get("words") or [])]))
+                    x1 = min(pw, max([min(x1, pw - 36), *(w.get("x1", l["x0"]) + 8 for l in on for w in l.get("words") or [])]))
+                    if self.graphics is not None:  # and every box, arrow, table rule and image the drawing has
+                        g = self.ink_extent(cap["page"], {"top": top, "bottom": bottom, "x0": x0, "x1": x1})
+                        top, bottom = g["top"], g["bottom"] + 3
+                        x0, x1 = max(0.0, g["x0"] - 3), min(pw, g["x1"] + 3)
                 s["area"] = {"page": cap["page"], "top": max(0.0, top - 6), "bottom": bottom, "x0": x0, "x1": x1}
 
     def apply_fix(self, s: dict) -> bool:
@@ -1467,13 +1871,108 @@ class Builder:
     def check_key(s: dict) -> str:
         return content_key(s["id"] + "\n" + s["text"] + "\n" + " ".join(s.get("labels", [])))
 
+    def _stacked_above(self, im: dict) -> list[dict]:
+        """The image and the images stacked straight above it in the same column, each less than 20 points
+        above the next, with no text line between them (HSG33 Figure 36(a)-(c), CIS69 Figure 2)."""
+        stack = [im]
+        while True:
+            cur = stack[-1]
+            up = [x for x in self.images if x["page"] == im["page"] and all(x is not y for y in stack)
+                  and id(x) not in self.not_pictures and cur["top"] - 20 <= x["bottom"] <= cur["top"] + 2
+                  and min(x["x1"], cur["x1"]) - max(x["x0"], cur["x0"]) >= 0.5 * min(x["x1"] - x["x0"], cur["x1"] - cur["x0"])
+                  and x["bottom"] - x["top"] >= 30]
+            up = [x for x in up if not any(l["page"] == im["page"] and x["bottom"] - 2 <= l["top"] <= cur["top"] - 2
+                                           and l["x0"] < max(x["x1"], cur["x1"]) and self._line_x1(l) > min(x["x0"], cur["x0"])
+                                           for l in self.lines)]
+            if not up:
+                return stack
+            stack.append(max(up, key=lambda x: x["bottom"]))
+
+    def _photo_cluster(self, im: dict) -> list[dict]:
+        """The image and every image joined to it in a block of photos (less than 20 points apart, side by side
+        or stacked, no text line between): the parts of a figure whose caption names them, "Figure 35(a)-(c)"."""
+        group = [im]
+        grown = True
+        while grown:
+            grown = False
+            for x in self.images:
+                if x["page"] != im["page"] or any(x is g for g in group) or id(x) in self.not_pictures \
+                        or x["bottom"] - x["top"] < 30:
+                    continue
+                for g in group:
+                    vgap = max(x["top"] - g["bottom"], g["top"] - x["bottom"])
+                    hgap = max(x["x0"] - g["x1"], g["x0"] - x["x1"])
+                    if vgap <= 20 and hgap <= 20 and not any(
+                            l["page"] == im["page"] and min(x["bottom"], g["bottom"]) - 2 <= l["top"] <= max(x["top"], g["top"])
+                            and l["x0"] < max(x["x1"], g["x1"]) and self._line_x1(l) > min(x["x0"], g["x0"]) for l in self.lines):
+                        group.append(x)
+                        grown = True
+                        break
+        return group
+
+    def _labelled_image(self, im: dict) -> bool:
+        """Short label lines beside an image, within its height and less than 100 points from its sides: the
+        image is part of a labelled drawing (HSG247 Figure 8.2), cut from its ink with the labels, not trimmed
+        to its pixels."""
+        if self.graphics is None:
+            return False
+        return sum(1 for l in self.lines if l["page"] == im["page"] and im["top"] <= l["top"] <= im["bottom"] - 4
+                   and not self.is_stopper(l) and l["size"] <= self.body_size + 1
+                   and len(re.findall(r"[A-Za-z]", l["text"])) >= 3 and (im["x0"] - 100 <= self._line_x1(l) <= im["x0"] + 2
+                                                   or im["x1"] - 2 <= l["x0"] <= im["x1"] + 100)) >= 2
+
+    def _text_beside(self, c: dict, im: dict) -> None:
+        """Running text printed beside a photo is not part of it: the photo's crop stops before it (right_limit,
+        used by render_images)."""
+        beside = [round(l["x0"]) for l in self.lines if l["page"] == im["page"] and l["x0"] >= im["x1"] - 5
+                  and im["top"] - 2 <= l["top"] <= im["bottom"] and self.is_stopper(l)]
+        xs = [x for x, n in Counter(beside).items() if n >= 2]  # a paragraph, not one long label
+        # and another photo beside it (HSG33 Figures 31 and 32 side by side, captions at different heights)
+        xs += [x["x0"] for x in self.images if x["page"] == im["page"] and x is not im and x["x0"] >= im["x1"] - 5
+               and x["top"] < im["bottom"] and x["bottom"] > im["top"] and x["bottom"] - x["top"] >= 30]
+        cap = c["caption_box"]
+        nxt = [o["caption_box"]["x0"] for o in self.sections if o["type"] == "figure" and o is not c and o.get("caption_box")
+               and o["caption_box"]["page"] == cap["page"] and abs(o["caption_box"]["top"] - cap["top"]) < 6
+               and o["caption_box"]["x0"] > cap["x0"]]
+        if xs and min(xs) > cap["x0"] + 30:
+            c["right_limit"] = min([min(xs) - 2, *nxt])  # never past the next caption on the same line
+
     def place_images(self, captions: list[dict]) -> None:
         named = [s["image_bbox"] for s in self.sections if s["id"].startswith("photo-")]
-        for im in self.images:
-            if im["page"] in self.diagram_pages or any(n["page"] == im["page"] and n["top"] <= im["top"] + 1
+        claimed: set[int] = set()  # images stacked over a lower one that took the caption
+        for im in sorted(self.images, key=lambda i: -i["bottom"]) if self.graphics is not None else self.images:
+            if id(im) in self.not_pictures or id(im) in claimed:
+                continue  # a signature or a logo, or part of a stack of photos with one caption
+            if self.graphics is not None and (im["bottom"] - im["top"] < 20 or im["x1"] - im["x0"] < 20):
+                continue  # a tile of a picture cut into strips (HSG47 plans): figure_areas takes all of its ink
+            if im["page"] in self.diagram_pages or im["page"] in self.table_pages or any(n["page"] == im["page"] and n["top"] <= im["top"] + 1
                                                         and im["bottom"] <= n["bottom"] + 1 and n["x0"] <= im["x0"] + 1
                                                         and im["x1"] <= n["x1"] + 1 for n in named):
                 continue  # inside a whole-page picture, or a photo named by the line below it
+            if self.captions_above:  # the caption just above the image, starting over it
+                over = [c for c in captions if c["type"] == "figure" and c["caption_box"]["page"] == im["page"]
+                        and not c.get("image_bbox") and im["top"] - 45 <= c["caption_box"]["top"] <= im["top"] + 2
+                        and im["x0"] - 15 <= c["caption_box"]["x0"] <= im["x1"]]
+                if over:
+                    c = max(over, key=lambda c: c["caption_box"]["top"])
+                    if self._labelled_image(im):
+                        continue  # figure_areas cuts it from its ink with the labels
+                    cap = c["caption_box"]
+                    cap["bottom"] = max([cap["top"] + 10, *(l["top"] + l["size"] for l in self.lines if l["page"] == cap["page"]
+                                                           and cap["top"] <= l["top"] < im["top"] - 2
+                                                           and abs(l["x0"] - cap["x0"]) <= 3)])
+                    c["image_bbox"] = {k: im[k] for k in ("page", "top", "bottom", "x0", "x1")}
+                    c["caption_above"] = True
+                    others = [o["caption_box"] for o in captions if o is not c and o["caption_box"]["page"] == im["page"]]
+                    group = [x for x in self._photo_cluster(im) if x is im or not any(
+                        x["top"] - 45 <= o["top"] <= x["top"] + 2 and x["x0"] - 15 <= o["x0"] <= x["x1"] for o in others)]
+                    if len(group) > 1:  # a block of photos under one caption: one figure
+                        claimed.update(id(x) for x in group)
+                        c["images_bbox"] = {"page": im["page"], "top": min(x["top"] for x in group),
+                                            "bottom": max(x["bottom"] for x in group),
+                                            "x0": min(x["x0"] for x in group), "x1": max(x["x1"] for x in group)}
+                    self._text_beside(c, im)
+                    continue
             below = [c for c in captions if c["type"] == "figure" and c["caption_box"]["page"] == im["page"]
                      and _caption_under(c["caption_box"]["top"], im)
                      and c["caption_box"]["x0"] <= im["x1"] and c["caption_box"]["x0"] >= im["x0"] - 10]
@@ -1482,14 +1981,32 @@ class Builder:
                          and _caption_under(c["caption_box"]["top"], im)]
             if below:
                 c = min(below, key=lambda c: (abs(c["caption_box"]["top"] - im["bottom"]), abs(c["caption_box"]["x0"] - im["x0"])))
-                if not c.get("image_bbox"):
+                if not c.get("image_bbox") and self._labelled_image(im):
+                    pass  # figure_areas cuts it from its ink with the labels
+                elif not c.get("image_bbox"):
                     c["image_bbox"] = {k: im[k] for k in ("page", "top", "bottom", "x0", "x1")}
+                    if self.graphics is not None:
+                        parts = re.search(r"\([a-z]\)\s*[–-]\s*\([a-z]\)|^\S*\d[a-z]\)?\s+(and|&)\s+\(?[a-z]\b",
+                                          f"{c.get('number') or ''} {c.get('title') or ''}"[:40])  # "35(a)–(c)", "12a and b"
+                        stack = self._photo_cluster(im) if parts else self._stacked_above(im)
+                        if len(stack) > 1:  # photos stacked over one caption, nothing between them: one figure
+                            claimed.update(id(x) for x in stack)
+                            c["images_bbox"] = {"page": im["page"], "top": min(x["top"] for x in stack),
+                                                "bottom": im["bottom"], "x0": min(x["x0"] for x in stack),
+                                                "x1": max(x["x1"] for x in stack)}
+                        self._text_beside(c, im)
             elif im["page"] != 1 and im["bottom"] - im["top"] >= 30 and im["x1"] - im["x0"] >= 30:  # not icons
                 self.issues.append(f"image on file page {im['page']} at {im['top']} has no caption below it")
 
 
 def build_tree(doc: dict, meta: dict, fixes: list[dict] | None = None) -> dict:
     return Builder(doc, meta, fixes).build()
+
+
+def read_guidance(path) -> dict:
+    """read_pdf as this parser uses it: with drawn shapes and page sizes, so pictures are told from pages of
+    words (Builder.drawn_page, drawn_between) and cut to their ink (Builder.ink_extent)."""
+    return read_pdf(path, graphics=True)
 
 
 # ---------------------------------------------------------------- images (pypdfium2, permissive licence)
@@ -1648,7 +2165,7 @@ def main(argv: list[str] | None = None) -> int:
         if not raw.exists():
             print(f"missing raw file: {r['raw_path']}")
             continue
-        tree = build_tree(read_pdf(raw), {**r, "title": src["title"] if src else a.source}, fixes=load_fixes(a.source))
+        tree = build_tree(read_guidance(raw), {**r, "title": src["title"] if src else a.source}, fixes=load_fixes(a.source))
         out = CORPUS_DIR / "parsed" / a.source / f"{r['version_id']}.json"
         out.parent.mkdir(parents=True, exist_ok=True)
         render_images(raw, tree, out.parent / r["version_id"])

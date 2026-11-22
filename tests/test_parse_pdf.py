@@ -7,7 +7,7 @@ from pathlib import Path
 import pytest
 
 from system.rag.fixes import load_fixes
-from system.rag.parse_pdf import build_tree, photo_box, read_pdf
+from system.rag.parse_pdf import build_tree, photo_box, read_guidance, read_pdf
 
 ROOT = Path(__file__).parent.parent
 META = {"source_id": "demo-guide", "version_id": "main@2024-01-01-abc", "valid_from": "2024-01-01",
@@ -370,7 +370,7 @@ def _record(source_id):
 def hsg264():
     pytest.importorskip("pdfplumber")
     r = _record("hse-hsg264")
-    return build_tree(read_pdf(ROOT / r["raw_path"]), {**r, "title": "HSG264 Asbestos: The survey guide"},
+    return build_tree(read_guidance(ROOT / r["raw_path"]), {**r, "title": "HSG264 Asbestos: The survey guide"},
                       fixes=load_fixes("hse-hsg264"))
 
 
@@ -425,7 +425,7 @@ def test_real_text_is_clean(hsg264):
 def hsg227():
     pytest.importorskip("pdfplumber")
     r = _record("hse-hsg227")
-    return build_tree(read_pdf(ROOT / r["raw_path"]), {**r, "title": "HSG227 A comprehensive guide to managing asbestos"},
+    return build_tree(read_guidance(ROOT / r["raw_path"]), {**r, "title": "HSG227 A comprehensive guide to managing asbestos"},
                       fixes=load_fixes("hse-hsg227"))
 
 
@@ -649,12 +649,131 @@ def test_short_scattered_labels_are_a_drawing_and_prose_small_print_is_text():
     assert any(s.get("small_print") and "Published by" in s["text"] for s in t["sections"])
 
 
+def _shape(page, x0, top, x1, bottom, kind="rect"):
+    return {"page": page, "kind": kind, "top": float(top), "bottom": float(bottom), "x0": float(x0), "x1": float(x1),
+            "fill": False, "stroke": True, "colour": (0.0,)}
+
+
+def _flow_chart_page():
+    lines = [wl(2, 100, [(44, "Decision flow chart", 13.0, "HelveticaNeue-Heavy", True)])]
+    for i in range(16):
+        lines.append(ln(2, 130 + 40 * (i // 4), "Is the work removal?", 11.0, x0=50 + 130 * (i % 4)))
+    lines.append(ln(1, 400, "The flow chart helps you decide who should do the work and what kind of work it is.", 11.0))
+    return lines
+
+
+PAGES = {1: {"width": 595.0, "height": 842.0}, 2: {"width": 595.0, "height": 842.0}}
+
+
+def drawn_doc(lines, **kw):
+    """short_doc as read_guidance gives it: with drawn shapes (graphics) and page sizes."""
+    return {**short_doc(lines, **kw), "pages": PAGES, "graphics": kw.get("graphics", [])}
+
+
+def test_page_of_short_lines_is_a_diagram_only_with_drawn_boxes_around_them():
+    lines = _flow_chart_page()
+    boxes = [_shape(2, 45 + 130 * (i % 4), 125 + 40 * (i // 4), 160 + 130 * (i % 4), 150 + 40 * (i // 4))
+             for i in range(16)]
+    boxes.append(_shape(2, 100, 268, 104, 300, "line"))  # an arrow below the last box
+    t = build_tree(drawn_doc(lines, graphics=boxes), META)
+    f = sec(t, "figure-p2")
+    assert f["area"]["bottom"] >= 300  # cut to the drawing's ink, not only its words
+    # A letter's address block: the same short scattered lines, no drawn shapes. Not a figure.
+    t = build_tree(drawn_doc(lines), META)
+    assert not [s for s in t["sections"] if s["type"] == "figure"]
+
+
+def test_page_of_short_lines_in_a_ruled_table_is_a_table_not_a_figure():
+    lines = _flow_chart_page()
+    tables = [{"page": 2, "top": 120.0, "bottom": 300.0, "x0": 40.0, "x1": 560.0, "rows": [["Is the work removal?"] * 4]}]
+    t = build_tree(drawn_doc(lines, tables=tables), META)
+    assert not [s for s in t["sections"] if s["type"] == "figure"]
+    tab = sec(t, "table-p2")
+    assert tab["type"] == "table" and tab["title"] == "Decision flow chart" and tab["grid"]
+
+
+def test_short_small_print_lines_without_drawn_shapes_are_not_a_drawing():
+    lines = [ln(2, 98, "1 Labelling", 28.0, "HelveticaNeue-Medium"),
+             ln(2, 150, "1 The label must look like this, and it must be printed so that it can be read.", x0=180)]
+    lines += [ln(2, 700 + 12 * i, t, 8.0, x0=60) for i, t in
+              enumerate(["Ministry of Housing", "Fry Building", "2 Marsham Street", "London SW1P 4DF"])]
+    t = build_tree({"lines": lines, "rects": [], "images": [], "page_count": 3, "graphics": [], "pages": PAGES}, META)
+    assert not [s for s in t["sections"] if s["type"] == "figure"]
+    assert "Fry Building" in all_text(t)
+    # The same lines among the strokes of a drawing are its labels.
+    strokes = [_shape(2, 100 + 10 * i, 705, 110 + 10 * i, 740, "curve") for i in range(8)]
+    t = build_tree({"lines": lines, "rects": [], "images": [], "page_count": 3, "graphics": strokes,
+                    "pages": PAGES}, META)
+    assert sec(t, "chapter-1-figure-1")["labels"][0] == "Ministry of Housing"
+
+
+def test_signature_and_letterhead_logo_are_not_photos():
+    lines = [ln(1, 400, "Yours faithfully", 11.0, x0=72),
+             ln(1, 470, "John Smith", 11.0, "Arial-Bold", x0=72),
+             ln(1, 484, "Deputy Director", 11.0, x0=72),
+             ln(1, 100, "To: The Chief Executive", 11.0, x0=72)]
+    images = [{"page": 1, "top": 415.0, "bottom": 466.0, "x0": 72.0, "x1": 170.0},  # signature
+              {"page": 1, "top": 40.0, "bottom": 95.0, "x0": 72.0, "x1": 200.0}]   # crest at the top of page 1
+    t = build_tree(drawn_doc(lines, images=images), META)
+    assert not [s for s in t["sections"] if s["type"] == "figure"]
+    assert "John Smith" in all_text(t)
+
+
+BODY = "This is a line of running text in the body of the guide about safe work."
+
+
+def _page_with_body(page, tops, x0=180.0):
+    return [ln(page, t, BODY, 10.0, x0=x0) for t in tops]
+
+
+def test_drawing_without_labels_is_cut_from_its_shapes_in_the_caption_column():
+    # Running text on the left (x 60), a drawing on the right (x 330-520), its caption under it.
+    lines = [ln(1, 98, "1 Planning", 28.0, "HelveticaNeue-Medium")]
+    lines += _page_with_body(1, [114, 126, 138, 150, 162, 174])  # full-width text above
+    lines += [ln(1, 300 + 12 * i, "Short column text beside the drawing goes on here.", 10.0, x0=60) for i in range(15)]
+    lines += [ln(1, 482, "Figure 2 Hierarchy for work at height", 8.0, "HelveticaNeue", x0=340)]
+    shapes = [_shape(1, 330, 300, 520, 470, "curve"), _shape(1, 360, 400, 500, 402, "line")]
+    t = build_tree({"lines": lines, "rects": [], "images": [], "page_count": 2, "graphics": shapes,
+                    "pages": PAGES}, META)
+    a = sec(t, "figure-2")["area"]
+    assert a["top"] <= 300 and a["bottom"] >= 490  # the whole drawing and its caption
+    assert a["x0"] >= 320  # not the text column beside it
+    assert a["top"] >= 186  # not the running text above
+
+
+def test_captions_above_figures_take_the_drawing_below():
+    lines = [ln(1, 98, "1 Enclosures", 28.0, "HelveticaNeue-Medium")]
+    lines += _page_with_body(1, [130, 142])
+    lines += [ln(1, 160, "Figure 1.1 Schematic of an enclosure", 9.0, "HelveticaNeue", x0=60)]
+    lines += _page_with_body(1, [400, 412])
+    lines += [ln(1, 430, "Figure 1.2 The airlock", 9.0, "HelveticaNeue", x0=60)]
+    lines += _page_with_body(1, [700, 712])
+    shapes = [_shape(1, 140, 175, 420, 380), _shape(1, 140, 445, 420, 680)]
+    t = build_tree({"lines": lines, "rects": [], "images": [], "page_count": 2, "graphics": shapes,
+                    "pages": PAGES}, META)
+    a1, a2 = sec(t, "figure-1-1")["area"], sec(t, "figure-1-2")["area"]
+    assert a1["top"] <= 160 and 380 <= a1["bottom"] < 400
+    assert a2["top"] <= 430 and 680 <= a2["bottom"] < 700
+
+
+def test_photos_stacked_over_one_caption_are_one_figure():
+    lines = [ln(1, 98, "1 Dust", 28.0, "HelveticaNeue-Medium")]
+    lines += [ln(1, 455, "Figure 2 Examples of captor hoods", 9.0, "HelveticaNeue", x0=60)]
+    lines += _page_with_body(1, [500, 512, 524], x0=60)
+    images = [{"page": 1, "top": 100.0, "bottom": 270.0, "x0": 55.0, "x1": 290.0},
+              {"page": 1, "top": 278.0, "bottom": 450.0, "x0": 55.0, "x1": 290.0}]
+    t = build_tree({"lines": lines, "rects": [], "images": images, "page_count": 2, "graphics": [],
+                    "pages": PAGES}, META)
+    f = sec(t, "figure-2")
+    assert f["area"]["top"] == 100.0 and f["area"]["bottom"] == 450.0 and not f.get("image_bbox")
+
+
 # ---------------------------------------------------------------- real files: S2c sources
 
 def _real(source_id, title):
     pytest.importorskip("pdfplumber")
     r = _record(source_id)
-    return build_tree(read_pdf(ROOT / r["raw_path"]), {**r, "title": title}, fixes=load_fixes(source_id))
+    return build_tree(read_guidance(ROOT / r["raw_path"]), {**r, "title": title}, fixes=load_fixes(source_id))
 
 
 @pytest.fixture(scope="module")
