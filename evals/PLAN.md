@@ -101,7 +101,10 @@ Inventory (21 Nov): 139 non-legislation sources. 47 have open model checks, 1,46
 Main metric now: vector-only Recall@5 and Recall@50 on dev 299, before keyword search and rerank. Baseline (V0):
 0.51 and 0.80. Runs use the full corpus in a throwaway local Postgres; live is not touched.
 
-**After retrieval: a tool that describes the library (Florin, 22 Nov), S100.** One MCP tool,
+**After retrieval: split into two MCP servers (ADR 0015, proposed, S101)**, regulations and firm, before the
+library tool below.
+
+**Then: a tool that describes the library (Florin, 22 Nov), S100.** One MCP tool,
 `about_regulations_library`, with `topic` = contents | gaps | examples | quality and an optional subject filter.
 - contents: every document with publisher, edition, valid from, nation, status; counts per subject.
 - gaps: link-only documents and why (paywall, copyright); subjects out of scope on purpose; free documents not
