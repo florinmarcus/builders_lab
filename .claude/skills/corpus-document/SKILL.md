@@ -78,6 +78,19 @@ python -m system.rag.checks review --source <source_id>
 
 Look at the review sheet (`corpus/parsed/<source_id>/<version>-figures.png`). A crop that is cut short or shows a neighbour is a parser bug: fix the code and add a test (step 2).
 
+Then the model crop check (Sonnet; it beat Haiku on HSG33, 22 Nov 2026). Each crop is shown next to its page with the
+crop box drawn in red:
+
+```
+python -m system.rag.cropcheck export --source <source_id>     # only crops not judged before (keyed by image hash)
+# run the packets in corpus/parsed/<source_id>/cropcheck/ exactly as in step 3, with Sonnet
+python -m system.rag.cropcheck save --source <source_id> --answers <answers.jsonl> --by "crop check, Sonnet"
+python -m system.rag.cropcheck report --source <source_id>      # must say 0 bad, 0 not judged
+```
+
+Verdicts are kept in `corpus/cropchecks/<source_id>.json` (commit it). A bad crop is a parser bug: fix, parse,
+export again. Do this before step 3, so figure descriptions are written from the right picture.
+
 ## 5. Tests
 
 ```
