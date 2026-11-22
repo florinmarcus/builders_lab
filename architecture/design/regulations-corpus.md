@@ -56,7 +56,7 @@ besides words, and it is cut to that ink, not to its words.
 ```mermaid
 flowchart TD
     page["page of short scattered lines"] --> ink{"ink besides words?"}
-    ink -->|"text in drawn boxes,<br/>10+ boxes (a form),<br/>images over 10% of page"| fig["figure-pN, cut to all its shapes"]
+    ink -->|"text in drawn boxes,<br/>10+ boxes (a form),<br/>images (10% of page)<br/>with words beside them"| fig["figure-pN, cut to all its shapes"]
     ink -->|"a ruled table holds most lines"| tab["table-pN (a table, not a figure)"]
     ink -->|"none: letter, title page"| text["text"]
     small["block of short small-print lines"] --> shp{"6+ shapes or an image among them?"}

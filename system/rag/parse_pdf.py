@@ -477,8 +477,14 @@ class Builder:
                                          for g in boxes))
         intab = sum(1 for l in ls if any(t["page"] == page and t["x0"] - 2 <= l["x0"] <= t["x1"]
                                          and t["top"] - 2 <= l["top"] <= t["bottom"] for t in self.doc_tables))
-        ims = sum((i["x1"] - i["x0"]) * (i["bottom"] - i["top"]) for i in self._pictures(page))
-        if (len(boxes) >= 3 and inbox >= 0.25 * len(ls) and intab < 0.5 * len(ls)) or ims >= 0.1 * pw * ph \
+        pics = self._pictures(page)
+        ims = sum((i["x1"] - i["x0"]) * (i["bottom"] - i["top"]) for i in pics)
+        # Images count when the words label them: lines beside or on an image, within its height (not a cover
+        # picture over a contents list).
+        onpic = sum(1 for l in ls if any(i["top"] - 2 <= l["top"] <= i["bottom"] and i["x0"] - 120 <= l["x0"] <= i["x1"] + 120
+                                         for i in pics))
+        if (len(boxes) >= 3 and inbox >= 0.25 * len(ls) and intab < 0.5 * len(ls)) \
+                or (ims >= 0.1 * pw * ph and onpic >= 0.25 * len(ls)) \
                 or (len(boxes) >= 10 and intab < 0.5 * len(ls)):
             return "picture"
         return "table" if intab >= 0.5 * len(ls) else None
