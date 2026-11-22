@@ -90,4 +90,5 @@ Attribution is added from the publisher: OGL for GOV.UK and legislation.gov.uk, 
 - **England and Wales in one text.** The Building Regulations 2010 XML includes Welsh changes with extent markers. Filter to England when parsing.
 - **Licence checks.** AD A and AD C PDFs still carry the old Click-Use wording. Get legal confirmation before quoting them in full.
 - **Guidance PDF crops** (22 Nov 2026, parking lot S98): every parse_pdf figure crop is judged ok by Sonnet or kept by the lead with a named defect (`python -m system.rag.cropcheck report`). Letters and circulars have no real figures besides a few flow charts: signatures, letterheads, address and copyright blocks are not figures.
-- **Withdrawn or blocked.** HSE INDG223, INDG188 and INDG289 return 404. Gas Safe Register returned 403 (link only anyway).
+- **Withdrawn or blocked.** HSE INDG223, INDG188 and INDG289 return 404 (.htm and .pdf, checked again 22 Nov 2026); they are now `link_only`, kept only so we know they are gone. Gas Safe Register returned 403 (link only anyway).
+- **Merged Approved Documents (Oct 2024).** `ad-merged-2024` is `link_only` (22 Nov 2026): a copy of the single Approved Documents we hold. Its only text we lack is AD T Tables 4.1 and 6.1 before the November 2025 revision (Circular 02/2025 in br-circulars records the change).
