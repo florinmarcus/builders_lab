@@ -1082,6 +1082,8 @@ hse-ro-cis26 hse-ro-indg410 manual-br pd-householder-guide supplier-information"
 def test_real_parsed_guidance_trees_have_no_open_checks(source_id):
     trees = [json.loads(p.read_text(encoding="utf-8")) for p in (ROOT / "corpus" / "parsed" / source_id).glob("*.json")]
     trees = [t for t in trees if str(t.get("parser", "")).startswith("guidance-pdf")]
+    from system.rag.corpus import version_in_scope
+    trees = [t for t in trees if version_in_scope(source_id, t["version_id"])]  # ADR 0016: old versions stay open
     if not trees:
         pytest.skip(f"{source_id} not parsed on this machine")
     open_checks = {t["version_id"]: len(t["checks"]) for t in trees if t["checks"]}

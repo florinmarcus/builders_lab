@@ -163,11 +163,92 @@ def validate_sources(doc: dict) -> list[str]:
             errors.append(f"{sid}: govuk needs fetch.page starting with /")
         if method == "url" and not str(fetch.get("url", s.get("url", ""))).startswith("http"):
             errors.append(f"{sid}: url method needs a URL")
+        for part, p in (s.get("in_force_parts") or {}).items():
+            if not isinstance(p, dict) or not p.get("to") or not p.get("why") or not re.match(
+                    r"^\d{4}-\d\d-\d\d$", _iso(p["to"])) or (p.get("from") and not re.match(
+                    r"^\d{4}-\d\d-\d\d$", _iso(p["from"]))):
+                errors.append(f"{sid}: in_force_parts {part} needs to (YYYY-MM-DD), why, optional from")
         files = (s.get("parser") or {}).get("files")
         if files is not None and (not isinstance(files, dict) or not all(
                 isinstance(v, list) and v and all(isinstance(x, str) and x for x in v) for v in files.values())):
             errors.append(f"{sid}: parser.files must map a module to a list of version id prefixes")
     return errors
+
+
+# ---------------------------------------------------------------- scope (ADR 0016)
+
+# Search and the checking work keep every version in force at any time from this day, including the versions in
+# force on that day. Older versions keep their records and raw files (S3); they are not chunked, loaded or checked.
+SCOPE_FROM = "2025-01-01"
+
+
+def _iso(d) -> str | None:
+    return None if d is None else (d.isoformat() if hasattr(d, "isoformat") else str(d))
+
+
+def force_period(record: dict, source: dict | None = None) -> tuple[str | None, str | None]:
+    """(valid_from, valid_to) of a version: the record's, unless the source gives the file's own dates.
+
+    Pages that list old editions side by side (fetch.keep_titles, e.g. adb-historical) give every file the page's
+    publish date and an open end, so the records cannot say when an edition stopped. Such a source lists, per part,
+    the dates printed in the documents themselves (records are never rewritten, ADR 0008):
+
+        in_force_parts: {<part>: {from: 2022-12-01, to: 2025-03-02, why: "..."}}
+    """
+    p = ((source or {}).get("in_force_parts") or {}).get(record.get("part"))
+    if p:
+        return _iso(p.get("from")) or record.get("valid_from"), _iso(p.get("to"))
+    return record.get("valid_from"), record.get("valid_to")
+
+
+def in_scope(record: dict, source: dict | None = None, since: str = SCOPE_FROM) -> bool:
+    """The one scope rule (ADR 0016, S115): in scope = valid_to is null or valid_to >= 1 January 2025."""
+    valid_to = force_period(record, source)[1]
+    return valid_to is None or valid_to >= since
+
+
+def version_in_scope(source_id: str, version_id: str, corpus_dir: Path | None = None,
+                     sources: dict | None = None) -> bool:
+    """in_scope() for one parsed tree or chunk file, found by its source and version id. A version with no record
+    is kept (nothing says it is old)."""
+    corpus_dir = corpus_dir or CORPUS_DIR
+    rec = _record_index(str(corpus_dir)).get((source_id, version_id))
+    if rec is None:
+        return True
+    if sources is None:
+        sources = _source_index(str(corpus_dir))
+    return in_scope(rec, sources.get(source_id))
+
+
+_RECORDS: dict[str, dict] = {}
+_SOURCES: dict[str, dict] = {}
+
+
+def _record_index(corpus_dir: str) -> dict:
+    if corpus_dir not in _RECORDS:
+        idx = {}
+        for p in (Path(corpus_dir) / "versions").glob("*/*.json"):
+            r = json.loads(p.read_text(encoding="utf-8"))
+            idx[(r["source_id"], r["version_id"])] = r
+        _RECORDS[corpus_dir] = idx
+    return _RECORDS[corpus_dir]
+
+
+def _source_index(corpus_dir: str) -> dict:
+    if corpus_dir not in _SOURCES:
+        path = Path(corpus_dir) / "sources.yaml"
+        _SOURCES[corpus_dir] = {s["id"]: s for s in load_sources(path)["sources"]} if path.exists() else {}
+    return _SOURCES[corpus_dir]
+
+
+def scope_counts(corpus_dir: Path | None = None) -> dict[str, tuple[int, int]]:
+    """Versions in and out of scope per source: {source_id: (in, out)}."""
+    corpus_dir = corpus_dir or CORPUS_DIR
+    sources = _source_index(str(corpus_dir))
+    out: dict[str, list[int]] = {}
+    for (sid, _), rec in sorted(_record_index(str(corpus_dir)).items()):
+        out.setdefault(sid, [0, 0])[0 if in_scope(rec, sources.get(sid)) else 1] += 1
+    return {k: (v[0], v[1]) for k, v in out.items()}
 
 
 # ---------------------------------------------------------------- versions

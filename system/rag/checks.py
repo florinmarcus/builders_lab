@@ -76,8 +76,13 @@ ANSWER_FORMAT = {
 # ---------------------------------------------------------------- trees and families
 
 def current_trees(source_id: str) -> list[dict]:
+    """Parsed trees of the versions in scope (ADR 0016): model checks and crop checks are not worked for versions
+    superseded before 1 January 2025; their checks stay open."""
+    from system.rag.corpus import version_in_scope
+
     paths = sorted((CORPUS_DIR / "parsed" / source_id).glob("*.json"))
-    return [json.loads(p.read_text(encoding="utf-8")) for p in paths]
+    trees = [json.loads(p.read_text(encoding="utf-8")) for p in paths]
+    return [t for t in trees if version_in_scope(source_id, t.get("version_id", ""), CORPUS_DIR)]
 
 
 def family(title: str | None) -> str | None:

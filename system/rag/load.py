@@ -25,7 +25,7 @@ import re
 import sys
 from pathlib import Path
 
-from system.rag.corpus import CORPUS_DIR
+from system.rag.corpus import CORPUS_DIR, version_in_scope
 from system.rag.localsearch import codes
 
 ROOT = CORPUS_DIR.parent
@@ -78,13 +78,17 @@ COLUMNS = ("id", "source_id", "source_title", "kind", "legal_weight", "version_i
 TOP_LEVEL = set(COLUMNS) - {"meta"}
 
 
-def rows(chunks_dir: Path | None = None, vectors_dir: Path | None = None):
-    """Each chunk as a row (dict), with its vector as pgvector text ("[0.1,0.2,...]")."""
+def rows(chunks_dir: Path | None = None, vectors_dir: Path | None = None, corpus_dir: Path | None = None):
+    """Each chunk as a row (dict), with its vector as pgvector text ("[0.1,0.2,...]"). Chunk files of versions out of
+    scope (corpus.in_scope, ADR 0016) are left out, even if an old file is still on disk."""
     import numpy as np
 
     chunks_dir = chunks_dir or CORPUS_DIR / "chunks"
+    corpus_dir = corpus_dir or CORPUS_DIR
     vectors_dir = vectors_dir or CORPUS_DIR / "vectors"
     for f in sorted(chunks_dir.glob("*/*.jsonl")):
+        if not version_in_scope(f.parent.name, f.stem, corpus_dir):  # superseded before 2025 (ADR 0016)
+            continue
         chunks = [json.loads(l) for l in f.read_text(encoding="utf-8").splitlines() if l.strip()]
         rel = f.relative_to(chunks_dir)
         npy = (vectors_dir / rel.parent / rel.stem).with_suffix(".npy")

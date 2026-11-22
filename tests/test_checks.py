@@ -132,3 +132,16 @@ def test_listed_table_is_not_bound_by_its_title_family():
     assert table_family("adh", t12["target"]) is None and table_family("adh", t11["target"]) == "minimum dimensions"
     assert not any("same family" in p for p in lint_fixes("adh", [t11, t12]))
     assert any("same family" in p for p in lint_fixes("other", [t11, t12]))  # elsewhere the rule still binds
+
+
+def test_checks_are_worked_only_for_versions_in_scope(tmp_path, monkeypatch):
+    """ADR 0016: export, review and crop checks read current_trees, which leaves out versions superseded before 2025."""
+    corpus = tmp_path / "corpus"
+    (corpus / "parsed" / "x").mkdir(parents=True)
+    (corpus / "versions" / "x").mkdir(parents=True)
+    for vid, vt in (("a@2006", "2019-08-30"), ("a@2022", "2025-03-02"), ("a@2026", None)):
+        (corpus / "parsed" / "x" / f"{vid}.json").write_text(json.dumps({**TREE, "version_id": vid}))
+        (corpus / "versions" / "x" / f"{vid}.json").write_text(json.dumps(
+            {"source_id": "x", "part": "a", "version_id": vid, "valid_from": "2006-01-01", "valid_to": vt}))
+    monkeypatch.setattr(checks, "CORPUS_DIR", corpus)
+    assert [t["version_id"] for t in checks.current_trees("x")] == ["a@2022", "a@2026"]

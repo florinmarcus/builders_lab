@@ -1,6 +1,7 @@
 """Offline tests for the corpus catalogue and version store."""
 
 import json
+from datetime import date
 import re
 from pathlib import Path
 
@@ -240,3 +241,65 @@ def test_real_sources_yaml_is_valid():
     if not path.exists():
         pytest.skip("sources.yaml not written yet")
     assert validate_sources(load_sources(path)) == []
+
+
+# ---------------------------------------------------------------- scope (ADR 0016, S115)
+
+from system.rag.corpus import SCOPE_FROM, force_period, in_scope, scope_counts, version_in_scope  # noqa: E402
+
+ROOT = Path(__file__).parent.parent
+
+
+def test_scope_rule_keeps_current_versions_and_those_in_force_from_2025():
+    assert SCOPE_FROM == "2025-01-01"
+    assert in_scope({"valid_to": None})
+    assert in_scope({"valid_to": "2025-01-01"})  # the rule as decided: valid_to on or after 1 January 2025
+    assert in_scope({"valid_to": "2025-03-02"})
+    assert not in_scope({"valid_to": "2024-12-31"})
+    assert not in_scope({"valid_to": "2010-10-01"})
+
+
+def test_source_dates_override_a_records_open_end():
+    src = {"in_force_parts": {"old": {"from": date(2019, 8, 30), "to": date(2020, 11, 26), "why": "page 2"},
+                              "late": {"to": "2025-03-02", "why": "page 3"}}}
+    old = {"part": "old", "valid_from": "2025-01-14", "valid_to": None}
+    assert force_period(old, src) == ("2019-08-30", "2020-11-26") and not in_scope(old, src)
+    late = {"part": "late", "valid_from": "2025-01-14", "valid_to": None}
+    assert force_period(late, src) == ("2025-01-14", "2025-03-02") and in_scope(late, src)
+    other = {"part": "other", "valid_from": "2025-01-14", "valid_to": None}
+    assert force_period(other, src) == ("2025-01-14", None) and in_scope(other, src)
+
+
+def test_in_force_parts_need_a_date_and_a_reason():
+    base = {"id": "x", "title": "X", "publisher": "P", "url": "https://x", "kind": "guidance", "licence": "OGL-3.0",
+            "mode": "ingest", "priority": 3, "why": "w", "checked": "2026-11-22", "fetch": {"method": "none"}}
+    good = {**base, "in_force_parts": {"a": {"to": date(2019, 8, 30), "why": "page 2"}}}
+    assert validate_sources({"sources": [good]}) == []
+    for bad in ({"to": "2019"}, {"to": "2019-08-30"}, {"why": "w"}, {"to": "2019-08-30", "why": "w", "from": "x"}):
+        errs = validate_sources({"sources": [{**base, "in_force_parts": {"a": bad}}]})
+        assert errs and "in_force_parts a" in errs[0]
+
+
+def test_version_in_scope_and_counts_read_the_records(tmp_path):
+    corpus = tmp_path / "corpus"
+    (corpus / "versions" / "demo").mkdir(parents=True)
+    for vid, vt in (("main@2010", "2024-04-06"), ("main@2024", "2026-01-01"), ("main@2026", None)):
+        (corpus / "versions" / "demo" / f"{vid}.json").write_text(json.dumps(
+            {"source_id": "demo", "part": "main", "version_id": vid, "valid_from": "2010-01-01", "valid_to": vt}))
+    assert not version_in_scope("demo", "main@2010", corpus)
+    assert version_in_scope("demo", "main@2024", corpus) and version_in_scope("demo", "main@2026", corpus)
+    assert version_in_scope("demo", "no-record", corpus)  # nothing says it is old
+    assert scope_counts(corpus) == {"demo": (2, 1)}
+
+
+def test_real_adb_historical_keeps_only_the_editions_in_force_from_2025():
+    """AD B 2019 edition with the 2020 and 2022 amendments (in force on 1 January 2025) and the text collated with
+    the 2025, 2026 and 2029 amendments, both volumes; every older edition and booklet is out (documents' own dates)."""
+    srcs = {s["id"]: s for s in load_sources()["sources"]}
+    src = srcs["adb-historical"]
+    recs = [json.loads(p.read_text(encoding="utf-8")) for p in (ROOT / "corpus" / "versions" / "adb-historical").glob("*.json")]
+    assert len(recs) == 17 and set(src["in_force_parts"]) == {r["part"] for r in recs}
+    kept = sorted(r["part_title"] for r in recs if in_scope(r, src))
+    assert len(kept) == 4
+    assert all("2019 edition incorporating 2020 and 2022 amendments" in t for t in kept)
+    assert sum("collated with 2025, 2026 and 2029" in t for t in kept) == 2

@@ -16,6 +16,9 @@ Chunk units (design "Chunk units"):
 - figures: one chunk with caption, labels and the model's description.
 Headings and chapters give no chunks; they are the breadcrumb.
 
+Only versions in scope are chunked (ADR 0016, corpus.in_scope: in force on or after 1 January 2025); the chunk file
+of a version out of scope is removed and the version is listed in the report.
+
 Every chunk carries its filter fields (source, kind, legal weight, version, dates, applies_to, breadcrumb,
 section, printed page, url), the text, and embed_text (breadcrumb + text). Cross-references found in the
 text are resolved to section ids of the same document where possible; the rest are kept as unresolved.
@@ -30,7 +33,7 @@ import sys
 from collections import Counter
 from pathlib import Path
 
-from system.rag.corpus import CORPUS_DIR
+from system.rag.corpus import CORPUS_DIR, SCOPE_FROM, force_period, in_scope
 
 ROOT = CORPUS_DIR.parent
 MAX_CHARS = 2500  # above this a regulation or paragraph is split (about 600 tokens)
@@ -160,6 +163,11 @@ class Chunker:
             # An amending instrument is news from the day it is made: findable then, with its in-force date kept.
             valid_from = min(valid_from or self.record["edition_date"], self.record["edition_date"])
         valid_to = s.get("valid_to") or self.tree.get("valid_to")
+        if (self.src.get("in_force_parts") or {}).get(self.record.get("part")):
+            # The record holds the page's date, not the edition's (adb-historical): use the document's own dates.
+            p_from, p_to = force_period(self.record, self.src)
+            valid_from = max(x for x in (valid_from, p_from) if x) if (valid_from or p_from) else None
+            valid_to = min(x for x in (valid_to, p_to) if x) if (valid_to or p_to) else None
         applies = s.get("applies_to") or NATION.get(self.src.get("nation", ""), None)
         if s.get("url"):
             url = s["url"]
@@ -344,15 +352,21 @@ def main(argv: list[str] | None = None) -> int:
     trees = sorted((CORPUS_DIR / "parsed").glob("*/*.json"))
     report = ["# Chunk report", "", "Made by `python -m system.rag.chunk` from the parsed trees (not in git). "
               "Rebuilt on every run.", ""]
+    skipped: list[str] = []
     for path in trees:
         sid = path.parent.name
         if a.source and sid not in a.source:
             continue
         tree = json.loads(path.read_text(encoding="utf-8"))
+        src, record = sources.get(sid, {"id": sid}), version_record(sid, tree["version_id"])
+        out = CORPUS_DIR / "chunks" / sid / f"{tree['version_id']}.jsonl"
+        if record and not in_scope(record, src):  # superseded before 1 January 2025 (ADR 0016)
+            skipped.append(f"{sid} {tree['version_id']}")
+            out.unlink(missing_ok=True)  # chunks are rebuilt output; an old file would still be embedded and loaded
+            continue
         if tree.get("checks"):
             print(f"{path.relative_to(ROOT)}: {len(tree['checks'])} model checks open; chunked anyway, listed in report")
-        chunks, splits = chunk_tree(tree, sources.get(sid, {"id": sid}), version_record(sid, tree["version_id"]))
-        out = CORPUS_DIR / "chunks" / sid / f"{tree['version_id']}.jsonl"
+        chunks, splits = chunk_tree(tree, src, record)
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text("".join(json.dumps(c, ensure_ascii=False) + "\n" for c in chunks), encoding="utf-8")
         types = Counter(c["chunk_type"] for c in chunks)
@@ -372,6 +386,10 @@ def main(argv: list[str] | None = None) -> int:
             report.append("- Unresolved references (most common): " +
                           ", ".join(f"\"{w}\" ×{n}" for w, n in unresolved.most_common(15)) + ".")
         report.append("")
+    if skipped:
+        print(f"{len(skipped)} versions superseded before {SCOPE_FROM} not chunked (ADR 0016)")
+        report += [f"## Not chunked: superseded before {SCOPE_FROM} (ADR 0016)", "",
+                   f"{len(skipped)} parsed versions:", ""] + [f"- `{x}`" for x in skipped] + [""]
     if not a.source:
         (CORPUS_DIR / "chunk-report.md").write_text("\n".join(report), encoding="utf-8")
     return 0

@@ -349,6 +349,23 @@ erDiagram
 | Diagrams, photos | figure | Original image cut from the PDF (a photo is cut to its own pixels above its caption, since the PDF's image box can be padded); caption, labels and model description are searchable. No Mermaid redraw. |
 | AD B change notes | change note | Linked to the sections they mention. |
 
+### Scope: versions in force from 1 January 2025 (ADR 0016, built 22 Nov 2026)
+
+One rule in `system/rag/corpus.py` (`in_scope`): a version is in scope when its `valid_to` is empty or on or
+after 1 January 2025. `chunk.py`, `load.py`, model checks and crop checks (`checks.current_trees`) use it. Older
+versions keep their records and raw files; their trees are not chunked, loaded or checked, and their open checks
+stay open. Pages that list old editions side by side (`adb-historical`) give every file the page's date and an open
+end, so `sources.yaml` lists each part's own dates from the documents (`in_force_parts`); chunks of those parts
+carry the edition's dates, not the page's.
+
+```mermaid
+flowchart LR
+    rec["version record<br/>valid_to"] --> rule{"in_scope<br/>valid_to empty or<br/>>= 2025-01-01"}
+    over["sources.yaml<br/>in_force_parts<br/>(dates printed in<br/>the documents)"] -.-> rule
+    rule -->|yes| work["chunk, load,<br/>model checks,<br/>crop checks"]
+    rule -->|no| keep["record and raw file kept;<br/>not chunked or checked"]
+```
+
 ### Chunks as built (20 Nov 2026)
 
 `python -m system.rag.chunk` writes one JSON line per chunk to `corpus/chunks/<source>/<version>.jsonl` (not in git, rebuilt from the trees) and `corpus/chunk-report.md` (in git). Each chunk carries `id`, `chunk_type`, the filter fields above, `text`, `embed_text` (breadcrumb + text), `references` (resolved to a section id in the same document, to another document such as `br2010`, or unresolved), `terms` (key terms the text marks) and, for figures, `image_path` and `image_display`. Legal weight comes from `kind` in `sources.yaml` (legislation = law, Approved Documents = statutory guidance, HSE "L" books = approved code, the rest guidance), or from `legal_weight` if a source sets it. Regulations and paragraphs longer than 2,500 characters are split (regulations at (1), (2); guidance at list items), and every split is listed in the report.

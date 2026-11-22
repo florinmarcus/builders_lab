@@ -58,3 +58,14 @@ def test_load_replaces_the_corpus_and_the_reader_can_only_read(tmp_path):
         c.execute("SET default_transaction_read_only = off")
         with pytest.raises(psycopg.errors.InsufficientPrivilege):
             c.execute("INSERT INTO corpus.stats (schema_version) VALUES (9)")
+
+
+def test_chunk_files_of_versions_out_of_scope_are_not_loaded(tmp_path):
+    """ADR 0016: an old chunk file left on disk for a version superseded before 2025 is skipped."""
+    cdir, vdir = write_corpus(tmp_path)
+    for name, valid_to, n in (("old", "2020-01-01", 0), ("kept", "2025-06-01", 3)):
+        corpus = tmp_path / name  # one folder each: the record index is read once per corpus folder
+        (corpus / "versions" / "demo").mkdir(parents=True)
+        (corpus / "versions" / "demo" / "v1.json").write_text(json.dumps(
+            {"source_id": "demo", "part": "main", "version_id": "v1", "valid_from": "2010-01-01", "valid_to": valid_to}))
+        assert len(list(L.rows(cdir, vdir, corpus))) == n

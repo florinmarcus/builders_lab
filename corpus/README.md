@@ -76,6 +76,7 @@ Attribution is added from the publisher: OGL for GOV.UK and legislation.gov.uk, 
 - A source can have several parts, e.g. volume 1 and volume 2 of an Approved Document. Each part has its own chain of versions.
 - `valid_from_basis`: `point_in_time` (legislation version date), `in_force` (stated in-force date), `published` (GOV.UK publish or update date) or `first_seen` (the date we first fetched it, when nothing better exists).
 - `sha256` is the exact file (checks downloads and S3). `content_hash` decides new versions: visible text for HTML, canonical XML without legislation metadata for XML, bytes for the rest (ADR 0008).
+- **Scope (ADR 0016):** only versions in force at any time from 1 January 2025 are chunked, loaded and checked: `valid_to` empty or on or after 2025-01-01 (`system/rag/corpus.py`, `in_scope`). Older versions keep their records and raw files. Where a page lists old editions side by side (`adb-historical`), the records carry the page's date, so `sources.yaml` gives each part's own dates from the documents (`in_force_parts: {<part>: {from, to, why}}`). 22 Nov 2026: 631 versions in scope, 210 out (br2010 55, ba1984 42, hswa1974 45, cis-regs-2005 15, fso2005 14, adb-historical 13, other legislation 26).
 - `valid_to: null` means current. A new hash for the same part closes the old record's `valid_to`. That is the only edit ever made to an old record. Raw files are named by hash, so nothing is overwritten.
 
 ## Known gaps (19 Nov 2026)

@@ -207,3 +207,37 @@ def test_duplicate_section_ids_get_unique_chunk_ids():
               sec("note-p59", "paragraph", "Third note.")])
     ids = [c["id"] for c in chunk_tree(t, GUIDE, RECORD)[0]]
     assert ids == ["demo:main@1:note-p59", "demo:main@1:note-p59~2", "demo:main@1:note-p59~3"]
+
+
+# ---------------------------------------------------------------- scope (ADR 0016)
+
+def test_versions_superseded_before_2025_are_not_chunked_and_old_chunk_files_go(tmp_path, monkeypatch):
+    corpus = tmp_path / "corpus"
+    for d in ("parsed/demo", "versions/demo", "chunks/demo"):
+        (corpus / d).mkdir(parents=True)
+    (corpus / "sources.yaml").write_text("sources:\n- {id: demo, kind: guidance, title: Demo}\n")
+    for vid, vt in (("main@2010", "2019-08-30"), ("main@2019", "2025-03-02")):
+        t = {**tree([sec("para-1", "paragraph", "Fire doors.", number="1")]), "version_id": vid}
+        (corpus / "parsed" / "demo" / f"{vid}.json").write_text(json.dumps(t))
+        (corpus / "versions" / "demo" / f"{vid}.json").write_text(json.dumps(
+            {"source_id": "demo", "part": "main", "version_id": vid, "valid_from": "2010-01-01", "valid_to": vt}))
+    (corpus / "chunks" / "demo" / "main@2010.jsonl").write_text("{}\n")  # left from an earlier run
+    monkeypatch.setattr(ch, "CORPUS_DIR", corpus)
+    monkeypatch.setattr(ch, "ROOT", tmp_path)
+    assert ch.main([]) == 0
+    assert sorted(p.name for p in (corpus / "chunks" / "demo").iterdir()) == ["main@2019.jsonl"]
+    report = (corpus / "chunk-report.md").read_text()
+    assert "Not chunked: superseded before 2025-01-01" in report and "`demo main@2010`" in report
+
+
+def test_documents_own_dates_replace_the_page_date_in_chunks():
+    """adb-historical: the record holds the page's publish date; the source gives the edition's dates."""
+    src = {**GUIDE, "in_force_parts": {"ed": {"from": "2022-12-01", "to": "2025-03-02", "why": "page 3"}}}
+    rec = {**RECORD, "part": "ed", "valid_from": "2025-01-14", "valid_to": None}
+    t = {**tree([sec("para-1", "paragraph", "Fire doors.", number="1"),
+                 sec("para-2", "paragraph", "Sprinklers.", number="2", valid_to="2024-01-01")]),
+         "valid_from": "2025-01-14"}
+    chunks, _ = chunk_tree(t, src, rec)
+    c = by_suffix(chunks)
+    assert (c["para-1"]["valid_from"], c["para-1"]["valid_to"]) == ("2025-01-14", "2025-03-02")
+    assert c["para-2"]["valid_to"] == "2024-01-01"  # a section's own earlier end is kept
