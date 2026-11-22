@@ -52,6 +52,9 @@ def test_save_and_status(tmp_path, monkeypatch):
     st = cropcheck.status(src)
     assert st["crops"] == 2 and st["ok"] == 1 and len(st["bad"]) == 1 and not st["unjudged"]
 
+    assert cropcheck.accept(src, "figure-2", "notes kept as a paragraph", "test") == 0
+    st = cropcheck.status(src)
+    assert st["ok"] == 2 and not st["bad"]
     Image.new("RGB", (20, 20), "green").save(tmp_path / paths[1])  # the parser cut a new crop: judged afresh
     st = cropcheck.status(src)
-    assert st["ok"] == 1 and not st["bad"] and len(st["unjudged"]) == 1
+    assert st["ok"] == 1 and not st["bad"] and len(st["unjudged"]) == 1  # a changed crop is judged again

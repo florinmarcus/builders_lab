@@ -26,7 +26,7 @@ from pathlib import Path
 from system.rag.corpus import CORPUS_DIR
 
 ROOT = CORPUS_DIR.parent
-VERDICTS = ("ok", "cut", "extra", "wrong", "empty")
+VERDICTS = ("ok", "cut", "extra", "wrong", "empty")  # plus "accepted": bad by the model, kept by a person
 BAD = {"cut", "extra", "wrong", "empty"}
 
 INSTRUCTIONS = """You check one figure crop from a guidance document. Image 1 is the crop (the cut-out picture).
@@ -162,7 +162,7 @@ def save(source_id: str, answers_path: Path, by: str, today: str | None = None) 
             rejected += 1
             continue
         doc["verdicts"][a["key"]] = {
-            "version_id": pk["version_id"], "figure": pk["target"].split(":", 1)[0], "page": pk["page"],
+            "version_id": pk["version_id"], "figure": pk["target"].split(": ", 1)[0], "page": pk["page"],
             "verdict": a["verdict"], "problem": a.get("problem") or "",
             "caption_inside": bool(a.get("caption_inside")) if not isinstance(a.get("caption_inside"), str)
             else a["caption_inside"].lower() == "true",
@@ -175,6 +175,21 @@ def save(source_id: str, answers_path: Path, by: str, today: str | None = None) 
     p.write_text(json.dumps(doc, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     print(f"saved {saved}, rejected {rejected} -> {p.relative_to(ROOT)}")
     return 1 if rejected else 0
+
+
+def accept(source_id: str, figure: str, reason: str, by: str, today: str | None = None) -> int:
+    """A person (or the lead agent) looked at a crop the model called bad and keeps it: record why."""
+    doc = load_verdicts(source_id)
+    hits = [v for v in doc["verdicts"].values() if v["figure"] == figure and v["verdict"] in BAD]
+    if not hits:
+        print(f"no bad verdict for {figure}")
+        return 1
+    for v in hits:
+        v.update({"verdict": "accepted", "model_verdict": v["verdict"], "accepted_reason": reason, "by": by,
+                  "date": today or datetime.date.today().isoformat()})
+    verdicts_path(source_id).write_text(json.dumps(doc, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    print(f"accepted {len(hits)}: {figure}")
+    return 0
 
 
 def status(source_id: str) -> dict:
@@ -220,11 +235,18 @@ def main(argv: list[str] | None = None) -> int:
     s.add_argument("--source", required=True)
     s.add_argument("--answers", required=True, type=Path)
     s.add_argument("--by", required=True)
+    c = sub.add_parser("accept", help="keep a crop the model called bad, with the reason")
+    c.add_argument("--source", required=True)
+    c.add_argument("--figure", required=True)
+    c.add_argument("--reason", required=True)
+    c.add_argument("--by", required=True)
     r = sub.add_parser("report")
     r.add_argument("--source", nargs="*")
     a = ap.parse_args(argv)
     if a.cmd == "export":
         return export(a.source, all_=a.all)
+    if a.cmd == "accept":
+        return accept(a.source, a.figure, a.reason, a.by)
     if a.cmd == "save":
         return save(a.source, a.answers, a.by)
     return report(a.source)
