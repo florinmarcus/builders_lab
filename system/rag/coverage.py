@@ -142,7 +142,7 @@ PAGE_FRAME = 0.85          # a "ruled table" this wide and this tall is a border
 
 REASONS = {  # raw words the parsers drop on purpose, and why (first match wins, in this order)
     "sideways": "sideways or upside-down text (the reader skips it)",
-    "issue": "on a page a tree issue says was skipped (picture of text, blacked out)",
+    "issue": "on a page a tree issue says was skipped (picture of text, blacked out), or the lines an issue quotes",
     "cover": "cover page (before the first section, and short or the imprint)",
     "contents": "contents page or contents line",
     "front": "front matter before the first section: a short page or the imprint (ISBN, ©, Published by)",
@@ -459,13 +459,43 @@ def _norm_line(t: str) -> str:
     return re.sub(r"\d+", "#", " ".join(tokens(t)))
 
 
-def _issue_pages(tree: dict) -> set[int]:
-    out = set()
+QUOTED_SKIP_RE = re.compile(r"file page (\d+): (\d+) lines? of [^:]*skipped[^:]*: (.+)$")
+
+
+def _issue_pages(tree: dict) -> tuple[set[int], list[tuple[int, list[str], int]]]:
+    """Pages a tree issue says were skipped as a whole, and (page, first words, line count) for issues that skip a
+    few lines and quote them ("2 lines of very small print skipped (...): a b c d"). Only those lines are explained,
+    not the rest of their page (a whole-page reason hid lost rows on the same page)."""
+    whole, quoted = set(), []
     for i in tree.get("issues") or []:
+        q = QUOTED_SKIP_RE.match(str(i))
+        if q:
+            toks = tokens(q.group(3))
+            if len(q.group(3)) >= 40 and len(toks) > 1:
+                toks = toks[:-1]  # the quote is cut at 40 characters: its last word may be cut too
+            if toks:
+                quoted.append((int(q.group(1)), toks, int(q.group(2))))
+                continue
         m = re.match(r"file page (\d+): .*(skipped|blacked out)", str(i))
         if m:
-            out.add(int(m.group(1)))
-    return out
+            whole.add(int(m.group(1)))
+    return whole, quoted
+
+
+def _quoted_lines(ls: list[dict], toks: list[str], n: int) -> list[list]:
+    """The raw words of the n lines an issue quotes: the line whose words start with the quote (from that word
+    on, a raw line can hold two columns), and the n - 1 lines under it from the same left edge on."""
+    for k, l in enumerate(ls):
+        lt = [tokens(w[0]) for w in l["words"]]
+        flat = [(j, t) for j, ts in enumerate(lt) for t in ts]
+        for a in range(len(flat)):
+            if [t for _, t in flat[a:a + len(toks)]] == toks:
+                x = l["words"][flat[a][0]][1]
+                out = [w for w in l["words"][flat[a][0]:]]
+                for l2 in ls[k + 1:k + n]:
+                    out += [w for w in l2["words"] if w[1] >= x - 2]
+                return out
+    return []
 
 
 def word_reasons(raw: dict, tree: dict) -> tuple[list[list[str | None]], dict]:
@@ -520,9 +550,12 @@ def word_reasons(raw: dict, tree: dict) -> tuple[list[list[str | None]], dict]:
                 contents.add(n)
         if index_from is None and stops and n >= 0.7 * count and any(" ".join(tokens(l["text"])) in INDEX_TITLES for l in head):
             index_from = n
-    issue_pages = _issue_pages(tree)
+    issue_pages, quoted = _issue_pages(tree)
     figs = [s for s in tree.get("sections") or [] if s.get("type") == "figure" and isinstance(s.get("area"), dict)]
-    last_short = bool(pages) and (len(pages[-1]["words"]) < 300  # a short last page, or the publisher's imprint
+    def upright(pg):  # words counted for "a short page": not the sideways spine letters of a cover
+        return sum(1 for w in pg["words"] if w[5])
+
+    last_short = bool(pages) and (upright(pages[-1]) < 300  # a short last page, or the publisher's imprint
                                   or any(w[0] in ("ISBN", "©") for w in pages[-1]["words"]))
     out = []
     for p, ls in zip(pages, lines):
@@ -531,7 +564,7 @@ def word_reasons(raw: dict, tree: dict) -> tuple[list[list[str | None]], dict]:
         page_reason = None
         if n in issue_pages:
             page_reason = "issue"
-        elif n < first and front_ok and (n in contents or len(p["words"]) < (150 if n == 1 else 100)
+        elif n < first and front_ok and (n in contents or upright(p) < (150 if n == 1 else 100)
                                          or IMPRINT_RE.search(" ".join(w[0] for w in p["words"]))):
             page_reason = "cover" if n == 1 else ("contents" if n in contents else "front")
         elif n in contents:
@@ -540,6 +573,10 @@ def word_reasons(raw: dict, tree: dict) -> tuple[list[list[str | None]], dict]:
             page_reason = "index"
         elif n == count and count > 2 and last_short:
             page_reason = "back"
+        for qp, toks, nl in quoted:
+            if qp == n and not page_reason:
+                for w in _quoted_lines(ls, toks, nl):
+                    reason_of[id(w)] = "issue"
         prev_texts: list[tuple[float, float, str]] = []
         for l in ls:
             t = l["text"].strip()
@@ -827,6 +864,11 @@ def check_tables(raw: dict, tree: dict, text: dict, sha8: str) -> dict:
             elif not spans and not area:
                 secs[p].append((None, s["id"]))
     total, found, explained, items = 0, 0, Counter(), []
+    crops = defaultdict(list)  # figure crops (the area cut out), by page
+    for s in tree.get("sections") or []:
+        a = s.get("area")
+        if s.get("type") == "figure" and _rect(a) and _int(a.get("page")):
+            crops[int(a["page"])].append(_rect(a))
     for p in raw["pages"]:
         n = p["n"]
         for t in p["tables"]:
@@ -834,6 +876,9 @@ def check_tables(raw: dict, tree: dict, text: dict, sha8: str) -> dict:
             x0, top, x1, bottom = t["bbox"]
             if (x1 - x0) >= PAGE_FRAME * p["width"] and (bottom - top) >= PAGE_FRAME * p["height"]:
                 explained["a frame round the whole page, not a table"] += 1  # its words are in the text check
+                continue
+            if any(b[0] - 2 <= x0 and x1 <= b[2] + 2 and b[1] - 2 <= top and bottom <= b[3] + 2 for b in crops.get(n, [])):
+                explained["inside a figure crop (kept as the picture)"] += 1  # as words inside a crop are
                 continue
             if n < facts["first_page"] and facts["front_ok"] or n in facts["contents"] or n in facts["issue_pages"] \
                     or facts["index_from"] and n >= facts["index_from"]:

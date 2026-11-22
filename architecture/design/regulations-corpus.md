@@ -254,7 +254,9 @@ flowchart LR
 Pages before the first section are judged as front matter; a parse_pdf "Front matter" chapter (content kept from
 before the first chapter title) does not end them, so the imprint page after a cover blurb is still front matter.
 A "ruled table" as large as the page is a frame round it, not a table. Images use parse_pdf's own signature, logo and
-cover-thumbnail rule (S107).
+cover-thumbnail rule (S107). A tree issue that quotes the few lines it skipped explains only those lines; one that
+skips a whole page explains the page. "A short page" counts upright words only (not a cover's sideways spine). A
+ruled table wholly inside a figure crop is kept as the picture, as the words inside a crop are.
 
 Words are compared as a multiset after normalising (case, ligatures, punctuation, hyphens, bullets). Split words
 ("W hat") and ligatures the font dropped ("fre" for "fire") still match. The report also lists tree words that

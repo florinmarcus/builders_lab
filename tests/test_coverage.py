@@ -339,3 +339,39 @@ def test_a_front_matter_chapter_does_not_end_the_front_matter():
     r = C.check_version({"source_id": "x", "version_id": "v", "sha256": "ab" * 32}, tree, raw)
     assert not [i for i in r["items"] if i["page"] == 2]
     assert r["text"]["facts"]["first_page"] == 3
+
+
+def test_an_issue_that_quotes_skipped_lines_explains_only_those_lines():
+    """parse_adoc names a few skipped lines and quotes them ("1 lines of very small print skipped (...): OBSE R").
+    Only those lines are explained; before, every word on the page was, which hid lost rows on the same page."""
+    raw = _doc()
+    raw["pages"][2]["words"] += line("OBSE Sigma R", 700, x0=300)
+    tree = _tree(raw)
+    tree["issues"] = ["file page 3: 1 lines of very small print skipped (a picture made of text, e.g. a sample page): OBSE Sigma R"]
+    reasons, facts = C.word_reasons(raw, tree)
+    by_word = {w[0]: r for w, r in zip(raw["pages"][2]["words"], reasons[2])}
+    assert by_word["OBSE"] == "issue" and by_word["Sigma"] == "issue"
+    assert by_word["client"] is None and facts["issue_pages"] == []
+    whole = _tree(raw)
+    whole["issues"] = ["file page 3: picture made of text with no caption, 30 lines skipped"]
+    assert set(C.word_reasons(raw, whole)[0][2]) == {"issue"}
+
+
+def test_sideways_spine_letters_do_not_make_a_cover_long():
+    """The 150-word limit for a cover page counts upright words only, not the sideways letters of the spine."""
+    raw = _doc()
+    raw["pages"][0]["words"] += [W(c, 20, 100 + 10 * k, upright=0) for k, c in enumerate("MANAGINGASBESTOS" * 10)]
+    reasons, _ = C.word_reasons(raw, _tree(raw))
+    assert set(reasons[0]) <= {"cover", "sideways"} and "cover" in reasons[0]
+
+
+def test_a_ruled_table_inside_a_figure_crop_is_explained():
+    """A ruled grid drawn inside a figure (a key, a sample form in a picture) is kept as the picture, as the words
+    inside a crop are."""
+    raw = _doc()
+    raw["pages"][2]["tables"] = [{"bbox": [100, 400, 300, 480], "rows": [["Key", "Colour"], ["Asbestos", "Red"]]}]
+    tree = _tree(raw)
+    tree["sections"].append(sec("figure-1", 3, type_="figure", title="Plan",
+                                area={"page": 3, "x0": 90, "x1": 320, "top": 390, "bottom": 490}))
+    tb = C.check_version({"source_id": "x", "version_id": "v", "sha256": "ab" * 32}, tree, raw)["tables"]
+    assert tb["items"] == [] and tb["explained"] == {"inside a figure crop (kept as the picture)": 1}
