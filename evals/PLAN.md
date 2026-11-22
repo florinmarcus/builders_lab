@@ -101,6 +101,17 @@ Inventory (21 Nov): 139 non-legislation sources. 47 have open model checks, 1,46
 Main metric now: vector-only Recall@5 and Recall@50 on dev 299, before keyword search and rerank. Baseline (V0):
 0.51 and 0.80. Runs use the full corpus in a throwaway local Postgres; live is not touched.
 
+**After retrieval: a tool that describes the library (Florin, 22 Nov), S100.** One MCP tool,
+`about_regulations_library`, with `topic` = contents | gaps | examples | quality and an optional subject filter.
+- contents: every document with publisher, edition, valid from, nation, status; counts per subject.
+- gaps: link-only documents and why (paywall, copyright); subjects out of scope on purpose; free documents not
+  added yet; documents still being cleaned.
+- examples: a separate example set (never golden or holdout questions): questions it answers well with the
+  answering section, and questions it cannot answer with what the agent says instead.
+- quality: recall per subject with date, number of questions and margin of error; nothing about how search works.
+- Built from the real files into one file at corpus build time; the server only reads it; a test fails when it is
+  stale; numbers state which corpus they measure. Follows the `add-mcp-tool` runbook.
+
 ## Ground rules (Florin, 21 Nov)
 
 - **No LLM on AWS.** Only the embedder (Titan v2) and the reranker (Amazon Rerank) stay on Bedrock.
