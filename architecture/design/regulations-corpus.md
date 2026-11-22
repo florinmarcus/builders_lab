@@ -145,6 +145,11 @@ flowchart LR
     simple --> vol["'Volume N' in the list title:<br/>a chapter code used in<br/>another volume gets vN-<br/>(v2-section-3)"]
 ```
 
+Pages before the first chapter are skipped (cover, contents). The older editions (AD B 2006, C, D, E, G, H, J, M
+volume 2) print a "Main changes" page there (page 2); a bold heading starting "MAIN CHANGES" now opens a "Main changes"
+chapter, read like any other. AD A and AD C 2013 print that page again near the back (the inside cover spread): the
+repeat is a tree issue, and the document ends there.
+
 ### Home Office fire risk assessment guides (parse_guide, built 22 Nov 2026)
 
 The 2006 "Fire safety risk assessment" sector guides and the disabled people supplement share one template that

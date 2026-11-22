@@ -767,6 +767,13 @@ class AdocBuilder:
         last_table = None
         for page in sorted(self.pages):
             lines = self.pages[page]
+            mc = self.by_id.get("main-changes")
+            if mc and mc["type"] == "chapter" and page != mc["file_page"] and any(self._main_changes(l) for l in lines):
+                # The Main changes page printed again near the back (AD A and AD C 2013, the inside cover spread):
+                # the back matter starts here, so the document ends, as at an index.
+                self.issues.append(f"file page {page}: a repeat of the Main changes page (file page {mc['file_page']}); "
+                                   f"it and the back cover after it are skipped")
+                return self.finish()
             reg = self.regions(page, lines)
             region_secs: dict[int, dict] = {}
             # (classic layout: tables and requirement boxes are set in 8pt, so only far smaller text counts)
@@ -845,6 +852,16 @@ class AdocBuilder:
                     h1 = h2 = h3 = None
                     current = chap
                     continue
+                if self.chapter is None and kind is None and self._main_changes(l):
+                    # The "Main changes" page before the first chapter (older editions, page 2): its own chapter.
+                    # The heading line itself is read on as a heading under it.
+                    chap = self.add("main-changes", "chapter", None, None, "Main changes", page)
+                    chap["_top"] = l["top"]
+                    self.chapter = current = chap
+                    skipping = False
+                    h1 = h2 = h3 = None
+                if self.chapter is not None and self.chapter["id"] == "main-changes" and l["x0"] >= self.page_width:
+                    continue  # a double-page spread: the right page is the back cover's list of documents
                 if skipping or self.chapter is None:
                     continue
                 parent_h = h3 or h2 or h1 or self.chapter
@@ -1015,6 +1032,13 @@ class AdocBuilder:
                     self._diagram(page, r, h3 or h2 or h1 or self.chapter, self._diagram_top.get((page, n), 0.0),
                                   self._diagram_area.get((page, n)))
         return self.finish()
+
+    @staticmethod
+    def _main_changes(l) -> bool:
+        """A bold heading line "MAIN CHANGES ..." / "Main changes ..." (older editions, page 2)."""
+        ws = l.get("words") or []
+        return bool(ws) and all(_bold(w) for w in ws) and 14.5 <= l["size"] < 19.5 \
+            and bool(re.match(r"(?i)^main changes\b", l["text"].strip()))
 
     def _volume(self, title: str) -> None:
         """Booklet: a chapter "Approved Document B ... Volume 2 ... List of amendments" starts that volume's list."""

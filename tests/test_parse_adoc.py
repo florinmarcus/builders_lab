@@ -339,6 +339,34 @@ def test_classic_footnotes_are_kept_on_the_section(ctree):
     assert notes == ["7 National Planning Policy Framework, 2012."]
 
 
+def test_classic_main_changes_page_before_the_first_chapter_is_kept_and_its_repeat_skipped():
+    def cl(page, top, words, size=10.5, font="HelveticaNeue-Roman", x0=36.9):
+        return ln(page, top, words, size, font, x0)
+    L = []
+    for p in range(1, 6):
+        L += [cl(p, 814.9, ["O", "N", "L", "I", "N", "E", "V", "E", "R", "S", "I", "O", "N", str(p)], 20.0, x0=188.9)]
+    L += [cl(1, 300, bold("APPROVED", "DOCUMENT"), 30.0, "HelveticaNeue-Bold")]
+    mc = [cl(2, 53, bold("MAIN", "CHANGES", "MADE", "BY", "THE"), 14.0, "HelveticaNeue-Bold"),
+          cl(2, 70, bold("2010", "AMENDMENTS"), 14.0, "HelveticaNeue-Bold"),
+          cl(2, 95, ["The", "2010", "amendments", "reflect", "the", "new", "regulations."]),
+          cl(2, 107, ["They", "were", "mainly", "number", "changes."])]
+    L += mc
+    for p in (3, 4):
+        L += [cl(p, 45.4, bold("Section", str(p - 2) + ":", "Toxic", "substances"), 23.0, "HelveticaNeue-Bold"),
+              cl(p, 100, [(f"{p - 2}.1", B), "Cavity", "walls", "should", "be", "checked."]),
+              cl(p, 112, ["More", "words", "here."]), cl(p, 124, ["And", "more", "words."])]
+    L += [{**l, "page": 5} for l in mc] + [cl(5, 400, ["Cover", "spread", "junk."])]
+    t = build_tree({"lines": L, "tables": [], "page_width": 595.0}, META)
+    chaps = [s for s in t["sections"] if s["type"] == "chapter"]
+    assert [c["id"] for c in chaps] == ["main-changes", "section-1", "section-2"] and chaps[0]["file_page"] == 2
+    head = next(s for s in t["sections"] if s["parent_id"] == "main-changes")
+    assert head["type"] == "heading" and head["title"] == "MAIN CHANGES MADE BY THE 2010 AMENDMENTS"
+    texts = [s["text"] for s in t["sections"] if s["type"] == "text"]
+    assert texts == ["The 2010 amendments reflect the new regulations. They were mainly number changes."]
+    assert "Cover spread junk." not in " ".join(s["text"] for s in t["sections"])
+    assert any("file page 5: a repeat of the Main changes page (file page 2)" in i for i in t["issues"])
+
+
 # ---------------------------------------------------------------- booklets and notes without chapter titles
 
 def booklet():
