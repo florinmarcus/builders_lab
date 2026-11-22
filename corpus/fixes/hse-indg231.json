@@ -1,5 +1,30 @@
 {
  "source_id": "hse-indg231",
  "about": "Saved model fixes for hse-indg231 (ADR 0010).",
- "fixes": []
+ "fixes": [
+  {
+   "key": "3f030220c82b35ed",
+   "kind": "table",
+   "target": "document-introduction-table-1: Introduction",
+   "value": {
+    "columns": [
+     "Introduction"
+    ],
+    "rows": [
+     [
+      "This is a web-friendly version of leaflet INDG231(rev1), published 04/12"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Introduction: this is a web-friendly version of leaflet INDG231(rev1), published 04/12."
+    ]
+   },
+   "reason": "Not a real table. It is a one-column caption box beside the cover picture on page 1. It has no printed heading, so the section title Introduction is used as the single column heading because the save step needs one.",
+   "evidence": "Page 1 image: caption under the leaflet cover reads 'This is a web-friendly version of leaflet INDG231(rev1), published 04/12'.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "low",
+   "date": "2026-11-22"
+  }
+ ]
 }

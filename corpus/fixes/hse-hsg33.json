@@ -1,0 +1,927 @@
+{
+ "source_id": "hse-hsg33",
+ "about": "Saved model fixes for hse-hsg33 (ADR 0010).",
+ "fixes": [
+  {
+   "key": "78a83560485702d1",
+   "kind": "figure_description",
+   "target": "figure-1: Falls are the biggest killer in construction (Fatal accidents in construction – 2011–2016)",
+   "value": "Horizontal green bar chart titled 'Falls are the biggest killer in construction (Fatal accidents in construction – 2011–2016)'. Bars show: Falls from a height 97; Trapped by something collapsing/overturning 19; Struck by moving vehicle 19; Struck by moving, including flying/falling object 16; Contact with electricity or electrical discharge 14; Contact with moving machinery 9. The falls bar is far longer than the others.",
+   "reason": "Bar chart with labelled bars and numbers read directly from the image.",
+   "evidence": "Figure 1 caption and bar labels and values printed in the image.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "a7ec161614054280",
+   "kind": "figure_description",
+   "target": "figure-2: Hierarchy for work at height",
+   "value": "Triangle diagram, Figure 2 'Hierarchy for work at height', split into three bands. The top orange band reads 'Those planning work at height must:'. The bands below read: 'avoid work at height where they can;' then 'use work equipment or other measures to prevent falls where they cannot avoid working at height; and' then 'where they cannot eliminate the risk of a fall, use work equipment or other measures to minimise the distances and consequences of a fall should one occur.'",
+   "reason": "Diagram text read directly from the image, in order top to bottom.",
+   "evidence": "Printed triangle text and caption 'Figure 2 Hierarchy for work at height'.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "f5ff4a511f8ac6b1",
+   "kind": "figure_description",
+   "target": "figure-3: Stair towers provide good access. Make sure they are properly secured and erected (image courtesy of Turner Access)",
+   "value": "Photo of the side of a tall building covered in scaffolding with red sheeting. A zig-zag stair tower of scaffold runs up the middle of the front, with scaffold platforms on both sides. There are no printed labels in the image.",
+   "reason": "Photograph with no text; described what is visible.",
+   "evidence": "Image shows scaffold with red sheeting and a central stair tower; the caption says it is a stair tower.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "af247ca8b8f0b931",
+   "kind": "table",
+   "target": "table-1: Practical examples of solutions using the hierarchy for work at height",
+   "value": {
+    "columns": [
+     "The hierarchy",
+     "Example solutions"
+    ],
+    "rows": [
+     [
+      "Avoid the need to work at height",
+      "Use a telescopic pole with a camera attachment to conduct roof inspections. There may also be applications or online tools that might help, or commercially operated drones fitted with cameras (provided Civil Aviation legislation is complied with)"
+     ],
+     [
+      "Avoid the need to work at height",
+      "Off-site construction (eg prefabrication of roof sections) may remove/reduce the need for work at height or make it easier to control"
+     ],
+     [
+      "Where work at height cannot be avoided",
+      ""
+     ],
+     [
+      "Prevent a fall",
+      "A non-fragile roof with a 1 m high parapet all the way round provides an existing safe place of work"
+     ],
+     [
+      "Prevent a fall",
+      "Provide edge protection (such as a boarded scaffold with guard rails/safety netting) and suitable safe access onto the roof (eg a stair tower)"
+     ],
+     [
+      "Prevent a fall",
+      "Examples of edge protection include full scaffold, net barrier systems and proprietary solutions"
+     ],
+     [
+      "Prevent a fall",
+      "Mobile elevating work platforms (MEWPs) can provide a safe working platform. When working in boom lifts use a work-restraint system (eg harness with a short lanyard) which make it impossible for the operative to get to a position where they could fall"
+     ],
+     [
+      "Where the risk of a fall cannot be eliminated",
+      ""
+     ],
+     [
+      "Minimise the consequences of a fall, should one occur",
+      "Use safety nets to protect everyone working in the area"
+     ],
+     [
+      "Minimise the consequences of a fall, should one occur",
+      "Use beanbags or inflatable airbag systems, installed close under the work surface"
+     ],
+     [
+      "Minimise the consequences of a fall, should one occur",
+      "Personal fall-arrest systems are the last resort as they do not prevent the fall, only mitigate the consequences, and only protect the individual worker"
+     ],
+     [
+      "Minimise the consequences of a fall, should one occur",
+      "Provide additional measures, such as training, instruction and supervision, to prevent falls liable to cause personal injury"
+     ]
+    ],
+    "heading_rows": [
+     2,
+     7
+    ],
+    "sentences": [
+     "Practical examples of solutions using the hierarchy for work at height: to avoid the need to work at height, use a telescopic pole with a camera attachment to conduct roof inspections. There may also be applications or online tools that might help, or commercially operated drones fitted with cameras (provided Civil Aviation legislation is complied with).",
+     "Practical examples of solutions using the hierarchy for work at height: to avoid the need to work at height, off-site construction (eg prefabrication of roof sections) may remove/reduce the need for work at height or make it easier to control.",
+     "Practical examples of solutions using the hierarchy for work at height: to prevent a fall, a non-fragile roof with a 1 m high parapet all the way round provides an existing safe place of work.",
+     "Practical examples of solutions using the hierarchy for work at height: to prevent a fall, provide edge protection (such as a boarded scaffold with guard rails/safety netting) and suitable safe access onto the roof (eg a stair tower).",
+     "Practical examples of solutions using the hierarchy for work at height: to prevent a fall, examples of edge protection include full scaffold, net barrier systems and proprietary solutions.",
+     "Practical examples of solutions using the hierarchy for work at height: to prevent a fall, mobile elevating work platforms (MEWPs) can provide a safe working platform. When working in boom lifts use a work-restraint system (eg harness with a short lanyard) which make it impossible for the operative to get to a position where they could fall.",
+     "Practical examples of solutions using the hierarchy for work at height: to minimise the consequences of a fall, should one occur, use safety nets to protect everyone working in the area.",
+     "Practical examples of solutions using the hierarchy for work at height: to minimise the consequences of a fall, should one occur, use beanbags or inflatable airbag systems, installed close under the work surface.",
+     "Practical examples of solutions using the hierarchy for work at height: to minimise the consequences of a fall, should one occur, personal fall-arrest systems are the last resort as they do not prevent the fall, only mitigate the consequences, and only protect the individual worker.",
+     "Practical examples of solutions using the hierarchy for work at height: to minimise the consequences of a fall, should one occur, provide additional measures, such as training, instruction and supervision, to prevent falls liable to cause personal injury."
+    ]
+   },
+   "reason": "Rebuilt from the page 15 image. Two full-width sub-heading rows. Library grid merged the safety nets and beanbags lines and misspelled 'fitted' and 'inflatable'; the page shows them as two lines and the correct spelling.",
+   "evidence": "Table 1 on printed page 15 with columns 'The hierarchy' and 'Example solutions'.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "28bdfdb7791adf94",
+   "kind": "figure_description",
+   "target": "figure-4a: Industrial hoist (images courtesy of HSS)",
+   "value": "Photo of an industrial hoist: an orange hoist on a wheeled base with a long inclined ladder-type track reaching up the front of a metal-clad industrial building. A loaded platform sits partway up the track, and a person in a hard hat and hi-vis vest stands at the bottom beside red and white barrier tape. There are no printed labels in the image.",
+   "reason": "Photograph with no printed text; described what is visible.",
+   "evidence": "Image shows orange hoist on incline, loaded carrier, worker in green hard hat and hi-vis; caption 'Industrial hoist'.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "cafa11face65860c",
+   "kind": "figure_description",
+   "target": "figure-4b: Domestic hoist",
+   "value": "Photo of a domestic hoist set up against the front of a brick house with scaffolding on the left. A worker in blue overalls and a yellow hard hat lifts a stack of roof tiles from a red wheelbarrow onto the hoist. The hoist has a red motor unit at the base and an inclined track with tile carriers going up towards the scaffold. There are no printed labels in the image.",
+   "reason": "Photograph with no printed text; described what is visible.",
+   "evidence": "Image shows worker loading tiles beside a red hoist and inclined track on a brick house with scaffold; caption 'Domestic hoist'.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "149887c09b4d258e",
+   "kind": "figure_description",
+   "target": "figure-5: Properly erected gin wheel (ties not shown)",
+   "value": "Diagram of a gin wheel properly erected on a scaffold tower, with a pulley hung from a horizontal pole that sticks out past the tower and a rope running down to a bucket on a hook. Printed labels: \"Two supports for pole\", \"750mm\", \"Check couplers\" and \"Safety hook\". The caption reads \"Figure 5 Properly erected gin wheel (ties not shown)\".",
+   "reason": "Line drawing with printed labels and caption.",
+   "evidence": "Image shows labels Two supports for pole, 750mm, Check couplers, Safety hook.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "2e20df841376564c",
+   "kind": "figure_description",
+   "target": "figure-6: Waste chutes make waste handling easier and safer",
+   "value": "Diagram of a waste chute made of stacked tapered sections running at a slant down the side of a scaffold, from a hopper at the top platform to a skip at the bottom. The lower end of the chute is covered with blue sheeting over the skip. The caption reads \"Figure 6 Waste chutes make waste handling easier and safer\"; there are no other printed labels.",
+   "reason": "Line drawing with no labels besides the caption.",
+   "evidence": "Chute sections, blue sheet over skip, scaffold and caption Figure 6 are visible.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "23edb28bd47d01df",
+   "kind": "figure_description",
+   "target": "figure-7: Debris netting used in addition to safety netting may enable work to be carried out safely below roof workers (Image courtesy of Highersafe (North East) Ltd)",
+   "value": "Photo looking across a roof covered with green-blue netting stretched over metal rails or beams. A few small brown pieces of debris lie caught in the netting. There is no printed text in the image.",
+   "reason": "Photograph of netting on a roof.",
+   "evidence": "Teal netting, metal rails and small debris in the net are visible; the packet title mentions debris netting.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "f570c7a2bace5e9c",
+   "kind": "table",
+   "target": "table-2: Beaufort wind force scale as related to roofng operations",
+   "value": {
+    "columns": [
+     "Description",
+     "Description (detail)",
+     "Mph (min – max)",
+     "Knots (min – max)",
+     "M/sec (min – max)"
+    ],
+    "rows": [
+     [
+      "Force 0 – Calm",
+      "Calm; smoke rises vertically",
+      "0–1",
+      "0–1",
+      "–"
+     ],
+     [
+      "Force 1 – Light air",
+      "Direction of wind shown by smoke drift, but not by wind vanes",
+      "1–3 Mean 2",
+      "1–3 Mean 2",
+      "0.5–1.8 Mean 1.1"
+     ],
+     [
+      "Force 2 – Light breeze",
+      "Wind felt on face; leaves rustle; ordinary vanes moved by wind",
+      "4–7 Mean 5.5",
+      "4–6 Mean 5",
+      "1.9–3.3 Mean 2.6"
+     ],
+     [
+      "Force 3 – Gentle breeze",
+      "Leaves and small twigs in constant motion; wind extends light flag",
+      "8–12 Mean 10",
+      "7–10 Mean 8.5",
+      "3.4–5.4 Mean 4.4"
+     ],
+     [
+      "Force 4 – Moderate breeze",
+      "Raises dust and loose paper; small branches are moved. Special care should be taken handling/fixing materials over 5 m long – approaching critical limit. Care should be taken when handling lightweight insulation materials",
+      "13–18 Mean 15.5",
+      "11–16 Mean 13.5",
+      "5.5–7.9 Mean 6.7"
+     ],
+     [
+      "Force 5 – Fresh breeze",
+      "Small trees in leaf begin to sway; crested wavelets form on inland waters. Special care should be taken in roof and vertical work. Mean wind speed is approaching critical limit when all work must cease",
+      "19–24 Mean 21.5",
+      "17–21 Mean 19",
+      "8–11 Mean 9.5"
+     ],
+     [
+      "Force 6 – Strong breeze",
+      "Large branches in motion; whistling heard in telegraph wires; umbrellas used with difficulty. No fixing work anywhere should be in progress",
+      "25–31 Mean 28",
+      "22–27 Mean 24.5",
+      "11.1–14.1 Mean 12.6"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "In the Beaufort wind force scale as related to roofing operations, Force 0 – Calm is described as: calm; smoke rises vertically; it is 0–1 mph and 0–1 knots, with no m/sec value printed.",
+     "In the Beaufort wind force scale as related to roofing operations, Force 1 – Light air is described as: direction of wind shown by smoke drift, but not by wind vanes; it is 1–3 mph (mean 2), 1–3 knots (mean 2) and 0.5–1.8 m/sec (mean 1.1).",
+     "In the Beaufort wind force scale as related to roofing operations, Force 2 – Light breeze is described as: wind felt on face; leaves rustle; ordinary vanes moved by wind; it is 4–7 mph (mean 5.5), 4–6 knots (mean 5) and 1.9–3.3 m/sec (mean 2.6).",
+     "In the Beaufort wind force scale as related to roofing operations, Force 3 – Gentle breeze is described as: leaves and small twigs in constant motion; wind extends light flag; it is 8–12 mph (mean 10), 7–10 knots (mean 8.5) and 3.4–5.4 m/sec (mean 4.4).",
+     "In the Beaufort wind force scale as related to roofing operations, Force 4 – Moderate breeze is described as: raises dust and loose paper; small branches are moved. Special care should be taken handling/fixing materials over 5 m long – approaching critical limit. Care should be taken when handling lightweight insulation materials; it is 13–18 mph (mean 15.5), 11–16 knots (mean 13.5) and 5.5–7.9 m/sec (mean 6.7).",
+     "In the Beaufort wind force scale as related to roofing operations, Force 5 – Fresh breeze is described as: small trees in leaf begin to sway; crested wavelets form on inland waters. Special care should be taken in roof and vertical work. Mean wind speed is approaching critical limit when all work must cease; it is 19–24 mph (mean 21.5), 17–21 knots (mean 19) and 8–11 m/sec (mean 9.5).",
+     "In the Beaufort wind force scale as related to roofing operations, Force 6 – Strong breeze is described as: large branches in motion; whistling heard in telegraph wires; umbrellas used with difficulty. No fixing work anywhere should be in progress; it is 25–31 mph (mean 28), 22–27 knots (mean 24.5) and 11.1–14.1 m/sec (mean 12.6)."
+    ]
+   },
+   "reason": "Rebuilt from the page 19 image; the library text had typos (flag, fixing, difficulty) that are printed correctly in the image. The first column was split into two columns as instructed.",
+   "evidence": "Table 2 on printed page 19 has seven force rows and three speed columns after the description.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "5f71528b68ea6d48",
+   "kind": "figure_description",
+   "target": "figure-8a: Minimum exclusion zone distance",
+   "value": "Diagram of electricity pylon and pole outlines in black, with the headings \"Pylon profiles\" over the pylons and \"Pole profiles\" over the poles. Four columns give the voltage and the exclusion zone: \"275kV or 400kV Exclusion Zone 7m\", \"132kV Exclusion Zone 6m\", \"11kV or 33kV Exclusion Zone 3m\" and \"LV 230/400V Exclusion Zone 1m\". The caption reads \"Figure 8(a) Minimum exclusion zone distance\", credited to Western Power Distribution (WPD).",
+   "reason": "Line drawing with labels read from the image.",
+   "evidence": "Labels and distances are visible under each profile group.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "4dadb0bdbacde785",
+   "kind": "figure_description",
+   "target": "figure-8b: Exclusion zone (shown in yellow)",
+   "value": "Diagram of a lifting machine on outriggers beside a pole, with a yellow shaded exclusion zone around the top of the pole. Printed labels include \"Safe stand off distance\", \"Exclusion zone\", \"Maximum operating reach\", \"Min. 600mm\", \"Maintain a minimum distance of 600mm from poles, pylons and stays\" and \"Spoil and equipment to be lifted must be inside this area\". The caption reads \"Figure 8(b) Exclusion zone (shown in yellow)\", credited to Western Power Distribution (WPD).",
+   "reason": "Line drawing with printed labels and caption.",
+   "evidence": "Labels read from the image match the packet labels.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "df676b8b9f256f63",
+   "kind": "figure_description",
+   "target": "figure-9: Safe roof work needs to include consideration of exclusion zone size (this depends on the line voltage).",
+   "value": "Diagram titled \"Exclusion Zones\" showing a person on the ridge of a pitched roof holding a long pole, between two power line poles. Yellow shaded zones around the left pole's wires and equipment are marked \"3m\" and \"3m\", and a zone around the right pole's wires is marked \"1m\". A box reads \"Exclusion zones: 3m for 11 or 33 kV; 1m for 230 or 400 V\".",
+   "reason": "Line diagram with printed title, labels and a text box, all read directly from the image.",
+   "evidence": "Printed labels: Exclusion Zones; 3m; 3m; 1m; box text '3m for 11 or 33 kV', '1m for 230 or 400 V'.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "1410413392b70b74",
+   "kind": "figure_description",
+   "target": "figure-10: Remote inspection mast with hand-held lightweight CCTV system (image courtesy of Survey Support Ltd)",
+   "value": "Photo of a person in a high-visibility jacket standing outside a stone building with tall arched windows. They hold the base of a very tall slim telescopic mast that reaches up past the roof edge. The mast carries a hand-held lightweight CCTV system for looking at the roof from the ground.",
+   "reason": "Photograph with no printed labels; the CCTV purpose comes from the caption.",
+   "evidence": "Image shows a person holding a tall pole beside a stone building; no text in the image.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "1320b15f7335a5b9",
+   "kind": "figure_description",
+   "target": "figure-11: Powered access for inspecting a large fragile roof",
+   "value": "Photo taken from above of a large industrial building with a long, low-pitched roof of corrugated sheets with some lighter patches. A yellow telescopic boom lift on a truck stands in the yard beside it, with its boom extended across over the roof. No printed labels are visible.",
+   "reason": "Photograph with no printed text; the powered access purpose comes from the caption.",
+   "evidence": "Yellow boom arm on a truck reaching over a large roof; vehicles and equipment in the yard.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "314b86f32d0f4026",
+   "kind": "figure_description",
+   "target": "figure-12: Valley walker used during gutter cleaning. This provides a protective mesh covering to either side of the operative, which moves progressively along the roof as the worker moves forward. The protective covering eliminates the risk of a fall through the fragile material (image courtesy of Safesite Limited",
+   "value": "Photo of a worker in blue overalls, a hard hat and yellow gloves standing on a glazed roof and holding a long-handled brush or scoop. Metal frames with protective mesh panels lie on either side of the worker along the roof. No printed labels are visible.",
+   "reason": "Photograph with no printed text; the valley walker name comes from the caption.",
+   "evidence": "Worker on a glass roof with mesh panels on both sides, holding a long handle.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "390485c24586dbac",
+   "kind": "figure_description",
+   "target": "figure-13: Access system for short-term maintenance work on a fragile roof",
+   "value": "Photo of two workers in hard hats and safety harnesses standing on a raised platform with a metal handrail on a roof of corrugated sheets. The platform has a timber deck and yellow brackets, and the harness lanyards hang from the workers' chests. No printed labels are visible.",
+   "reason": "Photograph with no printed text; the access system purpose comes from the caption.",
+   "evidence": "Two people on a railed timber platform with yellow fittings over a corrugated roof.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "ea26090eb907a51c",
+   "kind": "figure_description",
+   "target": "figure-14b: Airbags being used as a fall mitigation measure during roof work (image courtesy of Airtek Safety Products Ltd)",
+   "value": "Close-up photo looking down between sloping timber roof rafters and cross timbers. Large yellow inflated airbags fill the space between and under the timbers. No printed labels are visible.",
+   "reason": "Photograph with no printed text; airbag use comes from the caption and the yellow inflated shapes.",
+   "evidence": "Timber roof frame with yellow inflated bags filling the gaps below.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "c066b4aefd52e235",
+   "kind": "figure_description",
+   "target": "figure-14a: Decking system that provides a working platform in the roof eaves (image courtesy of Oxford Safety Components Ltd)",
+   "value": "A photo of a worker in a hard hat and hi-vis vest standing on a metal mesh decking walkway between timber roof rafters, holding a hammer. The decking forms a working platform in the roof eaves. No printed labels are visible.",
+   "reason": "The photo shows a person on a mesh deck inside a timber roof frame, matching the caption about a working platform in the roof eaves.",
+   "evidence": "Mesh walkway with coloured strips, timber rafters on both sides, worker with hammer, hard hat and yellow hi-vis vest; scaffold in background.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "50bae7b32f671863",
+   "kind": "figure_description",
+   "target": "figure-14c: Beanbags being used as a fall mitigation measure during roof work (image courtesy of Forest Safety Products Ltd)",
+   "value": "A photo looking down into a timber roof frame with rows of white bags lying across the rafters, tied in place with blue cord. The bags are the beanbags used as a fall mitigation measure during roof work. A block wall can be seen behind. No printed labels are visible.",
+   "reason": "The photo shows rows of bags laid between timber roof members, matching the caption about beanbags.",
+   "evidence": "White bags with printing laid side by side between rafters, blue ties, blockwork wall at the top left.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "e306b708df7ab670",
+   "kind": "figure_description",
+   "target": "figure-15: A mobile elevating work platform being used to replace a roof sheet",
+   "value": "A photo of a mobile elevating work platform with an orange and white boom and a metal cage basket, set against a blue sky. A person works in the basket over a corrugated roof sheet surface. No printed labels are visible.",
+   "reason": "The photo shows a boom lift basket with a worker above a corrugated roof, matching the caption about replacing a roof sheet.",
+   "evidence": "Orange and white telescopic boom, railed basket with a person inside, corrugated roof sheets in the foreground, blue sky.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "b8cf1111f5893bcb",
+   "kind": "figure_description",
+   "target": "figure-16: Work-restraint harness used during short-term inspection on a roof (image courtesy of MSA Safety)",
+   "value": "A photo of a worker in a hard hat and green safety harness walking on a curved profiled metal roof, using a line of grey step boards. A green lanyard runs from the harness back to an anchor point on the roof. Cranes and a blue sky are in the background. No printed labels are visible.",
+   "reason": "The photo shows a harnessed worker on a metal roof attached by a lanyard, matching the caption about a work-restraint harness.",
+   "evidence": "Green harness and green lanyard line to an anchor fixing, grey step boards over metal roof sheets, cranes in the distance.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "31244e56166c773a",
+   "kind": "figure_description",
+   "target": "figure-17: Temporary fat-roof edge protection (image courtesy of Safesite Limited)",
+   "value": "A photo taken from a flat roof showing a temporary metal edge protection rail along the roof edge, fixed to the roof with base plates. It looks over a car park, fields and hills under a cloudy sky. Rooflights are on the right. No printed labels are visible.",
+   "reason": "The photo shows a tubular guard rail running along a flat roof edge, matching the caption about temporary flat-roof edge protection.",
+   "evidence": "Silver tube rail with uprights and weighted base plates along a grey flat roof, three rooflight domes at the right, car park and countryside beyond.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "bee98b4e5eaff400",
+   "kind": "figure_description",
+   "target": "figure-18: Flat-roof edge protection supported at ground-foor level. Ground-level support allows work up to the roof edge without obstruction",
+   "value": "A diagram of flat-roof edge protection on a brick wall, with tubular uprights standing on base plates at ground level and braced by angled tubes. Two rails run along the top, above the wall edge. Printed labels are: Guard rail, Intermediate rail, 950 mm minimum, Toe board clip, Toe board.",
+   "reason": "The diagram shows ground-supported edge protection with labelled rails and a minimum height of 950 mm, as printed.",
+   "evidence": "Labels visible in the image: Guard rail, Intermediate rail, 950 mm minimum, Toe board clip, Toe board. The packet's label list also has '150 mm', which I could not see in the image, so I left it out.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "7eae5d5714768578",
+   "kind": "figure_description",
+   "target": "figure-19: Flat-roof edge protection supported on the roof edge upstand. The roof edge upstand must have adequate strength",
+   "value": "A line diagram of flat-roof edge protection fixed to the roof edge upstand, with a small detail view on the left and a larger view on the right. It shows scaffold tubes holding a guard rail and an intermediate rail, with labels \"950 mm minimum\", \"Neither A nor B exceeds 470 mm\", \"X + 25 mm clear\", \"230 mm minimum\", \"25 mm\", \"Timber folding wedge\" and \"Guard rail omitted for clarity\".",
+   "reason": "Described the line drawing from the image and copied the printed labels as shown.",
+   "evidence": "Image shows labels 950 mm minimum, Neither A nor B exceeds 470 mm, X + 25 mm clear, 230 mm minimum, 25 mm, Timber folding wedge, Guard rail, Intermediate rail, and the caption Figure 19.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "37dde93db3d1df47",
+   "kind": "figure_description",
+   "target": "figure-20: Demarcation barriers on a large, non-fragile roof preventing access to the adjacent roof lights. The roof lights are at least 2 m from the barrier",
+   "value": "A photo of a large, flat-looking profiled sheet roof with a line of posts and rails running across it. The posts and rails are demarcation barriers set back from roof lights on the roof. The photo has no printed labels.",
+   "reason": "The photo shows posts and rails on a corrugated roof. No text appears in the image.",
+   "evidence": "Image shows a corrugated roof with upright posts and rails in rows, and trees and sky in the background; no labels.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "5ffc045362320f84",
+   "kind": "figure_description",
+   "target": "figure-21: Craning a pre-assembled roof into position greatly reduces the need for work at height (image courtesy of the Trussed Rafter Association)",
+   "value": "A photo of a pre-assembled timber roof frame hanging in the air from a crane, with blue sky behind it. A building under construction can be seen below it. The photo has no printed labels.",
+   "reason": "The photo shows a timber roof structure lifted by a crane above a house under construction.",
+   "evidence": "Image shows a timber roof frame lifted in the air above a partly built house, with a crane mast below it; no text.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "a261cae87f640146",
+   "kind": "figure_description",
+   "target": "figure-22: Roof trusses can be boarded out if access is needed during installation. Hop-up platforms improve access",
+   "value": "A diagram of a row of timber roof trusses with boards laid across them to make platforms. A carpenter's hop-up, a small stepped timber block, sits on the boards. Labels read \"Roof trusses can be boarded out if access is needed during installation\", \"Carpenter's 'hop-up' (same width as distance between trusses and wide base dimension for increased stability) improves access for roof workers\" and \"Platforms made of boards or timber sheets\".",
+   "reason": "Described the line drawing and copied its printed labels.",
+   "evidence": "Image shows trusses with boarded platforms, a stepped hop-up block, red leader lines, and the caption Figure 22.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "85ca0a5a60979388",
+   "kind": "figure_description",
+   "target": "figure-23: Typical sloping roof edge protection",
+   "value": "A side-view diagram of scaffold edge protection at the eaves of a sloping roof, beside a brick wall. It shows two guard rails and a toe board on the scaffold upright, with labels \"Guard rail\", \"Not more than 470 mm\" (twice), \"Toe board\" and \"Minimum 950 mm\".",
+   "reason": "Described the line drawing and copied its printed labels, including the 950 mm dimension shown beside the upright.",
+   "evidence": "Image shows labels Guard rail (twice), Not more than 470 mm (twice), Toe board, Minimum 950 mm, and the caption Figure 23.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "994afdac098b9275",
+   "kind": "figure_description",
+   "target": "figure-24: A traditional chimney scaffold",
+   "value": "A photo of a brick house with a red tiled roof. A small scaffold platform with posts and rails stands on the roof around a chimney stack. The photo has no printed labels.",
+   "reason": "The photo shows a scaffold built around a chimney on a tiled roof. No text appears in the image.",
+   "evidence": "Image shows a brick house, red roof tiles, and a timber and tube scaffold platform around a chimney at the top; no text.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "5adbce911a20cff0",
+   "kind": "figure_description",
+   "target": "figure-25: Proprietary system for access to roof and chimney",
+   "value": "Colour photo of a two-storey white house with a pitched tiled roof. A proprietary access system is fixed to the house: a scaffold-style platform with guard rails at the eaves, a long ladder leaning up to it, and a roof ladder and platform leading up to the chimney. No printed labels appear in the image.",
+   "reason": "Photo shows the access system on the roof and chimney; no text in the image.",
+   "evidence": "Platform with railings at eaves, ladders up the front wall, and a railed platform around the chimney.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "f64d4299a3fb0ebd",
+   "kind": "figure_description",
+   "target": "figure-26: Roof ladder. The ridge hook should be large enough to be clear of the ridge tile",
+   "value": "Line drawing (diagram) of a roof ladder with two long side rails and rungs, wheels at the top end and a curved ridge hook at the upper end. The printed caption reads: \"Figure 26 Roof ladder. The ridge hook should be large enough to be clear of the ridge tile\".",
+   "reason": "Diagram of a roof ladder with wheels and hook; caption printed in image.",
+   "evidence": "Caption text at the bottom of the image: Figure 26 Roof ladder. The ridge hook should be large enough to be clear of the ridge tile.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "b25bf00cddad3db4",
+   "kind": "figure_description",
+   "target": "figure-27: In some light conditions, it is diffcult to distinguish the roof lights from the metal sheets on this type of roof. The valley gutter is very narrow and the roof lights extend down to gutter level. Both of these features increase the risk during cleaning, maintenance and refurbishment",
+   "value": "Colour photo looking along a large pale metal-sheeted industrial roof with a very narrow dark valley gutter running down the middle. Roof lights are visible as pale strips among the sheets, with two small red markers near the top and a bag of rubbish lying near the gutter. No printed labels appear in the image.",
+   "reason": "Photo of a profiled metal roof with a narrow valley gutter; no text in the image.",
+   "evidence": "Narrow dark gutter, corrugated pale sheets, two red markers, a clear plastic bag near the gutter.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "11a04a3cea24a77e",
+   "kind": "figure_description",
+   "target": "figure-28: Safety netting used to minimise the distance and consequences of a fall for roof lights during roof works",
+   "value": "Colour photo from below of the inside of a large building roof, showing green safety netting stretched under the roof structure and round hanging lights. The printed caption reads: \"Figure 28 Safety netting used to minimise the distance and consequences of a fall for roof lights during roof works\".",
+   "reason": "Photo of netting under a roof with caption printed in the image.",
+   "evidence": "Green netting between steel beams with pendant lights; caption below the photo.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "fb31e927fae74c5c",
+   "kind": "figure_description",
+   "target": "figure-29: Permanent protection installed at valley gutter (the protection should be supported by at least three purlins beneath the roof sheets)",
+   "value": "Diagram showing a roof with a narrow valley gutter down the middle and rows of timber-coloured boards or planks laid across it on both sides as protection. Two labels on the roof read \"Fragile roof\" and \"Fragile roof\". The printed caption reads: \"Figure 29 Permanent protection installed at valley gutter (the protection should be supported by at least three purlins beneath the roof sheets)\".",
+   "reason": "Drawing of valley gutter protection with two printed Fragile roof labels and caption.",
+   "evidence": "Two white boxes marked Fragile roof; caption text at the bottom.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "4231fc005ec7582a",
+   "kind": "figure_description",
+   "target": "figure-31: (above) Delivering sheets to roof level onto the completed load-bearing section and behind the leading edge (note that the roof lights include mesh protection and are non-fragile)",
+   "value": "Colour photo of a stack of roof sheets or panels, wrapped and strapped with yellow straps, hanging from a lifting beam and being lowered onto a metal roof. A person in a yellow high-visibility jacket stands at the right edge, and an edge barrier and a roof light are visible. No printed labels appear in the image.",
+   "reason": "Photo of sheets being craned onto a roof; no text in the image.",
+   "evidence": "Strapped bundle under a black lifting beam, standing-seam roof below, roof light at bottom right, person at right.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "2b0369822d1232ce",
+   "kind": "figure_description",
+   "target": "figure-32: (right) Loading bays should be designed for the actual weight of the materials to be placed on them and include an additional allowance for impact loads from mechanical handling (eg cranes or forklifts). A notice should clearly display the safe working load",
+   "value": "Photo of a multi-level scaffold loading bay on the front of a brick building, with steel lattice beams and tubes. Two yellow warning notices are fixed to the scaffold, one at the top level and one at the bottom. No other text is printed in the image.",
+   "reason": "Image is a photograph; the caption is not inside the image, so only visible items were described.",
+   "evidence": "Photo shows scaffold with lattice beams and two yellow signs at the top and bottom levels; no readable labels.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "7dc770f8d207ba52",
+   "kind": "figure_description",
+   "target": "figure-33: Use of safety nets during industrial roof work",
+   "value": "Photo looking along an industrial roof with metal sheeting, showing safety nets stretched in bays below the roof level. The netting is fixed under horizontal steel rails and beams. No printed labels appear.",
+   "reason": "Image is a colour photograph of netting under a roof; no text visible.",
+   "evidence": "Green and blue netting visible between steel rails below a sloping roof; no text.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "67e105653afadae4",
+   "kind": "figure_description",
+   "target": "figure-34a: Debris netting (image courtesy of Combisafe)",
+   "value": "Photo of red debris netting fixed along the edge of a concrete building floor, held out at an angle by diagonal steel support tubes and brackets fixed to the concrete columns. The printed caption reads \"Figure 34(a) Debris netting (image courtesy of Combisafe)\".",
+   "reason": "Image is a photograph with a printed caption below; the labels in the packet (Light duty, Medium duty, Heavy duty) belong to figure 34b and are not in this image.",
+   "evidence": "Photo of red netting on angled supports beside concrete columns, with caption \"Figure 34(a) Debris netting (image courtesy of Combisafe)\".",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "5f9d8376157699e5",
+   "kind": "figure_description",
+   "target": "figure-34b: Scaffold fan classifcations (permission to reproduce extracts is granted by BSI)",
+   "value": "Line diagram of three scaffold towers side by side, each with a fan sloping out from one side at a different size. The labels printed under them are \"Light duty (classA) fan\", \"Medium duty (classB) fan\" and \"Heavy duty (class C) fan\". The fan grows larger and steeper from light to heavy, with a ladder-like boarded section on the medium and heavy fans.",
+   "reason": "Image is a line diagram with printed labels under each tower; labels copied as printed, including the spacing in classA and classB.",
+   "evidence": "Labels visible: Light duty (classA) fan; Medium duty (classB) fan; Heavy duty (class C) fan; caption Figure 34(b) Scaffold fan classifications (permission to reproduce extracts is granted by BSI).",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "097f6b39547436a3",
+   "kind": "figure_description",
+   "target": "figure-34c: Tunnel",
+   "value": "Photo of a pavement tunnel built under a scaffold on a brick building beside a road. White hoarding panels with red and white striped barrier boards line both sides of the walkway, and yellow netting covers the scaffold above. A traffic cone stands at the front and a van and a car are in the street.",
+   "reason": "Image is a photograph; no printed text is visible.",
+   "evidence": "Photo shows a covered walkway with white panels, red and white striped boards, yellow netting above and an orange cone.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "739e48e3bb7c0453",
+   "kind": "figure_description",
+   "target": "figure-35a-c: Mechanical handling of large roof sheets (images courtesy of Advisory Committee on Roof Safety)",
+   "value": "Three photos of mechanical handling of large roof sheets inside a large industrial building. One shows a lorry with an orange powered conveyor boom, one shows workers in hard hats and hi-vis vests guiding a long metal sheet on the conveyor, and one shows the conveyor extended up to the roof from a lorry with two people standing nearby. The printed caption reads \"Figure 35(a)-(c) Mechanical handling of large roof sheets (images courtesy of Advisory Committee on Roof Safety)\".",
+   "reason": "Image is a set of three photographs with a printed caption; description covers each photo in the order shown.",
+   "evidence": "Photos of a lorry with an orange conveyor boom, workers handling a metal sheet, and a long extended conveyor; caption text visible at the right.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "edeca5fec5df250d",
+   "kind": "figure_description",
+   "target": "figure-36: (a)–(c) 24-m long roof panels being mechanically lifted from other tasks are carried out on roofs. This includes more recent ground level and installed on roof",
+   "value": "Three photos, (a) to (c), of a crane lifting a long roof panel from ground level and installing it on a roof. In the first the long panel hangs horizontally from the crane cable, in the second it is being placed over the roof steelwork with a worker visible, and in the third the panel is on the roof. The printed caption reads 'Figure 36 (a)–(c) 24-m long roof panels being mechanically lifted from ground level and installed on roof'.",
+   "reason": "Three stacked photos with a printed caption.",
+   "evidence": "Caption: 'Figure 36 (a)–(c) 24-m long roof panels being mechanically lifted from ground level and installed on roof'.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "a40d0fc25cec9c2f",
+   "kind": "figure_description",
+   "target": "figure-37: (left) Permanent walkway giving safe access on a fragile roof (this walkway was retroftted, but similar access can be included in initial designs)",
+   "value": "A photo of a person in a white hard hat walking along a permanent walkway with a handrail beside a sloping corrugated roof and a metal-clad wall. A second guard rail is in the foreground, and the roof sheets next to the walkway are corrugated. There are no printed labels in the image.",
+   "reason": "Photo only, no printed text in the image.",
+   "evidence": "Visible: walkway with handrails, worker in white helmet, corrugated roof sheets, cladded wall.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "ac2ad5604a195b85",
+   "kind": "figure_description",
+   "target": "figure-38: (above) Lighting panels installed in the wall rather than the roof",
+   "value": "A photo of the outside of a large industrial building with green profiled metal wall cladding. Translucent lighting panels are fitted in the upper part of the wall, stepping down along the sloping top edge of the wall. There are no printed labels in the image.",
+   "reason": "Photo only, no printed text.",
+   "evidence": "Visible: green cladding wall with translucent panels near the top, grey sky.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "2e109c54ebc53211",
+   "kind": "figure_description",
+   "target": "figure-39: Parapet edge protection included as an integral design feature",
+   "value": "A photo of a flat roof with a guard rail fixed along the parapet edge, looking out over a town with a church spire and a tall building. The rail has upright posts and horizontal rails and is part of the roof edge. There are no printed labels in the image.",
+   "reason": "Photo only, no printed text.",
+   "evidence": "Visible: flat roof, tall posts and rails along parapet, church spire in background.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "bc1244e8d1cdcf44",
+   "kind": "figure_description",
+   "target": "figure-40: Permanent guard rail retroftted during refurbishment work. Similar protection can be included in initial designs (image courtesy of Safesite Limited)",
+   "value": "A photo of a flat roof with round fan units on grey housings in the foreground. A permanent guard rail with a mesh or slatted panel runs along the roof edge behind them, with trees, cars and buildings beyond. There are no printed labels in the image.",
+   "reason": "Photo only, no printed text.",
+   "evidence": "Visible: circular fan units on plant housings, guard rail along the edge, cars and trees beyond.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "f23d4d6089f71771",
+   "kind": "figure_description",
+   "target": "figure-41: Typical ‘out of plane’ polycarbonate roof light",
+   "value": "A line drawing of a typical 'out of plane' polycarbonate roof light: a square raised frame on a pale curb with a pyramid-shaped glazed top. A label shows an angle of 30° at the top slope. The printed caption reads 'Figure 41 Typical 'out of plane' polycarbonate roof light'.",
+   "reason": "Diagram with a printed 30° angle and caption.",
+   "evidence": "Label '30o' with angle arc; caption 'Figure 41 Typical ‘out of plane’ polycarbonate roof light'.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "6c9721bf79e4e97d",
+   "kind": "figure_description",
+   "target": "figure-42: Galvanised mesh reinforcement between sheets of twin-skin roof light",
+   "value": "Photo looking up at a metal profiled roof with a rectangular roof light set into it. A galvanised wire mesh lies across the roof light, with metal rails running across the roof above and below it. There are no printed labels.",
+   "reason": "Photo of mesh over a roof light, matching the caption.",
+   "evidence": "Image shows wire mesh grid over a roof light panel between ridged roof sheets and horizontal rails.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "4b68bdc2d55be0d6",
+   "kind": "figure_description",
+   "target": "figure-43: Covers can be ftted to existing roofs or included as part of the design (image courtesy of Safesite Limited)",
+   "value": "Photo of a flat roof with a rectangular roof light. A cover made of metal tubes and fittings forms a frame around the roof light, with mesh visible across the glazing. There are no printed labels.",
+   "reason": "Photo of a protective cover frame over a roof light, matching the caption.",
+   "evidence": "Image shows grey tube-and-fitting frame around a glazed roof light on a gravel-covered roof.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "37b05b7652df5e7f",
+   "kind": "table",
+   "target": "table-4: Fall heights and catching widths",
+   "value": {
+    "columns": [
+     "Fall height",
+     "Catching width"
+    ],
+    "rows": [
+     [
+      "<1.0 m",
+      ">2.0 m"
+     ],
+     [
+      "<3.0 m",
+      ">2.5 m"
+     ],
+     [
+      "<6.0 m",
+      ">3.0 m"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "In the table of fall heights and catching widths, a fall height of <1.0 m needs a catching width of >2.0 m.",
+     "In the table of fall heights and catching widths, a fall height of <3.0 m needs a catching width of >2.5 m.",
+     "In the table of fall heights and catching widths, a fall height of <6.0 m needs a catching width of >3.0 m."
+    ]
+   },
+   "reason": "Grid matches the page image.",
+   "evidence": "Page 76 Table 4 shows header Fall height / Catching width and three rows.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "7140d6c6e35f3cb5",
+   "kind": "table",
+   "target": "table-5: Features of work-restraint and fall-arrest systems",
+   "value": {
+    "columns": [
+     "Work restraint system",
+     "Fall arrest system"
+    ],
+    "rows": [
+     [
+      "Prevents falls",
+      "Minimises the distance and/or consequences of a fall"
+     ],
+     [
+      "Provides personal protection – not collective",
+      "Provides personal protection – not collective"
+     ],
+     [
+      "Is an active system – not passive",
+      "Is an active system – not passive"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "In the features of work-restraint and fall-arrest systems, a work restraint system prevents falls, while a fall arrest system minimises the distance and/or consequences of a fall.",
+     "In the features of work-restraint and fall-arrest systems, a work restraint system provides personal protection – not collective, and a fall arrest system provides personal protection – not collective.",
+     "In the features of work-restraint and fall-arrest systems, a work restraint system is an active system – not passive, and a fall arrest system is an active system – not passive."
+    ]
+   },
+   "reason": "Headings taken from the page image without the stray hyphens in the grid.",
+   "evidence": "Page 79 Table 5 headers read Work restraint system and Fall arrest system, with three rows.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "d16c1e778a49bbb6",
+   "kind": "table",
+   "target": "planning-for-safety-safe-place-of-work-on-the-roof-table-2: Safe place of work on the roof",
+   "value": {
+    "columns": [
+     "The hierarchy",
+     "Example solutions"
+    ],
+    "rows": [
+     [
+      "Avoid the need to work at height",
+      "Use a telescopic pole with a camera attachment to conduct roof inspections. There may also be applications or online tools that might help, or commercially operated drones fitted with cameras (provided Civil Aviation legislation is complied with)"
+     ],
+     [
+      "Avoid the need to work at height",
+      "Off-site construction (eg prefabrication of roof sections) may remove/reduce the need for work at height or make it easier to control"
+     ],
+     [
+      "Where work at height cannot be avoided",
+      ""
+     ],
+     [
+      "Prevent a fall",
+      "A non-fragile roof with a 1 m high parapet all the way round provides an existing safe place of work"
+     ],
+     [
+      "Prevent a fall",
+      "Provide edge protection (such as a boarded scaffold with guard rails/safety netting) and suitable safe access onto the roof (eg a stair tower)"
+     ],
+     [
+      "Prevent a fall",
+      "Examples of edge protection include full scaffold, net barrier systems and proprietary solutions"
+     ],
+     [
+      "Prevent a fall",
+      "Mobile elevating work platforms (MEWPs) can provide a safe working platform. When working in boom lifts use a work-restraint system (eg harness with a short lanyard) which make it impossible for the operative to get to a position where they could fall"
+     ],
+     [
+      "Where the risk of a fall cannot be eliminated",
+      ""
+     ],
+     [
+      "Minimise the consequences of a fall, should one occur",
+      "Use safety nets to protect everyone working in the area"
+     ],
+     [
+      "Minimise the consequences of a fall, should one occur",
+      "Use beanbags or inflatable airbag systems, installed close under the work surface"
+     ],
+     [
+      "Minimise the consequences of a fall, should one occur",
+      "Personal fall-arrest systems are the last resort as they do not prevent the fall, only mitigate the consequences, and only protect the individual worker"
+     ],
+     [
+      "Minimise the consequences of a fall, should one occur",
+      "Provide additional measures, such as training, instruction and supervision, to prevent falls liable to cause personal injury"
+     ]
+    ],
+    "heading_rows": [
+     2,
+     7
+    ],
+    "sentences": [
+     "For a safe place of work on the roof, to avoid the need to work at height: Use a telescopic pole with a camera attachment to conduct roof inspections. There may also be applications or online tools that might help, or commercially operated drones fitted with cameras (provided Civil Aviation legislation is complied with).",
+     "For a safe place of work on the roof, to avoid the need to work at height: Off-site construction (eg prefabrication of roof sections) may remove/reduce the need for work at height or make it easier to control.",
+     "For a safe place of work on the roof, where work at height cannot be avoided, to prevent a fall: A non-fragile roof with a 1 m high parapet all the way round provides an existing safe place of work.",
+     "For a safe place of work on the roof, where work at height cannot be avoided, to prevent a fall: Provide edge protection (such as a boarded scaffold with guard rails/safety netting) and suitable safe access onto the roof (eg a stair tower).",
+     "For a safe place of work on the roof, where work at height cannot be avoided, to prevent a fall: Examples of edge protection include full scaffold, net barrier systems and proprietary solutions.",
+     "For a safe place of work on the roof, where work at height cannot be avoided, to prevent a fall: Mobile elevating work platforms (MEWPs) can provide a safe working platform. When working in boom lifts use a work-restraint system (eg harness with a short lanyard) which make it impossible for the operative to get to a position where they could fall.",
+     "For a safe place of work on the roof, where the risk of a fall cannot be eliminated, to minimise the consequences of a fall, should one occur: Use safety nets to protect everyone working in the area.",
+     "For a safe place of work on the roof, where the risk of a fall cannot be eliminated, to minimise the consequences of a fall, should one occur: Use beanbags or inflatable airbag systems, installed close under the work surface.",
+     "For a safe place of work on the roof, where the risk of a fall cannot be eliminated, to minimise the consequences of a fall, should one occur: Personal fall-arrest systems are the last resort as they do not prevent the fall, only mitigate the consequences, and only protect the individual worker.",
+     "For a safe place of work on the roof, where the risk of a fall cannot be eliminated, to minimise the consequences of a fall, should one occur: Provide additional measures, such as training, instruction and supervision, to prevent falls liable to cause personal injury."
+    ]
+   },
+   "reason": "Page shows two shaded sub-heading rows; hierarchy cells repeated on each row they span. Printed caption is Table 1; title used is the section title from the packet.",
+   "evidence": "Page 15 table with header The hierarchy / Example solutions, shaded rows 'Where work at height cannot be avoided' and 'Where the risk of a fall cannot be eliminated'.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "da2c00911216b630",
+   "kind": "table",
+   "target": "table-3: Checklist for preparing method statements for low-pitch industrial roof",
+   "value": {
+    "columns": [
+     "Topic",
+     "Checklist"
+    ],
+    "rows": [
+     [
+      "Risk of falling, eg getting on/off ladders at eaves",
+      "Access to roof: Have you discussed access points with the roofing team to reduce travel over the roof to a minimum? If ladders are used (as opposed to tower scaffolds or stair towers, which are preferred), is equipment available for hoisting or craning components up?"
+     ],
+     [
+      "Risk of falling when walking past open edges to fetch materials",
+      "Materials handling: How are roofing packs loaded out onto the roof? Is this planned to reduce travel when fetching sheets and does it allow for protected routes/ safe access? Splitting packs of different sheet size and reassembling them at ground level can save travel at height. Back-loading sheets onto the completed roof can reduce travel past open edges."
+     ],
+     [
+      "Risk of falling from the building when unslinging",
+      "Cranes: If one is used, who will accept the load or unsling it? How will they be protected from falling? Have you considered using mobile access equipment for this task?"
+     ],
+     [
+      "Risk of falling outside the building frame exists at all stages of work. Gable ends are particularly hazardous",
+      "Edge protection: Does the programme make sure that eaves, gable ends and other open edges are protected before work starts? Protection will also be required at ridges unless work progresses at the same rate on both roof slopes. What are the access arrangements for workers installing edge protection?"
+     ],
+     [
+      "Risk of falling on both sides of gutter, ie inside and outside the building frame",
+      "Gutter fixing: How will workers be protected from falling? Peripheral edge protection erected for roof workers will not be sufficient at this phase. Has the use of mobile access equipment been considered as a priority? If the use of a running line or harness and lanyard is specified, who will erect and test the line, and are workers properly trained and competent in their use?"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "In the checklist for preparing method statements for low-pitch industrial roof, the risk of falling, eg getting on/off ladders at eaves, is covered by access to roof: have you discussed access points with the roofing team to reduce travel over the roof to a minimum, and if ladders are used (as opposed to tower scaffolds or stair towers, which are preferred), is equipment available for hoisting or craning components up?",
+     "In the checklist for preparing method statements for low-pitch industrial roof, the risk of falling when walking past open edges to fetch materials is covered by materials handling: how are roofing packs loaded out onto the roof, is this planned to reduce travel when fetching sheets and does it allow for protected routes/ safe access, and splitting packs of different sheet size and reassembling them at ground level can save travel at height while back-loading sheets onto the completed roof can reduce travel past open edges.",
+     "In the checklist for preparing method statements for low-pitch industrial roof, the risk of falling from the building when unslinging is covered by cranes: if one is used, who will accept the load or unsling it, how will they be protected from falling, and have you considered using mobile access equipment for this task?",
+     "In the checklist for preparing method statements for low-pitch industrial roof, the risk of falling outside the building frame exists at all stages of work and gable ends are particularly hazardous, and edge protection asks: does the programme make sure that eaves, gable ends and other open edges are protected before work starts (protection will also be required at ridges unless work progresses at the same rate on both roof slopes), and what are the access arrangements for workers installing edge protection?",
+     "In the checklist for preparing method statements for low-pitch industrial roof, the risk of falling on both sides of gutter, ie inside and outside the building frame, is covered by gutter fixing: how will workers be protected from falling (peripheral edge protection erected for roof workers will not be sufficient at this phase), has the use of mobile access equipment been considered as a priority, and if the use of a running line or harness and lanyard is specified, who will erect and test the line, and are workers properly trained and competent in their use?"
+    ]
+   },
+   "reason": "The page shows a two-column box table with no printed header row. The save step needs a heading for every column, so I added the neutral headings 'Topic' and 'Checklist' (not printed). Cell text is copied from the image, with the missing fi ligatures in the library text restored as printed; bullet squares are dropped.",
+   "evidence": "Page 73, Table 3: five rows, risk on the left, checklist questions on the right; no header row printed.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "f8fe84a024962cb1",
+   "kind": "table",
+   "target": "appendix-1-further-information-table-2: Further information",
+   "value": {
+    "columns": [
+     "Topic",
+     "Checklist"
+    ],
+    "rows": [
+     [
+      "Risk of falling from partly completed roof",
+      "Leading edge protection: How will you protect the leading edge? Has the use of safety nets been considered in the light of legal duties and risk assessment for the total roofing operation? Stagings used as working platforms should be stable and of adequate width with handrails/ running lines specified to suit the working practices. Work done while kneeling or bending needs careful attention as the worker’s centre of gravity can extend over the leading edge. What method is specified for moving stagings? Is the method of work to be adopted when laying the first sheet specified? Some architectural features, eg hip ends, will require the working methods to be modified. These should be fully described. Has fixing ridge capping/flashing been included in the system of work? Is effective edge protection provided at the gable end of the ridge? Does the method statement make it clear at what stage of construction materials such as liner panels become load-bearing? The number and type of fixings required should be stated. Until this is achieved, they must be treated as fragile materials, ie unable to sustain someone’s weight, and protection should be provided as above. Have any fragile materials been specified by the designer? If so, the principal designer should review the decision as a matter of urgency in terms of duties under CDM. For refurbishment work on existing roofs, are there any fragile materials on the roof? These will have to be protected. How will this be achieved? If covers are used, are they strong enough, taking account of the span required? How will they be fixed and what is the system for their removal? Zoning the roof into working and non-working areas can reduce the number of fragile areas that need to be protected. Specify the system for marking out the zones and for doing the work. If barriers marking the edge of the zones are within 2 m of fragile material, then they should be a continuous physical barrier – painted lines and warning tape are not suitable. Zoning should take account of travel to the working area by the roof workers and the need for materials to be moved around the roof. The system should protect all fragile areas within working zones and adjacent to access routes."
+     ],
+     [
+      "Systems control",
+      "Communication: What are the arrangements for communicating the method statement and agreeing it with the roofing team? Supervision: What are the arrangements for making sure that the work proceeds according to the method statement? Modifications: What are the arrangements for agreeing any modifications to the method statement and communicating them to the roofing gang? Validation: What are the arrangements for making sure that the company safety adviser or other nominated competent person has reviewed, and is satisfied with, the system of work proposed?"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "In the further information table (continued from Table 3), the risk of falling from partly completed roof is covered by leading edge protection: how will you protect the leading edge, and has the use of safety nets been considered in the light of legal duties and risk assessment for the total roofing operation; stagings used as working platforms should be stable and of adequate width with handrails/ running lines specified to suit the working practices; work done while kneeling or bending needs careful attention as the worker’s centre of gravity can extend over the leading edge; what method is specified for moving stagings; is the method of work to be adopted when laying the first sheet specified, as some architectural features, eg hip ends, will require the working methods to be modified and these should be fully described; has fixing ridge capping/flashing been included in the system of work, and is effective edge protection provided at the gable end of the ridge; does the method statement make it clear at what stage of construction materials such as liner panels become load-bearing, the number and type of fixings required should be stated, and until this is achieved they must be treated as fragile materials, ie unable to sustain someone’s weight, and protection should be provided as above; have any fragile materials been specified by the designer, and if so the principal designer should review the decision as a matter of urgency in terms of duties under CDM; for refurbishment work on existing roofs, are there any fragile materials on the roof, these will have to be protected, so how will this be achieved, if covers are used are they strong enough taking account of the span required, how will they be fixed and what is the system for their removal; zoning the roof into working and non-working areas can reduce the number of fragile areas that need to be protected, so specify the system for marking out the zones and for doing the work, and if barriers marking the edge of the zones are within 2 m of fragile material, then they should be a continuous physical barrier – painted lines and warning tape are not suitable; zoning should take account of travel to the working area by the roof workers and the need for materials to be moved around the roof, and the system should protect all fragile areas within working zones and adjacent to access routes.",
+     "In the further information table (continued from Table 3), systems control covers four points: communication asks what the arrangements are for communicating the method statement and agreeing it with the roofing team; supervision asks what the arrangements are for making sure that the work proceeds according to the method statement; modifications asks what the arrangements are for agreeing any modifications to the method statement and communicating them to the roofing gang; and validation asks what the arrangements are for making sure that the company safety adviser or other nominated competent person has reviewed, and is satisfied with, the system of work proposed."
+    ]
+   },
+   "reason": "The page shows a two-column box table, a continuation of Table 3, with no printed header row. The save step needs a heading for every column, so I added the neutral headings 'Topic' and 'Checklist' (not printed). Cell text is copied from the image, with the missing fi ligatures in the library text restored as printed; bullet squares are dropped.",
+   "evidence": "Page 74: two rows, 'Risk of falling from partly completed roof' with leading edge protection bullets, and 'Systems control' with Communication, Supervision, Modifications and Validation; no header row printed.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  }
+ ]
+}

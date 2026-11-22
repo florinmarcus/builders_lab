@@ -1,0 +1,1675 @@
+{
+ "source_id": "fser-page",
+ "about": "Saved model fixes for fser-page (ADR 0010).",
+ "fixes": [
+  {
+   "key": "c1d6cbf4939dde6b",
+   "kind": "table",
+   "target": "table-3: FRA familiarisation costs, year one, 2021 prices, £.",
+   "value": {
+    "columns": [
+     "Role",
+     "Number of staff (FTE)",
+     "Wage assumption (£) London",
+     "Wage assumption (£) Non-London",
+     "Familiarisation cost (£) Low",
+     "Familiarisation cost (£) Central",
+     "Familiarisation cost (£) High"
+    ],
+    "rows": [
+     [
+      "Watch manager",
+      "2,736",
+      "23.55",
+      "20.61",
+      "5,800",
+      "21,267",
+      "68,634"
+     ],
+     [
+      "Station manager",
+      "928",
+      "33.32",
+      "23.51",
+      "2,297",
+      "8,424",
+      "27,185"
+     ],
+     [
+      "Group manager",
+      "234",
+      "37.98",
+      "27.07",
+      "674",
+      "2,470",
+      "7,971"
+     ],
+     [
+      "Area Manager",
+      "87",
+      "49.96",
+      "31.78",
+      "297",
+      "1,088",
+      "3,511"
+     ],
+     [
+      "Brigade Manager",
+      "62",
+      "69.87",
+      "69.87",
+      "433",
+      "1,588",
+      "5,126"
+     ],
+     [
+      "Total",
+      "4,046",
+      "",
+      "",
+      "9,501",
+      "34,836",
+      "112,427"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "FRA familiarisation costs, year one, 2021 prices, £: for the role Watch manager, the number of staff (FTE) is 2,736, the wage assumption is 23.55 in London and 20.61 non-London, and the familiarisation cost is 5,800 low, 21,267 central and 68,634 high.",
+     "FRA familiarisation costs, year one, 2021 prices, £: for the role Station manager, the number of staff (FTE) is 928, the wage assumption is 33.32 in London and 23.51 non-London, and the familiarisation cost is 2,297 low, 8,424 central and 27,185 high.",
+     "FRA familiarisation costs, year one, 2021 prices, £: for the role Group manager, the number of staff (FTE) is 234, the wage assumption is 37.98 in London and 27.07 non-London, and the familiarisation cost is 674 low, 2,470 central and 7,971 high.",
+     "FRA familiarisation costs, year one, 2021 prices, £: for the role Area Manager, the number of staff (FTE) is 87, the wage assumption is 49.96 in London and 31.78 non-London, and the familiarisation cost is 297 low, 1,088 central and 3,511 high.",
+     "FRA familiarisation costs, year one, 2021 prices, £: for the role Brigade Manager, the number of staff (FTE) is 62, the wage assumption is 69.87 in London and 69.87 non-London, and the familiarisation cost is 433 low, 1,588 central and 5,126 high.",
+     "FRA familiarisation costs, year one, 2021 prices, £: the total number of staff (FTE) is 4,046, and the total familiarisation cost is 9,501 low, 34,836 central and 112,427 high."
+    ]
+   },
+   "reason": "Rebuilt from the page image; the grid put the Total staff value in the wrong column and the two-level headers were flattened.",
+   "evidence": "Table 3 on printed page 13; Total row shows 4,046 under Number of staff and blank wage cells.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "094959d90a13e473",
+   "kind": "table",
+   "target": "table-4: Total costs of lifts and essential firefighting equipment (£ million), 2022.",
+   "value": {
+    "columns": [
+     "Measure",
+     "Case",
+     "Year 1 (£m)",
+     "Year 2 onwards £m",
+     "Total cost (PV) £m",
+     "Annual average cost (over 10 years) £m"
+    ],
+    "rows": [
+     [
+      "Lift inspections",
+      "Low",
+      "0.5",
+      "0.5",
+      "4.9",
+      "0.6"
+     ],
+     [
+      "Lift inspections",
+      "Central",
+      "1.0",
+      "1.0",
+      "9.7",
+      "1.1"
+     ],
+     [
+      "Lift inspections",
+      "High",
+      "1.5",
+      "1.5",
+      "14.6",
+      "1.7"
+     ],
+     [
+      "Equipment inspections",
+      "Low",
+      "0.5",
+      "0.5",
+      "4.9",
+      "0.6"
+     ],
+     [
+      "Equipment inspections",
+      "Central",
+      "1.0",
+      "1.0",
+      "9.7",
+      "1.1"
+     ],
+     [
+      "Equipment inspections",
+      "High",
+      "1.5",
+      "1.5",
+      "14.6",
+      "1.7"
+     ],
+     [
+      "Record results",
+      "Low",
+      "0.2",
+      "0.2",
+      "1.8",
+      "0.2"
+     ],
+     [
+      "Record results",
+      "Central",
+      "0.4",
+      "0.4",
+      "3.6",
+      "0.4"
+     ],
+     [
+      "Record results",
+      "High",
+      "0.6",
+      "0.6",
+      "5.4",
+      "0.6"
+     ],
+     [
+      "Provide FRSs with information",
+      "Low",
+      "0.1",
+      "0.0",
+      "0.2",
+      "0.0"
+     ],
+     [
+      "Provide FRSs with information",
+      "Central",
+      "0.2",
+      "0.1",
+      "0.7",
+      "0.1"
+     ],
+     [
+      "Provide FRSs with information",
+      "High",
+      "0.3",
+      "0.1",
+      "1.3",
+      "0.2"
+     ],
+     [
+      "Total",
+      "Low",
+      "1.2",
+      "1.2",
+      "11.7",
+      "1.4"
+     ],
+     [
+      "Total",
+      "Central",
+      "2.5",
+      "2.5",
+      "23.7",
+      "2.8"
+     ],
+     [
+      "Total",
+      "High",
+      "3.9",
+      "3.8",
+      "35.9",
+      "4.2"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Total costs of lifts and essential firefighting equipment (£ million), 2022: for Lift inspections, Low case, Year 1 is 0.5, Year 2 onwards is 0.5, total cost (PV) is 4.9 and annual average cost (over 10 years) is 0.6.",
+     "Total costs of lifts and essential firefighting equipment (£ million), 2022: for Lift inspections, Central case, Year 1 is 1.0, Year 2 onwards is 1.0, total cost (PV) is 9.7 and annual average cost (over 10 years) is 1.1.",
+     "Total costs of lifts and essential firefighting equipment (£ million), 2022: for Lift inspections, High case, Year 1 is 1.5, Year 2 onwards is 1.5, total cost (PV) is 14.6 and annual average cost (over 10 years) is 1.7.",
+     "Total costs of lifts and essential firefighting equipment (£ million), 2022: for Equipment inspections, Low case, Year 1 is 0.5, Year 2 onwards is 0.5, total cost (PV) is 4.9 and annual average cost (over 10 years) is 0.6.",
+     "Total costs of lifts and essential firefighting equipment (£ million), 2022: for Equipment inspections, Central case, Year 1 is 1.0, Year 2 onwards is 1.0, total cost (PV) is 9.7 and annual average cost (over 10 years) is 1.1.",
+     "Total costs of lifts and essential firefighting equipment (£ million), 2022: for Equipment inspections, High case, Year 1 is 1.5, Year 2 onwards is 1.5, total cost (PV) is 14.6 and annual average cost (over 10 years) is 1.7.",
+     "Total costs of lifts and essential firefighting equipment (£ million), 2022: for Record results, Low case, Year 1 is 0.2, Year 2 onwards is 0.2, total cost (PV) is 1.8 and annual average cost (over 10 years) is 0.2.",
+     "Total costs of lifts and essential firefighting equipment (£ million), 2022: for Record results, Central case, Year 1 is 0.4, Year 2 onwards is 0.4, total cost (PV) is 3.6 and annual average cost (over 10 years) is 0.4.",
+     "Total costs of lifts and essential firefighting equipment (£ million), 2022: for Record results, High case, Year 1 is 0.6, Year 2 onwards is 0.6, total cost (PV) is 5.4 and annual average cost (over 10 years) is 0.6.",
+     "Total costs of lifts and essential firefighting equipment (£ million), 2022: for Provide FRSs with information, Low case, Year 1 is 0.1, Year 2 onwards is 0.0, total cost (PV) is 0.2 and annual average cost (over 10 years) is 0.0.",
+     "Total costs of lifts and essential firefighting equipment (£ million), 2022: for Provide FRSs with information, Central case, Year 1 is 0.2, Year 2 onwards is 0.1, total cost (PV) is 0.7 and annual average cost (over 10 years) is 0.1.",
+     "Total costs of lifts and essential firefighting equipment (£ million), 2022: for Provide FRSs with information, High case, Year 1 is 0.3, Year 2 onwards is 0.1, total cost (PV) is 1.3 and annual average cost (over 10 years) is 0.2.",
+     "Total costs of lifts and essential firefighting equipment (£ million), 2022: for Total, Low case, Year 1 is 1.2, Year 2 onwards is 1.2, total cost (PV) is 11.7 and annual average cost (over 10 years) is 1.4.",
+     "Total costs of lifts and essential firefighting equipment (£ million), 2022: for Total, Central case, Year 1 is 2.5, Year 2 onwards is 2.5, total cost (PV) is 23.7 and annual average cost (over 10 years) is 2.8.",
+     "Total costs of lifts and essential firefighting equipment (£ million), 2022: for Total, High case, Year 1 is 3.9, Year 2 onwards is 3.8, total cost (PV) is 35.9 and annual average cost (over 10 years) is 4.2."
+    ]
+   },
+   "reason": "The library grid lost the row labels and column order; rebuilt from the image. Group names (Lift inspections, Equipment inspections, Record results, Provide FRSs with information, Total) are repeated on each Low/Central/High row, so there are no heading rows.",
+   "evidence": "Table 4 on printed page 18; Total High row reads 3.9, 3.8, 35.9, 4.2.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "d5a738bf29ab4495",
+   "kind": "table",
+   "target": "table-5: Estimated number of flat entrance doors in scope of the proposals, per height range",
+   "value": {
+    "columns": [
+     "Height range",
+     "Number of buildings",
+     "Dwellings per building",
+     "Doors"
+    ],
+    "rows": [
+     [
+      "11-18m",
+      "75,000",
+      "22",
+      "1,629,000"
+     ],
+     [
+      "18-29m",
+      "8,160",
+      "47",
+      "380,000"
+     ],
+     [
+      "30m+",
+      "3,840",
+      "81",
+      "311,000"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Estimated number of flat entrance doors in scope of the proposals, per height range: for the height range 11-18m, the number of buildings is 75,000, dwellings per building is 22 and doors is 1,629,000.",
+     "Estimated number of flat entrance doors in scope of the proposals, per height range: for the height range 18-29m, the number of buildings is 8,160, dwellings per building is 47 and doors is 380,000.",
+     "Estimated number of flat entrance doors in scope of the proposals, per height range: for the height range 30m+, the number of buildings is 3,840, dwellings per building is 81 and doors is 311,000."
+    ]
+   },
+   "reason": "Grid matches the page image.",
+   "evidence": "Table 5 on printed page 19.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "138ae55a6f737ab8",
+   "kind": "table",
+   "target": "table-6: Estimated number of common parts fire doors in scope of the proposals, per height range",
+   "value": {
+    "columns": [
+     "Height range",
+     "Number of buildings",
+     "Doors per building",
+     "Doors"
+    ],
+    "rows": [
+     [
+      "11-18m",
+      "75,000",
+      "16",
+      "1,200,000"
+     ],
+     [
+      "18-29m",
+      "8,160",
+      "25",
+      "204,000"
+     ],
+     [
+      "30m+",
+      "3,840",
+      "46",
+      "177,000"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Estimated number of common parts fire doors in scope of the proposals, per height range: for the height range 11-18m, the number of buildings is 75,000, doors per building is 16 and doors is 1,200,000.",
+     "Estimated number of common parts fire doors in scope of the proposals, per height range: for the height range 18-29m, the number of buildings is 8,160, doors per building is 25 and doors is 204,000.",
+     "Estimated number of common parts fire doors in scope of the proposals, per height range: for the height range 30m+, the number of buildings is 3,840, doors per building is 46 and doors is 177,000."
+    ]
+   },
+   "reason": "Grid matches the page image.",
+   "evidence": "Table 6 on printed page 19.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "13af2d63d9ac85c6",
+   "kind": "table",
+   "target": "table-7: Total cost of the Fire Doors proposal (£ million)",
+   "value": {
+    "columns": [
+     "Measure",
+     "Case",
+     "Year 1",
+     "Year 2",
+     "Year 3 onwards*",
+     "Total cost (PV)",
+     "Annual average cost (over 10 years)"
+    ],
+    "rows": [
+     [
+      "Inspections",
+      "Low",
+      "6.7",
+      "7.0",
+      "7.2",
+      "66.1",
+      "7.7"
+     ],
+     [
+      "Inspections",
+      "Central",
+      "9.7",
+      "10.0",
+      "10.3",
+      "95.3",
+      "11.2"
+     ],
+     [
+      "Inspections",
+      "High",
+      "12.7",
+      "13.1",
+      "13.5",
+      "124.4",
+      "14.6"
+     ],
+     [
+      "Replacements",
+      "Low",
+      "14.5",
+      "9.6",
+      "4.4",
+      "56.0",
+      "6.3"
+     ],
+     [
+      "Replacements",
+      "Central",
+      "20.7",
+      "14.9",
+      "8.8",
+      "99.6",
+      "11.4"
+     ],
+     [
+      "Replacements",
+      "High",
+      "26.9",
+      "20.3",
+      "13.2",
+      "143.2",
+      "16.4"
+     ],
+     [
+      "Total",
+      "Low",
+      "21.2",
+      "16.6",
+      "11.6",
+      "122.1",
+      "14.0"
+     ],
+     [
+      "Total",
+      "Central",
+      "30.4",
+      "25.0",
+      "19.1",
+      "194.9",
+      "22.5"
+     ],
+     [
+      "Total",
+      "High",
+      "39.6",
+      "33.4",
+      "26.7",
+      "267.7",
+      "31.0"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Total cost of the Fire Doors proposal (£ million): for Inspections, Low case, Year 1 is 6.7, Year 2 is 7.0, Year 3 onwards* is 7.2, total cost (PV) is 66.1 and annual average cost (over 10 years) is 7.7.",
+     "Total cost of the Fire Doors proposal (£ million): for Inspections, Central case, Year 1 is 9.7, Year 2 is 10.0, Year 3 onwards* is 10.3, total cost (PV) is 95.3 and annual average cost (over 10 years) is 11.2.",
+     "Total cost of the Fire Doors proposal (£ million): for Inspections, High case, Year 1 is 12.7, Year 2 is 13.1, Year 3 onwards* is 13.5, total cost (PV) is 124.4 and annual average cost (over 10 years) is 14.6.",
+     "Total cost of the Fire Doors proposal (£ million): for Replacements, Low case, Year 1 is 14.5, Year 2 is 9.6, Year 3 onwards* is 4.4, total cost (PV) is 56.0 and annual average cost (over 10 years) is 6.3.",
+     "Total cost of the Fire Doors proposal (£ million): for Replacements, Central case, Year 1 is 20.7, Year 2 is 14.9, Year 3 onwards* is 8.8, total cost (PV) is 99.6 and annual average cost (over 10 years) is 11.4.",
+     "Total cost of the Fire Doors proposal (£ million): for Replacements, High case, Year 1 is 26.9, Year 2 is 20.3, Year 3 onwards* is 13.2, total cost (PV) is 143.2 and annual average cost (over 10 years) is 16.4.",
+     "Total cost of the Fire Doors proposal (£ million): for Total, Low case, Year 1 is 21.2, Year 2 is 16.6, Year 3 onwards* is 11.6, total cost (PV) is 122.1 and annual average cost (over 10 years) is 14.0.",
+     "Total cost of the Fire Doors proposal (£ million): for Total, Central case, Year 1 is 30.4, Year 2 is 25.0, Year 3 onwards* is 19.1, total cost (PV) is 194.9 and annual average cost (over 10 years) is 22.5.",
+     "Total cost of the Fire Doors proposal (£ million): for Total, High case, Year 1 is 39.6, Year 2 is 33.4, Year 3 onwards* is 26.7, total cost (PV) is 267.7 and annual average cost (over 10 years) is 31.0."
+    ]
+   },
+   "reason": "The library grid merged numbers into long strings; rebuilt from the image. Group names (Inspections, Replacements, Total) are repeated on each row. The footnote says costs increase by 3 per cent annually from year 3.",
+   "evidence": "Table 7 on printed page 21; the first header cell is blank and the footnote reads '*Costs increase by 3 per cent annually from year 3.'",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "3476f9a89a786bdc",
+   "kind": "table",
+   "target": "table-8: Signage installation costs (£), England, 2021",
+   "value": {
+    "columns": [
+     "Location",
+     "Stair landing",
+     "Stair lobby",
+     "Lift lobby"
+    ],
+    "rows": [
+     [
+      "Cost (£)",
+      "98.64",
+      "42.47",
+      "84.94"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Signage installation costs (£), England, 2021: the cost (£) is 98.64 for a stair landing, 42.47 for a stair lobby and 84.94 for a lift lobby."
+    ]
+   },
+   "reason": "Table has one header row (Location and three location names) and one data row (Cost (£)); no grid was given, so rebuilt from the image.",
+   "evidence": "Table 8 on printed page 23.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "63583788bbaa2be0",
+   "kind": "table",
+   "target": "table-9: Number of floors and stairwells per building, England, 2021",
+   "value": {
+    "columns": [
+     "Building part",
+     "18-30m",
+     "30m+"
+    ],
+    "rows": [
+     [
+      "Floors",
+      "8",
+      "15"
+     ],
+     [
+      "Stairwells",
+      "2",
+      "2"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Number of floors and stairwells per building, England, 2021: Floors is 8 for 18-30m and 15 for 30m+.",
+     "Number of floors and stairwells per building, England, 2021: Stairwells is 2 for 18-30m and 2 for 30m+."
+    ]
+   },
+   "reason": "Table 9 on page 23 has three columns and two data rows; the library text matches the image.",
+   "evidence": "Image p23: header Building part, 18-30m, 30m+; Floors 8, 15; Stairwells 2, 2.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "c2173248b528608c",
+   "kind": "table",
+   "target": "table-10: Summary table of Monetised Benefits and Costs of Option 1 (NPSV, BNPV and EANDCB), 2021/22 prices, £ million",
+   "value": {
+    "columns": [
+     "Proposal",
+     "Low",
+     "Central",
+     "High"
+    ],
+    "rows": [
+     [
+      "Familiarisation (inc. FRS)",
+      "0.1",
+      "0.7",
+      "3.5"
+     ],
+     [
+      "External Wall Systems",
+      "0.1",
+      "0.3",
+      "0.4"
+     ],
+     [
+      "Building Plans",
+      "24.0",
+      "30.0",
+      "36.7"
+     ],
+     [
+      "Information Boxes",
+      "0.9",
+      "4.5",
+      "8.6"
+     ],
+     [
+      "Lifts and Essential Firefighting Equipment",
+      "11.7",
+      "23.7",
+      "35.9"
+     ],
+     [
+      "Fire Doors",
+      "122.1",
+      "194.9",
+      "267.7"
+     ],
+     [
+      "Instructions to residents",
+      "83.4",
+      "111.2",
+      "134.5"
+     ],
+     [
+      "Wayfinding Signage",
+      "12.1",
+      "24.3",
+      "36.4"
+     ],
+     [
+      "Additional Costs to FRS",
+      "0.5",
+      "1.3",
+      "2.5"
+     ],
+     [
+      "Total cost (PV)",
+      "255.0",
+      "390.8",
+      "526.0"
+     ],
+     [
+      "Annual per year",
+      "28.3",
+      "43.6",
+      "58.6"
+     ],
+     [
+      "Total benefits",
+      "0.0",
+      "0.0",
+      "0.0"
+     ],
+     [
+      "NPSV",
+      "-255.0",
+      "-390.8",
+      "-526.0"
+     ],
+     [
+      "Of which, is public",
+      "-101.1",
+      "-160.3",
+      "-219.9"
+     ],
+     [
+      "BNPV",
+      "-153.8",
+      "-230.6",
+      "-306.1"
+     ],
+     [
+      "EANDCB",
+      "17.0",
+      "25.5",
+      "33.9"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Summary table of Monetised Benefits and Costs of Option 1 (NPSV, BNPV and EANDCB), 2021/22 prices, £ million: Familiarisation (inc. FRS) is 0.1 Low, 0.7 Central and 3.5 High.",
+     "Summary table of Monetised Benefits and Costs of Option 1 (NPSV, BNPV and EANDCB), 2021/22 prices, £ million: External Wall Systems is 0.1 Low, 0.3 Central and 0.4 High.",
+     "Summary table of Monetised Benefits and Costs of Option 1 (NPSV, BNPV and EANDCB), 2021/22 prices, £ million: Building Plans is 24.0 Low, 30.0 Central and 36.7 High.",
+     "Summary table of Monetised Benefits and Costs of Option 1 (NPSV, BNPV and EANDCB), 2021/22 prices, £ million: Information Boxes is 0.9 Low, 4.5 Central and 8.6 High.",
+     "Summary table of Monetised Benefits and Costs of Option 1 (NPSV, BNPV and EANDCB), 2021/22 prices, £ million: Lifts and Essential Firefighting Equipment is 11.7 Low, 23.7 Central and 35.9 High.",
+     "Summary table of Monetised Benefits and Costs of Option 1 (NPSV, BNPV and EANDCB), 2021/22 prices, £ million: Fire Doors is 122.1 Low, 194.9 Central and 267.7 High.",
+     "Summary table of Monetised Benefits and Costs of Option 1 (NPSV, BNPV and EANDCB), 2021/22 prices, £ million: Instructions to residents is 83.4 Low, 111.2 Central and 134.5 High.",
+     "Summary table of Monetised Benefits and Costs of Option 1 (NPSV, BNPV and EANDCB), 2021/22 prices, £ million: Wayfinding Signage is 12.1 Low, 24.3 Central and 36.4 High.",
+     "Summary table of Monetised Benefits and Costs of Option 1 (NPSV, BNPV and EANDCB), 2021/22 prices, £ million: Additional Costs to FRS is 0.5 Low, 1.3 Central and 2.5 High.",
+     "Summary table of Monetised Benefits and Costs of Option 1 (NPSV, BNPV and EANDCB), 2021/22 prices, £ million: Total cost (PV) is 255.0 Low, 390.8 Central and 526.0 High.",
+     "Summary table of Monetised Benefits and Costs of Option 1 (NPSV, BNPV and EANDCB), 2021/22 prices, £ million: Annual per year is 28.3 Low, 43.6 Central and 58.6 High.",
+     "Summary table of Monetised Benefits and Costs of Option 1 (NPSV, BNPV and EANDCB), 2021/22 prices, £ million: Total benefits is 0.0 Low, 0.0 Central and 0.0 High.",
+     "Summary table of Monetised Benefits and Costs of Option 1 (NPSV, BNPV and EANDCB), 2021/22 prices, £ million: NPSV is -255.0 Low, -390.8 Central and -526.0 High.",
+     "Summary table of Monetised Benefits and Costs of Option 1 (NPSV, BNPV and EANDCB), 2021/22 prices, £ million: Of which, is public is -101.1 Low, -160.3 Central and -219.9 High.",
+     "Summary table of Monetised Benefits and Costs of Option 1 (NPSV, BNPV and EANDCB), 2021/22 prices, £ million: BNPV is -153.8 Low, -230.6 Central and -306.1 High.",
+     "Summary table of Monetised Benefits and Costs of Option 1 (NPSV, BNPV and EANDCB), 2021/22 prices, £ million: EANDCB is 17.0 Low, 25.5 Central and 33.9 High."
+    ]
+   },
+   "reason": "Rebuilt from page 29 image; the grid dropped the first column and the High column, so rows come from the image. The two empty spacer rows are not data rows and are left out.",
+   "evidence": "Image p29: header Proposal, Low, Central, High; 16 labelled rows from Familiarisation (inc. FRS) to EANDCB.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "d28b04ea758b7808",
+   "kind": "table",
+   "target": "table-11: Sensitivity analysis on the number of buildings above 11 metres in height (NPSV over 10 years, £million)",
+   "value": {
+    "columns": [
+     "Percentage change from central estimate",
+     "-10%",
+     "-5%",
+     "0%",
+     "+5%",
+     "+10%"
+    ],
+    "rows": [
+     [
+      "Number of buildings 11 to 18m",
+      "67,500",
+      "71,250",
+      "75,000",
+      "78,750",
+      "82,500"
+     ],
+     [
+      "Number of buildings over 18m",
+      "10,800",
+      "11,400",
+      "12,000",
+      "12,600",
+      "13,200"
+     ],
+     [
+      "NPSV",
+      "-365.1",
+      "-377.9",
+      "-390.8",
+      "-403.7",
+      "-416.6"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Sensitivity analysis on the number of buildings above 11 metres in height (NPSV over 10 years, £million): Number of buildings 11 to 18m is 67,500 at -10%, 71,250 at -5%, 75,000 at 0%, 78,750 at +5% and 82,500 at +10%.",
+     "Sensitivity analysis on the number of buildings above 11 metres in height (NPSV over 10 years, £million): Number of buildings over 18m is 10,800 at -10%, 11,400 at -5%, 12,000 at 0%, 12,600 at +5% and 13,200 at +10%.",
+     "Sensitivity analysis on the number of buildings above 11 metres in height (NPSV over 10 years, £million): NPSV is -365.1 at -10%, -377.9 at -5%, -390.8 at 0%, -403.7 at +5% and -416.6 at +10%."
+    ]
+   },
+   "reason": "Rebuilt from page 33 image; the grid missed the +10% column and the NPSV row.",
+   "evidence": "Image p33: header row Percentage change from central estimate, -10%, -5%, 0%, +5%, +10%; three data rows.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "a8ff39f59c1f46c5",
+   "kind": "table",
+   "target": "table-12: Sensitivity analysis on the proportion of high-rise buildings which currently have no, or some form of, building plans (NPSV over 10 years, £million)",
+   "value": {
+    "columns": [
+     "No plan (%)",
+     "Some form of plan (%)",
+     "Total cost of proposal £ million (PV)",
+     "Total NPSV of all proposals £ million (PV)"
+    ],
+    "rows": [
+     [
+      "10",
+      "0",
+      "14.5",
+      "-375.3"
+     ],
+     [
+      "20",
+      "2.5",
+      "19.6",
+      "-380.4"
+     ],
+     [
+      "30",
+      "5",
+      "24.8",
+      "-385.6"
+     ],
+     [
+      "40",
+      "10",
+      "30.0",
+      "-390.8"
+     ],
+     [
+      "50",
+      "15",
+      "35.3",
+      "-396.1"
+     ],
+     [
+      "60",
+      "17.5",
+      "40.4",
+      "-401.2"
+     ],
+     [
+      "70",
+      "20",
+      "45.6",
+      "-406.4"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Sensitivity analysis on the proportion of high-rise buildings which currently have no, or some form of, building plans (NPSV over 10 years, £million): with 10 per cent of buildings with no plan and 0 per cent with some form of plan, the total cost of proposal is 14.5 £ million (PV) and the total NPSV of all proposals is -375.3 £ million (PV).",
+     "Sensitivity analysis on the proportion of high-rise buildings which currently have no, or some form of, building plans (NPSV over 10 years, £million): with 20 per cent of buildings with no plan and 2.5 per cent with some form of plan, the total cost of proposal is 19.6 £ million (PV) and the total NPSV of all proposals is -380.4 £ million (PV).",
+     "Sensitivity analysis on the proportion of high-rise buildings which currently have no, or some form of, building plans (NPSV over 10 years, £million): with 30 per cent of buildings with no plan and 5 per cent with some form of plan, the total cost of proposal is 24.8 £ million (PV) and the total NPSV of all proposals is -385.6 £ million (PV).",
+     "Sensitivity analysis on the proportion of high-rise buildings which currently have no, or some form of, building plans (NPSV over 10 years, £million): with 40 per cent of buildings with no plan and 10 per cent with some form of plan, the total cost of proposal is 30.0 £ million (PV) and the total NPSV of all proposals is -390.8 £ million (PV).",
+     "Sensitivity analysis on the proportion of high-rise buildings which currently have no, or some form of, building plans (NPSV over 10 years, £million): with 50 per cent of buildings with no plan and 15 per cent with some form of plan, the total cost of proposal is 35.3 £ million (PV) and the total NPSV of all proposals is -396.1 £ million (PV).",
+     "Sensitivity analysis on the proportion of high-rise buildings which currently have no, or some form of, building plans (NPSV over 10 years, £million): with 60 per cent of buildings with no plan and 17.5 per cent with some form of plan, the total cost of proposal is 40.4 £ million (PV) and the total NPSV of all proposals is -401.2 £ million (PV).",
+     "Sensitivity analysis on the proportion of high-rise buildings which currently have no, or some form of, building plans (NPSV over 10 years, £million): with 70 per cent of buildings with no plan and 20 per cent with some form of plan, the total cost of proposal is 45.6 £ million (PV) and the total NPSV of all proposals is -406.4 £ million (PV)."
+    ]
+   },
+   "reason": "The packet had no text or grid, so the table is rebuilt from the page 33 image. The printed lowest header row repeats '£ million (PV)', so each is joined with its upper heading to keep columns distinct. The 40/10 row is bold on the page (central estimate) but is still a normal row.",
+   "evidence": "Image p33: Table 12 with two header rows and seven data rows, 10/0 to 70/20.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "50947c2446c12480",
+   "kind": "table",
+   "target": "table-13: Summary of costs to business for Option 1 (PV over 10 years, £million)",
+   "value": {
+    "columns": [
+     "Proposal",
+     "Low",
+     "Central",
+     "High"
+    ],
+    "rows": [
+     [
+      "Familiarisation",
+      "0.1",
+      "0.6",
+      "3.0"
+     ],
+     [
+      "External Wall Systems",
+      "0.1",
+      "0.1",
+      "0.2"
+     ],
+     [
+      "Building Plans",
+      "12.0",
+      "15.0",
+      "18.4"
+     ],
+     [
+      "Information Boxes",
+      "0.4",
+      "2.3",
+      "4.3"
+     ],
+     [
+      "Lifts and Essential Firefighting Equipment",
+      "5.9",
+      "11.8",
+      "17.9"
+     ],
+     [
+      "Fire Doors",
+      "61.5",
+      "98.2",
+      "134.9"
+     ],
+     [
+      "Instructions to residents",
+      "67.8",
+      "90.4",
+      "109.3"
+     ],
+     [
+      "Wayfinding Signage",
+      "6.1",
+      "12.1",
+      "18.2"
+     ],
+     [
+      "Total cost to business (PV)",
+      "153.8",
+      "230.6",
+      "306.1"
+     ],
+     [
+      "BNPV",
+      "-153.8",
+      "-230.6",
+      "-306.1"
+     ],
+     [
+      "EANDCB",
+      "17.0",
+      "25.5",
+      "33.9"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Summary of costs to business for Option 1 (PV over 10 years, £million): Familiarisation is 0.1 Low, 0.6 Central and 3.0 High.",
+     "Summary of costs to business for Option 1 (PV over 10 years, £million): External Wall Systems is 0.1 Low, 0.1 Central and 0.2 High.",
+     "Summary of costs to business for Option 1 (PV over 10 years, £million): Building Plans is 12.0 Low, 15.0 Central and 18.4 High.",
+     "Summary of costs to business for Option 1 (PV over 10 years, £million): Information Boxes is 0.4 Low, 2.3 Central and 4.3 High.",
+     "Summary of costs to business for Option 1 (PV over 10 years, £million): Lifts and Essential Firefighting Equipment is 5.9 Low, 11.8 Central and 17.9 High.",
+     "Summary of costs to business for Option 1 (PV over 10 years, £million): Fire Doors is 61.5 Low, 98.2 Central and 134.9 High.",
+     "Summary of costs to business for Option 1 (PV over 10 years, £million): Instructions to residents is 67.8 Low, 90.4 Central and 109.3 High.",
+     "Summary of costs to business for Option 1 (PV over 10 years, £million): Wayfinding Signage is 6.1 Low, 12.1 Central and 18.2 High.",
+     "Summary of costs to business for Option 1 (PV over 10 years, £million): Total cost to business (PV) is 153.8 Low, 230.6 Central and 306.1 High.",
+     "Summary of costs to business for Option 1 (PV over 10 years, £million): BNPV is -153.8 Low, -230.6 Central and -306.1 High.",
+     "Summary of costs to business for Option 1 (PV over 10 years, £million): EANDCB is 17.0 Low, 25.5 Central and 33.9 High."
+    ]
+   },
+   "reason": "The packet had no usable text or grid, so the table is rebuilt from the page 34 image. The empty spacer row is not a data row and is left out.",
+   "evidence": "Image p34: Table 13 header Proposal, Low, Central, High; 11 labelled rows from Familiarisation to EANDCB.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "e3fae02b5dab2a0a",
+   "kind": "table",
+   "target": "document-table-1: Fire Safety (England) Regulations 2022: page with fact sheets",
+   "value": {
+    "columns": [
+     "Field",
+     "Entry"
+    ],
+    "rows": [
+     [
+      "Title",
+      "The Fire Safety (England) Regulations 2022"
+     ],
+     [
+      "IA No",
+      "HO0398"
+     ],
+     [
+      "RPC Reference No",
+      "N/A"
+     ],
+     [
+      "Other departments or agencies",
+      "N/A"
+     ],
+     [
+      "Date",
+      "18 May 2022"
+     ],
+     [
+      "Stage",
+      "FINAL"
+     ],
+     [
+      "Intervention",
+      "Domestic"
+     ],
+     [
+      "Measure",
+      "Secondary legislation"
+     ],
+     [
+      "Enquiries",
+      "FireSafetyUnitconsultations@homeoffice.gov.uk"
+     ],
+     [
+      "RPC Opinion",
+      "N/A"
+     ],
+     [
+      "Business Impact Target",
+      "Non qualifying regulatory provision (NQPR)"
+     ],
+     [
+      "Net Present Social Value NPSV (£m)",
+      "-390.8"
+     ],
+     [
+      "Business Net Present Value BNPV (£m)",
+      "-230.6"
+     ],
+     [
+      "Net cost to business per year EANDCB (£m)",
+      "25.5"
+     ],
+     [
+      "Discount rate (%)",
+      "3.5"
+     ],
+     [
+      "Will the policy be reviewed? If applicable, set review date",
+      "It will be reviewed. October 2026"
+     ],
+     [
+      "Price Base",
+      "2021/22"
+     ],
+     [
+      "PV Base",
+      "2022/23"
+     ],
+     [
+      "Appraisal",
+      "10"
+     ],
+     [
+      "Transition",
+      "1"
+     ],
+     [
+      "Estimate of Net Present Social Value NPSV (£m) Low",
+      "-255.0"
+     ],
+     [
+      "Estimate of Net Present Social Value NPSV (£m) High",
+      "-526.0"
+     ],
+     [
+      "Estimate of Net Present Social Value NPSV (£m) Best",
+      "-390.8"
+     ],
+     [
+      "Estimate of BNPV (£m) Best BNPV",
+      "-230.6"
+     ],
+     [
+      "COSTS, £m Low",
+      "Transition (Constant Price) 95.0; Ongoing (Present Value) 159.9; Total (Present Value) 255.0; Average/year (Constant Price) 28.3; To Business (Present Value) 153.8"
+     ],
+     [
+      "COSTS, £m High",
+      "Transition (Constant Price) 187.0; Ongoing (Present Value) 339.0; Total (Present Value) 526.0; Average/year (Constant Price) 58.6; To Business (Present Value) 306.1"
+     ],
+     [
+      "COSTS, £m Best Estimate",
+      "Transition (Constant Price) 139.4; Ongoing (Present Value) 251.4; Total (Present Value) 390.8; Average/year (Constant Price) 43.6; To Business (Present Value) 230.6"
+     ],
+     [
+      "BENEFITS, £m Low",
+      "Transition (Constant Price) 0.0; Ongoing (Present Value) 0.0; Total (Present Value) 0.0; Average/year (Constant Price) 0.0; To Business (Present Value) 0.0"
+     ],
+     [
+      "BENEFITS, £m High",
+      "Transition (Constant Price) 0.0; Ongoing (Present Value) 0.0; Total (Present Value) 0.0; Average/year (Constant Price) 0.0; To Business (Present Value) 0.0"
+     ],
+     [
+      "BENEFITS, £m Best Estimate",
+      "Transition (Constant Price) 0.0; Ongoing (Present Value) 0.0; Total (Present Value) 0.0; Average/year (Constant Price) 0.0; To Business (Present Value) 0.0"
+     ],
+     [
+      "Direct impact on business (Equivalent Annual) £m: Cost, £m",
+      "25.5"
+     ],
+     [
+      "Direct impact on business (Equivalent Annual) £m: Benefit, £m",
+      "0.0"
+     ],
+     [
+      "Direct impact on business (Equivalent Annual) £m: Net, £m",
+      "25.5"
+     ],
+     [
+      "Score for Business Impact Target (qualifying provisions only) £m",
+      "N/A"
+     ],
+     [
+      "Is this measure likely to impact on trade and investment?",
+      "N"
+     ],
+     [
+      "Are any of these organisations in scope? Micro",
+      "Y"
+     ],
+     [
+      "Are any of these organisations in scope? Small",
+      "Y"
+     ],
+     [
+      "Are any of these organisations in scope? Medium",
+      "Y"
+     ],
+     [
+      "Are any of these organisations in scope? Large",
+      "Y"
+     ],
+     [
+      "What is the CO2 equivalent change in greenhouse gas emissions? (Million tonnes CO2 equivalent) Traded",
+      "N/A"
+     ],
+     [
+      "What is the CO2 equivalent change in greenhouse gas emissions? (Million tonnes CO2 equivalent) Non-Traded",
+      "N/A"
+     ],
+     [
+      "Are all relevant Specific Impacts included?",
+      "Y"
+     ],
+     [
+      "Are there any impacts on particular groups?",
+      "N"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Fire Safety (England) Regulations 2022: page with fact sheets: Title is The Fire Safety (England) Regulations 2022.",
+     "Fire Safety (England) Regulations 2022: page with fact sheets: IA No is HO0398.",
+     "Fire Safety (England) Regulations 2022: page with fact sheets: RPC Reference No is N/A.",
+     "Fire Safety (England) Regulations 2022: page with fact sheets: Other departments or agencies is N/A.",
+     "Fire Safety (England) Regulations 2022: page with fact sheets: Date is 18 May 2022.",
+     "Fire Safety (England) Regulations 2022: page with fact sheets: Stage is FINAL.",
+     "Fire Safety (England) Regulations 2022: page with fact sheets: Intervention is Domestic.",
+     "Fire Safety (England) Regulations 2022: page with fact sheets: Measure is Secondary legislation.",
+     "Fire Safety (England) Regulations 2022: page with fact sheets: Enquiries is FireSafetyUnitconsultations@homeoffice.gov.uk.",
+     "Fire Safety (England) Regulations 2022: page with fact sheets: RPC Opinion is N/A.",
+     "Fire Safety (England) Regulations 2022: page with fact sheets: Business Impact Target is Non qualifying regulatory provision (NQPR).",
+     "Fire Safety (England) Regulations 2022: page with fact sheets: Net Present Social Value NPSV (£m) is -390.8.",
+     "Fire Safety (England) Regulations 2022: page with fact sheets: Business Net Present Value BNPV (£m) is -230.6.",
+     "Fire Safety (England) Regulations 2022: page with fact sheets: Net cost to business per year EANDCB (£m) is 25.5.",
+     "Fire Safety (England) Regulations 2022: page with fact sheets: Discount rate (%) is 3.5.",
+     "Fire Safety (England) Regulations 2022: page with fact sheets: Will the policy be reviewed? If applicable, set review date is It will be reviewed. October 2026.",
+     "Fire Safety (England) Regulations 2022: page with fact sheets: Price Base is 2021/22.",
+     "Fire Safety (England) Regulations 2022: page with fact sheets: PV Base is 2022/23.",
+     "Fire Safety (England) Regulations 2022: page with fact sheets: Appraisal is 10.",
+     "Fire Safety (England) Regulations 2022: page with fact sheets: Transition is 1.",
+     "Fire Safety (England) Regulations 2022: page with fact sheets: Estimate of Net Present Social Value NPSV (£m) Low is -255.0.",
+     "Fire Safety (England) Regulations 2022: page with fact sheets: Estimate of Net Present Social Value NPSV (£m) High is -526.0.",
+     "Fire Safety (England) Regulations 2022: page with fact sheets: Estimate of Net Present Social Value NPSV (£m) Best is -390.8.",
+     "Fire Safety (England) Regulations 2022: page with fact sheets: Estimate of BNPV (£m) Best BNPV is -230.6.",
+     "Fire Safety (England) Regulations 2022: page with fact sheets: COSTS, £m Low is Transition (Constant Price) 95.0; Ongoing (Present Value) 159.9; Total (Present Value) 255.0; Average/year (Constant Price) 28.3; To Business (Present Value) 153.8.",
+     "Fire Safety (England) Regulations 2022: page with fact sheets: COSTS, £m High is Transition (Constant Price) 187.0; Ongoing (Present Value) 339.0; Total (Present Value) 526.0; Average/year (Constant Price) 58.6; To Business (Present Value) 306.1.",
+     "Fire Safety (England) Regulations 2022: page with fact sheets: COSTS, £m Best Estimate is Transition (Constant Price) 139.4; Ongoing (Present Value) 251.4; Total (Present Value) 390.8; Average/year (Constant Price) 43.6; To Business (Present Value) 230.6.",
+     "Fire Safety (England) Regulations 2022: page with fact sheets: BENEFITS, £m Low is Transition (Constant Price) 0.0; Ongoing (Present Value) 0.0; Total (Present Value) 0.0; Average/year (Constant Price) 0.0; To Business (Present Value) 0.0.",
+     "Fire Safety (England) Regulations 2022: page with fact sheets: BENEFITS, £m High is Transition (Constant Price) 0.0; Ongoing (Present Value) 0.0; Total (Present Value) 0.0; Average/year (Constant Price) 0.0; To Business (Present Value) 0.0.",
+     "Fire Safety (England) Regulations 2022: page with fact sheets: BENEFITS, £m Best Estimate is Transition (Constant Price) 0.0; Ongoing (Present Value) 0.0; Total (Present Value) 0.0; Average/year (Constant Price) 0.0; To Business (Present Value) 0.0.",
+     "Fire Safety (England) Regulations 2022: page with fact sheets: Direct impact on business (Equivalent Annual) £m: Cost, £m is 25.5.",
+     "Fire Safety (England) Regulations 2022: page with fact sheets: Direct impact on business (Equivalent Annual) £m: Benefit, £m is 0.0.",
+     "Fire Safety (England) Regulations 2022: page with fact sheets: Direct impact on business (Equivalent Annual) £m: Net, £m is 25.5.",
+     "Fire Safety (England) Regulations 2022: page with fact sheets: Score for Business Impact Target (qualifying provisions only) £m is N/A.",
+     "Fire Safety (England) Regulations 2022: page with fact sheets: Is this measure likely to impact on trade and investment? is N.",
+     "Fire Safety (England) Regulations 2022: page with fact sheets: Are any of these organisations in scope? Micro is Y.",
+     "Fire Safety (England) Regulations 2022: page with fact sheets: Are any of these organisations in scope? Small is Y.",
+     "Fire Safety (England) Regulations 2022: page with fact sheets: Are any of these organisations in scope? Medium is Y.",
+     "Fire Safety (England) Regulations 2022: page with fact sheets: Are any of these organisations in scope? Large is Y.",
+     "Fire Safety (England) Regulations 2022: page with fact sheets: What is the CO2 equivalent change in greenhouse gas emissions? (Million tonnes CO2 equivalent) Traded is N/A.",
+     "Fire Safety (England) Regulations 2022: page with fact sheets: What is the CO2 equivalent change in greenhouse gas emissions? (Million tonnes CO2 equivalent) Non-Traded is N/A.",
+     "Fire Safety (England) Regulations 2022: page with fact sheets: Are all relevant Specific Impacts included? is Y.",
+     "Fire Safety (England) Regulations 2022: page with fact sheets: Are there any impacts on particular groups? is N."
+    ]
+   },
+   "reason": "This is a two-page form (Impact Assessment summary, pages 1-2), not a regular table, so there are no printed column headings. I used a Field/Entry layout and kept only the short labelled fields and number boxes. The long prose boxes (problem, objectives, options, assumptions, cost and benefit descriptions) are left out; they are text, not table cells.",
+   "evidence": "Images p1 and p2: header block, NPSV/BNPV/EANDCB boxes, discount rate, review date, costs and benefits grids, business assessment, scope, emissions and specific impacts rows.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "low",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "e310b467f2fca402",
+   "kind": "table",
+   "target": "document-a-4-consultation-table-11: A.4 Consultation",
+   "value": {
+    "columns": [
+     "Proposal",
+     "Low",
+     "Central",
+     "High",
+     "Low",
+     "Central",
+     "High",
+     "Low",
+     "Central",
+     "High"
+    ],
+    "rows": [
+     [
+      "Familiarisation (inc. FRS)",
+      "0.1",
+      "0.7",
+      "3.5",
+      "0.0",
+      "0.0",
+      "0.0",
+      "0.1",
+      "0.7",
+      "3.5"
+     ],
+     [
+      "External Wall Systems",
+      "0.1",
+      "0.2",
+      "0.2",
+      "0.1",
+      "0.1",
+      "0.1",
+      "0.1",
+      "0.3",
+      "0.4"
+     ],
+     [
+      "Building Plans",
+      "15.8",
+      "20.7",
+      "26.2",
+      "8.2",
+      "9.3",
+      "10.5",
+      "24.0",
+      "30.0",
+      "36.7"
+     ],
+     [
+      "Information Boxes",
+      "0.9",
+      "4.5",
+      "8.6",
+      "0.0",
+      "0.0",
+      "0.0",
+      "0.9",
+      "4.5",
+      "8.6"
+     ],
+     [
+      "Lifts and Essential Firefighting Equipment",
+      "0.0",
+      "0.0",
+      "0.0",
+      "11.7",
+      "23.7",
+      "35.9",
+      "11.7",
+      "23.7",
+      "35.9"
+     ],
+     [
+      "Fire Doors",
+      "14.5",
+      "20.7",
+      "26.9",
+      "107.6",
+      "174.2",
+      "240.7",
+      "122.1",
+      "194.9",
+      "267.7"
+     ],
+     [
+      "Instructions to residents",
+      "52.2",
+      "69.6",
+      "87.0",
+      "31.2",
+      "41.6",
+      "47.5",
+      "83.4",
+      "111.2",
+      "134.5"
+     ],
+     [
+      "Wayfinding Signage",
+      "11.3",
+      "22.6",
+      "33.8",
+      "0.9",
+      "1.7",
+      "2.6",
+      "12.1",
+      "24.3",
+      "36.4"
+     ],
+     [
+      "Additional Costs to FRS",
+      "0.2",
+      "0.5",
+      "0.8",
+      "0.3",
+      "0.8",
+      "1.7",
+      "0.5",
+      "1.3",
+      "2.5"
+     ],
+     [
+      "Total cost (PV)",
+      "95.0",
+      "139.4",
+      "187.0",
+      "159.9",
+      "251.4",
+      "339.0",
+      "255.0",
+      "390.8",
+      "526.0"
+     ],
+     [
+      "Annual per year",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "28.3",
+      "43.6",
+      "58.6"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "In the Summary of Total Costs (costs, £m), Familiarisation (inc. FRS) has set-up costs of 0.1 low, 0.7 central and 3.5 high, ongoing costs of 0.0 low, 0.0 central and 0.0 high, and total costs of 0.1 low, 0.7 central and 3.5 high.",
+     "In the Summary of Total Costs (costs, £m), External Wall Systems has set-up costs of 0.1 low, 0.2 central and 0.2 high, ongoing costs of 0.1 low, 0.1 central and 0.1 high, and total costs of 0.1 low, 0.3 central and 0.4 high.",
+     "In the Summary of Total Costs (costs, £m), Building Plans has set-up costs of 15.8 low, 20.7 central and 26.2 high, ongoing costs of 8.2 low, 9.3 central and 10.5 high, and total costs of 24.0 low, 30.0 central and 36.7 high.",
+     "In the Summary of Total Costs (costs, £m), Information Boxes has set-up costs of 0.9 low, 4.5 central and 8.6 high, ongoing costs of 0.0 low, 0.0 central and 0.0 high, and total costs of 0.9 low, 4.5 central and 8.6 high.",
+     "In the Summary of Total Costs (costs, £m), Lifts and Essential Firefighting Equipment has set-up costs of 0.0 low, 0.0 central and 0.0 high, ongoing costs of 11.7 low, 23.7 central and 35.9 high, and total costs of 11.7 low, 23.7 central and 35.9 high.",
+     "In the Summary of Total Costs (costs, £m), Fire Doors has set-up costs of 14.5 low, 20.7 central and 26.9 high, ongoing costs of 107.6 low, 174.2 central and 240.7 high, and total costs of 122.1 low, 194.9 central and 267.7 high.",
+     "In the Summary of Total Costs (costs, £m), Instructions to residents has set-up costs of 52.2 low, 69.6 central and 87.0 high, ongoing costs of 31.2 low, 41.6 central and 47.5 high, and total costs of 83.4 low, 111.2 central and 134.5 high.",
+     "In the Summary of Total Costs (costs, £m), Wayfinding Signage has set-up costs of 11.3 low, 22.6 central and 33.8 high, ongoing costs of 0.9 low, 1.7 central and 2.6 high, and total costs of 12.1 low, 24.3 central and 36.4 high.",
+     "In the Summary of Total Costs (costs, £m), Additional Costs to FRS has set-up costs of 0.2 low, 0.5 central and 0.8 high, ongoing costs of 0.3 low, 0.8 central and 1.7 high, and total costs of 0.5 low, 1.3 central and 2.5 high.",
+     "In the Summary of Total Costs (costs, £m), Total cost (PV) is set-up 95.0 low, 139.4 central and 187.0 high, ongoing 159.9 low, 251.4 central and 339.0 high, and total 255.0 low, 390.8 central and 526.0 high.",
+     "In the Summary of Total Costs (costs, £m), Annual per year is 28.3 low, 43.6 central and 58.6 high in the total columns."
+    ]
+   },
+   "reason": "Table rebuilt from the Summary of Total Costs on page 26; the grid on page 10 was a different table (Table 2), so it was ignored. Group headings Set-up, Ongoing and Total sit above the repeated Low/Central/High columns and are used in the sentences.",
+   "evidence": "p26 image: Summary of Total Costs, header row Proposal Low Central High x3, nine proposal rows, Total cost (PV) and Annual per year rows.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "9868e41863587080",
+   "kind": "table",
+   "target": "document-table-1: Fire Safety (England) Regulations 2022: page with fact sheets",
+   "value": {
+    "columns": [
+     "Item",
+     "Value"
+    ],
+    "rows": [
+     [
+      "Title",
+      "The Fire Safety (England) Regulations 2022"
+     ],
+     [
+      "IA No",
+      "HO0398"
+     ],
+     [
+      "RPC Reference No",
+      "N/A"
+     ],
+     [
+      "Other departments or agencies",
+      "N/A"
+     ],
+     [
+      "Date",
+      "18 May 2022"
+     ],
+     [
+      "Stage",
+      "FINAL"
+     ],
+     [
+      "Intervention",
+      "Domestic"
+     ],
+     [
+      "Measure",
+      "Secondary legislation"
+     ],
+     [
+      "Enquiries",
+      "FireSafetyUnitconsultations@homeoffice.gov.uk"
+     ],
+     [
+      "RPC Opinion",
+      "N/A"
+     ],
+     [
+      "Business Impact Target",
+      "Non qualifying regulatory provision (NQPR)"
+     ],
+     [
+      "Net Present Social Value NPSV (£m)",
+      "-390.8"
+     ],
+     [
+      "Business Net Present Value BNPV (£m)",
+      "-230.6"
+     ],
+     [
+      "Net cost to business per year EANDCB (£m)",
+      "25.5"
+     ],
+     [
+      "Discount rate (%)",
+      "3.5"
+     ],
+     [
+      "Will the policy be reviewed?",
+      "It will be reviewed. If applicable, set review date: October 2026"
+     ],
+     [
+      "Price Base",
+      "2021/22"
+     ],
+     [
+      "PV Base",
+      "2022/23"
+     ],
+     [
+      "Appraisal",
+      "10"
+     ],
+     [
+      "Transition",
+      "1"
+     ],
+     [
+      "Estimate of Net Present Social Value NPSV (£m) Low",
+      "-255.0"
+     ],
+     [
+      "Estimate of Net Present Social Value NPSV (£m) High",
+      "-526.0"
+     ],
+     [
+      "Estimate of Net Present Social Value NPSV (£m) Best",
+      "-390.8"
+     ],
+     [
+      "Estimate of BNPV (£m) Best BNPV",
+      "-230.6"
+     ],
+     [
+      "COSTS, £m Low",
+      "Transition Constant Price 95.0; Ongoing Present Value 159.9; Total Present Value 255.0; Average/year Constant Price 28.3; To Business Present Value 153.8"
+     ],
+     [
+      "COSTS, £m High",
+      "Transition Constant Price 187.0; Ongoing Present Value 339.0; Total Present Value 526.0; Average/year Constant Price 58.6; To Business Present Value 306.1"
+     ],
+     [
+      "COSTS, £m Best Estimate",
+      "Transition Constant Price 139.4; Ongoing Present Value 251.4; Total Present Value 390.8; Average/year Constant Price 43.6; To Business Present Value 230.6"
+     ],
+     [
+      "BENEFITS, £m Low",
+      "Transition Constant Price 0.0; Ongoing Present Value 0.0; Total Present Value 0.0; Average/year Constant Price 0.0; To Business Present Value 0.0"
+     ],
+     [
+      "BENEFITS, £m High",
+      "Transition Constant Price 0.0; Ongoing Present Value 0.0; Total Present Value 0.0; Average/year Constant Price 0.0; To Business Present Value 0.0"
+     ],
+     [
+      "BENEFITS, £m Best Estimate",
+      "Transition Constant Price 0.0; Ongoing Present Value 0.0; Total Present Value 0.0; Average/year Constant Price 0.0; To Business Present Value 0.0"
+     ],
+     [
+      "Direct impact on business (Equivalent Annual) £m: (cost– benefit) Cost, £m",
+      "25.5"
+     ],
+     [
+      "Direct impact on business (Equivalent Annual) £m: (cost– benefit) Benefit, £m",
+      "0.0"
+     ],
+     [
+      "Direct impact on business (Equivalent Annual) £m: (cost– benefit) Net, £m",
+      "25.5"
+     ],
+     [
+      "Score for Business Impact Target (qualifying provisions only) £m:",
+      "N/A"
+     ],
+     [
+      "Is this measure likely to impact on trade and investment?",
+      "N"
+     ],
+     [
+      "Are any of these organisations in scope?",
+      "Micro Y; Small Y; Medium Y; Large Y"
+     ],
+     [
+      "What is the CO2 equivalent change in greenhouse gas emissions? (Million tonnes CO2 equivalent)",
+      "Traded: N/A; Non-Traded: N/A"
+     ],
+     [
+      "Are all relevant Specific Impacts included?",
+      "Y"
+     ],
+     [
+      "Are there any impacts on particular groups?",
+      "N"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "In the Fire Safety (England) Regulations 2022 impact assessment, the Title is The Fire Safety (England) Regulations 2022.",
+     "In the Fire Safety (England) Regulations 2022 impact assessment, the IA No is HO0398.",
+     "In the Fire Safety (England) Regulations 2022 impact assessment, the RPC Reference No is N/A.",
+     "In the Fire Safety (England) Regulations 2022 impact assessment, the Other departments or agencies entry is N/A.",
+     "In the Fire Safety (England) Regulations 2022 impact assessment, the Date is 18 May 2022.",
+     "In the Fire Safety (England) Regulations 2022 impact assessment, the Stage is FINAL.",
+     "In the Fire Safety (England) Regulations 2022 impact assessment, the Intervention is Domestic.",
+     "In the Fire Safety (England) Regulations 2022 impact assessment, the Measure is Secondary legislation.",
+     "In the Fire Safety (England) Regulations 2022 impact assessment, the Enquiries address is FireSafetyUnitconsultations@homeoffice.gov.uk.",
+     "In the Fire Safety (England) Regulations 2022 impact assessment, the RPC Opinion is N/A.",
+     "In the Fire Safety (England) Regulations 2022 impact assessment, the Business Impact Target is Non qualifying regulatory provision (NQPR).",
+     "In the Fire Safety (England) Regulations 2022 impact assessment, the Net Present Social Value NPSV (£m) is -390.8.",
+     "In the Fire Safety (England) Regulations 2022 impact assessment, the Business Net Present Value BNPV (£m) is -230.6.",
+     "In the Fire Safety (England) Regulations 2022 impact assessment, the Net cost to business per year EANDCB (£m) is 25.5.",
+     "In the Fire Safety (England) Regulations 2022 impact assessment, the Discount rate (%) is 3.5.",
+     "In the Fire Safety (England) Regulations 2022 impact assessment, Will the policy be reviewed? It will be reviewed. If applicable, set review date: October 2026.",
+     "In the Fire Safety (England) Regulations 2022 impact assessment, the Price Base is 2021/22.",
+     "In the Fire Safety (England) Regulations 2022 impact assessment, the PV Base is 2022/23.",
+     "In the Fire Safety (England) Regulations 2022 impact assessment, the Appraisal is 10.",
+     "In the Fire Safety (England) Regulations 2022 impact assessment, the Transition is 1.",
+     "In the Fire Safety (England) Regulations 2022 impact assessment, the Estimate of Net Present Social Value NPSV (£m) Low is -255.0.",
+     "In the Fire Safety (England) Regulations 2022 impact assessment, the Estimate of Net Present Social Value NPSV (£m) High is -526.0.",
+     "In the Fire Safety (England) Regulations 2022 impact assessment, the Estimate of Net Present Social Value NPSV (£m) Best is -390.8.",
+     "In the Fire Safety (England) Regulations 2022 impact assessment, the Estimate of BNPV (£m) Best BNPV is -230.6.",
+     "In the Fire Safety (England) Regulations 2022 impact assessment, COSTS, £m Low are Transition Constant Price 95.0, Ongoing Present Value 159.9, Total Present Value 255.0, Average/year Constant Price 28.3 and To Business Present Value 153.8.",
+     "In the Fire Safety (England) Regulations 2022 impact assessment, COSTS, £m High are Transition Constant Price 187.0, Ongoing Present Value 339.0, Total Present Value 526.0, Average/year Constant Price 58.6 and To Business Present Value 306.1.",
+     "In the Fire Safety (England) Regulations 2022 impact assessment, COSTS, £m Best Estimate are Transition Constant Price 139.4, Ongoing Present Value 251.4, Total Present Value 390.8, Average/year Constant Price 43.6 and To Business Present Value 230.6.",
+     "In the Fire Safety (England) Regulations 2022 impact assessment, BENEFITS, £m Low are Transition Constant Price 0.0, Ongoing Present Value 0.0, Total Present Value 0.0, Average/year Constant Price 0.0 and To Business Present Value 0.0.",
+     "In the Fire Safety (England) Regulations 2022 impact assessment, BENEFITS, £m High are Transition Constant Price 0.0, Ongoing Present Value 0.0, Total Present Value 0.0, Average/year Constant Price 0.0 and To Business Present Value 0.0.",
+     "In the Fire Safety (England) Regulations 2022 impact assessment, BENEFITS, £m Best Estimate are Transition Constant Price 0.0, Ongoing Present Value 0.0, Total Present Value 0.0, Average/year Constant Price 0.0 and To Business Present Value 0.0.",
+     "In the Fire Safety (England) Regulations 2022 impact assessment, the direct impact on business (Equivalent Annual) £m: (cost– benefit) Cost, £m is 25.5.",
+     "In the Fire Safety (England) Regulations 2022 impact assessment, the direct impact on business (Equivalent Annual) £m: (cost– benefit) Benefit, £m is 0.0.",
+     "In the Fire Safety (England) Regulations 2022 impact assessment, the direct impact on business (Equivalent Annual) £m: (cost– benefit) Net, £m is 25.5.",
+     "In the Fire Safety (England) Regulations 2022 impact assessment, the Score for Business Impact Target (qualifying provisions only) £m is N/A.",
+     "In the Fire Safety (England) Regulations 2022 impact assessment, Is this measure likely to impact on trade and investment? N.",
+     "In the Fire Safety (England) Regulations 2022 impact assessment, Are any of these organisations in scope? Micro Y, Small Y, Medium Y, Large Y.",
+     "In the Fire Safety (England) Regulations 2022 impact assessment, the CO2 equivalent change in greenhouse gas emissions (Million tonnes CO2 equivalent) is Traded: N/A and Non-Traded: N/A.",
+     "In the Fire Safety (England) Regulations 2022 impact assessment, Are all relevant Specific Impacts included? Y.",
+     "In the Fire Safety (England) Regulations 2022 impact assessment, Are there any impacts on particular groups? N."
+    ]
+   },
+   "reason": "The page is a form made of boxes, not one grid, so I rebuilt its short fields and number tables as Item/Value rows. The long text boxes are left out.",
+   "evidence": "Pages p1.png and p2.png (printed pages 1 and 2) read directly; values match the grid.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "low",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "fd6ca27ff4aad8be",
+   "kind": "table",
+   "target": "document-a-4-consultation-table-11: A.4 Consultation",
+   "value": {
+    "columns": [
+     "Proposal",
+     "Set-up Low",
+     "Set-up Central",
+     "Set-up High",
+     "Ongoing Low",
+     "Ongoing Central",
+     "Ongoing High",
+     "Total Low",
+     "Total Central",
+     "Total High"
+    ],
+    "rows": [
+     [
+      "Familiarisation (inc. FRS)",
+      "0.1",
+      "0.7",
+      "3.5",
+      "0.0",
+      "0.0",
+      "0.0",
+      "0.1",
+      "0.7",
+      "3.5"
+     ],
+     [
+      "External Wall Systems",
+      "0.1",
+      "0.2",
+      "0.2",
+      "0.1",
+      "0.1",
+      "0.1",
+      "0.1",
+      "0.3",
+      "0.4"
+     ],
+     [
+      "Building Plans",
+      "15.8",
+      "20.7",
+      "26.2",
+      "8.2",
+      "9.3",
+      "10.5",
+      "24.0",
+      "30.0",
+      "36.7"
+     ],
+     [
+      "Information Boxes",
+      "0.9",
+      "4.5",
+      "8.6",
+      "0.0",
+      "0.0",
+      "0.0",
+      "0.9",
+      "4.5",
+      "8.6"
+     ],
+     [
+      "Lifts and Essential Firefighting Equipment",
+      "0.0",
+      "0.0",
+      "0.0",
+      "11.7",
+      "23.7",
+      "35.9",
+      "11.7",
+      "23.7",
+      "35.9"
+     ],
+     [
+      "Fire Doors",
+      "14.5",
+      "20.7",
+      "26.9",
+      "107.6",
+      "174.2",
+      "240.7",
+      "122.1",
+      "194.9",
+      "267.7"
+     ],
+     [
+      "Instructions to residents",
+      "52.2",
+      "69.6",
+      "87.0",
+      "31.2",
+      "41.6",
+      "47.5",
+      "83.4",
+      "111.2",
+      "134.5"
+     ],
+     [
+      "Wayfinding Signage",
+      "11.3",
+      "22.6",
+      "33.8",
+      "0.9",
+      "1.7",
+      "2.6",
+      "12.1",
+      "24.3",
+      "36.4"
+     ],
+     [
+      "Additional Costs to FRS",
+      "0.2",
+      "0.5",
+      "0.8",
+      "0.3",
+      "0.8",
+      "1.7",
+      "0.5",
+      "1.3",
+      "2.5"
+     ],
+     [
+      "Total cost (PV)",
+      "95.0",
+      "139.4",
+      "187.0",
+      "159.9",
+      "251.4",
+      "339.0",
+      "255.0",
+      "390.8",
+      "526.0"
+     ],
+     [
+      "Annual per year",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "28.3",
+      "43.6",
+      "58.6"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "In the A.4 Consultation Summary of Total Costs (Costs, £m), Familiarisation (inc. FRS) has Set-up of 0.1 low, 0.7 central and 3.5 high, Ongoing of 0.0 low, 0.0 central and 0.0 high, and Total of 0.1 low, 0.7 central and 3.5 high.",
+     "In the A.4 Consultation Summary of Total Costs (Costs, £m), External Wall Systems has Set-up of 0.1 low, 0.2 central and 0.2 high, Ongoing of 0.1 low, 0.1 central and 0.1 high, and Total of 0.1 low, 0.3 central and 0.4 high.",
+     "In the A.4 Consultation Summary of Total Costs (Costs, £m), Building Plans has Set-up of 15.8 low, 20.7 central and 26.2 high, Ongoing of 8.2 low, 9.3 central and 10.5 high, and Total of 24.0 low, 30.0 central and 36.7 high.",
+     "In the A.4 Consultation Summary of Total Costs (Costs, £m), Information Boxes has Set-up of 0.9 low, 4.5 central and 8.6 high, Ongoing of 0.0 low, 0.0 central and 0.0 high, and Total of 0.9 low, 4.5 central and 8.6 high.",
+     "In the A.4 Consultation Summary of Total Costs (Costs, £m), Lifts and Essential Firefighting Equipment has Set-up of 0.0 low, 0.0 central and 0.0 high, Ongoing of 11.7 low, 23.7 central and 35.9 high, and Total of 11.7 low, 23.7 central and 35.9 high.",
+     "In the A.4 Consultation Summary of Total Costs (Costs, £m), Fire Doors has Set-up of 14.5 low, 20.7 central and 26.9 high, Ongoing of 107.6 low, 174.2 central and 240.7 high, and Total of 122.1 low, 194.9 central and 267.7 high.",
+     "In the A.4 Consultation Summary of Total Costs (Costs, £m), Instructions to residents has Set-up of 52.2 low, 69.6 central and 87.0 high, Ongoing of 31.2 low, 41.6 central and 47.5 high, and Total of 83.4 low, 111.2 central and 134.5 high.",
+     "In the A.4 Consultation Summary of Total Costs (Costs, £m), Wayfinding Signage has Set-up of 11.3 low, 22.6 central and 33.8 high, Ongoing of 0.9 low, 1.7 central and 2.6 high, and Total of 12.1 low, 24.3 central and 36.4 high.",
+     "In the A.4 Consultation Summary of Total Costs (Costs, £m), Additional Costs to FRS has Set-up of 0.2 low, 0.5 central and 0.8 high, Ongoing of 0.3 low, 0.8 central and 1.7 high, and Total of 0.5 low, 1.3 central and 2.5 high.",
+     "In the A.4 Consultation Summary of Total Costs (Costs, £m), Total cost (PV) has Set-up of 95.0 low, 139.4 central and 187.0 high, Ongoing of 159.9 low, 251.4 central and 339.0 high, and Total of 255.0 low, 390.8 central and 526.0 high.",
+     "In the A.4 Consultation Summary of Total Costs (Costs, £m), Annual per year has Total of 28.3 low, 43.6 central and 58.6 high."
+    ]
+   },
+   "reason": "The Summary of Total Costs table on printed page 26 was rebuilt with the Proposal column and Set-up/Ongoing/Total Low/Central/High columns. The library grid had it wrong, so the page image was used.",
+   "evidence": "p26.png shows the table; all values read directly. The Annual per year row has values only under Total.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  }
+ ]
+}

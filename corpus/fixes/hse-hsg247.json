@@ -1,0 +1,1153 @@
+{
+ "source_id": "hse-hsg247",
+ "about": "Saved model fixes for hse-hsg247 (ADR 0010).",
+ "fixes": [
+  {
+   "key": "9e6dbb065c29ce80",
+   "kind": "figure_description",
+   "target": "photo-1: Summary",
+   "value": "A photo of a person in a white disposable coverall with a hood. They wear a full-face respirator mask with a round filter on the side. Blue plastic sheeting hangs behind them.",
+   "reason": "Image shows a person in protective clothing and a respirator beside blue sheeting; no printed text.",
+   "evidence": "White hooded suit, black full-face mask with filter, blue plastic sheet; no labels visible.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "e07e5ea47579f49e",
+   "kind": "figure_description",
+   "target": "figure-1-1: Asbestos fibres licensed work with ACMs. Each of the chapters covers a broad topic area, being released from lagging eg training, and has its own contents list. You can go direct to the chapter you",
+   "value": "A close-up photo of loose, white, fluffy fibrous material against a dark background. Small fibres and dust are scattered in the air above a pile of the material. No printed labels.",
+   "reason": "The image is a photo of fibrous material with fibres floating in the air; the caption title is about asbestos fibres but no text is printed on the image.",
+   "evidence": "White wispy fibres and particles in the air over a grey-white pile, dark background, no text.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "0b70d639925536e1",
+   "kind": "figure_description",
+   "target": "figure-1-2: Normal lung",
+   "value": "A photo of a cross-section slice of a lung on a white background, pale cream with small scattered dark specks. It is labelled in the document as a normal lung. No printed labels on the image.",
+   "reason": "Image is a lung slice specimen with light colour and few dark flecks; no printed text inside the image.",
+   "evidence": "Cream-coloured lung slice with small dark dots, black border, no text.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "ccbfc6b79d7aec62",
+   "kind": "figure_description",
+   "target": "figure-1-3: Heavy exposure to asbestos",
+   "value": "A photo of a cross-section slice of a lung. The tissue is grey-brown and densely speckled, with pale white patches and open airways near the centre. No printed labels on the image.",
+   "reason": "Image shows a larger lung slice with dense dark mottling and white patches; no text inside the image.",
+   "evidence": "Grey-brown speckled lung slice with pale patches and central airways, black border, no text.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "782b7d34880feee4",
+   "kind": "figure_description",
+   "target": "figure-1-4: Lung cancer",
+   "value": "A photo of a single slice of lung tissue on a white background. The slice is pale cream and elongated, with grey-black specks and a thin stalk at the bottom. No printed labels on the image.",
+   "reason": "Image shows a lobe-shaped tissue slice with dark flecks and a stalk; no text inside the image.",
+   "evidence": "Cream elongated tissue slice with grey-black specks, stalk at bottom, black border, no text.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "6e4f78475321890f",
+   "kind": "figure_description",
+   "target": "figure-1-5: Mesothelioma due to asbestos exposure",
+   "value": "A photo of a tissue section on a white background, in yellow-tan and white tones. A dark black and grey band runs down the left side, and there are black patches in the lower right. No printed labels on the image.",
+   "reason": "Image shows an irregular specimen with dark bands and patches on a pale yellow background; no text inside.",
+   "evidence": "Yellow-tan irregular tissue with black/grey band on left and black patches lower right, no text.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "b34fad82610e81d1",
+   "kind": "figure_description",
+   "target": "figure-1-6: Controlled removal of asbestos left with the prospect of a debilitating impact on their health or eventual death.",
+   "value": "A photo of a worker in a red hooded suit and a dark mask, seen from the side in a dark enclosed space. The worker holds a spray hose or lance in one hand and points it towards the ceiling. There are no printed labels in the figure.",
+   "reason": "Photo only, no printed text visible in the image.",
+   "evidence": "Image shows a person in a red hooded overall with a mask spraying upwards with a hose.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "8c96f7a4ebfac6cd",
+   "kind": "figure_description",
+   "target": "figure-1-7: Uncontrolled removal of asbestos",
+   "value": "A photo of an empty tiled swimming pool or basin with a dusty, debris-covered floor along one side. A walking frame and some dark cloth or equipment sit on the pool steps at the far end. There are no printed labels in the figure image.",
+   "reason": "Photo only; the labels listed in the section data are not visible in the image itself.",
+   "evidence": "Image shows a drained pool with blue tiles, a dusty ledge in the foreground, and a frame by the steps.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "c0b25b52f92b5554",
+   "kind": "table",
+   "target": "table-1-1: Well-controlled work with ACMs",
+   "value": {
+    "columns": [
+     "Job",
+     "Likely fibre concentrations (fibre/ml)"
+    ],
+    "rows": [
+     [
+      "Controlled wet stripping using manual tools",
+      "up to 1 (unless a dry patch is hit or lagging becomes detached)"
+     ],
+     [
+      "Careful removal of whole AIB",
+      "up to 3"
+     ],
+     [
+      "Drilling AIB with vacuum trace - local exhaust ventilation (LEV), or shadow vacuuming (note drilling holes in asbestos should be avoided where possible)",
+      "up to 1"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Well-controlled work with ACMs: for the job controlled wet stripping using manual tools, the likely fibre concentrations (fibre/ml) are up to 1 (unless a dry patch is hit or lagging becomes detached).",
+     "Well-controlled work with ACMs: for the job careful removal of whole AIB, the likely fibre concentrations (fibre/ml) are up to 3.",
+     "Well-controlled work with ACMs: for the job drilling AIB with vacuum trace - local exhaust ventilation (LEV), or shadow vacuuming (note drilling holes in asbestos should be avoided where possible), the likely fibre concentrations (fibre/ml) are up to 1."
+    ]
+   },
+   "reason": "Table 1.1 on page 15 has two columns and three data rows; the grid matches the image.",
+   "evidence": "Page image p15 shows Table 1.1 Well-controlled work with ACMs with the header Job / Likely fibre concentrations (fibre/ml) and three rows.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "b0109e109e565a27",
+   "kind": "table",
+   "target": "table-1-2: Poorly controlled work with ACMs",
+   "value": {
+    "columns": [
+     "Job",
+     "Likely fibre concentrations (fibre/ml)"
+    ],
+    "rows": [
+     [
+      "Stripping pipe or vessel lagging – partially wetted or dry areas present",
+      "up to 100"
+     ],
+     [
+      "Stripping sprayed coatings – partially wetted or dry areas present",
+      "around 1000"
+     ],
+     [
+      "Drilling AIB without vacuum trace",
+      "up to 10"
+     ],
+     [
+      "Reciprocating power sawing AIB",
+      "up to 20"
+     ],
+     [
+      "Hand sawing AIB",
+      "5-10"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Poorly controlled work with ACMs: for the job stripping pipe or vessel lagging – partially wetted or dry areas present, the likely fibre concentrations (fibre/ml) are up to 100.",
+     "Poorly controlled work with ACMs: for the job stripping sprayed coatings – partially wetted or dry areas present, the likely fibre concentrations (fibre/ml) are around 1000.",
+     "Poorly controlled work with ACMs: for the job drilling AIB without vacuum trace, the likely fibre concentrations (fibre/ml) are up to 10.",
+     "Poorly controlled work with ACMs: for the job reciprocating power sawing AIB, the likely fibre concentrations (fibre/ml) are up to 20.",
+     "Poorly controlled work with ACMs: for the job hand sawing AIB, the likely fibre concentrations (fibre/ml) are 5-10."
+    ]
+   },
+   "reason": "The library grid for Table 1.2 wrongly includes the three Table 1.1 rows; the page image shows only five rows under Table 1.2.",
+   "evidence": "Page image p15 shows Table 1.2 Poorly controlled work with ACMs with five rows from stripping pipe or vessel lagging to hand sawing AIB.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "068d8b5f23925f49",
+   "kind": "table",
+   "target": "table-1-3: Control limits and action levels for asbestos",
+   "value": {
+    "columns": [
+     "Asbestos type",
+     "4-hr control limit (f/ml)",
+     "10-min control limit (f/ml)",
+     "Action level (fibre hrs/ml2)"
+    ],
+    "rows": [
+     [
+      "Chrystoline alone",
+      "0.3",
+      "0.9",
+      "72"
+     ],
+     [
+      "Any other form of asbestos, either alone or in mixtures, including mixtures of chrysotile with any other form of asbestos",
+      "0.2",
+      "0.6",
+      "48"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Control limits and action levels for asbestos: for the asbestos type Chrystoline alone, the 4-hr control limit is 0.3 f/ml, the 10-min control limit is 0.9 f/ml and the action level is 72 fibre hrs/ml2.",
+     "Control limits and action levels for asbestos: for the asbestos type any other form of asbestos, either alone or in mixtures, including mixtures of chrysotile with any other form of asbestos, the 4-hr control limit is 0.2 f/ml, the 10-min control limit is 0.6 f/ml and the action level is 48 fibre hrs/ml2."
+    ]
+   },
+   "reason": "Table 1.3 has four columns and two data rows; the grid matches the image. Spelling 'Chrystoline' kept as printed.",
+   "evidence": "Page image p18 shows Table 1.3 with header Asbestos type, 4-hr control limit (f/ml), 10-min control limit (f/ml), Action level (fibre hrs/ml2) and values 0.3/0.9/72 and 0.2/0.6/48.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "e804fb853c194a04",
+   "kind": "figure_description",
+   "target": "figure-2-1: Non-licensable products",
+   "value": "A set of seven photos in a grid of three rows (three, three and one). They show a corrugated roof, large pipe sections with printed labels, a dark tiled floor, a boiler with pipework and a gauge, a lined oval duct opening, a roll of white rope, and a round gasket-like plate with bolt holes. The only visible printed text is a letter 'a' on labels on the pipe sections.",
+   "reason": "Photo collage with no captions; I described only what is visible and made no judgement about content.",
+   "evidence": "Image shows 7 photos: roof, pipes with 'a' labels, floor, boiler, duct, rope roll, round plate.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "634cdccfe95e6c12",
+   "kind": "figure_description",
+   "target": "figure-p53: Appendix 3.2 Site diagram",
+   "value": "A two-part site diagram. Part (a) is a 3-dimensional drawing of a building with labels Airlocks, Enclosure wall, Plant room, Canteen, Ground floor, NPU, First floor, Skip and DCU, with green arrows showing a route out to the skip and DCU. Part (b) is a flat plan used as a clearance diagram, labelled Tent, Airlocks, Canteen, Plant room, NPU, Main car park, Skip and DCU, with a key: Work areas (red) and For inspection (light orange).",
+   "reason": "Figure shows a 3D layout (a) and a 2D clearance diagram (b) with printed labels and a printed caption.",
+   "evidence": "Image figure-p53.png: labels and key read directly from the image; caption says dark areas show work areas and light areas need to be inspected.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "e5370f21e9276350",
+   "kind": "figure_description",
+   "target": "figure-4-1: TNA flow chart",
+   "value": "A flow chart titled Figure 4.1 TNA flow chart with four boxes joined by downward arrows. The steps are Step 1: Perform a gap analysis; Step 2: Identify causes of problems and/or opportunities; Step 3: Evaluate current training; Step 4: Provide training and conduct an evaluation. A return arrow on the right runs from Step 4 back up to Step 1.",
+   "reason": "Flow chart with four labelled steps in order and a feedback loop.",
+   "evidence": "Image figure-4-1.png shows four rounded boxes top to bottom and a line with arrows up the right side from the bottom box to the top.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "b77e826ea28d1e74",
+   "kind": "table",
+   "target": "table-5-1: Respirator selection chart for protection against asbestos in air",
+   "value": {
+    "columns": [
+     "PF",
+     "Filtering half-mask BS EN 149",
+     "Valved filtering half-mask BS EN 405",
+     "Filtering half-masks without inhalation valves BS EN 1827",
+     "Half-mask BS EN 140 and filter BS EN 143",
+     "Full-face mask BS EN 136 and filter BS EN 143",
+     "Powered hoods and filter BS EN 146 BS EN 12941",
+     "Power-assisted masks and filter BS EN 147 BS EN 12942"
+    ],
+    "rows": [
+     [
+      "40",
+      "",
+      "",
+      "",
+      "",
+      "Mask + P3",
+      "TH3 hoods, blouses + P3",
+      "TM3 full-face mask + P3"
+     ],
+     [
+      "20",
+      "FF P3",
+      "FF P3",
+      "FM P3",
+      "Mask + P3",
+      "",
+      "TH2 All types of face pieces + P3",
+      "TM2 All types of face pieces + P3"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Respirator selection chart for protection against asbestos in air: for PF 40, the Full-face mask BS EN 136 and filter BS EN 143 is Mask + P3, Powered hoods and filter BS EN 146 BS EN 12941 is TH3 hoods, blouses + P3, and Power-assisted masks and filter BS EN 147 BS EN 12942 is TM3 full-face mask + P3.",
+     "Respirator selection chart for protection against asbestos in air: for PF 20, the Filtering half-mask BS EN 149 is FF P3, the Valved filtering half-mask BS EN 405 is FF P3, the Filtering half-masks without inhalation valves BS EN 1827 is FM P3, the Half-mask BS EN 140 and filter BS EN 143 is Mask + P3, Powered hoods and filter BS EN 146 BS EN 12941 is TH2 All types of face pieces + P3, and Power-assisted masks and filter BS EN 147 BS EN 12942 is TM2 All types of face pieces + P3."
+    ]
+   },
+   "reason": "Rebuilt from page 81 image; header and two data rows match the printed table, empty cells left empty.",
+   "evidence": "p81.png Table 5.1 has 8 columns and rows PF 40 and PF 20.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "7aa0101524264e3f",
+   "kind": "table",
+   "target": "table-5-2: Breathing apparatus (BA) selection chart for protection against asbestos in air",
+   "value": {
+    "columns": [
+     "PF",
+     "Fresh-air hose BA BS EN 138/269",
+     "Light-duty compressed airline BA masks BS EN 12419",
+     "Light-duty compressed airline BA hoods, helmets, visors BS EN 1835",
+     "Constant flow compressed airline BA hood BS EN 270/271 Mask BS EN 139",
+     "Demand flow compressed airline BA mask BS EN 139",
+     "Self-contained BA (SCBA) BS EN 137"
+    ],
+    "rows": [
+     [
+      "2000",
+      "",
+      "",
+      "",
+      "",
+      "Positive demand full-face mask",
+      "Positive demand full-face mask"
+     ],
+     [
+      "200",
+      "",
+      "",
+      "",
+      "Suit",
+      "",
+      ""
+     ],
+     [
+      "40",
+      "Full-face mask Hood",
+      "LDM3",
+      "LDH3",
+      "Hood Blasting helmet Full-face mask",
+      "Negative demand full-face mask",
+      "Negative demand full-face mask"
+     ],
+     [
+      "20",
+      "",
+      "LDM1 LDM2",
+      "LDH2",
+      "Half-mask",
+      "",
+      ""
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Breathing apparatus (BA) selection chart for protection against asbestos in air: for PF 2000, the Demand flow compressed airline BA mask BS EN 139 is Positive demand full-face mask and the Self-contained BA (SCBA) BS EN 137 is Positive demand full-face mask.",
+     "Breathing apparatus (BA) selection chart for protection against asbestos in air: for PF 200, the Constant flow compressed airline BA hood BS EN 270/271 Mask BS EN 139 is Suit.",
+     "Breathing apparatus (BA) selection chart for protection against asbestos in air: for PF 40, the Fresh-air hose BA BS EN 138/269 is Full-face mask Hood, the Light-duty compressed airline BA masks BS EN 12419 is LDM3, the Light-duty compressed airline BA hoods, helmets, visors BS EN 1835 is LDH3, the Constant flow compressed airline BA hood BS EN 270/271 Mask BS EN 139 is Hood Blasting helmet Full-face mask, the Demand flow compressed airline BA mask BS EN 139 is Negative demand full-face mask, and the Self-contained BA (SCBA) BS EN 137 is Negative demand full-face mask.",
+     "Breathing apparatus (BA) selection chart for protection against asbestos in air: for PF 20, the Light-duty compressed airline BA masks BS EN 12419 is LDM1 LDM2, the Light-duty compressed airline BA hoods, helmets, visors BS EN 1835 is LDH2, and the Constant flow compressed airline BA hood BS EN 270/271 Mask BS EN 139 is Half-mask."
+    ]
+   },
+   "reason": "Rebuilt from page 81 image; 7 columns and 4 PF rows, empty cells left empty.",
+   "evidence": "p81.png Table 5.2 shows PF 2000, 200, 40, 20 rows with entries as listed.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "d95944b26fb25aaa",
+   "kind": "figure_description",
+   "target": "figure-5-1: Misuse of RPE n Wearing of disposable respirators, half and full-face masks by people with facial",
+   "value": "A photograph of a person wearing a full-face respirator mask with a filter on the side, and a light blue disposable coverall. The person appears to have short hair and stubble around the face. The printed caption text reads: hair which prevents an adequate seal being achieved.",
+   "reason": "Photo of a person in a full-face mask; only visible features described, no judgement about safety.",
+   "evidence": "Image figure-5-1.png shows a head and shoulders photo; the extracted label is the caption fragment.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "47a688aa7fe1bccc",
+   "kind": "figure_description",
+   "target": "figure-5-2: Misuse of RPE Disposable respirators",
+   "value": "A photo of a person wearing a full-face respirator with a filter canister on one side, a blue hooded disposable coverall and a head strap harness. The mask covers the whole face and the hood is pulled up around it. No text is printed on the image.",
+   "reason": "Photo of a worn full-face respirator; no printed labels.",
+   "evidence": "Visible full-face mask with a round filter on the lower left and a blue hooded suit.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "fafc5de6f3554ecc",
+   "kind": "figure_description",
+   "target": "figure-6-3: Schematic diagram of the main elements of an enclosure",
+   "value": "A schematic diagram (Figure 6.3) showing the main elements of an enclosure. A large red box labelled \"Enclosure\" has a light blue three-section \"Airlock\" attached on its left, and a small red box labelled \"NPU\" on its right joined by a red pipe. Small grey rectangles labelled \"Viewing panels\" sit along the bottom of the enclosure and airlock.",
+   "reason": "Labelled block diagram with printed labels read from the image.",
+   "evidence": "Printed labels: Enclosure, Airlock, Viewing panels, NPU (twice); caption 'Figure 6.3 Schematic diagram of the main elements of an enclosure'.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "7aad6f4f575246ae",
+   "kind": "figure_description",
+   "target": "figure-6-7: An airlock used occasions when their use is necessary. In transiting systems, workers will enter the in transiting enclosure via a three-stage airlock. The airlock is shown in Figure 6.7.",
+   "value": "A photo of a freestanding airlock inside a room, made of tall panels covered in clear and white sheeting. A sign with several small safety symbols is fixed to the top front. A red fire extinguisher, a yellow bin and a green box are on the floor beside it.",
+   "reason": "Photo of an airlock structure in a room; the sign symbols are too small to read.",
+   "evidence": "Sheeted panel structure with a safety sign, red extinguisher at its base and a yellow bin to the left.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "4a6f9119cd023c03",
+   "kind": "figure_description",
+   "target": "figure-6-8: Typical design of three-stage baglock for removal of waste from an enclosure",
+   "value": "A diagram (Figure 6.8) of a typical three-stage baglock for removing waste from an enclosure, with arrows pointing from the Enclosure (\"Bags filled in enclosure and sealed\") through three chambers to \"To outside\". The stages in order are: \"Bags cleaned externally by wiping down\", then \"Bags put into second bags, excess air removed, and again cleaned externally\", then \"Double bagged waste stored here, awaiting removal\". A note reads \"NB If separate baglocks and airlocks are used, normally only one should be open and in use at any time\".",
+   "reason": "Flow-style diagram; steps read in order from enclosure side to outside.",
+   "evidence": "Printed text in the three boxes, the labels Enclosure and To outside, and the NB note.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "2e526f225c34f186",
+   "kind": "figure_description",
+   "target": "figure-6-9: Airlock/baglock arrangement where the enclosure is directly attached to the DCU and there is limited space",
+   "value": "A plan-view diagram (Figure 6.9) of an airlock and baglock arrangement where the enclosure is directly attached to the DCU and space is limited. A long blue \"Hygiene unit\" runs from the left with sections labelled \"Clean\", \"Shower\", \"Dirty\", \"Tunnel\" and \"One stage\" leading into a large red \"Enclosure\", with a small red \"NPU\" on its right. A \"Baglock\" extends downward from the tunnel section.",
+   "reason": "Labelled plan diagram, labels read left to right.",
+   "evidence": "Printed labels: Hygiene unit, Clean, Shower, Dirty, Tunnel, One stage, Enclosure, NPU, Baglock.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "9e299283bf0701f7",
+   "kind": "figure_description",
+   "target": "figure-6-10a: Airlock/baglock arrangement where transiting is involved and there is limited space",
+   "value": "A plan-view diagram (Figure 6.10(a)) of an airlock and baglock arrangement where transiting is involved and space is limited. A blue \"Three-stage airlock\" is attached to the left of a large red \"Enclosure\", with a small red \"NPU\" on its right. A blue \"Three-stage baglock\" sits below, joined at the airlock's right end next to the enclosure.",
+   "reason": "Labelled plan diagram with printed labels read from the image.",
+   "evidence": "Printed labels: Three-stage airlock, Three-stage baglock, Enclosure, NPU.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "0e160741a65160a5",
+   "kind": "figure_description",
+   "target": "figure-6-10b: Airlock/baglock arrangement where transiting is involved and there is sufficient space",
+   "value": "Diagram titled \"Figure 6.10(b) Airlock/baglock arrangement where transiting is involved and there is sufficient space\". It shows a large red box labelled \"Enclosure\" with a small red box labelled \"NPU\" on its right side. Two light blue passages join its left side: one labelled \"Three-stage airlock\" and one below it labelled \"Three-stage baglock\", each split into three sections.",
+   "reason": "Image is a plan-view diagram with printed labels and caption.",
+   "evidence": "Caption and labels Enclosure, NPU, Three-stage airlock, Three-stage baglock are visible in the image.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "bb28864ba9a5356f",
+   "kind": "figure_description",
+   "target": "figure-6-11: Viewing panel Viewing panels",
+   "value": "Photo of a viewing panel, a clear window set in a dark frame in an enclosure wall. Through it, two people in white hooded overalls and masks can be seen, one standing behind the other with a hand on the other's shoulder or back. No printed labels.",
+   "reason": "Image is a photo with no text.",
+   "evidence": "Photo shows two figures in white coveralls seen through a framed window.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "ab67a51449fadbb7",
+   "kind": "figure_description",
+   "target": "figure-6-12: Flap arrangements for airlocks",
+   "value": "Photo of a narrow walk-through passage made from blue translucent plastic sheeting on dark frames, standing inside a room with a ceiling with lights. The passage has several sections in a row, with sheeting hanging across them. No printed labels.",
+   "reason": "Image is a photo with no text; the title says flap arrangements for airlocks.",
+   "evidence": "Photo shows blue sheeted frame sections in a row with ceiling lights above.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "93bc033c4fa0dd1d",
+   "kind": "figure_description",
+   "target": "figure-6-13: Ideal NPU position",
+   "value": "Diagram titled \"Figure 6.13 Ideal NPU position\". A red box labelled \"Enclosure\" has a \"Three-stage airlock\" and a \"Three-stage baglock\" attached on the left, and a small box labelled \"NPU\" on the right. White arrows labelled \"Air flow\" run from the airlock and baglock across the enclosure toward the NPU, and one arrow leaves through the NPU.",
+   "reason": "Image is an airflow diagram with printed labels.",
+   "evidence": "Caption and labels Air flow, Enclosure, NPU, Three-stage airlock, Three-stage baglock visible.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "1b89f2218a9487d6",
+   "kind": "figure_description",
+   "target": "figure-6-14: Examples of good airflow management in different shaped buildings",
+   "value": "Diagram titled \"Figure 6.14 Examples of good airflow management in different shaped buildings\", with two red enclosure shapes (an L-like shape on top and a larger stepped shape below). Each has a \"Three-stage airlock\" and \"Three-stage baglock\" on the left, an \"NPU\" at the left edge and another at the bottom, and white arrows marked \"Air flow\" across the enclosure toward the NPUs. Other labels printed: \"Additional trunking\", \"No access to wall\", \"No NPU access to wall\", \"Enclosure\"; dotted lines show the additional trunking.",
+   "reason": "Image is a two-part airflow diagram with printed labels.",
+   "evidence": "Caption and labels visible in the image.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "cf99d491b05e499b",
+   "kind": "figure_description",
+   "target": "figure-6-15: Example of poor airflow management",
+   "value": "Diagram titled \"Figure 6.15 Example of poor airflow management\". A red box labelled \"Enclosure\" has a \"Three-stage airlock\" and a \"Three-stage baglock\" attached on the left, and two \"NPU\" boxes, one on top and one on the bottom. White arrows labelled \"Air flow\" go from the airlock and baglock straight into the enclosure and then turn to the nearby top and bottom NPUs.",
+   "reason": "Image is an airflow diagram with printed labels.",
+   "evidence": "Caption and labels Air flow, Enclosure, NPU (twice), Three-stage airlock, Three-stage baglock visible.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "57e69229b2ebffb0",
+   "kind": "figure_description",
+   "target": "figure-6-16: Extraction ventilation unit, showing (sandwiched between typical construction features pre-filter and fan casing)",
+   "value": "Figure 6.16 is a set of line drawings of an extraction ventilation unit, showing typical construction features. (a) General view shows a unit fixed to polythene sheeting forming the enclosure, with labels: Pre-filter, HEPA filter (sandwiched between pre-filter and fan casing), Sealing tape, Polythene sheeting forming enclosure, Control unit with switches, warning lights and pressure gauge, Non-return flap, Centrifugal fan, Connection for flexible drainage ducting. (b) Method of installation (Note: Pre-filter should be replaceable from inside enclosure) and (c) Essential components of extract unit (Note: Components may be separated by flexible ducting at A or B in some designs) show the unit through polythene sheeting and its parts in order.",
+   "reason": "Image is a labelled line diagram with three parts (a), (b), (c); labels copied as printed.",
+   "evidence": "Printed title 'Figure 6.16 Extraction ventilation unit, showing typical construction features' and the labels listed.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "501898ac3b12dad4",
+   "kind": "figure_description",
+   "target": "figure-6-17: An enclosure Smoke testing being smoke tested 6.50 The enclosure should be tested by releasing smoke from a smoke generator",
+   "value": "A colour photo of part of a temporary enclosure made of clear polythene sheeting fixed to a wooden frame. A rectangular viewing panel with black tape around its edge is set into the sheeting. There are no printed labels.",
+   "reason": "Photo shows a polythene wall with a taped viewing window; no text in the image.",
+   "evidence": "Image shows wooden frame, translucent sheeting and a black-taped rectangular window.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "a12d323baddb8147",
+   "kind": "figure_description",
+   "target": "figure-6-18: A torch being 6.55 Viewing panels should be checked frequently and cleaned as necessary used to find smoke leaks to ensure clear views of the inside of the enclosure. Panels can be wiped down as",
+   "value": "A colour photo of a person in a pale blue disposable coverall with hood and a face mask holding a torch up to a window panel in an enclosure wall. The other hand is raised against the wall near the panel. There are no printed labels.",
+   "reason": "Photo shows a worker in protective overalls and mask shining a torch at a viewing panel.",
+   "evidence": "Image shows hooded blue suit, white mask, black torch, and a framed panel at right.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "7f2285d42eee99f4",
+   "kind": "figure_description",
+   "target": "figure-7-1: Uncontrolled dry stripping stripping techniques. It gives practical advice on techniques for the safe removal",
+   "value": "A black and white photo, dark and grainy, showing a cloud of dust or debris being thrown up around a figure in work clothing. The scene looks like material being stripped or broken by hand with dust in the air. There are no printed labels.",
+   "reason": "Photo is dark with a visible cloud of dust around a person; details are hard to make out.",
+   "evidence": "Image shows hazy white cloud around a dark figure against a dark background.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "e27730c1813f1efb",
+   "kind": "figure_description",
+   "target": "figure-7-2: Wrap-and-cut",
+   "value": "A colour photo of two workers in red hooded coveralls and masks inside a room lined with white polythene sheeting. They are working on the floor with a long wrapped item, and cables or hoses lie coiled on the floor. There are no printed labels in the image.",
+   "reason": "Photo shows two people in red overalls on a sheeted floor with a long wrapped item and hoses.",
+   "evidence": "Image shows two red-suited workers, polythene walls, a red and blue wrapped length on the floor and coiled cable.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "07a3fff4c83b0299",
+   "kind": "figure_description",
+   "target": "figure-7-3: Injection",
+   "value": "A colour photo of a ceiling area with a textured, stained surface above a strip of pipe or cable running along the top of a wall. Red sheeting covers the wall below, held with metal strips, and a yellow frame is visible at the bottom right. There are no printed labels.",
+   "reason": "Photo shows a ceiling with textured coating and pipework above red sheeted wall.",
+   "evidence": "Image shows mottled ceiling surface, dark pipe or cable line, red sheeting with metal battens, yellow frame at corner.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "33805962576a6a77",
+   "kind": "figure_description",
+   "target": "figure-7-4: A low pressure spray 7.14 Paragraphs 7.14-7.16 provide a guide to the types of stripping methods",
+   "value": "Photo of a worker in a red hooded suit and a respirator, using a hand-held spray lance to spray a liquid onto a ribbed, corrugated-looking ceiling or roof surface. The caption is 'A low pressure spray'. No other labels are printed.",
+   "reason": "The image is a photo of a person spraying a surface; the caption gives the spray type.",
+   "evidence": "Red hooded suit, hand-held spray wand pointed at a corrugated surface above; no printed labels in the image.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "b7a8895854e2520a",
+   "kind": "figure_description",
+   "target": "figure-7-5: Shadow vacuuming during prepared by using: unscrewing of board – hand drills and shadow vacuuming (this is where the nozzle, fitted with a",
+   "value": "Photo of a gloved or bare hand holding a thin vacuum nozzle against the end of a grey, cylindrical, bent pipe or tube section on a plain white background. The caption is 'Shadow vacuuming during unscrewing of board'. No labels are printed on the image.",
+   "reason": "The image is a close-up photo of a hand holding a narrow nozzle next to a grey tubular object.",
+   "evidence": "Hand holding a thin nozzle touching the top of a grey rough-textured curved cylinder against a white background; no printed text.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "ad361ac78aa9dc46",
+   "kind": "figure_description",
+   "target": "figure-7-6: Drilling using a low-speed drill with cowl and over approximately 24 hours can wet the board to a soggy cardboard fitted with LEV consistency and reduce the need for shadow vacuuming.",
+   "value": "Photo of a hand holding a yellow and black cordless power drill against a white wall. A clear round cowl surrounds the drill bit and is joined to a black ribbed flexible hose, which runs down to a grey pipe. The caption is 'Drilling using a low-speed drill with cowl fitted with LEV'. No labels are printed on the image.",
+   "reason": "The image is a photo of a drill with a cowl and extraction hose attached, held against a wall.",
+   "evidence": "Yellow and black drill, transparent cowl at the bit, black corrugated hose leading to a grey pipe, white wall background.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "c30eefec2f859a9a",
+   "kind": "figure_description",
+   "target": "figure-7-7: Textured coating being drilled through be used if other, safer methods will not work as there can be significant fibre paste release. Wetting and shadow vacuuming should also be used to minimise fibre",
+   "value": "Photo of a person in a white sleeve holding a black hand-held tool against a ceiling or wall with a swirled textured coating. The caption is 'Textured coating being drilled through'. No other labels are printed on the image.",
+   "reason": "The image is a close-up photo of a black tool held against a swirl-patterned textured surface.",
+   "evidence": "Black hand-held tool pressed to a white swirl-textured surface, held by hands with a white sleeve; no printed text in the image.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "41f4d63e8dd36ce9",
+   "kind": "figure_description",
+   "target": "figure-7-10: Needle board (hedgehog) multi-point injection system and angled needles for use on thin layers of asbestos, eg a sprayed coating",
+   "value": "Diagram titled 'Figure 7.10 Needle board (hedgehog) multi-point injection system and angled needles for use on thin layers of asbestos, eg a sprayed coating'. It shows a side view of a layer labelled 'Asbestos containing material, eg a sprayed coating' under a 'Structure (concrete - steel - wood)', with an orange 'Needle board (hedgehog)' on the surface and blue 'Angled needles' pointing into the layer.",
+   "reason": "The image is a labelled cross-section diagram with four printed labels.",
+   "evidence": "Printed labels: Structure (concrete - steel - wood); Asbestos containing material, eg a sprayed coating; Needle board (hedgehog); Angled needles.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "b2644f6ec70611fe",
+   "kind": "figure_description",
+   "target": "figure-7-11: Controlled multi-point injection delivery through a network of fine needles",
+   "value": "Diagram titled 'Figure 7.11 Controlled multi-point injection delivery through a network of fine needles'. It shows a cross-section with three orange 'Injection needles' joined by thin tubes, their points pushed down into a thick layer labelled 'Asbestos lagging' that sits on a grey band labelled 'Pipe wall'.",
+   "reason": "The image is a labelled cross-section diagram with three printed labels.",
+   "evidence": "Printed labels: Injection needles; Asbestos lagging; Pipe wall; three needles joined by tubes with a blue line at the top of the lagging.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "b52c2bce4f40dad1",
+   "kind": "figure_description",
+   "target": "figure-7-13: Spraying AIB Box 7.2 Controlled wetting using injection: Key points",
+   "value": "A colour drawing of a worker in a white hooded suit and respirator mask. The worker holds a hose in one hand and a long wand in the other, working along the edge of a ceiling panel next to a window. No printed labels or numbers are in the image.",
+   "reason": "Image is an illustration; no text visible in it.",
+   "evidence": "Drawing of a person in a white coverall and half-mask with a hose and wand at a ceiling panel.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "3a63dfc4f58e0395",
+   "kind": "figure_description",
+   "target": "figure-7-14: Multi-point spray system they should be first vacuumed clean to remove all deposits of dust and debris",
+   "value": "A colour drawing of a worker in a white hooded suit and respirator mask. The worker holds a long pole with a wide multi-point spray head at the end, with fine sprays coming from several nozzles, aimed at a wall between two upright posts. No printed labels or numbers are in the image.",
+   "reason": "Image is an illustration; no text visible in it.",
+   "evidence": "Wide row of spray nozzles on a pole held by a suited worker facing a wall.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "20e252124913ed15",
+   "kind": "figure_description",
+   "target": "figure-7-15: Spraying thin that the lagging is as uniformly wetted as possible before stripping. coating The size of the job should not be used as a reason for reducing",
+   "value": "A photo taken in a dark space showing a person's hands in red gloves holding a spray gun. The spray is aimed at a thick, pale coating on a pipe or surface. No printed labels or numbers are in the image.",
+   "reason": "Image is a photo with no readable text.",
+   "evidence": "Red gloved hands, a hand-held sprayer with a mist and a pale thick layer on a dark surface.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "ac50517126cd7303",
+   "kind": "figure_description",
+   "target": "figure-7-16: Wrap-and-cut n where a slip hazard may be introduced by spillage of the wetting solution.",
+   "value": "A photo inside an enclosure lined with orange sheeting held with grey tape. In the middle is a section of dark pipework wrapped with grey tape, with a vertical pipe and framework behind it. No printed labels or numbers are in the image.",
+   "reason": "Image is a photo with no readable text.",
+   "evidence": "Orange sheeting walls with grey tape, a taped pipe section and pipework in the centre.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "d89a77e99de3c87d",
+   "kind": "figure_description",
+   "target": "figure-7-19: A Type H vacuum cleaner should therefore use work methods and equipment which prevent or minimise",
+   "value": "A photo of a yellow cylindrical industrial vacuum cleaner with a black carry handle on the lid. A red and white striped warning label is on the front of the lid, a white information label is on the body, and a hose is attached on the left. Part of a label reading \"TYPE H\" and the letters \"VAC\" can be seen.",
+   "reason": "Image is a photo; only small printed text is partly legible.",
+   "evidence": "Yellow drum vacuum with striped label, white data label, hose, black handle, partial 'TYPE H' and 'VAC' text.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "f444620932442639",
+   "kind": "figure_description",
+   "target": "figure-7-20: UN-approved for the exemptions from CDG requirements. Therefore the waste should be bags double bagged using UN-approved packaging and placed in a sealed skip, freight",
+   "value": "A photo of a clear plastic bag, tied at the top, containing a red bag. A black diamond-shaped hazard symbol with a printed pattern is on the bag, along with small printed text that is too small to read.",
+   "reason": "Image is a photo; the text on the bag is not legible.",
+   "evidence": "Clear tied bag around a red bag with a black diamond hazard mark and small print.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "1cffd8c6de64b643",
+   "kind": "figure_description",
+   "target": "figure-7-21: CDG hazard placard n where the vehicle’s maximum weight is less than 3.5 tonnes, and less than",
+   "value": "Diagram of Figure 7.21, a CDG hazard placard. It is a diamond-shaped sign with a black border and thin dashed outline, showing a row of black vertical stripes in the top half and the number 9 underlined at the bottom.",
+   "reason": "The image shows a single class 9 hazard placard with the printed caption 'Figure 7.21 CDG hazard placard'.",
+   "evidence": "Caption 'Figure 7.21 CDG hazard placard'; diamond with vertical stripes above and '9' at the bottom.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "90ad3691da9280cb",
+   "kind": "figure_description",
+   "target": "figure-7-22: Recording of the site layout as a diagram, (a) shows the 3-dimensional layout and (b) is an example of how the site could be recorded as a clearance diagram. Dark areas show work areas and light areas show other areas which need to be inspected",
+   "value": "Diagram (Figure 7.22) showing how an asbestos removal site layout is recorded. Part (a) is a 3-dimensional cutaway of the building with labels Airlocks, Enclosure wall, Plant room, Canteen, Ground floor, NPU, First floor, Skip and DCU; part (b) is a plan drawing 'Drawing V01 Layout of asbestos removal site' with labels Tent, Airlocks, Plant room, Canteen, NPU, Main car park, Skip and DCU. The key shows red for Work areas and orange for For inspection.",
+   "reason": "Image has two parts, (a) 3D view and (b) plan, with the printed labels and key.",
+   "evidence": "Labels in (a) and (b); legend 'Work areas' (red), 'For inspection' (orange); title block 'Drawing V01 Layout of asbestos removal site'.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "1e051338313c2576",
+   "kind": "figure_description",
+   "target": "figure-7-25: Boiler room showing locations where asbestos dust and debris are commonly found during a thorough visual inspection",
+   "value": "Illustration (Figure 7.25) of a boiler room with a large boiler tank, pipework, cable tray, ceiling tiles, light fittings and a door. Ten numbered arrows point to places in the room, and the list printed under it reads: 1 Backs of pipes and vessels; 2 Support brackets and clamps on pipes and vessels; 3 Nuts and bolts or flanges and hatches of vessels and pipework; 4 Screw holes, or around nails and battens for AIB tiling; 5 Cable trays and conduits, especially if they have a metal mesh construction; 6 All horizontal ledges, shelves, window sills etc; 7 The undersides of boilers and tanks, either attached or loose; 8 Rough porous brickwork, eg breeze block and rough concrete; 9 Holes in walls etc, where pipes, cables or steelwork pass through; 10 Drains, sumps and culverts.",
+   "reason": "Image shows the boiler room drawing with numbered markers 1-10; the list text comes from the packet labels, as the image crops it.",
+   "evidence": "Caption 'Figure 7.25 Boiler room showing locations where asbestos dust and debris are commonly found during a thorough visual inspection'; markers 9 6 8 7 3 2 1 10 5 4 along the bottom.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "cfb9fe0da0eb4a0b",
+   "kind": "figure_description",
+   "target": "figure-p153: APPENDIX 7.2: ASBESTOS WASTE FLOW CHARTS",
+   "value": "Flow chart titled 'Procedure for dealing with asbestos waste', starting at WASTE ASBESTOS. For England and Wales, Waste Regulations apply (waste consignment note required, contact EA/SEPA); for Scotland the question 'Is the content greater than 0.1% by weight?' leads YES to Waste Regulations and NO to 'Waste duty of care applies'. Then 'Whoever transports the waste (you or a haulage contractor) must be registered as a waste carrier', then 'Is the asbestos waste combined or fibrous?'. COMBINED asks 'Is the waste in a natural or artificial binder so as to prevent the escape of hazardous or respirable fibres?': YES gives 'CDG does not apply' then 'Transport asbestos waste as per timetable on the Waste Consignment Note and keep copies for 3 years'; NO goes to FIBROUS, 'See expanded box on page 154'.",
+   "reason": "Flow chart read from the image, following arrows in order.",
+   "evidence": "Printed boxes and YES/NO tags; headings 'TRANSPORT AND PACKAGING: COMBINED' and 'FIBROUS'.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "a95ee192a6809e16",
+   "kind": "figure_description",
+   "target": "figure-p154: Site assessment for reoccupation (Four-stage clearance procedure)",
+   "value": "Flow chart headed 'TRANSPORT AND PACKAGING: FIBROUS'. It starts 'The waste is dangerous for transport, CDG applies', then 'Asbestos cannot be transported in bulk, it must be packed in UN-approved packages displaying: Proper shipping name, Class number, Hazard placard (see Figure 7.21)'. Next it asks 'Does the vehicle in which the waste is to be transported have a maximum weight in excess of 3.5 tonnes?': YES gives driver trained for Class 9 Dangerous Goods, a 2 kg dry powder extinguisher in cab and 6 kg elsewhere, and Emergency information (Tremcard) for the driver; NO asks 'Does the weight of the asbestos exceed: Blue or brown - 333 kg? White - 1000 kg?', where NO leads to 'Transport as per timetable on the Waste Consignment Note' and YES asks if packages are carried in a vehicle or bulk container, with Bulk container needing orange panel at front and rear and hazard placards on all four sides, and Vehicle needing orange panel at front and rear. The page also notes the Waste Consignment Note is kept by the consignor for three years, other documents by the operator for three months, and '* Vehicles <3.5 tonnes: 2 kg in cab and 2 kg elsewhere'.",
+   "reason": "Flow chart read from the image; the footnotes come from the packet labels as the image crop ends at the chart.",
+   "evidence": "Printed boxes, YES/NO tags, and Bulk container / Vehicle branches visible in the image; footnote text from packet labels.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "b060984eeccc6128",
+   "kind": "figure_description",
+   "target": "figure-8-1: General layout of a hygiene unit",
+   "value": "Cutaway diagram (Figure 8.1) of the general layout of a hygiene unit, a long trailer-type unit with three compartments and a wheel. Printed labels are Showers, Clean end, Well sealed self-closing door, Grill with self-closing flap, Extract ventilation unit and Dirty end.",
+   "reason": "Image shows a 3D cutaway of the unit with six labelled arrows.",
+   "evidence": "Caption 'Figure 8.1 General layout of a hygiene unit'; labels Showers, Clean end, Well sealed self-closing door, Grill with self-closing flap, Extract ventilation unit, Dirty end.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "5d72df9036f78caf",
+   "kind": "figure_description",
+   "target": "figure-8-2: Hygiene unit directly attached to the enclosure",
+   "value": "A 3D diagram titled \"Figure 8.2 Hygiene unit directly attached to the enclosure\". It shows a blue enclosure with an airlock built against a wall, joined to a trailer-type hygiene unit with three rooms. Labels printed: \"Vacuum all PPE at the edge of the enclosure\", \"Airlock\", \"Wash footwear and sponge RPE\", \"Intervening space or tunnel\", \"Dirty end\", \"Showers\", \"Clean end\".",
+   "reason": "Isometric diagram with arrow labels, read directly from the image.",
+   "evidence": "Image shows caption Figure 8.2 and the seven printed labels pointing at the enclosure, airlock and trailer rooms.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "6846dc0f4b510af8",
+   "kind": "figure_description",
+   "target": "figure-8-3: Transit facilities (ie three-stage airlock)",
+   "value": "A 3D diagram with a small photo, titled \"Figure 8.3 Transit facilities (ie three-stage airlock)\". It shows a fenced area with a three-room airlock against a wall and a trailer unit beside it. Labels printed: \"Three-stage airlock\", \"Outer stage\", \"Middle stage\", \"Inner stage\"; the photo shows a blue-sheeted enclosure with a doorway inside a large building.",
+   "reason": "Isometric diagram plus inset photo, read directly from the image.",
+   "evidence": "Image shows caption Figure 8.3, the four printed labels with arrows, a fence, a trailer, and a photo at bottom right.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "fe5ea09e51f10567",
+   "kind": "figure_description",
+   "target": "figure-8-4: Mobile facilities asbestos removal operatives. It is essential that workers receive practical training",
+   "value": "A photo of a white mobile trailer unit with two doors on its side, parked outside a glass-fronted building. The left door is marked \"CLEAN\" and the right door \"DIRTY\", each with a red no-entry walking figure sign and a blue notice below.",
+   "reason": "Photo with small printed door signs; read from the image.",
+   "evidence": "Image shows a white trailer with two doors, signs reading CLEAN and DIRTY (small text), and a building behind.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "a2cf7fd9f523601f",
+   "kind": "figure_description",
+   "target": "figure-8-5: Modular facilities Final decontamination should be carried out, irrespective of the time",
+   "value": "A photo of the inside of a room with a pale blue wall, a white door in the left foreground with warning notices on it, and a yellow machine on the floor. A blue sheet or hose lies on the floor in front of wooden furniture and a white cloth-covered item. No printed labels are readable.",
+   "reason": "Photo with no legible labels; described from what is visible.",
+   "evidence": "Image shows a white door with small notices at left, a yellow box-shaped unit, blue sheeting on a bare floor, and an arched doorway at back.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "d55dbc7281604fbc",
+   "kind": "figure_description",
+   "target": "figure-8-6: Vehicle type",
+   "value": "A photo of the end of a white modular unit or trailer with a red stripe along the top and bottom. A door with a metal frame carries a notice board with several small red and blue safety signs, one reading \"No Smoking\". A roller shutter opening is on the right and a wooden plank leans in front.",
+   "reason": "Photo with small signs; only the No Smoking text is clearly readable.",
+   "evidence": "Image shows a white unit with a framed door, a sign panel including text 'No Smoking', a roller shutter and a wooden ramp.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "a94ab643948d05ea",
+   "kind": "figure_description",
+   "target": "figure-8-7: Notices on DCU",
+   "value": "A photo of a sign on a grey wall. It has the word \"CLEAN\" in large black letters above a red circle with a diagonal bar over a walking figure. Below is a blue panel with the words \"Clean Sauber Schoon Propre Rent\".",
+   "reason": "Photo of a sign, text read directly from the image.",
+   "evidence": "Image shows the printed word CLEAN, a red prohibition symbol with a walking person, and a blue strip with four translated words.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "e990ae4f9dfe9a0d",
+   "kind": "figure_description",
+   "target": "figure-8-8: Decontamination process: Hygiene unit attached to enclosure: Entering enclosure",
+   "value": "Flow chart, Figure 8.8, titled \"Decontamination process: Hygiene unit attached to enclosure: Entering enclosure\". Five boxes joined by down arrows give the steps in order: \"Take RPE/PPE/toiletries into hygiene unit via clean end door\"; \"Inspect and check RPE. Undress\"; \"Put on clean PPE. Put on RPE using mirror. Carry out fit check\"; \"Pass through shower area (without showering and leaving toiletries) into the dirty end\"; \"Leave hygiene unit. Go through interim space and airlock into enclosure\".",
+   "reason": "The image is a five-step flow chart and the box text was copied as printed.",
+   "evidence": "Figure 8.8 caption and heading \"Entering enclosure\" with five boxes and arrows.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "091a155a24dca444",
+   "kind": "table",
+   "target": "chapter-7-controlled-techniques-for-the-removal-and-repair-o-summary-table-1: Summary",
+   "value": {
+    "columns": [
+     "Summary"
+    ],
+    "rows": [
+     [
+      "Spraying"
+     ],
+     [
+      "Dry stripping with control at source"
+     ],
+     [
+      "Waste disposal"
+     ],
+     [
+      "Final clearance"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "The Chapter 7 summary lists spraying.",
+     "The Chapter 7 summary lists dry stripping with control at source.",
+     "The Chapter 7 summary lists waste disposal.",
+     "The Chapter 7 summary lists final clearance."
+    ]
+   },
+   "reason": "On page 111 this is the bulleted Summary list, not a ruled table. It has no column headings, so I used one column and one row per bullet topic, as in the section text.",
+   "evidence": "Page 111 Summary: bullets Wetting solutions, Injection, Spraying, Dry stripping with control at source, Waste disposal, Final clearance, each with dash sub-points. The grid only holds the last four bullets.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "low",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "80bf93e26ab9ebf9",
+   "kind": "table",
+   "target": "table-5-3: Worked example",
+   "value": {
+    "columns": [
+     "Worked example"
+    ],
+    "rows": [
+     [
+      "Work: Removal of asbestos insulation from a boiler house"
+     ],
+     [
+      "Type of asbestos: Representative samples taken from the lagging to be removed and the occupier’s documentation about it indicate that the lagging contains chrysotile (white asbestos) only"
+     ],
+     [
+      "Control limits: 0.3 f/ml for 4-hour time weighted average (TWA) and 0.9 f/ml for 10-min TWA as prescribed in CAWR"
+     ],
+     [
+      "Propsed type of removal: Well-conducted, controlled wet stripping using manual tools. Representative core samples taken after the wetting process at an earlier job indicated that it is unlikely to hit a dry patch. Same procedure will be conducted to ensure similar situation in this work. Wetting to be done using injection needles, wetting agents and water"
+     ],
+     [
+      "Amount to be removed: 8 m² of asbestos-containing lagging material"
+     ],
+     [
+      "Likely residual fibre in concentration in air: Up to 1 f/ml (Table 1.1) and this figure agrees with the exposure monitoring results obtained during similar work last month"
+     ],
+     [
+      "Work activity: Have to work around and in between pipes. Removal workers will have to pass in between pipes and girders (both vertically and sideways). Adequate time and person resources have been planned in for stripping, cleaning and decontamination activities. The effort required – moderate work. Working on a cold plant. The work environment is not a confined space and will contain normal levels of oxygen. No need to use solvents, glues etc"
+     ],
+     [
+      "RPE wearers: Clean shaven except for one person who has beard; no unusual facial marks; no spectacle wearers"
+     ],
+     [
+      "Other PPE: Type 5, category 3 coverall (see paragraph 5.35) to protect against asbestos penetration. Gloves and safety boots in accordance with RA requirements"
+     ],
+     [
+      "Protection required: Minimum protection required from suitable RPE to reduce exposures to the control limit of 1/0.3 = 3.3 (ie likely residual fibre concentration in air divided by 4-hour TWA control limit). This calculation indicates that it would be possible to use devices with a PF of 4. However, the law requires that inhalation exposure to asbestos fibres is reduced to the lowest level reasonably practicable. Therefore, it is necessary to consider devices which could offer the best possible protection"
+     ],
+     [
+      "Selection of suitable RPE: From Table 5.2 – Types of RPE which offer highest PF (2000) are self-contained breathing apparatus (SCBA) with positive-demand full-face mask and compressed airline-breathing apparatus (CABA) with positive-demand full-face mask (a) SCBA is not suitable because it will not last for more than 15 minutes of actual stripping work. Safe usable time for SCBA will include time required for decontamination and exit to a safe area. SCBA would be too bulky to use in the likely restricted space; it will introduce unnecessary strain on the wearer and may cause other safety-related accidents (b) In this situation it is not reasonably practicable to use CABA because air supply hoses can become entangled during use. This may introduce tripping hazards and may present considerable secondary exposure problems during disconnection to enter the decontamination area. During the decontamination of hoses, asbestos on hose protective coverings may contaminate the decontamination area. For these reasons it is considered that CABA is not suitable for the work to be undertaken (c) The next choice of device is respirators. Respirators with the highest PFs (Table 5.1) are non-powered full-face mask with P3 filter(s), TH3 powered hoods and TM3 power assisted devices with full-face masks and P3 filter(s). A non-powered device would be uncomfortable and would place demand on the user’s lungs when compared to a powered device. So a TM3 power-assisted respirator with full-face mask and P3 filter(s) would be the choice for those without beards. This RPE, when used in conjunction with a suitable RPE programme, should reduce the exposure concentration to below 0.02 f/ml. This concentration is near the clearance level (d) All our wearers, except the person with the beard, were quantitatively fit tested for a power-assisted respirator with full-face mask (TM3) – model 123 made by ZZ Ltd. In this work situation, the person with the beard could be provided with a TH3 powered hood. If the power to the device fails completely during use, the wearer should be able to exit the work area quickly and without significant danger to life or health"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "The worked example table gives the work as removal of asbestos insulation from a boiler house.",
+     "The worked example table gives the type of asbestos as chrysotile (white asbestos) only, from representative samples of the lagging and the occupier’s documentation.",
+     "The worked example table gives the control limits as 0.3 f/ml for 4-hour time weighted average (TWA) and 0.9 f/ml for 10-min TWA as prescribed in CAWR.",
+     "The worked example table gives the proposed type of removal as well-conducted, controlled wet stripping using manual tools, with wetting done using injection needles, wetting agents and water.",
+     "The worked example table gives the amount to be removed as 8 m² of asbestos-containing lagging material.",
+     "The worked example table gives the likely residual fibre concentration in air as up to 1 f/ml (Table 1.1), which agrees with exposure monitoring results from similar work last month.",
+     "The worked example table gives the work activity as working around and in between pipes and girders, moderate effort, on a cold plant, in a space that is not confined and has normal oxygen levels, with no solvents or glues.",
+     "The worked example table gives the RPE wearers as clean shaven except for one person who has a beard, with no unusual facial marks and no spectacle wearers.",
+     "The worked example table gives the other PPE as a Type 5, category 3 coverall (see paragraph 5.35), plus gloves and safety boots in accordance with RA requirements.",
+     "The worked example table gives the protection required as 1/0.3 = 3.3, so a PF of 4 would be possible, but because the law requires exposure to be reduced to the lowest level reasonably practicable, devices with the best possible protection must be considered.",
+     "The worked example table gives the selection of suitable RPE as a TM3 power-assisted respirator with full-face mask and P3 filter(s) for those without beards and a TH3 powered hood for the person with the beard, because SCBA and CABA are not suitable."
+    ]
+   },
+   "reason": "Table 5.3 is a boxed list of bold labels and text with no printed column headings, so each printed row is one cell (label and text) under a single column named by the table title; no heading invented. It continues from page 81 to 82.",
+   "evidence": "Pages 81-82: 11 boxed rows from Work: to Selection of suitable RPE:",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "cc7e53107a3758b2",
+   "kind": "figure_description",
+   "target": "figure-8-9: Decontamination process: Hygiene unit attached to enclosure: Leaving enclosure",
+   "value": "Flow chart headed Leaving enclosure, with eight boxes joined by downward arrows. The steps in order are: vacuum all visible dust and fibres from PPE, RPE and footwear at the edge of the enclosure, leave enclosure and enter airlock; brush footwear in footbath, sponge or wipe RPE; enter dirty end of hygiene unit, take off all footwear, coveralls and underwear worn in the enclosure and place in storage or disposal bags, do not remove RPE; move to shower area with respirator on, shower and use a sponge to clean RPE without allowing water onto filter ports. The last steps are: once RPE has been cleaned, remove it and shower yourself thoroughly, remove or cap used filters (place in waste bag for disposal if appropriate); start drying off, place towel in bag for disposal or laundering; pass through into clean end carrying RPE and complete drying with a different towel(s), dress; leave hygiene facility via clean end external door.",
+   "reason": "Flow chart read from the figure image, steps in printed order.",
+   "evidence": "figure-8-9.png: eight boxes headed Leaving enclosure",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "8ab4c4ebc2b826d7",
+   "kind": "figure_description",
+   "target": "figure-8-10: Decontamination process: Transiting procedure: Entering enclosure with new work coveralls",
+   "value": "Flow chart headed Entering enclosure, with eight boxes joined by downward arrows. The steps in order are: take RPE into hygiene unit via clean end door; inspect and check RPE, undress; put on clean PPE, put on RPE using mirror, carry out fit check; pass through shower area (without showering) into the dirty end, dress in transit coveralls and footwear. The last steps are: pass through door of dirty end and walk to transit facilities via designated transit route; enter outer stage of transit airlock and remove transit coveralls and footwear, place in container/on hooks provided, do not leave on the floor; pass into middle stage of transit airlock; pass through the inner stage and into the enclosure.",
+   "reason": "Flow chart read from the figure image, steps in printed order.",
+   "evidence": "figure-8-10.png: eight boxes headed Entering enclosure",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "61996f4921f2b1e9",
+   "kind": "figure_description",
+   "target": "figure-8-11: Decontamination process: Transiting procedure: Entering enclosure after break",
+   "value": "Flow chart headed Entering enclosure, with eight boxes joined by downward arrows. The steps in order are: take RPE into hygiene unit via clean end door; inspect and check RPE, undress; put on clean undergarments, put on RPE using mirror, carry out fit check; pass through shower area (without showering) into the dirty end, dress in transit coveralls and footwear. The last steps are: pass through door of dirty end and walk to transit facilities via designated transit route; enter outer stage of transit airlock and remove transit coveralls and footwear, place in container/on hooks provided, do not leave on the floor; pass into middle stage of transit airlock; pass through the inner stage and into the enclosure.",
+   "reason": "Flow chart read from the figure image, steps in printed order.",
+   "evidence": "figure-8-11.png: eight boxes headed Entering enclosure",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "403c54528e198600",
+   "kind": "figure_description",
+   "target": "figure-8-12: Decontamination process: Transiting procedure: Leaving enclosure",
+   "value": "Flow chart headed Leaving enclosure, with nine boxes joined by downward arrows. The steps in order are: vacuum all visible dust and fibres from PPE, RPE and footwear at the edge of the enclosure, leave enclosure and go into inner stage of transit airlock, brush footwear in footbath, sponge down or wipe RPE; pass into middle stage of airlock, remove coveralls and footwear worn in enclosure and place in waste bag (or store if re-entry required), do not remove RPE; pass into outer stage, put on transit overalls and transit footwear, walk to hygiene facility via designated transit route; enter dirty end of hygiene facility, take off all footwear, PPE and underwear and place in storage or disposal bags, do not remove RPE. The last steps are: move to shower area with respirator on, shower and use a sponge to clean RPE; once RPE has been cleaned, remove it and shower yourself thoroughly, remove or cap used filters (place in waste bag for disposal, if appropriate); start drying off, place towel in bag for disposal or laundering; pass through into clean end carrying RPE and complete drying with different towel(s), dress; leave hygiene facility via clean end external door.",
+   "reason": "Flow chart read from the figure image, steps in printed order.",
+   "evidence": "figure-8-12.png: nine boxes headed Leaving enclosure",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "7838477f39e6a002",
+   "kind": "table",
+   "target": "chapter-1-an-introduction-to-working-with-asbestos-containin-medical-examination-of-asbestos-removal-workers-under-cawr-2-2-table-1: Medical examination of asbestos removal workers under CAWR 2002",
+   "value": {
+    "columns": [
+     "Flow chart"
+    ],
+    "rows": [
+     [
+      "Appendix 1.1 Materials identified as containing asbestos: Does the material contain asbestos? No: Record non-asbestos material. Yes: Is the material in good condition? Yes: Record, manage and monitor. No: Is the material spray or pipe lagging? Yes: See Appendix 1.2. No: Is the material insulating board or blocks? Yes: See Appendix 1.3. No: Other asbestos material? Yes: See Appendix 1.4"
+     ],
+     [
+      "Appendix 1.2 Sprayed asbestos coatings and pipe and vessel insulation in poor condition: Is the material readily repairable? Yes: Carry out repair work. No: Is the material accessible? See Note 1. Yes: Is the damage extensive? See Note 3. No: Seal or encapsulate. Yes: Is there loose friable material? See Note 4. No: Seal or encapsulate. Yes: Is enclosure feasible? Yes: Enclose. No: Remove. Not accessible: Is the damage extensive? See Note 2. No: Record, manage and monitor. Yes: Is there loose friable material? See Note 4"
+     ],
+     [
+      "Appendix 1.3 AIB and insulating blocks in poor condition: Is the material readily repairable? Yes: Carry out repair work. No: Is the material readily accessible? See Note 1. No: Record, manage and monitor. Yes: Is the damage extensive? See Notes 2 and 3. No: Seal or enclose. Yes: Is sealing or enclosure feasible? Yes: Seal or enclose. No: Remove"
+     ],
+     [
+      "Appendix 1.4 Other asbestos materials in poor condition (read Notes 1 and 2 first): Is the material readily repairable? Yes: Carry out repair work. No: Is the material accessible? See Note 3. No: Record, manage and monitor. Yes: Is the damage extensive? See Note 4. No: Record, manage and monitor. Yes: Is sealing or enclosure feasible? Yes: Seal or enclose. No: Remove"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "This section, titled Medical examination of asbestos removal workers under CAWR 2002, holds the flow chart Appendix 1.1 Materials identified as containing asbestos, which ends in Record non-asbestos material, Record, manage and monitor, or See Appendix 1.2, 1.3 or 1.4.",
+     "This section, titled Medical examination of asbestos removal workers under CAWR 2002, holds the flow chart Appendix 1.2 Sprayed asbestos coatings and pipe and vessel insulation in poor condition, which ends in Carry out repair work, Seal or encapsulate, Enclose, Remove, or Record, manage and monitor.",
+     "This section, titled Medical examination of asbestos removal workers under CAWR 2002, holds the flow chart Appendix 1.3 AIB and insulating blocks in poor condition, which ends in Carry out repair work, Seal or enclose, Remove, or Record, manage and monitor.",
+     "This section, titled Medical examination of asbestos removal workers under CAWR 2002, holds the flow chart Appendix 1.4 Other asbestos materials in poor condition, which ends in Carry out repair work, Seal or enclose, Remove, or Record, manage and monitor."
+    ]
+   },
+   "reason": "Pages 22-25 hold four flow charts (Appendix 1.1 to 1.4), not a table and not medical examination content; the table detection looks wrong. Gave one row per flow chart in a single column.",
+   "evidence": "p22 Appendix 1.1, p23 Appendix 1.2, p24 Appendix 1.3, p25 Appendix 1.4",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "low",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "421a2f8ff222469d",
+   "kind": "table",
+   "target": "chapter-7-controlled-techniques-for-the-removal-and-repair-o-site-assessment-for-reoccupation-four-stage-clearance-proced-2-table-1: Site assessment for reoccupation (Four-stage clearance procedure)",
+   "value": {
+    "columns": [
+     "Layout of asbestos removal site"
+    ],
+    "rows": [
+     [
+      "Work areas"
+     ],
+     [
+      "For inspection"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Site assessment for reoccupation (Four-stage clearance procedure): in the layout of the asbestos removal site, the work areas are shown in dark red.",
+     "Site assessment for reoccupation (Four-stage clearance procedure): in the layout of the asbestos removal site, the areas for inspection are shown in light orange."
+    ]
+   },
+   "reason": "This is not a real table. It is Figure 7.22, a site layout drawing. The only table-like part is the key (Work areas, For inspection) under the drawing title Layout of asbestos removal site. The label picture on p152 is unrelated.",
+   "evidence": "p141: figure (b) key lists Work areas and For inspection; title block reads Drawing V01, Layout of asbestos removal site.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "low",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "96508404737a0fa5",
+   "kind": "table",
+   "target": "chapter-8-decontamination-the-decontamination-process-table-1: The decontamination process",
+   "value": {
+    "columns": [
+     "Stage",
+     "Facilities"
+    ],
+    "rows": [
+     [
+      "Outer stage",
+      "Facilities to store transit overalls and footwear, eg hooks and/or shoe-holders"
+     ],
+     [
+      "Middle stage",
+      "Facilities to store overalls and footwear worn in the enclosure, eg hooks and/or shoe-holders"
+     ],
+     [
+      "Inner stage",
+      "Footbath and brush, water bucket and sponge or wipes for RPE. (Type H vacuum cleaner is usually located at the edge of the enclosure)"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "The decontamination process: the outer stage has facilities to store transit overalls and footwear, eg hooks and/or shoe-holders.",
+     "The decontamination process: the middle stage has facilities to store overalls and footwear worn in the enclosure, eg hooks and/or shoe-holders.",
+     "The decontamination process: the inner stage has a footbath and brush, water bucket and sponge or wipes for RPE (Type H vacuum cleaner is usually located at the edge of the enclosure)."
+    ]
+   },
+   "reason": "No printed table exists on p162. The nearest table-like content is the paragraph 8.14 list of facilities for the three airlock stages. The column names Stage and Facilities are not printed and are my own labels for that list.",
+   "evidence": "p162 para 8.14: Outer stage, Middle stage and Inner stage lines, ending with 'and/or shoe-holders.'",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "low",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "3a98f413930e79e7",
+   "kind": "table",
+   "target": "chapter-8-decontamination-maintenance-and-cleaning-of-hygiene-facilities-table-1: Maintenance and cleaning of hygiene facilities",
+   "value": {
+    "columns": [
+     "Checks",
+     "Details"
+    ],
+    "rows": [
+     [
+      "Pre-use checks",
+      "Visual check of electrical equipment for obvious defects: compatibility of electrical power sources; an earth fault loop impedance test; the voltage and plug pins of electrical equipment are compatible; when modular hygiene units are installed on site the earth bonding should be checked"
+     ],
+     [
+      "Daily checks",
+      "The following daily operational checks should be carried out by a suitably trained supervisor before the beginning of each shift: adequate supplies of water, gas and electricity; adequate shower pressure and temperature; operation of heating system; operation of NPU, including checking the pressure gauge/warning device to ensure that the HEPA filter has not become saturated; functioning battery chargers; provision of sufficient waste bags, towels (one set in the shower area and one in the 'clean' end), filters and PPE; cleanliness of unit and transit route and facilities; operation of vacuum cleaner; supply of sponges and water baths in any transit airlock provided; the integrity of airlocks; environmental conditions that may affect the use of the DCU facilities, eg frozen pipes; testing of RCDs"
+     ],
+     [
+      "Weekly checks",
+      "Visual check of electrical equipment for damage, wear, overheating etc"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Maintenance and cleaning of hygiene facilities: the pre-use checks are a visual check of electrical equipment for obvious defects, covering compatibility of electrical power sources, an earth fault loop impedance test, that the voltage and plug pins of electrical equipment are compatible, and that when modular hygiene units are installed on site the earth bonding should be checked.",
+     "Maintenance and cleaning of hygiene facilities: the daily checks should be carried out by a suitably trained supervisor before the beginning of each shift, covering adequate supplies of water, gas and electricity, adequate shower pressure and temperature, operation of heating system, operation of NPU including checking the pressure gauge/warning device to ensure that the HEPA filter has not become saturated, functioning battery chargers, provision of sufficient waste bags, towels (one set in the shower area and one in the 'clean' end), filters and PPE, cleanliness of unit and transit route and facilities, operation of vacuum cleaner and supply of sponges and water baths in any transit airlock provided, the integrity of airlocks, environmental conditions that may affect the use of the DCU facilities, eg frozen pipes, and testing of RCDs.",
+     "Maintenance and cleaning of hygiene facilities: the weekly checks are a visual check of electrical equipment for damage, wear, overheating etc."
+    ]
+   },
+   "reason": "This is Box 8.1, Supervisors' checklist for asbestos hygiene units, with three groups of checks and no printed column headings. The column names Checks and Details are my own labels. The cell texts are copied from the box without the final full stops.",
+   "evidence": "p168 Box 8.1: Pre-use checks, Daily checks, Weekly checks with their bullet lists.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "365c34e3bd0899c0",
+   "kind": "table",
+   "target": "chapter-7-controlled-techniques-for-the-removal-and-repair-o-site-assessment-for-reoccupation-four-stage-clearance-proced-2-table-1: Site assessment for reoccupation (Four-stage clearance procedure)",
+   "value": {
+    "columns": [
+     "Layout of asbestos removal site"
+    ],
+    "rows": [
+     [
+      "Work areas"
+     ],
+     [
+      "For inspection"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Site assessment for reoccupation (Four-stage clearance procedure): in the layout of the asbestos removal site, the work areas are shown in dark red.",
+     "Site assessment for reoccupation (Four-stage clearance procedure): in the layout of the asbestos removal site, the areas for inspection are shown in light orange."
+    ]
+   },
+   "reason": "The 'table' is the colour legend of clearance diagram (b) in Figure 7.22: a red square for Work areas and an orange square for For inspection. The title block reads 'Layout of asbestos removal site'. Template used as given.",
+   "evidence": "Page 141, Figure 7.22(b): legend 'Work areas' (red square), 'For inspection' (light orange square); title block 'Layout of asbestos removal site'; caption says dark areas show work areas and light areas show other areas to be inspected.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  }
+ ]
+}

@@ -1,0 +1,1800 @@
+{
+ "source_id": "hse-l140",
+ "about": "Saved model fixes for hse-l140 (ADR 0010).",
+ "fixes": [
+  {
+   "key": "a5d55d3920ecd387",
+   "kind": "table",
+   "target": "table-1: Example vibration magnitudes and exposure times required to reach the EAV of 2.5 m/s2 A(8) and the ELV of 5 m/s2 A(8)",
+   "value": {
+    "columns": [
+     "Vibration magnitude (m/s2)",
+     "2",
+     "2.5",
+     "3",
+     "4",
+     "5",
+     "6",
+     "7",
+     "8",
+     "10",
+     "14",
+     "20"
+    ],
+    "rows": [
+     [
+      "Time to reach exposure action value (hours)",
+      "12½",
+      "8",
+      "5½",
+      "3",
+      "2",
+      "1½",
+      "1",
+      "¾",
+      "½",
+      "¼",
+      "7 min"
+     ],
+     [
+      "Time to reach exposure limit value (hours)",
+      ">24",
+      ">24",
+      "22¼",
+      "12½",
+      "8",
+      "5½",
+      "4",
+      "3",
+      "2",
+      "1",
+      "½"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Example vibration magnitudes and exposure times required to reach the EAV of 2.5 m/s2 A(8) and the ELV of 5 m/s2 A(8): time to reach exposure action value (hours) is 12½ at a vibration magnitude of 2 m/s2, 8 at 2.5, 5½ at 3, 3 at 4, 2 at 5, 1½ at 6, 1 at 7, ¾ at 8, ½ at 10, ¼ at 14 and 7 min at 20 m/s2.",
+     "Example vibration magnitudes and exposure times required to reach the EAV of 2.5 m/s2 A(8) and the ELV of 5 m/s2 A(8): time to reach exposure limit value (hours) is >24 at a vibration magnitude of 2 m/s2, >24 at 2.5, 22¼ at 3, 12½ at 4, 8 at 5, 5½ at 6, 4 at 7, 3 at 8, 2 at 10, 1 at 14 and ½ at 20 m/s2."
+    ]
+   },
+   "reason": "Rebuilt from the page 32 image; the header row is the vibration magnitude row and two data rows follow. Values match the library grid.",
+   "evidence": "Table 1 on printed page 32: magnitudes 2 to 20 m/s2; action value times 12½ to 7 min; limit value times >24 to ½.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "94fe6762bdf39052",
+   "kind": "table",
+   "target": "table-2: Durations after which it is likely that the action value or limit value will have been reached",
+   "value": {
+    "columns": [
+     "Power tool or machine type",
+     "Time to EAV",
+     "Time to ELV"
+    ],
+    "rows": [
+     [
+      "Rotary",
+      "1 hour",
+      "4 hours"
+     ],
+     [
+      "Percussive",
+      "15 mins",
+      "1 hour"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Durations after which it is likely that the action value or limit value will have been reached: for the rotary power tool or machine type, the time to EAV is 1 hour and the time to ELV is 4 hours.",
+     "Durations after which it is likely that the action value or limit value will have been reached: for the percussive power tool or machine type, the time to EAV is 15 mins and the time to ELV is 1 hour."
+    ]
+   },
+   "reason": "Rebuilt from the page 33 image. Note 1 and Note 2 are printed under the table and span all columns, so they are not data rows and are left out of rows.",
+   "evidence": "Table 2 on printed page 33: Rotary 1 hour / 4 hours; Percussive 15 mins / 1 hour; Note 1 and Note 2 below.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "4b88b22a96508143",
+   "kind": "table",
+   "target": "table-3: Examples of alternative work processes to eliminate or reduce exposure to vibration",
+   "value": {
+    "columns": [
+     "Industry",
+     "Problem",
+     "Solution"
+    ],
+    "rows": [
+     [
+      "Amenity horticulture",
+      "Use of power tools (eg hedge trimmers, chainsaws, strimmers and mowers) for park maintenance",
+      "Consider allowing more natural meadow, hedge and tree growth; Select slow-growing/low-growing shrubs; Use vehicle-mounted machinery such as a side-arm flail"
+     ],
+     [
+      "Construction",
+      "Use of scabbling tools and needle scalers for architectural finishes",
+      "Specify architectural finishes and processes that don’t require the use of powered hand tools (eg chemical retardants, shuttering)"
+     ],
+     [
+      "Construction",
+      "Cutting and patching of stone, wood or concrete products to fit using powered hand tools on site",
+      "Prefabricate components using factory-based machining"
+     ],
+     [
+      "Construction",
+      "Use of demolition hammers to break up large concrete blocks and walls",
+      "Split large blocks using hydraulic expanding devices inserted into pre-drilled holes (bursting) or use driven or remote control plant which can be fitted with nibblers and peckers"
+     ],
+     [
+      "Construction",
+      "De-scaling of steel structures after fabrication using pneumatic scaling tools",
+      "Use abrasive blasting or high-pressure water jetting instead of pneumatic scaling tools"
+     ],
+     [
+      "Foundries",
+      "Hand finishing (fettling) of cast components",
+      "Design metal castings to minimise the need for remedial work, including design of moulds, selecting the most suitable materials and casting process"
+     ],
+     [
+      "Foundries",
+      "Removal of large amounts of material from castings using powered hand tools",
+      "Use arc-air and other flame-cutting or gouging methods"
+     ],
+     [
+      "Light and heavy fabrication",
+      "Remedial work with powered hand tools on components plasma cut from sheet or plate metal",
+      "Cut sheet and plate metal using laser profilers which give accurate cuts, produce minimal heat distortion and virtually eliminate edge burring"
+     ],
+     [
+      "Light fabrication",
+      "Use of hand-held, hand-guided or hand-fed machines",
+      "Mechanise or automate processes"
+     ],
+     [
+      "Light fabrication",
+      "Use of pneumatic riveting hammers",
+      "Change fabrication methods, eg use adhesives, welding, hydraulic squeezing etc"
+     ],
+     [
+      "Light fabrication",
+      "Polishing of plated components",
+      "Use preliminary, chemical-polishing processes to minimise need for hand polishing"
+     ],
+     [
+      "Light fabrication and foundries",
+      "Metal-removal or fettling using powered hand tools",
+      "Use milling, turning or other machining operations (it can be more economic, and less hazardous, to rough machine, rather than hand fettle, surfaces which can later be machine finished)"
+     ],
+     [
+      "Utilities and construction",
+      "Use of hand-operated road breakers for cable laying, water and mains repairs and similar work",
+      "Use machine-mounted breakers, tampers, mobile road-cutting machines and/or trenching machines"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Examples of alternative work processes to eliminate or reduce exposure to vibration: in amenity horticulture, the problem is use of power tools (eg hedge trimmers, chainsaws, strimmers and mowers) for park maintenance, and the solution is: consider allowing more natural meadow, hedge and tree growth; Select slow-growing/low-growing shrubs; Use vehicle-mounted machinery such as a side-arm flail.",
+     "Examples of alternative work processes to eliminate or reduce exposure to vibration: in construction, the problem is use of scabbling tools and needle scalers for architectural finishes, and the solution is: specify architectural finishes and processes that don’t require the use of powered hand tools (eg chemical retardants, shuttering).",
+     "Examples of alternative work processes to eliminate or reduce exposure to vibration: in construction, the problem is cutting and patching of stone, wood or concrete products to fit using powered hand tools on site, and the solution is: prefabricate components using factory-based machining.",
+     "Examples of alternative work processes to eliminate or reduce exposure to vibration: in construction, the problem is use of demolition hammers to break up large concrete blocks and walls, and the solution is: split large blocks using hydraulic expanding devices inserted into pre-drilled holes (bursting) or use driven or remote control plant which can be fitted with nibblers and peckers.",
+     "Examples of alternative work processes to eliminate or reduce exposure to vibration: in construction, the problem is de-scaling of steel structures after fabrication using pneumatic scaling tools, and the solution is: use abrasive blasting or high-pressure water jetting instead of pneumatic scaling tools.",
+     "Examples of alternative work processes to eliminate or reduce exposure to vibration: in foundries, the problem is hand finishing (fettling) of cast components, and the solution is: design metal castings to minimise the need for remedial work, including design of moulds, selecting the most suitable materials and casting process.",
+     "Examples of alternative work processes to eliminate or reduce exposure to vibration: in foundries, the problem is removal of large amounts of material from castings using powered hand tools, and the solution is: use arc-air and other flame-cutting or gouging methods.",
+     "Examples of alternative work processes to eliminate or reduce exposure to vibration: in light and heavy fabrication, the problem is remedial work with powered hand tools on components plasma cut from sheet or plate metal, and the solution is: cut sheet and plate metal using laser profilers which give accurate cuts, produce minimal heat distortion and virtually eliminate edge burring.",
+     "Examples of alternative work processes to eliminate or reduce exposure to vibration: in light fabrication, the problem is use of hand-held, hand-guided or hand-fed machines, and the solution is: mechanise or automate processes.",
+     "Examples of alternative work processes to eliminate or reduce exposure to vibration: in light fabrication, the problem is use of pneumatic riveting hammers, and the solution is: change fabrication methods, eg use adhesives, welding, hydraulic squeezing etc.",
+     "Examples of alternative work processes to eliminate or reduce exposure to vibration: in light fabrication, the problem is polishing of plated components, and the solution is: use preliminary, chemical-polishing processes to minimise need for hand polishing.",
+     "Examples of alternative work processes to eliminate or reduce exposure to vibration: in light fabrication and foundries, the problem is metal-removal or fettling using powered hand tools, and the solution is: use milling, turning or other machining operations (it can be more economic, and less hazardous, to rough machine, rather than hand fettle, surfaces which can later be machine finished).",
+     "Examples of alternative work processes to eliminate or reduce exposure to vibration: in utilities and construction, the problem is use of hand-operated road breakers for cable laying, water and mains repairs and similar work, and the solution is: use machine-mounted breakers, tampers, mobile road-cutting machines and/or trenching machines."
+    ]
+   },
+   "reason": "Rebuilt from the page 37 image. Industry cells that span several rows are repeated on each row; the three separate solutions in the first row are joined with semicolons; line-break hyphens in 'hand-fed' and 'factory-based' are joined.",
+   "evidence": "Table 3 on printed page 37: 13 problem/solution rows under Industry, Problem, Solution.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "693ac397ae6a8c52",
+   "kind": "table",
+   "target": "table-4: Ready-reckoner for vibration exposure points",
+   "value": {
+    "columns": [
+     "Vibration magnitude (m/s2)",
+     "5 min",
+     "15 min",
+     "30 min",
+     "1 h",
+     "1 h 30 min",
+     "2 h",
+     "3 h",
+     "4 h",
+     "5 h",
+     "6 h"
+    ],
+    "rows": [
+     [
+      "40",
+      "265",
+      "800",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "30",
+      "150",
+      "450",
+      "900",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "25",
+      "105",
+      "315",
+      "825",
+      "1250",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "20",
+      "67",
+      "200",
+      "400",
+      "800",
+      "1200",
+      "",
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "19",
+      "60",
+      "180",
+      "360",
+      "720",
+      "1100",
+      "1450",
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "18",
+      "54",
+      "160",
+      "325",
+      "650",
+      "970",
+      "1300",
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "17",
+      "48",
+      "145",
+      "290",
+      "580",
+      "865",
+      "1150",
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "16",
+      "43",
+      "130",
+      "255",
+      "510",
+      "770",
+      "1000",
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "15",
+      "38",
+      "115",
+      "225",
+      "450",
+      "675",
+      "900",
+      "1350",
+      "",
+      "",
+      ""
+     ],
+     [
+      "14",
+      "33",
+      "98",
+      "195",
+      "390",
+      "590",
+      "785",
+      "1200",
+      "",
+      "",
+      ""
+     ],
+     [
+      "13",
+      "28",
+      "85",
+      "170",
+      "340",
+      "505",
+      "675",
+      "1000",
+      "1350",
+      "",
+      ""
+     ],
+     [
+      "12",
+      "24",
+      "72",
+      "145",
+      "290",
+      "430",
+      "575",
+      "885",
+      "1150",
+      "1450",
+      ""
+     ],
+     [
+      "11",
+      "20",
+      "61",
+      "120",
+      "240",
+      "365",
+      "485",
+      "725",
+      "970",
+      "1200",
+      "1450"
+     ],
+     [
+      "10",
+      "17",
+      "50",
+      "100",
+      "200",
+      "300",
+      "400",
+      "600",
+      "800",
+      "1000",
+      "1200"
+     ],
+     [
+      "9",
+      "14",
+      "41",
+      "81",
+      "160",
+      "245",
+      "325",
+      "485",
+      "660",
+      "810",
+      "970"
+     ],
+     [
+      "8",
+      "11",
+      "32",
+      "64",
+      "130",
+      "190",
+      "255",
+      "385",
+      "510",
+      "640",
+      "770"
+     ],
+     [
+      "7",
+      "8",
+      "25",
+      "49",
+      "98",
+      "145",
+      "195",
+      "295",
+      "390",
+      "490",
+      "500"
+     ],
+     [
+      "6",
+      "6",
+      "18",
+      "36",
+      "72",
+      "110",
+      "145",
+      "215",
+      "290",
+      "360",
+      "455"
+     ],
+     [
+      "5.5",
+      "5",
+      "15",
+      "31",
+      "61",
+      "91",
+      "120",
+      "180",
+      "240",
+      "305",
+      "365"
+     ],
+     [
+      "5",
+      "4",
+      "13",
+      "25",
+      "50",
+      "75",
+      "100",
+      "150",
+      "200",
+      "250",
+      "300"
+     ],
+     [
+      "4.5",
+      "3",
+      "10",
+      "21",
+      "41",
+      "61",
+      "81",
+      "120",
+      "160",
+      "205",
+      "245"
+     ],
+     [
+      "4",
+      "3",
+      "8",
+      "16",
+      "32",
+      "48",
+      "64",
+      "96",
+      "130",
+      "160",
+      "190"
+     ],
+     [
+      "3.5",
+      "2",
+      "6",
+      "13",
+      "25",
+      "37",
+      "49",
+      "74",
+      "98",
+      "125",
+      "145"
+     ],
+     [
+      "3",
+      "2",
+      "5",
+      "9",
+      "18",
+      "27",
+      "36",
+      "54",
+      "72",
+      "90",
+      "110"
+     ],
+     [
+      "2.5",
+      "1",
+      "3",
+      "6",
+      "13",
+      "19",
+      "25",
+      "38",
+      "50",
+      "63",
+      "75"
+     ],
+     [
+      "2",
+      "1",
+      "2",
+      "4",
+      "8",
+      "12",
+      "16",
+      "24",
+      "32",
+      "40",
+      "48"
+     ],
+     [
+      "1.5",
+      "0",
+      "1",
+      "2",
+      "5",
+      "7",
+      "9",
+      "14",
+      "18",
+      "23",
+      "27"
+     ],
+     [
+      "1",
+      "0",
+      "1",
+      "1",
+      "2",
+      "3",
+      "4",
+      "6",
+      "8",
+      "10",
+      "12"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Ready-reckoner for vibration exposure points: at a vibration magnitude of 40 m/s2 the exposure points are 265 points for 5 min and 800 points for 15 min.",
+     "Ready-reckoner for vibration exposure points: at a vibration magnitude of 30 m/s2 the exposure points are 150 points for 5 min, 450 points for 15 min and 900 points for 30 min.",
+     "Ready-reckoner for vibration exposure points: at a vibration magnitude of 25 m/s2 the exposure points are 105 points for 5 min, 315 points for 15 min, 825 points for 30 min and 1250 points for 1 h.",
+     "Ready-reckoner for vibration exposure points: at a vibration magnitude of 20 m/s2 the exposure points are 67 points for 5 min, 200 points for 15 min, 400 points for 30 min, 800 points for 1 h and 1200 points for 1 h 30 min.",
+     "Ready-reckoner for vibration exposure points: at a vibration magnitude of 19 m/s2 the exposure points are 60 points for 5 min, 180 points for 15 min, 360 points for 30 min, 720 points for 1 h, 1100 points for 1 h 30 min and 1450 points for 2 h.",
+     "Ready-reckoner for vibration exposure points: at a vibration magnitude of 18 m/s2 the exposure points are 54 points for 5 min, 160 points for 15 min, 325 points for 30 min, 650 points for 1 h, 970 points for 1 h 30 min and 1300 points for 2 h.",
+     "Ready-reckoner for vibration exposure points: at a vibration magnitude of 17 m/s2 the exposure points are 48 points for 5 min, 145 points for 15 min, 290 points for 30 min, 580 points for 1 h, 865 points for 1 h 30 min and 1150 points for 2 h.",
+     "Ready-reckoner for vibration exposure points: at a vibration magnitude of 16 m/s2 the exposure points are 43 points for 5 min, 130 points for 15 min, 255 points for 30 min, 510 points for 1 h, 770 points for 1 h 30 min and 1000 points for 2 h.",
+     "Ready-reckoner for vibration exposure points: at a vibration magnitude of 15 m/s2 the exposure points are 38 points for 5 min, 115 points for 15 min, 225 points for 30 min, 450 points for 1 h, 675 points for 1 h 30 min, 900 points for 2 h and 1350 points for 3 h.",
+     "Ready-reckoner for vibration exposure points: at a vibration magnitude of 14 m/s2 the exposure points are 33 points for 5 min, 98 points for 15 min, 195 points for 30 min, 390 points for 1 h, 590 points for 1 h 30 min, 785 points for 2 h and 1200 points for 3 h.",
+     "Ready-reckoner for vibration exposure points: at a vibration magnitude of 13 m/s2 the exposure points are 28 points for 5 min, 85 points for 15 min, 170 points for 30 min, 340 points for 1 h, 505 points for 1 h 30 min, 675 points for 2 h, 1000 points for 3 h and 1350 points for 4 h.",
+     "Ready-reckoner for vibration exposure points: at a vibration magnitude of 12 m/s2 the exposure points are 24 points for 5 min, 72 points for 15 min, 145 points for 30 min, 290 points for 1 h, 430 points for 1 h 30 min, 575 points for 2 h, 885 points for 3 h, 1150 points for 4 h and 1450 points for 5 h.",
+     "Ready-reckoner for vibration exposure points: at a vibration magnitude of 11 m/s2 the exposure points are 20 points for 5 min, 61 points for 15 min, 120 points for 30 min, 240 points for 1 h, 365 points for 1 h 30 min, 485 points for 2 h, 725 points for 3 h, 970 points for 4 h, 1200 points for 5 h and 1450 points for 6 h.",
+     "Ready-reckoner for vibration exposure points: at a vibration magnitude of 10 m/s2 the exposure points are 17 points for 5 min, 50 points for 15 min, 100 points for 30 min, 200 points for 1 h, 300 points for 1 h 30 min, 400 points for 2 h, 600 points for 3 h, 800 points for 4 h, 1000 points for 5 h and 1200 points for 6 h.",
+     "Ready-reckoner for vibration exposure points: at a vibration magnitude of 9 m/s2 the exposure points are 14 points for 5 min, 41 points for 15 min, 81 points for 30 min, 160 points for 1 h, 245 points for 1 h 30 min, 325 points for 2 h, 485 points for 3 h, 660 points for 4 h, 810 points for 5 h and 970 points for 6 h.",
+     "Ready-reckoner for vibration exposure points: at a vibration magnitude of 8 m/s2 the exposure points are 11 points for 5 min, 32 points for 15 min, 64 points for 30 min, 130 points for 1 h, 190 points for 1 h 30 min, 255 points for 2 h, 385 points for 3 h, 510 points for 4 h, 640 points for 5 h and 770 points for 6 h.",
+     "Ready-reckoner for vibration exposure points: at a vibration magnitude of 7 m/s2 the exposure points are 8 points for 5 min, 25 points for 15 min, 49 points for 30 min, 98 points for 1 h, 145 points for 1 h 30 min, 195 points for 2 h, 295 points for 3 h, 390 points for 4 h, 490 points for 5 h and 500 points for 6 h.",
+     "Ready-reckoner for vibration exposure points: at a vibration magnitude of 6 m/s2 the exposure points are 6 points for 5 min, 18 points for 15 min, 36 points for 30 min, 72 points for 1 h, 110 points for 1 h 30 min, 145 points for 2 h, 215 points for 3 h, 290 points for 4 h, 360 points for 5 h and 455 points for 6 h.",
+     "Ready-reckoner for vibration exposure points: at a vibration magnitude of 5.5 m/s2 the exposure points are 5 points for 5 min, 15 points for 15 min, 31 points for 30 min, 61 points for 1 h, 91 points for 1 h 30 min, 120 points for 2 h, 180 points for 3 h, 240 points for 4 h, 305 points for 5 h and 365 points for 6 h.",
+     "Ready-reckoner for vibration exposure points: at a vibration magnitude of 5 m/s2 the exposure points are 4 points for 5 min, 13 points for 15 min, 25 points for 30 min, 50 points for 1 h, 75 points for 1 h 30 min, 100 points for 2 h, 150 points for 3 h, 200 points for 4 h, 250 points for 5 h and 300 points for 6 h.",
+     "Ready-reckoner for vibration exposure points: at a vibration magnitude of 4.5 m/s2 the exposure points are 3 points for 5 min, 10 points for 15 min, 21 points for 30 min, 41 points for 1 h, 61 points for 1 h 30 min, 81 points for 2 h, 120 points for 3 h, 160 points for 4 h, 205 points for 5 h and 245 points for 6 h.",
+     "Ready-reckoner for vibration exposure points: at a vibration magnitude of 4 m/s2 the exposure points are 3 points for 5 min, 8 points for 15 min, 16 points for 30 min, 32 points for 1 h, 48 points for 1 h 30 min, 64 points for 2 h, 96 points for 3 h, 130 points for 4 h, 160 points for 5 h and 190 points for 6 h.",
+     "Ready-reckoner for vibration exposure points: at a vibration magnitude of 3.5 m/s2 the exposure points are 2 points for 5 min, 6 points for 15 min, 13 points for 30 min, 25 points for 1 h, 37 points for 1 h 30 min, 49 points for 2 h, 74 points for 3 h, 98 points for 4 h, 125 points for 5 h and 145 points for 6 h.",
+     "Ready-reckoner for vibration exposure points: at a vibration magnitude of 3 m/s2 the exposure points are 2 points for 5 min, 5 points for 15 min, 9 points for 30 min, 18 points for 1 h, 27 points for 1 h 30 min, 36 points for 2 h, 54 points for 3 h, 72 points for 4 h, 90 points for 5 h and 110 points for 6 h.",
+     "Ready-reckoner for vibration exposure points: at a vibration magnitude of 2.5 m/s2 the exposure points are 1 points for 5 min, 3 points for 15 min, 6 points for 30 min, 13 points for 1 h, 19 points for 1 h 30 min, 25 points for 2 h, 38 points for 3 h, 50 points for 4 h, 63 points for 5 h and 75 points for 6 h.",
+     "Ready-reckoner for vibration exposure points: at a vibration magnitude of 2 m/s2 the exposure points are 1 points for 5 min, 2 points for 15 min, 4 points for 30 min, 8 points for 1 h, 12 points for 1 h 30 min, 16 points for 2 h, 24 points for 3 h, 32 points for 4 h, 40 points for 5 h and 48 points for 6 h.",
+     "Ready-reckoner for vibration exposure points: at a vibration magnitude of 1.5 m/s2 the exposure points are 0 points for 5 min, 1 points for 15 min, 2 points for 30 min, 5 points for 1 h, 7 points for 1 h 30 min, 9 points for 2 h, 14 points for 3 h, 18 points for 4 h, 23 points for 5 h and 27 points for 6 h.",
+     "Ready-reckoner for vibration exposure points: at a vibration magnitude of 1 m/s2 the exposure points are 0 points for 5 min, 1 points for 15 min, 1 points for 30 min, 2 points for 1 h, 3 points for 1 h 30 min, 4 points for 2 h, 6 points for 3 h, 8 points for 4 h, 10 points for 5 h and 12 points for 6 h."
+    ]
+   },
+   "reason": "Rebuilt from the page 55 image: one row per vibration magnitude (the library grid dropped the magnitudes), one column per exposure time. Empty triangle cells are empty strings. Colour coding is not included. Values checked against the image.",
+   "evidence": "Table 4 on printed page 55: 28 magnitude rows from 40 to 1 m/s2, 10 exposure times from 5 min to 6 h.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "b8c9b83c88f35972",
+   "kind": "table",
+   "target": "table-5: Using the exposure points ready-reckoner",
+   "value": {
+    "columns": [
+     "Vibration magnitude (m/s2)",
+     "5 min",
+     "15 min",
+     "30 min",
+     "1 h",
+     "1 h 30 min",
+     "2 h",
+     "3 h",
+     "4 h",
+     "5 h",
+     "6 h"
+    ],
+    "rows": [
+     [
+      "40",
+      "265",
+      "800",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "30",
+      "150",
+      "450",
+      "900",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "25",
+      "105",
+      "315",
+      "825",
+      "1250",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "20",
+      "67",
+      "200",
+      "400",
+      "800",
+      "1200",
+      "",
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "19",
+      "60",
+      "180",
+      "360",
+      "720",
+      "1100",
+      "1450",
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "18",
+      "54",
+      "160",
+      "325",
+      "650",
+      "970",
+      "1300",
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "17",
+      "48",
+      "145",
+      "290",
+      "580",
+      "865",
+      "1150",
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "16",
+      "43",
+      "130",
+      "255",
+      "510",
+      "770",
+      "1000",
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "15",
+      "38",
+      "115",
+      "225",
+      "450",
+      "675",
+      "900",
+      "1350",
+      "",
+      "",
+      ""
+     ],
+     [
+      "14",
+      "33",
+      "98",
+      "195",
+      "390",
+      "590",
+      "785",
+      "1200",
+      "",
+      "",
+      ""
+     ],
+     [
+      "13",
+      "28",
+      "85",
+      "170",
+      "340",
+      "505",
+      "675",
+      "1000",
+      "1350",
+      "",
+      ""
+     ],
+     [
+      "12",
+      "24",
+      "72",
+      "145",
+      "290",
+      "430",
+      "575",
+      "885",
+      "1150",
+      "1450",
+      ""
+     ],
+     [
+      "11",
+      "20",
+      "61",
+      "120",
+      "240",
+      "365",
+      "485",
+      "725",
+      "970",
+      "1200",
+      "1450"
+     ],
+     [
+      "10",
+      "17",
+      "50",
+      "100",
+      "200",
+      "300",
+      "400",
+      "600",
+      "800",
+      "1000",
+      "1200"
+     ],
+     [
+      "9",
+      "14",
+      "41",
+      "81",
+      "160",
+      "245",
+      "325",
+      "485",
+      "660",
+      "810",
+      "970"
+     ],
+     [
+      "8",
+      "11",
+      "32",
+      "64",
+      "130",
+      "190",
+      "255",
+      "385",
+      "510",
+      "640",
+      "770"
+     ],
+     [
+      "7",
+      "8",
+      "25",
+      "49",
+      "98",
+      "145",
+      "195",
+      "295",
+      "390",
+      "490",
+      "500"
+     ],
+     [
+      "6",
+      "6",
+      "18",
+      "36",
+      "72",
+      "110",
+      "145",
+      "215",
+      "290",
+      "360",
+      "455"
+     ],
+     [
+      "5.5",
+      "5",
+      "15",
+      "31",
+      "61",
+      "91",
+      "120",
+      "180",
+      "240",
+      "305",
+      "365"
+     ],
+     [
+      "5",
+      "4",
+      "13",
+      "25",
+      "50",
+      "75",
+      "100",
+      "150",
+      "200",
+      "250",
+      "300"
+     ],
+     [
+      "4.5",
+      "3",
+      "10",
+      "21",
+      "41",
+      "61",
+      "81",
+      "120",
+      "160",
+      "205",
+      "245"
+     ],
+     [
+      "4",
+      "3",
+      "8",
+      "16",
+      "32",
+      "48",
+      "64",
+      "96",
+      "130",
+      "160",
+      "190"
+     ],
+     [
+      "3.5",
+      "2",
+      "6",
+      "13",
+      "25",
+      "37",
+      "49",
+      "74",
+      "98",
+      "125",
+      "145"
+     ],
+     [
+      "3",
+      "2",
+      "5",
+      "9",
+      "18",
+      "27",
+      "36",
+      "54",
+      "72",
+      "90",
+      "110"
+     ],
+     [
+      "2.5",
+      "1",
+      "3",
+      "6",
+      "13",
+      "19",
+      "25",
+      "38",
+      "50",
+      "63",
+      "75"
+     ],
+     [
+      "2",
+      "1",
+      "2",
+      "4",
+      "8",
+      "12",
+      "16",
+      "24",
+      "32",
+      "40",
+      "48"
+     ],
+     [
+      "1.5",
+      "0",
+      "1",
+      "2",
+      "5",
+      "7",
+      "9",
+      "14",
+      "18",
+      "23",
+      "27"
+     ],
+     [
+      "1",
+      "0",
+      "1",
+      "1",
+      "2",
+      "3",
+      "4",
+      "6",
+      "8",
+      "10",
+      "12"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Using the exposure points ready-reckoner: at a vibration magnitude of 40 m/s2 the exposure points are 265 points for 5 min and 800 points for 15 min.",
+     "Using the exposure points ready-reckoner: at a vibration magnitude of 30 m/s2 the exposure points are 150 points for 5 min, 450 points for 15 min and 900 points for 30 min.",
+     "Using the exposure points ready-reckoner: at a vibration magnitude of 25 m/s2 the exposure points are 105 points for 5 min, 315 points for 15 min, 825 points for 30 min and 1250 points for 1 h.",
+     "Using the exposure points ready-reckoner: at a vibration magnitude of 20 m/s2 the exposure points are 67 points for 5 min, 200 points for 15 min, 400 points for 30 min, 800 points for 1 h and 1200 points for 1 h 30 min.",
+     "Using the exposure points ready-reckoner: at a vibration magnitude of 19 m/s2 the exposure points are 60 points for 5 min, 180 points for 15 min, 360 points for 30 min, 720 points for 1 h, 1100 points for 1 h 30 min and 1450 points for 2 h.",
+     "Using the exposure points ready-reckoner: at a vibration magnitude of 18 m/s2 the exposure points are 54 points for 5 min, 160 points for 15 min, 325 points for 30 min, 650 points for 1 h, 970 points for 1 h 30 min and 1300 points for 2 h.",
+     "Using the exposure points ready-reckoner: at a vibration magnitude of 17 m/s2 the exposure points are 48 points for 5 min, 145 points for 15 min, 290 points for 30 min, 580 points for 1 h, 865 points for 1 h 30 min and 1150 points for 2 h.",
+     "Using the exposure points ready-reckoner: at a vibration magnitude of 16 m/s2 the exposure points are 43 points for 5 min, 130 points for 15 min, 255 points for 30 min, 510 points for 1 h, 770 points for 1 h 30 min and 1000 points for 2 h.",
+     "Using the exposure points ready-reckoner: at a vibration magnitude of 15 m/s2 the exposure points are 38 points for 5 min, 115 points for 15 min, 225 points for 30 min, 450 points for 1 h, 675 points for 1 h 30 min, 900 points for 2 h and 1350 points for 3 h.",
+     "Using the exposure points ready-reckoner: at a vibration magnitude of 14 m/s2 the exposure points are 33 points for 5 min, 98 points for 15 min, 195 points for 30 min, 390 points for 1 h, 590 points for 1 h 30 min, 785 points for 2 h and 1200 points for 3 h.",
+     "Using the exposure points ready-reckoner: at a vibration magnitude of 13 m/s2 the exposure points are 28 points for 5 min, 85 points for 15 min, 170 points for 30 min, 340 points for 1 h, 505 points for 1 h 30 min, 675 points for 2 h, 1000 points for 3 h and 1350 points for 4 h.",
+     "Using the exposure points ready-reckoner: at a vibration magnitude of 12 m/s2 the exposure points are 24 points for 5 min, 72 points for 15 min, 145 points for 30 min, 290 points for 1 h, 430 points for 1 h 30 min, 575 points for 2 h, 885 points for 3 h, 1150 points for 4 h and 1450 points for 5 h.",
+     "Using the exposure points ready-reckoner: at a vibration magnitude of 11 m/s2 the exposure points are 20 points for 5 min, 61 points for 15 min, 120 points for 30 min, 240 points for 1 h, 365 points for 1 h 30 min, 485 points for 2 h, 725 points for 3 h, 970 points for 4 h, 1200 points for 5 h and 1450 points for 6 h.",
+     "Using the exposure points ready-reckoner: at a vibration magnitude of 10 m/s2 the exposure points are 17 points for 5 min, 50 points for 15 min, 100 points for 30 min, 200 points for 1 h, 300 points for 1 h 30 min, 400 points for 2 h, 600 points for 3 h, 800 points for 4 h, 1000 points for 5 h and 1200 points for 6 h.",
+     "Using the exposure points ready-reckoner: at a vibration magnitude of 9 m/s2 the exposure points are 14 points for 5 min, 41 points for 15 min, 81 points for 30 min, 160 points for 1 h, 245 points for 1 h 30 min, 325 points for 2 h, 485 points for 3 h, 660 points for 4 h, 810 points for 5 h and 970 points for 6 h.",
+     "Using the exposure points ready-reckoner: at a vibration magnitude of 8 m/s2 the exposure points are 11 points for 5 min, 32 points for 15 min, 64 points for 30 min, 130 points for 1 h, 190 points for 1 h 30 min, 255 points for 2 h, 385 points for 3 h, 510 points for 4 h, 640 points for 5 h and 770 points for 6 h.",
+     "Using the exposure points ready-reckoner: at a vibration magnitude of 7 m/s2 the exposure points are 8 points for 5 min, 25 points for 15 min, 49 points for 30 min, 98 points for 1 h, 145 points for 1 h 30 min, 195 points for 2 h, 295 points for 3 h, 390 points for 4 h, 490 points for 5 h and 500 points for 6 h.",
+     "Using the exposure points ready-reckoner: at a vibration magnitude of 6 m/s2 the exposure points are 6 points for 5 min, 18 points for 15 min, 36 points for 30 min, 72 points for 1 h, 110 points for 1 h 30 min, 145 points for 2 h, 215 points for 3 h, 290 points for 4 h, 360 points for 5 h and 455 points for 6 h.",
+     "Using the exposure points ready-reckoner: at a vibration magnitude of 5.5 m/s2 the exposure points are 5 points for 5 min, 15 points for 15 min, 31 points for 30 min, 61 points for 1 h, 91 points for 1 h 30 min, 120 points for 2 h, 180 points for 3 h, 240 points for 4 h, 305 points for 5 h and 365 points for 6 h.",
+     "Using the exposure points ready-reckoner: at a vibration magnitude of 5 m/s2 the exposure points are 4 points for 5 min, 13 points for 15 min, 25 points for 30 min, 50 points for 1 h, 75 points for 1 h 30 min, 100 points for 2 h, 150 points for 3 h, 200 points for 4 h, 250 points for 5 h and 300 points for 6 h.",
+     "Using the exposure points ready-reckoner: at a vibration magnitude of 4.5 m/s2 the exposure points are 3 points for 5 min, 10 points for 15 min, 21 points for 30 min, 41 points for 1 h, 61 points for 1 h 30 min, 81 points for 2 h, 120 points for 3 h, 160 points for 4 h, 205 points for 5 h and 245 points for 6 h.",
+     "Using the exposure points ready-reckoner: at a vibration magnitude of 4 m/s2 the exposure points are 3 points for 5 min, 8 points for 15 min, 16 points for 30 min, 32 points for 1 h, 48 points for 1 h 30 min, 64 points for 2 h, 96 points for 3 h, 130 points for 4 h, 160 points for 5 h and 190 points for 6 h.",
+     "Using the exposure points ready-reckoner: at a vibration magnitude of 3.5 m/s2 the exposure points are 2 points for 5 min, 6 points for 15 min, 13 points for 30 min, 25 points for 1 h, 37 points for 1 h 30 min, 49 points for 2 h, 74 points for 3 h, 98 points for 4 h, 125 points for 5 h and 145 points for 6 h.",
+     "Using the exposure points ready-reckoner: at a vibration magnitude of 3 m/s2 the exposure points are 2 points for 5 min, 5 points for 15 min, 9 points for 30 min, 18 points for 1 h, 27 points for 1 h 30 min, 36 points for 2 h, 54 points for 3 h, 72 points for 4 h, 90 points for 5 h and 110 points for 6 h.",
+     "Using the exposure points ready-reckoner: at a vibration magnitude of 2.5 m/s2 the exposure points are 1 points for 5 min, 3 points for 15 min, 6 points for 30 min, 13 points for 1 h, 19 points for 1 h 30 min, 25 points for 2 h, 38 points for 3 h, 50 points for 4 h, 63 points for 5 h and 75 points for 6 h.",
+     "Using the exposure points ready-reckoner: at a vibration magnitude of 2 m/s2 the exposure points are 1 points for 5 min, 2 points for 15 min, 4 points for 30 min, 8 points for 1 h, 12 points for 1 h 30 min, 16 points for 2 h, 24 points for 3 h, 32 points for 4 h, 40 points for 5 h and 48 points for 6 h.",
+     "Using the exposure points ready-reckoner: at a vibration magnitude of 1.5 m/s2 the exposure points are 0 points for 5 min, 1 points for 15 min, 2 points for 30 min, 5 points for 1 h, 7 points for 1 h 30 min, 9 points for 2 h, 14 points for 3 h, 18 points for 4 h, 23 points for 5 h and 27 points for 6 h.",
+     "Using the exposure points ready-reckoner: at a vibration magnitude of 1 m/s2 the exposure points are 0 points for 5 min, 1 points for 15 min, 1 points for 30 min, 2 points for 1 h, 3 points for 1 h 30 min, 4 points for 2 h, 6 points for 3 h, 8 points for 4 h, 10 points for 5 h and 12 points for 6 h."
+    ]
+   },
+   "reason": "Rebuilt from the page 56 image; the values are the same as Table 4. The red circles and arrow marking 5 m/s2 at 3 h = 150 points are annotations, and the numbered instructions below are not part of the table. The library grid was garbled, so the grid was rebuilt from the image. Colour coding is not included.",
+   "evidence": "Table 5 on printed page 56: 28 magnitude rows from 40 to 1 m/s2, 10 exposure times from 5 min to 6 h; example 5 m/s2 at 3 h = 150 points.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "3b9858ac4b44af4a",
+   "kind": "figure_description",
+   "target": "figure-1: HSE vibration exposure calculator",
+   "value": "Screenshot of the HSE Hand-Arm Vibration Exposure Calculator, Version 5.3 October 2017, an empty spreadsheet form on a dark red background. It has fields for Company name/work area and Employee ID and/or task name, and a table of six blank rows with columns Tool or process name, Vibration magnitude m/s², Exposure points per hour, Time to reach EAV 2.5 m/s² A(8) and Time to reach ELV 5 m/s² A(8) (each in hours and minutes), Exposure duration (hours, minutes), Partial exposure m/s² A(8) and Partial exposure points. Below are Daily exposure m/s² A(8) and Total exposure points boxes, buttons Zoom to fit, Help, Reset and Print (preview), a Lock Tool or process names tick box, Instructions for use, and fields for Exposure calculation by, Job role and Calculation date.",
+   "reason": "Described the visible screenshot with printed labels as shown.",
+   "evidence": "figure-1.png: title HAND-ARM VIBRATION EXPOSURE CALCULATOR, Version 5.3 October 2017, white input cells and yellow result cells.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "924c2ffb9ab247ea",
+   "kind": "figure_description",
+   "target": "figure-2: The calculator in use",
+   "value": "A screenshot of the HSE Hand-Arm Vibration Exposure Calculator spreadsheet (Version 5.3 October 2017). It has white input cells and yellow result cells with columns Vibration magnitude m/s², Exposure points per hour, Time to reach EAV 2.5 m/s² A(8), Time to reach ELV 5 m/s² A(8), Exposure duration, Partial exposure m/s² A(8) and Partial exposure points, filled in for Tool or process 1 (10 m/s²), 2 (6) and 3 (3.5). The totals show Daily exposure 2.8 m/s² A(8) and Total exposure points 123, with the warning 'Exposure at or above 2.5m/s²A(8) EAV (100 points)', and buttons Zoom to fit, Help, Reset and Print (preview).",
+   "reason": "The image is a screenshot of the calculator with printed headings, example values and buttons.",
+   "evidence": "Title 'HAND-ARM VIBRATION EXPOSURE CALCULATOR', 'Version 5.3 October 2017', totals 2.8 and 123, calculation date 24 Nov 2017.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "f5ff4a511f8ac6b1",
+   "kind": "figure_description",
+   "target": "figure-3: Directions of vibration measurement",
+   "value": "A diagram of three drawings of a hand gripping a round handle or bar, each with red arrows showing the measurement axes. The views are labelled with the axes x and z (hand around a bar seen end-on), y and z (hand gripping a bar side-on) and x and z (hand on a round shape seen from the side). The caption reads 'Figure 3 Directions of vibration measurement'.",
+   "reason": "The image shows three hand drawings with red axis arrows and axis letters, plus the printed caption.",
+   "evidence": "Axis labels x, y, z beside red arrows; caption 'Figure 3 Directions of vibration measurement'.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "737d97bec1e82d12",
+   "kind": "figure_description",
+   "target": "figure-4: The vibration total value a",
+   "value": "A diagram of a small box with three red arrows along the three axes, labelled a_hwx, a_hwy and a_hwz, and one longer blue arrow labelled a_hv. Dashed lines join the arrow tips to show the blue arrow as the combined result of the three axis values. The caption reads 'Figure 4 The vibration total value a_hv'.",
+   "reason": "The image is a 3D vector diagram with labelled arrows and a caption.",
+   "evidence": "Labels ahwx, ahwy, ahwz, ahv; caption 'Figure 4 The vibration total value ahv'.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "7a8958330fbee22b",
+   "kind": "table",
+   "target": "table-6: A summary of vibration magnitudes of some common machines",
+   "value": {
+    "columns": [
+     "Industry",
+     "Tool type",
+     "Tool characteristic, inserted tool, size, process",
+     "Notes",
+     "Range lower (10th percentile) (m/s²)",
+     "Range upper (90th percentile) (m/s²)",
+     "Recommended initial value (75th percentile) (m/s²)"
+    ],
+    "rows": [
+     [
+      "General",
+      "Drills",
+      "Standard drill bit",
+      "Vibration values can vary across the many sub-categories (eg small to large) and different materials being worked. Larger drills tend to give higher vibration values. Maintaining sharp drill bits is important",
+      "2",
+      "5",
+      "5"
+     ],
+     [
+      "General",
+      "Drills",
+      "Hole saw",
+      "",
+      "4",
+      "12",
+      "10"
+     ],
+     [
+      "General",
+      "Drills – Core",
+      "78–107 mm",
+      "Can give very high vibrations if operators push too hard. Maintaining sharp drill bits is important",
+      "6",
+      "8",
+      "8"
+     ],
+     [
+      "General",
+      "Drills – Impact",
+      "5 and 8 mm masonry bit",
+      "Can give very high vibrations if operators push too hard. Maintaining sharp drill bits is important",
+      "7",
+      "13",
+      "11"
+     ],
+     [
+      "General",
+      "Grinders – Angle",
+      "100–180 mm",
+      "Vibration values will depend on force being applied and different materials being worked. Selecting the right grade of abrasive and applying the right forces can help to minimise exposures",
+      "3",
+      "10",
+      "7"
+     ],
+     [
+      "General",
+      "Grinders – Angle",
+      "125 and 100 mm Flapper discs",
+      "",
+      "2",
+      "5",
+      "4"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "In the table A summary of vibration magnitudes of some common machines, for industry General, tool type Drills, tool characteristic Standard drill bit, the notes say: Vibration values can vary across the many sub-categories (eg small to large) and different materials being worked. Larger drills tend to give higher vibration values. Maintaining sharp drill bits is important; range lower (10th percentile) is 2 m/s², range upper (90th percentile) is 5 m/s², and recommended initial value (75th percentile) is 5 m/s².",
+     "In the table A summary of vibration magnitudes of some common machines, for industry General, tool type Drills, tool characteristic Hole saw; range lower (10th percentile) is 4 m/s², range upper (90th percentile) is 12 m/s², and recommended initial value (75th percentile) is 10 m/s².",
+     "In the table A summary of vibration magnitudes of some common machines, for industry General, tool type Drills – Core, tool characteristic 78–107 mm, the notes say: Can give very high vibrations if operators push too hard. Maintaining sharp drill bits is important; range lower (10th percentile) is 6 m/s², range upper (90th percentile) is 8 m/s², and recommended initial value (75th percentile) is 8 m/s².",
+     "In the table A summary of vibration magnitudes of some common machines, for industry General, tool type Drills – Impact, tool characteristic 5 and 8 mm masonry bit, the notes say: Can give very high vibrations if operators push too hard. Maintaining sharp drill bits is important; range lower (10th percentile) is 7 m/s², range upper (90th percentile) is 13 m/s², and recommended initial value (75th percentile) is 11 m/s².",
+     "In the table A summary of vibration magnitudes of some common machines, for industry General, tool type Grinders – Angle, tool characteristic 100–180 mm, the notes say: Vibration values will depend on force being applied and different materials being worked. Selecting the right grade of abrasive and applying the right forces can help to minimise exposures; range lower (10th percentile) is 3 m/s², range upper (90th percentile) is 10 m/s², and recommended initial value (75th percentile) is 7 m/s².",
+     "In the table A summary of vibration magnitudes of some common machines, for industry General, tool type Grinders – Angle, tool characteristic 125 and 100 mm Flapper discs; range lower (10th percentile) is 2 m/s², range upper (90th percentile) is 5 m/s², and recommended initial value (75th percentile) is 4 m/s²."
+    ]
+   },
+   "reason": "The grid matches the page image row for row; headings taken from the printed header.",
+   "evidence": "Page 65 Table 6 has six data rows: standard drill bit, hole saw, core, impact, angle grinders 100–180 mm and flapper discs.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "c0e7bdbef5cee1d9",
+   "kind": "table",
+   "target": "table-p66: Reducing vibration exposure by choosing lower-vibration models of machine",
+   "value": {
+    "columns": [
+     "Industry",
+     "Tool type",
+     "Tool characteristic, inserted tool, size, process",
+     "Notes",
+     "Range-lower (10th percentile) (m/s²)",
+     "Range upper (90th percentile) (m/s²)",
+     "Recommended initial value (75th percentile) (m/s²)"
+    ],
+    "rows": [
+     [
+      "General",
+      "Grinders – Angle",
+      "220–300 mm",
+      "Vibration values can vary across the many sub-categories and different materials being worked. Applying too much force can produce lobing of the discs and significantly increase vibration levels",
+      "4",
+      "11",
+      "9"
+     ],
+     [
+      "General",
+      "Grinders – Die",
+      "",
+      "",
+      "5",
+      "10",
+      "8"
+     ],
+     [
+      "General",
+      "Grinders – Straight",
+      "",
+      "Correct selection of the abrasive will ensure that workers do not apply excessive force and keep vibration magnitudes to a minimum",
+      "4",
+      "9",
+      "8"
+     ],
+     [
+      "General",
+      "Nail guns",
+      "",
+      "Measured vibration levels are dependent upon rates of use. It can be difficult to assess exposure times correctly",
+      "3",
+      "13",
+      "9"
+     ],
+     [
+      "General",
+      "Needle scalers",
+      "Non-vibration reduced",
+      "",
+      "12",
+      "26",
+      "19"
+     ],
+     [
+      "General",
+      "Needle scalers",
+      "Vibration reduced",
+      "",
+      "3",
+      "8",
+      "7"
+     ],
+     [
+      "General",
+      "Nibblers",
+      "",
+      "",
+      "7",
+      "12",
+      "12"
+     ],
+     [
+      "General",
+      "Reciprocating saws",
+      "",
+      "Operator training and work organisation is important. Lower vibrations can be achieved by keeping the tool’s nose against the workpiece",
+      "7",
+      "27",
+      "18"
+     ],
+     [
+      "General",
+      "Sanders – Random-orbital",
+      "",
+      "Vibration magnitudes are very dependent upon applied force. Lower vibration magnitudes can be achieved by applying the correct forces and using the appropriate abrasives",
+      "6",
+      "14",
+      "12"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "In the table Reducing vibration exposure by choosing lower-vibration models of machine, for industry General, tool type Grinders – Angle, tool characteristic 220–300 mm, the notes say: Vibration values can vary across the many sub-categories and different materials being worked. Applying too much force can produce lobing of the discs and significantly increase vibration levels; range-lower (10th percentile) is 4 m/s², range upper (90th percentile) is 11 m/s², and recommended initial value (75th percentile) is 9 m/s².",
+     "In the table Reducing vibration exposure by choosing lower-vibration models of machine, for industry General, tool type Grinders – Die; range-lower (10th percentile) is 5 m/s², range upper (90th percentile) is 10 m/s², and recommended initial value (75th percentile) is 8 m/s².",
+     "In the table Reducing vibration exposure by choosing lower-vibration models of machine, for industry General, tool type Grinders – Straight, the notes say: Correct selection of the abrasive will ensure that workers do not apply excessive force and keep vibration magnitudes to a minimum; range-lower (10th percentile) is 4 m/s², range upper (90th percentile) is 9 m/s², and recommended initial value (75th percentile) is 8 m/s².",
+     "In the table Reducing vibration exposure by choosing lower-vibration models of machine, for industry General, tool type Nail guns, the notes say: Measured vibration levels are dependent upon rates of use. It can be difficult to assess exposure times correctly; range-lower (10th percentile) is 3 m/s², range upper (90th percentile) is 13 m/s², and recommended initial value (75th percentile) is 9 m/s².",
+     "In the table Reducing vibration exposure by choosing lower-vibration models of machine, for industry General, tool type Needle scalers, tool characteristic Non-vibration reduced; range-lower (10th percentile) is 12 m/s², range upper (90th percentile) is 26 m/s², and recommended initial value (75th percentile) is 19 m/s².",
+     "In the table Reducing vibration exposure by choosing lower-vibration models of machine, for industry General, tool type Needle scalers, tool characteristic Vibration reduced; range-lower (10th percentile) is 3 m/s², range upper (90th percentile) is 8 m/s², and recommended initial value (75th percentile) is 7 m/s².",
+     "In the table Reducing vibration exposure by choosing lower-vibration models of machine, for industry General, tool type Nibblers; range-lower (10th percentile) is 7 m/s², range upper (90th percentile) is 12 m/s², and recommended initial value (75th percentile) is 12 m/s².",
+     "In the table Reducing vibration exposure by choosing lower-vibration models of machine, for industry General, tool type Reciprocating saws, the notes say: Operator training and work organisation is important. Lower vibrations can be achieved by keeping the tool’s nose against the workpiece; range-lower (10th percentile) is 7 m/s², range upper (90th percentile) is 27 m/s², and recommended initial value (75th percentile) is 18 m/s².",
+     "In the table Reducing vibration exposure by choosing lower-vibration models of machine, for industry General, tool type Sanders – Random-orbital, the notes say: Vibration magnitudes are very dependent upon applied force. Lower vibration magnitudes can be achieved by applying the correct forces and using the appropriate abrasives; range-lower (10th percentile) is 6 m/s², range upper (90th percentile) is 14 m/s², and recommended initial value (75th percentile) is 12 m/s²."
+    ]
+   },
+   "reason": "The grid matches the page image row for row; the page image header reads 'Range upper' without a hyphen.",
+   "evidence": "Page 66 has nine data rows from Grinders – Angle 220–300 mm to Sanders – Random-orbital.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "5b09630791894cd2",
+   "kind": "table",
+   "target": "table-p67: Reducing vibration exposure by choosing lower-vibration models of machine",
+   "value": {
+    "columns": [
+     "Industry",
+     "Tool type",
+     "Tool characteristic, inserted tool, size, process",
+     "Notes",
+     "Range-lower (10th percentile) (m/s²)",
+     "Range upper (90th percentile) (m/s²)",
+     "Recommended initial value (75th percentile) (m/s²)"
+    ],
+    "rows": [
+     [
+      "General",
+      "Sanders – Orbital",
+      "",
+      "Vibration magnitudes are very dependent upon applied force. Lower vibration magnitudes can be achieved by applying the correct forces and using the appropriate abrasives",
+      "4",
+      "12",
+      "9"
+     ],
+     [
+      "Construction",
+      "Breakers",
+      "Vibration-reduced models with suspended handles or suspended bodies",
+      "Lower values can often be achieved by improved operator training",
+      "7",
+      "18",
+      "14"
+     ],
+     [
+      "Construction",
+      "Demolition or rotary hammers",
+      "",
+      "Can give very high vibrations if operators push too hard. Maintaining sharp drill bits is important",
+      "10",
+      "21",
+      "18"
+     ],
+     [
+      "Construction",
+      "Plate compactors",
+      "Non-vibration reduced",
+      "",
+      "9",
+      "22",
+      "18"
+     ],
+     [
+      "Construction",
+      "Plate compactors",
+      "Vibration reduced",
+      "",
+      "2",
+      "7",
+      "4"
+     ],
+     [
+      "Construction",
+      "Pneumatic hammers",
+      "",
+      "Can give very high vibrations if operators push too hard. Maintaining sharp drill bits is important",
+      "10",
+      "29",
+      "25"
+     ],
+     [
+      "Construction",
+      "Saws – Cut-off",
+      "Masonry cutting",
+      "",
+      "5",
+      "14",
+      "13"
+     ],
+     [
+      "Construction",
+      "Scabblers",
+      "",
+      "Well-designed vibration-reduced machines can give vibration values less than 5 m/s²",
+      "4",
+      "14",
+      "12"
+     ],
+     [
+      "Construction",
+      "Trench rammers",
+      "",
+      "",
+      "13",
+      "13",
+      "13"
+     ],
+     [
+      "Construction",
+      "Water-jetting guns",
+      "",
+      "",
+      "1",
+      "5",
+      "4"
+     ],
+     [
+      "Forestry/ horticulture",
+      "Brushcutters – Saw blade",
+      "",
+      "",
+      "3",
+      "5",
+      "5"
+     ],
+     [
+      "Forestry/ horticulture",
+      "Chainsaws",
+      "",
+      "Good maintenance is important, eg regular replacement of engine mounts and sharpening saw points",
+      "5",
+      "7",
+      "7"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "In the table Reducing vibration exposure by choosing lower-vibration models of machine, for industry General, tool type Sanders – Orbital, the notes say: Vibration magnitudes are very dependent upon applied force. Lower vibration magnitudes can be achieved by applying the correct forces and using the appropriate abrasives; range-lower (10th percentile) is 4 m/s², range upper (90th percentile) is 12 m/s², and recommended initial value (75th percentile) is 9 m/s².",
+     "In the table Reducing vibration exposure by choosing lower-vibration models of machine, for industry Construction, tool type Breakers, tool characteristic Vibration-reduced models with suspended handles or suspended bodies, the notes say: Lower values can often be achieved by improved operator training; range-lower (10th percentile) is 7 m/s², range upper (90th percentile) is 18 m/s², and recommended initial value (75th percentile) is 14 m/s².",
+     "In the table Reducing vibration exposure by choosing lower-vibration models of machine, for industry Construction, tool type Demolition or rotary hammers, the notes say: Can give very high vibrations if operators push too hard. Maintaining sharp drill bits is important; range-lower (10th percentile) is 10 m/s², range upper (90th percentile) is 21 m/s², and recommended initial value (75th percentile) is 18 m/s².",
+     "In the table Reducing vibration exposure by choosing lower-vibration models of machine, for industry Construction, tool type Plate compactors, tool characteristic Non-vibration reduced; range-lower (10th percentile) is 9 m/s², range upper (90th percentile) is 22 m/s², and recommended initial value (75th percentile) is 18 m/s².",
+     "In the table Reducing vibration exposure by choosing lower-vibration models of machine, for industry Construction, tool type Plate compactors, tool characteristic Vibration reduced; range-lower (10th percentile) is 2 m/s², range upper (90th percentile) is 7 m/s², and recommended initial value (75th percentile) is 4 m/s².",
+     "In the table Reducing vibration exposure by choosing lower-vibration models of machine, for industry Construction, tool type Pneumatic hammers, the notes say: Can give very high vibrations if operators push too hard. Maintaining sharp drill bits is important; range-lower (10th percentile) is 10 m/s², range upper (90th percentile) is 29 m/s², and recommended initial value (75th percentile) is 25 m/s².",
+     "In the table Reducing vibration exposure by choosing lower-vibration models of machine, for industry Construction, tool type Saws – Cut-off, tool characteristic Masonry cutting; range-lower (10th percentile) is 5 m/s², range upper (90th percentile) is 14 m/s², and recommended initial value (75th percentile) is 13 m/s².",
+     "In the table Reducing vibration exposure by choosing lower-vibration models of machine, for industry Construction, tool type Scabblers, the notes say: Well-designed vibration-reduced machines can give vibration values less than 5 m/s²; range-lower (10th percentile) is 4 m/s², range upper (90th percentile) is 14 m/s², and recommended initial value (75th percentile) is 12 m/s².",
+     "In the table Reducing vibration exposure by choosing lower-vibration models of machine, for industry Construction, tool type Trench rammers; range-lower (10th percentile) is 13 m/s², range upper (90th percentile) is 13 m/s², and recommended initial value (75th percentile) is 13 m/s².",
+     "In the table Reducing vibration exposure by choosing lower-vibration models of machine, for industry Construction, tool type Water-jetting guns; range-lower (10th percentile) is 1 m/s², range upper (90th percentile) is 5 m/s², and recommended initial value (75th percentile) is 4 m/s².",
+     "In the table Reducing vibration exposure by choosing lower-vibration models of machine, for industry Forestry/ horticulture, tool type Brushcutters – Saw blade; range-lower (10th percentile) is 3 m/s², range upper (90th percentile) is 5 m/s², and recommended initial value (75th percentile) is 5 m/s².",
+     "In the table Reducing vibration exposure by choosing lower-vibration models of machine, for industry Forestry/ horticulture, tool type Chainsaws, the notes say: Good maintenance is important, eg regular replacement of engine mounts and sharpening saw points; range-lower (10th percentile) is 5 m/s², range upper (90th percentile) is 7 m/s², and recommended initial value (75th percentile) is 7 m/s²."
+    ]
+   },
+   "reason": "The grid matches the page image row for row.",
+   "evidence": "Page 67 has twelve data rows from Sanders – Orbital to Chainsaws.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "49a1e5b4e6941d6e",
+   "kind": "table",
+   "target": "table-p68: Reducing vibration exposure by choosing lower-vibration models of machine",
+   "value": {
+    "columns": [
+     "Industry",
+     "Tool type",
+     "Tool characteristic, inserted tool, size, process",
+     "Notes",
+     "Range-lower (10th percentile) (m/s²)",
+     "Range upper (90th percentile) (m/s²)",
+     "Recommended initial value (75th percentile) (m/s²)"
+    ],
+    "rows": [
+     [
+      "Forestry/ horticulture",
+      "Hedge trimmers",
+      "",
+      "Higher vibration values are possible; the data here represents operations on hedges with hedge branches well within the capability of the machines. Vibration values may be higher if the hedge trimmer often has to work hard to cut thicker branches",
+      "3",
+      "7",
+      "6"
+     ],
+     [
+      "Forestry/ horticulture",
+      "Mowers – Hand-guided",
+      "",
+      "",
+      "4",
+      "8",
+      "7"
+     ],
+     [
+      "Forestry/ horticulture",
+      "Mowers – Ride-on",
+      "",
+      "",
+      "3",
+      "7",
+      "6"
+     ],
+     [
+      "Forestry/ horticulture",
+      "Strimmers",
+      "Brushcutter – Strimmer",
+      "",
+      "2",
+      "7",
+      "7"
+     ],
+     [
+      "Engineering",
+      "Chipping hammers",
+      "Chipping weld",
+      "",
+      "20",
+      "32",
+      "31"
+     ],
+     [
+      "Engineering",
+      "Impact wrenches",
+      "Drive size: 3/8”, 1/2” & 3/4”",
+      "Measured vibration levels are dependent upon rates of use. It can be difficult to assess exposure times correctly",
+      "3",
+      "6",
+      "5"
+     ],
+     [
+      "Engineering",
+      "Impact wrenches",
+      "Drive size: 1”",
+      "Measured vibration levels are dependent upon rates of use. It can be difficult to assess exposure times correctly",
+      "7",
+      "11",
+      "10"
+     ],
+     [
+      "Engineering",
+      "Pedestal grinders",
+      "",
+      "Correct selection of the abrasive will reduce the likelihood of workers applying excessive force and will keep vibration magnitudes to a minimum",
+      "2",
+      "11",
+      "8"
+     ],
+     [
+      "Engineering",
+      "Polishers – Angle (hand-held)",
+      "Mop head or soft-backed pad",
+      "Vibration magnitudes are very dependent upon applied force. Low-vibration magnitudes are achieved by applying the correct forces",
+      "1",
+      "3",
+      "3"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Reducing vibration exposure by choosing lower-vibration models of machine: for hedge trimmers in forestry/horticulture, the notes say higher vibration values are possible; the data here represents operations on hedges with hedge branches well within the capability of the machines, and vibration values may be higher if the hedge trimmer often has to work hard to cut thicker branches; the range-lower (10th percentile) is 3 m/s², the range upper (90th percentile) is 7 m/s² and the recommended initial value (75th percentile) is 6 m/s².",
+     "Reducing vibration exposure by choosing lower-vibration models of machine: for mowers – hand-guided in forestry/horticulture, the range-lower (10th percentile) is 4 m/s², the range upper (90th percentile) is 8 m/s² and the recommended initial value (75th percentile) is 7 m/s².",
+     "Reducing vibration exposure by choosing lower-vibration models of machine: for mowers – ride-on in forestry/horticulture, the range-lower (10th percentile) is 3 m/s², the range upper (90th percentile) is 7 m/s² and the recommended initial value (75th percentile) is 6 m/s².",
+     "Reducing vibration exposure by choosing lower-vibration models of machine: for strimmers (brushcutter – strimmer) in forestry/horticulture, the range-lower (10th percentile) is 2 m/s², the range upper (90th percentile) is 7 m/s² and the recommended initial value (75th percentile) is 7 m/s².",
+     "Reducing vibration exposure by choosing lower-vibration models of machine: for chipping hammers (chipping weld) in engineering, the range-lower (10th percentile) is 20 m/s², the range upper (90th percentile) is 32 m/s² and the recommended initial value (75th percentile) is 31 m/s².",
+     "Reducing vibration exposure by choosing lower-vibration models of machine: for impact wrenches with drive size 3/8”, 1/2” & 3/4” in engineering, measured vibration levels are dependent upon rates of use and it can be difficult to assess exposure times correctly; the range-lower (10th percentile) is 3 m/s², the range upper (90th percentile) is 6 m/s² and the recommended initial value (75th percentile) is 5 m/s².",
+     "Reducing vibration exposure by choosing lower-vibration models of machine: for impact wrenches with drive size 1” in engineering, measured vibration levels are dependent upon rates of use and it can be difficult to assess exposure times correctly; the range-lower (10th percentile) is 7 m/s², the range upper (90th percentile) is 11 m/s² and the recommended initial value (75th percentile) is 10 m/s².",
+     "Reducing vibration exposure by choosing lower-vibration models of machine: for pedestal grinders in engineering, correct selection of the abrasive will reduce the likelihood of workers applying excessive force and will keep vibration magnitudes to a minimum; the range-lower (10th percentile) is 2 m/s², the range upper (90th percentile) is 11 m/s² and the recommended initial value (75th percentile) is 8 m/s².",
+     "Reducing vibration exposure by choosing lower-vibration models of machine: for polishers – angle (hand-held) with a mop head or soft-backed pad in engineering, vibration magnitudes are very dependent upon applied force and low-vibration magnitudes are achieved by applying the correct forces; the range-lower (10th percentile) is 1 m/s², the range upper (90th percentile) is 3 m/s² and the recommended initial value (75th percentile) is 3 m/s²."
+    ]
+   },
+   "reason": "Rebuilt from page 68 image; the grid matched the print. Header 'Range upper' printed without a hyphen, so the printed form is used. Repeated Industry and Tool type cells kept on each row.",
+   "evidence": "Page 68 table with 9 data rows and 7 columns.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "3b403bfb81883a3b",
+   "kind": "table",
+   "target": "table-7: Typical topics for training courses on HAV risk management",
+   "value": {
+    "columns": [
+     "Topic",
+     "Important content",
+     "Useful additional content"
+    ],
+    "rows": [
+     [
+      "Legal requirements",
+      "Duties of employers to assess and manage risks from HAV: ■ The Control of Vibration at Work Regulations 2005 ■ The Reporting of Injuries, Diseases and Dangerous Occurrences Regulations 2013 Duties of manufacturers and suppliers of machinery: ■ Supply of Machinery (Safety) Regulations 2008",
+      "■ The Health and Safety at Work etc Act 1974 ■ The Management of Health and Safety at Work Regulations 1999 ■ The Provision and Use of Work Equipment Regulations 1998 ■ The Personal Protective Equipment at Work Regulations 1992 ■ The Workplace (Health, Safety and Welfare) Regulations 1992 ■ The Physical Agents (Vibration) Directive 2002/44/EC ■ Harmonised European machinery safety standards"
+     ],
+     [
+      "Theory of vibration",
+      "Basic concepts: ■ displacement, velocity and acceleration ■ root-mean-square time averaging ■ vibration frequency",
+      "Typical characteristics of sources of HAV, eg rotary, reciprocating and percussive tools"
+     ],
+     [
+      "Effects on health",
+      "HAVS: ■ neurological effects ■ vascular effects ■ musculoskeletal effects Carpal tunnel syndrome",
+      "Development of symptoms, dose-effect relationships Clinical and laboratory techniques used in diagnosis of HAVS"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Typical topics for training courses on HAV risk management: for the topic Legal requirements, the important content is duties of employers to assess and manage risks from HAV (the Control of Vibration at Work Regulations 2005; the Reporting of Injuries, Diseases and Dangerous Occurrences Regulations 2013) and duties of manufacturers and suppliers of machinery (Supply of Machinery (Safety) Regulations 2008); the useful additional content is the Health and Safety at Work etc Act 1974, the Management of Health and Safety at Work Regulations 1999, the Provision and Use of Work Equipment Regulations 1998, the Personal Protective Equipment at Work Regulations 1992, the Workplace (Health, Safety and Welfare) Regulations 1992, the Physical Agents (Vibration) Directive 2002/44/EC and harmonised European machinery safety standards.",
+     "Typical topics for training courses on HAV risk management: for the topic Theory of vibration, the important content is basic concepts (displacement, velocity and acceleration; root-mean-square time averaging; vibration frequency); the useful additional content is typical characteristics of sources of HAV, eg rotary, reciprocating and percussive tools.",
+     "Typical topics for training courses on HAV risk management: for the topic Effects on health, the important content is HAVS (neurological effects; vascular effects; musculoskeletal effects) and carpal tunnel syndrome; the useful additional content is development of symptoms, dose-effect relationships, and clinical and laboratory techniques used in diagnosis of HAVS."
+    ]
+   },
+   "reason": "Grid matches page 81 image; bullets kept as ■ in the cell text.",
+   "evidence": "Page 81 Table 7 with three columns and three data rows.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "4b503cc6c430d05b",
+   "kind": "figure_description",
+   "target": "figure-5: Blanching",
+   "value": "A colour photograph of the palms of two hands held up against a green background. On each hand some fingertips look pale or white compared with the rest of the skin: the first two fingers on the left side and the first finger on the right side of the picture. The figure has no printed labels or numbers.",
+   "reason": "Described only what is visible in the photo.",
+   "evidence": "figure-5.png shows two open palms with whitened fingertips on a green cloth; no text in the image.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "2e20df841376564c",
+   "kind": "figure_description",
+   "target": "figure-6: Numerical scoring of vascular symptoms of HAVS",
+   "value": "A diagram of the palm side of a left hand and a right hand, with each finger part and thumb part marked with a red number. Fingers are numbered 1 at the tip, 2 in the middle and 3 at the base of each finger, and the thumb parts are numbered 4 and 5. Some finger sections are shaded orange: on the left hand parts of two fingers, on the right hand three fingers. The printed caption is \"Figure 6 Numerical scoring of vascular symptoms of HAVS\".",
+   "reason": "Described the labelled hand diagram from the image; shading read from the picture.",
+   "evidence": "figure-6.png shows two hands with red numbers 1 to 5 and shaded finger parts, caption Figure 6.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "e54cb1a22182c00e",
+   "kind": "table",
+   "target": "table-8: Modified Stockholm Workshop scales",
+   "value": {
+    "columns": [
+     "Stage",
+     "Criteria",
+     "Left hand",
+     "Right hand"
+    ],
+    "rows": [
+     [
+      "Sensorineural",
+      "",
+      "",
+      ""
+     ],
+     [
+      "0 SN",
+      "Vibration exposure but no symptoms",
+      "",
+      ""
+     ],
+     [
+      "1 SN",
+      "Intermittent numbness and/or tingling (with a sensorineural, SN, score of >3 and <6)",
+      "",
+      ""
+     ],
+     [
+      "2 SN (early)",
+      "Intermittent numbness, and/or tingling, reduced sensory perception (usually an SN score of >6, <9)",
+      "",
+      ""
+     ],
+     [
+      "2 SN (late)",
+      "Persistent numbness, and/or tingling, reduced sensory perception (usually an SN score of >9, <16)",
+      "",
+      ""
+     ],
+     [
+      "3 SN",
+      "Constant numbness and/or tingling, reduced sensory perception and manipulative dexterity in warmth (and an SN score of >19)",
+      "",
+      ""
+     ],
+     [
+      "Vascular",
+      "",
+      "",
+      ""
+     ],
+     [
+      "0 V",
+      "No attacks",
+      "",
+      ""
+     ],
+     [
+      "1 V",
+      "Attacks affecting only the tips of the distal phalanges of one or more fingers (usually a blanching score of 1–4)",
+      "",
+      ""
+     ],
+     [
+      "2 V (early)",
+      "Occasional attacks of whiteness affecting the distal and middle (rarely also the proximal) phalanges of one or more fingers (usually a blanching score of 5–9)",
+      "",
+      ""
+     ],
+     [
+      "2 V (late)",
+      "Frequent attacks of whiteness affecting the distal and middle (rarely also proximal) phalanges of one or more fingers (usually a blanching score of 10–16)",
+      "",
+      ""
+     ],
+     [
+      "3 V",
+      "Frequent attacks of whiteness affecting all of the phalanges of most of the fingers all year (usually a blanching score of 18 or more)",
+      "",
+      ""
+     ],
+     [
+      "4 V",
+      "As 3 V and trophic changes",
+      "",
+      ""
+     ]
+    ],
+    "heading_rows": [
+     0,
+     6
+    ],
+    "sentences": [
+     "Modified Stockholm Workshop scales, sensorineural: stage 0 SN is vibration exposure but no symptoms.",
+     "Modified Stockholm Workshop scales, sensorineural: stage 1 SN is intermittent numbness and/or tingling (with a sensorineural, SN, score of >3 and <6).",
+     "Modified Stockholm Workshop scales, sensorineural: stage 2 SN (early) is intermittent numbness, and/or tingling, reduced sensory perception (usually an SN score of >6, <9).",
+     "Modified Stockholm Workshop scales, sensorineural: stage 2 SN (late) is persistent numbness, and/or tingling, reduced sensory perception (usually an SN score of >9, <16).",
+     "Modified Stockholm Workshop scales, sensorineural: stage 3 SN is constant numbness and/or tingling, reduced sensory perception and manipulative dexterity in warmth (and an SN score of >19).",
+     "Modified Stockholm Workshop scales, vascular: stage 0 V is no attacks.",
+     "Modified Stockholm Workshop scales, vascular: stage 1 V is attacks affecting only the tips of the distal phalanges of one or more fingers (usually a blanching score of 1–4).",
+     "Modified Stockholm Workshop scales, vascular: stage 2 V (early) is occasional attacks of whiteness affecting the distal and middle (rarely also the proximal) phalanges of one or more fingers (usually a blanching score of 5–9).",
+     "Modified Stockholm Workshop scales, vascular: stage 2 V (late) is frequent attacks of whiteness affecting the distal and middle (rarely also proximal) phalanges of one or more fingers (usually a blanching score of 10–16).",
+     "Modified Stockholm Workshop scales, vascular: stage 3 V is frequent attacks of whiteness affecting all of the phalanges of most of the fingers all year (usually a blanching score of 18 or more).",
+     "Modified Stockholm Workshop scales, vascular: stage 4 V is as 3 V and trophic changes."
+    ]
+   },
+   "reason": "Page 90 has two header rows (Assessment over Left hand and Right hand); the lowest row is used. Sensorineural and Vascular are band sub-headings. Assessment cells are blank on the page. Stage subscripts SN and V written after the number.",
+   "evidence": "Page 90 Table 8 with Sensorineural and Vascular bands, 11 stage rows, empty Left/Right hand cells.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "9cb79fdf93d2453a",
+   "kind": "figure_description",
+   "target": "figure-p103: Circulation",
+   "value": "A blank health surveillance form with empty tick boxes and write-in spaces, headed by Pulse rate (bpm) and Blood pressure (mm Hg), each with Right and Left boxes. Below are rows for Radial pulse and Ulnar pulse (Present, Absent), Allen test (Positive, Negative), then Nervous system with Monofilaments and Manual dexterity (Purdue pegboard test) (Normal, Abnormal), and Further tests, where appropriate: Adson's test, Tinel's test and Phalen's test. It ends with Musculoskeletal (Describe any abnormality of neck or upper limbs, a dotted line) and Grip strength (in kg) with Right and Left boxes.",
+   "reason": "The image is a form made of printed labels and empty boxes, described using the printed labels as shown.",
+   "evidence": "Labels visible in the image: Pulse rate (bpm), Blood pressure (mm Hg), Allen test, Nervous system, Further tests, where appropriate, Musculoskeletal, Grip strength (in kg).",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "a6257c283255088a",
+   "kind": "table",
+   "target": "table-9: Scoring system for the standardised sensorineural tests",
+   "value": {
+    "columns": [
+     "Test condition",
+     "Lowest band",
+     "Middle band",
+     "Highest band"
+    ],
+    "rows": [
+     [
+      "Vibrotactile threshold test (index and little finger)",
+      "",
+      "",
+      ""
+     ],
+     [
+      "At 31.4 Hz",
+      "< 0.3 m/s² Score = 0",
+      "≥ 0.3 m/s², < 0.4 m/s² Score = 1",
+      "≥ 0.4 m/s² Score = 2"
+     ],
+     [
+      "At 125 Hz",
+      "< 0.7 m/s² Score = 0",
+      "≥ 0.7 m/s², < 1.0 m/s² Score = 1",
+      "≥ 1.0 m/s² Score = 2"
+     ],
+     [
+      "Thermal perception threshold test (1 degree/second, index and little finger)",
+      "",
+      "",
+      ""
+     ],
+     [
+      "Temperature neutral zone",
+      "< 21ºC Score = 0",
+      "≥ 21°C, < 27°C Score = 2",
+      "≥ 27°C Score = 4"
+     ]
+    ],
+    "heading_rows": [
+     0,
+     3
+    ],
+    "sentences": [
+     "In the scoring system for the standardised sensorineural tests, the vibrotactile threshold test (index and little finger) at 31.4 Hz scores 0 below 0.3 m/s², 1 from 0.3 m/s² to below 0.4 m/s², and 2 at 0.4 m/s² or more.",
+     "In the scoring system for the standardised sensorineural tests, the vibrotactile threshold test (index and little finger) at 125 Hz scores 0 below 0.7 m/s², 1 from 0.7 m/s² to below 1.0 m/s², and 2 at 1.0 m/s² or more.",
+     "In the scoring system for the standardised sensorineural tests, the thermal perception threshold test (1 degree/second, index and little finger) for the temperature neutral zone scores 0 below 21ºC, 2 from 21°C to below 27°C, and 4 at 27°C or more."
+    ]
+   },
+   "reason": "The printed table has no column heading row; the page shows two dark sub-heading rows and three data rows. The save step needs a heading for every column, so I used neutral position labels (Test condition, Lowest, Middle, Highest band) that only describe the order of the value columns. Cell text is copied as printed.",
+   "evidence": "Table 9 on printed page 91: sub-heading rows 'Vibrotactile threshold test (index and little finger)' and 'Thermal perception threshold test (1 degree/second, index and little finger)'; rows At 31.4 Hz, At 125 Hz, Temperature neutral zone.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  }
+ ]
+}

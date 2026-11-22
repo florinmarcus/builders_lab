@@ -1,0 +1,42 @@
+{
+ "source_id": "hse-cis62",
+ "about": "Saved model fixes for hse-cis62 (ADR 0010).",
+ "fixes": [
+  {
+   "key": "142eb6b5eadc75fd",
+   "kind": "table",
+   "target": "document-table-1: CIS62 Welfare (busy builder sheet)",
+   "value": {
+    "columns": [
+     "Further information"
+    ],
+    "rows": [
+     [
+      "For information about health and safety, or to report inconsistencies or inaccuracies in this guidance, visit www.hse.gov.uk. You can order HSE priced publications at https://books.hse.gov.uk. HSE priced publications are also available from bookshops."
+     ],
+     [
+      "This guidance is issued by the Health and Safety Executive. Following the guidance is not compulsory, unless specifically stated, and you are free to take other action. But if you do follow the guidance you will normally be doing enough to comply with the law. Health and safety inspectors seek to secure compliance with the law and may refer to this guidance."
+     ],
+     [
+      "This document is available at: www.hse.gov.uk/pubns/cis62.pdf."
+     ],
+     [
+      "© Crown copyright If you wish to reuse this information visit www.hse.gov.uk/copyright.htm for details. First published 01/10."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "CIS62 further information: For information about health and safety, or to report inconsistencies or inaccuracies in this guidance, visit www.hse.gov.uk. You can order HSE priced publications at https://books.hse.gov.uk. HSE priced publications are also available from bookshops.",
+     "CIS62 further information: This guidance is issued by the Health and Safety Executive. Following the guidance is not compulsory, unless specifically stated, and you are free to take other action. But if you do follow the guidance you will normally be doing enough to comply with the law. Health and safety inspectors seek to secure compliance with the law and may refer to this guidance.",
+     "CIS62 further information: This document is available at: www.hse.gov.uk/pubns/cis62.pdf.",
+     "CIS62 further information: © Crown copyright If you wish to reuse this information visit www.hse.gov.uk/copyright.htm for details. First published 01/10."
+    ]
+   },
+   "reason": "Not a real table. The parser joined the 'Further information' block at the foot of page 2 (two text columns read side by side) and the running header into one uncaptioned table. The photo grid above (Unacceptable / Good example) has no text in its cells. Following the CIS65 precedent, the block is kept as one column headed with its printed heading, one row per printed paragraph in reading order (left column, then right column); the running header 'Welfare facilities' is page furniture and left out.",
+   "evidence": "Page 2 image: heading 'Further information', left column paragraphs 'For information about health and safety...' and 'This guidance is issued by the Health and Safety Executive...', right column 'This document is available at: www.hse.gov.uk/pubns/cis62.pdf.' and '© Crown copyright ... First published 01/10.'",
+   "by": "model check, Claude Opus own judgement against the page image (packet refused twice)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  }
+ ]
+}

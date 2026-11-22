@@ -1,0 +1,63 @@
+{
+ "source_id": "hhsrs-operating",
+ "about": "Saved model fixes for hhsrs-operating (ADR 0010).",
+ "fixes": [
+  {
+   "key": "0505fa5dd6051793",
+   "kind": "table",
+   "target": "table-1: ",
+   "value": {
+    "columns": [
+     "Building type",
+     "Number of deaths per thousand fires",
+     "Number of Non-fatal Casualties per thousand fires"
+    ],
+    "rows": [
+     [
+      "Single-family house",
+      "6.1",
+      "175.3"
+     ],
+     [
+      "Single-family bungalow",
+      "16.2",
+      "217.0"
+     ],
+     [
+      "Purpose-built block of flats (1-3 storeys)",
+      "5.9",
+      "193.0"
+     ],
+     [
+      "Purpose-built block of flats (4-9 storeys)",
+      "3.2",
+      "148.1"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "In the table Fatal and Non-fatal Casualties per Thousand Fires for Different Domestic Building Types, the building type Single-family house has 6.1 deaths per thousand fires and 175.3 non-fatal casualties per thousand fires.",
+     "In the table Fatal and Non-fatal Casualties per Thousand Fires for Different Domestic Building Types, the building type Single-family bungalow has 16.2 deaths per thousand fires and 217.0 non-fatal casualties per thousand fires.",
+     "In the table Fatal and Non-fatal Casualties per Thousand Fires for Different Domestic Building Types, the building type Purpose-built block of flats (1-3 storeys) has 5.9 deaths per thousand fires and 193.0 non-fatal casualties per thousand fires.",
+     "In the table Fatal and Non-fatal Casualties per Thousand Fires for Different Domestic Building Types, the building type Purpose-built block of flats (4-9 storeys) has 3.2 deaths per thousand fires and 148.1 non-fatal casualties per thousand fires."
+    ]
+   },
+   "reason": "The printed Table 1 on the page matches the three-column grid; all values checked against the image.",
+   "evidence": "Page image p9 (printed page 6): Table 1 with header Building type / Number of deaths per thousand fires / Number of Non-fatal Casualties per thousand fires and four data rows.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "3b9858ac4b44af4a",
+   "kind": "figure_description",
+   "target": "figure-1: ",
+   "value": "This is a flow chart titled Figure 1 with yes/no decision boxes that end in green boxes reading \"No action required\" or \"Immediate action not required\", or red boxes reading \"High Priority\". The main column of questions runs from \"Ground floor flats opening to open air?\" through \"Does LGA Guide require replacement FD30S doors?\", \"Does LGA Guide require upgrade of notional FD30 doors?\", \"Is there a working and maintained fire suppression system in flats?\", \"Do FEDs open onto a balcony?\", \"FR ≥ 20 minutes*?\", \"FR ≤ 15 minutes*?\" and \"FR>15 minutes but <20 minutes (i.e. FR is 15-20 minutes)\", then \"≤ 3 storeys\", \"Double lobby. One lobby ventilated. ≤ 2 flats per lobby.\", \"Maisonettes with escape on another level\" and \"Lobbied staircase. One flat per lobby.\", ending in High Priority. Side branches ask \"FR ≥ 25 minutes*?\", \"FR ≥ 15minutes*?\", \"2 directions of escape, all flats?\", \"FR ≥ 15 minutes*, below 1.1m\" and \"Simultaneous evacuation?\"; a note under the chart reads \"Note: LGA Guide see Fire safety in purpose-built blocks of flats (Ministry of Housing, Communities and Local Government / Home Office)\".",
+   "reason": "Figure is a decision flow chart; steps and labels were copied as printed.",
+   "evidence": "Figure image figure-1.png shows the flow chart with title Figure 1, yes/no arrows, green and red outcome boxes and the LGA Guide note.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  }
+ ]
+}

@@ -1,0 +1,63 @@
+{
+ "source_id": "hse-cis65",
+ "about": "Saved model fixes for hse-cis65 (ADR 0010).",
+ "fixes": [
+  {
+   "key": "9e6dbb065c29ce80",
+   "kind": "figure_description",
+   "target": "photo-1: Make sure you know the location of concealed power cables and gas pipes before drilling into walls or floors. If their location is unknown, turn services off before drilling",
+   "value": "A colour illustration of a man in safety glasses and a dust mask, wearing a green shirt, drilling into a wall with a yellow drill. A bright orange spark burst comes from the drill where it meets the wall, which has cables or pipes running down it. The printed caption reads: Make sure you know the location of concealed power cables and gas pipes before drilling into walls or floors. If their location is unknown, turn services off before drilling.",
+   "reason": "The image is a drawing, not a photo, showing a drill striking something in the wall with a flash; the caption comes from the page.",
+   "evidence": "Page p2, Bad practice box, right-hand picture and its caption.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "15cd446c6ee5474d",
+   "kind": "figure_description",
+   "target": "photo-2: A cable avoidance tool in use",
+   "value": "A photo of a man in a high-visibility yellow-green vest and dark trousers standing on a pavement beside an open trench. He holds a grey and blue hand-held device with chevron markings upright in front of him. The printed caption reads: A cable avoidance tool in use.",
+   "reason": "The photo shows a person using a hand-held locating device next to a trench; the caption names it as a cable avoidance tool.",
+   "evidence": "Page p2, Good practice box, photo and caption 'A cable avoidance tool in use'.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "4b5ee33d9b185bd0",
+   "kind": "figure_description",
+   "target": "photo-3: This charred breaker has struck an 11KV cable in a shallow trench",
+   "value": "A photo of a green and black electric breaker (power hammer) lying in a narrow, shallow trench cut in a paved surface, with a yellow cable and a black hose looped beside it. The printed caption reads: This charred breaker has struck an 11KV cable in a shallow trench.",
+   "reason": "The photo shows a breaker tool in a trench; the caption states it struck an 11KV cable.",
+   "evidence": "Page p2, Bad practice box, left-hand photo and its caption.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "881621cd08e40272",
+   "kind": "table",
+   "target": "document-further-information-table-1: Further information",
+   "value": {
+    "columns": [
+     "Further information"
+    ],
+    "rows": [
+     [
+      "The Working Well Together campaign aims to improve health and safety in the construction industry, particularly in small and micro businesses. For more information visit www.wwt.uk.com"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Further information: The Working Well Together campaign aims to improve health and safety in the construction industry, particularly in small and micro businesses. For more information visit www.wwt.uk.com."
+    ]
+   },
+   "reason": "This is a single-column note at the foot of the page, not a real table. It has no printed column heading, so the box title is used as the one column name. The 'Published by the Health and Safety Executive CIS65 05/19' line is the page footer and is left out.",
+   "evidence": "Page p2, bottom text beside the 'working well together' logo.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  }
+ ]
+}

@@ -1,0 +1,155 @@
+{
+ "source_id": "awaab-tenants",
+ "about": "Saved model fixes for awaab-tenants (ADR 0010).",
+ "fixes": [
+  {
+   "key": "9e6dbb065c29ce80",
+   "kind": "figure_description",
+   "target": "photo-1: 6",
+   "value": "A flow chart in Polish about what a landlord must do after a tenant reports a serious problem. It starts with the box \"Zgłaszasz poważny problem właścicielowi Twojego mieszkania, lub właściciel sam dowiaduje się o potencjalnym zagrożeniu inną drogą.\" then \"Właściciel mieszkania ma 10 dni roboczych na zbadanie poważnego zagrożenia.\", which splits into three boxes: make the home safe within 5 dni roboczych of the end of the investigation (if not possible in 5 dni roboczych, the landlord must offer a replacement home, \"lokal zastępczy\"), start further work within 5 dni roboczych with all work starting within a hard limit of 12 tygodni, and give a written report (pisemny protokół) within 3 dni roboczych. A last box says that throughout the process the landlord must keep the tenant informed and explain the safety rules to follow while repairs are done.",
+   "reason": "Described only what is printed in the flow chart image, in order.",
+   "evidence": "Image shows coloured boxes with arrows: blue top boxes, three green boxes, orange boxes for the replacement home, purple box at the bottom.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "b70cfbb7071ae000",
+   "kind": "table",
+   "target": "table-p10: 5 'িবপদ' বলেত কী েবাঝায়?",
+   "value": {
+    "columns": [
+     "Topic",
+     "Column 2",
+     "Column 3"
+    ],
+    "rows": [
+     [
+      "",
+      "",
+      "আপনার বাসাকে নিরাপদ করতে হবে।"
+     ],
+     [
+      "পরবর্তী কাজগুলি",
+      "তদন্ত শেষ হয়ে গেলে, বাড়িওয়ালাকে 5 কর্মদিবসের মধ্যে অবশ্যই কাজ শুরু করতে হবে অথবা শুরু করার পরিকল্পনা করতে হবে। সমস্ত কাজ অবশ্যই সবচেয়ে দেরি হলে 12 সপ্তাহের মধ্যে শুরু করতে হবে।",
+      "তদন্ত শেষ হয়ে গেলে, বাড়িওয়ালাকে 5 কর্মদিবসের মধ্যে অবশ্যই কাজ শুরু করতে হবে অথবা শুরু করার পরিকল্পনা করতে হবে। সমস্ত কাজ অবশ্যই সবচেয়ে দেরি হলে 12 সপ্তাহের মধ্যে শুরু করতে হবে।"
+     ],
+     [
+      "লিখিত সারাংশ",
+      "যেখানে আরও কাজের প্রয়োজন হবে, তদন্ত শেষ হওয়ার 3 কর্মদিবসের মধ্যে একটি লিখিত সারসংক্ষেপ অবশ্যই প্রদান করতে হবে।",
+      "তদন্ত শেষ হওয়ার পর 3 কর্মদিবসের মধ্যে।"
+     ],
+     [
+      "বিপদগুলির উদাহরণ",
+      "• গ্যাস বা কার্বন মনোক্সাইড নির্গমন • ভাঙ্গা বয়লার • পানি সরবরাহ একেবারেই নেই • বিপজ্জনক বৈদ্যুতিক সমস্যা (যেমন খোলা তার) • গুরুতর নির্গমণের ঘটনা • ভাঙা বাইরের দরজা বা জানালা যা আপনার ঘরকে অনিরাপদ করে তোলে • খুব গুরুতর স্যাঁতসেঁতে অবস্থা বা ছত্রাক • বড়ো কাঠামোগত সমস্যা",
+      "• যেকোনো স্যাঁতসেঁতে অবস্থা এবং ছত্রাক আপনার এবং আপনার সাথে বসবাসকারী যে কোনো ব্যক্তির শারীরিক স্বাস্থ্যের জন্য ঝুঁকিপূর্ণ হতে পারে। এটি শ্বাসনালী এবং ফুসফুসকে প্রভাবিত করে, তবে আপনার চোখ এবং ত্বককেও প্রভাবিত করে। • স্যাঁতসেঁতে অবস্থা এবং ছত্রাক আপনার মানসিক স্বাস্থ্যকেও প্রভাবিত করতে পারে, উদাহরণস্বরূপ স্বাস্থ্যের প্রভাব বা অপ্রীতিকর জীবনযাত্রার পরিস্থিতি নিয়ে উদ্বিগ্ন হওয়া। • সবাই স্যাঁতসেঁতে অবস্থা এবং ছত্রাকের প্রভাবে স্বাস্থ্যের ঝুঁকিতে থাকতে পারে, তবে আপনার যদি কোনো নির্দিষ্ট স্বাস্থ্যগত অবস্থা থাকে তাহলে আপনি আরও বেশি ঝুঁকিতে থাকতে পারেন। • স্যাঁতসেঁতে অবস্থা এবং ছত্রাকের বিপদ সম্পর্কে আরও নির্দেশিকা এখানে"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "5 'বিপদ' বলতে কী বোঝায়, এই সারণির প্রথম সারি: আপনার বাসাকে নিরাপদ করতে হবে.",
+     "5 'বিপদ' বলতে কী বোঝায়, পরবর্তী কাজগুলি: তদন্ত শেষ হয়ে গেলে, বাড়িওয়ালাকে 5 কর্মদিবসের মধ্যে অবশ্যই কাজ শুরু করতে হবে অথবা শুরু করার পরিকল্পনা করতে হবে। সমস্ত কাজ অবশ্যই সবচেয়ে দেরি হলে 12 সপ্তাহের মধ্যে শুরু করতে হবে.",
+     "5 'বিপদ' বলতে কী বোঝায়, লিখিত সারাংশ: যেখানে আরও কাজের প্রয়োজন হবে, তদন্ত শেষ হওয়ার 3 কর্মদিবসের মধ্যে একটি লিখিত সারসংক্ষেপ অবশ্যই প্রদান করতে হবে; তদন্ত শেষ হওয়ার পর 3 কর্মদিবসের মধ্যে.",
+     "5 'বিপদ' বলতে কী বোঝায়, বিপদগুলির উদাহরণ: গ্যাস বা কার্বন মনোক্সাইড নির্গমন, ভাঙ্গা বয়লার, পানি সরবরাহ একেবারেই নেই, বিপজ্জনক বৈদ্যুতিক সমস্যা (যেমন খোলা তার), গুরুতর নির্গমণের ঘটনা, ভাঙা বাইরের দরজা বা জানালা যা আপনার ঘরকে অনিরাপদ করে তোলে, খুব গুরুতর স্যাঁতসেঁতে অবস্থা বা ছত্রাক, বড়ো কাঠামোগত সমস্যা; যেকোনো স্যাঁতসেঁতে অবস্থা এবং ছত্রাক আপনার এবং আপনার সাথে বসবাসকারী যে কোনো ব্যক্তির শারীরিক স্বাস্থ্যের জন্য ঝুঁকিপূর্ণ হতে পারে, স্যাঁতসেঁতে অবস্থা এবং ছত্রাক আপনার মানসিক স্বাস্থ্যকেও প্রভাবিত করতে পারে, সবাই স্যাঁতসেঁতে অবস্থা এবং ছত্রাকের প্রভাবে স্বাস্থ্যের ঝুঁকিতে থাকতে পারে, এবং স্যাঁতসেঁতে অবস্থা এবং ছত্রাকের বিপদ সম্পর্কে আরও নির্দেশিকা এখানে."
+    ]
+   },
+   "reason": "Rebuilt from the page 10 image. The page prints no column headings (the table continues from page 9, which is not available), and the save step needs a heading on every column, so the headings are neutral labels, not printed words. The first row is the end of a cell that carries over from the previous page. Sentences end with a full stop in place of the Bangla danda.",
+   "evidence": "Page 10 image: four printed rows, the first with only the third cell filled; the grid text is garbled, so the words were copied from the image.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "low",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "8c8d46029d3099ea",
+   "kind": "table",
+   "target": "table-p10: 5 Co należy rozumieć przez „zagrożenie”?",
+   "value": {
+    "columns": [
+     "Topic",
+     "Column 2",
+     "Column 3"
+    ],
+    "rows": [
+     [
+      "Zbadanie zagrożenia",
+      "Właściciel mieszkania musi zbadać problem w ciągu 24 godzin",
+      "Właściciel mieszkania musi zbadać problem w ciągu 10 dni roboczych"
+     ],
+     [
+      "Przywrócenie bezpiecznych warunków w mieszkaniu",
+      "Właściciel mieszkania musi przywrócić bezpieczne warunki w Twoim mieszkaniu w ciągu 24 godzin od chwili, gdy dowiedział się o zagrożeniu.",
+      "Właściciel mieszkania musi przywrócić bezpieczne warunki w Twoim mieszkaniu w ciągu 5 dni roboczych od zakończenia badania problemu."
+     ],
+     [
+      "Dalsze prace",
+      "Po zakończeniu badania problemu właściciel mieszkania musi rozpocząć prace w ciągu 5 dni roboczych lub zaplanować je tak, aby rozpoczęły się w tym terminie. Wszelkie prace muszą się rozpocząć w nieprzekraczalnym terminie 12 tygodni.",
+      "Po zakończeniu badania problemu właściciel mieszkania musi rozpocząć prace w ciągu 5 dni roboczych lub zaplanować je tak, aby rozpoczęły się w tym terminie. Wszelkie prace muszą się rozpocząć w nieprzekraczalnym terminie 12 tygodni."
+     ],
+     [
+      "Pisemny protokół",
+      "Jeżeli wymagane są dalsze prace, musisz otrzymać pisemny protokół w ciągu 3 dni roboczych od zakończenia badania problemu.",
+      "W ciągu 3 dni roboczych od zakończenia badania problemu."
+     ],
+     [
+      "Przykłady zagrożeń",
+      "• ulatnianie się gazu lub tlenku węgla • uszkodzony bojler • całkowite odcięcie dopływu wody • niebezpieczne usterki elektryczne (np. odsłonięte przewody) • duże wycieki/nieszczelności • uszkodzone drzwi wejściowe lub okna powodujące, że mieszkanie nie jest bezpieczne • bardzo poważna wilgoć lub pleśń • poważne problemy z konstrukcją budynku",
+      "• Ewentualna wilgoć i pleśń mogą stanowić zagrożenie dla Ciebie oraz dla zdrowia fizycznego osób z Tobą współzamieszkujących. Są one szkodliwe dla dróg oddechowych i płuc, a także dla oczu i skóry. • Wilgoć i pleśń mogą również być szkodliwe dla zdrowia psychicznego, na przykład ze względu na stres związany z obawą o własne zdrowie lub niekomfortowe warunki mieszkaniowe. • Wilgoć i pleśń stwarzają ryzyko dla zdrowia każdej osoby, ale pewne schorzenia powodują, że takie ryzyko jest jeszcze większe."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Co należy rozumieć przez „zagrożenie”, zbadanie zagrożenia: właściciel mieszkania musi zbadać problem w ciągu 24 godzin, a w drugiej kolumnie w ciągu 10 dni roboczych.",
+     "Co należy rozumieć przez „zagrożenie”, przywrócenie bezpiecznych warunków w mieszkaniu: właściciel mieszkania musi przywrócić bezpieczne warunki w Twoim mieszkaniu w ciągu 24 godzin od chwili, gdy dowiedział się o zagrożeniu, a w drugiej kolumnie w ciągu 5 dni roboczych od zakończenia badania problemu.",
+     "Co należy rozumieć przez „zagrożenie”, dalsze prace: po zakończeniu badania problemu właściciel mieszkania musi rozpocząć prace w ciągu 5 dni roboczych lub zaplanować je tak, aby rozpoczęły się w tym terminie, a wszelkie prace muszą się rozpocząć w nieprzekraczalnym terminie 12 tygodni.",
+     "Co należy rozumieć przez „zagrożenie”, pisemny protokół: jeżeli wymagane są dalsze prace, musisz otrzymać pisemny protokół w ciągu 3 dni roboczych od zakończenia badania problemu.",
+     "Co należy rozumieć przez „zagrożenie”, przykłady zagrożeń: ulatnianie się gazu lub tlenku węgla, uszkodzony bojler, całkowite odcięcie dopływu wody, niebezpieczne usterki elektryczne (np. odsłonięte przewody), duże wycieki/nieszczelności, uszkodzone drzwi wejściowe lub okna powodujące, że mieszkanie nie jest bezpieczne, bardzo poważna wilgoć lub pleśń, poważne problemy z konstrukcją budynku; ewentualna wilgoć i pleśń mogą stanowić zagrożenie dla Ciebie oraz dla zdrowia fizycznego osób z Tobą współzamieszkujących, wilgoć i pleśń mogą również być szkodliwe dla zdrowia psychicznego, a wilgoć i pleśń stwarzają ryzyko dla zdrowia każdej osoby, ale pewne schorzenia powodują, że takie ryzyko jest jeszcze większe."
+    ]
+   },
+   "reason": "Rebuilt from the page 10 image. The page prints no column headings (the table continues from page 9, which is not available), and the save step needs a heading on every column, so the headings are neutral labels, not printed words. Row headings and cell words are as printed.",
+   "evidence": "Page 10 image: five printed rows with a bold row heading in the first column and two text columns.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "8c161c5eb43fc13d",
+   "kind": "table",
+   "target": "table-p10: 5 Ce este un „pericol”?",
+   "value": {
+    "columns": [
+     "Topic",
+     "Column 2",
+     "Column 3"
+    ],
+    "rows": [
+     [
+      "Lucrări ulterioare",
+      "După finalizarea investigației, proprietarul trebuie să înceapă lucrările sau să facă planuri pentru începerea lucrărilor în termen de 5 zile lucrătoare. Toate lucrările trebuie să înceapă în termen de cel mult 12 săptămâni.",
+      "După finalizarea investigației, proprietarul trebuie să înceapă lucrările sau să facă planuri pentru începerea lucrărilor în termen de 5 zile lucrătoare. Toate lucrările trebuie să înceapă în termen de cel mult 12 săptămâni."
+     ],
+     [
+      "Rezumat scris",
+      "În cazul în care sunt necesare lucrări suplimentare, trebuie prezentat un rezumat scris în termen de 3 zile lucrătoare de la încheierea investigației.",
+      "În termen de 3 zile lucrătoare după încheierea investigației."
+     ],
+     [
+      "Exemple de pericole",
+      "• scurgeri de gaze sau monoxid de carbon • boilere defecte • lipsa completă a alimentării cu apă • probleme electrice periculoase (precum firele expuse) • scurgeri majore • uși sau ferestre exterioare sparte din cauza cărora locuința este nesigură • un caz foarte grav de igrasie sau mucegai • probleme structurale majore",
+      "• orice igrasie și orice mucegai pot reprezenta un risc pentru dumneavoastră și pentru sănătatea fizică a oricărei persoane care locuiește cu dumneavoastră. Acestea afectează căile respiratorii și plămânii, dar și ochii și pielea; • igrasia și mucegaiul vă pot afecta, de asemenea, sănătatea mintală, de exemplu, prin îngrijorarea cu privire la impactul asupra sănătății sau condițiile de trai neplăcute; • oricine poate fi expus riscului de a-i fi afectată sănătatea de igrasie și mucegai, dar este posibil ca riscul să fie mai mare dacă aveți o anumită afecțiune medicală; • un ghid suplimentar privind riscurile asociate igrasiei și mucegaiului poate fi găsit aici: Igrasia și mucegaiul: înțelegerea și abordarea riscurilor la adresa sănătății"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Ce este un „pericol”, lucrări ulterioare: după finalizarea investigației, proprietarul trebuie să înceapă lucrările sau să facă planuri pentru începerea lucrărilor în termen de 5 zile lucrătoare, iar toate lucrările trebuie să înceapă în termen de cel mult 12 săptămâni.",
+     "Ce este un „pericol”, rezumat scris: în cazul în care sunt necesare lucrări suplimentare, trebuie prezentat un rezumat scris în termen de 3 zile lucrătoare de la încheierea investigației, adică în termen de 3 zile lucrătoare după încheierea investigației.",
+     "Ce este un „pericol”, exemple de pericole: scurgeri de gaze sau monoxid de carbon, boilere defecte, lipsa completă a alimentării cu apă, probleme electrice periculoase (precum firele expuse), scurgeri majore, uși sau ferestre exterioare sparte din cauza cărora locuința este nesigură, un caz foarte grav de igrasie sau mucegai, probleme structurale majore; orice igrasie și orice mucegai pot reprezenta un risc pentru dumneavoastră și pentru sănătatea fizică a oricărei persoane care locuiește cu dumneavoastră, igrasia și mucegaiul vă pot afecta, de asemenea, sănătatea mintală, iar oricine poate fi expus riscului de a-i fi afectată sănătatea de igrasie și mucegai, dar este posibil ca riscul să fie mai mare dacă aveți o anumită afecțiune medicală."
+    ]
+   },
+   "reason": "Rebuilt from the page 10 image. The page prints no column headings (the table continues from page 9, which is not available), and the save step needs a heading on every column, so the headings are neutral labels, not printed words. Row headings and cell words are as printed.",
+   "evidence": "Page 10 image: three printed rows with a bold row heading in the first column and two text columns.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  }
+ ]
+}

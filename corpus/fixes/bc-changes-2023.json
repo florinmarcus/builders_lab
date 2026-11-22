@@ -1,0 +1,74 @@
+{
+ "source_id": "bc-changes-2023",
+ "about": "Saved model fixes for bc-changes-2023 (ADR 0010).",
+ "fixes": [
+  {
+   "key": "efcbf775fab1a088",
+   "kind": "table",
+   "target": "document-table-1: Building control changes for higher-risk buildings and wider changes to building regulations (circular letter and Q&A)",
+   "value": {
+    "columns": [
+     "Amendments: applications for building control"
+    ],
+    "rows": [
+     [
+      "Applications for building control approval with full plans"
+     ],
+     [
+      "Determination of applications for building control approval with full plans"
+     ],
+     [
+      "Appeal against a local authority’s rejection of an application for building control approval"
+     ],
+     [
+      "Appeal against the regulator’s rejection of an application for building control approval for work that is not higher-risk building work"
+     ],
+     [
+      "Compliance notices: excluded provisions"
+     ],
+     [
+      "Compliance notices: contents"
+     ],
+     [
+      "Stop notices: contents"
+     ],
+     [
+      "Compliance notices and stop notices: giving of notices and notification of others"
+     ],
+     [
+      "Compliance and stop notices: withdrawal"
+     ],
+     [
+      "Appeal to the First-tier Tribunal in relation to a compliance notice or stop notice"
+     ],
+     [
+      "Application to the First-tier Tribunal in relation to extension of the specified period in a compliance notice"
+     ],
+     [
+      "Application to the First-tier Tribunal for a direction in relation to a stop notice"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Building control changes for higher-risk buildings and wider changes to building regulations (circular letter and Q&A) include the regulation headed Applications for building control approval with full plans.",
+     "Building control changes for higher-risk buildings and wider changes to building regulations (circular letter and Q&A) include the regulation headed Determination of applications for building control approval with full plans.",
+     "Building control changes for higher-risk buildings and wider changes to building regulations (circular letter and Q&A) include the regulation headed Appeal against a local authority’s rejection of an application for building control approval.",
+     "Building control changes for higher-risk buildings and wider changes to building regulations (circular letter and Q&A) include the regulation headed Appeal against the regulator’s rejection of an application for building control approval for work that is not higher-risk building work.",
+     "Building control changes for higher-risk buildings and wider changes to building regulations (circular letter and Q&A) include the regulation headed Compliance notices: excluded provisions.",
+     "Building control changes for higher-risk buildings and wider changes to building regulations (circular letter and Q&A) include the regulation headed Compliance notices: contents.",
+     "Building control changes for higher-risk buildings and wider changes to building regulations (circular letter and Q&A) include the regulation headed Stop notices: contents.",
+     "Building control changes for higher-risk buildings and wider changes to building regulations (circular letter and Q&A) include the regulation headed Compliance notices and stop notices: giving of notices and notification of others.",
+     "Building control changes for higher-risk buildings and wider changes to building regulations (circular letter and Q&A) include the regulation headed Compliance and stop notices: withdrawal.",
+     "Building control changes for higher-risk buildings and wider changes to building regulations (circular letter and Q&A) include the regulation headed Appeal to the First-tier Tribunal in relation to a compliance notice or stop notice.",
+     "Building control changes for higher-risk buildings and wider changes to building regulations (circular letter and Q&A) include the regulation headed Application to the First-tier Tribunal in relation to extension of the specified period in a compliance notice.",
+     "Building control changes for higher-risk buildings and wider changes to building regulations (circular letter and Q&A) include the regulation headed Application to the First-tier Tribunal for a direction in relation to a stop notice."
+    ]
+   },
+   "reason": "The pages (p1, p17-p25) show no table. They show running regulation text (Annex A and Annex B) that the parser wrongly read as a table. The packet allows no way to say so, so I used one column headed with the printed heading on p17 and one row per printed regulation heading. Rows are lists of lists.",
+   "evidence": "p17 prints the bold heading 'Amendments: applications for building control' above regulation 14. p17-p25 hold regulations 14, 14A-14C, 47A-47H as paragraphs and lettered lists. No grid lines or column headings appear on any page.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "low",
+   "date": "2026-11-22"
+  }
+ ]
+}

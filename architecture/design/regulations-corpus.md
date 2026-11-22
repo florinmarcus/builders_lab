@@ -75,6 +75,22 @@ flowchart TD
     photo -->|"labels beside the image,<br/>or image cut into tiles"| up
 ```
 
+Small print with no caption becomes a table only when it looks like one (22 Nov 2026, from the model checks that
+said "not a table"):
+
+```mermaid
+flowchart TD
+    blk["small-print block, no caption near"] --> sub{"subscripts inside a larger<br/>line's box ('week', 'Aeq')?"}
+    sub -->|yes| drop["dropped: part of the formula"]
+    sub -->|no| foot{"footnote at the page foot ('1 Exemptions apply'),<br/>or the publisher's imprint (ISBN, 'Printed and published by')?<br/>a one-cell 'table' (page number) is not a ruled table"}
+    foot -->|yes| text["text (small print)"]
+    foot -->|no| tab{"cut into cells (gaps; not the gap after a bullet)<br/>or inside a ruled table?"}
+    tab -->|no| text
+    tab -->|yes| t["table without a caption (model check)"]
+    t --> lone{"only one short line, nothing joined,<br/>no ruled table?"}
+    lone -->|yes| text
+```
+
 Running text is body-size text of six words or more not set in a drawn box, starting at a left edge many long
 lines share, at a bullet or list number, or in a block of such lines; plus the lines hanging under it, subheadings
 over it, bold-italic callouts, "Box N" titles, headings, captions (also caption-like lines the caption rules did not

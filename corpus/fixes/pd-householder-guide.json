@@ -1,0 +1,191 @@
+{
+ "source_id": "pd-householder-guide",
+ "about": "Saved model fixes for pd-householder-guide (ADR 0010).",
+ "fixes": [
+  {
+   "key": "e58695fcd0e9ba50",
+   "kind": "figure_description",
+   "target": "class-a-enlargement-improvement-or-alteration-figure-1: Class A – enlargement, improvement or alteration",
+   "value": "A diagram of a house wall (shaded) beside a flat roof with an overhang and a parapet wall, labelled 'Flat roof' and 'Parapet Wall'. A vertical arrow runs from the ground at the base of the outside wall up to the upper surface of the flat roof. The note reads: 'Eaves height is measured from the ground level at the base of the outside wall to the point where that wall would meet the upper surface of the flat roof - the overhang and the parapet wall should be ignored for the purposes of measurement.'",
+   "reason": "Described the drawing and copied the printed labels and note.",
+   "evidence": "Labels 'Flat roof', 'Parapet Wall' and the eaves height note are printed in the figure image.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "95f34cbf71bad6ca",
+   "kind": "figure_description",
+   "target": "class-a-enlargement-improvement-or-alteration-figure-2: Class A – enlargement, improvement or alteration",
+   "value": "A plan diagram of an original house (shaded) inside a property boundary, with highway lines below and the principal elevation facing the highway. Hatched extension blocks are marked 'These extensions would not be permitted development'. A dashed line is labelled 'Any extension forward of these lines at the front of the house and between the side of the house and the highway will not be permitted development and will require an application for planning permission', with 'Boundary of property' shown in the key.",
+   "reason": "The figure image is the corner plot diagram; the packet labels list a shortened version of the same key text, and I used the printed wording from the image.",
+   "evidence": "Page 16 diagram shows 'Original house', 'These extensions would not be permitted development', the dashed line text, 'Boundary of property', 'Principal Elevation' and 'Highways'. The figure file itself shows the version with a single highway and the wording 'Any extension forward of this line would not be permitted development and will require an application for planning permission'.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "ded9738ce7118dc9",
+   "kind": "figure_description",
+   "target": "x-figure-1: X",
+   "value": "A side-view diagram of a house with a pitched roof, 'Front' on the left and 'Rear' on the right. A previously added rear extension at ground level is marked '4m'. A new first floor extension above it is marked '3m' and is labelled 'New extension at first floor would not be permitted development'. The arrow labels read 'Previously added rear extension', and a boxed X sits at the right.",
+   "reason": "Described the drawing with its printed labels and measurements.",
+   "evidence": "Labels 'Front', 'Rear', '3m', '4m', 'New extension at first floor would not be permitted development', 'Previously added rear extension' and an X box are visible.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "e0e729eda1263095",
+   "kind": "figure_description",
+   "target": "x-figure-2: X",
+   "value": "A plan diagram of a stepped house shape (shaded) inside a boundary, with a vertical centre line. Three arrows from a box point to the stepped walls, and the box reads 'These are all walls forming a side elevation'. A double-headed arrow along the bottom is labelled 'This is the width of the original house (measured at widest point) for the purpose of calculating the \"half width\" limit for the extension'.",
+   "reason": "Described the drawing and copied the printed labels.",
+   "evidence": "The box text and the width label are printed in the figure image.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "b1c830fd72f11d80",
+   "kind": "figure_description",
+   "target": "x-figure-3: X",
+   "value": "A plan diagram of a house with a blue main block, a hatched extension B at the back marked 3m, and a hatched side extension A, with a tick mark beside it. A label reads \"Enlarged part of house (A) that extends beyond side wall of house remains less than half the width of the original house\". A second label reads \"This is the width of the original house (measured at the widest point) for the purpose of calculating the \"half width\" limit for the extension\".",
+   "reason": "Read the printed labels and shapes on the figure image.",
+   "evidence": "Labels 3m, A, B, tick mark, and the two text notes are visible in the image.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "79360f007a2c6fdc",
+   "kind": "table",
+   "target": "class-c-other-alterations-to-the-roof-table-1: Class C – other alterations to the roof",
+   "value": {
+    "columns": [
+     "Roof Slope"
+    ],
+    "rows": [
+     [
+      "No more than 0.15 metres"
+     ],
+     [
+      "(This diagram is not to scale)"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Class C – other alterations to the roof: the roof slope diagram shows no more than 0.15 metres.",
+     "Class C – other alterations to the roof: the roof slope diagram says (This diagram is not to scale)."
+    ]
+   },
+   "reason": "This is not a real table. It is a roof-slope diagram whose printed labels are Roof Slope, No more than 0.15 metres and (This diagram is not to scale). I put them in one column.",
+   "evidence": "Page 38 shows a blue roof slope diagram with these three labels and no table grid.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "low",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "3b3033ae1f88ada5",
+   "kind": "figure_description",
+   "target": "class-e-buildings-etc-figure-1: Class E – buildings etc",
+   "value": "A site plan diagram with a legend and a boundary box. The legend reads: Original house; \"These developments would not be permitted development under Class E\"; \"Any building etc between this line and the highway will require an application for planning permission\" (dashed line); Boundary of property. The plan shows the original house, two hatched buildings (one beside the house, one in front of it), a dashed line along the \"Principal elevation\", and the \"Highway\" below.",
+   "reason": "Read the legend and the plan labels from the figure image.",
+   "evidence": "Legend text, Principal elevation and Highway labels are printed in the image.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "ee69c7b38bf1cbb5",
+   "kind": "figure_description",
+   "target": "class-e-buildings-etc-figure-2: Class E – buildings etc",
+   "value": "A plan diagram of a square blue house in the middle of a plot, with a dotted rounded area around it. Two arrows are marked 20m, one at the top corner and one below the house. A label reads \"Maximum total area of ground that can be covered by buildings, enclosures, pools or containers in this unshaded area is 10 square metres\".",
+   "reason": "Read the labels and shapes on the figure image.",
+   "evidence": "20m twice and the 10 square metres label are printed in the image.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "fc557fbf37fc70e5",
+   "kind": "table",
+   "target": "class-e-buildings-etc-table-1: Class E – buildings etc",
+   "value": {
+    "columns": [
+     "Buildings, enclosures, pools or containers are not permitted development in these shaded areas of the land surrounding the house"
+    ],
+    "rows": [
+     [
+      "Front of house"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Class E – buildings etc: buildings, enclosures, pools or containers are not permitted development in these shaded areas of the land surrounding the house, and the diagram marks the Front of house."
+    ]
+   },
+   "reason": "This is not a real table. It is a plan diagram: a house with shaded land either side, a caption, and a Front of house arrow. I used the caption as the one column heading and the arrow label as the one row.",
+   "evidence": "Page 45 lower figure: caption text above, shaded areas beside the house, and a Front of house label.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "low",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "1fb7c6d6294e8b22",
+   "kind": "table",
+   "target": "class-a-enlargement-improvement-or-alteration-table-1: Class A – enlargement, improvement or alteration",
+   "value": {
+    "columns": [
+     "Class A – enlargement, improvement or alteration"
+    ],
+    "rows": [
+     [
+      "Curtilage of house"
+     ],
+     [
+      "Original house"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Class A – enlargement, improvement or alteration: the diagram key shows Curtilage of house.",
+     "Class A – enlargement, improvement or alteration: the diagram key shows Original house."
+    ]
+   },
+   "reason": "Not a real table: page 10 shows a diagram with a two-item key (Curtilage of house, Original house). The other listed pages hold more diagrams with labels only. Used one column named after the section title because no column headings are printed.",
+   "evidence": "p10 diagram key: white box 'Curtilage of house', cyan box 'Original house'.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "low",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "3331779a83a979eb",
+   "kind": "table",
+   "target": "x-table-1: X",
+   "value": {
+    "columns": [
+     "X"
+    ],
+    "rows": [
+     [
+      "This is the width of the original house (measured at widest point) for the purpose of calculating the “half width” limit for the extension"
+     ],
+     [
+      "No more than half the width of the original house"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "X: the diagram label says This is the width of the original house (measured at widest point) for the purpose of calculating the “half width” limit for the extension.",
+     "X: the diagram label says No more than half the width of the original house."
+    ]
+   },
+   "reason": "Not a real table: pages 22 to 28 hold side-extension diagrams with repeated labels and no printed column headings. Used one column named after the section title and the two main distinct labels.",
+   "evidence": "p22 diagram: label 'This is the width of the original house (measured at widest point) for the purpose of calculating the “half width” limit for the extension'; later pages repeat it with 'No more than half the width of the original house'.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "low",
+   "date": "2026-11-22"
+  }
+ ]
+}

@@ -1,0 +1,78 @@
+{
+ "source_id": "circ-adb-2024",
+ "about": "Saved model fixes for circ-adb-2024 (ADR 0010).",
+ "fixes": [
+  {
+   "key": "cbd3428497b41563",
+   "kind": "table",
+   "target": "table-p5: ENQUIRIES",
+   "value": {
+    "columns": [
+     "Document",
+     "Requirements of the Building Regulations 2010 in respect of which the document is approved"
+    ],
+    "rows": [
+     [
+      "Approved Document B (Fire safety) volume 1: Dwellings (2019 edition incorporating 2020, 2022 and 2025 amendments).",
+      "Part B, Schedule 1 and Regulation 38"
+     ],
+     [
+      "Approved Document B (Fire safety) volume 2: Buildings other than dwelling houses (2019 edition incorporating 2020, 2022 and 2025 amendments).",
+      "Part B, Schedule 1 and Regulation 38"
+     ],
+     [
+      "Signed by authority of the Secretary of State",
+      "J. Palmer An Assistant Secretary for the Ministry of Housing, Communities and Local Government 2 September 2024"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "ENQUIRIES: the document Approved Document B (Fire safety) volume 1: Dwellings (2019 edition incorporating 2020, 2022 and 2025 amendments) is approved in respect of Part B, Schedule 1 and Regulation 38.",
+     "ENQUIRIES: the document Approved Document B (Fire safety) volume 2: Buildings other than dwelling houses (2019 edition incorporating 2020, 2022 and 2025 amendments) is approved in respect of Part B, Schedule 1 and Regulation 38.",
+     "ENQUIRIES: Signed by authority of the Secretary of State: J. Palmer An Assistant Secretary for the Ministry of Housing, Communities and Local Government 2 September 2024."
+    ]
+   },
+   "reason": "Rebuilt from the page image: lowest header row has two columns, two document rows and a signature row. Page image matches the library grid; the signature itself is an image and is not text.",
+   "evidence": "Page p5 of circular-03-2024 shows the header Document / Requirements..., two rows with Part B, Schedule 1 and Regulation 38, and a signature row.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "37e506274fe368dc",
+   "kind": "table",
+   "target": "table-p4: ANNEX A – Notice of Approval",
+   "value": {
+    "columns": [
+     "Document",
+     "Requirements of the Building Regulations 2010 in respect of which the document is approved"
+    ],
+    "rows": [
+     [
+      "Approved Document B (Fire safety) volume 1: Dwellings (2019 edition incorporating 2020, 2022, 2025, 2026 and 2029 amendments).",
+      "Part B, Schedule 1"
+     ],
+     [
+      "Approved Document B (Fire safety) volume 2: Buildings other than dwelling houses (2019 edition incorporating 2020, 2022, 2025 2026 and 2029 amendments).",
+      "Part B, Schedule 1"
+     ],
+     [
+      "Signed by authority of the Secretary of State",
+      "J. Palmer An Assistant Secretary for the Ministry of Housing, Communities and Local Government 2 September 2024"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "ANNEX A – Notice of Approval: the document Approved Document B (Fire safety) volume 1: Dwellings (2019 edition incorporating 2020, 2022, 2025, 2026 and 2029 amendments) is approved in respect of Part B, Schedule 1.",
+     "ANNEX A – Notice of Approval: the document Approved Document B (Fire safety) volume 2: Buildings other than dwelling houses (2019 edition incorporating 2020, 2022, 2025 2026 and 2029 amendments) is approved in respect of Part B, Schedule 1.",
+     "ANNEX A – Notice of Approval: Signed by authority of the Secretary of State: J. Palmer An Assistant Secretary for the Ministry of Housing, Communities and Local Government 2 September 2024."
+    ]
+   },
+   "reason": "Rebuilt from the page image: two column headings, two document rows and a signature row. The missing comma in '2025 2026' in volume 2 is kept as printed.",
+   "evidence": "Page p4 of circular-05-2024 shows the header Document / Requirements..., two rows with Part B, Schedule 1, and a signature row.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  }
+ ]
+}

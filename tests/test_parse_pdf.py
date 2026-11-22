@@ -649,6 +649,67 @@ def test_short_scattered_labels_are_a_drawing_and_prose_small_print_is_text():
     assert any(s.get("small_print") and "Published by" in s["text"] for s in t["sections"])
 
 
+def _footnote_page(foot_lines, tables=()):
+    lines = [ln(2, 98, "1 Exemptions", 28.0, "HelveticaNeue-Medium")]
+    lines += [ln(2, 150 + 12 * i, BODY, x0=180) for i in range(4)]
+    lines += foot_lines
+    return build_tree({"lines": lines, "rects": [], "images": [], "page_count": 3, "graphics": [], "pages": PAGES,
+                       "tables": list(tables)}, META)
+
+
+def test_footnotes_and_back_cover_at_the_foot_of_a_page_are_text_not_a_table():
+    for foot in ([ln(2, 800, "1 Exemptions apply", 8.0, x0=60)],                      # supplier guide
+                 [ln(2, 797, "2 www.gov.uk/government/collections/fire-safety", 8.0, x0=60)],
+                 [ln(2, 766, "5", 8.0, x0=60), ln(2, 776, "For example; https://pubmed.ncbi.nlm.nih.gov/2896/", 8.0, x0=70)],
+                 [ln(2, 716, "£6", 8.0, x0=60), ln(2, 730, "ISBN 0-11-753947-3", 8.0, x0=60)]):  # back cover
+        # A page number read as a one-cell "table" does not make the footnote a table (supplier guide).
+        t = _footnote_page(foot, tables=[{"page": 2, "top": 795.0, "bottom": 810.0, "x0": 40.0, "x1": 560.0,
+                                          "rows": [["", "154", ""]]}])
+        assert not [s for s in t["sections"] if s["type"] == "table"], foot[0]["text"]
+        assert any(s.get("small_print") for s in t["sections"])
+    # Small print in the same place cut into cells, or inside a ruled table, is still a table.
+    t = _footnote_page([ln(2, 760, "1 Exemptions apply", 8.0, x0=60), ln(2, 772, "2 Exemptions apply", 8.0, x0=60)],
+                       tables=[{"page": 2, "top": 750.0, "bottom": 790.0, "x0": 40.0, "x1": 560.0,
+                                "rows": [["1", "Exemptions apply"], ["2", "Exemptions apply"]]}])
+    assert [s for s in t["sections"] if s["type"] == "table"]
+
+
+def test_imprint_bullet_list_and_stray_marks_in_small_print_are_not_a_table():
+    def bullet(top, text):
+        words = [{"x0": 60.0, "text": "(cid:2)"}] + [{"x0": 120.0 + 5 * i, "text": w} for i, w in enumerate(text.split())]
+        return ln(2, top, "(cid:2) " + text, 8.0, x0=60, words=words)
+    t = _footnote_page([bullet(300, "a building notice given to the local authority; or"),
+                        bullet(310, "full plans deposited with the local authority; or"),
+                        bullet(320, "an initial notice given by an approved inspector.")])
+    assert not [s for s in t["sections"] if s["type"] == "table"]  # the gap after the bullet is an indent
+    t = _footnote_page([ln(2, 500, "ISBN: 9780117540965", 8.0, x0=60), ln(2, 510, "ID P2352380 2/2010 1876 19585", 8.0, x0=60, words=[
+        {"x0": 60.0, "text": "ID"}, {"x0": 75.0, "text": "P2352380"}, {"x0": 300.0, "text": "2/2010"},
+        {"x0": 400.0, "text": "1876"}, {"x0": 450.0, "text": "19585"}])])
+    assert not [s for s in t["sections"] if s["type"] == "table"]  # the printer's imprint, mid-page
+    t = _footnote_page([ln(2, 600, ",.\"'C;\",'\",", 8.0, x0=60, words=[{"x0": 60.0, "text": ",.\"'C;"}, {"x0": 200.0, "text": "\",'\","}])])
+    assert not [s for s in t["sections"] if s["type"] == "table"]  # stray marks, no word
+
+
+def test_a_lone_short_label_is_text_but_short_lines_that_others_join_stay_a_table():
+    t = _footnote_page([ln(2, 400, "RCS dust", 8.0, x0=300)])  # the label beside a photo (CIS54)
+    assert not [s for s in t["sections"] if s["type"] == "table"]
+    assert any(s.get("small_print") and s["text"] == "RCS dust" for s in t["sections"])
+    gapped = {"words": [{"x0": 60.0, "text": "OELsol"}, {"x0": 300.0, "text": "551"}]}
+    t = _footnote_page([ln(2, 400, "1/OELsol", 8.0, x0=60), ln(2, 460, "OELsol 551", 8.0, x0=60, **gapped)])
+    assert [s for s in t["sections"] if s["type"] == "table"]  # a worked equation over two blocks (EH40)
+
+
+def test_formula_subscripts_inside_a_text_line_are_not_a_table():
+    # "A(8)week" in L140: "week" in 6 pt print just under the 10 pt line it belongs to.
+    lines = [ln(2, 98, "1 Exposure", 28.0, "HelveticaNeue-Medium")]
+    lines += [ln(2, 398.5, "68 The value obtained for A(8) according to the formula provided in", x0=178.6),
+              ln(2, 410.5, "Schedule 1 may be compared with the ELV in the usual way.", x0=178.6),
+              ln(2, 404.6, "week", 6.0, x0=317.7), ln(2, 500, "T = T Equation 3", x0=178.6),
+              ln(2, 507, "EAV a 0", 6.0, x0=184.1), ln(2, 514, "hv", 6.0, x0=221.1)]
+    t = build_tree({"lines": lines, "rects": [], "images": [], "page_count": 3, "graphics": [], "pages": PAGES}, META)
+    assert not [s for s in t["sections"] if s["type"] == "table"]
+
+
 def _shape(page, x0, top, x1, bottom, kind="rect"):
     return {"page": page, "kind": kind, "top": float(top), "bottom": float(bottom), "x0": float(x0), "x1": float(x1),
             "fill": False, "stroke": True, "colour": (0.0,)}
@@ -1002,3 +1063,21 @@ def test_labels_beside_a_drawing_join_it_but_text_in_the_next_column_does_not():
     shapes = [_shape(1, 160, 245, 320, 260)]
     t = build_tree(_doc(lines, shapes=shapes), META)
     assert sec(t, "figure-1")["area"]["x1"] >= 340
+
+
+# Sources whose model checks were all answered through packets (22 Nov 2026). Rebuilding some of them from the raw
+# file takes over half an hour (supplier-information), so this reads the parsed trees; it skips where none exist.
+SETTLED_SOURCES = """awaab-collection awaab-tenants bc-changes-2023 br-circulars circ-adb-2024 fser-page fso-s156 hhsrs-operating
+hse-cis36 hse-cis54 hse-cis62 hse-cis65 hse-cis78 hse-cis79 hse-hsg141 hse-hsg247 hse-hsg248 hse-hsg33 hse-hsg47 hse-hsg85
+hse-hsr25 hse-indg136 hse-indg231 hse-indg236 hse-indg344 hse-indg344-ro hse-indg411 hse-indg463 hse-l108 hse-l140 hse-l5
+hse-ro-cis26 hse-ro-indg410 manual-br pd-householder-guide""".split()
+
+
+@pytest.mark.parametrize("source_id", SETTLED_SOURCES)
+def test_real_parsed_guidance_trees_have_no_open_checks(source_id):
+    trees = [json.loads(p.read_text(encoding="utf-8")) for p in (ROOT / "corpus" / "parsed" / source_id).glob("*.json")]
+    trees = [t for t in trees if str(t.get("parser", "")).startswith("guidance-pdf")]
+    if not trees:
+        pytest.skip(f"{source_id} not parsed on this machine")
+    open_checks = {t["version_id"]: len(t["checks"]) for t in trees if t["checks"]}
+    assert open_checks == {}

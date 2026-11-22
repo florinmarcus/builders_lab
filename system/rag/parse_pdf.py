@@ -42,6 +42,7 @@ BACK_MATTER = {"references": "references", "further information": "further-infor
 CAPTION_RE = re.compile(r"^(Figure|Table)\s+(A?\d+(?:\.\d+)?(?:[a-z]|\([a-z]\)(?:[–-]\([a-z]\))?)?)(?=[\s:.]|$)")  # "Figure 48d", "Table A1.2", "Figure 35(a)–(c)"
 PAGE_NO_RE = re.compile(r"\bPage\s+(\S+)\s+of\s+\d+\b|^(\d+)\s+of\s+\d+\s+pages$")
 BULLET_RE = re.compile(r"^[■●•▪]+\s*")
+LIST_MARK_RE = re.compile(r"\(cid:\d+\)|[■●•▪]")  # a bullet as its own word (an unmapped glyph reads "(cid:2)")
 PART_RE = re.compile(r"^(PART|Part|SCHEDULE|Schedule|SECTION|Section)\s+(\d+[A-Z]?|[IVX]+|[A-H])\b")
 # A numbered paragraph: "12 Text" (HSE guides) or "12. Text" / "1.—(1) Text" (legislation printed as PDF).
 PARA_RE = re.compile(r"^(\d{1,3})(?:\.—|\.\s|\s)\s*(\S.*)$")
@@ -1882,6 +1883,7 @@ class Builder:
                 blocks.append([l])
         unnamed: dict[str, dict] = {}
         drawn: list[dict] = []  # drawings found from their labels (no caption)
+        n_blocks: dict[int, int] = {}  # blocks of small print in each table without a caption
         for b in blocks:
             page, top, bottom = b[0]["page"], b[0]["top"], b[-1]["top"]
             near = [c for c in captions if c["caption_box"]["page"] == page and
@@ -1942,6 +1944,22 @@ class Builder:
                 self.span(f, page, top, bottom + b[-1]["size"] + 2)
                 drawn.append(f)
                 continue
+            b = [x for x in b if not self.is_script(x)]  # subscripts of a formula in the text ("A(8)week", "LAeq")
+            if not b or not any(re.search(r"[A-Za-z]", x["text"]) for x in b) or all(len(x["text"].strip()) <= 2 for x in b):
+                continue
+            page, top, bottom = b[0]["page"], b[0]["top"], b[-1]["top"]
+            texts = [x["text"] for x in b]
+            joins_table = key in unnamed and str(page) in unnamed[key].get("spans", {})
+            if self.is_page_foot(b):
+                # Footnotes ("1 Exemptions apply", "2 www.gov.uk/...") and the publisher's back cover (ISBN, price,
+                # "Printed and published by"): small print set as text, not a table.
+                k = 1 + sum(1 for s in self.sections if s["parent_id"] == key and s["type"] == "text")
+                text = ""
+                for x in b:
+                    text = _join(text, x["text"])
+                s = self.new(f"{key}-text-{k}", "text", parent, None, None, [*parent["heading_path"], "Text"], page, text)
+                s["small_print"] = True
+                continue
             if not joins_table and not self.is_tabular(b):
                 # Small print set as sentences (publishing notes, a key under a list): text, not a table.
                 k = 1 + sum(1 for s in self.sections if s["parent_id"] == key and s["type"] == "text")
@@ -1951,6 +1969,8 @@ class Builder:
                 s = self.new(f"{key}-text-{k}", "text", parent, None, None, [*parent["heading_path"], "Text"], page, text)
                 s["small_print"] = True
                 continue
+            if not joins_table and not any(re.search(r"[A-Za-z]{2}", x) for x in texts):
+                continue  # no word, only stray letters and marks (",.\"'C;"): not a table
             t = unnamed.get(key)
             if t is None:
                 k = 1 + sum(1 for s in self.sections if s["parent_id"] == key and s["type"] == "table")
@@ -1959,6 +1979,49 @@ class Builder:
                 unnamed[key] = t
             t["text"] = "\n".join(x for x in [t["text"], *texts] if x)
             self.span(t, page, top, bottom + b[-1]["size"] + 2)
+            n_blocks[id(t)] = n_blocks.get(id(t), 0) + 1
+        for t in unnamed.values():
+            # A lone label that nothing joined ("RCS dust" beside a photo, "4 October 2022" on a cover, "INDG401"
+            # over a heading), with no ruled table under it: text, not a table.
+            if n_blocks.get(id(t)) == 1 and "\n" not in t["text"] and len(t["text"].split()) <= 3 and not any(
+                    t2["page"] == int(pg) and t2["top"] - 5 <= bot and t2["bottom"] + 5 >= tp
+                    for pg, (tp, bot) in t["spans"].items() for t2 in self.doc_tables):
+                k = 1 + sum(1 for s in self.sections if s["parent_id"] == t["parent_id"] and s["type"] == "text")
+                self.by_id.pop(t["id"], None)
+                t.update(id=f"{t['parent_id']}-text-{k}", type="text", title=None, small_print=True,
+                         heading_path=[*t["heading_path"][:-1], "Text"])
+                self.by_id[t["id"]] = t
+
+    def is_script(self, l) -> bool:
+        """A subscript or superscript of a formula: a few short tokens in print under 0.7 of body size, set inside
+        the line box of a larger line it belongs to ("week" under "A(8)", "Aeq" under "L") (L140, L108)."""
+        tokens = l["text"].split()
+        if l["size"] > 0.7 * self.body_size or not tokens or len(tokens) > 4 or any(len(t) > 6 for t in tokens):
+            return False
+        return any(x["page"] == l["page"] and x["size"] >= l["size"] + 1.5
+                   and l["top"] < x["top"] + x["size"] + 3 and l["top"] + l["size"] > x["top"] - 3
+                   and x["x0"] - 10 <= l["x0"] <= self._line_x1(x) + 10 for x in self.lines)
+
+    FOOTNOTE_RE = re.compile(r"^\d{1,2}(?:\s+(?:[A-Za-z(]|www\.|https?:)|$)")
+    BACK_COVER_RE = re.compile(r"\bISBN\b|www\.\s?tso\.co\.uk|Printed and published by|Published by the Health and Safety Exec")
+
+    def is_page_foot(self, block: list[dict]) -> bool:
+        """Small print at the foot of a page that is a footnote or the publisher's back cover, outside any ruled
+        table: a footnote number then words or a web address ("5" alone, the note on the next line). A "table" of
+        one row with one filled cell (a page number, an ISBN barcode) is not a ruled table."""
+        page, top = block[0]["page"], block[0]["top"]
+        if any(t["page"] == page and t["top"] - 5 <= block[-1]["top"] and t["bottom"] + 5 >= top
+               and (len(t["rows"]) > 1 or sum(1 for c in (t["rows"] or [[]])[0] if c and c.strip()) > 1)
+               for t in self.doc_tables):
+            return False
+        if any(self.BACK_COVER_RE.search(x["text"]) for x in block):
+            return True  # the publisher's imprint, wherever it is on the page
+        if top < 0.8 * self.page_height:
+            return False
+        first = block[0]["text"].strip()
+        if not self.FOOTNOTE_RE.match(first):
+            return False
+        return bool(first.split()[1:]) or len(block) > 1 and bool(re.match(r"[A-Za-z(]|www\.|https?:", block[1]["text"].strip()))
 
     def is_tabular(self, block: list[dict]) -> bool:
         """Small-print lines look like a table when they are cut into cells: wide gaps inside lines, or a ruled
@@ -1972,8 +2035,10 @@ class Builder:
         gapped = 0
         for x in block:
             ws = x.get("words") or []
+            # The gap after a leading bullet ("(cid:2)", "•") is a list indent, not a gap between cells.
+            first = 2 if ws and LIST_MARK_RE.fullmatch(ws[0]["text"]) else 1
             if any(ws[k]["x0"] - ws[k - 1].get("x1", ws[k - 1]["x0"] + 5 * len(ws[k - 1]["text"])) > max(6.0, 1.5 * x["size"])
-                   for k in range(1, len(ws))):
+                   for k in range(first, len(ws))):
                 gapped += 1
         return gapped >= max(1, 0.25 * len(block)) or len(block) == 1 and len(block[0]["text"].split()) <= 3
 

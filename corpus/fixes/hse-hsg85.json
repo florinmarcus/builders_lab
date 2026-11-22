@@ -1,0 +1,61 @@
+{
+ "source_id": "hse-hsg85",
+ "about": "Saved model fixes for hse-hsg85 (ADR 0010).",
+ "fixes": [
+  {
+   "key": "3b9858ac4b44af4a",
+   "kind": "figure_description",
+   "target": "figure-1: Basic flow chart for assessing safe working practices",
+   "value": "Flow chart titled \"Figure 1 Basic flow chart for assessing safe working practices\". It starts with \"Identify the circuit or equipment to be worked on or near and the work to be done\", then \"Paragraphs 23–30: Deciding whether to work dead or live (Figure 2)\", which splits into DEAD WORKING and LIVE WORKING. Both paths join \"Paragraphs 33–45: Planning and preparation for actions which are common to both dead and live working (Figure 3)\", which splits again into DEAD WORKING leading to \"Paragraphs 46–84: Dead working procedures (Figure 4)\" and LIVE WORKING leading to \"Paragraphs 85–86: Live working procedures (Figure 5)\".",
+   "reason": "Read the flow chart image and listed its boxes and arrows in order with their printed text.",
+   "evidence": "Image figure-1.png shows the boxes, paragraph ranges, figure references and DEAD WORKING / LIVE WORKING labels as described.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "5a17e46a133653a9",
+   "kind": "figure_description",
+   "target": "figure-2: Deciding whether to work dead or live",
+   "value": "Flow chart titled \"Figure 2 Deciding whether to work dead or live\". It starts with \"Identify the circuit or equipment to be worked on or near and the work to be done\" (regulation 4), then asks \"Can the normal policy of dead working be carried out?\" (Paragraph 23, regulation 13): Yes leads to \"Dead working is necessary\" and DEAD WORKING; No leads to \"Is it unreasonable for the work to be done dead?\" (Paragraph 24, regulation 14(a)). Yes then goes to \"Identify, assess and evaluate the risks and methods for controlling\" (Paragraphs 25–30), then \"Decide whether it is reasonable to work live\" (Paragraph 31, regulation 14(b)), then \"Decide whether suitable precautions can be taken to prevent injury\" (Paragraph 32, regulation 14(c)); Yes at the end gives LIVE WORKING PERMITTED, and No at Paragraph 31 or 32 returns to \"Dead working is necessary\".",
+   "reason": "Read the decision chart image and followed each arrow and its Yes/No label.",
+   "evidence": "Image figure-2.png shows the boxes, regulation and paragraph labels, Yes/No arrows and the two end boxes DEAD WORKING and LIVE WORKING PERMITTED.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "f5ff4a511f8ac6b1",
+   "kind": "figure_description",
+   "target": "figure-3: Planning and preparation for actions which are common to both dead and live working",
+   "value": "Flow chart titled \"Figure 3 Planning and preparation for actions which are common to both dead and live working\". Steps in order: Paragraph 34 \"Identify the circuit or equipment to be worked on or near and the work that needs to be done\" (regulation 4); Paragraphs 35–38 \"Plan the work\" (regulations 3, 4, 12, 13, 14); Paragraph 39 \"Specify level of supervision and whether accompaniment is necessary\" (regulations 3, 13, 14, 16); Paragraphs 40–41 \"Select and instruct competent workers\" (regulation 16); Paragraph 42 \"Ensure correct working methods\" (regulation 4(3)); Paragraph 43 \"Provide and ensure use of appropriate protective equipment\" (regulation 4(4)); Paragraph 44 \"Provide appropriate information, tools and instruments and ensure workers are fully instructed\" (regulations 3, 13, 14); Paragraph 45 \"Make arrangements for management checks and supervision of work\" (regulation 3). The last box reads \"Implement DEAD or LIVE working procedures\".",
+   "reason": "Read the flow chart image and listed the boxes in arrow order, left column then right column.",
+   "evidence": "Image figure-3.png shows eight boxes with paragraph and regulation labels and a final box \"Implement DEAD or LIVE working procedures\".",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "fb9a52bd8ce1782e",
+   "kind": "figure_description",
+   "target": "figure-4: Dead working procedures",
+   "value": "Flow chart titled \"Figure 4 Dead working procedures\". Steps in order: Paragraph 47 \"Identify the circuit or equipment to be worked on\" (regulation 4); Paragraphs 48–51 \"Cut off supply, isolate and secure isolation\" (regulation 12); Paragraph 52 \"Retain keys. Post 'caution' and 'danger' notices\" (regulations 12, 13); Paragraphs 53–56 \"Prove circuit or equipment dead\" (regulation 13); Paragraphs 57–58 \"Apply circuit main earth(s) where necessary\" (regulation 13); Paragraph 59 \"Take precautions against adjacent live parts where necessary\" (regulations 14, 15); Paragraph 60, 69–82 \"Issue permit-to-work where necessary\" (regulation 13); Paragraphs 57–58 \"Apply local earth(s) where necessary\" (regulation 13). The chart ends with the box \"DEAD WORKING, ie SAFE\".",
+   "reason": "Read the flow chart image and listed the boxes in arrow order, left column then right column.",
+   "evidence": "Image figure-4.png shows eight steps with paragraph and regulation labels and a final box \"DEAD WORKING, ie SAFE\".",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "65919f9bdd9ff6ef",
+   "kind": "figure_description",
+   "target": "figure-5: Live working procedures",
+   "value": "Flow chart titled \"Figure 5 Live working procedures\", a single column of boxes. Steps in order: \"Identify the circuit or equipment to be worked on or near the work to be done\" (regulation 4); Paragraph 32 \"Ensure suitable precautions are taken and that suitable protective equipment is used\" (regulations 4(4), 14(c)); Paragraph 32 \"Ensure adequate working space, access and lighting. Restrict access to area of live work\" (regulations 14, 15); Paragraph 32 \"Ensure accompaniment is provided if necessary. Accompaniment to be trained to give assistance\" (regulations 3, 14, 16). The chart ends with the box \"LIVE WORKING, ie INJURY TO BE PREVENTED\".",
+   "reason": "Read the flow chart image and listed the boxes in arrow order from top to bottom.",
+   "evidence": "Image figure-5.png shows four steps with paragraph and regulation labels and a final box \"LIVE WORKING, ie INJURY TO BE PREVENTED\".",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  }
+ ]
+}

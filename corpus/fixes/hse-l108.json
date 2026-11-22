@@ -1,0 +1,1497 @@
+{
+ "source_id": "hse-l108",
+ "about": "Saved model fixes for hse-l108 (ADR 0010).",
+ "fixes": [
+  {
+   "key": "5767cc31ae9cbe92",
+   "kind": "table",
+   "target": "table-1: Simple tests to see if a noise risk assessment is needed",
+   "value": {
+    "columns": [
+     "Test",
+     "Probable noise level",
+     "A risk assessment will be needed if the noise is like this for more than:"
+    ],
+    "rows": [
+     [
+      "The noise is intrusive but normal conversation is possible",
+      "80 dB(A)",
+      "6 hours"
+     ],
+     [
+      "You have to shout to talk to someone 2 m away",
+      "85 dB(A)",
+      "2 hours"
+     ],
+     [
+      "You have to shout to talk to someone 1 m away",
+      "90 dB(A)",
+      "45 minutes"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Simple tests to see if a noise risk assessment is needed: when the noise is intrusive but normal conversation is possible, the probable noise level is 80 dB(A), and a risk assessment will be needed if the noise is like this for more than 6 hours.",
+     "Simple tests to see if a noise risk assessment is needed: when you have to shout to talk to someone 2 m away, the probable noise level is 85 dB(A), and a risk assessment will be needed if the noise is like this for more than 2 hours.",
+     "Simple tests to see if a noise risk assessment is needed: when you have to shout to talk to someone 1 m away, the probable noise level is 90 dB(A), and a risk assessment will be needed if the noise is like this for more than 45 minutes."
+    ]
+   },
+   "reason": "Table 1 on printed page 12 has three columns and three data rows; the grid matched the image.",
+   "evidence": "Page 12 image, Table 1 with header Test / Probable noise level / A risk assessment will be needed if the noise is like this for more than:",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "3b9858ac4b44af4a",
+   "kind": "figure_description",
+   "target": "figure-1: Hearing protection zone sign",
+   "value": "A round mandatory-style safety sign with a white outline of a head wearing ear defenders on a blue circle. It is captioned 'Figure 1 Hearing protection zone sign'. No other words or numbers are printed on the sign.",
+   "reason": "The image is a simple blue circular sign with a white head and ear muffs.",
+   "evidence": "Figure 1 image shows blue circle, white head with ear defenders, caption 'Figure 1 Hearing protection zone sign'.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "c4af99877d9946dd",
+   "kind": "table",
+   "target": "table-p31: Schedule 2 Peak sound pressure level (Regulation 2(1))",
+   "value": {
+    "columns": [
+     "Regulations revoked",
+     "References",
+     "Extent of revocation"
+    ],
+    "rows": [
+     [
+      "The Noise at Work Regulations 1989",
+      "SI 1989/1790",
+      "The whole Regulations"
+     ],
+     [
+      "The Quarries Regulations 1999",
+      "SI 1999/2024",
+      "Schedule 5 Part II insofar as it amends regulation 2 of the Noise at Work Regulations 1989"
+     ],
+     [
+      "The Offshore Electricity and Noise Regulations 1997",
+      "SI 1997/1993",
+      "Regulation 3"
+     ],
+     [
+      "The Personal Protective Equipment at Work Regulations 1992",
+      "SI 1992/2966",
+      "Schedule 2 Part IX"
+     ],
+     [
+      "The Health and Safety (Safety Signs and Signals) Regulations 1996",
+      "SI 1996/341",
+      "Schedule 3 Part II paragraph 1 (a) and (b)"
+     ],
+     [
+      "The Offshore Installations and Wells (Design and Construction, etc.) Regulations 1996",
+      "SI 1996/913",
+      "Schedule 1 paragraph 46(b) and the word ‘noise’ in paragraph 59(b)"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Schedule 3 Revocations (Regulation 15(2)): The Noise at Work Regulations 1989, reference SI 1989/1790, are revoked to the extent of The whole Regulations.",
+     "Schedule 3 Revocations (Regulation 15(2)): The Quarries Regulations 1999, reference SI 1999/2024, are revoked to the extent of Schedule 5 Part II insofar as it amends regulation 2 of the Noise at Work Regulations 1989.",
+     "Schedule 3 Revocations (Regulation 15(2)): The Offshore Electricity and Noise Regulations 1997, reference SI 1997/1993, are revoked to the extent of Regulation 3.",
+     "Schedule 3 Revocations (Regulation 15(2)): The Personal Protective Equipment at Work Regulations 1992, reference SI 1992/2966, are revoked to the extent of Schedule 2 Part IX.",
+     "Schedule 3 Revocations (Regulation 15(2)): The Health and Safety (Safety Signs and Signals) Regulations 1996, reference SI 1996/341, are revoked to the extent of Schedule 3 Part II paragraph 1 (a) and (b).",
+     "Schedule 3 Revocations (Regulation 15(2)): The Offshore Installations and Wells (Design and Construction, etc.) Regulations 1996, reference SI 1996/913, are revoked to the extent of Schedule 1 paragraph 46(b) and the word ‘noise’ in paragraph 59(b)."
+    ]
+   },
+   "reason": "The only table on page 31 is the Schedule 3 Revocations table; the packet title (Schedule 2 Peak sound pressure level) is the heading of the formula text above it, so sentences use the Schedule 3 title the table sits under.",
+   "evidence": "Page 31 image: table under heading 'Schedule 3 Revocations (Regulation 15(2))' with six data rows.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "212b128ae74b45b0",
+   "kind": "figure_description",
+   "target": "figure-2: Managing noise risks",
+   "value": "A flow chart of seven stacked steps with arrows pointing down, titled 'Figure 2 Managing noise risks'. In order the steps are: Assess the risks (Reg 5); Eliminate or control noise risks (Reg 6); Hearing protection (Reg 7); Maintain and use noise-control equipment (Reg 8); Health surveillance (Reg 9); Worker information and training (Reg 10); Review (Reg 5). Each step has a box of bullet points, for example 'Identify noise hazards' under Assess the risks and 'Look out for new ways to reduce risks' under Review.",
+   "reason": "The image is a vertical flow chart of seven regulation-based steps with bullet lists.",
+   "evidence": "Figure 2 image shows seven red chevrons labelled with the step names and Reg numbers, each beside a bullet box.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "f5ff4a511f8ac6b1",
+   "kind": "figure_description",
+   "target": "figure-3: Typical air exhaust silencers",
+   "value": "Three drawings of air exhaust silencers, each a metal or plastic cylinder with a threaded base and a cut-away showing the inside. 3a is a 'Fabricated and assembled metal body with layers of coarse-woven wire cloth as silencing material'. 3b is a 'Machined metal body and thread with compacted wire wool as silencing material', and 3c is an 'Injection-moulded plastic body and thread with sintered plastic or metal membrane'. The caption reads 'Figure 3 Typical air exhaust silencers'.",
+   "reason": "Image shows three labelled cut-away illustrations 3a, 3b, 3c with captions.",
+   "evidence": "Figure 3 image with captions 3a, 3b, 3c and 'Figure 3 Typical air exhaust silencers'.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "fb9a52bd8ce1782e",
+   "kind": "figure_description",
+   "target": "figure-4: Reduced drop heights to reduce noise",
+   "value": "A photo of a round green metal bin or hopper on a machine, filled with short cut metal tubes, with its lid propped open. The picture shows no printed labels or numbers. It illustrates reduced drop heights to reduce noise, as the tubes sit in the container close to where they fall.",
+   "reason": "The image is a photo only; the caption 'Reduced drop heights to reduce noise' is from the packet title, not visible in the image.",
+   "evidence": "Figure 4 image: photo of an open green round container of metal tube pieces beside machinery, no text.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "4b503cc6c430d05b",
+   "kind": "figure_description",
+   "target": "figure-5: Damping material applied to transport chutes in the food industry",
+   "value": "Colour photo of food-industry machinery. A rectangular transport chute with a yellow-orange damping material lining sits above a round circular plate or dish of a multi-head machine. There are no printed labels in the image.",
+   "reason": "The image is a photo with a lined chute above a round tray; no text is printed on it.",
+   "evidence": "Photo shows a chute with orange-yellow lining feeding onto a round plate surrounded by metal machine parts.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "2e20df841376564c",
+   "kind": "figure_description",
+   "target": "figure-6: Vibration-isolating mounts reduce vibration entering the floor",
+   "value": "Colour photo of a large electric motor and machine in an industrial building, standing on a pale yellow base. The base rests on small dark blue mounts at its corners and a ladder is on the right. There are no printed labels in the image.",
+   "reason": "The image is a photo of a motor on a raised base with mounts under the corners; no text is printed on it.",
+   "evidence": "Photo shows a motor with a cylindrical end cover on a pale base with dark mounts at the floor, a ladder at right.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "23edb28bd47d01df",
+   "kind": "figure_description",
+   "target": "figure-7: Detail of vibration-isolating mount",
+   "value": "Close-up colour photo of one dark blue rubber mount between a floor plate and the pale base of a machine. A bolt stands up beside the mount, on a metal chequer-plate floor. There are no printed labels in the image.",
+   "reason": "The image is a close-up photo of a single mount and bolt; no text is printed on it.",
+   "evidence": "Photo shows a blue mount under a pale base edge, a hex bolt above it, and chequer plate floor.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "ef010789c6948ca6",
+   "kind": "figure_description",
+   "target": "figure-8: No controls: all workers affected by the noise Note: All three operators wear hearing protection.",
+   "value": "Colour diagram of a building with a pitched roof, steel cladding and brick walls, with a noisy machine on the left and \"Quiet operations\" with two workers at a table on the right. Solid arrows show \"Direct sound\" going from the machine to the quiet area, and dotted arrows show \"Reflected sound\" bouncing off the roof and walls. Printed labels: Steel cladding, Brick, Noisy machine, Quiet operations, Direct sound, Reflected sound. Caption: \"Figure 8 No controls: all workers affected by the noise. Note: All three operators wear hearing protection.\"",
+   "reason": "The image is a labelled diagram with a printed caption.",
+   "evidence": "Labels and caption are printed in the image; solid arrows are direct sound and dotted arrows are reflected sound.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "18ac629e0df46043",
+   "kind": "figure_description",
+   "target": "figure-9: The direct noise path is blocked by the partition but the quiet work is affected by reflected noise from a machine somewhere else in the building Note: All three operators wear hearing protection.",
+   "value": "Colour diagram of the same building as figure 8, now with a vertical \"Partition\" between the noisy machine and the \"Quiet operations\" area. The solid \"Direct sound\" arrow from the machine stops at the partition, but dotted \"Reflected sound\" arrows from the roof and walls still reach the quiet area. Other printed labels: Steel cladding, Brick, Noisy machine. Caption: \"Figure 9 The direct noise path is blocked by the partition but the quiet work is affected by reflected noise from a machine somewhere else in the building. Note: All three operators wear hearing protection.\"",
+   "reason": "The image is a labelled diagram with a printed caption.",
+   "evidence": "Partition label and caption are printed; the direct arrow ends at the partition and dotted arrows reach the quiet operations area.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "86c8cbaba4479bf4",
+   "kind": "figure_description",
+   "target": "figure-10: The correct use of absorption in the roof reduces the reflected noise reaching the quiet area Note: The operators doing quiet operations no longer wear hearing protection.",
+   "value": "Colour diagram of a building with a wavy layer labelled \"Absorption (acoustic)\" under the roof, a partition, a noisy machine on the left and two workers at a table on the right. Solid \"Direct sound\" arrows from the machine go up to the roof, and the dotted \"Reflected sound\" arrows are short and few, with none reaching the workers. Caption: \"Figure 10 The correct use of absorption in the roof reduces the reflected noise reaching the quiet area. Note: The operators doing quiet operations no longer wear hearing protection.\"",
+   "reason": "The image is a labelled diagram with a printed caption.",
+   "evidence": "Labels Absorption (acoustic), Direct sound, Reflected sound and the caption are printed in the image.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "8fb0e1a777082b25",
+   "kind": "figure_description",
+   "target": "figure-11: Segregation/acoustic enclosure of the noisy operation will benefit the whole workplace Note: No operators wear hearing protection.",
+   "value": "Diagram of a workshop in cross-section showing a noisy machine inside an acoustic enclosure at the left, with an operator beside it looking through a window in the enclosure wall. Arrows above the machine show sound going upward, and an arrow marked \"Direct sound\" points at the enclosure from the left. At the right, two workers handle boxes at a table in the quiet part of the workplace. Printed labels are \"Direct sound\" and \"Window\".",
+   "reason": "Labels and layout read directly from the image; caption note says no operators wear hearing protection.",
+   "evidence": "Image shows labels 'Direct sound' and 'Window', machine in enclosure, three workers, caption 'Figure 11 ... Note: No operators wear hearing protection.'",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "ec8c9d7252695782",
+   "kind": "figure_description",
+   "target": "figure-12: Features required for an effective machine enclosure",
+   "value": "Diagram of a box-shaped machine enclosure with callouts for its required features. Printed labels are: \"Inspection window\", \"Suitably attenuated cooling air supply/discharge\", \"Demountable panel to be sealed to form airtight seal for occasional access\", \"Work entry/delivery via treated feed ducts\", \"Routine access (hinged panel)\", \"Personnel door (if necessary)\", and \"Inner lining of sound absorbing material and outer skin of insulating material\". The door carries a sign for hearing protection.",
+   "reason": "All callout labels are legible and were copied as printed.",
+   "evidence": "Image of enclosure with arrows to each labelled feature and a circular wall detail; caption 'Figure 12 Features required for an effective machine enclosure'.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "0799c193d7e06733",
+   "kind": "figure_description",
+   "target": "figure-13: Movable acoustic screen in a foundry",
+   "value": "Photo of a movable acoustic screen in a foundry, made of perforated panels in a metal frame. Behind it sits a blue belt-grinding or sanding machine with abrasive belts above it, and a flexible extraction hose with a round hood hangs on the right. No printed labels are visible in the photo.",
+   "reason": "Photo with no text in the image; description from visible objects only.",
+   "evidence": "Image shows perforated panels, a blue machine with belts, and a ducted hose with a hood on the right.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "281e8957546e1a72",
+   "kind": "figure_description",
+   "target": "figure-14: Example of the construction of a hanging, flexible acoustic barrier",
+   "value": "Diagram of the construction of a hanging, flexible acoustic barrier, shown as a panel cut away to show its layers. Printed labels are \"Eyelets for hanging\", \"Heavy cloth cover\", \"25 mm fibreglass quilt\", \"Flexible mass layer (min surface density 5 kg/m2)\", and \"Velcro strip for attachment to adjacent panel\".",
+   "reason": "Labels are clearly printed and were copied as shown.",
+   "evidence": "Image shows a cut-away panel with arrows to each of the five labels; caption 'Figure 14 Example of the construction of a hanging, flexible acoustic barrier'.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "e306b708df7ab670",
+   "kind": "figure_description",
+   "target": "figure-15: A noise refuge and control room in concrete block manufacturing",
+   "value": "Photo of a small freestanding booth built from plywood with large glass windows and a door, standing on a factory floor. A person in a high-visibility jacket sits inside, and factory equipment can be seen behind and through the glass. No printed labels are visible in the photo.",
+   "reason": "Photo with no printed text; described from visible content only.",
+   "evidence": "Image shows a plywood and glass cabin with a door and a seated person in hi-vis clothing in an industrial hall.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "9e9b0d31462f3e08",
+   "kind": "table",
+   "target": "table-2: Types of hearing protector: advantages, notes on suitability and use, care and maintenance",
+   "value": {
+    "columns": [
+     "Type",
+     "Description",
+     "Advantages",
+     "Notes on suitability and use",
+     "Care and maintenance"
+    ],
+    "rows": [
+     [
+      "Earmuffs",
+      "Hard plastic cups which fit over and surround the ears, and are sealed to the head by cushion seals filled with a soft plastic foam or a viscous liquid. Tension to assist the seal is provided by a headband. The inner surfaces of the cups are covered with a sound-absorbing material, usually a soft plastic foam. Available in a range of sizes.",
+      "Easy to fit and use. Clearly visible, therefore easily monitored.",
+      "Headband can prevent use of a hard hat. Headband can be worn behind the neck or under the chin if an under-hat support strap is provided. However, the protection offered may differ between wear modes. May be uncomfortable in warm conditions. May not be suited for use with safety glasses and other forms of PPE (check compatibility). Long hair, woolly hats, beards and jewellery may interfere with seals and reduce protection.",
+      "Check seals for cleanliness, hardening, tearing and misshape. Check cup condition for cracks, holes, damage and unofficial modifications. Avoid over-bending or twisting headband, which may degrade performance. Check tension of headband (compare with a new earmuff). Store in a clean environment. Follow manufacturer’s instructions."
+     ],
+     [
+      "Helmet-mounted earmuffs",
+      "Individual cups attached to safety headgear such as a visor or a hard hat, usually by adjustable arms. Noise-protection information should be obtained for the specific combination of earmuff and helmet.",
+      "Can overcome the difficulties with compatibility with hard hats.",
+      "May not be suited for use with safety glasses and other forms of PPE (check compatibility). Good performance requires suitable helmet/ear muff combination and good fit to head size. May be uncomfortable in warm conditions. Long hair, woolly hats, beards and jewellery may interfere with seals and reduce protection.",
+      "As for earmuffs, plus ensure the seals do not sit on the side of the helmet for long periods as this can damage them and affect their performance."
+     ],
+     [
+      "Earplugs",
+      "Earplugs fit into the ear or cover the ear canal to form a seal. They sometimes have a cord or a neckband to prevent loss. Some earplugs are reusable and others are designed to be disposed of after one use – check manufacturer’s instructions. Available in different forms (pre-shaped, user-formable, semi- insert) and different sizes.",
+      "Often suitable for use with safety glasses and other forms of PPE.",
+      "Can be hard to fit – will only be effective when fitted properly so correct fitting is essential. See manufacturer’s instructions and provide training. Difficult to check correct fit by observation. Can work loose over time so check and refit as appropriate in a quiet environment. May not be suitable where the hearing protection is likely to be removed often, particularly in dusty or dirty environments. May not be suitable for certain individuals due to medical conditions.",
+      "Clean reusable earplugs regularly and ensure they are not damaged or degraded – follow manufacturer’s instructions. Disposable earplugs should only be used once. Hands should be clean when fitting earplugs. Reusable earplugs should be issued to an individual and not shared. Ensure adequate supplies of disposable earplugs. Follow manufacturer’s instructions."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "In the table of types of hearing protector, earmuffs are hard plastic cups which fit over and surround the ears, sealed to the head by cushion seals filled with a soft plastic foam or a viscous liquid, with tension provided by a headband, inner surfaces covered with a sound-absorbing material, usually a soft plastic foam, and available in a range of sizes; the advantages are that they are easy to fit and use and clearly visible, therefore easily monitored; for suitability and use, the headband can prevent use of a hard hat, can be worn behind the neck or under the chin if an under-hat support strap is provided (though the protection offered may differ between wear modes), may be uncomfortable in warm conditions, may not be suited for use with safety glasses and other forms of PPE (check compatibility), and long hair, woolly hats, beards and jewellery may interfere with seals and reduce protection; for care and maintenance, check seals for cleanliness, hardening, tearing and misshape, check cup condition for cracks, holes, damage and unofficial modifications, avoid over-bending or twisting headband, which may degrade performance, check tension of headband (compare with a new earmuff), store in a clean environment, and follow manufacturer’s instructions.",
+     "In the table of types of hearing protector, helmet-mounted earmuffs are individual cups attached to safety headgear such as a visor or a hard hat, usually by adjustable arms, and noise-protection information should be obtained for the specific combination of earmuff and helmet; the advantage is that they can overcome the difficulties with compatibility with hard hats; for suitability and use, they may not be suited for use with safety glasses and other forms of PPE (check compatibility), good performance requires suitable helmet/ear muff combination and good fit to head size, they may be uncomfortable in warm conditions, and long hair, woolly hats, beards and jewellery may interfere with seals and reduce protection; for care and maintenance, as for earmuffs, plus ensure the seals do not sit on the side of the helmet for long periods as this can damage them and affect their performance.",
+     "In the table of types of hearing protector, earplugs fit into the ear or cover the ear canal to form a seal, sometimes have a cord or a neckband to prevent loss, some are reusable and others are designed to be disposed of after one use (check manufacturer’s instructions), and are available in different forms (pre-shaped, user-formable, semi- insert) and different sizes; the advantage is that they are often suitable for use with safety glasses and other forms of PPE; for suitability and use, they can be hard to fit and will only be effective when fitted properly so correct fitting is essential (see manufacturer’s instructions and provide training), it is difficult to check correct fit by observation, they can work loose over time so check and refit as appropriate in a quiet environment, they may not be suitable where the hearing protection is likely to be removed often, particularly in dusty or dirty environments, and may not be suitable for certain individuals due to medical conditions; for care and maintenance, clean reusable earplugs regularly and ensure they are not damaged or degraded, disposable earplugs should only be used once, hands should be clean when fitting earplugs, reusable earplugs should be issued to an individual and not shared, ensure adequate supplies of disposable earplugs, and follow manufacturer’s instructions."
+    ]
+   },
+   "reason": "Grid matched the page image; three data rows, five columns, no sub-heading rows. Fixed 'sound- absorbing' to 'sound-absorbing' as printed on the page line wrap.",
+   "evidence": "Page 54 image shows Table 2 with header Type, Description, Advantages, Notes on suitability and use, Care and maintenance and rows Earmuffs, Helmet-mounted earmuffs, Earplugs; 'Table continues' below.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "b934bf843a1451a4",
+   "kind": "table",
+   "target": "table-3: Indication of protector factors",
+   "value": {
+    "columns": [
+     "A-weighted noise level (dB(A))",
+     "Select a protector with an SNR (dB) of . . ."
+    ],
+    "rows": [
+     [
+      "85–90",
+      "20 or less"
+     ],
+     [
+      "90–95",
+      "20–30"
+     ],
+     [
+      "95–100",
+      "25–35"
+     ],
+     [
+      "100–105",
+      "30 or more"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Indication of protector factors: for an A-weighted noise level of 85–90 dB(A), select a protector with an SNR (dB) of 20 or less.",
+     "Indication of protector factors: for an A-weighted noise level of 90–95 dB(A), select a protector with an SNR (dB) of 20–30.",
+     "Indication of protector factors: for an A-weighted noise level of 95–100 dB(A), select a protector with an SNR (dB) of 25–35.",
+     "Indication of protector factors: for an A-weighted noise level of 100–105 dB(A), select a protector with an SNR (dB) of 30 or more."
+    ]
+   },
+   "reason": "The page image shows Table 3 as a separate two-column table with four data rows. The library grid wrongly put the Table 2 custom-moulded earplugs row above it, so I left that row out.",
+   "evidence": "Page 55 image: Table 3 'Indication of protector factors' with headings 'A-weighted noise level (dB(A))' and 'Select a protector with an SNR (dB) of . . .' and rows 85–90/20 or less, 90–95/20–30, 95–100/25–35, 100–105/30 or more.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "b8cf1111f5893bcb",
+   "kind": "figure_description",
+   "target": "figure-16: Earmuffs worn with headband behind head (note use of support strap)",
+   "value": "Photo of the side of a person's head wearing red earmuffs with the headband passing behind the head. A black support strap runs from the earmuff cup around the back of the head. A green tick is in the top right corner.",
+   "reason": "The photo shows earmuffs with the headband behind the head and a green tick mark.",
+   "evidence": "Image shows a red earmuff on a brown-haired head, black band going behind the head, strap visible, green tick top right.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "31244e56166c773a",
+   "kind": "figure_description",
+   "target": "figure-17: Correct fitting of earplugs",
+   "value": "Close-up photo of a human ear with a yellow foam earplug fitted in the ear canal. The earplug sits mostly inside the ear. A green tick is in the top right corner.",
+   "reason": "The photo shows a yellow earplug inserted in an ear with a green tick mark, matching the title 'Correct fitting of earplugs'.",
+   "evidence": "Image shows an ear with a small yellow rounded earplug set in the canal and a green tick top right.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "63a227d6af56ba26",
+   "kind": "figure_description",
+   "target": "figure-18: Incorrect fitting of earplugs",
+   "value": "Close-up photo of a human ear with a yellow foam earplug that sticks out of the ear canal and is only partly inserted. A red cross is in the top right corner.",
+   "reason": "The photo shows a yellow earplug protruding from the ear with a red cross mark, matching the title 'Incorrect fitting of earplugs'.",
+   "evidence": "Image shows an ear with a yellow cylindrical earplug sitting out from the canal and a red cross top right.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "46de81d55e676f4d",
+   "kind": "figure_description",
+   "target": "figure-19: Problems of fitting earmuffs with long hair",
+   "value": "Close-up photo of the side of a head with long blonde hair and an orange-red earmuff cup. The long hair lies under the edge of the earmuff cushion. A red cross is in the top right corner.",
+   "reason": "The photo shows an earmuff worn over long hair with a red cross mark, matching the title 'Problems of fitting earmuffs with long hair'.",
+   "evidence": "Image shows an orange earmuff cup on a head with long blonde hair around and under it, and a red cross top right.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "37dde93db3d1df47",
+   "kind": "figure_description",
+   "target": "figure-20: Problems of fitting earmuffs with jewellery",
+   "value": "Close-up photo of an ear area with an orange-red earmuff cup and a gold hoop earring hanging below it. The earring is near the edge of the earmuff cushion. A red cross is in the top right corner.",
+   "reason": "The photo shows an earmuff cup next to a hoop earring with a red cross mark, matching the title 'Problems of fitting earmuffs with jewellery'.",
+   "evidence": "Image shows an orange earmuff at the top right, a gold hoop earring below the earlobe, and a red cross top right.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "5ffc045362320f84",
+   "kind": "figure_description",
+   "target": "figure-21: Problems of fitting earmuffs with safety glasses",
+   "value": "A close-up photo of the side of a head showing clear safety glasses with the arm of the glasses running under the cushion of a large orange earmuff. A red cross is printed in the top right corner.",
+   "reason": "The photo shows glasses arm and earmuff cushion together, marked with a red cross.",
+   "evidence": "Image shows clear glasses arm beside orange earmuff and a red X at top right; no other text.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "90489398817e918f",
+   "kind": "figure_description",
+   "target": "figure-22: Effectiveness of hearing protection in relation to time worn",
+   "value": "A line graph with a red curve. The horizontal axis is \"Percentage of time worn in noisy environment\" with marks 0%, 25%, 50%, 75% and 100%. The vertical axis is \"Effective noise exposure reduction of hearing protectors that provide 30 dB attenuation when worn (dB)\" from 0 to 30 in steps of 5; the curve rises slowly from 0 and climbs steeply to 30 dB at 100%.",
+   "reason": "Graph with labelled axes and a curve, read directly from the image.",
+   "evidence": "Axis titles, tick values 0 to 30 and 0% to 100% visible; small headphone icons mark points on the curve.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "e65451e144f2c173",
+   "kind": "table",
+   "target": "table-5: Methods of estimating at the ear sound pressure levels using BS EN ISO 4869-2",
+   "value": {
+    "columns": [
+     "Method",
+     "Description",
+     "Data required"
+    ],
+    "rows": [
+     [
+      "Octave-band",
+      "Requires detailed data on the frequency content of the noise, and uses information on the attenuation of the protector at specified frequencies",
+      "Octave-band unweighted spectrum"
+     ],
+     [
+      "HML",
+      "Three values, H, M and L, are used with two simple measurements of the sound pressure level",
+      "A-weighted and C-weighted average sound pressure levels"
+     ],
+     [
+      "SNR",
+      "The SNR value is used with a single measurement of the sound pressure level",
+      "C-weighted average sound pressure level"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "In the methods of estimating at the ear sound pressure levels using BS EN ISO 4869-2, the Octave-band method requires detailed data on the frequency content of the noise, and uses information on the attenuation of the protector at specified frequencies, and the data required is octave-band unweighted spectrum.",
+     "In the methods of estimating at the ear sound pressure levels using BS EN ISO 4869-2, the HML method uses three values, H, M and L, with two simple measurements of the sound pressure level, and the data required is A-weighted and C-weighted average sound pressure levels.",
+     "In the methods of estimating at the ear sound pressure levels using BS EN ISO 4869-2, the SNR method uses the SNR value with a single measurement of the sound pressure level, and the data required is C-weighted average sound pressure level."
+    ]
+   },
+   "reason": "Grid matches the page 70 image.",
+   "evidence": "Table 5 on page 70 has three rows under Method, Description, Data required.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "4f5fd3da41f22532",
+   "kind": "table",
+   "target": "table-6: Common processes generating high peak sound pressure levels",
+   "value": {
+    "columns": [
+     "Noise source",
+     "Type",
+     "Typical C-weighted peak sound pressure level (dB(C))"
+    ],
+    "rows": [
+     [
+      "Punch press",
+      "1",
+      "115–140"
+     ],
+     [
+      "Jolt squeeze moulding machine",
+      "1",
+      "120–130"
+     ],
+     [
+      "Explosives",
+      "1",
+      "150–160"
+     ],
+     [
+      "Drop hammer",
+      "1",
+      "130–140"
+     ],
+     [
+      "Drop forge",
+      "1",
+      "130–140"
+     ],
+     [
+      "Nail gun/nailer",
+      "2",
+      "130–140"
+     ],
+     [
+      "Hammer (general metalworking)",
+      "2",
+      "130–150"
+     ],
+     [
+      "Proof-firing",
+      "2",
+      "135–140"
+     ],
+     [
+      "Rifle fire",
+      "2",
+      "150–160"
+     ],
+     [
+      "Fireworks",
+      "2",
+      ">140"
+     ],
+     [
+      "Pistol",
+      "3",
+      "140–155"
+     ],
+     [
+      "Shotgun",
+      "3",
+      "150–160"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "In the common processes generating high peak sound pressure levels, the noise source Punch press is type 1 with a typical C-weighted peak sound pressure level of 115–140 dB(C).",
+     "In the common processes generating high peak sound pressure levels, the noise source Jolt squeeze moulding machine is type 1 with a typical C-weighted peak sound pressure level of 120–130 dB(C).",
+     "In the common processes generating high peak sound pressure levels, the noise source Explosives is type 1 with a typical C-weighted peak sound pressure level of 150–160 dB(C).",
+     "In the common processes generating high peak sound pressure levels, the noise source Drop hammer is type 1 with a typical C-weighted peak sound pressure level of 130–140 dB(C).",
+     "In the common processes generating high peak sound pressure levels, the noise source Drop forge is type 1 with a typical C-weighted peak sound pressure level of 130–140 dB(C).",
+     "In the common processes generating high peak sound pressure levels, the noise source Nail gun/nailer is type 2 with a typical C-weighted peak sound pressure level of 130–140 dB(C).",
+     "In the common processes generating high peak sound pressure levels, the noise source Hammer (general metalworking) is type 2 with a typical C-weighted peak sound pressure level of 130–150 dB(C).",
+     "In the common processes generating high peak sound pressure levels, the noise source Proof-firing is type 2 with a typical C-weighted peak sound pressure level of 135–140 dB(C).",
+     "In the common processes generating high peak sound pressure levels, the noise source Rifle fire is type 2 with a typical C-weighted peak sound pressure level of 150–160 dB(C).",
+     "In the common processes generating high peak sound pressure levels, the noise source Fireworks is type 2 with a typical C-weighted peak sound pressure level of >140 dB(C).",
+     "In the common processes generating high peak sound pressure levels, the noise source Pistol is type 3 with a typical C-weighted peak sound pressure level of 140–155 dB(C).",
+     "In the common processes generating high peak sound pressure levels, the noise source Shotgun is type 3 with a typical C-weighted peak sound pressure level of 150–160 dB(C)."
+    ]
+   },
+   "reason": "Header merged from two printed lines; 12 data rows match the page 72 image.",
+   "evidence": "Table 6 on page 72 shows Noise source, Type and Typical C-weighted peak sound pressure level (dB(C)).",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "8598c94e57eead40",
+   "kind": "table",
+   "target": "table-7: Modified sound attenuation values for different impulsive or impact noises",
+   "value": {
+    "columns": [
+     "Peak noise source type",
+     "Modified sound attenuation value (dB)"
+    ],
+    "rows": [
+     [
+      "Type 1",
+      "L − 5"
+     ],
+     [
+      "Type 2",
+      "M − 5"
+     ],
+     [
+      "Type 3",
+      "H"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "In the modified sound attenuation values for different impulsive or impact noises, the peak noise source type Type 1 has a modified sound attenuation value of L − 5 dB.",
+     "In the modified sound attenuation values for different impulsive or impact noises, the peak noise source type Type 2 has a modified sound attenuation value of M − 5 dB.",
+     "In the modified sound attenuation values for different impulsive or impact noises, the peak noise source type Type 3 has a modified sound attenuation value of H dB."
+    ]
+   },
+   "reason": "Grid matches the page 73 image.",
+   "evidence": "Table 7 on page 73 has three rows: Type 1 L − 5, Type 2 M − 5, Type 3 H.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "bfa7494c54b0d478",
+   "kind": "table",
+   "target": "table-8: Noise measurements and additional information required for estimating noise exposure in the workplace",
+   "value": {
+    "columns": [
+     "Value required",
+     "Possible noise measurements",
+     "Additional information required"
+    ],
+    "rows": [
+     [
+      "Daily personal noise exposure (LEP,d)",
+      "A-weighted sound pressure level (LAeq) for each noisy task or period in a day",
+      "The exposure duration of each noisy task or period in a day"
+     ],
+     [
+      "Daily personal noise exposure (LEP,d)",
+      "Noise dose in Pa2h for a representative period",
+      "Duration of measurement; Duration of person’s exposure in the day"
+     ],
+     [
+      "Daily personal noise exposure (LEP,d)",
+      "Noise dose as a percentage LEP,d value for a representative period",
+      "Duration of measurement; Duration of person’s exposure in the day; LEP,d value that corresponds to 100% (normally 85 or 80 dB)"
+     ],
+     [
+      "Daily personal noise exposure from a number of discrete events",
+      "A-weighted sound pressure level (LAeq) over a period containing a known number of events",
+      "Number of events included in measurement; Duration of measurement; Number of events in person’s working day"
+     ],
+     [
+      "Daily personal noise exposure from a number of discrete events",
+      "A-weighted sound exposure level (LAE) containing a known number of events",
+      "Number of events included in measurement; Number of events in person’s working day"
+     ],
+     [
+      "Peak noise exposure",
+      "C-weighted peak sound pressure level (LCpeak) for each noisy task or period in a day",
+      "None"
+     ],
+     [
+      "Estimate of A-weighted sound pressure level at ear when hearing protection is worn",
+      "Linear/unweighted/Z-weighted octave band sound pressure level (Leq)",
+      "Octave-band assumed protection values for protector"
+     ],
+     [
+      "Estimate of A-weighted sound pressure level at ear when hearing protection is worn",
+      "C- and A-weighted sound pressure levels (LCeq and LAeq)",
+      "H, M and L values for protector"
+     ],
+     [
+      "Estimate of A-weighted sound pressure level at ear when hearing protection is worn",
+      "C-weighted sound pressure level (LCeq)",
+      "SNR value for protector"
+     ],
+     [
+      "Estimate of C-weighted peak level at ear when hearing protection worn",
+      "See above as in ‘Peak noise exposure’",
+      "H, M and L values for protector; Type of noise source (Table 6); Modified sound attenuation values (Table 7)"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Noise measurements and additional information required for estimating noise exposure in the workplace: for daily personal noise exposure (LEP,d), the possible noise measurement is A-weighted sound pressure level (LAeq) for each noisy task or period in a day, and the additional information required is the exposure duration of each noisy task or period in a day.",
+     "Noise measurements and additional information required for estimating noise exposure in the workplace: for daily personal noise exposure (LEP,d), the possible noise measurement is noise dose in Pa2h for a representative period, and the additional information required is duration of measurement and duration of person’s exposure in the day.",
+     "Noise measurements and additional information required for estimating noise exposure in the workplace: for daily personal noise exposure (LEP,d), the possible noise measurement is noise dose as a percentage LEP,d value for a representative period, and the additional information required is duration of measurement, duration of person’s exposure in the day, and LEP,d value that corresponds to 100% (normally 85 or 80 dB).",
+     "Noise measurements and additional information required for estimating noise exposure in the workplace: for daily personal noise exposure from a number of discrete events, the possible noise measurement is A-weighted sound pressure level (LAeq) over a period containing a known number of events, and the additional information required is number of events included in measurement, duration of measurement, and number of events in person’s working day.",
+     "Noise measurements and additional information required for estimating noise exposure in the workplace: for daily personal noise exposure from a number of discrete events, the possible noise measurement is A-weighted sound exposure level (LAE) containing a known number of events, and the additional information required is number of events included in measurement and number of events in person’s working day.",
+     "Noise measurements and additional information required for estimating noise exposure in the workplace: for peak noise exposure, the possible noise measurement is C-weighted peak sound pressure level (LCpeak) for each noisy task or period in a day, and the additional information required is none.",
+     "Noise measurements and additional information required for estimating noise exposure in the workplace: for an estimate of A-weighted sound pressure level at ear when hearing protection is worn, the possible noise measurement is linear/unweighted/Z-weighted octave band sound pressure level (Leq), and the additional information required is octave-band assumed protection values for protector.",
+     "Noise measurements and additional information required for estimating noise exposure in the workplace: for an estimate of A-weighted sound pressure level at ear when hearing protection is worn, the possible noise measurement is C- and A-weighted sound pressure levels (LCeq and LAeq), and the additional information required is H, M and L values for protector.",
+     "Noise measurements and additional information required for estimating noise exposure in the workplace: for an estimate of A-weighted sound pressure level at ear when hearing protection is worn, the possible noise measurement is C-weighted sound pressure level (LCeq), and the additional information required is SNR value for protector.",
+     "Noise measurements and additional information required for estimating noise exposure in the workplace: for an estimate of C-weighted peak level at ear when hearing protection worn, the possible noise measurement is see above as in ‘Peak noise exposure’, and the additional information required is H, M and L values for protector, type of noise source (Table 6), and modified sound attenuation values (Table 7)."
+    ]
+   },
+   "reason": "Rebuilt from page 75 image; first-column cells that span rows are repeated on each row; multi-line cells joined, separate items with semicolons.",
+   "evidence": "Table 8 on printed page 75 has 10 data rows under three headings.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "7686459503007157",
+   "kind": "table",
+   "target": "table-9: Standards for instrumentation",
+   "value": {
+    "columns": [
+     "Instrument",
+     "Specification standards",
+     "Periodic verification standards"
+    ],
+    "rows": [
+     [
+      "",
+      "Current standards",
+      ""
+     ],
+     [
+      "Sound level meter",
+      "BS EN 61672-1 Class 1 or 2; IEC 61672-1 Class 1 or 2",
+      "BS EN 61672-3; IEC 61672-3"
+     ],
+     [
+      "Dosemeter",
+      "BS EN 61252; IEC 61252",
+      "BS EN 61252; IEC 61252"
+     ],
+     [
+      "Calibrator",
+      "BS EN 60942 Class LS, 1 or 2; IEC 60942 Class LS, 1 or 2",
+      "BS EN 60942; IEC 60942"
+     ],
+     [
+      "",
+      "Superseded standards",
+      ""
+     ],
+     [
+      "Sound level meter",
+      "BS EN 60804 Type 0, 1 or 2; IEC 804 Type 0, 1 or 2",
+      "BS 7580-1 for Type 1 and 2; BS 7580-2 for Type 2 only"
+     ],
+     [
+      "Dosemeter",
+      "BS 6402:1994",
+      "BS 6402:1994"
+     ],
+     [
+      "Calibrator",
+      "BS 7189 Class 0, 1 or 2; IEC 942 Class 0, 1 or 2",
+      "No earlier standard"
+     ]
+    ],
+    "heading_rows": [
+     0,
+     4
+    ],
+    "sentences": [
+     "Standards for instrumentation, current standards: for a sound level meter, the specification standards are BS EN 61672-1 Class 1 or 2 and IEC 61672-1 Class 1 or 2, and the periodic verification standards are BS EN 61672-3 and IEC 61672-3.",
+     "Standards for instrumentation, current standards: for a dosemeter, the specification standards are BS EN 61252 and IEC 61252, and the periodic verification standards are BS EN 61252 and IEC 61252.",
+     "Standards for instrumentation, current standards: for a calibrator, the specification standards are BS EN 60942 Class LS, 1 or 2 and IEC 60942 Class LS, 1 or 2, and the periodic verification standards are BS EN 60942 and IEC 60942.",
+     "Standards for instrumentation, superseded standards: for a sound level meter, the specification standards are BS EN 60804 Type 0, 1 or 2 and IEC 804 Type 0, 1 or 2, and the periodic verification standards are BS 7580-1 for Type 1 and 2 and BS 7580-2 for Type 2 only.",
+     "Standards for instrumentation, superseded standards: for a dosemeter, the specification standard is BS 6402:1994, and the periodic verification standard is BS 6402:1994.",
+     "Standards for instrumentation, superseded standards: for a calibrator, the specification standards are BS 7189 Class 0, 1 or 2 and IEC 942 Class 0, 1 or 2, and the periodic verification standard is No earlier standard."
+    ]
+   },
+   "reason": "Rebuilt from page 76 image. Two sub-heading rows (Current and Superseded standards) are heading rows. Superscript footnote numbers (20-28) were left out of the standard names; the grid had merged them into the digits.",
+   "evidence": "Table 9 on printed page 76 with 6 data rows and two italic sub-heading rows.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "b5187bc52d10cdb9",
+   "kind": "figure_description",
+   "target": "figure-23: Making measurements with a hand-held sound level meter",
+   "value": "A photo of two people in a workshop. One person in a dark blue coat and ear defenders holds a hand-held sound level meter towards the other person, who wears a red overall, ear defenders and a visor and works at a grinding machine. The caption reads Figure 23, Making measurements with a hand-held sound level meter.",
+   "reason": "Described from the photo; no printed labels inside the image.",
+   "evidence": "Photo shows a man holding a meter near a worker at a bench grinder in a workshop.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "994afdac098b9275",
+   "kind": "figure_description",
+   "target": "figure-24: Recommended position for a dosemeter microphone",
+   "value": "A photo of a person seen from the side, from head to shoulder, wearing a white coat against a blue background. A small dosemeter microphone with a dark foam cover is clipped to the top of the coat on the shoulder, with its cable running down the back. It shows the recommended position for a dosemeter microphone (Figure 24).",
+   "reason": "Described from the photo; no printed labels visible in the image.",
+   "evidence": "Image shows a foam-covered microphone clipped on a coat shoulder with a cable.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "404cbb732d804182",
+   "kind": "figure_description",
+   "target": "figure-25: Representative measurement durations for different types of noise",
+   "value": "Three line graphs side by side, each with Time on the horizontal axis and Noise level on the vertical axis, with a red marked Measurement duration. Steady noise: a nearly flat line with a short measurement duration. Cyclic noise: a repeating wave with a measurement duration covering several cycles. Random noise: an irregular line with a measurement duration across the whole trace. Printed caption: Figure 25 Representative measurement durations for different types of noise.",
+   "reason": "Described from the image labels (Steady noise, Cyclic noise, Random noise) and graph shapes.",
+   "evidence": "Three graphs labelled (Steady noise), (Cyclic noise), (Random noise), each with Measurement duration.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "aeff2af87f885a4c",
+   "kind": "figure_description",
+   "target": "figure-26: Daily noise exposure action value calculator",
+   "value": "A screenshot of the HSE Daily Noise Exposure Action Value Calculator (V4-11 May 2019), a spreadsheet form that estimates unprotected daily noise exposures against the LEAV and UEAV of 80 and 85 dB(A). It lists three tasks: Main Activity at 80 dB LAeq for 5 hours, Set Up at 86 for 2 hours, and Clear Up at 95 for 45 minutes, with points per hour 4, 16 and 125. The totals show total daily exposure time 7:45, daily exposure LEP,d 87 dB(A) and 145 total daily exposure points, with the warning: At or above UEAV, programme of control measures required, hearing protection must be used (check suitability with ELV calculator).",
+   "reason": "Described from the screenshot and its printed labels and values.",
+   "evidence": "Table rows Main Activity, Set Up, Clear Up and red warning box visible in the image.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "b25bf00cddad3db4",
+   "kind": "figure_description",
+   "target": "figure-27: Daily noise exposure limit value calculator",
+   "value": "Screenshot of the HSE Daily Noise Exposure Limit Value Calculator (V4-11 May 2019), a spreadsheet form for protected daily noise exposure compared with the Exposure Limit Value (ELV) of 87 dB(A). It shows hearing protector information (SNR value (dB) 19, model name HearProtect_ABC) and a task table with three tasks: Main Activity (80 dB(A), 82 dB(C), HP worn? No, 5 hours, 78 dB(A), 20 points), Set Up (86, 87, Yes, protected level 72, 2 hours, 66 dB(A), 1 point) and Clear Up (95, 98, Yes, protected level 83, 45 mins, 73 dB(A), 6 points). Totals shown are daily exposure time 7:45, daily exposure L EP,d 79 dB(A) and 27 total daily exposure points, with a warning 'Possible under or over-protection' and a green box 'Information: Noise at the ear below ELV'.",
+   "reason": "Described the calculator screenshot with the printed labels and numbers.",
+   "evidence": "Title 'Daily Noise Exposure Limit Value Calculator'; totals row 7:45, 79, 27; green box 'Noise at the ear below ELV'.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "200f8883fecd19b4",
+   "kind": "figure_description",
+   "target": "figure-28: Weekly noise exposure calculator",
+   "value": "Screenshot of the HSE Weekly Noise Exposure Calculator (V4-11 May 2019), a spreadsheet form that estimates weekly noise exposure from daily values, with the option 'Comparison with LEAV & UEAV' selected. It lists days with daily noise exposure: Sunday tank cleaning 87 dB(A) 158 points; Monday Tank re-fit 88 dB(A) 200 points; Tuesday, Wednesday and Thursday General maintenance 79 dB(A) 25 points each; Friday and Saturday Not a working day. The weekly noise exposure is 84 dB(A) and 87 points, with the warning 'Weekly exposure at or above LEAV. Control measures required. Hearing protection must be availlable (check suitability with ELV calculator)'.",
+   "reason": "Described the calculator screenshot with printed values and the warning as printed (including the typo).",
+   "evidence": "Caption 'Figure 28 Weekly noise exposure calculator'; weekly noise exposure 84 dB(A) 87 points.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "de63e0c83f1827ff",
+   "kind": "table",
+   "target": "table-10: Daily noise exposure ready-reckoner",
+   "value": {
+    "columns": [
+     "Sound pressure level, LAeq (dB(A))",
+     "2 min",
+     "5 min",
+     "15 min",
+     "30 min",
+     "1 h",
+     "2 h",
+     "4 h",
+     "8 h",
+     "10 h",
+     "12 h"
+    ],
+    "rows": [
+     [
+      "120",
+      "1300",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "110",
+      "130",
+      "330",
+      "1000",
+      "2000",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "105",
+      "42",
+      "105",
+      "315",
+      "625",
+      "1250",
+      "",
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "100",
+      "13",
+      "34",
+      "100",
+      "200",
+      "395",
+      "790",
+      "1600",
+      "",
+      "",
+      ""
+     ],
+     [
+      "98",
+      "8",
+      "22",
+      "60",
+      "125",
+      "250",
+      "500",
+      "1000",
+      "2000",
+      "",
+      ""
+     ],
+     [
+      "97",
+      "7",
+      "17",
+      "50",
+      "100",
+      "200",
+      "395",
+      "790",
+      "1600",
+      "2000",
+      ""
+     ],
+     [
+      "95",
+      "4",
+      "10",
+      "32",
+      "65",
+      "125",
+      "250",
+      "500",
+      "1000",
+      "1250",
+      "1500"
+     ],
+     [
+      "94",
+      "",
+      "8",
+      "26",
+      "50",
+      "100",
+      "200",
+      "395",
+      "790",
+      "1000",
+      "1200"
+     ],
+     [
+      "93",
+      "",
+      "7",
+      "20",
+      "40",
+      "80",
+      "160",
+      "315",
+      "630",
+      "790",
+      "950"
+     ],
+     [
+      "92",
+      "",
+      "5",
+      "16",
+      "32",
+      "65",
+      "125",
+      "250",
+      "500",
+      "625",
+      "750"
+     ],
+     [
+      "91",
+      "",
+      "4",
+      "12",
+      "26",
+      "50",
+      "100",
+      "200",
+      "400",
+      "500",
+      "595"
+     ],
+     [
+      "90",
+      "",
+      "",
+      "10",
+      "20",
+      "40",
+      "80",
+      "160",
+      "315",
+      "395",
+      "475"
+     ],
+     [
+      "89",
+      "",
+      "",
+      "8",
+      "16",
+      "32",
+      "65",
+      "125",
+      "250",
+      "315",
+      "375"
+     ],
+     [
+      "88",
+      "",
+      "",
+      "6",
+      "12",
+      "26",
+      "50",
+      "100",
+      "200",
+      "250",
+      "300"
+     ],
+     [
+      "87",
+      "",
+      "",
+      "5",
+      "10",
+      "20",
+      "40",
+      "80",
+      "160",
+      "200",
+      "240"
+     ],
+     [
+      "86",
+      "",
+      "",
+      "4",
+      "8",
+      "16",
+      "32",
+      "65",
+      "125",
+      "155",
+      "190"
+     ],
+     [
+      "85",
+      "",
+      "",
+      "",
+      "6",
+      "13",
+      "26",
+      "50",
+      "100",
+      "125",
+      "150"
+     ],
+     [
+      "84",
+      "",
+      "",
+      "",
+      "5",
+      "10",
+      "20",
+      "40",
+      "80",
+      "100",
+      "120"
+     ],
+     [
+      "83",
+      "",
+      "",
+      "",
+      "4",
+      "8",
+      "16",
+      "32",
+      "65",
+      "80",
+      "95"
+     ],
+     [
+      "82",
+      "",
+      "",
+      "",
+      "",
+      "6",
+      "13",
+      "26",
+      "50",
+      "65",
+      "75"
+     ],
+     [
+      "81",
+      "",
+      "",
+      "",
+      "",
+      "5",
+      "10",
+      "20",
+      "40",
+      "50",
+      "60"
+     ],
+     [
+      "80",
+      "",
+      "",
+      "",
+      "",
+      "4",
+      "8",
+      "16",
+      "32",
+      "40",
+      "48"
+     ],
+     [
+      "79",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "6",
+      "13",
+      "26",
+      "32",
+      "38"
+     ],
+     [
+      "78",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "5",
+      "10",
+      "20",
+      "26",
+      "30"
+     ],
+     [
+      "75",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "5",
+      "10",
+      "13",
+      "15"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Daily noise exposure ready-reckoner: at a sound pressure level of 120 dB(A), the exposure points are 2 min 1300.",
+     "Daily noise exposure ready-reckoner: at a sound pressure level of 110 dB(A), the exposure points are 2 min 130; 5 min 330; 15 min 1000; 30 min 2000.",
+     "Daily noise exposure ready-reckoner: at a sound pressure level of 105 dB(A), the exposure points are 2 min 42; 5 min 105; 15 min 315; 30 min 625; 1 h 1250.",
+     "Daily noise exposure ready-reckoner: at a sound pressure level of 100 dB(A), the exposure points are 2 min 13; 5 min 34; 15 min 100; 30 min 200; 1 h 395; 2 h 790; 4 h 1600.",
+     "Daily noise exposure ready-reckoner: at a sound pressure level of 98 dB(A), the exposure points are 2 min 8; 5 min 22; 15 min 60; 30 min 125; 1 h 250; 2 h 500; 4 h 1000; 8 h 2000.",
+     "Daily noise exposure ready-reckoner: at a sound pressure level of 97 dB(A), the exposure points are 2 min 7; 5 min 17; 15 min 50; 30 min 100; 1 h 200; 2 h 395; 4 h 790; 8 h 1600; 10 h 2000.",
+     "Daily noise exposure ready-reckoner: at a sound pressure level of 95 dB(A), the exposure points are 2 min 4; 5 min 10; 15 min 32; 30 min 65; 1 h 125; 2 h 250; 4 h 500; 8 h 1000; 10 h 1250; 12 h 1500.",
+     "Daily noise exposure ready-reckoner: at a sound pressure level of 94 dB(A), the exposure points are 5 min 8; 15 min 26; 30 min 50; 1 h 100; 2 h 200; 4 h 395; 8 h 790; 10 h 1000; 12 h 1200.",
+     "Daily noise exposure ready-reckoner: at a sound pressure level of 93 dB(A), the exposure points are 5 min 7; 15 min 20; 30 min 40; 1 h 80; 2 h 160; 4 h 315; 8 h 630; 10 h 790; 12 h 950.",
+     "Daily noise exposure ready-reckoner: at a sound pressure level of 92 dB(A), the exposure points are 5 min 5; 15 min 16; 30 min 32; 1 h 65; 2 h 125; 4 h 250; 8 h 500; 10 h 625; 12 h 750.",
+     "Daily noise exposure ready-reckoner: at a sound pressure level of 91 dB(A), the exposure points are 5 min 4; 15 min 12; 30 min 26; 1 h 50; 2 h 100; 4 h 200; 8 h 400; 10 h 500; 12 h 595.",
+     "Daily noise exposure ready-reckoner: at a sound pressure level of 90 dB(A), the exposure points are 15 min 10; 30 min 20; 1 h 40; 2 h 80; 4 h 160; 8 h 315; 10 h 395; 12 h 475.",
+     "Daily noise exposure ready-reckoner: at a sound pressure level of 89 dB(A), the exposure points are 15 min 8; 30 min 16; 1 h 32; 2 h 65; 4 h 125; 8 h 250; 10 h 315; 12 h 375.",
+     "Daily noise exposure ready-reckoner: at a sound pressure level of 88 dB(A), the exposure points are 15 min 6; 30 min 12; 1 h 26; 2 h 50; 4 h 100; 8 h 200; 10 h 250; 12 h 300.",
+     "Daily noise exposure ready-reckoner: at a sound pressure level of 87 dB(A), the exposure points are 15 min 5; 30 min 10; 1 h 20; 2 h 40; 4 h 80; 8 h 160; 10 h 200; 12 h 240.",
+     "Daily noise exposure ready-reckoner: at a sound pressure level of 86 dB(A), the exposure points are 15 min 4; 30 min 8; 1 h 16; 2 h 32; 4 h 65; 8 h 125; 10 h 155; 12 h 190.",
+     "Daily noise exposure ready-reckoner: at a sound pressure level of 85 dB(A), the exposure points are 30 min 6; 1 h 13; 2 h 26; 4 h 50; 8 h 100; 10 h 125; 12 h 150.",
+     "Daily noise exposure ready-reckoner: at a sound pressure level of 84 dB(A), the exposure points are 30 min 5; 1 h 10; 2 h 20; 4 h 40; 8 h 80; 10 h 100; 12 h 120.",
+     "Daily noise exposure ready-reckoner: at a sound pressure level of 83 dB(A), the exposure points are 30 min 4; 1 h 8; 2 h 16; 4 h 32; 8 h 65; 10 h 80; 12 h 95.",
+     "Daily noise exposure ready-reckoner: at a sound pressure level of 82 dB(A), the exposure points are 1 h 6; 2 h 13; 4 h 26; 8 h 50; 10 h 65; 12 h 75.",
+     "Daily noise exposure ready-reckoner: at a sound pressure level of 81 dB(A), the exposure points are 1 h 5; 2 h 10; 4 h 20; 8 h 40; 10 h 50; 12 h 60.",
+     "Daily noise exposure ready-reckoner: at a sound pressure level of 80 dB(A), the exposure points are 1 h 4; 2 h 8; 4 h 16; 8 h 32; 10 h 40; 12 h 48.",
+     "Daily noise exposure ready-reckoner: at a sound pressure level of 79 dB(A), the exposure points are 2 h 6; 4 h 13; 8 h 26; 10 h 32; 12 h 38.",
+     "Daily noise exposure ready-reckoner: at a sound pressure level of 78 dB(A), the exposure points are 2 h 5; 4 h 10; 8 h 20; 10 h 26; 12 h 30.",
+     "Daily noise exposure ready-reckoner: at a sound pressure level of 75 dB(A), the exposure points are 4 h 5; 8 h 10; 10 h 13; 12 h 15."
+    ]
+   },
+   "reason": "Rebuilt the main grid from the page image; blank cells are cells with no printed number. The separate right-hand scale (total exposure points to daily noise exposure L EP,d) and the colour key are not included in the rows.",
+   "evidence": "Table 10 on printed page 84: rows 120 to 75 dB(A) against durations 2 min to 12 h.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "75652e9a3a588728",
+   "kind": "table",
+   "target": "table-12: The HSE categorisation scheme",
+   "value": {
+    "columns": [
+     "Category",
+     "NIHL seen on audiogram?",
+     "Calculation†",
+     "Action"
+    ],
+    "rows": [
+     [
+      "1 Acceptable hearing ability",
+      "No*",
+      "Sum of hearing levels at 1, 2, 3, 4 and 6 kHz",
+      "Repeat health surveillance at next routine interval"
+     ],
+     [
+      "2 Mild hearing loss",
+      "Stable NIHL may be present+",
+      "Sum of hearing levels at 1, 2, 3, 4 and 6 kHz",
+      "Consider earlier repeat health surveillance than routine, taking into account factors such as extent of hearing loss"
+     ],
+     [
+      "3 Significant hearing loss or new/ progressive NIHL",
+      "Yes, newly identified or progressive NIHL may be present (this category may also include more severe but stable NIHL)",
+      "Sum of hearing levels at 1, 2, 3, 4 and 6 kHz",
+      "Refer for medical assessment. Timing of next health surveillance depends on outcome of assessment"
+     ],
+     [
+      "4 Rapid hearing loss+ Reduction in hearing level of 30 dB or more, within 3 years or less",
+      "Possible",
+      "Sum of hearing levels at 3, 4 and 6 kHz",
+      "Refer for medical assessment. Timing of next health surveillance depends on outcome of assessment"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "The HSE categorisation scheme: for category 1 Acceptable hearing ability, NIHL seen on audiogram is No*, the calculation is sum of hearing levels at 1, 2, 3, 4 and 6 kHz, and the action is repeat health surveillance at next routine interval.",
+     "The HSE categorisation scheme: for category 2 Mild hearing loss, NIHL seen on audiogram is stable NIHL may be present+, the calculation is sum of hearing levels at 1, 2, 3, 4 and 6 kHz, and the action is consider earlier repeat health surveillance than routine, taking into account factors such as extent of hearing loss.",
+     "The HSE categorisation scheme: for category 3 Significant hearing loss or new/ progressive NIHL, NIHL seen on audiogram is yes, newly identified or progressive NIHL may be present (this category may also include more severe but stable NIHL), the calculation is sum of hearing levels at 1, 2, 3, 4 and 6 kHz, and the action is refer for medical assessment, and timing of next health surveillance depends on outcome of assessment.",
+     "The HSE categorisation scheme: for category 4 Rapid hearing loss+ (reduction in hearing level of 30 dB or more, within 3 years or less), NIHL seen on audiogram is possible, the calculation is sum of hearing levels at 3, 4 and 6 kHz, and the action is refer for medical assessment, and timing of next health surveillance depends on outcome of assessment."
+    ]
+   },
+   "reason": "Page image matches the library grid; footnote markers kept as printed.",
+   "evidence": "Table 12 on printed page 93 with four category rows and columns Category, NIHL seen on audiogram?, Calculation†, Action.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "db8d090dc2d943d8",
+   "kind": "table",
+   "target": "table-13: Classification of audiograms",
+   "value": {
+    "columns": [
+     "Age",
+     "Males: Mild hearing loss level",
+     "Males: Significant hearing loss level",
+     "Females: Mild hearing loss level",
+     "Females: Significant hearing loss level"
+    ],
+    "rows": [
+     [
+      "18–24",
+      "51",
+      "95",
+      "46",
+      "78"
+     ],
+     [
+      "25–29",
+      "67",
+      "113",
+      "55",
+      "91"
+     ],
+     [
+      "30–34",
+      "82",
+      "132",
+      "63",
+      "105"
+     ],
+     [
+      "35–39",
+      "100",
+      "154",
+      "71",
+      "119"
+     ],
+     [
+      "40–44",
+      "121",
+      "183",
+      "80",
+      "134"
+     ],
+     [
+      "45–49",
+      "142",
+      "211",
+      "93",
+      "153"
+     ],
+     [
+      "50–54",
+      "165",
+      "240",
+      "111",
+      "176"
+     ],
+     [
+      "55–59",
+      "190",
+      "269",
+      "131",
+      "204"
+     ],
+     [
+      "60–64",
+      "217",
+      "296",
+      "157",
+      "235"
+     ],
+     [
+      "65+",
+      "235",
+      "311",
+      "175",
+      "255"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Classification of audiograms (sum of hearing levels 1, 2, 3, 4 and 6 kHz): for age 18–24, males have a mild hearing loss level of 51 and a significant hearing loss level of 95, and females have a mild hearing loss level of 46 and a significant hearing loss level of 78.",
+     "Classification of audiograms (sum of hearing levels 1, 2, 3, 4 and 6 kHz): for age 25–29, males have a mild hearing loss level of 67 and a significant hearing loss level of 113, and females have a mild hearing loss level of 55 and a significant hearing loss level of 91.",
+     "Classification of audiograms (sum of hearing levels 1, 2, 3, 4 and 6 kHz): for age 30–34, males have a mild hearing loss level of 82 and a significant hearing loss level of 132, and females have a mild hearing loss level of 63 and a significant hearing loss level of 105.",
+     "Classification of audiograms (sum of hearing levels 1, 2, 3, 4 and 6 kHz): for age 35–39, males have a mild hearing loss level of 100 and a significant hearing loss level of 154, and females have a mild hearing loss level of 71 and a significant hearing loss level of 119.",
+     "Classification of audiograms (sum of hearing levels 1, 2, 3, 4 and 6 kHz): for age 40–44, males have a mild hearing loss level of 121 and a significant hearing loss level of 183, and females have a mild hearing loss level of 80 and a significant hearing loss level of 134.",
+     "Classification of audiograms (sum of hearing levels 1, 2, 3, 4 and 6 kHz): for age 45–49, males have a mild hearing loss level of 142 and a significant hearing loss level of 211, and females have a mild hearing loss level of 93 and a significant hearing loss level of 153.",
+     "Classification of audiograms (sum of hearing levels 1, 2, 3, 4 and 6 kHz): for age 50–54, males have a mild hearing loss level of 165 and a significant hearing loss level of 240, and females have a mild hearing loss level of 111 and a significant hearing loss level of 176.",
+     "Classification of audiograms (sum of hearing levels 1, 2, 3, 4 and 6 kHz): for age 55–59, males have a mild hearing loss level of 190 and a significant hearing loss level of 269, and females have a mild hearing loss level of 131 and a significant hearing loss level of 204.",
+     "Classification of audiograms (sum of hearing levels 1, 2, 3, 4 and 6 kHz): for age 60–64, males have a mild hearing loss level of 217 and a significant hearing loss level of 296, and females have a mild hearing loss level of 157 and a significant hearing loss level of 235.",
+     "Classification of audiograms (sum of hearing levels 1, 2, 3, 4 and 6 kHz): for age 65+, males have a mild hearing loss level of 235 and a significant hearing loss level of 311, and females have a mild hearing loss level of 175 and a significant hearing loss level of 255."
+    ]
+   },
+   "reason": "Page image matches the grid values; the two printed header rows (Males/Females over the level headings) were merged into column names.",
+   "evidence": "Table 13 on printed page 94: ten age bands, four value columns.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "68e0ccbe9d220e61",
+   "kind": "figure_description",
+   "target": "figure-29: Flow diagram for audiometric testing and categorisation",
+   "value": "Flow chart of audiometric testing and categorisation, with a Baseline/first test branch on the left and a Subsequent tests branch on the right. Baseline: 'Do Part 1 of noise and health questionnaire' then Conduct otoscopic examination, Conduct test, Assess the audiogram (competent person); subsequent tests start with 'Obtain records for the individual', then Conduct otoscopic examination, Conduct test, Assess the audiogram and make comparison with the last test, and 'Repeat any audiogram which shows a difference from the previous result of more than 10 dB at any frequency'. Both lead to 'Is NIHL present?': Yes goes to 'Is this newly identified or progressive NIHL?' (Yes: Medical assessment; No: continue), and No goes to sum the hearing level at 1, 2, 3, 4 and 6 kHz for each ear, sum the hearing levels at 3, 4 and 6 kHz to see if rapid hearing loss has occurred since last test, sum the hearing levels at 1, 2, 3 and 4 kHz for possible unilateral hearing loss, then 'Analyse results using categorisation scheme'. Category 3, Category 4 or unilateral hearing loss lead to Medical assessment; Category 1 or Category 2 lead to 'To employer – Give fitness for work advice and state when next test is due; To employees – Inform of results, provide advice and state when next test is due'.",
+   "reason": "Described the flow chart steps in order from the figure image.",
+   "evidence": "Caption 'Figure 29 Flow diagram for audiometric testing and categorisation'.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "9c230a464f5eb866",
+   "kind": "table",
+   "target": "table-4: Example of the information provided by manufacturers of hearing protection",
+   "value": {
+    "columns": [
+     "Measure",
+     "63",
+     "125",
+     "250",
+     "500",
+     "1000",
+     "2000",
+     "4000",
+     "8000"
+    ],
+    "rows": [
+     [
+      "Mean attenuation (dB)",
+      "11.5",
+      "11.8",
+      "11",
+      "20.4",
+      "22.9",
+      "29.8",
+      "39.5",
+      "39.6"
+     ],
+     [
+      "Standard deviation (dB)",
+      "4.4",
+      "3.2",
+      "1.9",
+      "3.6",
+      "2.2",
+      "2.5",
+      "2.7",
+      "4.9"
+     ],
+     [
+      "APV = mean attenuation – standard deviation (dB)",
+      "7.1",
+      "8.6",
+      "9.1",
+      "16.8",
+      "20.7",
+      "27.3",
+      "36.8",
+      "34.7"
+     ],
+     [
+      "H = 27 M = 19 L = 13 SNR = 22",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Example of the information provided by manufacturers of hearing protection: mean attenuation (dB) at octave-band centre frequency (Hz) 63 is 11.5, 125 is 11.8, 250 is 11, 500 is 20.4, 1000 is 22.9, 2000 is 29.8, 4000 is 39.5 and 8000 is 39.6.",
+     "Example of the information provided by manufacturers of hearing protection: standard deviation (dB) at octave-band centre frequency (Hz) 63 is 4.4, 125 is 3.2, 250 is 1.9, 500 is 3.6, 1000 is 2.2, 2000 is 2.5, 4000 is 2.7 and 8000 is 4.9.",
+     "Example of the information provided by manufacturers of hearing protection: APV = mean attenuation – standard deviation (dB) at octave-band centre frequency (Hz) 63 is 7.1, 125 is 8.6, 250 is 9.1, 500 is 16.8, 1000 is 20.7, 2000 is 27.3, 4000 is 36.8 and 8000 is 34.7.",
+     "Example of the information provided by manufacturers of hearing protection: H = 27 M = 19 L = 13 SNR = 22."
+    ]
+   },
+   "reason": "The first header cell is blank in print, so a neutral label 'Measure' is used for that column because the save step needs every column to have a heading. The frequency row is the lowest header row. The last full-width row (H, M, L, SNR) is a normal row with empty value cells.",
+   "evidence": "Page 69 image, Table 4: header row with 63 to 8000 Hz under 'Octave-band centre frequency (Hz)', three data rows, and a final full-width row 'H = 27 M = 19 L = 13 SNR = 22'.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "cf3286be4606c7f8",
+   "kind": "table",
+   "target": "ep-table-2: ( EP )",
+   "value": {
+    "columns": [
+     "Noise level (dB(A))",
+     "Duration",
+     "Notes",
+     "Exposure points"
+    ],
+    "rows": [
+     [
+      "80",
+      "5 hours",
+      "No column for 5 hours, so add together values from 4- and 1-hour columns in row corresponding to 80 dB(A)",
+      "16 + 4 = 20"
+     ],
+     [
+      "86",
+      "2 hours",
+      "Directly from table",
+      "32"
+     ],
+     [
+      "95",
+      "45 minutes",
+      "No column for 45 minutes, so add together values from the 30- and 15-minute columns in row corresponding to 95 dB(A)",
+      "65 + 32 = 97"
+     ],
+     [
+      "Total noise exposure points",
+      "",
+      "",
+      "149"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "( EP ): for a noise level of 80 dB(A) and a duration of 5 hours, the notes say no column for 5 hours, so add together values from 4- and 1-hour columns in row corresponding to 80 dB(A), and the exposure points are 16 + 4 = 20.",
+     "( EP ): for a noise level of 86 dB(A) and a duration of 2 hours, the notes say directly from table, and the exposure points are 32.",
+     "( EP ): for a noise level of 95 dB(A) and a duration of 45 minutes, the notes say no column for 45 minutes, so add together values from the 30- and 15-minute columns in row corresponding to 95 dB(A), and the exposure points are 65 + 32 = 97.",
+     "( EP ): the total noise exposure points are 149."
+    ]
+   },
+   "reason": "The worked-example table in Box 4 has four columns and three data rows plus a totals row. The big ready-reckoner grid below it is a separate graphic, so it is not part of this table.",
+   "evidence": "Page 85 image: header row 'Noise level (dB(A)) | Duration | Notes | Exposure points', rows for 80, 86 and 95 dB(A), and 'Total noise exposure points' 149.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  }
+ ]
+}

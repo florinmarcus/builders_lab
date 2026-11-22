@@ -1,0 +1,869 @@
+{
+ "source_id": "awaab-collection",
+ "about": "Saved model fixes for awaab-collection (ADR 0010).",
+ "fixes": [
+  {
+   "key": "b9102f6311efcaa3",
+   "kind": "table",
+   "target": "table-1: Summary of survey responses",
+   "value": {
+    "columns": [
+     "Survey Question",
+     "Lower Bound of Responses",
+     "Average (when used)",
+     "Upper Bound of Responses"
+    ],
+    "rows": [
+     [
+      "What is the average time between a non-emergency responsive repair being brought to the landlord’s attention by the resident (or a third party) and the landlord beginning work to make repairs (I.e. the first day a contractor or operative attends to make repairs)?",
+      "8.5 days",
+      "-",
+      "30.0 days"
+     ],
+     [
+      "What is the average time between a non-emergency responsive repair being brought to the landlord’s attention by the resident (or a third party) and the date of the repair being completed (as confirmed by a contractor/operative)?",
+      "8.5 days",
+      "26.1 days",
+      "47.3 days"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Summary of survey responses: for the question about the average time between a non-emergency responsive repair being brought to the landlord’s attention by the resident (or a third party) and the landlord beginning work to make repairs (I.e. the first day a contractor or operative attends to make repairs), the lower bound of responses is 8.5 days, the average (when used) is -, and the upper bound of responses is 30.0 days.",
+     "Summary of survey responses: for the question about the average time between a non-emergency responsive repair being brought to the landlord’s attention by the resident (or a third party) and the date of the repair being completed (as confirmed by a contractor/operative), the lower bound of responses is 8.5 days, the average (when used) is 26.1 days, and the upper bound of responses is 47.3 days."
+    ]
+   },
+   "reason": "Page 25 shows only the two data rows of a table that started on the previous page; the heading row is not on this page, so the column headings are taken from the matching table in the same survey summary (Survey Question, Lower Bound of Responses, Average (when used), Upper Bound of Responses). Row values match the image exactly.",
+   "evidence": "Page 25 image: row 1 8.5 days / - / 30.0 days; row 2 8.5 days / 26.1 days / 47.3 days; caption 'Table 1 - Summary of survey responses'.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "5c2df648ebbc48ca",
+   "kind": "table",
+   "target": "document-table-1: Awaab's Law in the social rented sector (collection)",
+   "value": {
+    "columns": [
+     "Item",
+     "Entry"
+    ],
+    "rows": [
+     [
+      "Title",
+      "Awaab’s Law consultation stage impact assessment"
+     ],
+     [
+      "Lead department or agency",
+      "Department for Levelling Up, Housing and Communities"
+     ],
+     [
+      "Date",
+      "9 January 2024"
+     ],
+     [
+      "Stage",
+      "Development/Options"
+     ],
+     [
+      "Source of intervention",
+      "Domestic"
+     ],
+     [
+      "Type of measure",
+      "Other"
+     ],
+     [
+      "Contact for enquiries",
+      "socialhousingsafety@levellingup.gov.uk"
+     ],
+     [
+      "RPC Opinion",
+      "N/A"
+     ],
+     [
+      "RPC Opinion Status",
+      ""
+     ],
+     [
+      "Total Net Present Social Value",
+      "£-131.4m"
+     ],
+     [
+      "Business Net Present Value",
+      "£-87.6m"
+     ],
+     [
+      "Net cost to business per year",
+      "£10.2m"
+     ],
+     [
+      "Business Impact Target Status",
+      "N/A"
+     ],
+     [
+      "What is the problem under consideration? Why is government action or intervention necessary?",
+      "Following the Grenfell Tower tragedy in 2017, serious concerns were raised about how some social tenants were being treated by their landlord. The tragic death of two-year old Awaab Ishak has amplified these concerns and thrown into sharp relief the need for the government to continue its mission to rebalance the relationship between social residents and their landlords, and to improve the quality of social housing across the country. The government published the Social Housing White Paper: Charter for Social Housing Residents (SHWP) in November 2020 in response to concerns heard from residents following the Grenfell Tower tragedy. The SHWP proposed a series of changes that have now been introduced through the Social Housing (Regulation) Act 2023 (‘the Act’). Whilst the Act was being taken through Parliament, an inquest into the death of Awaab Ishak found that he died as a result of a respiratory condition caused by damp and mould in his social home. Despite being aware of the mould, his landlord did not take action for over two years. A campaign was launched by the Ishak family with support from Shelter and Manchester Evening News that called for legislation introducing timeframes for social landlords to make repairs in their properties. The government carefully considered the recommendations of the campaign and introduced ‘Awaab’s Law’ as an amendment to the Act. The government agrees that action is needed to set timescales to make it clear to landlords how quickly they should respond to hazards in their property, to ensure that we meet aims of the SHWP around providing safe and decent homes for social housing residents."
+     ],
+     [
+      "What policy options have been considered, including any alternatives to regulation? Please justify preferred option (further details in Evidence Base)",
+      "The Social Housing (Regulation) Act 2023 has introduced Awaab’s Law (clause 42 Social housing leases: remedying hazards). The clause requires the Secretary of State for Levelling Up, Housing and Communities to set legally binding time limits for investigation and repairs of hazards through secondary legislation (and created the powers to do so). Government has committed to consult on these time limits within six months of Royal Assent of the Act, by the end of January 2024. The clause specifies that the Secretary of State must make regulations. Not proceeding with the preferred option would mean the Secretary of State could be subject to judicial review for not making regulations. The final policy will be accompanied by a further, final impact assessment and the statutory instrument will be subject to the affirmative procedure. Whilst preparing the government amendment to the Social Housing (Regulation) Act 2023, the following options were considered. Option 1: Do nothing (Not recommended) Option 2: Legislate for timescales for landlords to respond to hazards (Recommended option) Option 3: Publish a policy statement on timescales for repairs and direct Regulator of Social Housing on their standards (Not recommended). Option 2 is the preferred option and the Social Housing (Regulation) Act 2023 introduced Awaab’s Law (clause 42 Social housing leases: remedying hazards). Legislation is the only way to ensure landlords can be held to account directly by tenants if they fail to take repair action to keep tenants safe. The Regulator of Housing does not intervene in individual cases and can only take action where there is systemic failure of a landlord. We believe legislating for timescales that landlords must meet is the best way to drive a meaningful culture change within the sector: there will be no ambiguity as to landlords’ duties to respond within timescales to reports of hazards, and tenants can challenge their landlords for a breach of their legal duties if they fail to do so. Further detail on the options considered can be found below. We are consulting on the timescales that were recommended by campaigners for Awaab’s Law (14 calendar days to investigate; 7 calendar days to begin repairs). These proposed timescales have been tested with both social landlords and social residents through engagement we have conducted to inform the consultation, and we have heard broad consensus that these timeframes are sensible and practicable. We are also proposing that social landlords must action emergency repairs as soon as practicable and within 24 hours. ‘Emergency repairs’ relates to a subset of hazards that are in scope of Awaab’s Law (those that present a significant and imminent risk of harm). We do not consider that a variation on these timescales would change the overall conclusions of this impact assessment as noted, social landlords have existing legal obligations for repairs, and Awaab’s Law will specify how quickly they need to take action."
+     ],
+     [
+      "Will the policy be reviewed?",
+      "This policy will be reviewed following this consultation exercise."
+     ],
+     [
+      "Is this measure likely to impact on international trade and investment?",
+      "N/A"
+     ],
+     [
+      "Are any of these organisations in scope? Micro",
+      "Yes"
+     ],
+     [
+      "Are any of these organisations in scope? Small",
+      "Yes"
+     ],
+     [
+      "Are any of these organisations in scope? Medium",
+      "Yes"
+     ],
+     [
+      "Are any of these organisations in scope? Large",
+      "Yes"
+     ],
+     [
+      "What is the CO2 equivalent change in greenhouse gas emissions? (Million tonnes CO2 equivalent) Traded",
+      "N/A"
+     ],
+     [
+      "What is the CO2 equivalent change in greenhouse gas emissions? (Million tonnes CO2 equivalent) Non-traded",
+      "N/A"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Awaab's Law in the social rented sector (collection): the Title is Awaab’s Law consultation stage impact assessment.",
+     "Awaab's Law in the social rented sector (collection): the Lead department or agency is Department for Levelling Up, Housing and Communities.",
+     "Awaab's Law in the social rented sector (collection): the Date is 9 January 2024.",
+     "Awaab's Law in the social rented sector (collection): the Stage is Development/Options.",
+     "Awaab's Law in the social rented sector (collection): the Source of intervention is Domestic.",
+     "Awaab's Law in the social rented sector (collection): the Type of measure is Other.",
+     "Awaab's Law in the social rented sector (collection): the Contact for enquiries is socialhousingsafety@levellingup.gov.uk.",
+     "Awaab's Law in the social rented sector (collection): the RPC Opinion is N/A.",
+     "Awaab's Law in the social rented sector (collection): the RPC Opinion Status has no entry.",
+     "Awaab's Law in the social rented sector (collection): the Total Net Present Social Value is £-131.4m.",
+     "Awaab's Law in the social rented sector (collection): the Business Net Present Value is £-87.6m.",
+     "Awaab's Law in the social rented sector (collection): the Net cost to business per year is £10.2m.",
+     "Awaab's Law in the social rented sector (collection): the Business Impact Target Status is N/A.",
+     "Awaab's Law in the social rented sector (collection): to the question 'What is the problem under consideration? Why is government action or intervention necessary?' the entry is: Following the Grenfell Tower tragedy in 2017, serious concerns were raised about how some social tenants were being treated by their landlord. The tragic death of two-year old Awaab Ishak has amplified these concerns and thrown into sharp relief the need for the government to continue its mission to rebalance the relationship between social residents and their landlords, and to improve the quality of social housing across the country. The government published the Social Housing White Paper: Charter for Social Housing Residents (SHWP) in November 2020 in response to concerns heard from residents following the Grenfell Tower tragedy. The SHWP proposed a series of changes that have now been introduced through the Social Housing (Regulation) Act 2023 (‘the Act’). Whilst the Act was being taken through Parliament, an inquest into the death of Awaab Ishak found that he died as a result of a respiratory condition caused by damp and mould in his social home. Despite being aware of the mould, his landlord did not take action for over two years. A campaign was launched by the Ishak family with support from Shelter and Manchester Evening News that called for legislation introducing timeframes for social landlords to make repairs in their properties. The government carefully considered the recommendations of the campaign and introduced ‘Awaab’s Law’ as an amendment to the Act. The government agrees that action is needed to set timescales to make it clear to landlords how quickly they should respond to hazards in their property, to ensure that we meet aims of the SHWP around providing safe and decent homes for social housing residents.",
+     "Awaab's Law in the social rented sector (collection): to the question 'What policy options have been considered, including any alternatives to regulation? Please justify preferred option (further details in Evidence Base)' the entry is: The Social Housing (Regulation) Act 2023 has introduced Awaab’s Law (clause 42 Social housing leases: remedying hazards). The clause requires the Secretary of State for Levelling Up, Housing and Communities to set legally binding time limits for investigation and repairs of hazards through secondary legislation (and created the powers to do so). Government has committed to consult on these time limits within six months of Royal Assent of the Act, by the end of January 2024. The clause specifies that the Secretary of State must make regulations. Not proceeding with the preferred option would mean the Secretary of State could be subject to judicial review for not making regulations. The final policy will be accompanied by a further, final impact assessment and the statutory instrument will be subject to the affirmative procedure. Whilst preparing the government amendment to the Social Housing (Regulation) Act 2023, the following options were considered. Option 1: Do nothing (Not recommended) Option 2: Legislate for timescales for landlords to respond to hazards (Recommended option) Option 3: Publish a policy statement on timescales for repairs and direct Regulator of Social Housing on their standards (Not recommended). Option 2 is the preferred option and the Social Housing (Regulation) Act 2023 introduced Awaab’s Law (clause 42 Social housing leases: remedying hazards). Legislation is the only way to ensure landlords can be held to account directly by tenants if they fail to take repair action to keep tenants safe. The Regulator of Housing does not intervene in individual cases and can only take action where there is systemic failure of a landlord. We believe legislating for timescales that landlords must meet is the best way to drive a meaningful culture change within the sector: there will be no ambiguity as to landlords’ duties to respond within timescales to reports of hazards, and tenants can challenge their landlords for a breach of their legal duties if they fail to do so. Further detail on the options considered can be found below. We are consulting on the timescales that were recommended by campaigners for Awaab’s Law (14 calendar days to investigate; 7 calendar days to begin repairs). These proposed timescales have been tested with both social landlords and social residents through engagement we have conducted to inform the consultation, and we have heard broad consensus that these timeframes are sensible and practicable. We are also proposing that social landlords must action emergency repairs as soon as practicable and within 24 hours. ‘Emergency repairs’ relates to a subset of hazards that are in scope of Awaab’s Law (those that present a significant and imminent risk of harm). We do not consider that a variation on these timescales would change the overall conclusions of this impact assessment as noted, social landlords have existing legal obligations for repairs, and Awaab’s Law will specify how quickly they need to take action.",
+     "Awaab's Law in the social rented sector (collection): to the question 'Will the policy be reviewed?' the entry is: This policy will be reviewed following this consultation exercise.",
+     "Awaab's Law in the social rented sector (collection): to the question 'Is this measure likely to impact on international trade and investment?' the entry is N/A.",
+     "Awaab's Law in the social rented sector (collection): are any of these organisations in scope? Micro: Yes.",
+     "Awaab's Law in the social rented sector (collection): are any of these organisations in scope? Small: Yes.",
+     "Awaab's Law in the social rented sector (collection): are any of these organisations in scope? Medium: Yes.",
+     "Awaab's Law in the social rented sector (collection): are any of these organisations in scope? Large: Yes.",
+     "Awaab's Law in the social rented sector (collection): the CO2 equivalent change in greenhouse gas emissions (Million tonnes CO2 equivalent), Traded, is N/A.",
+     "Awaab's Law in the social rented sector (collection): the CO2 equivalent change in greenhouse gas emissions (Million tonnes CO2 equivalent), Non-traded, is N/A."
+    ]
+   },
+   "reason": "This is a cover form of label and entry boxes spread over pages 1 and 3 with no printed column headings; the two columns Item and Entry are a neutral label I added so each box becomes a row. The 'Impact Assessment (IA)' banner and the 'Summary: Intervention and Options' title are page headings, not rows. The unsigned 'Signed by the responsible: SELECT SIGNATORY / Date' line is outside the table and left out.",
+   "evidence": "Page 1: title, department, date 9 January 2024, stage, source, type, contact, RPC Opinion N/A, costs £-131.4m / £-87.6m / £10.2m, BIT status N/A, problem text. Page 3: options text, review, trade N/A, Micro/Small/Medium/Large Yes, Traded N/A, Non-traded N/A.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "low",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "6db2fe6d4d2a921c",
+   "kind": "table",
+   "target": "document-summary-analysis-evidence-table-1: Summary: Analysis & Evidence",
+   "value": {
+    "columns": [
+     "Price Base",
+     "PV Base",
+     "Time Period",
+     "Net Benefit (Present Value (PV)) (£m)"
+    ],
+    "rows": [
+     [
+      "Year: 2019",
+      "Year 2025",
+      "Years: 10",
+      "Low: Optional; High: Optional; Best Estimate: -156.0"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Summary: Analysis & Evidence: the price base year is 2019, the PV base year is 2025, the time period is 10 years, and the net benefit (present value (PV)) (£m) is Low: Optional, High: Optional, Best Estimate: -156.0."
+    ]
+   },
+   "reason": "One header row (Price Base, PV Base, Time Period, Net Benefit) over one value row; the Net Benefit cell holds three sub-boxes (Low, High, Best Estimate) which I kept together in the one cell. Values match the image.",
+   "evidence": "Page 4 top box: Price Base Year: 2019; PV Base Year 2025; Time Period Years: 10; Net Benefit Low: Optional, High: Optional, Best Estimate: -156.0.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "cc499dffcc99ba96",
+   "kind": "table",
+   "target": "document-costs-m-total-transition-average-annual-total-cost-table-1: COSTS (£m) Total Transition Average Annual Total Cost",
+   "value": {
+    "columns": [
+     "COSTS (£m)",
+     "Total Transition (Constant Price) Years",
+     "Average Annual (excl. Transition) (Constant Price)",
+     "Total Cost (Present Value)"
+    ],
+    "rows": [
+     [
+      "Low",
+      "Optional",
+      "Optional",
+      "Optional"
+     ],
+     [
+      "High",
+      "Optional",
+      "Optional",
+      "Optional"
+     ],
+     [
+      "Best Estimate",
+      "1.6",
+      "17.9",
+      "156.0"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "COSTS (£m) Total Transition Average Annual Total Cost: for Low, the total transition (constant price) years is Optional, the average annual (excl. transition) (constant price) is Optional, and the total cost (present value) is Optional.",
+     "COSTS (£m) Total Transition Average Annual Total Cost: for High, the total transition (constant price) years is Optional, the average annual (excl. transition) (constant price) is Optional, and the total cost (present value) is Optional.",
+     "COSTS (£m) Total Transition Average Annual Total Cost: for Best Estimate, the total transition (constant price) years is 1.6, the average annual (excl. transition) (constant price) is 17.9, and the total cost (present value) is 156.0."
+    ]
+   },
+   "reason": "The page shows a costs table with an empty narrow spacer column between Total Transition and Average Annual, which I dropped. The text boxes under it and the BENEFITS table are other tables, so they are not included.",
+   "evidence": "Page 4 COSTS box: Low Optional/Optional/Optional; High Optional/Optional/Optional; Best Estimate 1.6/17.9/156.0.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "e1189b6068519800",
+   "kind": "table",
+   "target": "document-benefits-m-total-transition-average-annual-total-benefit-table-1: BENEFITS (£m) Total Transition Average Annual Total Benefit",
+   "value": {
+    "columns": [
+     "BENEFITS (£m)",
+     "Total Transition (Constant Price) Years",
+     "Average Annual (excl. Transition) (Constant Price)",
+     "Total Benefit (Present Value)"
+    ],
+    "rows": [
+     [
+      "Low",
+      "Optional",
+      "Optional",
+      "Optional"
+     ],
+     [
+      "High",
+      "Optional",
+      "Optional",
+      "Optional"
+     ],
+     [
+      "Best Estimate",
+      "0",
+      "0",
+      "0"
+     ],
+     [
+      "Description and scale of key monetised benefits by ‘main affected groups’",
+      "An expected outcome of Awaab’s Law is social landlords taking faster action to respond to hazards in a home that are significantly impacting a resident’s health and safety. Whilst many social landlords will already respond to hazards quickly, Awaab’s Law will provide a backstop for the worst circumstances where social landlords are failing to take their responsibilities seriously, leaving residents in danger. Hazards in the home can have a range of health impacts which can be broadly categorised into physiological harm, psychological harm, infection and accidents. Remedying hazards in a more timely way will reduce the likelihood of these health impacts occurring or deteriorating. Tenants’ mental health and wellbeing are likely to be improved by the legislation because remedying disrepair in a timely fashion means tenants feel their complaints are taken seriously, their pride of place is heightened, and they will feel happier to be at home. These health improvements are likely to result in a reduced burden on the NHS, with fewer housing relating issues resulting in residents requiring medical attention. There are also likely to be wider societal benefits of reducing health and safety hazards in homes, such as reduced instances of lost productivity due to ill health. It has not been possible to provide a headline estimate of monetised benefits of this policy due to the absence of more specific data around the nature of hazards that will be rectified . However, using evidence on the health, wellbeing, and productivity benefits of remediating poor quality housing, switching values have been calculated for key benefits to illustrate the level required for the policy to achieve a present value net benefit of 0. A switching value has been estimated for benefits arising from increasing the speed of repairs. This is compiled of fiscal savings to the NHS (from reducing the number of injuries resulting from category 1 hazards), the resulting productivity gains to the wider society of improved health, and improved tenant satisfaction with how landlords repair and maintain their homes. We estimate that just 6% of any repairs that are carried out quicker as a result of Awaab’s Law would need to remediate category 1 hazards (when accounting for the three types of benefits outlined above) for the policy to achieve a PV net benefit of 0. This proportion appears feasible, meaning it is possible that these benefits alone will offset the monetised costs of the policy, without accounting for further non-monetisable benefits outlined below. We have also estimated a switching value for the number of fatal accidents at home that would need to be avoided to achieve this (10 per year), as Awaab’s Law is designed to ensure such cases do not result from long-term disrepair. A qualitative summary of non-monetisable benefits has also been conducted.",
+      "",
+      ""
+     ],
+     [
+      "Other key non-monetised benefits by ‘main affected groups’",
+      "The key non-monetised benefits largely relate to social housing tenants. As heard by the Grenfell Inquiry, the coroner’s report on the death of Awaab Ishak and the social housing green paper consultation, some social housing tenants feel their concerns are not listened to by providers. As a result of this policy, social landlords will be expected to respond to any reports of hazards in their home within a fixed timeframe and provide a written summary of their findings, which will improve the repairs and maintenance service that residents receive and lead to wellbeing improvements by reducing uncertainty and worry. In addition to improved health and wellbeing, Awaab’s Law will provide a clearer route to redress for residents. Families are also expected to gain from improved education outcomes from less illness as a result of a poor-quality housing.",
+      "",
+      ""
+     ],
+     [
+      "Key assumptions/sensitivities/risks Discount rate (%",
+      "3.5",
+      "",
+      ""
+     ],
+     [
+      "Key assumptions/sensitivities/risks",
+      "The impacts of Awaab’s Law are uncertain, due to a lack of available data on the current volume and speed of repairs, specifically for repairs that will be within the scope of Awaab’s law and therefore subject to change. There is also a lack of available data on the volume of repairs remediating category 1 hazards, which creates challenges monetising benefits. While the analysis in this impact assessment is informed by the best available evidence, several assumptions have been made around existing behaviour of providers and how this will change. As such, we have clearly set out the assumptions underpinning the modelled impacts and are seeking views or additional evidence to strengthen this modelling as part of the consultation on Awaab’s Law.",
+      "",
+      ""
+     ],
+     [
+      "Direct impact on business (Equivalent Annual) £m (2019 Prices, 2020 present value):",
+      "Costs: 10.2",
+      "Benefits: 0",
+      "Net: -10.2"
+     ],
+     [
+      "Score for Business Impact Target (qualifying provisions only) £m:",
+      "N/A",
+      "",
+      ""
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "BENEFITS (£m) Total Transition Average Annual Total Benefit: for Low, the total transition (constant price) years is Optional, the average annual (excl. transition) (constant price) is Optional, and the total benefit (present value) is Optional.",
+     "BENEFITS (£m) Total Transition Average Annual Total Benefit: for High, the total transition (constant price) years is Optional, the average annual (excl. transition) (constant price) is Optional, and the total benefit (present value) is Optional.",
+     "BENEFITS (£m) Total Transition Average Annual Total Benefit: for Best Estimate, the total transition (constant price) years is 0, the average annual (excl. transition) (constant price) is 0, and the total benefit (present value) is 0.",
+     "BENEFITS (£m) Total Transition Average Annual Total Benefit: the description and scale of key monetised benefits by ‘main affected groups’ is: An expected outcome of Awaab’s Law is social landlords taking faster action to respond to hazards in a home that are significantly impacting a resident’s health and safety. Whilst many social landlords will already respond to hazards quickly, Awaab’s Law will provide a backstop for the worst circumstances where social landlords are failing to take their responsibilities seriously, leaving residents in danger. Hazards in the home can have a range of health impacts which can be broadly categorised into physiological harm, psychological harm, infection and accidents. Remedying hazards in a more timely way will reduce the likelihood of these health impacts occurring or deteriorating. Tenants’ mental health and wellbeing are likely to be improved by the legislation because remedying disrepair in a timely fashion means tenants feel their complaints are taken seriously, their pride of place is heightened, and they will feel happier to be at home. These health improvements are likely to result in a reduced burden on the NHS, with fewer housing relating issues resulting in residents requiring medical attention. There are also likely to be wider societal benefits of reducing health and safety hazards in homes, such as reduced instances of lost productivity due to ill health. It has not been possible to provide a headline estimate of monetised benefits of this policy due to the absence of more specific data around the nature of hazards that will be rectified . However, using evidence on the health, wellbeing, and productivity benefits of remediating poor quality housing, switching values have been calculated for key benefits to illustrate the level required for the policy to achieve a present value net benefit of 0. A switching value has been estimated for benefits arising from increasing the speed of repairs. This is compiled of fiscal savings to the NHS (from reducing the number of injuries resulting from category 1 hazards), the resulting productivity gains to the wider society of improved health, and improved tenant satisfaction with how landlords repair and maintain their homes. We estimate that just 6% of any repairs that are carried out quicker as a result of Awaab’s Law would need to remediate category 1 hazards (when accounting for the three types of benefits outlined above) for the policy to achieve a PV net benefit of 0. This proportion appears feasible, meaning it is possible that these benefits alone will offset the monetised costs of the policy, without accounting for further non-monetisable benefits outlined below. We have also estimated a switching value for the number of fatal accidents at home that would need to be avoided to achieve this (10 per year), as Awaab’s Law is designed to ensure such cases do not result from long-term disrepair. A qualitative summary of non-monetisable benefits has also been conducted.",
+     "BENEFITS (£m) Total Transition Average Annual Total Benefit: the other key non-monetised benefits by ‘main affected groups’ are: The key non-monetised benefits largely relate to social housing tenants. As heard by the Grenfell Inquiry, the coroner’s report on the death of Awaab Ishak and the social housing green paper consultation, some social housing tenants feel their concerns are not listened to by providers. As a result of this policy, social landlords will be expected to respond to any reports of hazards in their home within a fixed timeframe and provide a written summary of their findings, which will improve the repairs and maintenance service that residents receive and lead to wellbeing improvements by reducing uncertainty and worry. In addition to improved health and wellbeing, Awaab’s Law will provide a clearer route to redress for residents. Families are also expected to gain from improved education outcomes from less illness as a result of a poor-quality housing.",
+     "BENEFITS (£m) Total Transition Average Annual Total Benefit: for key assumptions/sensitivities/risks, the discount rate (%) is 3.5.",
+     "BENEFITS (£m) Total Transition Average Annual Total Benefit: the key assumptions/sensitivities/risks are: The impacts of Awaab’s Law are uncertain, due to a lack of available data on the current volume and speed of repairs, specifically for repairs that will be within the scope of Awaab’s law and therefore subject to change. There is also a lack of available data on the volume of repairs remediating category 1 hazards, which creates challenges monetising benefits. While the analysis in this impact assessment is informed by the best available evidence, several assumptions have been made around existing behaviour of providers and how this will change. As such, we have clearly set out the assumptions underpinning the modelled impacts and are seeking views or additional evidence to strengthen this modelling as part of the consultation on Awaab’s Law.",
+     "BENEFITS (£m) Total Transition Average Annual Total Benefit: the direct impact on business (Equivalent Annual) £m (2019 Prices, 2020 present value) is Costs: 10.2, Benefits: 0, Net: -10.2.",
+     "BENEFITS (£m) Total Transition Average Annual Total Benefit: the score for Business Impact Target (qualifying provisions only) £m is N/A."
+    ]
+   },
+   "reason": "The benefits table starts at the bottom of page 4 and its text boxes continue on pages 5 and 6 (business assessment). The first row group uses the printed column headings; the text boxes have a label and one block of text, so the label is in column 1, the text in column 2, and the other cells are empty. The empty spacer column was dropped and the 'BUSINESS ASSESSMENT (Option 1)' title is not a row. Page-5 text copied as printed, including the space in 'rectified .'.",
+   "evidence": "Page 4: BENEFITS Low/High Optional, Best Estimate 0/0/0. Page 5: monetised and non-monetised benefits text, Discount rate (% 3.5, assumptions text. Page 6: Costs: 10.2, Benefits: 0, Net: -10.2, Score for Business Impact Target N/A.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "dd4dd44bd8e6d239",
+   "kind": "table",
+   "target": "table-1: Summary of survey responses",
+   "value": {
+    "columns": [
+     "Survey Question",
+     "Lower Bound of Responses",
+     "Average (when used)",
+     "Upper Bound of Responses"
+    ],
+    "rows": [
+     [
+      "How many non-emergency responsive repairs were carried out per property owned in the financial year 2022-23?",
+      "1.7",
+      "4.2",
+      "6.6"
+     ],
+     [
+      "What is the average time between a non-emergency responsive repair being brought to the landlord’s attention by the resident (or a third party) and the landlord assessing what type of repair work will be required.",
+      "<1 day",
+      "-",
+      "22.0 days"
+     ],
+     [
+      "What is the average time between a non-emergency responsive repair being brought to the landlord’s attention by the resident (or a third party) and the landlord beginning work to make repairs (I.e. the first day a contractor or operative attends to make repairs)?",
+      "8.5 days",
+      "-",
+      "30.0 days"
+     ],
+     [
+      "What is the average time between a non-emergency responsive repair being brought to the landlord’s attention by the resident (or a third party) and the date of the repair being completed (as confirmed by a contractor/operative)?",
+      "8.5 days",
+      "26.1 days",
+      "47.3 days"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Summary of survey responses: for the question 'How many non-emergency responsive repairs were carried out per property owned in the financial year 2022-23?', the lower bound of responses is 1.7, the average (when used) is 4.2, and the upper bound of responses is 6.6.",
+     "Summary of survey responses: for the question about the average time between a non-emergency responsive repair being brought to the landlord’s attention by the resident (or a third party) and the landlord assessing what type of repair work will be required, the lower bound of responses is <1 day, the average (when used) is -, and the upper bound of responses is 22.0 days.",
+     "Summary of survey responses: for the question about the average time between a non-emergency responsive repair being brought to the landlord’s attention by the resident (or a third party) and the landlord beginning work to make repairs (I.e. the first day a contractor or operative attends to make repairs), the lower bound of responses is 8.5 days, the average (when used) is -, and the upper bound of responses is 30.0 days.",
+     "Summary of survey responses: for the question about the average time between a non-emergency responsive repair being brought to the landlord’s attention by the resident (or a third party) and the date of the repair being completed (as confirmed by a contractor/operative), the lower bound of responses is 8.5 days, the average (when used) is 26.1 days, and the upper bound of responses is 47.3 days."
+    ]
+   },
+   "reason": "The page image supplied (p12) does not show this table at all: it holds only text, a heading and footnotes (the footnote says the summary is in Table 1 in the Risks and Assumptions section). So the answer is taken from the extracted grid and the matching table in the consultation-stage document, not from the image; trailing grid fragments such as 'Lower Bound of' / 'Responses' were treated as header spill-over and dropped.",
+   "evidence": "Page 12 image: no table present; footnote 9 refers to 'Table 1 in the Risks and Assumptions section'. Values come from the packet grid (1.7/4.2/6.6; <1 day/-/22.0 days; 8.5 days/-/30.0 days; 8.5 days/26.1 days/47.3 days). The last two rows are confirmed by the consultation-stage page 25 image.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "low",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "a48f9e5717413f23",
+   "kind": "table",
+   "target": "table-1: Summary of survey responses",
+   "value": {
+    "columns": [
+     "Survey Question",
+     "Lower Bound of Responses",
+     "Average (when used)",
+     "Upper Bound of Responses"
+    ],
+    "rows": [
+     [
+      "How many non-emergency responsive repairs were carried out per property owned in the financial year 2022-23?",
+      "1.7",
+      "4.2",
+      "6.6"
+     ],
+     [
+      "What is the average time between a non-emergency responsive repair being brought to the landlord’s attention by the resident (or a third party) and the landlord assessing what type of repair work will be required.",
+      "<1 day",
+      "-",
+      "22.0 days"
+     ],
+     [
+      "What is the average time between a non-emergency responsive repair being brought to the landlord’s attention by the resident (or a third party) and the landlord beginning work to make repairs (I.e. the first day a contractor or operative attends to make repairs)?",
+      "8.5 days",
+      "-",
+      "30.0 days"
+     ],
+     [
+      "What is the average time between a non-emergency responsive repair being brought to the landlord’s attention by the resident (or a third party) and the date of the repair being completed (as confirmed by a contractor/operative)?",
+      "8.5 days",
+      "26.1 days",
+      "47.3 days"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Summary of survey responses: for the question on how many non-emergency responsive repairs were carried out per property owned in the financial year 2022-23, the lower bound of responses is 1.7, the average (when used) is 4.2 and the upper bound of responses is 6.6.",
+     "Summary of survey responses: for the question on the average time between a non-emergency responsive repair being brought to the landlord’s attention by the resident (or a third party) and the landlord assessing what type of repair work will be required, the lower bound of responses is <1 day, the average (when used) is -, and the upper bound of responses is 22.0 days.",
+     "Summary of survey responses: for the question on the average time between a non-emergency responsive repair being brought to the landlord’s attention by the resident (or a third party) and the landlord beginning work to make repairs (I.e. the first day a contractor or operative attends to make repairs), the lower bound of responses is 8.5 days, the average (when used) is -, and the upper bound of responses is 30.0 days.",
+     "Summary of survey responses: for the question on the average time between a non-emergency responsive repair being brought to the landlord’s attention by the resident (or a third party) and the date of the repair being completed (as confirmed by a contractor/operative), the lower bound of responses is 8.5 days, the average (when used) is 26.1 days and the upper bound of responses is 47.3 days."
+    ]
+   },
+   "reason": "Listed image p12 does not show the table; it is on p24 (file_page 24, caption Table 1 - Summary of survey responses), so I rebuilt it from p24. Header row and four data rows copied as printed; '-' kept where the average is blank.",
+   "evidence": "p24.png: blue header row Survey Question / Lower Bound of Responses / Average (when used) / Upper Bound of Responses, four question rows, caption 'Table 1 - Summary of survey responses'.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "33e50b8c965c96b0",
+   "kind": "table",
+   "target": "document-table-1: Awaab's Law in the social rented sector (collection)",
+   "value": {
+    "columns": [
+     "Impact Assessment (IA)"
+    ],
+    "rows": [
+     [
+      "Title: The Hazards in Social Housing (Prescribed Requirements) (England) Regulations 2025 – ‘Awaab’s Law’: final stage impact assessment Lead department or agency: Ministry of Housing, Communities and Local Government"
+     ],
+     [
+      "Date: 23 June 2025"
+     ],
+     [
+      "Stage: Final IA"
+     ],
+     [
+      "Source of intervention: Domestic"
+     ],
+     [
+      "Type of measure: Statutory Instrument"
+     ],
+     [
+      "Contact for enquiries: socialhousingsafety@communities.gov.uk"
+     ],
+     [
+      "RPC Opinion: N/A"
+     ],
+     [
+      "Cost of Preferred (or more likely) Option (in 2025 prices, 2025 present value): Total Net Present Social Value £-180.6m; Business Net Present Value £-92.7m; Net cost to business per year £10.8m; Business Impact Target Status N/A"
+     ],
+     [
+      "Will the policy be reviewed? Yes – after a maximum of 5 years."
+     ],
+     [
+      "Is this measure likely to impact on international trade and investment? N/A"
+     ],
+     [
+      "Are any of these organisations in scope? Micro Yes; Small Yes; Medium Yes; Large Yes"
+     ],
+     [
+      "What is the CO2 equivalent change in greenhouse gas emissions? (Million tonnes CO2 equivalent) Traded: unquantified; Non-traded: unquantified"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Awaab's Law in the social rented sector (collection): Title: The Hazards in Social Housing (Prescribed Requirements) (England) Regulations 2025 – ‘Awaab’s Law’: final stage impact assessment, lead department or agency: Ministry of Housing, Communities and Local Government.",
+     "Awaab's Law in the social rented sector (collection): Date: 23 June 2025.",
+     "Awaab's Law in the social rented sector (collection): Stage: Final IA.",
+     "Awaab's Law in the social rented sector (collection): Source of intervention: Domestic.",
+     "Awaab's Law in the social rented sector (collection): Type of measure: Statutory Instrument.",
+     "Awaab's Law in the social rented sector (collection): Contact for enquiries: socialhousingsafety@communities.gov.uk.",
+     "Awaab's Law in the social rented sector (collection): RPC Opinion: N/A.",
+     "Awaab's Law in the social rented sector (collection): cost of preferred (or more likely) option, in 2025 prices and 2025 present value, is Total Net Present Social Value £-180.6m, Business Net Present Value £-92.7m, net cost to business per year £10.8m, and Business Impact Target Status N/A.",
+     "Awaab's Law in the social rented sector (collection): will the policy be reviewed? Yes – after a maximum of 5 years.",
+     "Awaab's Law in the social rented sector (collection): is this measure likely to impact on international trade and investment? N/A.",
+     "Awaab's Law in the social rented sector (collection): are any of these organisations in scope? Micro Yes, Small Yes, Medium Yes, Large Yes.",
+     "Awaab's Law in the social rented sector (collection): the CO2 equivalent change in greenhouse gas emissions (million tonnes CO2 equivalent) is unquantified for Traded and unquantified for Non-traded."
+    ]
+   },
+   "reason": "This is the irregular front-page IA summary box (p1) plus the review/scope/CO2 box (p4), with no single header row, so I used one column headed 'Impact Assessment (IA)' and one row per printed box or line. The two long prose boxes (problem under consideration, Phase 1 summary) are text, not table rows, so I left them out.",
+   "evidence": "p1.png: IA header box with Date, Stage, Source, Type, Contact, RPC Opinion and the cost box (£-180.6m, £-92.7m, £10.8m, N/A). p4.png: review, trade, scope (all Yes) and CO2 (unquantified) box.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "low",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "5b58c56cf11f005b",
+   "kind": "table",
+   "target": "document-summary-analysis-evidence-table-1: Summary: Analysis & Evidence",
+   "value": {
+    "columns": [
+     "Price Base Year",
+     "PV Base Year",
+     "Time Period",
+     "Net Benefit (Present Value (PV)) (£m) Low",
+     "Net Benefit (Present Value (PV)) (£m) High",
+     "Net Benefit (Present Value (PV)) (£m) Best Estimate"
+    ],
+    "rows": [
+     [
+      "2025",
+      "2025",
+      "10 years",
+      "-121.9",
+      "-.239.2",
+      "-180.6"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Summary: Analysis & Evidence, full economic assessment: price base year is 2025, PV base year is 2025, time period is 10 years, and net benefit (present value) in £m is low -121.9, high -.239.2 and best estimate -180.6."
+    ]
+   },
+   "reason": "One data row: price base, PV base and time period boxes sit beside the three net benefit boxes. The high value is printed '-.239.2' (typo kept). Best estimate '- 180.6' wraps across two lines on the page.",
+   "evidence": "p6.png: boxes 'Price Base Year: 2025', 'PV Base Year 2025', 'Time Period Years: 10', 'Net Benefit (Present Value (PV)) (£m)' with 'Low: -121.9', 'High: -.239.2', 'Best Estimate: -180.6'.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "6617f07ec36a8a38",
+   "kind": "table",
+   "target": "document-costs-m-total-transition-average-annual-total-cost-table-1: COSTS (£m) Total Transition Average Annual Total Cost",
+   "value": {
+    "columns": [
+     "COSTS (£m)",
+     "Total Transition (Constant Price)",
+     "Years",
+     "Average Annual (excl. Transition) (Constant Price)",
+     "Total Cost (Present Value)"
+    ],
+    "rows": [
+     [
+      "Low",
+      "6.0",
+      "",
+      "9.6",
+      "87.6"
+     ],
+     [
+      "High",
+      "6.0",
+      "",
+      "23.5",
+      "204.9"
+     ],
+     [
+      "Best Estimate",
+      "6.0",
+      "",
+      "16.5",
+      "146.3"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "COSTS (£m) Total Transition Average Annual Total Cost: Low has total transition (constant price) 6.0, average annual (excl. transition) (constant price) 9.6 and total cost (present value) 87.6.",
+     "COSTS (£m) Total Transition Average Annual Total Cost: High has total transition (constant price) 6.0, average annual (excl. transition) (constant price) 23.5 and total cost (present value) 204.9.",
+     "COSTS (£m) Total Transition Average Annual Total Cost: Best Estimate has total transition (constant price) 6.0, average annual (excl. transition) (constant price) 16.5 and total cost (present value) 146.3."
+    ]
+   },
+   "reason": "Three data rows. The narrow 'Years' column is printed empty in every row. The long 'Description and scale of key monetised costs' box under the table is prose, so I left it out.",
+   "evidence": "p6.png: COSTS (£m) table with Low 6.0/9.6/87.6, High 6.0/23.5/204.9, Best Estimate 6.0/16.5/146.3.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "698c75777a287cd2",
+   "kind": "table",
+   "target": "document-benefits-m-total-transition-average-annual-total-benefit-table-1: BENEFITS (£m) Total Transition Average Annual Total Benefit",
+   "value": {
+    "columns": [
+     "BENEFITS (£m)",
+     "Total Transition (Constant Price)",
+     "Years",
+     "Average Annual (excl. Transition) (Constant Price)",
+     "Total Benefit (Present Value)"
+    ],
+    "rows": [
+     [
+      "Low",
+      "N/A",
+      "",
+      "N/A",
+      "N/A"
+     ],
+     [
+      "High",
+      "N/A",
+      "",
+      "N/A",
+      "N/A"
+     ],
+     [
+      "Best Estimate",
+      "0",
+      "",
+      "-4.1",
+      "-34.3"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "BENEFITS (£m) Total Transition Average Annual Total Benefit: Low has total transition (constant price) N/A, average annual (excl. transition) (constant price) N/A and total benefit (present value) N/A.",
+     "BENEFITS (£m) Total Transition Average Annual Total Benefit: High has total transition (constant price) N/A, average annual (excl. transition) (constant price) N/A and total benefit (present value) N/A.",
+     "BENEFITS (£m) Total Transition Average Annual Total Benefit: Best Estimate has total transition (constant price) 0, average annual (excl. transition) (constant price) -4.1 and total benefit (present value) -34.3."
+    ]
+   },
+   "reason": "Only the BENEFITS (£m) grid on p7 is the table. The library grid also pulled in prose boxes (non-monetised costs, benefits, assumptions) and the small business assessment box (Costs 10.8, Benefits 0, Net -10.8, N/A); those are not part of this table so I left them out. The 'Years' column is empty. The header 'Average Annual' is clipped on the page; the full wording matches the costs table.",
+   "evidence": "p7.png: BENEFITS (£m) table rows Low N/A, High N/A, Best Estimate 0 / -4.1 / -34.3. p8.png holds only the text boxes and business assessment.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "9e6dbb065c29ce80",
+   "kind": "figure_description",
+   "target": "photo-1: 6",
+   "value": "A flow chart in Polish, in coloured boxes, showing what a landlord must do after a serious hazard is reported. It starts with \"Zgłaszasz poważny problem właścicielowi Twojego mieszkania, lub właściciel sam dowiaduje się o potencjalnym zagrożeniu inną drogą.\", then \"Właściciel mieszkania ma 10 dni roboczych na zbadanie poważnego zagrożenia.\", then splits into three boxes: restore safe conditions within 5 dni roboczych (if not possible, offer a replacement home, \"lokal zastępczy\"), start further work within 5 dni roboczych and in any case within 12 tygodni, and give a written summary (\"pisemny protokół\") within 3 dni roboczych. A bottom box says the landlord must keep the tenant informed throughout.",
+   "reason": "Image is a Polish flow chart; steps and numbers copied as printed.",
+   "evidence": "Boxes read 10 dni roboczych, 5 dni roboczych, 12 tygodni, 3 dni roboczych; bottom purple box about keeping tenant informed.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "c18a5d58ec83a691",
+   "kind": "figure_description",
+   "target": "figure-1: Homes with at least one Category 1 HHSRS hazard by Local Authority (LA) and Private Registered Provider (PRP) landlords, 2015-2024",
+   "value": "A line chart titled \"Figure 1: Homes with at least one Category 1 HHSRS hazard by Local Authority (LA) and Private Registered Provider (PRP) landlords, 2015-2024\". The vertical axis is \"Percentage of dwellings\" from 0 to 9 and the horizontal axis runs 2015 to 2024, with two lines: LA (green) starts near 7.6 in 2015, peaks near 7.9 in 2017, falls to about 4.4 in 2021 and rises to about 6.1 in 2024; PRP (purple) starts near 4.9, falls to about 3.3 in 2023 and rises to about 4.1 in 2024. The source line reads \"Source: EHS\".",
+   "reason": "Line chart with two series; values read approximately from the gridlines.",
+   "evidence": "Title, axis label Percentage of dwellings, legend PRP and LA, Source: EHS.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "b70cfbb7071ae000",
+   "kind": "table",
+   "target": "table-p10: 5 'িবপদ' বলেত কী েবাঝায়?",
+   "value": {
+    "columns": [
+     "Topic",
+     "Column 2",
+     "Column 3"
+    ],
+    "rows": [
+     [
+      "",
+      "",
+      "আপনার বাসাকে নিরাপদ করতে হবে।"
+     ],
+     [
+      "পরবর্তী কাজগুলি",
+      "তদন্ত শেষ হয়ে গেলে, বাড়িওয়ালাকে 5 কর্মদিবসের মধ্যে অবশ্যই কাজ শুরু করতে হবে অথবা শুরু করার পরিকল্পনা করতে হবে। সমস্ত কাজ অবশ্যই সবচেয়ে দেরি হলে 12 সপ্তাহের মধ্যে শুরু করতে হবে।",
+      "তদন্ত শেষ হয়ে গেলে, বাড়িওয়ালাকে 5 কর্মদিবসের মধ্যে অবশ্যই কাজ শুরু করতে হবে অথবা শুরু করার পরিকল্পনা করতে হবে। সমস্ত কাজ অবশ্যই সবচেয়ে দেরি হলে 12 সপ্তাহের মধ্যে শুরু করতে হবে।"
+     ],
+     [
+      "লিখিত সারাংশ",
+      "যেখানে আরও কাজের প্রয়োজন হবে, তদন্ত শেষ হওয়ার 3 কর্মদিবসের মধ্যে একটি লিখিত সারসংক্ষেপ অবশ্যই প্রদান করতে হবে।",
+      "তদন্ত শেষ হওয়ার পর 3 কর্মদিবসের মধ্যে।"
+     ],
+     [
+      "বিপদগুলির উদাহরণ",
+      "• গ্যাস বা কার্বন মনোক্সাইড নির্গমন • ভাঙ্গা বয়লার • পানি সরবরাহ একেবারেই নেই • বিপজ্জনক বৈদ্যুতিক সমস্যা (যেমন খোলা তার) • গুরুতর নির্গমণের ঘটনা • ভাঙা বাইরের দরজা বা জানালা যা আপনার ঘরকে অনিরাপদ করে তোলে • খুব গুরুতর স্যাঁতসেঁতে অবস্থা বা ছত্রাক • বড়ো কাঠামোগত সমস্যা",
+      "• যেকোনো স্যাঁতসেঁতে অবস্থা এবং ছত্রাক আপনার এবং আপনার সাথে বসবাসকারী যে কোনো ব্যক্তির শারীরিক স্বাস্থ্যের জন্য ঝুঁকিপূর্ণ হতে পারে। এটি শ্বাসনালী এবং ফুসফুসকে প্রভাবিত করে, তবে আপনার চোখ এবং ত্বককেও প্রভাবিত করে। • স্যাঁতসেঁতে অবস্থা এবং ছত্রাক আপনার মানসিক স্বাস্থ্যকেও প্রভাবিত করতে পারে, উদাহরণস্বরূপ স্বাস্থ্যের প্রভাব বা অপ্রীতিকর জীবনযাত্রার পরিস্থিতি নিয়ে উদ্বিগ্ন হওয়া। • সবাই স্যাঁতসেঁতে অবস্থা এবং ছত্রাকের প্রভাবে স্বাস্থ্যের ঝুঁকিতে থাকতে পারে, তবে আপনার যদি কোনো নির্দিষ্ট স্বাস্থ্যগত অবস্থা থাকে তাহলে আপনি আরও বেশি ঝুঁকিতে থাকতে পারেন। • স্যাঁতসেঁতে অবস্থা এবং ছত্রাকের বিপদ সম্পর্কে আরও নির্দেশিকা এখানে"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "5 'বিপদ' বলতে কী বোঝায়? আপনার বাসাকে নিরাপদ করতে হবে.",
+     "5 'বিপদ' বলতে কী বোঝায়? পরবর্তী কাজগুলি: তদন্ত শেষ হয়ে গেলে, বাড়িওয়ালাকে 5 কর্মদিবসের মধ্যে অবশ্যই কাজ শুরু করতে হবে অথবা শুরু করার পরিকল্পনা করতে হবে। সমস্ত কাজ অবশ্যই সবচেয়ে দেরি হলে 12 সপ্তাহের মধ্যে শুরু করতে হবে.",
+     "5 'বিপদ' বলতে কী বোঝায়? লিখিত সারাংশ: যেখানে আরও কাজের প্রয়োজন হবে, তদন্ত শেষ হওয়ার 3 কর্মদিবসের মধ্যে একটি লিখিত সারসংক্ষেপ অবশ্যই প্রদান করতে হবে। তদন্ত শেষ হওয়ার পর 3 কর্মদিবসের মধ্যে.",
+     "5 'বিপদ' বলতে কী বোঝায়? বিপদগুলির উদাহরণ: গ্যাস বা কার্বন মনোক্সাইড নির্গমন, ভাঙ্গা বয়লার, পানি সরবরাহ একেবারেই নেই, বিপজ্জনক বৈদ্যুতিক সমস্যা (যেমন খোলা তার), গুরুতর নির্গমণের ঘটনা, ভাঙা বাইরের দরজা বা জানালা যা আপনার ঘরকে অনিরাপদ করে তোলে, খুব গুরুতর স্যাঁতসেঁতে অবস্থা বা ছত্রাক, বড়ো কাঠামোগত সমস্যা। যেকোনো স্যাঁতসেঁতে অবস্থা এবং ছত্রাক আপনার এবং আপনার সাথে বসবাসকারী যে কোনো ব্যক্তির শারীরিক স্বাস্থ্যের জন্য ঝুঁকিপূর্ণ হতে পারে। স্যাঁতসেঁতে অবস্থা এবং ছত্রাক আপনার মানসিক স্বাস্থ্যকেও প্রভাবিত করতে পারে। সবাই স্যাঁতসেঁতে অবস্থা এবং ছত্রাকের প্রভাবে স্বাস্থ্যের ঝুঁকিতে থাকতে পারে, তবে আপনার যদি কোনো নির্দিষ্ট স্বাস্থ্যগত অবস্থা থাকে তাহলে আপনি আরও বেশি ঝুঁকিতে থাকতে পারেন। স্যাঁতসেঁতে অবস্থা এবং ছত্রাকের বিপদ সম্পর্কে আরও নির্দেশিকা এখানে."
+    ]
+   },
+   "reason": "The page shows a 3-column table with no printed header row, so neutral headings were added because the save step needs every column to have one. The first row is the end of a row from the previous page, with only the third cell filled. Sentences end with an ASCII full stop as the save step requires. Cell text was read from the image, because the library text is garbled.",
+   "evidence": "Page 10 image: four printed rows (first one with only the right cell filled): পরবর্তী কাজগুলি, লিখিত সারাংশ, বিপদগুলির উদাহরণ.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "8c8d46029d3099ea",
+   "kind": "table",
+   "target": "table-p10: 5 Co należy rozumieć przez „zagrożenie”?",
+   "value": {
+    "columns": [
+     "Topic",
+     "Column 2",
+     "Column 3"
+    ],
+    "rows": [
+     [
+      "Zbadanie zagrożenia",
+      "Właściciel mieszkania musi zbadać problem w ciągu 24 godzin",
+      "Właściciel mieszkania musi zbadać problem w ciągu 10 dni roboczych"
+     ],
+     [
+      "Przywrócenie bezpiecznych warunków w mieszkaniu",
+      "Właściciel mieszkania musi przywrócić bezpieczne warunki w Twoim mieszkaniu w ciągu 24 godzin od chwili, gdy dowiedział się o zagrożeniu.",
+      "Właściciel mieszkania musi przywrócić bezpieczne warunki w Twoim mieszkaniu w ciągu 5 dni roboczych od zakończenia badania problemu."
+     ],
+     [
+      "Dalsze prace",
+      "Po zakończeniu badania problemu właściciel mieszkania musi rozpocząć prace w ciągu 5 dni roboczych lub zaplanować je tak, aby rozpoczęły się w tym terminie. Wszelkie prace muszą się rozpocząć w nieprzekraczalnym terminie 12 tygodni.",
+      "Po zakończeniu badania problemu właściciel mieszkania musi rozpocząć prace w ciągu 5 dni roboczych lub zaplanować je tak, aby rozpoczęły się w tym terminie. Wszelkie prace muszą się rozpocząć w nieprzekraczalnym terminie 12 tygodni."
+     ],
+     [
+      "Pisemny protokół",
+      "Jeżeli wymagane są dalsze prace, musisz otrzymać pisemny protokół w ciągu 3 dni roboczych od zakończenia badania problemu.",
+      "W ciągu 3 dni roboczych od zakończenia badania problemu."
+     ],
+     [
+      "Przykłady zagrożeń",
+      "• ulatnianie się gazu lub tlenku węgla • uszkodzony bojler • całkowite odcięcie dopływu wody • niebezpieczne usterki elektryczne (np. odsłonięte przewody) • duże wycieki/nieszczelności • uszkodzone drzwi wejściowe lub okna powodujące, że mieszkanie nie jest bezpieczne • bardzo poważna wilgoć lub pleśń • poważne problemy z konstrukcją budynku",
+      "• Ewentualna wilgoć i pleśń mogą stanowić zagrożenie dla Ciebie oraz dla zdrowia fizycznego osób z Tobą współzamieszkujących. Są one szkodliwe dla dróg oddechowych i płuc, a także dla oczu i skóry. • Wilgoć i pleśń mogą również być szkodliwe dla zdrowia psychicznego, na przykład ze względu na stres związany z obawą o własne zdrowie lub niekomfortowe warunki mieszkaniowe. • Wilgoć i pleśń stwarzają ryzyko dla zdrowia każdej osoby, ale pewne schorzenia powodują, że takie ryzyko jest jeszcze większe."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Co należy rozumieć przez „zagrożenie”? Zbadanie zagrożenia: Właściciel mieszkania musi zbadać problem w ciągu 24 godzin; Właściciel mieszkania musi zbadać problem w ciągu 10 dni roboczych.",
+     "Co należy rozumieć przez „zagrożenie”? Przywrócenie bezpiecznych warunków w mieszkaniu: Właściciel mieszkania musi przywrócić bezpieczne warunki w Twoim mieszkaniu w ciągu 24 godzin od chwili, gdy dowiedział się o zagrożeniu; Właściciel mieszkania musi przywrócić bezpieczne warunki w Twoim mieszkaniu w ciągu 5 dni roboczych od zakończenia badania problemu.",
+     "Co należy rozumieć przez „zagrożenie”? Dalsze prace: Po zakończeniu badania problemu właściciel mieszkania musi rozpocząć prace w ciągu 5 dni roboczych lub zaplanować je tak, aby rozpoczęły się w tym terminie. Wszelkie prace muszą się rozpocząć w nieprzekraczalnym terminie 12 tygodni.",
+     "Co należy rozumieć przez „zagrożenie”? Pisemny protokół: Jeżeli wymagane są dalsze prace, musisz otrzymać pisemny protokół w ciągu 3 dni roboczych od zakończenia badania problemu; W ciągu 3 dni roboczych od zakończenia badania problemu.",
+     "Co należy rozumieć przez „zagrożenie”? Przykłady zagrożeń: ulatnianie się gazu lub tlenku węgla, uszkodzony bojler, całkowite odcięcie dopływu wody, niebezpieczne usterki elektryczne (np. odsłonięte przewody), duże wycieki/nieszczelności, uszkodzone drzwi wejściowe lub okna powodujące, że mieszkanie nie jest bezpieczne, bardzo poważna wilgoć lub pleśń, poważne problemy z konstrukcją budynku. Ewentualna wilgoć i pleśń mogą stanowić zagrożenie dla Ciebie oraz dla zdrowia fizycznego osób z Tobą współzamieszkujących. Są one szkodliwe dla dróg oddechowych i płuc, a także dla oczu i skóry. Wilgoć i pleśń mogą również być szkodliwe dla zdrowia psychicznego, na przykład ze względu na stres związany z obawą o własne zdrowie lub niekomfortowe warunki mieszkaniowe. Wilgoć i pleśń stwarzają ryzyko dla zdrowia każdej osoby, ale pewne schorzenia powodują, że takie ryzyko jest jeszcze większe."
+    ]
+   },
+   "reason": "The page shows a 3-column table with no printed header row, so neutral headings were added because the save step needs every column to have one. Rows match the page image.",
+   "evidence": "Page 10 image: five rows labelled Zbadanie zagrożenia, Przywrócenie bezpiecznych warunków w mieszkaniu, Dalsze prace, Pisemny protokół, Przykłady zagrożeń.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "8c161c5eb43fc13d",
+   "kind": "table",
+   "target": "table-p10: 5 Ce este un „pericol”?",
+   "value": {
+    "columns": [
+     "Topic",
+     "Column 2",
+     "Column 3"
+    ],
+    "rows": [
+     [
+      "Lucrări ulterioare",
+      "După finalizarea investigației, proprietarul trebuie să înceapă lucrările sau să facă planuri pentru începerea lucrărilor în termen de 5 zile lucrătoare. Toate lucrările trebuie să înceapă în termen de cel mult 12 săptămâni.",
+      "După finalizarea investigației, proprietarul trebuie să înceapă lucrările sau să facă planuri pentru începerea lucrărilor în termen de 5 zile lucrătoare. Toate lucrările trebuie să înceapă în termen de cel mult 12 săptămâni."
+     ],
+     [
+      "Rezumat scris",
+      "În cazul în care sunt necesare lucrări suplimentare, trebuie prezentat un rezumat scris în termen de 3 zile lucrătoare de la încheierea investigației.",
+      "În termen de 3 zile lucrătoare după încheierea investigației."
+     ],
+     [
+      "Exemple de pericole",
+      "• scurgeri de gaze sau monoxid de carbon • boilere defecte • lipsa completă a alimentării cu apă • probleme electrice periculoase (precum firele expuse) • scurgeri majore • uși sau ferestre exterioare sparte din cauza cărora locuința este nesigură • un caz foarte grav de igrasie sau mucegai • probleme structurale majore",
+      "• orice igrasie și orice mucegai pot reprezenta un risc pentru dumneavoastră și pentru sănătatea fizică a oricărei persoane care locuiește cu dumneavoastră. Acestea afectează căile respiratorii și plămânii, dar și ochii și pielea; • igrasia și mucegaiul vă pot afecta, de asemenea, sănătatea mintală, de exemplu, prin îngrijorarea cu privire la impactul asupra sănătății sau condițiile de trai neplăcute; • oricine poate fi expus riscului de a-i fi afectată sănătatea de igrasie și mucegai, dar este posibil ca riscul să fie mai mare dacă aveți o anumită afecțiune medicală; • un ghid suplimentar privind riscurile asociate igrasiei și mucegaiului poate fi găsit aici: Igrasia și mucegaiul: înțelegerea și abordarea riscurilor la adresa sănătății"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Ce este un „pericol”? Lucrări ulterioare: După finalizarea investigației, proprietarul trebuie să înceapă lucrările sau să facă planuri pentru începerea lucrărilor în termen de 5 zile lucrătoare. Toate lucrările trebuie să înceapă în termen de cel mult 12 săptămâni.",
+     "Ce este un „pericol”? Rezumat scris: În cazul în care sunt necesare lucrări suplimentare, trebuie prezentat un rezumat scris în termen de 3 zile lucrătoare de la încheierea investigației; În termen de 3 zile lucrătoare după încheierea investigației.",
+     "Ce este un „pericol”? Exemple de pericole: scurgeri de gaze sau monoxid de carbon, boilere defecte, lipsa completă a alimentării cu apă, probleme electrice periculoase (precum firele expuse), scurgeri majore, uși sau ferestre exterioare sparte din cauza cărora locuința este nesigură, un caz foarte grav de igrasie sau mucegai, probleme structurale majore. Orice igrasie și orice mucegai pot reprezenta un risc pentru dumneavoastră și pentru sănătatea fizică a oricărei persoane care locuiește cu dumneavoastră. Acestea afectează căile respiratorii și plămânii, dar și ochii și pielea. Igrasia și mucegaiul vă pot afecta, de asemenea, sănătatea mintală, de exemplu, prin îngrijorarea cu privire la impactul asupra sănătății sau condițiile de trai neplăcute. Oricine poate fi expus riscului de a-i fi afectată sănătatea de igrasie și mucegai, dar este posibil ca riscul să fie mai mare dacă aveți o anumită afecțiune medicală. Un ghid suplimentar privind riscurile asociate igrasiei și mucegaiului poate fi găsit aici: Igrasia și mucegaiul: înțelegerea și abordarea riscurilor la adresa sănătății."
+    ]
+   },
+   "reason": "The page shows a 3-column table with no printed header row, so neutral headings were added because the save step needs every column to have one. Rows match the page image.",
+   "evidence": "Page 10 image: three rows labelled Lucrări ulterioare, Rezumat scris, Exemple de pericole.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "4fd854ce174764a3",
+   "kind": "table",
+   "target": "table-p31: Overall and stakeholder impacts ...................................................................... 12 Part B: Impacts on wider government priorities ............................................................ 14",
+   "value": {
+    "columns": [
+     "Topic",
+     "Column 2",
+     "Column 3"
+    ],
+    "rows": [
+     [
+      "Demonstration by IA modelling that the longlisted options objectives, outcome and benefits are deliverable within landlords budgets.",
+      "",
+      "accounted for Phase 2 of Awaab’s Law to come into force in 2026."
+     ],
+     [
+      "Achievability: Ability of sector to implement option.",
+      "No additional burdens on landlords or wider sector.",
+      "Landlords have been expecting Awaab’s Law to be extended to a wider set of hazards for Phase 2. Delivering Awaab’s Law through a phased approach will allow time for landlords to adapt to new hazards coming into scope. We would expect limited change to staffing levels across the sector overall. However, more substantial change may be needed among landlords that are significantly underperforming, and it is in these cases that we would expect the greatest benefits. The capacity of general repairs and maintenance staff is considered elsewhere, but it is not possible to separate this from the broader suite of reforms."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Awaab’s Law Phase 2 impact assessment, page 31 table: Demonstration by IA modelling that the longlisted options objectives, outcome and benefits are deliverable within landlords budgets, accounted for Phase 2 of Awaab’s Law to come into force in 2026.",
+     "Awaab’s Law Phase 2 impact assessment, page 31 table: Achievability: Ability of sector to implement option, No additional burdens on landlords or wider sector. Landlords have been expecting Awaab’s Law to be extended to a wider set of hazards for Phase 2. Delivering Awaab’s Law through a phased approach will allow time for landlords to adapt to new hazards coming into scope. We would expect limited change to staffing levels across the sector overall. However, more substantial change may be needed among landlords that are significantly underperforming, and it is in these cases that we would expect the greatest benefits. The capacity of general repairs and maintenance staff is considered elsewhere, but it is not possible to separate this from the broader suite of reforms."
+    ]
+   },
+   "reason": "The page shows a 3-column table with no printed header row, so neutral headings were added because the save step needs every column to have one. The title in the packet is table-of-contents text, so the sentences name the document instead. The first row's middle cell is empty on the page.",
+   "evidence": "Page 31 image: two rows, Demonstration by IA modelling... and Achievability: Ability of sector to implement option.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "e3df012bc32d4d17",
+   "kind": "table",
+   "target": "part-a-table-2: Overall and stakeholder impacts ...................................................................... 12 Part B: Impacts on wider government priorities ............................................................ 14",
+   "value": {
+    "columns": [
+     "Footnote"
+    ],
+    "rows": [
+     [
+      "It should be noted that years 2020-2021 were modelled, given inability for surveyors to visit homes during the Pandemic period. In other years, data are based on a sample of observed dwellings."
+     ],
+     [
+      "Annex tables for English Housing Survey 2024 to 2025 headline findings on housing quality and energy efficiency - GOV.UK"
+     ],
+     [
+      "For example; https://pubmed.ncbi.nlm.nih.gov/28963007/, https://researchonline.lshtm.ac.uk/id/eprint/856558/1/CD008657.pdf, https://jech.bmj.com/content/72/10/896"
+     ],
+     [
+      "There is a wealth of evidence in support of remedying cold homes, for example, see https://www.instituteofhealthequity.org/resources-reports/fuel-poverty-cold-homes-and-health-inequalities-in-the-uk/read-the-report.pdf"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Footnotes on pages 6, 20 and 21: It should be noted that years 2020-2021 were modelled, given inability for surveyors to visit homes during the Pandemic period. In other years, data are based on a sample of observed dwellings.",
+     "Footnotes on pages 6, 20 and 21: Annex tables for English Housing Survey 2024 to 2025 headline findings on housing quality and energy efficiency - GOV.UK.",
+     "Footnotes on pages 6, 20 and 21: For example; https://pubmed.ncbi.nlm.nih.gov/28963007/, https://researchonline.lshtm.ac.uk/id/eprint/856558/1/CD008657.pdf, https://jech.bmj.com/content/72/10/896.",
+     "Footnotes on pages 6, 20 and 21: There is a wealth of evidence in support of remedying cold homes, for example, see https://www.instituteofhealthequity.org/resources-reports/fuel-poverty-cold-homes-and-health-inequalities-in-the-uk/read-the-report.pdf."
+    ]
+   },
+   "reason": "The three page images show no table. The packet text is footnotes from pages 6, 20 and 21. They are kept as a one-column list with the heading Footnote; this section probably should not be a table.",
+   "evidence": "Pages 6, 20 and 21 images: only body text, a chart on page 6, and footnotes at the bottom of each page.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "low",
+   "date": "2026-11-22"
+  }
+ ]
+}

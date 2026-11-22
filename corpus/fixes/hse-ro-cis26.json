@@ -1,0 +1,50 @@
+{
+ "source_id": "hse-ro-cis26",
+ "about": "Saved model fixes for hse-ro-cis26 (ADR 0010).",
+ "fixes": [
+  {
+   "key": "fede85de4a2e9c3e",
+   "kind": "table",
+   "target": "document-table-1: CIS26 Cement (Romanian)",
+   "value": {
+    "columns": [
+     "CIS26 Cement (Romanian)"
+    ],
+    "rows": [
+     [
+      "contactului cu pielea;"
+     ],
+     [
+      "inhalării de praf; şi"
+     ],
+     [
+      "manipulării manuale."
+     ],
+     [
+      "a proteja angajaţii;"
+     ],
+     [
+      "a identifica orice eventuale semne de modificare a pielii asociate expunerii, cât mai curând posibil, în aşa fel încât să se poată lua măsurile necesare tratării angajaţilor şi consilierii acestora în ceea ce priveşte viitorul; şi"
+     ],
+     [
+      "a atrage atenţia din timp asupra eventualelor neglijenţe înregistrate în activitatea de control."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "CIS26 Cement (Romanian): cimentul poate avea un efect nociv asupra sănătăţii îndeosebi ca urmare a contactului cu pielea.",
+     "CIS26 Cement (Romanian): cimentul poate avea un efect nociv asupra sănătăţii îndeosebi ca urmare a inhalării de praf.",
+     "CIS26 Cement (Romanian): cimentul poate avea un efect nociv asupra sănătăţii îndeosebi ca urmare a manipulării manuale.",
+     "CIS26 Cement (Romanian): supravegherea stării de sănătate este necesară pentru a proteja angajaţii.",
+     "CIS26 Cement (Romanian): supravegherea stării de sănătate este necesară pentru a identifica orice eventuale semne de modificare a pielii asociate expunerii, cât mai curând posibil, în aşa fel încât să se poată lua măsurile necesare tratării angajaţilor şi consilierii acestora în ceea ce priveşte viitorul.",
+     "CIS26 Cement (Romanian): supravegherea stării de sănătate este necesară pentru a atrage atenţia din timp asupra eventualelor neglijenţe înregistrate în activitatea de control."
+    ]
+   },
+   "reason": "Not a real table: the page shows two bullet lists (page 1 three bullets after 'urmare a:'; page 2 three bullets after 'necesară pentru:'). Rebuilt as one column of six bullet items; the column has no printed heading, so the section title is used because a heading is required.",
+   "evidence": "Page 1 bullets 'contactului cu pielea; / inhalării de praf; şi / manipulării manuale.' and page 2 bullets 'a proteja angajaţii; / a identifica ... viitorul; şi / a atrage atenţia ... de control.'",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "low",
+   "date": "2026-11-22"
+  }
+ ]
+}

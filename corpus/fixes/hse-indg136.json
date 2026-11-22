@@ -1,0 +1,66 @@
+{
+ "source_id": "hse-indg136",
+ "about": "Saved model fixes for hse-indg136 (ADR 0010).",
+ "fixes": [
+  {
+   "key": "390ed824a1a3271a",
+   "kind": "table",
+   "target": "document-which-substances-are-harmful-table-1: Which substances are harmful?",
+   "value": {
+    "columns": [
+     "European symbols"
+    ],
+    "rows": [
+     [
+      "Toxic"
+     ],
+     [
+      "Very toxic"
+     ],
+     [
+      "Harmful"
+     ],
+     [
+      "Irritant"
+     ],
+     [
+      "Highly flammable"
+     ],
+     [
+      "Extremely flammable"
+     ],
+     [
+      "Explosive"
+     ],
+     [
+      "Dangerous to the environment"
+     ],
+     [
+      "Oxidising"
+     ],
+     [
+      "Corrosive"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Which substances are harmful? One of the European symbols is Toxic.",
+     "Which substances are harmful? One of the European symbols is Very toxic.",
+     "Which substances are harmful? One of the European symbols is Harmful.",
+     "Which substances are harmful? One of the European symbols is Irritant.",
+     "Which substances are harmful? One of the European symbols is Highly flammable.",
+     "Which substances are harmful? One of the European symbols is Extremely flammable.",
+     "Which substances are harmful? One of the European symbols is Explosive.",
+     "Which substances are harmful? One of the European symbols is Dangerous to the environment.",
+     "Which substances are harmful? One of the European symbols is Oxidising.",
+     "Which substances are harmful? One of the European symbols is Corrosive."
+    ]
+   },
+   "reason": "This is not a true table. It is a grid of hazard symbol pictures, each with a one-word caption, under the box heading 'European symbols'. There are no printed column headings, so one column uses the box heading. Rows follow the captions in reading order: four, four, then two. The library grid (T+, F+) came from the symbol images and is wrong.",
+   "evidence": "Page 3 image, box 'Safety data sheets', right side: captions Toxic, Very toxic, Harmful, Irritant / Highly flammable, Extremely flammable, Explosive, Dangerous to the environment / Oxidising, Corrosive.",
+   "by": "model check, Sonnet (Claude Code headless, packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  }
+ ]
+}
