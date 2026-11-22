@@ -375,3 +375,14 @@ def test_a_ruled_table_inside_a_figure_crop_is_explained():
                                 area={"page": 3, "x0": 90, "x1": 320, "top": 390, "bottom": 490}))
     tb = C.check_version({"source_id": "x", "version_id": "v", "sha256": "ab" * 32}, tree, raw)["tables"]
     assert tb["items"] == [] and tb["explained"] == {"inside a figure crop (kept as the picture)": 1}
+
+
+def test_coverage_uses_the_parsers_signature_rule_with_signed_on_the_left():
+    """S107: coverage calls parse_pdf.signature_or_logo, so a signature with "Signed by the responsible Minister"
+    to its left on the same raw line (two cells read as one line) is explained, as the parser drops it."""
+    raw = _doc()
+    p3 = raw["pages"][2]
+    p3["images"] = [[300, 640, 420, 690]]
+    p3["words"] += [W("Signed", 72, 660), W("by", 112, 660), W("Date:", 450, 660)]
+    im = C.check_version({"source_id": "x", "version_id": "v", "sha256": "ab" * 32}, _tree(raw), raw)["images"]
+    assert im["explained"] == {"signature": 1} and not im["items"]

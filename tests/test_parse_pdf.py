@@ -1368,3 +1368,35 @@ def test_a_ruled_table_run_on_without_its_header_stays_a_table():
     tables = [_grid(2, 296, 340, p2, 58, 554), _grid(3, 54, 277, p3, 58, 554)]
     t = build_tree({"lines": lines, "rects": [], "images": [], "page_count": 3, "tables": tables}, META)
     assert [s["file_page"] for s in t["sections"] if s["type"] == "table"] == [2, 3]
+
+
+def test_a_photo_on_a_content_page_one_with_no_caption_is_a_figure():
+    """CIS54, CIS78, CIS79 and RO-CIS59: a real photo on page 1 with no caption was left out of the tree (page 1
+    pictures were taken for cover art). On a page 1 that is content (40+ words near body size), a photo below the
+    title, 4% of the page or more and not a wide thin band, is a figure named by its place. A coloured box with
+    lines of text set on it (a callout) is not; nor is the picture on a cover with only a title."""
+    body = [ln(1, 520 + 12 * k, t, x0=55) for k, t in enumerate(BLURB * 2)]
+    lines = [ln(1, 92, "Dust control on cut-off saws", 25.0, "HelveticaNeue-BoldCond", 54), *body,
+             ln(1, 120, "Making it easier to bid", 10.0, x0=60), ln(1, 132, "in partnership", 10.0, x0=60)]
+    images = [{"page": 1, "top": 226.0, "bottom": 495.0, "x0": 300.0, "x1": 541.0},  # the photo
+              {"page": 1, "top": 115.0, "bottom": 150.0, "x0": 55.0, "x1": 260.0},   # callout box under text
+              {"page": 1, "top": 790.0, "bottom": 830.0, "x0": 0.0, "x1": 595.0}]    # band at the foot
+    t = build_tree(drawn_doc(lines, images=images), META)
+    figs = [s for s in t["sections"] if s["type"] == "figure"]
+    assert [s["id"] for s in figs] == ["photo-p1-300-226"] and figs[0]["images_bbox"]["bottom"] == 495.0
+    cover = drawn_doc([ln(1, 92, "Dust control on cut-off saws", 25.0, "HelveticaNeue-BoldCond", 54),
+                       ln(2, 100, "Some text on page two of the sheet.")], images=images[:1])
+    assert not [s for s in build_tree(cover, META)["sections"] if s["type"] == "figure"]
+
+
+def test_a_signature_beside_signed_by_on_the_left_is_not_a_photo():
+    """Circulars and impact assessments print "Signed by authority of the Secretary of State" in the cell to the
+    left of the signature, not above it. The rule is shared with the coverage check (S107)."""
+    two = [{"x0": 72.0, "x1": 200.0, "text": "Signed"}, {"x0": 205.0, "x1": 240.0, "text": "by"},
+           {"x0": 420.0, "x1": 460.0, "text": "Date:"}]
+    lines = [ln(1, 100, "Building Act 1984", 20.0, "Arial-Bold", 72),
+             ln(1, 650, "Signed by Date:", 11.0, x0=72, words=two), ln(1, 695, "4 October 2022", 11.0, x0=290),
+             *[ln(1, 200 + 14 * k, t, 11.0, x0=72) for k, t in enumerate(BLURB)]]
+    images = [{"page": 1, "top": 640.0, "bottom": 690.0, "x0": 280.0, "x1": 400.0}]
+    t = build_tree(drawn_doc(lines, images=images), META)
+    assert not [s for s in t["sections"] if s["type"] == "figure"]

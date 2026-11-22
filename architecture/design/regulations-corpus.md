@@ -103,6 +103,8 @@ flowchart TD
     sig -->|"'Yours faithfully'/'Signed' above,<br/>name + job title below,<br/>letterhead on page 1, © or www below"| none["not a figure"]
     sig -->|"barcode over a web address"| none
     sig -->|"cover thumbnail: 'web-friendly version of leaflet INDG231',<br/>'HSG85 (Third edition) Published 2013' under it<br/>(is_cover_thumbnail, shared with coverage.py)"| none
+    sig -->|"'Signed by ...' in the cell to its left;<br/>a crest and department name at the top of page 1<br/>(signature_or_logo: one function for parse_pdf and coverage.py)"| none
+    sig -->|"no caption, page 1 is content (40+ words), below the title,<br/>4%+ of the page, not a thin band, no text set on it"| p1["figure photo-p1-x-y (CIS54, CIS78, CIS79)"]
     sig -->|no| photo["photo of the caption below it (or above, by the vote);<br/>photos stacked with no text between, a grid named<br/>'Top row ... Bottom row', or a block of photos for<br/>'(a)–(c)' / '12a and b', make one figure;<br/>running text or another photo beside it limits the crop"]
     photo -->|"labels beside the image,<br/>or image cut into tiles"| up
 ```

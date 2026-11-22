@@ -98,6 +98,9 @@ against our 0.94. Report: [experiments/X-external-mcp.md](experiments/X-external
 - Ruled tables with no caption are tables (EH40 Table 1, circulars' Annex tables, impact assessments, HHSRS
   baseline indicators, the Procurement Act e-learning tables): 284 to 753 table sections, all model-checked;
   layout grids (framed notices, forms, flow-chart boxes, screenshots) kept as text with reasons.
+- Images: photos on a content page 1 are figures (CIS54, CIS78, CIS79, RO-CIS59, two short guides); signatures
+  beside 'Signed by' and page-1 crests are dropped by one rule shared with the coverage check. **Coverage: 0 open
+  items in every PDF tree (66 parse_pdf-side items kept with reasons).**
 
 **Parse absolutely everything before moving on (Florin, 22 Nov).** Chunks start only when every ingested
 document is clean: legislation, every PDF and every web page. Web pages had been left out under "PDFs first", but

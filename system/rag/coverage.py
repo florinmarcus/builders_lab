@@ -759,31 +759,15 @@ def table_spans(tree: dict) -> dict[int, list[tuple[float, float, str]]]:
 
 
 def _signature_or_logo(im: tuple, n: int, ls: list[dict]) -> bool:
-    """parse_pdf.Builder._signature_or_logo, on this module's own lines, with parse_pdf's own patterns and cover
-    thumbnail rule (S107: one rule, not a copy). A raw line here can hold two text columns, so the lines under
-    the image are cut to the words under it."""
-    from system.rag.parse_pdf import ROLE_RE, SIGNED_RE, is_cover_thumbnail
+    """parse_pdf.signature_or_logo on this module's own lines (S107: one rule, not a copy). A raw line here can
+    hold two text columns, so each line also carries the words under the image."""
+    from system.rag.parse_pdf import signature_or_logo
 
     x0, top, x1, bottom = im
-    tall, wide = bottom - top, x1 - x0
-    small = tall <= 130 and wide <= 260
-    above = sorted((l for l in ls if top - 40 <= l["top"] <= top + 8), key=lambda l: l["top"])
-    below = sorted((l for l in ls if bottom - 2 <= l["top"] <= bottom + 45 and l["x0"] < x1 and l["x1"] > x0),
-                   key=lambda l: l["top"])
-    under = [" ".join(w[0] for w in l["words"] if w[1] < x1 and w[3] > x0) or l["text"] for l in below]
-    first = below[0]["text"].strip() if below else ""
-    if small and above and SIGNED_RE.match(above[-1]["text"].strip()):
-        return True
-    if small and below and (re.fullmatch(r"Signed:?", first) or len(first.split()) <= 4
-                            and any(ROLE_RE.search(l["text"]) for l in below[:3])):
-        return True
-    if first.startswith("©") or re.search(r"\bwww\.|\bISBN\b", first):
-        return True
-    if small and any(re.search(r"\bwww\.|\bISBN\b|^©", l["text"].strip()) for l in below[:3]):
-        return True
-    if is_cover_thumbnail(tall, under):
-        return True
-    return n == 1 and top < 90 and small
+    lines = [{"text": l["text"], "top": l["top"], "bottom": l["bottom"], "x0": l["x0"], "x1": l["x1"],
+              "under": " ".join(w[0] for w in l["words"] if w[1] < x1 and w[3] > x0) or l["text"],
+              "left": " ".join(w[0] for w in l["words"] if w[3] <= x0 + 5)} for l in ls]
+    return signature_or_logo({"x0": x0, "top": top, "x1": x1, "bottom": bottom}, n, lines)
 
 
 def check_images(raw: dict, tree: dict, text: dict, sha8: str) -> dict:

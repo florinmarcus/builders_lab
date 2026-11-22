@@ -63,6 +63,37 @@ def is_cover_thumbnail(height: float, below: list[str]) -> bool:
                               or any(THUMBNAIL_RE.search(t.strip()) for t in below[:4]))
 
 
+def signature_or_logo(im: dict, page: int, lines: list[dict]) -> bool:
+    """An image that is not a picture of anything the text is about: a signature over the signer's name
+    ("Yours faithfully" or "Signed:" above it or beside it on the left, or a name and a job title below it), a
+    letterhead logo at the top of page 1, a publisher's logo or cover over a copyright line or web address, or a
+    cover thumbnail. im: x0, top, x1, bottom; lines: text, top, bottom, x0, x1 and "under" (the words of the line
+    under the image). One rule for parse_pdf and the coverage check (S107)."""
+    tall, wide = im["bottom"] - im["top"], im["x1"] - im["x0"]
+    small = tall <= 130 and wide <= 260
+    above = sorted((l for l in lines if im["top"] - 40 <= l["top"] and l["bottom"] <= im["top"] + 8),
+                   key=lambda l: l["top"])
+    below = sorted((l for l in lines if im["bottom"] - 2 <= l["top"] <= im["bottom"] + 45
+                    and l["x0"] < im["x1"] and l["x1"] > im["x0"]), key=lambda l: l["top"])  # under it
+    left = [l.get("left", l["text"] if l["x1"] <= im["x0"] + 5 else "") for l in lines
+            if im["top"] - 60 <= l["top"] <= im["bottom"]]  # the words of each line left of the image
+    first = below[0]["text"].strip() if below else ""
+    if small and above and SIGNED_RE.match(above[-1]["text"].strip()):
+        return True
+    if small and any(SIGNED_RE.match(t.strip()) for t in left):
+        return True  # "Signed by authority of the Secretary of State" in the cell beside it
+    if small and below and (re.fullmatch(r"Signed:?", first) or len(first.split()) <= 4
+                            and any(ROLE_RE.search(l["text"]) for l in below[:3])):
+        return True
+    if first.startswith("©") or re.search(r"\bwww\.|\bISBN\b", first):
+        return True
+    if small and any(re.search(r"\bwww\.|\bISBN\b|^©", l["text"].strip()) for l in below[:3]):
+        return True  # a barcode or publisher's logo on the back cover
+    if is_cover_thumbnail(tall, [l.get("under", l["text"]) for l in below]):
+        return True  # a thumbnail of the printed leaflet's cover ("This is a web-friendly version of leaflet INDG463")
+    return page == 1 and im["top"] < 90 and (small or tall <= 200 and wide <= 300)  # a crest and department name
+
+
 # A phone number or web address set large on a back page ("Tel: 0800 300 363") is not a chapter title.
 CONTACT_RE = re.compile(r"^(Tel|Telephone|Phone|Fax|E-?mail|Web|Website)\b\s*:?|^(www\.|https?://)", re.I)
 # The publisher's imprint page carries the copyright notice. (An ISBN or "published by" alone also turns up in
@@ -992,28 +1023,11 @@ class Builder:
         self.captions_above = above >= 2 and above > 2 * below
 
     def _signature_or_logo(self, im: dict, on_page: list[dict]) -> bool:
-        """An image that is not a picture of anything the text is about: a signature over the signer's name
-        ("Yours faithfully" or "Signed:" above it, or a name and a job title below it), a letterhead logo at the
-        top of page 1, or a publisher's logo or cover over a copyright line or web address."""
-        tall, wide = im["bottom"] - im["top"], im["x1"] - im["x0"]
-        small = tall <= 130 and wide <= 260
-        above = sorted((l for l in on_page if im["top"] - 40 <= l["top"] and l["top"] + l["size"] <= im["top"] + 8),
-                       key=lambda l: l["top"])
-        below = sorted((l for l in on_page if im["bottom"] - 2 <= l["top"] <= im["bottom"] + 45
-                        and l["x0"] < im["x1"] and self._line_x1(l) > im["x0"]), key=lambda l: l["top"])  # under it
-        first = below[0]["text"].strip() if below else ""
-        if small and above and SIGNED_RE.match(above[-1]["text"].strip()):
-            return True
-        if small and below and (re.fullmatch(r"Signed:?", first) or len(first.split()) <= 4
-                                and any(ROLE_RE.search(l["text"]) for l in below[:3])):
-            return True
-        if first.startswith("©") or re.search(r"\bwww\.|\bISBN\b", first):
-            return True
-        if small and any(re.search(r"\bwww\.|\bISBN\b|^©", l["text"].strip()) for l in below[:3]):
-            return True  # a barcode or publisher's logo on the back cover
-        if is_cover_thumbnail(tall, [self._words_under(l, im) for l in below]):
-            return True  # a thumbnail of the printed leaflet's cover ("This is a web-friendly version of leaflet INDG463")
-        return im["page"] == 1 and im["top"] < 90 and small
+        lines = [{"text": l["text"], "top": l["top"], "bottom": l["top"] + l["size"], "x0": l["x0"],
+                  "x1": self._line_x1(l), "under": self._words_under(l, im),
+                  "left": " ".join(w["text"] for w in l.get("words") or []
+                                   if w.get("x1", w["x0"] + 5 * len(w["text"])) <= im["x0"] + 5)} for l in on_page]
+        return signature_or_logo(im, im["page"], lines)
 
     @staticmethod
     def _words_under(l: dict, im: dict) -> str:
@@ -2679,8 +2693,43 @@ class Builder:
                                                 "bottom": max(x["bottom"] for x in stack), "x0": min(x["x0"] for x in stack),
                                                 "x1": max(x["x1"] for x in stack)}
                         self._text_beside(c, im)
+            elif im["page"] == 1 and self._page_one_photo(im):
+                parent = next((s for s in self.sections if s["type"] == "chapter"), None)
+                if parent is None:
+                    continue
+                # named by its place: saved fixes are keyed by id and text, and a photo has no text, so "photo-1"
+                # would take the description saved for another file's photo-1
+                sid = f"photo-p1-{round(im['x0'])}-{round(im['top'])}"
+                sec = self.new(sid, "figure", parent, None, parent["title"] or self.title,
+                               [*parent["heading_path"], f"Photo ({parent['title'] or self.title})"], 1)
+                sec["labels"] = []
+                sec["caption_box"] = {"page": 1, "top": im["bottom"], "x0": im["x0"], "x1": im["x1"]}
+                sec["image_bbox"] = {k2: im[k2] for k2 in ("page", "top", "bottom", "x0", "x1")}
+                sec["images_bbox"] = dict(sec["image_bbox"])  # all of it, not trimmed at a white gap (screenshots)
+                self.span(sec, 1, im["top"], im["bottom"])
             elif im["page"] != 1 and im["bottom"] - im["top"] >= 30 and im["x1"] - im["x0"] >= 30:  # not icons
                 self.issues.append(f"image on file page {im['page']} at {im['top']} has no caption below it")
+
+
+    def _page_one_photo(self, im: dict) -> bool:
+        """A photo on page 1 with no caption is a figure when page 1 is content (no chapter titles, or kept front
+        matter, and 40+ words near body size on the page): 4% of the page or more, below the document's title, not a wide thin banner, and not over the
+        whole page."""
+        pw, ph = self.page_size(1)
+        w, h = im["x1"] - im["x0"], im["bottom"] - im["top"]
+        if w * h < 0.04 * pw * ph or w * h > 0.6 * pw * ph or (w >= 0.7 * pw and h < 0.25 * ph):
+            return False
+        if self.has_chapters and not self.by_id.get("front-matter"):
+            return False
+        if sum(len(l["text"].split()) for l in self.lines_by_page.get(1, [])
+               if self.body_size - 1 <= l["size"] < 1.3 * self.body_size) < 40:
+            return False  # a cover with a title and a picture: the picture is decoration
+        title = next((l for l in self.lines if l["page"] == 1 and l["size"] >= 1.5 * self.body_size), None)
+        inside = [l for l in self.lines_by_page.get(1, []) if im["x0"] - 2 <= l["x0"] <= im["x1"]
+                  and im["top"] - 2 <= l["top"] <= im["bottom"]]
+        if len(inside) >= 2:
+            return False  # lines of text set on it: a coloured callout box, not a picture
+        return title is not None and im["top"] >= title["top"]
 
 
 def build_tree(doc: dict, meta: dict, fixes: list[dict] | None = None) -> dict:
