@@ -29,8 +29,8 @@ Split into two MCP servers. Both come from the same codebase and run on the same
 
 | Server | Tools | Data | Access |
 |---|---|---|---|
-| **Regulations** (public knowledge) | `search_regulations`, `lookup_terms`, later `about_regulations_library` | corpus (read-only database user), glossary | its own key per firm for now (usage limits, kill switch); open access is a later decision |
-| **Firm** (private) | `get_firm_profile`, `list_jobs`, `get_job`, `get_job_timeline`, `search_job_documents`, `list_missing_items`, `get_payment_dates`, `sync_inbox`, `save_facts`, `verify_answer` | firm database | per-firm key, every query filtered by firm (ADR 0007, unchanged) |
+| **Regulations** (public knowledge) | `search_regulations`, `lookup_terms`, later `about_regulations_library` | corpus (read-only database user), glossary | firm keys at first; later also open without a key, as a free taster, with tight limits (Florin, 22 Nov) |
+| **Firm** (private) | `get_firm_profile`, `lookup_terms` (also here, Florin 22 Nov), `list_jobs`, `get_job`, `get_job_timeline`, `search_job_documents`, `list_missing_items`, `get_payment_dates`, `sync_inbox`, `save_facts`, `verify_answer` | firm database | per-firm key, every query filtered by firm (ADR 0007, unchanged) |
 
 Rules:
 - **No firm data on the regulations server.** It has no firm database connection at all, not only no tool for it.
@@ -77,7 +77,24 @@ the regulations server from the start.
   - open or free access to the regulations server
   - per-server quotas
   - a separate release cycle for the corpus
-- **Open questions for Florin:**
-  - Should the regulations server ever be open without a key?
-  - Should `lookup_terms` also be available on the firm server? It would save the agent a hop for Romanian
-    users.
+- **Answered by Florin (22 Nov):**
+  - The regulations server will later also be open without a key, as a free taster.
+  - `lookup_terms` is on both servers.
+- **Still open, to settle before the build:**
+  1. **Cost of open access.** Every search costs Titan and rerank calls. A keyless server needs per-IP limits, a
+     daily spend cap that switches it off, and an alert.
+  2. **Licences on a public server.** Most text is OGL, but some items are proprietary: the BS 5250 and JCT clause
+     titles (`restricted` in `corpus/sources.yaml`). Are they fine to serve to anyone, or only to firms with a key?
+  3. **Query logs.** Questions can name a job or a person. Decide what the regulations server logs, how long it
+     keeps the logs, and whether keyless logs keep the IP address.
+  4. **Which key works where.** Simplest: a firm's one key works on both servers. Then the expiry warnings and
+     "access ended" message (ADR 0007) apply to both.
+  5. **Dates across servers.** The right edition depends on the job's dates (for example, AD B before or after
+     2029). The agent gets the dates from the firm server and passes them to search. Today search does not take a
+     date, so the specialist and the search tool need a clear date argument.
+  6. **One source for shared rules.** The language and "speak first" rules go to both servers. Keep them in one
+     versioned text, used by both, so they cannot drift.
+  7. **One trace across two servers.** One answer will call both servers. The trace id (plan step 5, S9) must pass
+     through both.
+  8. **Connector names and the switch.** Rename BuildersMCP to two clear names. Existing users reconnect once.
+     Plugin evals and judges must connect both.
