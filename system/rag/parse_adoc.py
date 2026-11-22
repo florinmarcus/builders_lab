@@ -56,6 +56,7 @@ DOUBLED_RE = re.compile(r"(ffi|ffl|ff|fi|fl)\1+")
 LIGATURES = {"ﬀ": "ff", "ﬁ": "fi", "ﬂ": "fl", "ﬃ": "ffi", "ﬄ": "ffl"}  # ligature characters in diagram labels
 LIGATURE_RE = re.compile("[" + "".join(LIGATURES) + "]")  # a ligature printed twice: "specifification"
 BANNER_RE =re.compile(r"(?i)(effective until|effective from) (\d{1,2} \w+ \d{4})")
+FRAME_MIN = 20  # a frame must reach this far past its caption band, or the band stands alone (no frame)
 SKIP_CHAPTERS = {"contents"}
 STOP_CHAPTERS = {"index", "list of approved documents"}
 
@@ -106,6 +107,9 @@ class AdocBuilder:
         if self.page_width > 700:  # older reads took the width of a double-page cover
             self.page_width = 595.3
         self.rects = doc.get("rects", [])
+        self.shapes: dict[int, list[dict]] = defaultdict(list)
+        for r in doc.get("shapes", []):
+            self.shapes[r["page"]].append(r)
         self.doc_tables = doc.get("tables", [])
         self.sections: list[dict] = []
         self.by_id: dict[str, dict] = {}
@@ -499,6 +503,42 @@ class AdocBuilder:
 
     # -------------------------------------------------- regions on a page
 
+    def _frame(self, page: int, x: float, top: float, below: bool):
+        """The ruled frame of a diagram whose caption starts at (x, top): (top, bottom, x0, x1), or None.
+
+        Approved Document diagrams sit in a drawn frame with the caption on a coloured band at one end: at the
+        bottom in the 2013+ layout, at the top in the classic layout (below=True: the frame runs down from the
+        band). The band is the smallest filled shape under the caption's first word. The frame is every shape
+        that lines up with the band (a box or line as wide as the band, or a side drawn at its left or right
+        edge), joined end to end from the band. Another band of the same width stops it, so two frames stacked
+        close together stay apart. A band with no frame reaching FRAME_MIN past it gives None."""
+        sh = self.shapes.get(page, [])
+        bands = [s for s in sh if s["fill"] and s["x0"] - 2 <= x <= s["x1"] and s["top"] - 2 <= top + 3 <= s["bottom"] + 2
+                 and s["x1"] - s["x0"] > 100 and s["bottom"] - s["top"] < 120]
+        if not bands:
+            return None
+        b = min(bands, key=lambda s: (s["bottom"] - s["top"]) * (s["x1"] - s["x0"]))
+
+        def aligned(s) -> bool:
+            if s["x1"] - s["x0"] < 3:
+                return abs(s["x0"] - b["x0"]) < 4 or abs(s["x0"] - b["x1"]) < 4
+            return abs(s["x0"] - b["x0"]) < 4 and abs(s["x1"] - b["x1"]) < 4 \
+                and not (s["fill"] and s["bottom"] - s["top"] < 60)  # not a band
+
+        cand = [s for s in sh if s is not b and aligned(s)]
+        t, bt = b["top"], b["bottom"]
+        grown = True
+        while grown:
+            grown = False
+            for s in cand:
+                if below and s["top"] <= bt + 3 and s["bottom"] > bt + 0.5:
+                    bt, grown = s["bottom"], True
+                elif not below and s["bottom"] >= t - 3 and s["top"] < t - 0.5:
+                    t, grown = s["top"], True
+        if (bt - b["bottom"] if below else b["top"] - t) < FRAME_MIN:
+            return None
+        return t, bt, b["x0"], b["x1"]
+
     def regions(self, page: int, lines: list[dict]) -> dict[int, tuple[str, int]]:
         """Which lines belong to a diagram, a table or a small-print box. Returns {line index: (kind, n)},
         where n numbers the region on the page."""
@@ -532,6 +572,16 @@ class AdocBuilder:
                     gaps = [(b - a, a) for a, b in zip(mid, mid[1:])]
                     if gaps:
                         top_limit = max(gaps)[1]
+                fr = self._frame(page, ws[0]["x0"] + 1, l["top"], below=False)
+                if fr:  # the drawn frame: every line inside it is the diagram's too
+                    for k, m in enumerate(lines):
+                        if k not in out and fr[0] - 2 <= m["top"] < l["top"] and fr[2] - 3 <= m["x0"] < fr[3] \
+                                or k not in out and top_limit < m["top"] < l["top"] and (m["size"] < LABEL_MAX or "Medium" in m["font"] or SEE_RE.match(m["text"])):
+                            out[k] = ("diagram", n)
+                    bottom = max(fr[1], max(lines[k]["top"] for k in range(i, j)) + 14)
+                    self._diagram_area[(page, n)] = (fr[0] - 3, bottom + 3, fr[2] - 3, fr[3] + 3)
+                    i = j
+                    continue
                 for k, m in enumerate(lines):
                     if k not in out and top_limit < m["top"] < l["top"] and (m["size"] < LABEL_MAX or "Medium" in m["font"] or SEE_RE.match(m["text"])):
                         out[k] = ("diagram", n)
@@ -647,6 +697,21 @@ class AdocBuilder:
                         and not TABLE_RE.match(m["text"]) and not DIAGRAM_RE.match(m["text"]):
                     out[k] = ("table-caption-more" if kind == "table" else "caption", n)
                     last = m
+            fr = self._frame(page, c["words"][0]["x0"] + 1, c["top"], below=True) if kind == "diagram" and c.get("words") else None
+            if fr:
+                # The drawn frame: every line inside it is the diagram's, and small print straight under it
+                # (notes to the drawing, AD H Diagram 2 of the requirement H2 guidance) too.
+                bottom = fr[1]
+                for k, m in sorted(enumerate(lines), key=lambda km: km[1]["top"]):
+                    if k in out or not fr[2] - 3 <= m["x0"] < fr[3]:
+                        continue
+                    if c["top"] < m["top"] < fr[1]:
+                        out[k] = (kind, n)
+                    elif fr[1] <= m["top"] <= bottom + 16 and m["size"] < SMALL:
+                        out[k] = (kind, n)
+                        bottom = max(bottom, m["top"] + m["size"])
+                self._diagram_area[(page, n)] = (min(fr[0], c["top"]) - 3, min(bottom + 3, 800.0), fr[2] - 3, fr[3] + 3)
+                continue
             def bottom_for(cols):
                 stops = [m["top"] for k, m in enumerate(lines) if m["top"] > last["top"] + 2 and m.get("col") in cols
                          and k not in out and (abs(m["size"] - BODY) < 0.6 and m.get("col") is not None
@@ -1132,7 +1197,7 @@ def read_adoc_pdf(path) -> dict:
             emit()
         return words
 
-    lines, rects, images, tables = [], [], [], []
+    lines, rects, images, tables, shapes = [], [], [], [], []
     with pdfplumber.open(str(path)) as pdf:
         for n, page in enumerate(pdf.pages, start=1):
             for l in page.extract_text_lines(return_chars=True):
@@ -1148,6 +1213,13 @@ def read_adoc_pdf(path) -> dict:
                 if r["width"] > 100 and r["height"] > 12 and col and col not in ((1.0,), (1.0, 1.0, 1.0)):
                     rects.append({"page": n, "top": round(r["top"], 1), "bottom": round(r["bottom"], 1),
                                   "x0": round(r["x0"], 1), "x1": round(r["x1"], 1), "colour": col})
+            for kind in ("rects", "curves", "lines"):  # ruled figure frames and their caption bands
+                for r in getattr(page, kind):
+                    w, h = r["x1"] - r["x0"], r["bottom"] - r["top"]
+                    if w >= 40 or h >= 40 or w < 2 and h >= 4:  # big shapes, and frame sides drawn in pieces
+                        # (any fill: a one-ink colour of 1.0 is full ink, not white, and pdfplumber does not say which)
+                        shapes.append({"page": n, "top": round(r["top"], 1), "bottom": round(r["bottom"], 1),
+                                       "x0": round(r["x0"], 1), "x1": round(r["x1"], 1), "fill": bool(r.get("fill"))})
             for im in page.images:
                 images.append({"page": n, "top": round(im["top"], 1), "bottom": round(im["bottom"], 1),
                                "x0": round(im["x0"], 1), "x1": round(im["x1"], 1)})
@@ -1161,7 +1233,7 @@ def read_adoc_pdf(path) -> dict:
         count = len(pdf.pages)
         widths = Counter(round(float(pg.width), 1) for pg in pdf.pages)  # the cover can be a double-page spread
         width = widths.most_common(1)[0][0] if widths else 595.0
-    return {"lines": lines, "rects": rects, "images": images, "tables": tables, "page_count": count,
+    return {"lines": lines, "rects": rects, "images": images, "tables": tables, "shapes": shapes, "page_count": count,
             "page_width": width}
 
 

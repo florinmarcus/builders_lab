@@ -52,6 +52,16 @@ flowchart TB
 
 The 2019-layout Approved Documents are read by fonts, sizes and colours: 26pt chapters, 20/15pt headings, semibold paragraph numbers, white diagram captions on a green band, bold table captions, green words as links to key terms. Edition banners ("Effective until 1 September 2029", "effective from 2 September 2029") date the two copies of Appendices B and C. Letters dropped from "fi"/"fl" by the PDF font are put back by checking the document's own words, and counted. Diagram crops are made for the model check; `images: check-only` in `sources.yaml` keeps them from users.
 
+Diagram crops follow the drawn frame (22 Nov 2026). Each AD diagram sits in a ruled box with its caption on a filled band: at the bottom (2013+ layout) or the top (classic layout). The parser finds the band under the caption's first word, then joins every shape that lines up with it (a box or line as wide as the band, or a side drawn at its edge, even in pieces) until a gap or another band. The crop is that frame plus 3pt. Text inside the frame is the diagram's labels; in the classic layout small notes straight under the frame are too. A band with no frame (AD F Diagram 3.1, AD J Diagram 16) keeps the older text rule.
+
+```mermaid
+flowchart LR
+    cap["Diagram caption"] --> band["filled band<br/>under its first word"]
+    band --> join["join shapes as wide as the band<br/>or on its edges, end to end"]
+    join -->|"frame found"| crop["crop = frame + 3pt<br/>labels = text inside<br/>(classic: + notes under it)"]
+    join -->|"band only"| old["text rule<br/>(labels back to the last body line)"]
+```
+
 ### Home Office fire risk assessment guides (parse_guide, built 22 Nov 2026)
 
 The 2006 "Fire safety risk assessment" sector guides and the disabled people supplement share one template that

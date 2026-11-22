@@ -398,6 +398,15 @@ REAL = [  # source, part (start of the part name), counts from the parsed docume
 ]
 
 
+REDO_AFTER_FRAME_RULE = {
+    "ada": {"diagram-6", "diagram-6-continued"},
+    "adc": {"diagram-6"},
+    "adj": {"diagram-10", "diagram-19", "diagram-40"},
+    "adk": {"diagram-1.1", "diagram-1.2", "diagram-1.9", "diagram-1.11", "diagram-1.13", "diagram-2.2", "diagram-3.2",
+            "diagram-5.1", "diagram-5.2", "diagram-5.3", "diagram-9.3"},
+}
+
+
 def _real_tree(source, part):
     pytest.importorskip("pdfplumber")
     import yaml
@@ -418,7 +427,10 @@ def test_real_approved_documents_counts_and_all_checks_settled(source, part, cou
     t = _real_tree(source, part)
     got = {k: sum(1 for s in t["sections"] if s["type"] == k) for k in counts}
     assert got == counts
-    assert t["checks"] == []
+    # Figures whose labels changed when crops moved to the drawn frame (22 Nov 2026): their descriptions are to be
+    # written again from the right crop (parking lot S-entry "AD figure descriptions after the frame rule").
+    redo = REDO_AFTER_FRAME_RULE.get(source, set())
+    assert {c["section_id"] for c in t["checks"]} <= redo and all(c["kind"] == "figure" for c in t["checks"])
     assert not [i for i in t["issues"] if "duplicate" in i]
     ids = [s["id"] for s in t["sections"]]
     assert len(ids) == len(set(ids))
@@ -489,3 +501,110 @@ def test_real_adb1_all_checks_settled_by_saved_fixes(adb1):
     old = next(s for s in S if s["id"] == "table-b1-until-2029-09-01")
     new = next(s for s in S if s["id"] == "table-b1-from-2029-09-02")
     assert old["columns"] == new["columns"]  # one family, one layout
+
+
+# ---------------------------------------------------------------- figure frames (the crop is the drawn frame)
+
+def _shape(page, top, bottom, x0, x1, fill=False):
+    return {"page": page, "top": float(top), "bottom": float(bottom), "x0": float(x0), "x1": float(x1), "fill": fill}
+
+
+def test_modern_frame_gives_the_crop_and_its_lines_are_labels():
+    # AD K Diagram 1.1: the frame starts with a "See paras 1.2–1.3" note in body size, above the highest label;
+    # the caption band is at the bottom of the frame. Body text above the frame stays out.
+    L = page_furniture(1, "1") + [ln(1, 84, bold("Section", "1:", "Stairs"), 26.0, "Agenda-Bold"),
+                                  ln(1, 140, [("1.2", B), "Measure", "the", "rise."], font="Agenda-Semibold"),
+                                  ln(1, 352, ["See", "paras", "1.2–1.3"], x0=75.0),
+                                  ln(1, 367, ["Open", "riser"], 8.0, "Agenda-Medium", 240),
+                                  ln(1, 744, [("Diagram", {"c": WHITE}), ("1.1", {"c": WHITE}), ("Rise", {"c": WHITE})], x0=65.0)]
+    shapes = [_shape(1, 735, 761, 57, 538, fill=True), _shape(1, 346, 736, 57, 538, fill=True)]  # band, frame
+    t = build_tree({"lines": L, "tables": [], "shapes": shapes, "page_width": 595.0}, META)
+    d = sec(t, "diagram-1.1")
+    assert d["area"]["top"] == 343.0 and d["area"]["bottom"] >= 761 and d["area"]["x0"] == 54.0 and d["area"]["x1"] == 541.0
+    assert d["labels"] == ["See paras 1.2–1.3", "Open riser"]
+    assert sec(t, "para-1.2")["text"] == "Measure the rise."
+
+
+def test_modern_frame_sides_drawn_in_pieces_are_joined():
+    # AD L 2026 Diagram B1: rows of a little table at the top of the frame, its sides drawn row by row.
+    L = page_furniture(1, "1") + [ln(1, 84, bold("Section", "1:", "Heat"), 26.0, "Agenda-Bold"),
+                                  ln(1, 334, ["Foundation", "area"], 9.0, x0=86),
+                                  ln(1, 608, [("Diagram", {"c": WHITE}), ("B1", {"c": WHITE}), ("Roof", {"c": WHITE})], x0=89.0)]
+    shapes = [_shape(1, 601, 626, 79, 561, fill=True)]
+    for a, b in ((330.8, 347.7), (347.7, 364.8), (364.8, 382.0), (382.0, 600.6)):
+        shapes += [_shape(1, a, b, 79.1, 79.1), _shape(1, a, b, 561.0, 561.0)]
+    t = build_tree({"lines": L, "tables": [], "shapes": shapes, "page_width": 595.0}, META)
+    assert sec(t, "diagram-b1")["area"]["top"] < 330
+
+
+def test_a_band_with_no_frame_keeps_the_text_rule():
+    # AD F Diagram 3.1: the chart above the band has no frame of the band's width; the old rule stands.
+    L = page_furniture(1, "1") + [ln(1, 84, bold("Section", "3:", "Work"), 26.0, "Agenda-Bold"),
+                                  ln(1, 300, [("3.9", B), "Text."], font="Agenda-Semibold"),
+                                  ln(1, 400, ["Category", "A"], 8.0, "Agenda-Medium", 200),
+                                  ln(1, 647, [("Diagram", {"c": WHITE}), ("3.1", {"c": WHITE}), ("Chart", {"c": WHITE})], x0=88.0)]
+    shapes = [_shape(1, 639, 676, 80, 561, fill=True), _shape(1, 380, 630, 90, 550)]
+    t = build_tree({"lines": L, "tables": [], "shapes": shapes, "page_width": 595.0}, META)
+    d = sec(t, "diagram-3.1")
+    assert d["area"]["x0"] == 28.0 and d["area"]["top"] == 316.0 and d["labels"] == ["Category A"]
+
+
+def test_a_band_of_the_same_width_stops_the_frame():
+    # Two framed diagrams stacked close together (AD E Diagrams 2.10 and 2.11 in the classic layout): the lower
+    # diagram's band stops the upper frame.
+    def cl(top, words, size=10.5, x0=303.0):
+        return ln(4, top, words, size, "HelveticaNeue-Roman", x0)
+    L = classic_doc()["lines"] + [cl(16, list("ONLINE"), 20.0, 188.9), cl(27.1, ["RUNNING", "HEADER"], 14.0, 70.9),
+                                  cl(100, ["Left", "column", "words."], x0=36.9),
+                                  cl(814.9, ["O", "N", "L", "I", "N", "E", "V", "E", "R", "S", "I", "O", "N", "14"], 20.0, 188.9),
+                                  cl(60, ["Diagram", "2.10", "Wall", "type"], 12.0), cl(150, ["Hanger"], 7.0, 330),
+                                  cl(262.5, ["Diagram", "2.11", "Concrete", "floor"], 12.0), cl(350, ["SECTION"], 7.0, 330)]
+    shapes = [_shape(4, 54, 91, 292, 524, fill=True), _shape(4, 91, 259, 292, 524),
+              _shape(4, 259.5, 290, 292, 524, fill=True), _shape(4, 290, 517, 292, 524)]
+    t = build_tree({"lines": L, "tables": [], "shapes": shapes, "page_width": 595.0}, META)
+    a, b = sec(t, "diagram-2.10"), sec(t, "diagram-2.11")
+    assert a["area"]["bottom"] == 262.0 and a["labels"] == ["Hanger"]
+    assert b["area"]["top"] <= 260 and b["area"]["bottom"] == 520.0 and b["labels"] == ["SECTION"]
+
+
+def test_classic_frame_gives_the_crop_and_takes_the_notes_under_it():
+    # AD H Diagram 2 (requirement H2 guidance): caption band at the top, the drawing in a ruled box, then small
+    # notes straight under the box; body text further down and the next column stay out.
+    def cl(top, words, size=10.5, x0=76.5):
+        return ln(3, top, words, size, "HelveticaNeue-Roman", x0)
+    L = [l for l in classic_doc()["lines"] if l["page"] != 3 or l["top"] < 50 or l["top"] > 800]
+    L += [cl(60, ["Diagram", "2", "Drainage", "mound"], 12.0), cl(150, ["Filter", "sand"], 7.0, 200),
+          cl(244, ["Notes:"], 5.0, 72), cl(252, ["1.", "To", "provide", "venting."], 5.0, 72),
+          cl(300, ["Right", "column", "words", "here."], 7.0, 330),
+          cl(440, bold("Thickness", "of", "walls"), 14.0, 70.9),
+          cl(460, [("2C5", B), "General", "wall", "thickness."], x0=70.9)]
+    L[-2]["font"] = "HelveticaNeue-Bold"
+    shapes = [_shape(3, 54, 72, 71, 303, fill=True), _shape(3, 72, 238, 71, 303)]
+    t = build_tree({"lines": L, "tables": [], "shapes": shapes, "page_width": 595.0}, META)
+    d = sec(t, "diagram-2")
+    assert d["labels"] == ["Filter sand", "Notes:", "1. To provide venting."]
+    assert d["area"]["x0"] == 68.0 and d["area"]["x1"] == 306.0 and 255 < d["area"]["bottom"] < 270
+
+
+@pytest.mark.parametrize("source,part,fid,frame_top,caption_top", [
+    ("adk", "approved-document-k", "diagram-1.1", 345.6, 744),       # "See paras 1.2–1.3" at the frame top
+    ("adk", "approved-document-k", "diagram-5.2", 382, 647),
+    ("ads", "approved-document-s", "diagram-6.3", 86, 302),
+    ("adm", "approved-document-m-access-to-and-use-of-buildings-volume-1", "v1-diagram-3.11", 154, 743),
+])
+def test_real_modern_crops_hold_the_frame_top(source, part, fid, frame_top, caption_top):
+    t = _real_tree(source, part)
+    a = next(s for s in t["sections"] if s["id"] == fid)["area"]
+    assert frame_top - 8 < a["top"] <= frame_top and a["bottom"] > caption_top + 14
+
+
+def test_real_classic_crops_hold_the_drawing_under_the_caption_band():
+    t = _real_tree("adm", "approved-document-m-access-to-and-use-of-buildings-volume-2")
+    a = next(s for s in t["sections"] if s["id"] == "v2-diagram-1")["area"]
+    assert a["top"] < 59 and a["bottom"] > 540 and a["x0"] > 300  # the whole tactile paving drawing, one column
+    t = _real_tree("ade", "approved-document-e")
+    a = next(s for s in t["sections"] if s["id"] == "diagram-2.9")["area"]
+    assert a["bottom"] > 317 and a["x1"] < 280  # down to PLAN, and not Diagram 2.10 in the next column
+    t = _real_tree("adh", "approved-document-h")
+    d = next(s for s in t["sections"] if s["id"] == "the-requirement-2-diagram-2")
+    assert d["area"]["bottom"] > 290 and any(l.startswith("3.") for l in d["labels"])  # Notes 1-3 under the frame
