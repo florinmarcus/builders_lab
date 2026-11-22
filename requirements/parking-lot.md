@@ -146,3 +146,5 @@ Started 20 Nov 2026. Status of the demo build: steps 1 (mock data plan), 2 (sche
 | Q9 | Does Claude's Microsoft 365 connector read Outlook mail? | `requirements/business-plan.md` |
 | Q10 | Companies House registration fee and ICO data protection fee (from memory) | `requirements/business-plan.md` |
 | Q11 | Real quotes: cyber insurance, professional indemnity, accountant | `requirements/business-plan.md` |
+| Q12 | SI numbers for CDM 2015, the Control of Asbestos Regulations 2012 and the Scheme for Construction Contracts in the MCP report came from memory; only the Building Regulations 2010 (SI 2010/2214) was tested live | `research/reports/UK legislation MCP servers.md` |
+| Q13 | Watch the GDS and National Archives "AI-ready legal data" Alpha (June 2026) and i.AI Lex: if an official, supported legislation MCP server appears, consider using it for legislation lookups instead of our own fetch (it will not cover Approved Documents) | `research/reports/UK legislation MCP servers.md` |

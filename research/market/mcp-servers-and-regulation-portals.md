@@ -2,6 +2,8 @@
 
 Checked 20 Nov 2026. Sources are listed at the end and in `research/sources/links.md`. Listings in MCP registries are written by their authors, so treat them as self-description. Star counts and dates come from the GitHub and PyPI APIs on 20 Nov 2026. Earlier regulation chatbots (StructureGPT, BuildingRegs.app, Struck, ArchiChat, Regulex, Buildwell AI, para-building-regs, Planner AI) are in `existing-solutions.md` and not repeated here.
 
+**Update 22 Nov 2026:** a deeper check (21 Nov) is in `research/reports/UK legislation MCP servers.md`. It adds The National Archives' own server, more community servers, paid legal providers (Thomson Reuters, Harvey, Legora, LexisNexis), NBS and BSI, and licences. The main finding here still holds.
+
 ## Short version
 
 - **No MCP server for UK building regulations is in a usable state, and none is in Claude's connector directory.** The one we found is a hobby project (0 stars, local only, "not recommended for production", last change Nov 2025). It searches one PDF of the Approved Documents (Oct 2024): no legislation, no HSE guidance, no versions or dates, no England/Wales split.

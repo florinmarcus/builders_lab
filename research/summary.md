@@ -107,3 +107,15 @@ Checked 19 Nov 2026. Full report: `reports/Builder tools and integrations.md`. S
 5. Build order: Gmail, our job server, Xero, file connectors, WhatsApp, DocuSign, QuickBooks. Skip Buildertrend, Houzz Pro, Tradify, Sage 50, CHAS, Constructionline.
 6. Six demo scenarios (our proposals): variation from a chat, payment notice deadlines, subcontractor pack check, missing items before handover, site diary, Xero invoice and chase.
 7. Open: ask the room which email, accounts and job apps they use. That decides ranks 5 to 9.
+
+## UK legislation MCP servers
+
+Checked 21 Nov 2026. Full report: `reports/UK legislation MCP servers.md`. Earlier short note: `market/mcp-servers-and-regulation-portals.md` (20 Nov).
+
+1. At least 12 MCP servers fetch UK law. Almost all wrap the free legislation.gov.uk API (OGL, 1,500 requests per 5 minutes). Best: The National Archives' `legislation-mcp-ts` (self-host), cyanheads (careful with dates), paulieb89 `uk-legal-mcp` (widest), i.AI Lex (meaning search, "experimental").
+2. They all reach the Building Regulations, CDM, the asbestos rules and the Construction Act, but none treats building law as special.
+3. No server has the Approved Documents or HSE guidance as searchable text. The only Approved Documents server is a hobby project on an out-of-date 2024 PDF.
+4. Paid legal services (Thomson Reuters CoCounsel, Harvey, Legora) have MCP servers, but cost hundreds of dollars per user a month (reported US prices), and Thomson Reuters' terms ban using its content as a knowledge source next to other AI tools.
+5. NBS, BSI, NHBC and LABC have no API or MCP server. BSI's terms ban putting standards text in a retrieval system: cite standards by number and title only.
+6. Approved Documents, legislation.gov.uk and HSE web guidance are under the Open Government Licence. Our own corpus is the right route.
+7. Every legislation answer should carry legislation.gov.uk's "up to date to" date and outstanding changes. The site silently returns the nearest earlier version for a date.
