@@ -25,6 +25,19 @@ Owner: Florin. Status report: [REPORT-2026-11-21.md](REPORT-2026-11-21.md). Each
    mixed topics).
 3. **Ingest and verify the vectors.** Load, then measure vector-only recall on dev.
 
+**Retrieval strategy (ADR 0016, Florin 22 Nov): measure first, then design.** After parsing, before any chunking
+change:
+1. Fix the gold labels: remap the 9% that point to old section ids; mark each expected section as a needed part
+   or an alternative; give the question set a version.
+2. Record the real agent's searches: run the plugin's regulations specialist on dev, log every search call. Tune on
+   those; raw questions as a check. Re-record on model or prompt changes. Test two or three personas.
+3. Baseline on today's chunks: complete recall (every needed group found), partial recall, MRR@10, at 5 and 10;
+   question by question with McNemar. Find where recall is lost (not in 50, or below 5).
+4. Then, one change at a time: per-chunk legal strength and four lanes (law, Approved Documents, codes of
+   practice, guidance); the "too broad" reply; tables, size, breadcrumb, neighbours; parents and law links only
+   if the numbers ask for them.
+5. History: only versions in force from 1 January 2025.
+
 **Flow per document family, parse to vectors (status 22 Nov night).** Green: done. Amber: in progress.
 Grey: not started. Each parser's own diagram is in
 [regulations-corpus.md](../architecture/design/regulations-corpus.md).

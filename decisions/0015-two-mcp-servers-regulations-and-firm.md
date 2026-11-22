@@ -29,7 +29,7 @@ Split into two MCP servers. Both come from the same codebase and run on the same
 
 | Server | Tools | Data | Access |
 |---|---|---|---|
-| **Regulations** (public knowledge) | `search_regulations`, `lookup_terms`, later `about_regulations_library` | corpus (read-only database user), glossary | firm keys only; no open access (Florin, 22 Nov: we demo to firms, so nothing needs to be open) |
+| **Regulations** (public knowledge) | `search_regulations`, `get_section`, `read_document` (ADR 0016), `lookup_terms`, later `about_regulations_library` | corpus (read-only database user), glossary | firm keys only; no open access (Florin, 22 Nov: we demo to firms, so nothing needs to be open) |
 | **Firm** (private) | `get_firm_profile`, `lookup_terms` (also here, Florin 22 Nov), `list_jobs`, `get_job`, `get_job_timeline`, `search_job_documents`, `list_missing_items`, `get_payment_dates`, `sync_inbox`, `save_facts`, `verify_answer` | firm database | per-firm key, every query filtered by firm (ADR 0007, unchanged) |
 
 Rules:
@@ -86,9 +86,8 @@ the regulations server from the start.
      keeps the logs.
   3. **Which key works where.** Simplest: a firm's one key works on both servers. Then the expiry warnings and
      "access ended" message (ADR 0007) apply to both.
-  4. **Dates across servers.** The right edition depends on the job's dates (for example, AD B before or after
-     2029). The agent gets the dates from the firm server and passes them to search. Today search does not take a
-     date, so the specialist and the search tool need a clear date argument.
+  4. *(Settled 22 Nov, ADR 0016: every regulations tool takes the job's date and shows the date it used; the agent
+     gets the dates from the firm server.)*
   5. **One source for shared rules.** The language and "speak first" rules go to both servers. Keep them in one
      versioned text, used by both, so they cannot drift.
   6. **One trace across two servers.** One answer will call both servers. The trace id (plan step 5, S9) must pass
