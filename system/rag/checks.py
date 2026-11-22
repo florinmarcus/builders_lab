@@ -102,6 +102,13 @@ NOT_A_FAMILY = {
     # Arabic and Urdu tenant guides three different tables looked like one family (22 Nov 2026).
     ("awaab-tenants", "document-table-p8"): "Hazard types and timescales (3 columns); the page 7 table is where you live.",
     ("awaab-tenants", "document-table-p12"): "Types of investigation (2 columns, other headings); not the page 7 table.",
+    # AD B collated with the 2029 amendments (adb-historical, 22 Nov 2026): the 2029 tables drop the national-class
+    # (BS 476) column, so they do not share the 2025 tables' layout; Table 5.1 is not a fire doorset table.
+    ("adb-historical", "v1-table-b1-from-2029-09-02"): "2029 Table B1: 5 printed columns, no BS 476 column (page 176).",
+    ("adb-historical", "v2-table-b1-from-2029-09-02"): "2029 Table B1: 5 printed columns, no BS 476 column (page 187).",
+    ("adb-historical", "v1-table-c1-from-2029-09-02"): "2029 Table C1: 2 columns, no BS 476-22 column (page 193).",
+    ("adb-historical", "v2-table-c1-from-2029-09-02"): "2029 Table C1: 2 columns, no BS 476-22 column (page 204).",
+    ("adb-historical", "v2-table-5.1"): "Escape lighting (use of building, areas): 2 columns; not Table C1 fire doorsets.",
 }
 
 

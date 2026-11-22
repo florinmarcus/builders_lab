@@ -732,3 +732,20 @@ def test_real_classic_crops_hold_the_drawing_under_the_caption_band():
     t = _real_tree("adh", "approved-document-h")
     d = next(s for s in t["sections"] if s["id"] == "the-requirement-2-diagram-2")
     assert d["area"]["bottom"] > 290 and any(l.startswith("3.") for l in d["labels"])  # Notes 1-3 under the frame
+
+
+def test_real_adb_historical_trees_in_scope_have_no_open_checks():
+    """ADR 0016: only the AD B files in force from 1 January 2025 are checked (the 2019 edition with the 2020 and
+    2022 amendments, and the text collated with the 2025, 2026 and 2029 amendments, both volumes). Older files keep
+    their checks open. Reads the parsed trees; skips where none exist."""
+    from system.rag.corpus import version_in_scope
+    trees = [json.loads(p.read_text(encoding="utf-8")) for p in (ROOT / "corpus" / "parsed" / "adb-historical").glob("*.json")]
+    trees = [t for t in trees if version_in_scope("adb-historical", t["version_id"])]
+    if not trees:
+        pytest.skip("adb-historical not parsed on this machine")
+    assert len(trees) == 4
+    assert {t["version_id"]: len(t["checks"]) for t in trees if t["checks"]} == {}
+    for t in trees:
+        S = t["sections"]
+        assert all(s.get("description_source") == "model" for s in S if s["type"] == "figure")
+        assert all(s.get("grid_source") == "model" and s.get("row_sentences") for s in S if s["type"] == "table")

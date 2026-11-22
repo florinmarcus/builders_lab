@@ -90,3 +90,6 @@ top 5 that looks confident can hide that.
   `pgsearch.py`, the "too broad" reply, the date argument, `get_section` and `read_document` (ADR 0015).
 - The retrieval levers in (9) and the chunking tests in (13) are the first places to look when answers are poor.
 - ADR 0008's "how far back" changes to 2025; the old AD B editions' open checks are not worked.
+- Built 22 Nov 2026 (`corpus.in_scope`): 4 of the 17 adb-historical files are in force from 1 January 2025 (the
+  2019 edition with the 2020 and 2022 amendments, and the text collated with the 2025, 2026 and 2029 amendments,
+  both volumes), so their 379 checks were worked; the other 13 keep 629 checks open. 210 of 841 versions are out.

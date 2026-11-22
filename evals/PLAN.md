@@ -37,7 +37,8 @@ change:
    practice, guidance); the "too broad" reply; tables, size, breadcrumb, neighbours; parents and law links only
    if the numbers ask for them.
 5. History: only versions in force from 1 January 2025. Built 22 Nov (`corpus.in_scope`, S115): 210 of 841
-   versions are out of scope (legislation history, 13 old AD B files); they are not chunked, loaded or checked.
+   versions are out of scope (legislation history, 13 old AD B files); they are not chunked, loaded or checked. adb-historical: the 4 files in scope are clean (230 crops ok, 0 checks
+   open, coverage 0 open).
 
 **Flow per document family, parse to vectors (status 22 Nov night).** Green: done. Amber: in progress.
 Grey: not started. Each parser's own diagram is in
