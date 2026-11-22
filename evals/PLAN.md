@@ -34,7 +34,7 @@ flowchart LR
     subgraph parse["1. Parse: one parser per document family"]
         leg["Legislation XML<br/>parse_legislation"]:::done
         adoc["Approved Documents PDF<br/>parse_adoc<br/>clean: 413 crops ok, 0 checks open"]:::done
-        hse["HSE and other guidance PDFs<br/>parse_pdf<br/>~320 bad crops and false figures<br/>being fixed"]:::wip
+        hse["HSE and other guidance PDFs<br/>parse_pdf<br/>404 of 459 crops ok, 55 bad (S98)<br/>model checks next"]:::wip
         guide["Fire safety collection, 18 PDFs<br/>parse_guide (13), parse_flats (1),<br/>parse_booklet (4)<br/>clean: 813 crops ok, 0 checks open"]:::done
         html["GOV.UK and HSE web pages<br/>parse_html<br/>weak structure, not in scope yet"]:::todo
     end
@@ -71,6 +71,10 @@ External servers (22 Nov, Florin's question): do we need the government document
 MCP servers? Measured live on dev: **yes, keep them.** No server covers HSE guidance or Approved Document passages;
 Lex ties with our index on laws but adds Northern Ireland and revoked laws; GOV.UK search finds the right page 0.41
 against our 0.94. Report: [experiments/X-external-mcp.md](experiments/X-external-mcp.md).
+
+- Generic guidance PDFs (parse_pdf, 22 Nov): false figures removed and crops cut from their ink (c6492e4,
+  2a86e19). 404 of 459 crops ok, 55 bad and listed in S98. Open model checks are not run yet; the new table pages
+  need table checks.
 
 Inventory (21 Nov): 139 non-legislation sources. 47 have open model checks, 1,468 in total. The biggest are:
 - fso-guidance-collection: 511
