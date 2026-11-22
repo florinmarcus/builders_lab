@@ -15,7 +15,7 @@ and `lookup_terms`). Florin finds the mix awkward. The facts behind that:
   change with product features. Today every corpus change ships with the firm server, and the reverse.
 - **More general tools are coming.** The library tool (`about_regulations_library`, parking lot S100) belongs with
   the regulations, not with one firm's jobs.
-- **Reuse.** A regulations-only server could serve every firm, other apps, or a free taster, without exposing
+- **Reuse.** A regulations-only server could serve every firm and other apps without exposing
   anything private. Government and community servers already offer this for legislation alone
   (`evals/experiments/X-external-mcp.md`).
 - **The links between the two are few.**
