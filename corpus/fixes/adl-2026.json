@@ -4241,6 +4241,86 @@
    "by": "model check, Claude Code (AD parser agent, page images)",
    "confidence": "high",
    "date": "2026-11-21"
+  },
+  {
+   "key": "60a07380d8da8d20",
+   "kind": "table",
+   "target": "v2-table-a1: High excitation purity light sources",
+   "value": {
+    "columns": [
+     "Colour",
+     "Dominant wavelength (nm)",
+     "Dominant wavelength (nm)"
+    ],
+    "rows": [
+     [
+      "Blue",
+      "440–490",
+      "90"
+     ],
+     [
+      "Green",
+      "520–570",
+      "65"
+     ],
+     [
+      "Red",
+      "610–670",
+      "95"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "High excitation purity light sources: Blue, dominant wavelength (nm) 440–490, dominant wavelength (nm) 90.",
+     "High excitation purity light sources: Green, dominant wavelength (nm) 520–570, dominant wavelength (nm) 65.",
+     "High excitation purity light sources: Red, dominant wavelength (nm) 610–670, dominant wavelength (nm) 95."
+    ]
+   },
+   "reason": "Copied exactly as printed; the page prints the heading Dominant wavelength (nm) over both number columns, so both are kept as printed.",
+   "evidence": "Page image p98 (printed page 88), Table A1, three rows Blue, Green, Red.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "b01130a81bd0e7d9",
+   "kind": "table",
+   "target": "v2-table-5.4: Minimum heat generator seasonal efficiency for gas and oil-fired warm air heaters",
+   "value": {
+    "columns": [
+     "Warm air heater type",
+     "Heat generator seasonal efficiency (net calorific value/thermal efficiency)",
+     "Product standard"
+    ],
+    "rows": [
+     [
+      "Gas-fired forced convection to assist transportation of combustion air and/or combustion products",
+      "91%",
+      "BS EN 17082 for unfanned and fanned appliances"
+     ],
+     [
+      "Direct gas-fired forced convection(1)",
+      "n/a",
+      "BS EN 17082"
+     ],
+     [
+      "Oil-fired forced convection",
+      "91%",
+      "BS EN 13842"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "In the minimum heat generator seasonal efficiency table for gas and oil-fired warm air heaters, gas-fired forced convection to assist transportation of combustion air and/or combustion products has a heat generator seasonal efficiency (net calorific value/thermal efficiency) of 91% and the product standard is BS EN 17082 for unfanned and fanned appliances.",
+     "In the minimum heat generator seasonal efficiency table for gas and oil-fired warm air heaters, direct gas-fired forced convection(1) has a heat generator seasonal efficiency (net calorific value/thermal efficiency) of n/a and the product standard is BS EN 17082.",
+     "In the minimum heat generator seasonal efficiency table for gas and oil-fired warm air heaters, oil-fired forced convection has a heat generator seasonal efficiency (net calorific value/thermal efficiency) of 91% and the product standard is BS EN 13842."
+    ]
+   },
+   "reason": "Rebuilt from the page image; three data rows under three printed headings, no sub-heading rows. The note below the table is not part of the grid.",
+   "evidence": "Table 5.4 on file page 56 (printed page 46): rows read 91% / BS EN 17082 for unfanned and fanned appliances; n/a / BS EN 17082; 91% / BS EN 13842.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
   }
  ]
 }

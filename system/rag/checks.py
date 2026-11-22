@@ -88,6 +88,22 @@ def family(title: str | None) -> str | None:
     return title.split(" for ", 1)[0].strip().lower()
 
 
+# Tables whose title starts like a family's but whose printed layout is different (checked on the page).
+# They are their own table: no template, and the family rule does not bind them.
+NOT_A_FAMILY = {
+    ("adh", "table-12"): "Manholes: 6 columns, no depth column; Table 11 (access fittings) has 7.",
+    ("adl-2026", "v2-table-5.4"): "Warm air heaters: type, efficiency, product standard; Table 5.3 is for boilers.",
+}
+
+
+def table_family(source_id: str, target: str) -> str | None:
+    """family() for a table, by its target ("<id>: <title>"), unless it is listed in NOT_A_FAMILY."""
+    sid = target.split(": ", 1)[0]
+    if (source_id, sid) in NOT_A_FAMILY:
+        return None
+    return family(_target_title(target))
+
+
 def _target_title(target: str) -> str:
     return target.split(": ", 1)[1] if ": " in target else target
 
@@ -132,7 +148,7 @@ def lint_fixes(source_id: str, fixes: list[dict]) -> list[str]:
         v = f.get("value")
         if f.get("kind") == "table":
             bad += [f"{name}: {p}" for p in _lint_table(v)]
-            fam = family(_target_title(f.get("target", "")))
+            fam = table_family(source_id, f.get("target", ""))
             if fam and isinstance(v, dict):
                 if fam in families and families[fam][1] != v.get("columns"):
                     bad.append(f"{name}: columns differ from {families[fam][0]!r} in the same family "
@@ -188,7 +204,7 @@ def packets(source_id: str, trees: list[dict], fixes: list[dict]) -> tuple[list[
     """Packets for the open checks, and the ids held back until the first of their family is saved."""
     saved_families: dict[str, dict] = {}
     for f in fixes:
-        fam = family(_target_title(f.get("target", ""))) if f["kind"] == "table" else None
+        fam = table_family(source_id, f.get("target", "")) if f["kind"] == "table" else None
         if fam and fam not in saved_families:
             saved_families[fam] = f
     out, held, sent_families = [], [], set()
@@ -209,7 +225,7 @@ def packets(source_id: str, trees: list[dict], fixes: list[dict]) -> tuple[list[
             }
             if sec:
                 p["section"] = {k: sec.get(k) for k in ("id", "title", "text", "labels", "grid", "printed_page")}
-            fam = family(title) if kind == "table" else None
+            fam = table_family(source_id, target) if kind == "table" else None
             if fam:
                 if fam in saved_families:
                     t = saved_families[fam]

@@ -1,0 +1,1731 @@
+{
+ "source_id": "adh",
+ "about": "Saved model fixes for adh (ADR 0010).",
+ "fixes": [
+  {
+   "key": "eacf308fb564e93d",
+   "kind": "table",
+   "target": "the-requirement-box-1: The Requirement",
+   "value": {
+    "columns": [
+     "Requirement",
+     "Limits on application"
+    ],
+    "rows": [
+     [
+      "Foul water drainage",
+      ""
+     ],
+     [
+      "H1. (1) An adequate system of drainage shall be provided to carry foul water from appliances within the building to one of the following, listed in order of priority: (a) a public sewer; or, where that is not reasonably practicable, (b) a private sewer communicating with a public sewer; or, where that is not reasonably practicable, (c) either a septic tank which has an appropriate form of secondary treatment or another wastewater treatment system; or, where that is not reasonably practicable, (d) a cesspool. (2) In this Part ‘foul water’ means waste water which comprises or includes: (a) waste from a sanitary convenience, bidet or appliance used for washing receptacles for foul waste; or (b) water which has been used for food preparation, cooking or washing.",
+      "Requirement H1 does not apply to the diversion of water which has been used for personal washing or for the washing of clothes, linen or other articles to collection systems for re-use."
+     ]
+    ],
+    "heading_rows": [
+     0
+    ],
+    "sentences": [
+     "The Requirement, foul water drainage: H1. (1) An adequate system of drainage shall be provided to carry foul water from appliances within the building to one of the following, listed in order of priority: (a) a public sewer; or, where that is not reasonably practicable, (b) a private sewer communicating with a public sewer; or, where that is not reasonably practicable, (c) either a septic tank which has an appropriate form of secondary treatment or another wastewater treatment system; or, where that is not reasonably practicable, (d) a cesspool. (2) In this Part ‘foul water’ means waste water which comprises or includes: (a) waste from a sanitary convenience, bidet or appliance used for washing receptacles for foul waste; or (b) water which has been used for food preparation, cooking or washing. Limits on application: Requirement H1 does not apply to the diversion of water which has been used for personal washing or for the washing of clothes, linen or other articles to collection systems for re-use."
+    ]
+   },
+   "reason": "Two-column requirement box; 'Foul water drainage' is a bold sub-heading above the requirement text.",
+   "evidence": "Page image p8 (printed page 6), green box with headings Requirement and Limits on application.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "2ed103c84e58f3cb",
+   "kind": "table",
+   "target": "table-1: Minimum trap sizes and seal depths",
+   "value": {
+    "columns": [
+     "Appliance",
+     "Diameter of trap (mm)",
+     "Depth of seal (mm of water or equivalent)"
+    ],
+    "rows": [
+     [
+      "Washbasin ¹",
+      "32",
+      "75"
+     ],
+     [
+      "Bidet",
+      "32",
+      "75"
+     ],
+     [
+      "Bath ²",
+      "40",
+      "50"
+     ],
+     [
+      "Shower ²",
+      "40",
+      "50"
+     ],
+     [
+      "Food waste disposal unit",
+      "40",
+      "75"
+     ],
+     [
+      "Urinal bowl",
+      "40",
+      "75"
+     ],
+     [
+      "Sink",
+      "40",
+      "75"
+     ],
+     [
+      "Washing machine ²",
+      "40",
+      "75"
+     ],
+     [
+      "Dishwashing machine ²",
+      "40",
+      "75"
+     ],
+     [
+      "WC pan – outlet <80mm",
+      "75",
+      "50"
+     ],
+     [
+      "WC pan – outlet >80mm",
+      "100",
+      "50"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Minimum trap sizes and seal depths: Washbasin ¹ has a trap diameter of 32 mm and a depth of seal of 75 mm of water or equivalent.",
+     "Minimum trap sizes and seal depths: Bidet has a trap diameter of 32 mm and a depth of seal of 75 mm of water or equivalent.",
+     "Minimum trap sizes and seal depths: Bath ² has a trap diameter of 40 mm and a depth of seal of 50 mm of water or equivalent.",
+     "Minimum trap sizes and seal depths: Shower ² has a trap diameter of 40 mm and a depth of seal of 50 mm of water or equivalent.",
+     "Minimum trap sizes and seal depths: Food waste disposal unit has a trap diameter of 40 mm and a depth of seal of 75 mm of water or equivalent.",
+     "Minimum trap sizes and seal depths: Urinal bowl has a trap diameter of 40 mm and a depth of seal of 75 mm of water or equivalent.",
+     "Minimum trap sizes and seal depths: Sink has a trap diameter of 40 mm and a depth of seal of 75 mm of water or equivalent.",
+     "Minimum trap sizes and seal depths: Washing machine ² has a trap diameter of 40 mm and a depth of seal of 75 mm of water or equivalent.",
+     "Minimum trap sizes and seal depths: Dishwashing machine ² has a trap diameter of 40 mm and a depth of seal of 75 mm of water or equivalent.",
+     "Minimum trap sizes and seal depths: WC pan – outlet <80mm has a trap diameter of 75 mm and a depth of seal of 50 mm of water or equivalent.",
+     "Minimum trap sizes and seal depths: WC pan – outlet >80mm has a trap diameter of 100 mm and a depth of seal of 50 mm of water or equivalent."
+    ]
+   },
+   "reason": "Values printed once beside grouped appliances are repeated on each appliance row; footnote marks kept as superscripts.",
+   "evidence": "Page image p9 (printed page 7), Table 1.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "2f4efa393f59ce92",
+   "kind": "figure_description",
+   "target": "diagram-1: Direct connection of ground floor WC to a drain",
+   "value": "This is a diagram titled Diagram 1, Direct connection of ground floor WC to a drain. It shows a WC pan on a ground floor with its branch pipe running down and into a drain. Printed labels are Floor level; 1.3m max.; Invert of drain, with the 1.3m max. measured from floor level down to the invert of the drain.",
+   "reason": "Simple line diagram.",
+   "evidence": "figures/diagram-1.png",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "66bc49520285209c",
+   "kind": "figure_description",
+   "target": "diagram-2: Branch connection to stacks – crossflow prevention",
+   "value": "This is a diagram titled Diagram 2, Branch connection to stacks – crossflow prevention. It shows a vertical stack with circled no connection zones marked A and B, a lowest connection, a WC, and a drain invert, with printed dimensions 450mm min. *, 200mm, 50mm min, 200mm and 50mm parallel junction. The printed text says that a branch creates a no connection zone on a stack and no other branch may be fitted so that its centre line falls inside a zone, but its centre line may be on the boundary; Key: A opposed connections without swept entries not exceeding 65mm should be offset 110mm on a 100mm diameter stack and 250mm on a 150mm diameter stack; opposed connections larger than 65mm (without swept entries) should be offset at least 200mm irrespective of stack diameter; unopposed connections may be at any position. It also says B is an angled connection or 50mm diameter parallel junction where a branch discharge pipe would enter the WC no connection zone; opposed branch connection in the horizontal plane should be avoided; NB a waste (branch discharge pipe) manifold may be a suitable alternative; and * this should be increased in buildings over 3 storeys.",
+   "reason": "Annotated diagram with key; printed text quoted inside sentences separated by semicolons.",
+   "evidence": "figures/diagram-2.png",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "d2138b684e1aea89",
+   "kind": "table",
+   "target": "table-2: Common branch discharge pipes (unventilated)",
+   "value": {
+    "columns": [
+     "Appliance",
+     "Max. no. to be connected",
+     "Max. length of branch pipe (m)",
+     "Min. size of pipe (mm)",
+     "Gradient limits (mm fall per metre)"
+    ],
+    "rows": [
+     [
+      "WC outlet > 80mm",
+      "8",
+      "15",
+      "100",
+      "18 ² to 90"
+     ],
+     [
+      "WC outlet < 80mm",
+      "1",
+      "15",
+      "75 ³",
+      "18 to 90"
+     ],
+     [
+      "Urinal – bowl",
+      "",
+      "3 ¹",
+      "50",
+      ""
+     ],
+     [
+      "Urinal – trough",
+      "",
+      "3 ¹",
+      "65",
+      "18 to 90"
+     ],
+     [
+      "Urinal – slab",
+      "",
+      "3 ¹",
+      "",
+      ""
+     ],
+     [
+      "Washbasin or bidet",
+      "3",
+      "1.7",
+      "30",
+      "18 to 22"
+     ],
+     [
+      "Washbasin or bidet",
+      "3",
+      "1.1",
+      "30",
+      "18 to 44"
+     ],
+     [
+      "Washbasin or bidet",
+      "3",
+      "0.7",
+      "30",
+      "18 to 87"
+     ],
+     [
+      "Washbasin or bidet",
+      "3",
+      "3.0",
+      "40",
+      "18 to 44"
+     ],
+     [
+      "Washbasin or bidet",
+      "4",
+      "4.0",
+      "50",
+      "18 to 44"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Common branch discharge pipes (unventilated): WC outlet > 80mm has a maximum number to be connected of 8, a maximum length of branch pipe of 15 m, a minimum size of pipe of 100 mm and gradient limits of 18 ² to 90 mm fall per metre.",
+     "Common branch discharge pipes (unventilated): WC outlet < 80mm has a maximum number to be connected of 1, a maximum length of branch pipe of 15 m, a minimum size of pipe of 75 ³ mm and gradient limits of 18 to 90 mm fall per metre.",
+     "Common branch discharge pipes (unventilated): Urinal – bowl has a maximum length of branch pipe of 3 ¹ m and a minimum size of pipe of 50 mm.",
+     "Common branch discharge pipes (unventilated): Urinal – trough has a maximum length of branch pipe of 3 ¹ m, a minimum size of pipe of 65 mm and gradient limits of 18 to 90 mm fall per metre.",
+     "Common branch discharge pipes (unventilated): Urinal – slab has a maximum length of branch pipe of 3 ¹ m.",
+     "Common branch discharge pipes (unventilated): Washbasin or bidet has a maximum number to be connected of 3, a maximum length of branch pipe of 1.7 m, a minimum size of pipe of 30 mm and gradient limits of 18 to 22 mm fall per metre.",
+     "Common branch discharge pipes (unventilated): Washbasin or bidet has a maximum number to be connected of 3, a maximum length of branch pipe of 1.1 m, a minimum size of pipe of 30 mm and gradient limits of 18 to 44 mm fall per metre.",
+     "Common branch discharge pipes (unventilated): Washbasin or bidet has a maximum number to be connected of 3, a maximum length of branch pipe of 0.7 m, a minimum size of pipe of 30 mm and gradient limits of 18 to 87 mm fall per metre.",
+     "Common branch discharge pipes (unventilated): Washbasin or bidet has a maximum number to be connected of 3, a maximum length of branch pipe of 3.0 m, a minimum size of pipe of 40 mm and gradient limits of 18 to 44 mm fall per metre.",
+     "Common branch discharge pipes (unventilated): Washbasin or bidet has a maximum number to be connected of 4, a maximum length of branch pipe of 4.0 m, a minimum size of pipe of 50 mm and gradient limits of 18 to 44 mm fall per metre."
+    ]
+   },
+   "reason": "Washbasin or bidet spans five rows so it is repeated; max. no. 3 covers the first four rows and 4 the last; blank cells left empty as printed.",
+   "evidence": "Page image p11 (printed page 9), Table 2 with footnotes 1 to 4.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "8a5b35f75c308d43",
+   "kind": "figure_description",
+   "target": "diagram-3: Branch connections",
+   "value": "This is a diagram titled Diagram 3, Branch connections, in two parts. Part (a), Unvented branch connections to stacks, shows a sink, bath, washbasin and WC joined to a stack with labels 3m max. for 40mm pipe; *4m max. for 50mm pipe; Slope between 18 and 90mm/m; 1.7m max. for 32mm pipe; *3m max. for 40mm pipe; Slope (see graph); 6m. max. for single WC; Slope 18mm/m min. Its notes say * where the larger branch pipe sizes are used the diameter of the trap is not increased but the tail of the trap should be lengthened by 50mm before increasing the diameter, and + for ranges see Table 2. Part (b), Design curve for 32mm washbasin waste pipes, is a graph of Gradient [mm per m length] from 20 to 120 against Length of branch [m] from 0.5 to 1.75, with a curve falling from about 120 at 0.6 to 20 at 1.75.",
+   "reason": "Diagram plus graph; printed labels quoted separated by semicolons.",
+   "evidence": "figures/diagram-3.png",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "5d196311694dd884",
+   "kind": "table",
+   "target": "table-3: Minimum diameters for discharge stacks",
+   "value": {
+    "columns": [
+     "Stack size (mm)",
+     "Max. capacity (litres/sec)"
+    ],
+    "rows": [
+     [
+      "50*",
+      "1.2"
+     ],
+     [
+      "65*",
+      "2.1"
+     ],
+     [
+      "75†",
+      "3.4"
+     ],
+     [
+      "90",
+      "5.3"
+     ],
+     [
+      "100",
+      "7.2"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Minimum diameters for discharge stacks: a stack size of 50* mm has a max. capacity of 1.2 litres/sec.",
+     "Minimum diameters for discharge stacks: a stack size of 65* mm has a max. capacity of 2.1 litres/sec.",
+     "Minimum diameters for discharge stacks: a stack size of 75† mm has a max. capacity of 3.4 litres/sec.",
+     "Minimum diameters for discharge stacks: a stack size of 90 mm has a max. capacity of 5.3 litres/sec.",
+     "Minimum diameters for discharge stacks: a stack size of 100 mm has a max. capacity of 7.2 litres/sec."
+    ]
+   },
+   "reason": "Five data rows read from the Table 3 image; the two notes below the table are not rows.",
+   "evidence": "Page image p12: headings 'Stack size (mm)' and 'Max. capacity (litres/sec)'; rows 50* 1.2, 65* 2.1, 75† 3.4, 90 5.3, 100 7.2.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "53736b08af3b2bfa",
+   "kind": "figure_description",
+   "target": "diagram-4: Branch ventilation pipes",
+   "value": "This is a line diagram titled \"Diagram 4 Branch ventilation pipes\" showing a branch ventilating pipe running from a basin trap to a vertical stack. Labels printed are: \"Stack vent\"; \"Ventilating stack\"; \"Discharge stack\"; \"v.p.\"; \"d.p.\"; \"Invert of connection to stack vent or ventilating stack above spillover level\"; \"Spillover level\". The distance from the trap to the connection is marked \"750\" and \"Max.\".",
+   "reason": "Described the printed diagram and its labels.",
+   "evidence": "Figure image diagram-4.png shows the labels listed.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "2820c850cd03132c",
+   "kind": "table",
+   "target": "table-4: Materials for sanitary pipework",
+   "value": {
+    "columns": [
+     "Material",
+     "British Standard"
+    ],
+    "rows": [
+     [
+      "Pipes",
+      ""
+     ],
+     [
+      "Cast iron",
+      "BS 416, BS EN 877"
+     ],
+     [
+      "Copper",
+      "BS EN 1254, BS EN 1057"
+     ],
+     [
+      "Galvanised steel",
+      "BS 3868"
+     ],
+     [
+      "PVC-U",
+      "BS EN 1329"
+     ],
+     [
+      "Polypropylene (PP)",
+      "BS EN 1451"
+     ],
+     [
+      "ABS",
+      "BS EN 1455"
+     ],
+     [
+      "Polyethylene (PE)",
+      "BS EN 1519"
+     ],
+     [
+      "Styrene copolymer blends (PVC + SAN)",
+      "BS EN 1565"
+     ],
+     [
+      "PVC-C",
+      "BS EN 1566"
+     ],
+     [
+      "Traps",
+      "BS EN 274, BS 3943"
+     ]
+    ],
+    "heading_rows": [
+     0
+    ],
+    "sentences": [
+     "Materials for sanitary pipework: the material Cast iron has British Standard BS 416, BS EN 877.",
+     "Materials for sanitary pipework: the material Copper has British Standard BS EN 1254, BS EN 1057.",
+     "Materials for sanitary pipework: the material Galvanised steel has British Standard BS 3868.",
+     "Materials for sanitary pipework: the material PVC-U has British Standard BS EN 1329.",
+     "Materials for sanitary pipework: the material Polypropylene (PP) has British Standard BS EN 1451.",
+     "Materials for sanitary pipework: the material ABS has British Standard BS EN 1455.",
+     "Materials for sanitary pipework: the material Polyethylene (PE) has British Standard BS EN 1519.",
+     "Materials for sanitary pipework: the material Styrene copolymer blends (PVC + SAN) has British Standard BS EN 1565.",
+     "Materials for sanitary pipework: the material PVC-C has British Standard BS EN 1566.",
+     "Materials for sanitary pipework: the material Traps has British Standard BS EN 274, BS 3943."
+    ]
+   },
+   "reason": "'Pipes' is a bold sub-heading row, so it is a heading row; 'Traps' has its own standard so it is a normal row. The note below the table is not a row.",
+   "evidence": "Page image p13, Table 4: headings 'Material' and 'British Standard'; rows as listed.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "3aa82951dbd7fdb2",
+   "kind": "figure_description",
+   "target": "diagram-5: Stub stack",
+   "value": "This is a line diagram titled \"Diagram 5 Stub stack\" showing a 100mm stack with a WC connected to a ventilated drain. Labels printed are: \"Highest branch\"; \"100mm stack\"; \"WC\"; \"Floor level\"; \"Ventilated drain\"; \"Invert\". Two height limits are marked: \"2.0m max.\" from the highest branch down to the invert, and \"1.3m max.\" from floor level down to the invert.",
+   "reason": "Described the printed diagram and its labels.",
+   "evidence": "Figure image diagram-5.png shows the labels and dimensions listed.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "60808494f3f9ba9e",
+   "kind": "figure_description",
+   "target": "diagram-6: Termination of ventilation stacks or ventilation part of discharge",
+   "value": "This is a line diagram titled \"Diagram 6 Termination of ventilation stacks or ventilation part of discharge\" showing a vertical stack vent beside an opening in a building. Labels printed are: \"Cage or perforated cover\" at the top of the \"Stack vent\"; \"Opening into the building, e.g. windows, doors, air intakes, etc.\". Dimensions marked are \"900mm\" (vertical, above the opening) and \"Less than 3m\" (horizontal, between the opening and the stack vent).",
+   "reason": "Described the printed diagram and its labels.",
+   "evidence": "Figure image diagram-6.png shows the labels and dimensions listed.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "f1a9afaffe2c646f",
+   "kind": "figure_description",
+   "target": "diagram-7: Pipes penetrating walls",
+   "value": "This is a line diagram titled \"Diagram 7 Pipes penetrating walls\" with two parts showing a pipe passing through a wall. Part (a) reads \"Short length of pipe bedded in wall, joints formed within 150mm of either wallface. Adjacent rocker pipes of max. length 600mm with flexible joints\", with dimensions \"150mm max.\" and \"600mm max.\" on each side of the wall. Part (b) reads \"Arch or lintelled opening to give 50mm space all round the pipe\" with \"50\" marked, and notes \"Mask opening both sides with rigid sheet material to prevent entry of fill or vermin\" and \"Important Fill void with compressible sealant to prevent entry of gas\".",
+   "reason": "Described both parts of the printed diagram with their text.",
+   "evidence": "Figure image diagram-7.png shows parts (a) and (b) with the text quoted.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "1b197e59ca75051f",
+   "kind": "figure_description",
+   "target": "diagram-8: Pipe runs near buildings",
+   "value": "Diagram 8, \"Pipe runs near buildings\", is a line diagram of two trenches beside a building wall and its foundation, each with a pipe in concrete fill and a distance marked A from the foundation to the trench. In the top view the label reads \"Where A is less than 1m concrete fill trench to this level\", with the fill reaching up to the foundation base level. In the lower view the label reads \"Where A is 1m or more concrete fill trench to this level\", with a dimension marked \"A less 150mm\"; \"Ground level\" is also labelled.",
+   "reason": "Figure described from the image.",
+   "evidence": "Printed labels: Ground level; A; A less 150mm; the two 'Where A is...' notes.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "986565b64d10f181",
+   "kind": "figure_description",
+   "target": "diagram-9: Discharge capacities of foul drains running 0.75 proportional depth",
+   "value": "Diagram 9, \"Discharge capacities of foul drains running 0.75 proportional depth\", is a line graph with gradient [1 in ...] on the horizontal axis from 1:10 to 1:200 and flow rate [litres per second] on the vertical axis from 2 to 30. It shows three sloping lines labelled \"75mm diameter\", \"100mm diameter\" and \"150mm diameter\", with flow rate falling as the gradient gets flatter. The 150mm line is the highest and the 75mm line the lowest.",
+   "reason": "Figure described from the image.",
+   "evidence": "Axis titles and line labels read from the image.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "182ebc8501fa5e50",
+   "kind": "figure_description",
+   "target": "diagram-10: Bedding for pipes",
+   "value": "Diagram 10, \"Bedding for pipes\", is a set of trench cross-section diagrams in two parts: \"a) Rigid pipes\" and \"b) Flexible pipes\". Part a shows \"Class D: Bedding factor 1.1\", \"Class N: Bedding factor 1.1\", \"Class F: Bedding factor 1.5\" and \"Class B: Bedding factor 1.9\", with fill depths of 150mm and 100mm and, for class B, granular fill to half depth of pipe. Part b shows two flexible pipe trenches, one with a \"Detail for vee trench\", with dimensions of 100mm, 100mm and 300mm. A key explains 1 selected fill, 2 granular material and 3 selected fill or granular fill free from stones larger than 40mm, followed by Notes 1 to 4 including \"All dimensions are in mm.\"",
+   "reason": "Figure described from the image.",
+   "evidence": "Class headings, part headings, key and notes read from the image.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "6fa846ce2884d93b",
+   "kind": "table",
+   "target": "table-5: Flow rates from dwellings",
+   "value": {
+    "columns": [
+     "Number of dwellings",
+     "Flow rate (litres/sec)"
+    ],
+    "rows": [
+     [
+      "1",
+      "2.5"
+     ],
+     [
+      "5",
+      "3.5"
+     ],
+     [
+      "10",
+      "4.1"
+     ],
+     [
+      "15",
+      "4.6"
+     ],
+     [
+      "20",
+      "5.1"
+     ],
+     [
+      "25",
+      "5.4"
+     ],
+     [
+      "30",
+      "5.8"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Flow rates from dwellings: for 1 dwelling the flow rate is 2.5 litres/sec.",
+     "Flow rates from dwellings: for 5 dwellings the flow rate is 3.5 litres/sec.",
+     "Flow rates from dwellings: for 10 dwellings the flow rate is 4.1 litres/sec.",
+     "Flow rates from dwellings: for 15 dwellings the flow rate is 4.6 litres/sec.",
+     "Flow rates from dwellings: for 20 dwellings the flow rate is 5.1 litres/sec.",
+     "Flow rates from dwellings: for 25 dwellings the flow rate is 5.4 litres/sec.",
+     "Flow rates from dwellings: for 30 dwellings the flow rate is 5.8 litres/sec."
+    ]
+   },
+   "reason": "Rebuilt from the page 18 image.",
+   "evidence": "Table 5 on printed page 16.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "69954573fbb19112",
+   "kind": "table",
+   "target": "table-6: Recommended minimum gradients for foul drains",
+   "value": {
+    "columns": [
+     "Peak flow (litres/sec)",
+     "Pipe size (mm)",
+     "Minimum gradient (1 in ...)",
+     "Maximum capacity (litres/sec)"
+    ],
+    "rows": [
+     [
+      "< 1",
+      "75",
+      "1:40",
+      "4.1"
+     ],
+     [
+      "< 1",
+      "100",
+      "1:40",
+      "9.2"
+     ],
+     [
+      "> 1",
+      "75",
+      "1:80",
+      "2.8"
+     ],
+     [
+      "> 1",
+      "100",
+      "1:80*",
+      "6.3"
+     ],
+     [
+      "> 1",
+      "150",
+      "1:150†",
+      "15.0"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Recommended minimum gradients for foul drains: for peak flow < 1 litres/sec and pipe size 75 mm the minimum gradient is 1:40 (1 in ...) and the maximum capacity is 4.1 litres/sec.",
+     "Recommended minimum gradients for foul drains: for peak flow < 1 litres/sec and pipe size 100 mm the minimum gradient is 1:40 (1 in ...) and the maximum capacity is 9.2 litres/sec.",
+     "Recommended minimum gradients for foul drains: for peak flow > 1 litres/sec and pipe size 75 mm the minimum gradient is 1:80 (1 in ...) and the maximum capacity is 2.8 litres/sec.",
+     "Recommended minimum gradients for foul drains: for peak flow > 1 litres/sec and pipe size 100 mm the minimum gradient is 1:80* (1 in ...) and the maximum capacity is 6.3 litres/sec.",
+     "Recommended minimum gradients for foul drains: for peak flow > 1 litres/sec and pipe size 150 mm the minimum gradient is 1:150† (1 in ...) and the maximum capacity is 15.0 litres/sec."
+    ]
+   },
+   "reason": "Peak flow cell repeated on each row it covers; notes (* minimum of 1 WC, † minimum of 5 WCs) are not rows.",
+   "evidence": "Table 6 on printed page 16.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "b95814451883525b",
+   "kind": "table",
+   "target": "table-8: Limits of cover for class 120 clayware pipes in any width of trench",
+   "value": {
+    "columns": [
+     "Nominal size",
+     "Laid in fields",
+     "Laid in light roads",
+     "Laid in main roads"
+    ],
+    "rows": [
+     [
+      "100mm",
+      "0.6m – 8+m",
+      "1.2m – 8+m",
+      "1.2m – 8m"
+     ],
+     [
+      "225mm",
+      "0.6m – 5m",
+      "1.2m – 5m",
+      "1.2m – 4.5m"
+     ],
+     [
+      "400mm",
+      "0.6m – 4.5m",
+      "1.2m – 4.5m",
+      "1.2m – 4m"
+     ],
+     [
+      "600mm",
+      "0.6m – 4.5m",
+      "1.2m – 4.5m",
+      "1.2m – 4m"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Limits of cover for class 120 clayware pipes in any width of trench: for nominal size 100mm the limits are 0.6m – 8+m laid in fields, 1.2m – 8+m laid in light roads and 1.2m – 8m laid in main roads.",
+     "Limits of cover for class 120 clayware pipes in any width of trench: for nominal size 225mm the limits are 0.6m – 5m laid in fields, 1.2m – 5m laid in light roads and 1.2m – 4.5m laid in main roads.",
+     "Limits of cover for class 120 clayware pipes in any width of trench: for nominal size 400mm the limits are 0.6m – 4.5m laid in fields, 1.2m – 4.5m laid in light roads and 1.2m – 4m laid in main roads.",
+     "Limits of cover for class 120 clayware pipes in any width of trench: for nominal size 600mm the limits are 0.6m – 4.5m laid in fields, 1.2m – 4.5m laid in light roads and 1.2m – 4m laid in main roads."
+    ]
+   },
+   "reason": "Rebuilt from the page 20 image.",
+   "evidence": "Table 8 on printed page 18.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "d545d3fbea17c6c6",
+   "kind": "table",
+   "target": "table-11: Minimum dimensions for access fittings and inspection chambers",
+   "value": {
+    "columns": [
+     "Type",
+     "Size",
+     "Depth to invert from cover level (m)",
+     "Internal sizes Length x width (mm x mm)",
+     "Internal sizes Circular (mm)",
+     "Cover sizes Length x width (mm x mm)",
+     "Cover sizes Circular (mm)"
+    ],
+    "rows": [
+     [
+      "Rodding eye",
+      "",
+      "",
+      "As drain but min. 100",
+      "As drain but min. 100",
+      "Same size as pipework 1",
+      "Same size as pipework 1"
+     ],
+     [
+      "Access fitting",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "Access fitting",
+      "small 150 diam. 150 x 100",
+      "0.6 or less, except where situated in a chamber",
+      "150 x 100",
+      "150",
+      "150 x 100 1",
+      "Same size as access fitting"
+     ],
+     [
+      "Access fitting",
+      "large 225 x 100",
+      "0.6 or less, except where situated in a chamber",
+      "225 x 100",
+      "225",
+      "225 x 100 1",
+      "Same size as access fitting"
+     ],
+     [
+      "Inspection chamber",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "Inspection chamber",
+      "shallow",
+      "0.6 or less",
+      "225 x 100",
+      "190 2",
+      "–",
+      "190 1"
+     ],
+     [
+      "Inspection chamber",
+      "shallow",
+      "1.2 or less",
+      "450 x 450",
+      "450",
+      "Min. 430 x 430",
+      "430"
+     ],
+     [
+      "Inspection chamber",
+      "deep",
+      "> 1.2",
+      "450 x 450",
+      "450",
+      "Max. 300 x 300 3",
+      "Access restricted to max. 350 3"
+     ]
+    ],
+    "heading_rows": [
+     1,
+     4
+    ],
+    "sentences": [
+     "Minimum dimensions for access fittings and inspection chambers: the rodding eye has internal sizes of as drain but min. 100 and cover sizes of same size as pipework 1.",
+     "Minimum dimensions for access fittings and inspection chambers: the small access fitting, 150 diam. 150 x 100, at depth to invert from cover level of 0.6 or less, except where situated in a chamber, has internal size 150 x 100 and circular 150, and cover size 150 x 100 1 and circular same size as access fitting.",
+     "Minimum dimensions for access fittings and inspection chambers: the large access fitting, 225 x 100, at depth to invert from cover level of 0.6 or less, except where situated in a chamber, has internal size 225 x 100 and circular 225, and cover size 225 x 100 1 and circular same size as access fitting.",
+     "Minimum dimensions for access fittings and inspection chambers: the shallow inspection chamber at depth to invert from cover level of 0.6 or less has internal size 225 x 100 and circular 190 2, and cover size – and circular 190 1.",
+     "Minimum dimensions for access fittings and inspection chambers: the shallow inspection chamber at depth to invert from cover level of 1.2 or less has internal size 450 x 450 and circular 450, and cover size Min. 430 x 430 and circular 430.",
+     "Minimum dimensions for access fittings and inspection chambers: the deep inspection chamber at depth to invert from cover level of > 1.2 has internal size 450 x 450 and circular 450, and cover size Max. 300 x 300 3 and circular access restricted to max. 350 3."
+    ]
+   },
+   "reason": "Rebuilt from page image; spanning cells repeated on each row they cover; Access fitting and Inspection chamber are sub-heading rows.",
+   "evidence": "Table 11 on printed page 19 with notes 1 to 3 as footnote marks.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "23eb77e549bad53c",
+   "kind": "figure_description",
+   "target": "diagram-11: Protection for pipes laid at shallow depths (minimum sizes)",
+   "value": "This is a line diagram titled \"Diagram 11 Protection for pipes laid at shallow depths (minimum sizes)\". It shows a cross-section of a pipe in a granular surround under a concrete slab, with a layer of compressible material between the surround and the slab. Printed labels are: \"Backfill\"; \"Concrete slab\"; \"Compressible material\"; \"Pipe\"; \"Granular surround\"; \"Minimum 300mm bearing on original ground\".",
+   "reason": "Described from the figure image using its printed labels.",
+   "evidence": "Labels read directly from diagram-11.png.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "ccc58e7d37828126",
+   "kind": "figure_description",
+   "target": "diagram-12: Joints for concrete encased pipes (minimum sizes)",
+   "value": "This is a line diagram titled \"Diagram 12 Joints for concrete encased pipes (minimum sizes)\". It shows a cross-section of a pipe in a concrete trench on the left and a side view of a pipe in concrete with a joint on the right. Printed labels are: \"100mm\" and \"100mm\" for the concrete around the pipe, \"100mm 100mm\" for the width, and \"Movement joint of thick compressible board.\".",
+   "reason": "Described from the figure image using its printed labels.",
+   "evidence": "Labels read directly from diagram-12.png.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "d7a083302077e1fb",
+   "kind": "table",
+   "target": "table-13: Maximum spacing of access points in metres",
+   "value": {
+    "columns": [
+     "From",
+     "To Access Fitting Small",
+     "To Access Fitting Large",
+     "To Junction",
+     "To Inspection chamber",
+     "To Manhole"
+    ],
+    "rows": [
+     [
+      "Start of external drain 1",
+      "12",
+      "12",
+      "–",
+      "22",
+      "45"
+     ],
+     [
+      "Rodding eye",
+      "22",
+      "22",
+      "22",
+      "45",
+      "45"
+     ],
+     [
+      "Access fitting: small 150 diam. and 150 x 100",
+      "–",
+      "–",
+      "12",
+      "22",
+      "22"
+     ],
+     [
+      "Access fitting: large 225 x 100",
+      "–",
+      "–",
+      "22",
+      "45",
+      "45"
+     ],
+     [
+      "Inspection chamber shallow",
+      "22",
+      "45",
+      "22",
+      "45",
+      "45"
+     ],
+     [
+      "Manhole and inspection chamber deep",
+      "–",
+      "–",
+      "–",
+      "45",
+      "90 2"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Maximum spacing of access points in metres: from start of external drain 1, to a small access fitting 12, to a large access fitting 12, to a junction –, to an inspection chamber 22, to a manhole 45.",
+     "Maximum spacing of access points in metres: from rodding eye, to a small access fitting 22, to a large access fitting 22, to a junction 22, to an inspection chamber 45, to a manhole 45.",
+     "Maximum spacing of access points in metres: from access fitting: small 150 diam. and 150 x 100, to a small access fitting –, to a large access fitting –, to a junction 12, to an inspection chamber 22, to a manhole 22.",
+     "Maximum spacing of access points in metres: from access fitting: large 225 x 100, to a small access fitting –, to a large access fitting –, to a junction 22, to an inspection chamber 45, to a manhole 45.",
+     "Maximum spacing of access points in metres: from inspection chamber shallow, to a small access fitting 22, to a large access fitting 45, to a junction 22, to an inspection chamber 45, to a manhole 45.",
+     "Maximum spacing of access points in metres: from manhole and inspection chamber deep, to a small access fitting –, to a large access fitting –, to a junction –, to an inspection chamber 45, to a manhole 90 2."
+    ]
+   },
+   "reason": "Rebuilt from page image; the access fitting row printed with two lines was split into small and large rows.",
+   "evidence": "Table 13 on printed page 21 with notes 1 and 2 as footnote marks.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "be366a064b8198fa",
+   "kind": "table",
+   "target": "table-a1: Flow rates from dwellings",
+   "value": {
+    "columns": [
+     "Number of dwellings",
+     "Flow rate (litres/sec)"
+    ],
+    "rows": [
+     [
+      "1",
+      "2.5"
+     ],
+     [
+      "5",
+      "3.5"
+     ],
+     [
+      "10",
+      "4.1"
+     ],
+     [
+      "15",
+      "4.6"
+     ],
+     [
+      "20",
+      "5.1"
+     ],
+     [
+      "25",
+      "5.4"
+     ],
+     [
+      "30",
+      "5.8"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Flow rates from dwellings: for 1 dwellings the flow rate is 2.5 litres/sec.",
+     "Flow rates from dwellings: for 5 dwellings the flow rate is 3.5 litres/sec.",
+     "Flow rates from dwellings: for 10 dwellings the flow rate is 4.1 litres/sec.",
+     "Flow rates from dwellings: for 15 dwellings the flow rate is 4.6 litres/sec.",
+     "Flow rates from dwellings: for 20 dwellings the flow rate is 5.1 litres/sec.",
+     "Flow rates from dwellings: for 25 dwellings the flow rate is 5.4 litres/sec.",
+     "Flow rates from dwellings: for 30 dwellings the flow rate is 5.8 litres/sec."
+    ]
+   },
+   "reason": "Rebuilt from page image; the library text only had two rows.",
+   "evidence": "Table A1 on printed page 23.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "138a03a4edfa6af1",
+   "kind": "table",
+   "target": "table-a3: Minimum trap sizes and seal",
+   "value": {
+    "columns": [
+     "Appliance",
+     "Diam. of trap (mm)",
+     "Depth of seal (mm)"
+    ],
+    "rows": [
+     [
+      "Sanitary towel macerator",
+      "40",
+      "75"
+     ],
+     [
+      "Food waste disposal unit (industrial type)",
+      "50",
+      "75"
+     ],
+     [
+      "Urinal stall (1 to 6 person position)",
+      "65",
+      "50"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Minimum trap sizes and seal depths additional to Table 2: sanitary towel macerator has diam. of trap 40 mm and depth of seal 75 mm.",
+     "Minimum trap sizes and seal depths additional to Table 2: food waste disposal unit (industrial type) has diam. of trap 50 mm and depth of seal 75 mm.",
+     "Minimum trap sizes and seal depths additional to Table 2: urinal stall (1 to 6 person position) has diam. of trap 65 mm and depth of seal 50 mm."
+    ]
+   },
+   "reason": "Rebuilt from page image; the library text was incomplete.",
+   "evidence": "Table A3 on printed page 23, titled Minimum trap sizes and seal depths additional to Table 2.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "01b4293e8159a522",
+   "kind": "table",
+   "target": "table-a2: Flow rates from appliances",
+   "value": {
+    "columns": [
+     "Appliance",
+     "Flow rate (litres/sec)"
+    ],
+    "rows": [
+     [
+      "Spray tap basin",
+      "0.06"
+     ],
+     [
+      "Washing machine",
+      "0.70"
+     ],
+     [
+      "Dishwashing machine",
+      "0.25"
+     ],
+     [
+      "Urinal (per person)",
+      "0.15"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Flow rates from appliances: the spray tap basin has a flow rate of 0.06 litres/sec.",
+     "Flow rates from appliances: the washing machine has a flow rate of 0.70 litres/sec.",
+     "Flow rates from appliances: the dishwashing machine has a flow rate of 0.25 litres/sec.",
+     "Flow rates from appliances: the urinal (per person) has a flow rate of 0.15 litres/sec."
+    ]
+   },
+   "reason": "Table A2 on printed page 23 has two printed headings and four data rows; all values match the page image.",
+   "evidence": "Page p25 image, Table A2 Flow rates from appliances: Appliance / Flow rate (litres/sec).",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "3417330ae7a5b758",
+   "kind": "table",
+   "target": "table-c1: Characteristics that should be considered when designing or laying a shared drain/sewer so that it meets the basic requirements for adoption",
+   "value": {
+    "columns": [
+     "Characteristic",
+     "Reference"
+    ],
+    "rows": [
+     [
+      "a. Sewers should be designed and constructed in accordance with the Protocol on Design Construction and Adoption of Sewers in England and Wales",
+      "Protocol on Design, Construction and Adoption of Sewers in England and Wales, Defra, 2002"
+     ],
+     [
+      "b. Sewers should be laid at an appropriate distance from buildings so as to avoid damage to the foundations",
+      "H1-2.17, H1-2.25 and Diagram 8. The distance from foundation to any drain is set out in H1-2.25. When building over a sewer the recommended minimum distance is 3m (H4-1.6)"
+     ],
+     [
+      "c. The manholes and chambers, especially in private land, should be located so that they are, and continue to be, easily accessible manually or, if necessary, with maintenance equipment such as pipe jetters or mini-excavators. This is of particular importance where the depth would justify mechanical excavation to undertake repair work. Although design codes indicate that access points may be up to 200m apart, it is unlikely that it would be possible to rod or safely pressure jet small-diameter pipes over such a distance; 100m is more appropriate",
+      "H1-2.51. Consult sewerage undertaker about access for plant"
+     ],
+     [
+      "d. The last access point on the house drain should be sized to allow man entry and should be located in an accessible position. This access point should, as far as practicable, be located adjacent to the curtilage and preferably form an interface with the connection to the lateral where it runs outside the curtilage of the property to discharge into a sewer in a highway, into public open space or into third-party land. As this final manhole is likely to be in position where vehicle or plant loading is anticipated, its construction should accord with Sewers for Adoption",
+      "H1-2.51"
+     ],
+     [
+      "e. House ‘collector’ drains serving each property should normally discharge into the sewer via a single junction or a manhole",
+      "H1-2.13 to 2.16"
+     ],
+     [
+      "f. Sewers should not be laid deeper than necessary, but in all cases the structural integrity of the pipe needs to be maintained. This can normally be done by providing a cover to the top of the pipe barrel of 1.2m or 0.9m in highways or private land respectively. If these depths are not practicable, special protection measures such as a concrete slab should be provided",
+      "H1-2.27 and BS EN 1295-1"
+     ],
+     [
+      "g. Sizing and design of manholes and chambers should depend on the depth and on whether man entry is required. Manholes on or near highways or other roads need to be of robust construction",
+      "H1-2.48"
+     ],
+     [
+      "h. Sewers should be laid in straight lines in both vertical and horizontal alignments",
+      "H1-2.19"
+     ],
+     [
+      "j. The first preference should be to provide separate foul and surface water sewerage systems. Where ‘combined’ or ‘partially combined’ sewerage is unavoidable, the sizing and the design of that sewer should be enhanced in accordance with the current codes and design methodologies to make additional provisions to deal with the runoff",
+      "Requirement H5, H1-2.35 and H3-3.5. See also BS EN 752 Parts 3 and 4, particularly note Annex ND in BS EN 752 Part 4"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Characteristics that should be considered when designing or laying a shared drain/sewer so that it meets the basic requirements for adoption: a. Sewers should be designed and constructed in accordance with the Protocol on Design Construction and Adoption of Sewers in England and Wales; reference: Protocol on Design, Construction and Adoption of Sewers in England and Wales, Defra, 2002.",
+     "Characteristics that should be considered when designing or laying a shared drain/sewer so that it meets the basic requirements for adoption: b. Sewers should be laid at an appropriate distance from buildings so as to avoid damage to the foundations; reference: H1-2.17, H1-2.25 and Diagram 8. The distance from foundation to any drain is set out in H1-2.25. When building over a sewer the recommended minimum distance is 3m (H4-1.6).",
+     "Characteristics that should be considered when designing or laying a shared drain/sewer so that it meets the basic requirements for adoption: c. The manholes and chambers, especially in private land, should be located so that they are, and continue to be, easily accessible manually or, if necessary, with maintenance equipment such as pipe jetters or mini-excavators. This is of particular importance where the depth would justify mechanical excavation to undertake repair work. Although design codes indicate that access points may be up to 200m apart, it is unlikely that it would be possible to rod or safely pressure jet small-diameter pipes over such a distance; 100m is more appropriate; reference: H1-2.51. Consult sewerage undertaker about access for plant.",
+     "Characteristics that should be considered when designing or laying a shared drain/sewer so that it meets the basic requirements for adoption: d. The last access point on the house drain should be sized to allow man entry and should be located in an accessible position. This access point should, as far as practicable, be located adjacent to the curtilage and preferably form an interface with the connection to the lateral where it runs outside the curtilage of the property to discharge into a sewer in a highway, into public open space or into third-party land. As this final manhole is likely to be in position where vehicle or plant loading is anticipated, its construction should accord with Sewers for Adoption; reference: H1-2.51.",
+     "Characteristics that should be considered when designing or laying a shared drain/sewer so that it meets the basic requirements for adoption: e. House ‘collector’ drains serving each property should normally discharge into the sewer via a single junction or a manhole; reference: H1-2.13 to 2.16.",
+     "Characteristics that should be considered when designing or laying a shared drain/sewer so that it meets the basic requirements for adoption: f. Sewers should not be laid deeper than necessary, but in all cases the structural integrity of the pipe needs to be maintained. This can normally be done by providing a cover to the top of the pipe barrel of 1.2m or 0.9m in highways or private land respectively. If these depths are not practicable, special protection measures such as a concrete slab should be provided; reference: H1-2.27 and BS EN 1295-1.",
+     "Characteristics that should be considered when designing or laying a shared drain/sewer so that it meets the basic requirements for adoption: g. Sizing and design of manholes and chambers should depend on the depth and on whether man entry is required. Manholes on or near highways or other roads need to be of robust construction; reference: H1-2.48.",
+     "Characteristics that should be considered when designing or laying a shared drain/sewer so that it meets the basic requirements for adoption: h. Sewers should be laid in straight lines in both vertical and horizontal alignments; reference: H1-2.19.",
+     "Characteristics that should be considered when designing or laying a shared drain/sewer so that it meets the basic requirements for adoption: j. The first preference should be to provide separate foul and surface water sewerage systems. Where ‘combined’ or ‘partially combined’ sewerage is unavoidable, the sizing and the design of that sewer should be enhanced in accordance with the current codes and design methodologies to make additional provisions to deal with the runoff; reference: Requirement H5, H1-2.35 and H3-3.5. See also BS EN 752 Parts 3 and 4, particularly note Annex ND in BS EN 752 Part 4."
+    ]
+   },
+   "reason": "Two-column table with no printed column headings; headings Characteristic and Reference name what each holds. Items a to h and j (no i) as printed; multi-paragraph cells joined.",
+   "evidence": "Page p30 image, Table C1, printed page 28; letters a-h then j.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "625eacd926c02fe9",
+   "kind": "table",
+   "target": "the-requirement-2-box-1: The Requirement",
+   "value": {
+    "columns": [
+     "Requirement",
+     "Limits on application"
+    ],
+    "rows": [
+     [
+      "Wastewater treatment systems and cesspools",
+      ""
+     ],
+     [
+      "H2. (1) Any septic tank and its form of secondary treatment, other wastewater treatment system or cesspool shall be so sited and constructed that: (a) it is not prejudicial to the health of any person; (b) it will not contaminate any watercourse, underground water or water supply; (c) there are adequate means of access for emptying and maintenance; and (d) where relevant, it will function to a sufficient standard for the protection of health in the event of a power failure. (2) Any septic tank, holding tank which is part of a wastewater treatment system or cesspool shall be: (a) of adequate capacity; (b) so constructed that it is impermeable to liquids; and (c) adequately ventilated. (3) Where a foul water drainage system from a building discharges to a septic tank, wastewater treatment system or cesspool, a durable notice shall be affixed in a suitable place in the building containing information on any continuing maintenance required to avoid risks to health.",
+      ""
+     ]
+    ],
+    "heading_rows": [
+     0
+    ],
+    "sentences": [
+     "The Requirement, wastewater treatment systems and cesspools: H2. (1) Any septic tank and its form of secondary treatment, other wastewater treatment system or cesspool shall be so sited and constructed that: (a) it is not prejudicial to the health of any person; (b) it will not contaminate any watercourse, underground water or water supply; (c) there are adequate means of access for emptying and maintenance; and (d) where relevant, it will function to a sufficient standard for the protection of health in the event of a power failure. (2) Any septic tank, holding tank which is part of a wastewater treatment system or cesspool shall be: (a) of adequate capacity; (b) so constructed that it is impermeable to liquids; and (c) adequately ventilated. (3) Where a foul water drainage system from a building discharges to a septic tank, wastewater treatment system or cesspool, a durable notice shall be affixed in a suitable place in the building containing information on any continuing maintenance required to avoid risks to health."
+    ]
+   },
+   "reason": "Printed header row gives two headings; the bold line is a sub-heading (heading row); the H2 text is one row with nothing printed under Limits on application.",
+   "evidence": "Page p31 image, The Requirement box, printed page 29; library text had run-together words in (b) which were read from the image.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "24396ba7470edb4d",
+   "kind": "figure_description",
+   "target": "the-requirement-2-diagram-1: Drainage field",
+   "value": "This is a labelled diagram titled \"Diagram 1 Drainage field\" showing a septic tank connected through a distribution/sampling chamber to a loop of perforated effluent distribution pipes. Printed labels include \"Septic tank – either glass fibre thermoplastics or precast concrete\", \"Distribution/sampling chamber\", \"Perforated effluent distribution pipes\" and \"Minimum 2m separation\" shown twice between pipe runs. A cross-section on the right shows, from top to bottom, \"Selected soil backfill\", \"Geotextile membrane\", \"Perforated effluent distribution pipe\" and \"Graded 30–50mm granular material\", with \"50mm\" and \"300mm\" depth marks.",
+   "reason": "Described the layout and copied printed labels from the figure.",
+   "evidence": "Figure image the-requirement-2-diagram-1.png.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "5d91622eb71395bf",
+   "kind": "figure_description",
+   "target": "the-requirement-2-diagram-2: Drainage mound",
+   "value": "This is a cross-section diagram titled \"Diagram 2 Drainage mound\" showing a raised mound with a \"Soil cap\", \"Geotextile\" and \"Distribution pipes\" in \"Washed gravel (10–20mm)\" above \"Filter sand\", sitting on \"Drained constructed filter gravel or permeable soil\" over \"High water table or impervious ground\". Printed labels and sizes include \"250mm grassed top soil\", \"At least 100mm\", \"At least 200mm\", \"At least 700mm\", \"At least 250mm\" and an arrow marked \"Note 2\". Printed notes: 1. the upstream ends of the distribution pipes may be extended vertically above mound level and capped with a cowl or grille to provide venting of the filter; 2. surface water runoff and uncontaminated seepage from the surrounding soil may be cut off by shallow interceptor drains and diverted away from the mound, and there must be no seepage of wastewater to such an interceptor drain; 3. where the permeable soil is slow draining and overlaid on an impervious layer, the mound filter system should be constructed on a gently sloping site.",
+   "reason": "Described the cross-section, its labels and dimensions, and quoted the three printed notes in one sentence.",
+   "evidence": "Figure image the-requirement-2-diagram-2.png.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "48d92ba760c1ca54",
+   "kind": "figure_description",
+   "target": "the-requirement-2-diagram-3: Typical horizontal flow reed bed treatment system",
+   "value": "This is a cross-section diagram titled \"Diagram 3 Typical horizontal flow reed bed treatment system\" showing a sloping bed planted with \"Phragmites\" reeds, with \"Roots and rhizomes\" in \"Soil or gravel\" above an \"Impervious liner\". Arrows show flow from the inlet end on the right to the discharge end on the left. Printed labels include \"Sewage or sewage effluent\", \"Perforated pipe with swivel arm to control hydraulic head\", \"Stone inlet area\", \"Level surface\", \"Discharge\", \"Outlet height variable\", \"Slope 0.5% to 1%\" and \"Minimum depth of bed 0.6m\".",
+   "reason": "Described the cross-section and copied the printed labels.",
+   "evidence": "Figure image the-requirement-2-diagram-3.png.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "30e789c5bb23be26",
+   "kind": "figure_description",
+   "target": "the-requirement-2-diagram-4: Typical vertical flow reed bed treatment system",
+   "value": "This is a cross-section diagram titled \"Diagram 4 Typical vertical flow reed bed treatment system\", showing a reed bed tank with reeds planted on top and a note \"Feed dosed intermittently over whole surface\". The layers from the top are 'Sharp' sand (~8cm), 6mm washed pea gravel (~15cm), 12mm round, washed gravel (~10cm) and 30-60mm round, washed gravel (~15cm), with 25cm marked above the sand; arrows show the flow downward. Other labels are: Solid pipe; Perforated pipe (~110mm OD); LDPE liner; Network of porous pipes; 1% slope; Large stones; Free-draining outlet.",
+   "reason": "Described the printed title, key and labels in the diagram.",
+   "evidence": "Image shows key with four fill types and labels listed.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "99b92a0675c3b80c",
+   "kind": "table",
+   "target": "the-requirement-3-box-1: The Requirement",
+   "value": {
+    "columns": [
+     "Requirement",
+     "Limits on application"
+    ],
+    "rows": [
+     [
+      "Rainwater drainage",
+      ""
+     ],
+     [
+      "H3. (1) Adequate provision shall be made for rainwater to be carried from the roof of the building.",
+      ""
+     ],
+     [
+      "(2) Paved areas around the building shall be so constructed as to be adequately drained.",
+      "Requirement H3(2) applies only to paved areas: (a) which provide access to the building pursuant to requirement M1 (access and use of buildings other than dwellings), or requirement M2 (access to extensions to buildings other than dwellings), or requirement M4(1), (2) or (3) (access to and use of dwellings); (b) which provide access to or from a place of storage pursuant to requirement H6(2) (solid waste storage); or (c) in any passage giving access to the building, where this is intended to be used in common by the occupiers of one or more other buildings."
+     ],
+     [
+      "(3) Rainwater from a system provided pursuant to sub-paragraphs (1) or (2) shall discharge to one of the following, listed in order of priority: (a) an adequate soakaway or some other adequate infiltration system; or, where that is not reasonably practicable, (b) a watercourse; or, where that is not reasonably practicable, (c) a sewer.",
+      "Requirement H3(3) does not apply to the gathering of rainwater for re-use."
+     ]
+    ],
+    "heading_rows": [
+     0
+    ],
+    "sentences": [
+     "The Requirement for rainwater drainage, H3. (1): adequate provision shall be made for rainwater to be carried from the roof of the building.",
+     "The Requirement for rainwater drainage, (2): paved areas around the building shall be so constructed as to be adequately drained, and the limit on application is that requirement H3(2) applies only to paved areas (a) which provide access to the building pursuant to requirement M1 (access and use of buildings other than dwellings), or requirement M2 (access to extensions to buildings other than dwellings), or requirement M4(1), (2) or (3) (access to and use of dwellings); (b) which provide access to or from a place of storage pursuant to requirement H6(2) (solid waste storage); or (c) in any passage giving access to the building, where this is intended to be used in common by the occupiers of one or more other buildings.",
+     "The Requirement for rainwater drainage, (3): rainwater from a system provided pursuant to sub-paragraphs (1) or (2) shall discharge to one of the following, listed in order of priority: (a) an adequate soakaway or some other adequate infiltration system; or, where that is not reasonably practicable, (b) a watercourse; or, where that is not reasonably practicable, (c) a sewer, and the limit on application is that requirement H3(3) does not apply to the gathering of rainwater for re-use."
+    ]
+   },
+   "reason": "Rebuilt from page image; Rainwater drainage is a bold sub-heading row.",
+   "evidence": "Page 39 green box with Requirement and Limits on application columns.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "685ef031519a531a",
+   "kind": "table",
+   "target": "the-requirement-3-table-1: Calculation of drained area",
+   "value": {
+    "columns": [
+     "Item",
+     "Type of surface",
+     "Effective design area"
+    ],
+    "rows": [
+     [
+      "1",
+      "Flat roof",
+      "plan area of relevant portion"
+     ],
+     [
+      "2",
+      "Pitched roof at 30º",
+      "plan area of portion x 1.29"
+     ],
+     [
+      "2",
+      "Pitched roof at 45º",
+      "plan area of portion x 1.50"
+     ],
+     [
+      "2",
+      "Pitched roof at 60º",
+      "plan area of portion x 1.87"
+     ],
+     [
+      "3",
+      "Pitched roof over 70º or any wall",
+      "elevational area x 0.5"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Calculation of drained area: for item 1, the type of surface is flat roof and the effective design area is plan area of relevant portion.",
+     "Calculation of drained area: for item 2, the type of surface is pitched roof at 30º and the effective design area is plan area of portion x 1.29.",
+     "Calculation of drained area: for item 2, the type of surface is pitched roof at 45º and the effective design area is plan area of portion x 1.50.",
+     "Calculation of drained area: for item 2, the type of surface is pitched roof at 60º and the effective design area is plan area of portion x 1.87.",
+     "Calculation of drained area: for item 3, the type of surface is pitched roof over 70º or any wall and the effective design area is elevational area x 0.5."
+    ]
+   },
+   "reason": "Item numbers have no printed heading so named Item; number 2 repeated on its three rows.",
+   "evidence": "Table 1 on page 42 (printed 40).",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "751aaf95085ac88f",
+   "kind": "table",
+   "target": "the-requirement-3-table-2: Gutter sizes and outlet sizes",
+   "value": {
+    "columns": [
+     "Max. effective roof area (m2)",
+     "Gutter size (mm diam.)",
+     "Outlet size (mm diam.)",
+     "Flow capacity (litres/sec)"
+    ],
+    "rows": [
+     [
+      "6.0",
+      "–",
+      "–",
+      "–"
+     ],
+     [
+      "18.0",
+      "75",
+      "50",
+      "0.38"
+     ],
+     [
+      "37.0",
+      "100",
+      "63",
+      "0.78"
+     ],
+     [
+      "53.0",
+      "115",
+      "63",
+      "1.11"
+     ],
+     [
+      "65.0",
+      "125",
+      "75",
+      "1.37"
+     ],
+     [
+      "103.0",
+      "150",
+      "89",
+      "2.16"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Gutter sizes and outlet sizes: for a max. effective roof area of 6.0 m2, the gutter size, outlet size and flow capacity are all shown as –.",
+     "Gutter sizes and outlet sizes: for a max. effective roof area of 18.0 m2, the gutter size is 75 mm diam., the outlet size is 50 mm diam. and the flow capacity is 0.38 litres/sec.",
+     "Gutter sizes and outlet sizes: for a max. effective roof area of 37.0 m2, the gutter size is 100 mm diam., the outlet size is 63 mm diam. and the flow capacity is 0.78 litres/sec.",
+     "Gutter sizes and outlet sizes: for a max. effective roof area of 53.0 m2, the gutter size is 115 mm diam., the outlet size is 63 mm diam. and the flow capacity is 1.11 litres/sec.",
+     "Gutter sizes and outlet sizes: for a max. effective roof area of 65.0 m2, the gutter size is 125 mm diam., the outlet size is 75 mm diam. and the flow capacity is 1.37 litres/sec.",
+     "Gutter sizes and outlet sizes: for a max. effective roof area of 103.0 m2, the gutter size is 150 mm diam., the outlet size is 89 mm diam. and the flow capacity is 2.16 litres/sec."
+    ]
+   },
+   "reason": "Rebuilt from page image; note below table (nominal half round eaves gutters laid level with outlets at one end sharp edged) not part of rows.",
+   "evidence": "Table 2 on page 42 with four printed column headings.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "fbf4cd98bc750b2e",
+   "kind": "figure_description",
+   "target": "the-requirement-3-diagram-1: Rainfall intensities for design of gutter and rainfall pipes (litres per second per square metre)",
+   "value": "This is a map of England and Wales titled \"Diagram 1 Rainfall intensities for design of gutter and rainfall pipes (litres per second per square metre)\", with contour lines marked with rainfall values and a grid numbered 1 to 6 along the sides. Contour values printed include 0.012, 0.014, 0.016, 0.018, 0.020 and 0.022, with the lowest (0.012 to 0.014) in the Welsh hills and north of England and the highest (0.022) in the south east and East Anglia. Cities marked are Carlisle, Newcastle, Leeds, Kingston-upon-Hull, Manchester, Nottingham, Norwich, Birmingham, Oxford, Cardiff, London and Plymouth, and a scale bar shows 0 to 100 kilometres.",
+   "reason": "Described the map, its printed values and city labels.",
+   "evidence": "Image shows contour map with labelled values and cities.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "c929cd3b3e2394ac",
+   "kind": "figure_description",
+   "target": "section-2-p45-diagram-2: Rainfall intensities for design of drainage from paved areas and underground rainwater drainage (litres per second per square metre)",
+   "value": "This is a map of England and Wales titled \"Diagram 2 Rainfall intensities for design of drainage from paved areas and underground rainwater drainage (litres per second per square metre)\", with contour lines marked with rainfall values and a grid numbered 1 to 6 along the sides. Contour values printed are 0.010, 0.012, 0.014 and 0.016, with 0.010 in the north of England and Welsh hills and 0.016 in East Anglia, around Oxford and the south east. Cities marked are Carlisle, Newcastle, Leeds, Kingston-upon-Hull, Manchester, Nottingham, Norwich, Birmingham, Oxford, Cardiff, London and Plymouth, and a scale bar shows 0 to 100 kilometres.",
+   "reason": "Described the map, its printed values and city labels.",
+   "evidence": "Image shows contour map with values 0.010 to 0.016 and city labels.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "b2bcfbc373ade529",
+   "kind": "figure_description",
+   "target": "section-3-diagram-3: Discharge capacities of rainwater drains running full",
+   "value": "This is a line graph titled \"Diagram 3 Discharge capacities of rainwater drains running full\". The vertical axis is \"Flow rate (litres per second)\" on a log scale from 1 to 1,000, and the horizontal axis is \"Gradient (1 in ....)\" on a log scale from 10 to 200. Five sloping straight lines, one for each drain size, are labelled \"300mm diameter\", \"225mm diameter\", \"150mm diameter\", \"100mm diameter\" and \"75mm diameter\" from top to bottom. Each line falls from left to right, so flow rate goes down as the gradient gets flatter.",
+   "reason": "Described the printed title, axes, scales and line labels from the image.",
+   "evidence": "Image shows Diagram 3 chart with five labelled diameter lines and axis titles.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "2d2c8845d169e652",
+   "kind": "table",
+   "target": "the-requirement-4-box-1: The Requirement",
+   "value": {
+    "columns": [
+     "Requirement",
+     "Limits on application"
+    ],
+    "rows": [
+     [
+      "Building over sewers H4. (1) The erection or extension of a building or work involving the underpinning of a building shall be carried out in a way that is not detrimental to the building or building extension or to the continued maintenance of the drain, sewer or disposal main. (2) In this paragraph ‘disposal main’ means any pipe, tunnel or conduit used for the conveyance of effluent to or from a sewage disposal works, which is not a public sewer. (3) In this paragraph and paragraph H5 ‘map of sewers’ means any records kept by a sewerage undertaker under section 199 of the Water Industry Act 1991 (a).",
+      "Requirement H4 applies only to work carried out: (a) over a drain, sewer or disposal main which is shown on any map of sewers; or (b) on any site or in such a manner as may result in interference with the use of, or obstruction of the access of any person to, any drain, sewer or disposal main which is shown on any map of sewers."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "The Requirement for building over sewers, H4, says: (1) The erection or extension of a building or work involving the underpinning of a building shall be carried out in a way that is not detrimental to the building or building extension or to the continued maintenance of the drain, sewer or disposal main; (2) In this paragraph ‘disposal main’ means any pipe, tunnel or conduit used for the conveyance of effluent to or from a sewage disposal works, which is not a public sewer; (3) In this paragraph and paragraph H5 ‘map of sewers’ means any records kept by a sewerage undertaker under section 199 of the Water Industry Act 1991 (a), and its limits on application are that Requirement H4 applies only to work carried out: (a) over a drain, sewer or disposal main which is shown on any map of sewers; or (b) on any site or in such a manner as may result in interference with the use of, or obstruction of the access of any person to, any drain, sewer or disposal main which is shown on any map of sewers."
+    ]
+   },
+   "reason": "Single data row under the two printed headings Requirement and Limits on application.",
+   "evidence": "Page 50 image shows a two-column green box with one row.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "241e3a64aca9e594",
+   "kind": "table",
+   "target": "the-requirement-5-box-1: The Requirement",
+   "value": {
+    "columns": [
+     "Requirement",
+     "Limits on application"
+    ],
+    "rows": [
+     [
+      "Separate systems of drainage H5. Any system for discharging water to a sewer which is provided pursuant to paragraph H3 shall be separate from that provided for the conveyance of foul water from the building.",
+      "Requirement H5 applies only to a system provided in connection with the erection or extension of a building where it is reasonably practicable for the system to discharge directly or indirectly to a sewer for the separate conveyance of surface water which is: (a) shown on a map of sewers; or (b) under construction either by the sewerage undertaker or by some other person (where the sewer is the subject of an agreement to make a declaration of vesting pursuant to Section 104 of the Water Industry Act 1991 (b))."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "The Requirement for separate systems of drainage, H5, says: Any system for discharging water to a sewer which is provided pursuant to paragraph H3 shall be separate from that provided for the conveyance of foul water from the building, and its limits on application are that Requirement H5 applies only to a system provided in connection with the erection or extension of a building where it is reasonably practicable for the system to discharge directly or indirectly to a sewer for the separate conveyance of surface water which is: (a) shown on a map of sewers; or (b) under construction either by the sewerage undertaker or by some other person (where the sewer is the subject of an agreement to make a declaration of vesting pursuant to Section 104 of the Water Industry Act 1991 (b))."
+    ]
+   },
+   "reason": "Single data row under the two printed headings.",
+   "evidence": "Page 53 image shows a two-column green box with one row.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "31b5f7438d55fe6e",
+   "kind": "table",
+   "target": "the-requirement-6-box-1: The Requirement",
+   "value": {
+    "columns": [
+     "Requirement",
+     "Limits on application"
+    ],
+    "rows": [
+     [
+      "Solid waste storage H6. (1) Adequate provision shall be made for storage of solid waste. (2) Adequate means of access shall be provided: (a) for people in the building to the place of storage; and (b) from the place of storage to a collection point (where one has been specified by the waste collection authority under Section 46 (household waste) or Section 47 (commercial waste) of the Environmental Protection Act 1990 (a) or to a street (where no collection point has been specified).",
+      ""
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "The Requirement for solid waste storage, H6, says: (1) Adequate provision shall be made for storage of solid waste; (2) Adequate means of access shall be provided: (a) for people in the building to the place of storage; and (b) from the place of storage to a collection point (where one has been specified by the waste collection authority under Section 46 (household waste) or Section 47 (commercial waste) of the Environmental Protection Act 1990 (a) or to a street (where no collection point has been specified), and it has no limits on application."
+    ]
+   },
+   "reason": "Single data row; the Limits on application cell is empty on the page.",
+   "evidence": "Page 55 image shows the right column empty.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "78ef3d1f7bbc9854",
+   "kind": "table",
+   "target": "table-7: Materials for below ground gravity drainage",
+   "value": {
+    "columns": [
+     "Material",
+     "British Standard"
+    ],
+    "rows": [
+     [
+      "Rigid pipes",
+      ""
+     ],
+     [
+      "Vitrified clay",
+      "BS 65, BS EN 295"
+     ],
+     [
+      "Concrete",
+      "BS 5911"
+     ],
+     [
+      "Grey iron",
+      "BS 437"
+     ],
+     [
+      "Ductile iron",
+      "BS EN 598"
+     ],
+     [
+      "Flexible pipes",
+      ""
+     ],
+     [
+      "UPVC",
+      "BS EN 1401+"
+     ],
+     [
+      "PP",
+      "BS EN 1852+"
+     ],
+     [
+      "Structure walled plastic pipes",
+      "BS EN 13476"
+     ]
+    ],
+    "heading_rows": [
+     0,
+     5
+    ],
+    "sentences": [
+     "Materials for below ground gravity drainage: the material Vitrified clay has British Standard BS 65, BS EN 295.",
+     "Materials for below ground gravity drainage: the material Concrete has British Standard BS 5911.",
+     "Materials for below ground gravity drainage: the material Grey iron has British Standard BS 437.",
+     "Materials for below ground gravity drainage: the material Ductile iron has British Standard BS EN 598.",
+     "Materials for below ground gravity drainage: the material UPVC has British Standard BS EN 1401+.",
+     "Materials for below ground gravity drainage: the material PP has British Standard BS EN 1852+.",
+     "Materials for below ground gravity drainage: the material Structure walled plastic pipes has British Standard BS EN 13476."
+    ]
+   },
+   "reason": "Columns copied from the template. Rigid pipes and Flexible pipes are sub-heading rows, so they are in heading_rows and have no sentence.",
+   "evidence": "Table 7 on page 18 (printed page 16) shows the heading row, two sub-headings and seven material rows.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "436015b2d82a0172",
+   "kind": "table",
+   "target": "table-9: Limits of cover for class M concrete pipes in any width of trench",
+   "value": {
+    "columns": [
+     "Nominal size",
+     "Laid in fields",
+     "Laid in light roads",
+     "Laid in main roads"
+    ],
+    "rows": [
+     [
+      "300mm",
+      "0.6m – 3m",
+      "1.2m – 3m",
+      "1.2m – 2.5m"
+     ],
+     [
+      "450mm",
+      "0.6m – 3.5m",
+      "1.2m – 3.5m",
+      "1.2m – 2.5m"
+     ],
+     [
+      "600mm",
+      "0.6m – 3.5m",
+      "1.2m – 3.5m",
+      "1.2m – 3m"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Limits of cover for class M concrete pipes in any width of trench: for nominal size 300mm the limits are 0.6m – 3m laid in fields, 1.2m – 3m laid in light roads and 1.2m – 2.5m laid in main roads.",
+     "Limits of cover for class M concrete pipes in any width of trench: for nominal size 450mm the limits are 0.6m – 3.5m laid in fields, 1.2m – 3.5m laid in light roads and 1.2m – 2.5m laid in main roads.",
+     "Limits of cover for class M concrete pipes in any width of trench: for nominal size 600mm the limits are 0.6m – 3.5m laid in fields, 1.2m – 3.5m laid in light roads and 1.2m – 3m laid in main roads."
+    ]
+   },
+   "reason": "Columns match the template and the printed headings. Three data rows, no sub-headings. Notes below the table are not part of the table.",
+   "evidence": "Table 9 on page 20 (printed page 18) shows three rows for 300mm, 450mm and 600mm.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "b6f2de73752e1e6e",
+   "kind": "table",
+   "target": "table-10: Limits of cover for thermoplastics (nominal ring stiffness SN4) pipes in any width of trench",
+   "value": {
+    "columns": [
+     "Nominal size",
+     "Laid in fields",
+     "Laid in light roads",
+     "Laid in main roads"
+    ],
+    "rows": [
+     [
+      "100mm – 300mm",
+      "0.6m – 7m",
+      "0.9m – 7m",
+      "0.9m – 7m"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Limits of cover for thermoplastics (nominal ring stiffness SN4) pipes in any width of trench: for nominal size 100mm – 300mm the limits are 0.6m – 7m laid in fields, 0.9m – 7m laid in light roads and 0.9m – 7m laid in main roads."
+    ]
+   },
+   "reason": "Single data row read from the page image; columns copied from the template.",
+   "evidence": "Table 10 on printed page 18 (file page 20).",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "4840443ce24db020",
+   "kind": "table",
+   "target": "table-14: Materials for access points",
+   "value": {
+    "columns": [
+     "Material",
+     "British Standard"
+    ],
+    "rows": [
+     [
+      "1. Inspection chambers and manholes",
+      ""
+     ],
+     [
+      "Clay, bricks and blocks",
+      "BS 3921"
+     ],
+     [
+      "Vitrified clay",
+      "BS EN 295, BS 65"
+     ],
+     [
+      "Concrete – precast",
+      "BS 5911"
+     ],
+     [
+      "Concrete – in situ",
+      "BS 8110"
+     ],
+     [
+      "Plastics",
+      "BS 7158"
+     ],
+     [
+      "2. Rodding eyes and access fittings",
+      ""
+     ],
+     [
+      "(excluding frames and covers)",
+      "as pipes see Table 7 ETA Certificates"
+     ]
+    ],
+    "heading_rows": [
+     0,
+     6
+    ],
+    "sentences": [
+     "Materials for access points: the material Clay, bricks and blocks has British Standard BS 3921.",
+     "Materials for access points: the material Vitrified clay has British Standard BS EN 295, BS 65.",
+     "Materials for access points: the material Concrete – precast has British Standard BS 5911.",
+     "Materials for access points: the material Concrete – in situ has British Standard BS 8110.",
+     "Materials for access points: the material Plastics has British Standard BS 7158.",
+     "Materials for access points: the material (excluding frames and covers) has British Standard as pipes see Table 7 ETA Certificates."
+    ]
+   },
+   "reason": "Two groups with sub-heading rows; the second group's standards (as pipes, see Table 7, ETA Certificates) are printed as one block beside the excluding-frames line, so they share one row.",
+   "evidence": "Table 14 on printed page 21 (file page 23).",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "11eedd929e22e53a",
+   "kind": "table",
+   "target": "table-12: Minimum dimensions for manholes",
+   "value": {
+    "columns": [
+     "Type",
+     "Size of largest pipe (DN)",
+     "Min. internal dimensions: Rectangular length and width",
+     "Min. internal dimensions: Circular diameter",
+     "Min. clear opening size: Rectangular length and width",
+     "Min. clear opening size: Circular diameter"
+    ],
+    "rows": [
+     [
+      "Manhole",
+      "",
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "< 1.5m deep to soffit",
+      "≤ 150",
+      "750 x 675",
+      "1000",
+      "750 x 675",
+      "na"
+     ],
+     [
+      "< 1.5m deep to soffit",
+      "225",
+      "1200 x 675",
+      "1200",
+      "1200 x 675",
+      ""
+     ],
+     [
+      "< 1.5m deep to soffit",
+      "300",
+      "1200 x 750",
+      "1200",
+      "",
+      ""
+     ],
+     [
+      "< 1.5m deep to soffit",
+      ">300",
+      "1800 x (DN+450)",
+      "The larger of 1800 or (DN+450)",
+      "",
+      ""
+     ],
+     [
+      ">1.5m deep to soffit",
+      "≤ 225",
+      "1200 x 1000",
+      "1200",
+      "600 x 600",
+      "600"
+     ],
+     [
+      ">1.5m deep to soffit",
+      "300",
+      "1200 x 1075",
+      "1200",
+      "600 x 600",
+      "600"
+     ],
+     [
+      ">1.5m deep to soffit",
+      "375-450",
+      "1350 x 1225",
+      "1200",
+      "600 x 600",
+      "600"
+     ],
+     [
+      ">1.5m deep to soffit",
+      ">450",
+      "1800 x (DN+775)",
+      "The larger of 1800 or (DN+775)",
+      "600 x 600",
+      "600"
+     ],
+     [
+      "Manhole shaft",
+      "",
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "> 3.0m deep to soffit of pipe",
+      "Steps",
+      "1050 x 800",
+      "1050",
+      "600 x 600",
+      "600"
+     ],
+     [
+      "> 3.0m deep to soffit of pipe",
+      "Ladder",
+      "1200 x 800",
+      "1200",
+      "",
+      ""
+     ],
+     [
+      "> 3.0m deep to soffit of pipe",
+      "Winch",
+      "900 x 800",
+      "900",
+      "600 x 600",
+      "600"
+     ]
+    ],
+    "heading_rows": [
+     0,
+     9
+    ],
+    "sentences": [
+     "Table 12, minimum dimensions for manholes: for a manhole < 1.5m deep to soffit with largest pipe size (DN) ≤ 150, the minimum internal dimensions are 750 x 675 rectangular length and width and 1000 circular diameter, and the minimum clear opening size is 750 x 675 rectangular length and width and na circular diameter.",
+     "Table 12, minimum dimensions for manholes: for a manhole < 1.5m deep to soffit with largest pipe size (DN) 225, the minimum internal dimensions are 1200 x 675 rectangular length and width and 1200 circular diameter, and the minimum clear opening size is 1200 x 675 rectangular length and width.",
+     "Table 12, minimum dimensions for manholes: for a manhole < 1.5m deep to soffit with largest pipe size (DN) 300, the minimum internal dimensions are 1200 x 750 rectangular length and width and 1200 circular diameter.",
+     "Table 12, minimum dimensions for manholes: for a manhole < 1.5m deep to soffit with largest pipe size (DN) >300, the minimum internal dimensions are 1800 x (DN+450) rectangular length and width and The larger of 1800 or (DN+450) circular diameter.",
+     "Table 12, minimum dimensions for manholes: for a manhole >1.5m deep to soffit with largest pipe size (DN) ≤ 225, the minimum internal dimensions are 1200 x 1000 rectangular length and width and 1200 circular diameter, and the minimum clear opening size is 600 x 600 rectangular length and width and 600 circular diameter.",
+     "Table 12, minimum dimensions for manholes: for a manhole >1.5m deep to soffit with largest pipe size (DN) 300, the minimum internal dimensions are 1200 x 1075 rectangular length and width and 1200 circular diameter, and the minimum clear opening size is 600 x 600 rectangular length and width and 600 circular diameter.",
+     "Table 12, minimum dimensions for manholes: for a manhole >1.5m deep to soffit with largest pipe size (DN) 375-450, the minimum internal dimensions are 1350 x 1225 rectangular length and width and 1200 circular diameter, and the minimum clear opening size is 600 x 600 rectangular length and width and 600 circular diameter.",
+     "Table 12, minimum dimensions for manholes: for a manhole >1.5m deep to soffit with largest pipe size (DN) >450, the minimum internal dimensions are 1800 x (DN+775) rectangular length and width and The larger of 1800 or (DN+775) circular diameter, and the minimum clear opening size is 600 x 600 rectangular length and width and 600 circular diameter.",
+     "Table 12, minimum dimensions for manholes: for a manhole shaft > 3.0m deep to soffit of pipe with Steps, the minimum internal dimensions are 1050 x 800 rectangular length and width and 1050 circular diameter, and the minimum clear opening size is 600 x 600 rectangular length and width and 600 circular diameter.",
+     "Table 12, minimum dimensions for manholes: for a manhole shaft > 3.0m deep to soffit of pipe with Ladder, the minimum internal dimensions are 1200 x 800 rectangular length and width and 1200 circular diameter.",
+     "Table 12, minimum dimensions for manholes: for a manhole shaft > 3.0m deep to soffit of pipe with Winch, the minimum internal dimensions are 900 x 800 rectangular length and width and 900 circular diameter, and the minimum clear opening size is 600 x 600 rectangular length and width and 600 circular diameter."
+    ]
+   },
+   "reason": "Rebuilt from the page image; the two header rows are merged into one heading per column; footnote markers are left out; values printed once beside a group with no inner rule are repeated on each row of that group.",
+   "evidence": "Table 12 on printed page 20 (file page 22).",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  }
+ ]
+}

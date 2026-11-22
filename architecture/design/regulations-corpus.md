@@ -48,6 +48,33 @@ flowchart TB
     model --> out["Document tree"]
 ```
 
+### Guidance PDF figures (parse_pdf, 22 Nov 2026)
+
+parse_pdf reads the drawn shapes and page sizes too (`read_guidance`). A figure is only made where there is ink
+besides words, and it is cut to that ink, not to its words.
+
+```mermaid
+flowchart TD
+    page["page of short scattered lines"] --> ink{"ink besides words?"}
+    ink -->|"text in drawn boxes,<br/>10+ boxes (a form),<br/>images over 10% of page"| fig["figure-pN, cut to all its shapes"]
+    ink -->|"a ruled table holds most lines"| tab["table-pN (a table, not a figure)"]
+    ink -->|"none: letter, title page"| text["text"]
+    small["block of short small-print lines"] --> shp{"6+ shapes or an image among them?"}
+    shp -->|yes| drawn["drawing: labels + ink between<br/>the running text above and below"]
+    shp -->|"no: address, copyright, footnotes"| text
+    cap["caption"] --> side{"document prints captions<br/>above figures? (vote)"}
+    side -->|no| up["ink between the caption and the<br/>running text above it, in its column"]
+    side -->|yes| down["ink between the caption and the<br/>running text below it"]
+    up & down --> panel["+ a tinted panel behind both"]
+    img["image"] --> sig{"signature or logo?"}
+    sig -->|"'Yours faithfully'/'Signed' above,<br/>name + job title below,<br/>letterhead on page 1, © or www below"| none["not a figure"]
+    sig -->|no| photo["photo of the caption below it (or above, by the vote);<br/>photos stacked with no text between, or a block<br/>of photos for '(a)–(c)', make one figure;<br/>running text beside it limits the crop"]
+```
+
+Running text is body-size text of six words or more not set in a drawn box, plus the short last line of a
+paragraph, headings, chapter titles, captions and lines hanging under a caption (a source line). Hand-made test
+documents without `graphics` keep the older text rules.
+
 ### Approved Documents (parse_adoc, built 20 Nov 2026)
 
 The 2019-layout Approved Documents are read by fonts, sizes and colours: 26pt chapters, 20/15pt headings, semibold paragraph numbers, white diagram captions on a green band, bold table captions, green words as links to key terms. Edition banners ("Effective until 1 September 2029", "effective from 2 September 2029") date the two copies of Appendices B and C. Letters dropped from "fi"/"fl" by the PDF font are put back by checking the document's own words, and counted. Diagram crops are made for the model check; `images: check-only` in `sources.yaml` keeps them from users.
@@ -120,7 +147,7 @@ flowchart LR
     reparse --> review["checks review<br/>sheet of figure crops"]
 ```
 
-Tables in one family (same title before " for ", like the HSG227 worked examples) share one layout: the first one goes alone, and the rest get its saved fix as a template.
+Tables in one family (same title before " for ", like the HSG227 worked examples) share one layout: the first one goes alone, and the rest get its saved fix as a template. A table whose title only looks like a family's, but whose printed layout differs (checked on the page), is listed in `NOT_A_FAMILY` in `checks.py` with the reason (AD H Table 12, AD L Volume 2 Table 5.4).
 
 A model answer can vary between runs, so every model fix is saved in `corpus/fixes/` (git) with a fingerprint of the content it is about, and reused. The parser lists what is still open as `checks`. Re-parsing gives the same result unless we choose to redo a fix. Counting fixes shows what the library should learn next.
 

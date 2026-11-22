@@ -1,0 +1,39 @@
+{
+ "source_id": "adq",
+ "about": "Saved model fixes for adq (ADR 0010).",
+ "fixes": [
+  {
+   "key": "accff293eb118c15",
+   "kind": "table",
+   "target": "the-2015-edition-list-of-approved-documents-2-approved-document-table-1: APPROVED DOCUMENT",
+   "value": {
+    "columns": [
+     "Copyright notice"
+    ],
+    "rows": [
+     [
+      "© Crown copyright, 2015"
+     ],
+     [
+      "You may re-use this information (excluding logos) free of charge in any format or medium, under the terms of the Open Government Licence v3. To view this licence, visit www.nationalarchives.gov.uk/doc/open-government-licence/version/3/ or write to the Information Policy Team, The National Archives, Kew, London TW9 4DU or email psi@nationalarchives.gsi.gov.uk. Where we have identified any third-party copyright information, you will need to obtain permission from the copyright holders concerned. This publication is available for download at www.gov.uk."
+     ],
+     [
+      "Copyright in the typographical arrangement, excluding logos, of the cover and internal page layouts of this publication rests with the Publisher."
+     ]
+    ],
+    "heading_rows": [
+     0
+    ],
+    "sentences": [
+     "The copyright notice says: You may re-use this information (excluding logos) free of charge in any format or medium, under the terms of the Open Government Licence v3; to view this licence, visit www.nationalarchives.gov.uk/doc/open-government-licence/version/3/ or write to the Information Policy Team, The National Archives, Kew, London TW9 4DU or email psi@nationalarchives.gsi.gov.uk; where we have identified any third-party copyright information, you will need to obtain permission from the copyright holders concerned; this publication is available for download at www.gov.uk.",
+     "The copyright notice says: Copyright in the typographical arrangement, excluding logos, of the cover and internal page layouts of this publication rests with the Publisher."
+    ]
+   },
+   "reason": "The page area for this packet holds no real table. It is a single-column copyright notice box under the heading '© Crown copyright, 2015', so I rebuilt it as one column with the heading as a heading row.",
+   "evidence": "Page 20 (printed page 20), lower half: '© Crown copyright, 2015' followed by two paragraphs of licence text; no grid or column headings are printed.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "low",
+   "date": "2026-11-22"
+  }
+ ]
+}

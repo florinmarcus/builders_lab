@@ -1,0 +1,743 @@
+{
+ "source_id": "ads",
+ "about": "Saved model fixes for ads (ADR 0010).",
+ "fixes": [
+  {
+   "key": "b216aa96c2292e9e",
+   "kind": "figure_description",
+   "target": "diagram-i: The relationship between regulations and guidance in the approved documents",
+   "value": "A labelled diagram showing how a regulation and its guidance are laid out in an approved document, using Requirement B2: Internal fire spread (linings) as the example. A box headed Requirement holds the legal text of B2 (1) and (2), with the columns Requirement and Limits on application, and is marked 1; below it a section headed Intention holds the guidance and is marked 2. The key reads: 1 The law: extract from the Building Regulations 2010; 2 Statutory guidance.",
+   "reason": "Diagram i shows an example page with a numbered requirement box and an intention box, plus a two-item key.",
+   "evidence": "Printed title Diagram i, boxes marked 1 and 2, key lines 'The law: extract from the Building Regulations 2010.' and 'Statutory guidance.'",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "ab05502eb5b8eadb",
+   "kind": "table",
+   "target": "section-0-summary-table-1: Summary",
+   "value": {
+    "columns": [
+     "Approved document section",
+     "Related Building Regulations requirements"
+    ],
+    "rows": [
+     [
+      "Section 0: Introduction",
+      "n/a"
+     ],
+     [
+      "Section 1: New residential buildings",
+      "Requirement S1 of Schedule 1 and regulation 44D"
+     ],
+     [
+      "Section 2: Material change of use and major renovations for residential buildings",
+      "Requirements S2 and S3 of Schedule 1 and regulations 44E and 44F"
+     ],
+     [
+      "Section 3: New buildings other than residential or mixed-use buildings",
+      "Requirement S4 of Schedule 1 and regulation 44G"
+     ],
+     [
+      "Section 4: Major renovations of buildings which are not residential or mixed-use buildings",
+      "Requirement S5 of Schedule 1 and regulation 44H"
+     ],
+     [
+      "Section 5: Mixed-use buildings",
+      "Requirement S6 of Schedule 1 and regulation 44I"
+     ],
+     [
+      "Section 6: Standards for electric vehicle charge points and cable routes",
+      "Regulation 44J"
+     ],
+     [
+      "Appendix A: Key terms",
+      "n/a"
+     ],
+     [
+      "Appendix B: Standards referred to",
+      "n/a"
+     ],
+     [
+      "Appendix C: Documents referred to",
+      "n/a"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "In the Summary table, Section 0: Introduction has related Building Regulations requirements n/a.",
+     "In the Summary table, Section 1: New residential buildings has related Building Regulations requirements Requirement S1 of Schedule 1 and regulation 44D.",
+     "In the Summary table, Section 2: Material change of use and major renovations for residential buildings has related Building Regulations requirements Requirements S2 and S3 of Schedule 1 and regulations 44E and 44F.",
+     "In the Summary table, Section 3: New buildings other than residential or mixed-use buildings has related Building Regulations requirements Requirement S4 of Schedule 1 and regulation 44G.",
+     "In the Summary table, Section 4: Major renovations of buildings which are not residential or mixed-use buildings has related Building Regulations requirements Requirement S5 of Schedule 1 and regulation 44H.",
+     "In the Summary table, Section 5: Mixed-use buildings has related Building Regulations requirements Requirement S6 of Schedule 1 and regulation 44I.",
+     "In the Summary table, Section 6: Standards for electric vehicle charge points and cable routes has related Building Regulations requirements Regulation 44J.",
+     "In the Summary table, Appendix A: Key terms has related Building Regulations requirements n/a.",
+     "In the Summary table, Appendix B: Standards referred to has related Building Regulations requirements n/a.",
+     "In the Summary table, Appendix C: Documents referred to has related Building Regulations requirements n/a."
+    ]
+   },
+   "reason": "Two printed headings, ten data rows, no sub-heading rows.",
+   "evidence": "Page image p9 shows the table under 0.2 with headings Approved document section and Related Building Regulations requirements.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "c3ea6630acc64cdd",
+   "kind": "table",
+   "target": "requirement-s1-box-1: Requirement S1 and regulation 44D: Electric vehicle charging provisions for new residential buildings",
+   "value": {
+    "columns": [
+     "Requirement"
+    ],
+    "rows": [
+     [
+      "The erection of new residential buildings S1. (1) A new residential building with associated parking must have access to electric vehicle charge points as provided for in paragraph (2). (2) The number of associated parking spaces which have access to electric vehicle charge points must be— (a) the total number of associated parking spaces, where there are fewer associated parking spaces than there are dwellings contained in the residential building; or (b) the number of associated parking spaces that is equal to the total number of dwellings contained in the residential building, where there are the same number of associated parking spaces as, or more associated parking spaces than, there are dwellings. (3) Cable routes for electric vehicle charge points must be installed in any associated parking spaces which do not, in accordance with paragraph (2), have an electric vehicle charge point where— (a) a new residential building has more than 10 associated parking spaces; and (b) there are more associated parking spaces than there are dwellings contained in the residential building."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Requirement S1 and regulation 44D, electric vehicle charging provisions for new residential buildings, states for the erection of new residential buildings: S1. (1) A new residential building with associated parking must have access to electric vehicle charge points as provided for in paragraph (2). (2) The number of associated parking spaces which have access to electric vehicle charge points must be— (a) the total number of associated parking spaces, where there are fewer associated parking spaces than there are dwellings contained in the residential building; or (b) the number of associated parking spaces that is equal to the total number of dwellings contained in the residential building, where there are the same number of associated parking spaces as, or more associated parking spaces than, there are dwellings. (3) Cable routes for electric vehicle charge points must be installed in any associated parking spaces which do not, in accordance with paragraph (2), have an electric vehicle charge point where— (a) a new residential building has more than 10 associated parking spaces; and (b) there are more associated parking spaces than there are dwellings contained in the residential building."
+    ]
+   },
+   "reason": "Single-column box headed Requirement with one block of legal text.",
+   "evidence": "Page image p11 shows one green box headed Requirement.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "8c9b4865a3e7000b",
+   "kind": "figure_description",
+   "target": "diagram-1.1: Determining associated parking spaces and site boundaries, example 1",
+   "value": "A plan diagram, Diagram 1.1, showing example 1 of how to decide which parking spaces are associated with a dwelling and where the site boundary lies. It shows Dwelling 1 and Dwelling 2 with a dashed site boundary around each, a Garden each, Garage/car port 1 and 2, Parking space 1, 2, 3 and 4, and a road across the bottom. The printed notes say: Parking space 1 is within the site boundary of dwelling 1; Parking space 2 is within the site boundary of dwelling 1; Parking space 3 is outside the site boundary because a public highway or road separates it from dwelling 1; Garage/Car port 1 is within the site boundary of dwelling 1; Parking space 4 is outside the site boundary of dwelling 1 because it is on land that belongs to the owners of dwelling 2.",
+   "reason": "Plan with labelled spaces, dashed site boundaries and five numbered notes.",
+   "evidence": "Labels and NOTES 1 to 5 printed on the figure, caption Diagram 1.1.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "eab78148d499b8c8",
+   "kind": "figure_description",
+   "target": "diagram-1.2: Determining associated parking spaces and site boundaries, example 2",
+   "value": "A plan diagram, Diagram 1.2, showing example 2 of how to decide which car parks are associated with a building and where its site boundary lies. It shows Building 1 and Building 2, Car park 1, Car park 2, Car park 3, Car park 4, On-street parking, Vegetation/landscaping and a dashed Site boundary for building 1 that encloses Car park 1 and Car park 3. The printed notes say: Car park 1 and Car park 3 are within the site boundary; Car park 2, Car park 4 and the on-street parking are outside it; Car park 1 and car park 3 each contain seven parking spaces, so the new building has 14 associated parking spaces and the requirements for buildings with a minimum of 11 associated parking spaces apply.",
+   "reason": "Plan with labelled car parks, a dashed boundary and six numbered notes.",
+   "evidence": "Labels and NOTES 1 to 6 printed on the figure, caption Diagram 1.2.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "a838b6e82c517e17",
+   "kind": "table",
+   "target": "requirement-s2-box-1: Requirement S2 and regulation 44E: Dwellings resulting from a material change of use",
+   "value": {
+    "columns": [
+     "Requirement"
+    ],
+    "rows": [
+     [
+      "Dwellings resulting from a material change of use S2. Where one or more dwellings with associated parking result from a building, or a part of a building, undergoing a material change of use at least one associated parking space for the use of each such dwelling must have access to an electric vehicle charge point."
+     ],
+     [
+      "Regulation"
+     ],
+     [
+      "Application of paragraph S2 of Schedule 1 (dwellings resulting from a material change of use) 44E. (1) The requirements of paragraph S2 of Schedule 1 apply to a building, or a part of a building, undergoing a material change of use to result in one or more dwellings as follows. (2) The requirements of paragraph S2 of Schedule 1 apply— (a) if— (i) the circumstances specified in regulation 5(a), (b) or (g) apply; and (ii) the material change of use involves building work being done which includes work being done to any of the following— (aa) to a car park that is located within the site boundary of the building, where the nature of the work is such that it would be reasonable to expect that work to include enabling the requirements of paragraph S2 of Schedule 1 to be fulfilled; (bb) the electrical infrastructure of a car park, where that car park is located within the site boundary of the building; (cc) the electrical infrastructure of the building, where a car park is located inside the building; (b) subject to paragraph (3), if an electric vehicle charge point for each dwelling resulting from a building, or a part of a building, undergoing a material change of use can be accommodated within the incoming electrical supply to the building without having to upgrade the capacity of the incoming electrical supply to the building; and (c) if the building is not one in relation to which paragraph (4) applies."
+     ]
+    ],
+    "heading_rows": [
+     1
+    ],
+    "sentences": [
+     "Requirement S2 and regulation 44E, dwellings resulting from a material change of use, states: Dwellings resulting from a material change of use S2. Where one or more dwellings with associated parking result from a building, or a part of a building, undergoing a material change of use at least one associated parking space for the use of each such dwelling must have access to an electric vehicle charge point.",
+     "Requirement S2 and regulation 44E, dwellings resulting from a material change of use, has this regulation: Application of paragraph S2 of Schedule 1 (dwellings resulting from a material change of use) 44E. (1) The requirements of paragraph S2 of Schedule 1 apply to a building, or a part of a building, undergoing a material change of use to result in one or more dwellings as follows. (2) The requirements of paragraph S2 of Schedule 1 apply— (a) if— (i) the circumstances specified in regulation 5(a), (b) or (g) apply; and (ii) the material change of use involves building work being done which includes work being done to any of the following— (aa) to a car park that is located within the site boundary of the building, where the nature of the work is such that it would be reasonable to expect that work to include enabling the requirements of paragraph S2 of Schedule 1 to be fulfilled; (bb) the electrical infrastructure of a car park, where that car park is located within the site boundary of the building; (cc) the electrical infrastructure of the building, where a car park is located inside the building; (b) subject to paragraph (3), if an electric vehicle charge point for each dwelling resulting from a building, or a part of a building, undergoing a material change of use can be accommodated within the incoming electrical supply to the building without having to upgrade the capacity of the incoming electrical supply to the building; and (c) if the building is not one in relation to which paragraph (4) applies."
+    ]
+   },
+   "reason": "Two stacked green boxes, Requirement and Regulation; the second box heading is a sub-heading row.",
+   "evidence": "Page image p17 shows boxes headed Requirement and Regulation.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "123b8dbc094a39d0",
+   "kind": "table",
+   "target": "requirement-s2-box-2: Requirement S2 and regulation 44E: Dwellings resulting from a material change of use",
+   "value": {
+    "columns": [
+     "Regulation"
+    ],
+    "rows": [
+     [
+      "Application of paragraph S2 of Schedule 1 (dwellings resulting from a material change of use) 44E. (1) The requirements of paragraph S2 of Schedule 1 apply to a building, or a part of a building, undergoing a material change of use to result in one or more dwellings as follows. (2) The requirements of paragraph S2 of Schedule 1 apply— (a) if— (i) the circumstances specified in regulation 5(a), (b) or (g) apply; and (ii) the material change of use involves building work being done which includes work being done to any of the following— (aa) to a car park that is located within the site boundary of the building, where the nature of the work is such that it would be reasonable to expect that work to include enabling the requirements of paragraph S2 of Schedule 1 to be fulfilled; (bb) the electrical infrastructure of a car park, where that car park is located within the site boundary of the building; (cc) the electrical infrastructure of the building, where a car park is located inside the building; (b) subject to paragraph (3), if an electric vehicle charge point for each dwelling resulting from a building, or a part of a building, undergoing a material change of use can be accommodated within the incoming electrical supply to the building without having to upgrade the capacity of the incoming electrical supply to the building; and (c) if the building is not one in relation to which paragraph (4) applies."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Requirement S2 and regulation 44E: Dwellings resulting from a material change of use. Application of paragraph S2 of Schedule 1 (dwellings resulting from a material change of use) 44E. (1) The requirements of paragraph S2 of Schedule 1 apply to a building, or a part of a building, undergoing a material change of use to result in one or more dwellings as follows. (2) The requirements of paragraph S2 of Schedule 1 apply— (a) if— (i) the circumstances specified in regulation 5(a), (b) or (g) apply; and (ii) the material change of use involves building work being done which includes work being done to any of the following— (aa) to a car park that is located within the site boundary of the building, where the nature of the work is such that it would be reasonable to expect that work to include enabling the requirements of paragraph S2 of Schedule 1 to be fulfilled; (bb) the electrical infrastructure of a car park, where that car park is located within the site boundary of the building; (cc) the electrical infrastructure of the building, where a car park is located inside the building; (b) subject to paragraph (3), if an electric vehicle charge point for each dwelling resulting from a building, or a part of a building, undergoing a material change of use can be accommodated within the incoming electrical supply to the building without having to upgrade the capacity of the incoming electrical supply to the building; and (c) if the building is not one in relation to which paragraph (4) applies."
+    ]
+   },
+   "reason": "Single-column box with one block of text under the heading Regulation; text copied from the page image.",
+   "evidence": "Page 17 image shows one green-headed Regulation box holding this text.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "6d382a1d4f4753ee",
+   "kind": "table",
+   "target": "requirement-s2-box-3: Requirement S2 and regulation 44E: Dwellings resulting from a material change of use",
+   "value": {
+    "columns": [
+     "Regulation continued"
+    ],
+    "rows": [
+     [
+      "(3) If paragraph (2)(a) and (c) applies, but electric vehicle charge points for some but not all of the dwellings resulting from a building, or a part of a building, undergoing a material change of use can be accommodated within the incoming electrical supply to that building— (a) the requirements of paragraph S2 of Schedule 1 apply in respect of the maximum number of electric vehicle charge points that can be accommodated within the incoming electrical supply; and (b) cable routes for electric vehicle charge points must be installed in the associated parking spaces that would otherwise have been required under paragraph S2 of Schedule 1 to have had electric vehicle charge points installed. (4) The requirements of paragraph S2 of Schedule 1 do not apply if a building, or a part of a building, is— (a) listed in accordance with section 1 of the Planning (Listed Buildings and Conservation Areas) Act 1990; (b) in a conservation area designated in accordance with section 69 of that Act; or (c) included in the schedule of monuments maintained under section 1 of the Ancient Monuments and Archaeological Areas Act 1979, where compliance with the requirements of paragraph S2 of Schedule 1 would unacceptably alter the building’s character or appearance. (5) If the building, or a part of a building, undergoing a material change of use to result in one or more dwellings has, or will have, associated parking that is situated within a covered car park— (a) if there are or will be any associated parking spaces situated in a position other than in a covered car park— (i) the requirements of paragraph S2 of Schedule 1 must first be applied in relation to those associated parking spaces; then (ii) if the number of associated parking spaces, which are situated in a position other than in a covered car park, is insufficient to completely fulfil the requirements of paragraph S2 of Schedule 1, cable routes for electric vehicle charge points must be installed in— (aa) all the associated parking spaces in the covered car park, where the total number of parking spaces is less than the number of such dwellings with associated parking; or (bb) the number of associated parking spaces in the covered car park which, when added to the number of associated parking spaces which are situated in a position other than in a covered car park, corresponds to the total number of such dwellings with associated parking; (b) if all the associated parking spaces are situated in a covered car park, cable routes for electric vehicle charge points must be installed in— (i) all those associated parking spaces, where there are fewer parking spaces than there are such dwellings with associated parking; or (ii) the number of those associated parking spaces that corresponds to the total number of such dwellings with associated parking."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Requirement S2 and regulation 44E: Dwellings resulting from a material change of use. (3) If paragraph (2)(a) and (c) applies, but electric vehicle charge points for some but not all of the dwellings resulting from a building, or a part of a building, undergoing a material change of use can be accommodated within the incoming electrical supply to that building— (a) the requirements of paragraph S2 of Schedule 1 apply in respect of the maximum number of electric vehicle charge points that can be accommodated within the incoming electrical supply; and (b) cable routes for electric vehicle charge points must be installed in the associated parking spaces that would otherwise have been required under paragraph S2 of Schedule 1 to have had electric vehicle charge points installed. (4) The requirements of paragraph S2 of Schedule 1 do not apply if a building, or a part of a building, is— (a) listed in accordance with section 1 of the Planning (Listed Buildings and Conservation Areas) Act 1990; (b) in a conservation area designated in accordance with section 69 of that Act; or (c) included in the schedule of monuments maintained under section 1 of the Ancient Monuments and Archaeological Areas Act 1979, where compliance with the requirements of paragraph S2 of Schedule 1 would unacceptably alter the building’s character or appearance. (5) If the building, or a part of a building, undergoing a material change of use to result in one or more dwellings has, or will have, associated parking that is situated within a covered car park— (a) if there are or will be any associated parking spaces situated in a position other than in a covered car park— (i) the requirements of paragraph S2 of Schedule 1 must first be applied in relation to those associated parking spaces; then (ii) if the number of associated parking spaces, which are situated in a position other than in a covered car park, is insufficient to completely fulfil the requirements of paragraph S2 of Schedule 1, cable routes for electric vehicle charge points must be installed in— (aa) all the associated parking spaces in the covered car park, where the total number of parking spaces is less than the number of such dwellings with associated parking; or (bb) the number of associated parking spaces in the covered car park which, when added to the number of associated parking spaces which are situated in a position other than in a covered car park, corresponds to the total number of such dwellings with associated parking; (b) if all the associated parking spaces are situated in a covered car park, cable routes for electric vehicle charge points must be installed in— (i) all those associated parking spaces, where there are fewer parking spaces than there are such dwellings with associated parking; or (ii) the number of those associated parking spaces that corresponds to the total number of such dwellings with associated parking."
+    ]
+   },
+   "reason": "Single-column box headed Regulation continued with one block of text; text copied from the page image.",
+   "evidence": "Page 18 image shows one box headed Regulation continued holding paragraphs (3) to (5).",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "b7e7c08f254680d9",
+   "kind": "table",
+   "target": "requirement-s3-box-1: Requirement S3 and regulation 44F: Residential buildings undergoing major renovation work",
+   "value": {
+    "columns": [
+     "Requirement"
+    ],
+    "rows": [
+     [
+      "Residential buildings undergoing major renovation S3. Where a residential building undergoing major renovation will have more than 10 associated parking spaces after the major renovation is completed— (a) at least one associated parking space for the use of each dwelling must have access to an electric vehicle charge point; (b) cable routes for electric vehicle charge points must be installed in all additional associated parking spaces."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Requirement S3 and regulation 44F: Residential buildings undergoing major renovation work. Residential buildings undergoing major renovation S3. Where a residential building undergoing major renovation will have more than 10 associated parking spaces after the major renovation is completed— (a) at least one associated parking space for the use of each dwelling must have access to an electric vehicle charge point; (b) cable routes for electric vehicle charge points must be installed in all additional associated parking spaces."
+    ]
+   },
+   "reason": "Single-column box with one block of text under the heading Requirement; text copied from the page image.",
+   "evidence": "Page 19 image shows the green-headed Requirement box with S3 (a) and (b).",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "d6a4c6993e90fe37",
+   "kind": "table",
+   "target": "requirement-s3-box-2: Requirement S3 and regulation 44F: Residential buildings undergoing major renovation work",
+   "value": {
+    "columns": [
+     "Regulation"
+    ],
+    "rows": [
+     [
+      "Application of paragraph S3 of Schedule 1 (residential buildings undergoing major renovation) 44F. (1) The requirements of paragraph S3 of Schedule 1 apply to a residential building undergoing major renovation as follows. (2) The requirements of paragraph S3 of Schedule 1 apply if— (a) the major renovation involves building work being done which includes work being done to any of the following— (i) a car park that is located within the site boundary of the building, where the nature of the work is such that it would be reasonable to expect that work to include enabling the requirements of paragraph S3 of Schedule 1 to be fulfilled; (ii) the electrical infrastructure of a car park, where the car park is located within the site boundary of the building; (iii) the electrical infrastructure of the building, where a car park is located inside the building; (b) the residential building will have more than 10 associated parking spaces upon completion of that work; (c) subject to paragraph (3), all the required electric vehicle charge points can be accommodated within the incoming electrical supply to the building; (d) the cost of installing all the required electric vehicle charge points and cable routes for electric vehicle charge points does not exceed 7% of the total cost of the major renovation; and (e) the residential building is not one in relation to which paragraph (5) applies."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Requirement S3 and regulation 44F: Residential buildings undergoing major renovation work. Application of paragraph S3 of Schedule 1 (residential buildings undergoing major renovation) 44F. (1) The requirements of paragraph S3 of Schedule 1 apply to a residential building undergoing major renovation as follows. (2) The requirements of paragraph S3 of Schedule 1 apply if— (a) the major renovation involves building work being done which includes work being done to any of the following— (i) a car park that is located within the site boundary of the building, where the nature of the work is such that it would be reasonable to expect that work to include enabling the requirements of paragraph S3 of Schedule 1 to be fulfilled; (ii) the electrical infrastructure of a car park, where the car park is located within the site boundary of the building; (iii) the electrical infrastructure of the building, where a car park is located inside the building; (b) the residential building will have more than 10 associated parking spaces upon completion of that work; (c) subject to paragraph (3), all the required electric vehicle charge points can be accommodated within the incoming electrical supply to the building; (d) the cost of installing all the required electric vehicle charge points and cable routes for electric vehicle charge points does not exceed 7% of the total cost of the major renovation; and (e) the residential building is not one in relation to which paragraph (5) applies."
+    ]
+   },
+   "reason": "Single-column box with one block of text under the heading Regulation; text copied from the page image.",
+   "evidence": "Page 19 image shows the green-headed Regulation box with 44F (1) and (2).",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "60a1d02d4fcc2709",
+   "kind": "table",
+   "target": "requirement-s3-box-3: Requirement S3 and regulation 44F: Residential buildings undergoing major renovation work",
+   "value": {
+    "columns": [
+     "Regulation continued"
+    ],
+    "rows": [
+     [
+      "(3) If paragraph (2)(a), (b), (d) and (e) applies, but all the required electric vehicle charge points cannot be accommodated within the incoming electrical supply to the building— (a) the requirements of paragraph S3 of Schedule 1 apply only in respect of the maximum number of electric vehicle charge points that can be accommodated within the incoming electrical supply to the building; and (b) cable routes for electric vehicle charge points must be installed in all remaining associated parking spaces. (4) If the cost of installing the required electric vehicle charge points and cable routes for electric vehicle charge points exceeds 7% of the total cost of the major renovation— (a) the residential building is exempt from the requirement to install any electric vehicle charge point; (b) cable routes for electric vehicle charge points must be installed in all associated parking spaces, except where the cost of that installation exceeds 7% of the total cost of the major renovation. (5) The requirements of paragraph S3 of Schedule 1 do not apply to a residential building which is undergoing major renovation for the principal purpose of improving the fire safety of the external walls or roof of the building. (6) If a residential building undergoing major renovation has, or will have more than 10 associated parking spaces— (a) if there are or will be any associated parking spaces situated in a position other than in a covered car park— (i) the requirements of paragraph S3 of Schedule 1 must first be applied in relation to those associated parking spaces; then (ii) cable routes for electric vehicle charge points must be installed in all the associated parking spaces in the covered car park; (b) if all the associated parking spaces are situated in a covered car park, cable routes for electric vehicle charge points must be installed in all the parking spaces in the covered car park."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Requirement S3 and regulation 44F: Residential buildings undergoing major renovation work. (3) If paragraph (2)(a), (b), (d) and (e) applies, but all the required electric vehicle charge points cannot be accommodated within the incoming electrical supply to the building— (a) the requirements of paragraph S3 of Schedule 1 apply only in respect of the maximum number of electric vehicle charge points that can be accommodated within the incoming electrical supply to the building; and (b) cable routes for electric vehicle charge points must be installed in all remaining associated parking spaces. (4) If the cost of installing the required electric vehicle charge points and cable routes for electric vehicle charge points exceeds 7% of the total cost of the major renovation— (a) the residential building is exempt from the requirement to install any electric vehicle charge point; (b) cable routes for electric vehicle charge points must be installed in all associated parking spaces, except where the cost of that installation exceeds 7% of the total cost of the major renovation. (5) The requirements of paragraph S3 of Schedule 1 do not apply to a residential building which is undergoing major renovation for the principal purpose of improving the fire safety of the external walls or roof of the building. (6) If a residential building undergoing major renovation has, or will have more than 10 associated parking spaces— (a) if there are or will be any associated parking spaces situated in a position other than in a covered car park— (i) the requirements of paragraph S3 of Schedule 1 must first be applied in relation to those associated parking spaces; then (ii) cable routes for electric vehicle charge points must be installed in all the associated parking spaces in the covered car park; (b) if all the associated parking spaces are situated in a covered car park, cable routes for electric vehicle charge points must be installed in all the parking spaces in the covered car park."
+    ]
+   },
+   "reason": "Single-column box headed Regulation continued with one block of text; text copied from the page image.",
+   "evidence": "Page 20 image shows one box headed Regulation continued holding paragraphs (3) to (6).",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "2b90acab7c15e044",
+   "kind": "table",
+   "target": "requirement-s4-box-1: Requirement S4 and regulation 44G: New buildings other than residential or mixed-use buildings",
+   "value": {
+    "columns": [
+     "Requirement"
+    ],
+    "rows": [
+     [
+      "Erection of new buildings which are not residential buildings or mixed-use buildings S4. Where a new building which is not a residential building or a mixed-use building has more than 10 parking spaces— (a) one of those parking spaces must have access to one electric vehicle charge point; and (b) cable routes for electric vehicle charge points must be installed in a minimum of one fifth of the total number of remaining parking spaces."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Requirement S4 and regulation 44G: New buildings other than residential or mixed-use buildings. Erection of new buildings which are not residential buildings or mixed-use buildings S4. Where a new building which is not a residential building or a mixed-use building has more than 10 parking spaces— (a) one of those parking spaces must have access to one electric vehicle charge point; and (b) cable routes for electric vehicle charge points must be installed in a minimum of one fifth of the total number of remaining parking spaces."
+    ]
+   },
+   "reason": "Single-column box with one block of text under the heading Requirement; text copied from the page image.",
+   "evidence": "Page 25 image shows the green-headed Requirement box with S4 (a) and (b).",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "8868172f4e82a366",
+   "kind": "table",
+   "target": "requirement-s4-box-2: Requirement S4 and regulation 44G: New buildings other than residential or mixed-use buildings",
+   "value": {
+    "columns": [
+     "Regulation"
+    ],
+    "rows": [
+     [
+      "Application of paragraph S4 of Schedule 1 (erection of new buildings which are not residential buildings or mixed-use buildings)"
+     ],
+     [
+      "44G. (1) The requirements of paragraph S4 of Schedule 1 apply to the erection of a new building which is not a residential building or a mixed-use building (“new building”) as follows."
+     ],
+     [
+      "(2) If such a new building has, or will have, within its site boundary, more than 10 parking spaces—"
+     ],
+     [
+      "(a) if there are or will be any parking spaces situated in a position other than in a covered car park—"
+     ],
+     [
+      "(i) the requirements of paragraph S4 of Schedule 1 must first be applied in relation to those parking spaces; then"
+     ],
+     [
+      "(ii) if the number of parking spaces which are situated in a position other than in a covered car park is insufficient to completely fulfil the requirements of paragraph S4 of Schedule 1, cable routes for electric vehicle charge points must be installed in a sufficient number of parking spaces in the covered car park in order to ensure compliance with the requirements of paragraph S4(b) of Schedule 1;"
+     ],
+     [
+      "(b) if all the parking spaces are situated in a covered car park, cable routes for electric vehicle charge points must be installed in a minimum of one fifth of the total number of those parking spaces."
+     ]
+    ],
+    "heading_rows": [
+     0
+    ],
+    "sentences": [
+     "Requirement S4 and regulation 44G: New buildings other than residential or mixed-use buildings, Regulation: 44G. (1) The requirements of paragraph S4 of Schedule 1 apply to the erection of a new building which is not a residential building or a mixed-use building (“new building”) as follows.",
+     "Requirement S4 and regulation 44G: New buildings other than residential or mixed-use buildings, Regulation: (2) If such a new building has, or will have, within its site boundary, more than 10 parking spaces.",
+     "Requirement S4 and regulation 44G: New buildings other than residential or mixed-use buildings, Regulation: (a) if there are or will be any parking spaces situated in a position other than in a covered car park.",
+     "Requirement S4 and regulation 44G: New buildings other than residential or mixed-use buildings, Regulation: (i) the requirements of paragraph S4 of Schedule 1 must first be applied in relation to those parking spaces; then.",
+     "Requirement S4 and regulation 44G: New buildings other than residential or mixed-use buildings, Regulation: (ii) if the number of parking spaces which are situated in a position other than in a covered car park is insufficient to completely fulfil the requirements of paragraph S4 of Schedule 1, cable routes for electric vehicle charge points must be installed in a sufficient number of parking spaces in the covered car park in order to ensure compliance with the requirements of paragraph S4(b) of Schedule 1.",
+     "Requirement S4 and regulation 44G: New buildings other than residential or mixed-use buildings, Regulation: (b) if all the parking spaces are situated in a covered car park, cable routes for electric vehicle charge points must be installed in a minimum of one fifth of the total number of those parking spaces."
+    ]
+   },
+   "reason": "Single-column Regulation box on printed page 17; one row per printed paragraph, bold sub-heading is a heading row.",
+   "evidence": "Page image p25 shows the green Regulation header, a bold sub-heading, then clause 44G (1), (2), (a), (i), (ii), (b).",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "7ec8b9847dcf7168",
+   "kind": "table",
+   "target": "requirement-s5-box-1: Requirement S5 and regulation 44H: Buildings other than residential buildings undergoing major renovation work",
+   "value": {
+    "columns": [
+     "Requirement"
+    ],
+    "rows": [
+     [
+      "Buildings undergoing major renovation which are not residential buildings or mixed-use buildings"
+     ],
+     [
+      "S5. Where a building undergoing major renovation, which is not a residential building or a mixed-use building, will have more than 10 parking spaces after the major renovation is completed—"
+     ],
+     [
+      "(a) one of those parking spaces must have access to one electric vehicle charge point; and"
+     ],
+     [
+      "(b) cable routes for electric vehicle charge points must be installed in a minimum of one fifth of the total number of remaining parking spaces."
+     ]
+    ],
+    "heading_rows": [
+     0
+    ],
+    "sentences": [
+     "Requirement S5 and regulation 44H: Buildings other than residential buildings undergoing major renovation work, Requirement: S5. Where a building undergoing major renovation, which is not a residential building or a mixed-use building, will have more than 10 parking spaces after the major renovation is completed.",
+     "Requirement S5 and regulation 44H: Buildings other than residential buildings undergoing major renovation work, Requirement: (a) one of those parking spaces must have access to one electric vehicle charge point; and.",
+     "Requirement S5 and regulation 44H: Buildings other than residential buildings undergoing major renovation work, Requirement: (b) cable routes for electric vehicle charge points must be installed in a minimum of one fifth of the total number of remaining parking spaces."
+    ]
+   },
+   "reason": "Single-column Requirement box on printed page 19; bold sub-heading is a heading row.",
+   "evidence": "Page image p27 shows the green Requirement header, a bold sub-heading, then S5 with (a) and (b).",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "3063c0bf2adbe132",
+   "kind": "table",
+   "target": "requirement-s5-box-2: Requirement S5 and regulation 44H: Buildings other than residential buildings undergoing major renovation work",
+   "value": {
+    "columns": [
+     "Regulation"
+    ],
+    "rows": [
+     [
+      "Application of paragraph S5 of Schedule 1 (buildings undergoing major renovation which are not residential buildings or mixed-use buildings)"
+     ],
+     [
+      "44H. (1) The requirements of paragraph S5 of Schedule 1 apply to a building undergoing major renovation, which is not a residential building or a mixed-use building, as follows."
+     ],
+     [
+      "(2) The requirements of paragraph S5 of Schedule 1 apply to such a building if—"
+     ],
+     [
+      "(a) the major renovation involves building work being done which includes work being done to any of the following—"
+     ],
+     [
+      "(i) a car park that is located within the site boundary of the building, where the nature of the work is such that it would be reasonable to expect the requirements of paragraph S5 of Schedule 1 to be fulfilled;"
+     ],
+     [
+      "(ii) the electrical infrastructure of a car park, where the car park is located within the site boundary of the building;"
+     ],
+     [
+      "(iii) the electrical infrastructure of the building, where a car park is located inside the building;"
+     ],
+     [
+      "(b) upon completion of that major renovation, the building will have more than 10 parking spaces situated within the site boundary of the building;"
+     ],
+     [
+      "(c) the cost of installing the required electric vehicle charge point and cable routes for electric vehicle charge points does not exceed 7% of the total cost of the major renovation."
+     ]
+    ],
+    "heading_rows": [
+     0
+    ],
+    "sentences": [
+     "Requirement S5 and regulation 44H: Buildings other than residential buildings undergoing major renovation work, Regulation: 44H. (1) The requirements of paragraph S5 of Schedule 1 apply to a building undergoing major renovation, which is not a residential building or a mixed-use building, as follows.",
+     "Requirement S5 and regulation 44H: Buildings other than residential buildings undergoing major renovation work, Regulation: (2) The requirements of paragraph S5 of Schedule 1 apply to such a building if.",
+     "Requirement S5 and regulation 44H: Buildings other than residential buildings undergoing major renovation work, Regulation: (a) the major renovation involves building work being done which includes work being done to any of the following.",
+     "Requirement S5 and regulation 44H: Buildings other than residential buildings undergoing major renovation work, Regulation: (i) a car park that is located within the site boundary of the building, where the nature of the work is such that it would be reasonable to expect the requirements of paragraph S5 of Schedule 1 to be fulfilled.",
+     "Requirement S5 and regulation 44H: Buildings other than residential buildings undergoing major renovation work, Regulation: (ii) the electrical infrastructure of a car park, where the car park is located within the site boundary of the building.",
+     "Requirement S5 and regulation 44H: Buildings other than residential buildings undergoing major renovation work, Regulation: (iii) the electrical infrastructure of the building, where a car park is located inside the building.",
+     "Requirement S5 and regulation 44H: Buildings other than residential buildings undergoing major renovation work, Regulation: (b) upon completion of that major renovation, the building will have more than 10 parking spaces situated within the site boundary of the building.",
+     "Requirement S5 and regulation 44H: Buildings other than residential buildings undergoing major renovation work, Regulation: (c) the cost of installing the required electric vehicle charge point and cable routes for electric vehicle charge points does not exceed 7% of the total cost of the major renovation."
+    ]
+   },
+   "reason": "Single-column Regulation box on printed page 19; one row per printed paragraph, bold sub-heading is a heading row.",
+   "evidence": "Page image p27 shows the green Regulation header, a bold sub-heading, then 44H (1), (2), (a)(i)-(iii), (b), (c).",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "353faeaf2b1284b8",
+   "kind": "table",
+   "target": "requirement-s5-box-3: Requirement S5 and regulation 44H: Buildings other than residential buildings undergoing major renovation work",
+   "value": {
+    "columns": [
+     "Regulation continued"
+    ],
+    "rows": [
+     [
+      "(3) If the cost of installing the required electric vehicle charge point and cable routes for electric vehicle charge points exceeds 7% of the total cost of the major renovation—"
+     ],
+     [
+      "(a) such a building is exempt from the requirement to install the electric vehicle charge point; and"
+     ],
+     [
+      "(b) cable routes for electric vehicle charge points must be installed in a minimum of one fifth of the total number of parking spaces, except where the cost of that installation exceeds 7% of the total cost of the major renovation."
+     ],
+     [
+      "(4) If such a building has, or will have, within its site boundary, more than 10 parking spaces—"
+     ],
+     [
+      "(a) if there are or will be any parking spaces situated in a position other than in a covered car park—"
+     ],
+     [
+      "(i) the requirements of paragraph S5 of Schedule 1 must first be applied in relation to those parking spaces; then"
+     ],
+     [
+      "(ii) if the number of parking spaces which are situated in a position other than in a covered car park is insufficient to completely fulfil the requirements of paragraph S5 of Schedule 1, cable routes for electric vehicle charge points must be installed in the number of parking spaces in the covered car park in order to ensure compliance with the requirements of paragraph S5(b) of Schedule 1;"
+     ],
+     [
+      "(b) if all the parking spaces are situated in a covered car park, cable routes for electric vehicle charge points must be installed in a minimum of one fifth of the total number of those parking spaces."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Requirement S5 and regulation 44H: Buildings other than residential buildings undergoing major renovation work, Regulation continued: (3) If the cost of installing the required electric vehicle charge point and cable routes for electric vehicle charge points exceeds 7% of the total cost of the major renovation.",
+     "Requirement S5 and regulation 44H: Buildings other than residential buildings undergoing major renovation work, Regulation continued: (a) such a building is exempt from the requirement to install the electric vehicle charge point; and.",
+     "Requirement S5 and regulation 44H: Buildings other than residential buildings undergoing major renovation work, Regulation continued: (b) cable routes for electric vehicle charge points must be installed in a minimum of one fifth of the total number of parking spaces, except where the cost of that installation exceeds 7% of the total cost of the major renovation.",
+     "Requirement S5 and regulation 44H: Buildings other than residential buildings undergoing major renovation work, Regulation continued: (4) If such a building has, or will have, within its site boundary, more than 10 parking spaces.",
+     "Requirement S5 and regulation 44H: Buildings other than residential buildings undergoing major renovation work, Regulation continued: (a) if there are or will be any parking spaces situated in a position other than in a covered car park.",
+     "Requirement S5 and regulation 44H: Buildings other than residential buildings undergoing major renovation work, Regulation continued: (i) the requirements of paragraph S5 of Schedule 1 must first be applied in relation to those parking spaces; then.",
+     "Requirement S5 and regulation 44H: Buildings other than residential buildings undergoing major renovation work, Regulation continued: (ii) if the number of parking spaces which are situated in a position other than in a covered car park is insufficient to completely fulfil the requirements of paragraph S5 of Schedule 1, cable routes for electric vehicle charge points must be installed in the number of parking spaces in the covered car park in order to ensure compliance with the requirements of paragraph S5(b) of Schedule 1.",
+     "Requirement S5 and regulation 44H: Buildings other than residential buildings undergoing major renovation work, Regulation continued: (b) if all the parking spaces are situated in a covered car park, cable routes for electric vehicle charge points must be installed in a minimum of one fifth of the total number of those parking spaces."
+    ]
+   },
+   "reason": "Single-column box headed 'Regulation continued' on printed page 20; no sub-heading row, so heading_rows is empty.",
+   "evidence": "Page image p28 shows the box header 'Regulation continued' then (3), (a), (b), (4), (a)(i)-(ii), (b).",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "56765e5aa958a733",
+   "kind": "table",
+   "target": "requirement-s6-box-1: Requirement S6 and regulation 44I: Mixed-use buildings",
+   "value": {
+    "columns": [
+     "Requirement"
+    ],
+    "rows": [
+     [
+      "The erection of new mixed-use buildings and mixed-use buildings undergoing major renovation"
+     ],
+     [
+      "S6. (1) The requirements of paragraph S1 apply in respect of the part of the new mixed-use building that contains one or more dwellings and the associated parking spaces that are assigned to those dwellings."
+     ],
+     [
+      "(2) The requirements of paragraph S3 apply in respect of the part of the mixed-use building that is undergoing major renovation that contains one or more dwellings and the associated parking spaces that are assigned to those dwellings."
+     ],
+     [
+      "(3) The requirements of paragraph S4 apply in respect of the part of the new mixed-use building that contains one or more new premises that are not dwellings and the parking spaces that are assigned to those premises."
+     ],
+     [
+      "(4) The requirements of paragraph S5 apply in respect of the part of the mixed-use building that is undergoing major renovation that contains one or more premises that are not dwellings and the parking spaces that are assigned to those premises."
+     ]
+    ],
+    "heading_rows": [
+     0
+    ],
+    "sentences": [
+     "Requirement S6 and regulation 44I: Mixed-use buildings, Requirement: S6. (1) The requirements of paragraph S1 apply in respect of the part of the new mixed-use building that contains one or more dwellings and the associated parking spaces that are assigned to those dwellings.",
+     "Requirement S6 and regulation 44I: Mixed-use buildings, Requirement: (2) The requirements of paragraph S3 apply in respect of the part of the mixed-use building that is undergoing major renovation that contains one or more dwellings and the associated parking spaces that are assigned to those dwellings.",
+     "Requirement S6 and regulation 44I: Mixed-use buildings, Requirement: (3) The requirements of paragraph S4 apply in respect of the part of the new mixed-use building that contains one or more new premises that are not dwellings and the parking spaces that are assigned to those premises.",
+     "Requirement S6 and regulation 44I: Mixed-use buildings, Requirement: (4) The requirements of paragraph S5 apply in respect of the part of the mixed-use building that is undergoing major renovation that contains one or more premises that are not dwellings and the parking spaces that are assigned to those premises."
+    ]
+   },
+   "reason": "Single-column Requirement box on printed page 23; bold sub-heading is a heading row.",
+   "evidence": "Page image p31 shows the green Requirement header, a bold sub-heading, then S6 (1) to (4).",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "96615b5903d04022",
+   "kind": "table",
+   "target": "requirement-s6-box-2: Requirement S6 and regulation 44I: Mixed-use buildings",
+   "value": {
+    "columns": [
+     "Regulation"
+    ],
+    "rows": [
+     [
+      "Application of paragraph S6 of Schedule 1 (the erection of new mixed-use buildings and mixed-use buildings undergoing major renovation)"
+     ],
+     [
+      "44I. (1) The requirements of paragraph S6 of Schedule 1 apply to the erection of a new mixed-use building and a mixed-use building undergoing major renovation as follows."
+     ],
+     [
+      "(2) The requirements of paragraph S6 of Schedule 1 apply if, upon completion, such a mixed-use building will have at least one parking space situated within the site boundary of the building."
+     ],
+     [
+      "(3) If such a mixed-use building has, or will have, within its site boundary, a covered car park—"
+     ],
+     [
+      "(a) if there are or will be any parking spaces situated in a position other than in a covered car park—"
+     ],
+     [
+      "(i) the requirements of paragraph S6 of Schedule 1 must first be applied in relation to those parking spaces; then"
+     ],
+     [
+      "(ii) if the number of parking spaces, which are situated in a position other than in a covered car park, is insufficient to completely fulfil the requirements of paragraph S6 of Schedule 1, cable routes for electric vehicle charge points must be installed in accordance with—"
+     ],
+     [
+      "(aa) regulation 44D(4)(a), in relation to the associated parking spaces for one or more dwellings in a new mixed-use building;"
+     ],
+     [
+      "(bb) regulation 44F(6)(a), in relation to the associated parking spaces for one or more dwellings in a mixed-use building undergoing major renovation;"
+     ],
+     [
+      "(cc) regulation 44G(2)(a), in relation to the parking spaces for one or more premises that are not dwellings in a new mixed-use building;"
+     ],
+     [
+      "(dd) regulation 44H(4)(a), in relation to the parking spaces for one or more premises that are not dwellings in a mixed-use building undergoing major renovation;"
+     ]
+    ],
+    "heading_rows": [
+     0
+    ],
+    "sentences": [
+     "Requirement S6 and regulation 44I: Mixed-use buildings, Regulation: 44I. (1) The requirements of paragraph S6 of Schedule 1 apply to the erection of a new mixed-use building and a mixed-use building undergoing major renovation as follows.",
+     "Requirement S6 and regulation 44I: Mixed-use buildings, Regulation: (2) The requirements of paragraph S6 of Schedule 1 apply if, upon completion, such a mixed-use building will have at least one parking space situated within the site boundary of the building.",
+     "Requirement S6 and regulation 44I: Mixed-use buildings, Regulation: (3) If such a mixed-use building has, or will have, within its site boundary, a covered car park.",
+     "Requirement S6 and regulation 44I: Mixed-use buildings, Regulation: (a) if there are or will be any parking spaces situated in a position other than in a covered car park.",
+     "Requirement S6 and regulation 44I: Mixed-use buildings, Regulation: (i) the requirements of paragraph S6 of Schedule 1 must first be applied in relation to those parking spaces; then.",
+     "Requirement S6 and regulation 44I: Mixed-use buildings, Regulation: (ii) if the number of parking spaces, which are situated in a position other than in a covered car park, is insufficient to completely fulfil the requirements of paragraph S6 of Schedule 1, cable routes for electric vehicle charge points must be installed in accordance with.",
+     "Requirement S6 and regulation 44I: Mixed-use buildings, Regulation: (aa) regulation 44D(4)(a), in relation to the associated parking spaces for one or more dwellings in a new mixed-use building.",
+     "Requirement S6 and regulation 44I: Mixed-use buildings, Regulation: (bb) regulation 44F(6)(a), in relation to the associated parking spaces for one or more dwellings in a mixed-use building undergoing major renovation.",
+     "Requirement S6 and regulation 44I: Mixed-use buildings, Regulation: (cc) regulation 44G(2)(a), in relation to the parking spaces for one or more premises that are not dwellings in a new mixed-use building.",
+     "Requirement S6 and regulation 44I: Mixed-use buildings, Regulation: (dd) regulation 44H(4)(a), in relation to the parking spaces for one or more premises that are not dwellings in a mixed-use building undergoing major renovation."
+    ]
+   },
+   "reason": "Single-column Regulation box on printed page 23; box ends at (dd) on this page; bold sub-heading is a heading row.",
+   "evidence": "Page image p31 shows the green Regulation header, a bold sub-heading, then 44I (1), (2), (3), (a), (i), (ii), (aa) to (dd).",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "79af886dfd9ed45a",
+   "kind": "table",
+   "target": "requirement-s6-box-3: Requirement S6 and regulation 44I: Mixed-use buildings",
+   "value": {
+    "columns": [
+     "Regulation continued"
+    ],
+    "rows": [
+     [
+      "(b) if all the parking spaces are situated in a covered car park, cable routes for electric vehicle charge points must be installed in accordance with— (i) regulation 44D(4)(b), in relation to the associated parking spaces for one or more dwellings in a new mixed-use building; (ii) regulation 44F(6)(b), in relation to the associated parking spaces for one or more dwellings in a mixed-use building undergoing major renovation; (iii) regulation 44G(2)(b), in relation to the parking spaces for one or more new premises that are not dwellings in a new mixed-use building; (iv) regulation 44H(4)(b), in relation to the parking spaces for one or more premises that are not dwellings in a mixed-use building undergoing major renovation."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Requirement S6 and regulation 44I: Mixed-use buildings, regulation continued: (b) if all the parking spaces are situated in a covered car park, cable routes for electric vehicle charge points must be installed in accordance with— (i) regulation 44D(4)(b), in relation to the associated parking spaces for one or more dwellings in a new mixed-use building; (ii) regulation 44F(6)(b), in relation to the associated parking spaces for one or more dwellings in a mixed-use building undergoing major renovation; (iii) regulation 44G(2)(b), in relation to the parking spaces for one or more new premises that are not dwellings in a new mixed-use building; (iv) regulation 44H(4)(b), in relation to the parking spaces for one or more premises that are not dwellings in a mixed-use building undergoing major renovation."
+    ]
+   },
+   "reason": "Single-column regulation box with the printed header 'Regulation continued' and one block of text.",
+   "evidence": "Page image p32 (printed page 24) shows one green box headed 'Regulation continued' with item (b) and sub-items (i) to (iv).",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "9e55d2411bce6c9a",
+   "kind": "table",
+   "target": "regulation-44j-box-1: Regulation 44J: Minimum standards of an electric vehicle charge point",
+   "value": {
+    "columns": [
+     "Regulation"
+    ],
+    "rows": [
+     [
+      "Minimum standards of an electric vehicle charge point 44J. (1) For the purposes of this Part and Part S of Schedule 1, an electric vehicle charge point must meet the following minimum standards. (2) It must be capable of providing a reasonable power output for each parking space for which it is intended to be used. (3) It must be run on a dedicated circuit. (4) It must be compatible with all vehicles which may require access to it."
+     ],
+     [
+      "Interpretation of this Part and Part S of Schedule 1 “cable route” means a safe, unobstructed route from the power supply to the envisaged electric vehicle charge point location, for electrical cabling to be installed in the future."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Regulation 44J: Minimum standards of an electric vehicle charge point: Minimum standards of an electric vehicle charge point 44J. (1) For the purposes of this Part and Part S of Schedule 1, an electric vehicle charge point must meet the following minimum standards. (2) It must be capable of providing a reasonable power output for each parking space for which it is intended to be used. (3) It must be run on a dedicated circuit. (4) It must be compatible with all vehicles which may require access to it.",
+     "Regulation 44J: Minimum standards of an electric vehicle charge point: Interpretation of this Part and Part S of Schedule 1 “cable route” means a safe, unobstructed route from the power supply to the envisaged electric vehicle charge point location, for electrical cabling to be installed in the future."
+    ]
+   },
+   "reason": "Single-column box headed 'Regulation' with two blocks: the 44J standards and the interpretation of 'cable route'.",
+   "evidence": "Page image p34 (printed page 26) shows one green box headed 'Regulation' with the 44J text (1) to (4) and an 'Interpretation' paragraph.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "66baf2c9e8f42120",
+   "kind": "figure_description",
+   "target": "diagram-6.1: Electric vehicle charge points serving accessible parking spaces",
+   "value": "This is a plan diagram of two accessible parking bays with electric vehicle charge points, headed Diagram 6.1. It shows a footway (or access zone) 1.2m deep along the top, with two green charge point markers and a dropped kerb (or footway flush with road) below it. Two parking bays 2.4m wide and 4.8m long sit in an access zone, with 1.2m clear at each side and 1.2m at the bottom (widths printed as 1.2m, 2.4m, 1.2m, 2.4m, 1.2m). A note reads: Derived from concepts in BS 8300-1 and Approved Document M, volume 2.",
+   "reason": "Described the labelled plan diagram with its printed labels and dimensions.",
+   "evidence": "Image diagram-6.1.png shows labels Footway (or access zone), Electric vehicle charge point, Dropped kerb (or footway flush with road), Access zone, Parking bay and dimensions 1.2m, 2.4m, 4.8m.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "9b85f5152d693d96",
+   "kind": "figure_description",
+   "target": "diagram-6.2: Electric vehicle charge point locations which may serve more than one parking space",
+   "value": "This is a plan diagram of four cars in parking spaces numbered 1, 2, 3 and 4, with two charge point positions marked A and B. Position A sits between spaces 1 and 2 and is joined by cables to both cars; position B sits beside spaces 3 and 4 and is joined by cables to both cars. The printed notes read: Position A may serve parking spaces 1 and 2; Position B may serve parking spaces 3 and 4.",
+   "reason": "Described the plan diagram with its labels and printed notes.",
+   "evidence": "Image diagram-6.2.png shows cars numbered 1 to 4, green boxes A and B with cables, and the two printed notes.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "5284a18cba41145b",
+   "kind": "figure_description",
+   "target": "diagram-6.3: Label for future connection location example (not to size)",
+   "value": "This is a drawing of a sign, headed Diagram 6.3, showing an example label for a future connection location (not to size). It is a rounded rectangle with large bold text reading: Dedicated position for electric vehicle charge point. A small note at the top left reads: See para 6.11.",
+   "reason": "Described the label drawing with its printed text.",
+   "evidence": "Image diagram-6.3.png shows a rounded box with the text 'Dedicated position for electric vehicle charge point' and 'See para 6.11'.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "255c24bfb1bad6bb",
+   "kind": "figure_description",
+   "target": "diagram-6.4: Minimum space requirements for floor-mounted charge point location",
+   "value": "This is a dimensioned diagram of the minimum free space around a floor-mounted charge point, shown as a front elevation and a side elevation. In the front elevation the charge point is at least 450mm wide with free space of at least 1500mm on each side up to a wall/object, and the charge point stands on the floor. In the side elevation the charge point is at least 220mm deep with free space of at least 500mm beside it, and the height is marked as at least 1200mm.",
+   "reason": "Described the two-view dimensioned diagram with printed labels and values.",
+   "evidence": "Image diagram-6.4.png shows labels Wall/object, Free space, Floor-mounted charge point, Floor, Front elevation, Side elevation and values ≥1500mm, ≥450mm, ≥500mm, ≥220mm, ≥1200mm.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "114eeb831676c971",
+   "kind": "figure_description",
+   "target": "diagram-6.5: Minimum space requirements for wall-mounted charge point location",
+   "value": "This is a dimensioned diagram with a front elevation and a side elevation of a wall-mounted charge point, headed \"Diagram 6.5 Minimum space requirements for wall-mounted charge point location\". The front elevation shows the \"Wall-mounted charge point\" box between two walls (one labelled \"Wall/object\"), with \"Free space\" on each side, widths of \"≥800mm\", \"≥400mm\" and \"≥800mm\" across the top, and a height of \"700 to 1000mm\" from the \"Floor\" to the bottom of the box. The side elevation shows the charge point against a wall with \"≥200mm\" across the top and \"≥500mm\" for its height.",
+   "reason": "Described the printed labels and dimensions of the diagram as seen in the image.",
+   "evidence": "Image shows Front elevation and Side elevation with labels ≥800mm, ≥400mm, ≥800mm, 700 to 1000mm, ≥200mm, ≥500mm, Wall/object, Free space, Floor.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "9b06c375f47193ae",
+   "kind": "table",
+   "target": "requirement-s1-box-2: Requirement S1 and regulation 44D: Electric vehicle charging provisions for new residential buildings",
+   "value": {
+    "columns": [
+     "Requirement"
+    ],
+    "rows": [
+     [
+      "Application of paragraph S1 of Schedule 1 (the erection of new residential buildings) 44D. (1) The requirements of paragraph S1 of Schedule 1 apply in relation to the erection of a new residential building with associated parking as follows. (2) The number of electric vehicle charge points that must be installed is the maximum number of electric vehicle charge points that it is possible to install at an average sum of £3600 or less for the connection cost of each electric vehicle charge point connection (“the £3600 cap”). (3) If it is not possible to completely fulfil the requirements of paragraph S1(2) of Schedule 1 as a result of the operation of the £3600 cap, cable routes for electric vehicle charge points must be installed in the associated parking spaces that would otherwise be required to have electric vehicle charge points, but for the operation of the £3600 cap. (4) Where the new residential building has, or will have, associated parking that is situated within a covered car park— (a) if there are or will be any associated parking spaces situated in a position other than in a covered car park— (i) the requirements of paragraph S1 of Schedule 1 must first be applied in relation to those parking spaces; then (ii) if the number of associated parking spaces, which are situated in a position other than in a covered car park, is insufficient to completely fulfil the requirements of paragraph S1(2) of Schedule 1, cable routes for electric vehicle charge points must be installed in— (aa) the number of parking spaces in the covered car park which, when added to the number of associated parking spaces which are situated in a position other than in the covered car park, corresponds to the total number of dwellings with associated parking, where the total number of associated parking spaces is 10 or less; (bb) all the associated parking spaces in the covered car park, where the total number of associated parking spaces is both less than the number of dwellings with associated parking and 10 or less; and (cc) all the associated parking spaces in the covered car park, where the total number of associated parking spaces is more than 10; (b) if all the associated parking spaces are situated in a covered car park, cable routes for electric vehicle charge points must be installed— (i) where there are 10 or fewer parking spaces— (aa) in the number of associated parking spaces in the covered car park which corresponds to the total number of dwellings with associated parking; (bb) in all the parking spaces where there are fewer parking spaces than there are dwellings; (ii) in all the parking spaces in the covered car park, where there are more than 10 parking spaces."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Requirement S1 and regulation 44D, electric vehicle charging provisions for new residential buildings, states application of paragraph S1 of Schedule 1 (the erection of new residential buildings): 44D. (1) The requirements of paragraph S1 of Schedule 1 apply in relation to the erection of a new residential building with associated parking as follows. (2) The number of electric vehicle charge points that must be installed is the maximum number of electric vehicle charge points that it is possible to install at an average sum of £3600 or less for the connection cost of each electric vehicle charge point connection (“the £3600 cap”). (3) If it is not possible to completely fulfil the requirements of paragraph S1(2) of Schedule 1 as a result of the operation of the £3600 cap, cable routes for electric vehicle charge points must be installed in the associated parking spaces that would otherwise be required to have electric vehicle charge points, but for the operation of the £3600 cap. (4) Where the new residential building has, or will have, associated parking that is situated within a covered car park— (a) if there are or will be any associated parking spaces situated in a position other than in a covered car park— (i) the requirements of paragraph S1 of Schedule 1 must first be applied in relation to those parking spaces; then (ii) if the number of associated parking spaces, which are situated in a position other than in a covered car park, is insufficient to completely fulfil the requirements of paragraph S1(2) of Schedule 1, cable routes for electric vehicle charge points must be installed in— (aa) the number of parking spaces in the covered car park which, when added to the number of associated parking spaces which are situated in a position other than in the covered car park, corresponds to the total number of dwellings with associated parking, where the total number of associated parking spaces is 10 or less; (bb) all the associated parking spaces in the covered car park, where the total number of associated parking spaces is both less than the number of dwellings with associated parking and 10 or less; and (cc) all the associated parking spaces in the covered car park, where the total number of associated parking spaces is more than 10; (b) if all the associated parking spaces are situated in a covered car park, cable routes for electric vehicle charge points must be installed— (i) where there are 10 or fewer parking spaces— (aa) in the number of associated parking spaces in the covered car park which corresponds to the total number of dwellings with associated parking; (bb) in all the parking spaces where there are fewer parking spaces than there are dwellings; (ii) in all the parking spaces in the covered car park, where there are more than 10 parking spaces."
+    ]
+   },
+   "reason": "Single-column regulation box on the page; template column used as instructed, one row holding the full printed text.",
+   "evidence": "Page 12 image shows the green Regulation box with 44D (1) to (4) text.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  }
+ ]
+}

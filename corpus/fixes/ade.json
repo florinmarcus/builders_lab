@@ -1,0 +1,1660 @@
+{
+ "source_id": "ade",
+ "about": "Saved model fixes for ade (ADR 0010).",
+ "fixes": [
+  {
+   "key": "633fc0daced3250f",
+   "kind": "table",
+   "target": "the-requirements-box-1: The Requirements",
+   "value": {
+    "columns": [
+     "Requirement",
+     "Limits on application"
+    ],
+    "rows": [
+     [
+      "Protection against sound from other parts of the building and adjoining buildings",
+      ""
+     ],
+     [
+      "E1. Dwelling-houses, flats and rooms for residential purposes shall be designed and constructed in such a way that they provide reasonable resistance to sound from other parts of the same building and from adjoining buildings.",
+      ""
+     ],
+     [
+      "Protection against sound within a dwelling-house etc.",
+      ""
+     ],
+     [
+      "E2. Dwelling-houses, flats and rooms for residential purposes shall be designed and constructed in such a way that: (a) internal walls between a bedroom or a room containing a water closet, and other rooms; and (b) internal floors provide reasonable resistance to sound.",
+      "Requirement E2 does not apply to: (a) an internal wall which contains a door; (b) an internal wall which separates an en suite toilet from the associated bedroom; (c) existing walls and floors in a building which is subject to a material change of use."
+     ],
+     [
+      "Reverberation in the common internal parts of buildings containing flats or rooms for residential purposes",
+      ""
+     ],
+     [
+      "E3. The common internal parts of buildings which contain flats or rooms for residential purposes shall be designed and constructed in such a way as to prevent more reverberation around the common parts than is reasonable.",
+      "Requirement E3 only applies to corridors, stairwells, hallways and entrance halls which give access to the flat or room for residential purposes."
+     ],
+     [
+      "Acoustic conditions in schools",
+      ""
+     ],
+     [
+      "E4. (1) Each room or other space in a school building shall be designed and constructed in such a way that it has the acoustic conditions and the insulation against disturbance by noise appropriate to its intended use. (2) For the purposes of this Part – ‘school’ has the same meaning as in Section 4 of the Education Act 1996[4]; and ‘school building’ means any building forming a school or part of a school.",
+      ""
+     ]
+    ],
+    "heading_rows": [
+     0,
+     2,
+     4,
+     6
+    ],
+    "sentences": [
+     "The Requirements, under the heading Protection against sound from other parts of the building and adjoining buildings: E1. Dwelling-houses, flats and rooms for residential purposes shall be designed and constructed in such a way that they provide reasonable resistance to sound from other parts of the same building and from adjoining buildings.",
+     "The Requirements, under the heading Protection against sound within a dwelling-house etc.: E2. Dwelling-houses, flats and rooms for residential purposes shall be designed and constructed in such a way that: (a) internal walls between a bedroom or a room containing a water closet, and other rooms; and (b) internal floors provide reasonable resistance to sound; limits on application: Requirement E2 does not apply to: (a) an internal wall which contains a door; (b) an internal wall which separates an en suite toilet from the associated bedroom; (c) existing walls and floors in a building which is subject to a material change of use.",
+     "The Requirements, under the heading Reverberation in the common internal parts of buildings containing flats or rooms for residential purposes: E3. The common internal parts of buildings which contain flats or rooms for residential purposes shall be designed and constructed in such a way as to prevent more reverberation around the common parts than is reasonable; limits on application: Requirement E3 only applies to corridors, stairwells, hallways and entrance halls which give access to the flat or room for residential purposes.",
+     "The Requirements, under the heading Acoustic conditions in schools: E4. (1) Each room or other space in a school building shall be designed and constructed in such a way that it has the acoustic conditions and the insulation against disturbance by noise appropriate to its intended use; (2) For the purposes of this Part – ‘school’ has the same meaning as in Section 4 of the Education Act 1996[4]; and ‘school building’ means any building forming a school or part of a school."
+    ]
+   },
+   "reason": "Two printed columns, Requirement and Limits on application; bold sub-headings sit above each requirement and are heading rows.",
+   "evidence": "Page image p10 (printed page 8), the green Requirements box.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "c874cde773d39486",
+   "kind": "table",
+   "target": "table-0: .1a Dwelling-houses and flats – performance standards for separating walls, separating floors, and stairs that have a separating function",
+   "value": {
+    "columns": [
+     "Item",
+     "Airborne sound insulation DnT,w + Ctr dB (Minimum values)",
+     "Impact sound insulation L'nT,w dB (Maximum values)"
+    ],
+    "rows": [
+     [
+      "Purpose built dwelling-houses and flats",
+      "",
+      ""
+     ],
+     [
+      "Walls",
+      "45",
+      "-"
+     ],
+     [
+      "Floors and stairs",
+      "45",
+      "62"
+     ],
+     [
+      "Dwelling-houses and flats formed by material change of use",
+      "",
+      ""
+     ],
+     [
+      "Walls",
+      "43",
+      "-"
+     ],
+     [
+      "Floors and stairs",
+      "43",
+      "64"
+     ]
+    ],
+    "heading_rows": [
+     0,
+     3
+    ],
+    "sentences": [
+     "Table 0.1a Dwelling-houses and flats – performance standards for separating walls, separating floors, and stairs that have a separating function: for purpose built dwelling-houses and flats, walls have airborne sound insulation DnT,w + Ctr dB (minimum values) of 45 and impact sound insulation L'nT,w dB (maximum values) of -.",
+     "Table 0.1a Dwelling-houses and flats – performance standards for separating walls, separating floors, and stairs that have a separating function: for purpose built dwelling-houses and flats, floors and stairs have airborne sound insulation DnT,w + Ctr dB (minimum values) of 45 and impact sound insulation L'nT,w dB (maximum values) of 62.",
+     "Table 0.1a Dwelling-houses and flats – performance standards for separating walls, separating floors, and stairs that have a separating function: for dwelling-houses and flats formed by material change of use, walls have airborne sound insulation DnT,w + Ctr dB (minimum values) of 43 and impact sound insulation L'nT,w dB (maximum values) of -.",
+     "Table 0.1a Dwelling-houses and flats – performance standards for separating walls, separating floors, and stairs that have a separating function: for dwelling-houses and flats formed by material change of use, floors and stairs have airborne sound insulation DnT,w + Ctr dB (minimum values) of 43 and impact sound insulation L'nT,w dB (maximum values) of 64."
+    ]
+   },
+   "reason": "First column has no printed heading so it is named Item; two bold group rows are heading rows; a dash is printed for walls impact value.",
+   "evidence": "Page image p14 (printed page 12), Table 0.1a.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "596e03ab3993fc5c",
+   "kind": "table",
+   "target": "table-0-p14: .1b Rooms for residential purposes – performance standards for separating walls, separating floors, and stairs that have a separating function",
+   "value": {
+    "columns": [
+     "Item",
+     "Airborne sound insulation DnT,w + Ctr dB (Minimum values)",
+     "Impact sound insulation L'nT,w dB (Maximum values)"
+    ],
+    "rows": [
+     [
+      "Purpose built rooms for residential purposes",
+      "",
+      ""
+     ],
+     [
+      "Walls",
+      "43",
+      "-"
+     ],
+     [
+      "Floors and stairs",
+      "45",
+      "62"
+     ],
+     [
+      "Rooms for residential purposes formed by material change of use",
+      "",
+      ""
+     ],
+     [
+      "Walls",
+      "43",
+      "-"
+     ],
+     [
+      "Floors and stairs",
+      "43",
+      "64"
+     ]
+    ],
+    "heading_rows": [
+     0,
+     3
+    ],
+    "sentences": [
+     "Table 0.1b Rooms for residential purposes – performance standards for separating walls, separating floors, and stairs that have a separating function: for purpose built rooms for residential purposes, walls have airborne sound insulation DnT,w + Ctr dB (minimum values) of 43 and impact sound insulation L'nT,w dB (maximum values) of -.",
+     "Table 0.1b Rooms for residential purposes – performance standards for separating walls, separating floors, and stairs that have a separating function: for purpose built rooms for residential purposes, floors and stairs have airborne sound insulation DnT,w + Ctr dB (minimum values) of 45 and impact sound insulation L'nT,w dB (maximum values) of 62.",
+     "Table 0.1b Rooms for residential purposes – performance standards for separating walls, separating floors, and stairs that have a separating function: for rooms for residential purposes formed by material change of use, walls have airborne sound insulation DnT,w + Ctr dB (minimum values) of 43 and impact sound insulation L'nT,w dB (maximum values) of -.",
+     "Table 0.1b Rooms for residential purposes – performance standards for separating walls, separating floors, and stairs that have a separating function: for rooms for residential purposes formed by material change of use, floors and stairs have airborne sound insulation DnT,w + Ctr dB (minimum values) of 43 and impact sound insulation L'nT,w dB (maximum values) of 64."
+    ]
+   },
+   "reason": "Same layout as Table 0.1a; first column unheaded so named Item; group rows are heading rows.",
+   "evidence": "Page image p14 (printed page 12), Table 0.1b.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "707816d37e21591b",
+   "kind": "table",
+   "target": "table-0.2: Laboratory values for new internal walls and floors within dwelling-houses, flats and rooms for residential purposes, whether purpose built or formed by material change of use",
+   "value": {
+    "columns": [
+     "Item",
+     "Airborne sound insulation Rw dB (Minimum values)"
+    ],
+    "rows": [
+     [
+      "Walls",
+      "40"
+     ],
+     [
+      "Floors",
+      "40"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Table 0.2 Laboratory values for new internal walls and floors within dwelling-houses, flats and rooms for residential purposes, whether purpose built or formed by material change of use: walls have airborne sound insulation Rw dB (minimum values) of 40.",
+     "Table 0.2 Laboratory values for new internal walls and floors within dwelling-houses, flats and rooms for residential purposes, whether purpose built or formed by material change of use: floors have airborne sound insulation Rw dB (minimum values) of 40."
+    ]
+   },
+   "reason": "One value column with a printed heading; row labels column has no heading so named Item.",
+   "evidence": "Page image p15 (printed page 13), Table 0.2.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "f08f27929d44abdb",
+   "kind": "figure_description",
+   "target": "diagram-0.1: Requirement E1",
+   "value": "Diagram 0.1 Requirement E1 is a block diagram showing where sound insulation applies around a central box labelled \"Any dwelling-house, flat or room for residential purposes to which Requirement E1 applies\". Above it is a box \"Flat or room for residential purposes; Other parts of the same building\" and below it are boxes \"Flat or room for residential purposes\" and \"Other parts of the same building\", with rows of dots on the \"Separating floor\" lines. To the right, beside the \"Separating wall\", is a box \"Adjoining dwelling-house, flat or room for residential purposes; Other parts of the same building; Adjoining building; Refuse chutes\", and the KEY reads: filled dot \"Impact sound insulation\"; open circle \"Airborne sound insulation\".",
+   "reason": "Described labels and key as printed.",
+   "evidence": "Image diagram-0.1.png.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "5080ecf2096d09b4",
+   "kind": "figure_description",
+   "target": "diagram-0.2: Requirement E2(a)",
+   "value": "Diagram 0.2 Requirement E2(a) is a block diagram of a large outer box labelled \"Dwelling-house, flat or room for residential purposes\". Inside it are two boxes, \"Any room to which requirement E2(a) applies\" and \"Bedroom or a room containing a water closet\", separated by an \"Internal wall\" marked with a column of open circles. The KEY reads: open circle \"Airborne sound insulation\".",
+   "reason": "Described labels and key as printed.",
+   "evidence": "Image diagram-0.2.png.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "3c8d641443cd42c6",
+   "kind": "figure_description",
+   "target": "diagram-0.3: Requirement E2(b)",
+   "value": "A diagram for Requirement E2(b) showing a box labelled \"Dwelling-house, flat or room for residential purposes\" that holds two stacked boxes, each labelled \"Any room to which requirement E2(b) applies\". Between them is the label \"Internal floor\" above a row of small circles. The key reads \"KEY: O Airborne sound insulation\".",
+   "reason": "Read the printed labels and key from the image.",
+   "evidence": "Image shows two room boxes, Internal floor label, a row of circles and the key.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "9ef5ef0d3d9191f3",
+   "kind": "figure_description",
+   "target": "diagram-2.1: Types of separating wall",
+   "value": "A diagram of four types of separating wall drawn as cut-away 3D blocks: (a) Wall type 1, (b) Wall type 2, (c) Wall type 3 and (d) Wall type 4. Labels in (a) are \"Plaster\" and \"Masonry\"; in (b) \"Plaster\", \"Masonry\" and \"Cavity\"; in (c) \"Independent panels\", \"Masonry core\" and \"Cavity\"; in (d) \"Independent frames\" and \"Mineral wool\".",
+   "reason": "Read the four drawings and their printed labels.",
+   "evidence": "Image shows panels (a) to (d) with arrows to the labels listed.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "ad5046947b5cd7c3",
+   "kind": "table",
+   "target": "table-2.1: Separating wall junctions reference table",
+   "value": {
+    "columns": [
+     "Building element attached to separating wall",
+     "Type 1",
+     "Type 2",
+     "Type 3",
+     "Type 4"
+    ],
+    "rows": [
+     [
+      "External cavity wall with masonry inner leaf",
+      "G",
+      "G",
+      "G",
+      "N"
+     ],
+     [
+      "External cavity wall with timber frame inner leaf",
+      "G",
+      "G",
+      "G",
+      "G"
+     ],
+     [
+      "External solid masonry wall",
+      "N",
+      "N",
+      "N",
+      "N"
+     ],
+     [
+      "Internal wall – framed",
+      "G",
+      "G",
+      "G",
+      "G"
+     ],
+     [
+      "Internal wall – masonry",
+      "G",
+      "G",
+      "X",
+      "G"
+     ],
+     [
+      "Internal floor – timber",
+      "G",
+      "G",
+      "G",
+      "G"
+     ],
+     [
+      "Internal floor – concrete",
+      "G",
+      "G",
+      "G",
+      "N"
+     ],
+     [
+      "Ground floor – timber",
+      "G",
+      "G",
+      "G",
+      "G"
+     ],
+     [
+      "Ground floor – concrete",
+      "G",
+      "G",
+      "G",
+      "G"
+     ],
+     [
+      "Ceiling and roof space",
+      "G",
+      "G",
+      "G",
+      "G"
+     ],
+     [
+      "For flats the following may also apply:",
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "Separating floor type 1 – concrete base with ceiling and soft floor covering",
+      "See Guidance in Section 3, Separating floors and associated flanking constructions for new buildings",
+      "See Guidance in Section 3, Separating floors and associated flanking constructions for new buildings",
+      "See Guidance in Section 3, Separating floors and associated flanking constructions for new buildings",
+      "See Guidance in Section 3, Separating floors and associated flanking constructions for new buildings"
+     ],
+     [
+      "Separating floor type 2 – concrete base with ceiling and floating floor",
+      "See Guidance in Section 3, Separating floors and associated flanking constructions for new buildings",
+      "See Guidance in Section 3, Separating floors and associated flanking constructions for new buildings",
+      "See Guidance in Section 3, Separating floors and associated flanking constructions for new buildings",
+      "See Guidance in Section 3, Separating floors and associated flanking constructions for new buildings"
+     ],
+     [
+      "Separating floor type 3 – timber frame base with ceiling and platform floor",
+      "See Guidance in Section 3, Separating floors and associated flanking constructions for new buildings",
+      "See Guidance in Section 3, Separating floors and associated flanking constructions for new buildings",
+      "See Guidance in Section 3, Separating floors and associated flanking constructions for new buildings",
+      "See Guidance in Section 3, Separating floors and associated flanking constructions for new buildings"
+     ]
+    ],
+    "heading_rows": [
+     10
+    ],
+    "sentences": [
+     "In the separating wall junctions reference table, for the external cavity wall with masonry inner leaf, Type 1 is G, Type 2 is G, Type 3 is G and Type 4 is N.",
+     "In the separating wall junctions reference table, for the external cavity wall with timber frame inner leaf, Type 1 is G, Type 2 is G, Type 3 is G and Type 4 is G.",
+     "In the separating wall junctions reference table, for the external solid masonry wall, Type 1 is N, Type 2 is N, Type 3 is N and Type 4 is N.",
+     "In the separating wall junctions reference table, for the internal wall – framed, Type 1 is G, Type 2 is G, Type 3 is G and Type 4 is G.",
+     "In the separating wall junctions reference table, for the internal wall – masonry, Type 1 is G, Type 2 is G, Type 3 is X and Type 4 is G.",
+     "In the separating wall junctions reference table, for the internal floor – timber, Type 1 is G, Type 2 is G, Type 3 is G and Type 4 is G.",
+     "In the separating wall junctions reference table, for the internal floor – concrete, Type 1 is G, Type 2 is G, Type 3 is G and Type 4 is N.",
+     "In the separating wall junctions reference table, for the ground floor – timber, Type 1 is G, Type 2 is G, Type 3 is G and Type 4 is G.",
+     "In the separating wall junctions reference table, for the ground floor – concrete, Type 1 is G, Type 2 is G, Type 3 is G and Type 4 is G.",
+     "In the separating wall junctions reference table, for the ceiling and roof space, Type 1 is G, Type 2 is G, Type 3 is G and Type 4 is G.",
+     "In the separating wall junctions reference table, for flats, separating floor type 1 – concrete base with ceiling and soft floor covering, all four types say See Guidance in Section 3, Separating floors and associated flanking constructions for new buildings.",
+     "In the separating wall junctions reference table, for flats, separating floor type 2 – concrete base with ceiling and floating floor, all four types say See Guidance in Section 3, Separating floors and associated flanking constructions for new buildings.",
+     "In the separating wall junctions reference table, for flats, separating floor type 3 – timber frame base with ceiling and platform floor, all four types say See Guidance in Section 3, Separating floors and associated flanking constructions for new buildings."
+    ]
+   },
+   "reason": "Rebuilt from page image; the printed top header 'Separating wall type' spans Types 1 to 4, so the lowest header row is used. The key and note under the table are left out as they are not rows.",
+   "evidence": "Page 23 image shows 10 data rows, a 'For flats' sub-heading and three floor rows with one merged guidance cell.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "1ac1850bb4af0a79",
+   "kind": "figure_description",
+   "target": "diagram-2.2: Wall type 1.1",
+   "value": "A line diagram titled Wall type 1.1, marked \"SECTION\", showing a cross-section of a wall. It is drawn as a tall rectangle with thin layers on each side and a diamond cross-hatch pattern in seven stacked blocks separated by horizontal lines. It has no other printed labels.",
+   "reason": "Described the visible section drawing and its only label.",
+   "evidence": "Image shows hatched stacked blocks with thin side layers and the word SECTION.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "bad7f34a56cf3154",
+   "kind": "figure_description",
+   "target": "diagram-2.3: Wall type 1.2",
+   "value": "A line diagram titled Wall type 1.2, marked \"SECTION\", showing a cross-section of a wall. It is drawn as a tall rectangle with thin layers on each side and a middle filled with scattered dots and small triangles. It has no other printed labels.",
+   "reason": "Described the visible section drawing and its only label.",
+   "evidence": "Image shows a speckled wall section with thin side layers and the word SECTION.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "6a081c768a71d5ec",
+   "kind": "figure_description",
+   "target": "diagram-2.4: Wall type 1.3",
+   "value": "A line diagram titled Wall type 1.3, marked \"SECTION\", showing a cross-section of a wall. It is drawn as a tall rectangle with thin layers on each side and a middle of stacked blocks, in rows of two short blocks alternating with one long block, with diagonal hatching. It has no other printed labels.",
+   "reason": "Described the visible section drawing and its only label.",
+   "evidence": "Image shows hatched block courses with thin side layers and the word SECTION.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "d5b9cdb8b7f1f173",
+   "kind": "figure_description",
+   "target": "diagram-2.5: Wall type 1 – external cavity wall with masonry inner leaf",
+   "value": "This is a plan-view diagram titled \"Diagram 2.5 Wall type 1 – external cavity wall with masonry inner leaf\". It shows an external cavity wall made of an outer leaf and an inner leaf, with an internal masonry wall meeting the inner leaf at a right angle. A label marked \"Cavity stop\" points to the hatched block that closes the cavity at the junction, and the drawing is marked \"PLAN\".",
+   "reason": "Image shows a plan drawing with one label, Cavity stop, and the word PLAN.",
+   "evidence": "Printed text: Diagram 2.5 title, Cavity stop, PLAN.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "e011165756e77c0d",
+   "kind": "figure_description",
+   "target": "diagram-2.6: Wall type 1 – bonded junction – masonry inner leaf of external cavity wall with solid separating wall",
+   "value": "This is a three-dimensional line diagram titled \"Diagram 2.6 Wall type 1 – bonded junction – masonry inner leaf of external cavity wall with solid separating wall\". It shows courses of masonry blocks in two walls meeting at a right angle, with the blocks of one wall interlocking with the blocks of the other to form a bonded junction. The diagram has no other printed labels.",
+   "reason": "Isometric drawing of bonded blockwork corner with no labels besides the title.",
+   "evidence": "Printed text: Diagram 2.6 title only.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "50899d626b9f2735",
+   "kind": "figure_description",
+   "target": "diagram-2.7: Wall type 1 – tied junction – external cavity wall with internal masonry wall",
+   "value": "This is a three-dimensional line diagram titled \"Diagram 2.7 Wall type 1 – tied junction – external cavity wall with internal masonry wall\". It shows an internal masonry wall meeting an external cavity wall, joined by metal ties across the junction, with a hatched cavity stop in the cavity. The printed labels are \"Cavity stop\"; \"Tied junction\"; \"Internal masonry wall\"; \"Separating wall type 1\".",
+   "reason": "Isometric drawing with four printed labels and ties shown as flat strips.",
+   "evidence": "Printed text: Cavity stop, Tied junction, Internal masonry wall, Separating wall type 1.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "79ea7fd6e9ce2728",
+   "kind": "figure_description",
+   "target": "diagram-2.8: Wall type 1 – position of openings in masonry inner leaf of external cavity wall",
+   "value": "This is an elevation-style line diagram titled \"Diagram 2.8 Wall type 1 – position of openings in masonry inner leaf of external cavity wall\". It shows a rectangular opening in the masonry inner leaf, with distance x measured from the separating wall to the opening and height y measured on the opening. The printed note reads \"x not more than 700mm and y not less than 1m\", and the other labels are \"Separating wall\" and \"Masonry inner leaf of external cavity wall\".",
+   "reason": "Drawing shows an opening with dimensions x and y and a printed note giving limits.",
+   "evidence": "Printed text: x not more than 700mm and y not less than 1m; Separating wall; Masonry inner leaf of external cavity wall.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "fbb1177bc7aaada9",
+   "kind": "figure_description",
+   "target": "diagram-2.9: Wall type 1 – external cavity wall with timber frame inner leaf",
+   "value": "This is a plan-view diagram titled \"Diagram 2.9 Wall type 1 – external cavity wall with timber frame inner leaf\". It shows an external cavity wall with a masonry outer leaf and a timber frame inner leaf, with an internal wall meeting the inner leaf at a right angle. A label marked \"Cavity stop\" points to the hatched block closing the cavity at the junction, and the drawing is marked \"PLAN\".",
+   "reason": "Plan drawing with one label, Cavity stop, and the word PLAN.",
+   "evidence": "Printed text: Diagram 2.9 title, Cavity stop, PLAN.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "f6e9a67a5d848ae3",
+   "kind": "figure_description",
+   "target": "diagram-2.10: Wall type 1 – internal timber floor",
+   "value": "This is a section diagram titled \"Diagram 2.10 Wall type 1 – internal timber floor\". It shows a timber floor on each side of a wall made of stacked blocks, with the floor joists carried on metal hangers fixed to the wall. A label marked \"Hanger\" points to one of the hangers, and the drawing is marked \"SECTION\".",
+   "reason": "Section drawing with one label, Hanger, and the word SECTION.",
+   "evidence": "Printed text: Diagram 2.10 title, Hanger, SECTION.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "981624c779c755b7",
+   "kind": "figure_description",
+   "target": "diagram-2.11: Wall type 1 – internal concrete floor",
+   "value": "This is a section diagram titled \"Diagram 2.11 Wall type 1 – internal concrete floor\". It shows a wall of hatched blocks above and below a speckled concrete floor slab that runs through the wall. A label with an arrow to the slab reads \"Concrete slab may be carried through if mass per unit area is at least 365kg/m2\", and the corner is marked \"SECTION\".",
+   "reason": "Described the printed title, drawing and label from the image.",
+   "evidence": "Image shows wall blocks above and below a concrete slab with the printed note about 365kg/m2 and the word SECTION.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "af954f982bfa80e5",
+   "kind": "figure_description",
+   "target": "diagram-2.12: Wall type 1 – concrete ground floor",
+   "value": "This is a section diagram titled \"Diagram 2.12 Wall type 1 – concrete ground floor\". It shows a wall of hatched blocks standing on a speckled concrete slab that is thicker in the middle under the wall. The slab is labelled \"Concrete ground floor slab\", and the corner is marked \"SECTION\".",
+   "reason": "Described the printed title, drawing and label from the image.",
+   "evidence": "Image shows a block wall on a thickened concrete slab labelled Concrete ground floor slab, with SECTION.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "12ab6780e697166e",
+   "kind": "figure_description",
+   "target": "diagram-2.13: Wall type 1 – ceiling and roof junction",
+   "value": "This is a section diagram titled \"Diagram 2.13 Wall type 1 – ceiling and roof junction\". It shows a vertical wall of hatched blocks running from a ceiling up to a roof, with a break in the middle to show it continues. The printed labels are \"Roof\"; \"Flexible closer\"; \"Mass per unit area of at least 150kg/m2\"; \"Ceiling\"; \"Sealed joints\"; and \"SECTION\".",
+   "reason": "Described the printed title, drawing and labels from the image.",
+   "evidence": "Image shows wall between ceiling and roof with the labels Roof, Flexible closer, Mass per unit area of at least 150kg/m2, Ceiling, Sealed joints.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "bfe40f171f28340c",
+   "kind": "figure_description",
+   "target": "diagram-2.14: External cavity wall at eaves level",
+   "value": "This is a section diagram titled \"Diagram 2.14 External cavity wall at eaves level\". It shows two leaves of hatched masonry with a gap between them, and a hatched block filling the top of the cavity. The one printed label, with a line pointing to that top block, is \"Flexible closer\", and the corner is marked \"SECTION\".",
+   "reason": "Described the printed title, drawing and label from the image.",
+   "evidence": "Image shows a cavity wall with two leaves and a Flexible closer label at the top of the cavity, with SECTION.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "871284dd299f4516",
+   "kind": "figure_description",
+   "target": "diagram-2.15: Wall type 2.1",
+   "value": "This is a section diagram titled \"Diagram 2.15 Wall type 2.1\". It shows two separate vertical walls of hatched blocks side by side with a gap between them. A small mark joins the two walls about two-thirds of the way down, and the only other printed word is \"SECTION\".",
+   "reason": "Described the printed title and drawing from the image; no other labels are printed.",
+   "evidence": "Image shows two parallel hatched walls with a gap, a small tie mark partway down, and the word SECTION.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "ccb0eaf477e96da5",
+   "kind": "figure_description",
+   "target": "diagram-2.16: Wall type 2.2",
+   "value": "This is a section diagram titled \"Diagram 2.16 Wall type 2.2\". It shows two separate vertical walls of hatched blocks side by side with a gap between them. A small mark joins the two walls about two-thirds of the way down, and the only other printed word is \"SECTION\".",
+   "reason": "Described the printed title and drawing from the image; no other labels are printed.",
+   "evidence": "Image shows two parallel hatched walls with a gap, a small tie mark partway down, and the word SECTION.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "0195ff7a11ceba8b",
+   "kind": "figure_description",
+   "target": "diagram-2.17: Wall type 2.3",
+   "value": "A section diagram titled \"Diagram 2.17 Wall type 2.3\", marked \"SECTION\". It shows two tall hatched leaves side by side with a gap between them, each with a thin panel on its outer face, and horizontal lines across the leaves. There are no other printed labels.",
+   "reason": "Line drawing with only a title and the word SECTION as printed text.",
+   "evidence": "Title bar reads Diagram 2.17 Wall type 2.3; SECTION at bottom right.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "31ad3fa04ed0fa24",
+   "kind": "figure_description",
+   "target": "diagram-2.18: Wall type 2.4",
+   "value": "A section diagram titled \"Diagram 2.18 Wall type 2.4\", marked \"SECTION\". It shows two tall leaves filled with a dotted hexagon pattern, side by side with a gap between them, each with a thin panel on its outer face, and horizontal lines across the leaves. There are no other printed labels.",
+   "reason": "Line drawing with only a title and the word SECTION as printed text.",
+   "evidence": "Title bar reads Diagram 2.18 Wall type 2.4; SECTION at bottom right.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "f9de91e72064b8c2",
+   "kind": "figure_description",
+   "target": "diagram-2.19: Wall types 2.1 and 2.2 – external cavity wall with masonry inner leaf",
+   "value": "A plan diagram titled \"Diagram 2.19 Wall types 2.1 and 2.2 – external cavity wall with masonry inner leaf\", marked \"PLAN\". It shows an external cavity wall with a masonry inner leaf, where a pair of separating wall leaves meets the cavity wall from the right. A cross-hatched block in the cavity is labelled \"Cavity stop\".",
+   "reason": "Plan drawing with one printed callout besides title and PLAN.",
+   "evidence": "Label Cavity stop with an arrow to the cross-hatched block in the cavity; PLAN at bottom right.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "4fc2e975306ae963",
+   "kind": "figure_description",
+   "target": "diagram-2.20: Wall types 2.3 and 2.4 – external cavity wall with masonry inner leaf – stagger",
+   "value": "A plan diagram titled \"Diagram 2.20 Wall types 2.3 and 2.4 – external cavity wall with masonry inner leaf – stagger\", marked \"PLAN\". It shows the external leaf and two staggered inner leaves meeting at a cavity stop, with a dimension marked \"At least 300mm\". Printed labels are \"External leaf\"; \"Inner leaf\" (twice); \"Cavity stop\"; \"At least 300mm\".",
+   "reason": "Plan drawing with several printed labels and one dimension.",
+   "evidence": "Labels External leaf, Inner leaf x2, Cavity stop, At least 300mm, PLAN.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "f4c5ea16c2d7ad5d",
+   "kind": "figure_description",
+   "target": "diagram-2.21: Wall type 2 – tied junction – external cavity wall with internal masonry wall",
+   "value": "A three-dimensional (isometric) diagram titled \"Diagram 2.21 Wall type 2 – tied junction – external cavity wall with internal masonry wall\". It shows a masonry separating wall meeting an external cavity wall and an internal masonry wall, with metal ties across the junction. Printed labels are \"Cavity stop\"; \"Tied junction\"; \"Internal masonry wall\"; \"Separating wall type 2\".",
+   "reason": "Isometric drawing with four printed callouts.",
+   "evidence": "Labels Cavity stop, Tied junction, Internal masonry wall, Separating wall type 2.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "7753d45110ac7902",
+   "kind": "figure_description",
+   "target": "diagram-2.22: Wall type 2 – external cavity wall with timber frame inner leaf",
+   "value": "A plan diagram titled \"Diagram 2.22 Wall type 2 – external cavity wall with timber frame inner leaf\", marked \"PLAN\". It shows a hatched external leaf and a timber frame inner leaf with quilted insulation, where a pair of separating wall leaves meets it from the right. A cross-hatched block in the cavity is labelled \"Cavity stop\".",
+   "reason": "Plan drawing with one printed callout besides title and PLAN.",
+   "evidence": "Label Cavity stop with an arrow to the cross-hatched block; PLAN at bottom right.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "3f2ebecd342734c4",
+   "kind": "figure_description",
+   "target": "diagram-2.23: Wall type 2 – internal timber floor",
+   "value": "A section diagram titled \"Diagram 2.23 Wall type 2 – internal timber floor\". It shows two separate cross-hatched wall leaves with a gap between them, and timber floor members meeting each leaf at the floor level. A joist hanger fixed to the wall leaf is labelled \"Hanger\", and the drawing is marked \"SECTION\".",
+   "reason": "Read from the image: title, one label (Hanger) and SECTION marker.",
+   "evidence": "Printed text: Diagram 2.23 Wall type 2 – internal timber floor; Hanger; SECTION.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "59427750675a9cee",
+   "kind": "figure_description",
+   "target": "diagram-2.24: Wall type 2 – internal concrete floor and concrete ground floor",
+   "value": "A section diagram titled \"Diagram 2.24 Wall type 2 – internal concrete floor and concrete ground floor\". It shows two separate wall leaves with a gap between them, with an \"Internal concrete floor\" meeting the wall at the top. Lower down it shows a \"Concrete slab ground floor\" on the left and a \"Suspended concrete ground floor\" on the right, both with \"Ground\" below, above a concrete foundation, and the drawing is marked \"SECTION\".",
+   "reason": "Read from the image: title and all printed labels.",
+   "evidence": "Printed text: Internal concrete floor; Concrete slab ground floor; Suspended concrete ground floor; Ground; Ground; SECTION.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "3c9d08bc024acb9e",
+   "kind": "figure_description",
+   "target": "diagram-2.25: Wall type 2 – ceiling and roof junction",
+   "value": "A section diagram titled \"Diagram 2.25 Wall type 2 – ceiling and roof junction\". It shows two separate wall leaves with a gap between them, running up to a \"Roof\" with a \"Flexible closer\" at the top, and a \"Ceiling\" meeting the wall lower down with \"Sealed joints\". One leaf is labelled \"Mass per unit area of at least 150kg/m²\", and the drawing is marked \"SECTION\".",
+   "reason": "Read from the image: title and all printed labels.",
+   "evidence": "Printed text: Roof; Flexible closer; Mass per unit area of at least 150kg/m2; Ceiling; Sealed joints; SECTION.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "1e66f170ce4a4071",
+   "kind": "figure_description",
+   "target": "diagram-2.26: External cavity wall at eaves level",
+   "value": "A section diagram titled \"Diagram 2.26 External cavity wall at eaves level\". It shows an external cavity wall with an inner and outer leaf and a cavity between them. A cross-hatched block at the top of the cavity is labelled \"Flexible closer\", and the drawing is marked \"SECTION\".",
+   "reason": "Read from the image: title and one label.",
+   "evidence": "Printed text: Diagram 2.26 External cavity wall at eaves level; Flexible closer; SECTION.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "d118c2354689cb45",
+   "kind": "figure_description",
+   "target": "diagram-2.27: Wall type 3.1 with independent composite panels",
+   "value": "A section diagram titled \"Diagram 2.27 Wall type 3.1 with independent composite panels\". It shows a central cross-hatched wall with a thin composite panel standing apart on each side. The only other printed text is \"SECTION\".",
+   "reason": "Read from the image: title, no other labels.",
+   "evidence": "Printed text: Diagram 2.27 Wall type 3.1 with independent composite panels; SECTION.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "15a12939ea485416",
+   "kind": "figure_description",
+   "target": "diagram-2.28: Wall type 3.1 with independent plasterboard panels",
+   "value": "A section diagram titled \"Diagram 2.28 Wall type 3.1 with independent plasterboard panels\". It shows a central cross-hatched wall with a thin plasterboard panel standing apart on each side. The only other printed text is \"SECTION\".",
+   "reason": "Read from the image: title, no other labels.",
+   "evidence": "Printed text: Diagram 2.28 Wall type 3.1 with independent plasterboard panels; SECTION.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "f3d1ac51bcfd4bbf",
+   "kind": "figure_description",
+   "target": "diagram-2.29: Wall type 3.2 with independent composite panels",
+   "value": "This is a section diagram titled \"Diagram 2.29 Wall type 3.2 with independent composite panels\". It shows a tall vertical wall with a single hatched masonry leaf in the middle and a thin independent composite panel on each side, with a small gap between each panel and the wall. The only printed label besides the title is \"SECTION\".",
+   "reason": "Image shows a labelled section drawing with one central wall and two side panels.",
+   "evidence": "Title 'Diagram 2.29 Wall type 3.2 with independent composite panels'; label 'SECTION'.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "aba5b06c6215f84d",
+   "kind": "figure_description",
+   "target": "diagram-2.30: Wall type 3.3 with independent composite panels",
+   "value": "This is a section diagram titled \"Diagram 2.30 Wall type 3.3 with independent composite panels\". It shows two separate hatched masonry leaves side by side with a gap between them, and a thin independent composite panel on the outer face of each leaf. The only printed label besides the title is \"SECTION\".",
+   "reason": "Image shows two central wall leaves with a panel on each outer side.",
+   "evidence": "Title 'Diagram 2.30 Wall type 3.3 with independent composite panels'; label 'SECTION'.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "764263af3a4fdd7b",
+   "kind": "figure_description",
+   "target": "diagram-2.31: Wall type 3 – external cavity wall with masonry inner leaf",
+   "value": "This is a plan diagram titled \"Diagram 2.31 Wall type 3 – external cavity wall with masonry inner leaf\". It shows an external cavity wall meeting a party wall, with a cross-hatched block marked \"Cavity stop\" in the cavity at the junction. Independent panels on both sides of the party wall are marked \"Independent panels\" with arrows, and the drawing is labelled \"PLAN\".",
+   "reason": "Image is a plan drawing with labelled cavity stop and independent panels.",
+   "evidence": "Labels 'Cavity stop', 'Independent panels' (twice), 'PLAN'.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "720622f976248028",
+   "kind": "figure_description",
+   "target": "diagram-2.32: Wall type 3 – external cavity wall with internal timber wall",
+   "value": "This is a 3D cut-away diagram titled \"Diagram 2.32 Wall type 3 – external cavity wall with internal timber wall\". It shows an external cavity wall of blockwork and brick meeting an internal timber wall, with a cross-hatched cavity stop at the top of the cavity. The printed labels are \"Cavity stop\"; \"Mineral wool pad\"; \"Internal timber wall\"; \"Sealed joints\".",
+   "reason": "Image is an isometric drawing with four printed labels.",
+   "evidence": "Labels: Cavity stop, Mineral wool pad, Internal timber wall, Sealed joints.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "167eb99de2e21a50",
+   "kind": "figure_description",
+   "target": "diagram-2.33: Wall type 3 – internal timber floor",
+   "value": "This is a section diagram titled \"Diagram 2.33 Wall type 3 – internal timber floor\". It shows a vertical wall with a hatched central leaf and independent panels on both sides, crossed by a horizontal timber floor joist at mid-height. The joist is held by a bracket labelled \"Hanger\", and the drawing is labelled \"SECTION\".",
+   "reason": "Image shows a wall section with a floor joist and one labelled hanger.",
+   "evidence": "Labels 'Hanger', 'SECTION'.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "25f7e88ac3303333",
+   "kind": "figure_description",
+   "target": "diagram-2.34: Wall types 3.1 and 3.2 – internal concrete floor",
+   "value": "This is a section diagram titled \"Diagram 2.34 Wall types 3.1 and 3.2 – internal concrete floor\". It shows a vertical wall with a hatched central leaf and independent panels on both sides, crossed by a horizontal dotted concrete floor slab. A note with an arrow to the slab reads \"Concrete floor slab may be carried through if mass per unit area is at least 365kg/m2\", and the drawing is labelled \"SECTION\".",
+   "reason": "Image shows a wall section with a concrete slab passing through and one printed note.",
+   "evidence": "Note 'Concrete floor slab may be carried through if mass per unit area is at least 365kg/m2'; label 'SECTION'.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "21a2e57b7064943c",
+   "kind": "figure_description",
+   "target": "diagram-2.35: Wall types 3.1 and 3.2 – ceiling and roof junction",
+   "value": "This is a section diagram of Wall types 3.1 and 3.2 at the ceiling and roof junction, showing a party wall running up between a ceiling and a roof. Printed labels are: \"Roof\"; \"Flexible closer\"; \"Ceiling\"; \"Sealed joints\"; and \"SECTION\".",
+   "reason": "Diagram 2.35 shows a wall section with a roof line at the top, a flexible closer at the wall head, and a ceiling line with sealed joints at both sides of the wall.",
+   "evidence": "Labels read Roof, Flexible closer, Ceiling, Sealed joints (two arrows), SECTION.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "d0c38b5129cf68c0",
+   "kind": "figure_description",
+   "target": "diagram-2.36: External cavity wall at eaves level",
+   "value": "This is a section diagram of an external cavity wall at eaves level, showing two leaves of masonry with a cavity between them and a thin panel beside them. The only printed labels are \"Flexible closer\", pointing at the top of the cavity, and \"SECTION\".",
+   "reason": "Diagram 2.36 shows a hatched outer leaf, a cross-hatched inner leaf, a cavity with a flexible closer at the top, and a narrow board to the right.",
+   "evidence": "Labels read Flexible closer and SECTION.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "dbf8fa884d1576d2",
+   "kind": "figure_description",
+   "target": "diagram-2.37: Wall type 4.1",
+   "value": "This is a plan diagram of Wall type 4.1, showing three framed wall arrangements marked (a), (b) and (c), each with timber studs, boards and insulation. Each arrangement has an arrow labelled \"Socket detail\" pointing at a socket box set into one leaf, and the diagram is marked \"PLAN\".",
+   "reason": "Diagram 2.37 has three stacked plan views with sub-labels (a), (b), (c), each with a Socket detail arrow.",
+   "evidence": "Labels read Socket detail (three times), (a), (b), (c), PLAN.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "e7cb5f48327690c3",
+   "kind": "figure_description",
+   "target": "diagram-2.38: Wall type 4 – external cavity wall with timber frame inner leaf",
+   "value": "This is a plan diagram of Wall type 4, an external cavity wall with a timber frame inner leaf, showing a masonry outer leaf, a cavity and an insulated timber frame meeting an internal wall. Two arrows point to the cavity stops in the cavity, labelled \"Cavity stops\", and the diagram is marked \"PLAN\".",
+   "reason": "Diagram 2.38 shows brick outer leaf, timber frame with insulation, and cross-hatched cavity stops either side of the junction.",
+   "evidence": "Labels read Cavity stops and PLAN.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "7d55e404ceb66d8f",
+   "kind": "figure_description",
+   "target": "diagram-3.1: Types of separating floor",
+   "value": "This is a section diagram of types of separating floor, with three drawings: (a) Floor type 1, (b) Floor type 2 and (c) Floor type 3. Printed labels include: \"Soft covering\"; \"Concrete base\"; \"Ceiling\"; \"Floating floor\"; \"Floating layer\"; \"Resilient layer\"; \"Platform floor\"; \"Timber frame base\"; \"Independent ceiling\"; and \"SECTION\".",
+   "reason": "Diagram 3.1 shows three floor build-ups with labelled layers: concrete with soft covering, concrete with floating floor, and timber frame platform floor.",
+   "evidence": "Labels read (a) Floor type 1, (b) Floor type 2, (c) Floor type 3 and the layer labels listed.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "8e017df7903e455d",
+   "kind": "table",
+   "target": "table-3.1: Separating floor junctions reference table",
+   "value": {
+    "columns": [
+     "Building element attached to separating wall",
+     "Type 1",
+     "Type 2",
+     "Type 3"
+    ],
+    "rows": [
+     [
+      "External cavity wall with masonry inner leaf",
+      "G",
+      "G",
+      "G"
+     ],
+     [
+      "External cavity wall with timber frame inner leaf",
+      "G",
+      "G",
+      "G"
+     ],
+     [
+      "External solid masonry wall",
+      "N",
+      "N",
+      "N"
+     ],
+     [
+      "Internal wall – framed",
+      "G",
+      "G",
+      "G"
+     ],
+     [
+      "Internal wall – masonry",
+      "G",
+      "G",
+      "N"
+     ],
+     [
+      "Floor penetrations",
+      "G",
+      "G",
+      "G"
+     ],
+     [
+      "For flats the following may also apply:",
+      "",
+      "",
+      ""
+     ],
+     [
+      "Separating wall type 1 – solid masonry",
+      "G",
+      "G",
+      "G"
+     ],
+     [
+      "Separating wall type 2 – cavity masonry",
+      "G",
+      "G",
+      "G"
+     ],
+     [
+      "Separating wall type 3 – masonry between independent panels",
+      "G",
+      "G",
+      "G"
+     ],
+     [
+      "Separating wall type 4 – framed wall with absorbent material",
+      "N",
+      "N",
+      "G"
+     ]
+    ],
+    "heading_rows": [
+     6
+    ],
+    "sentences": [
+     "In the separating floor junctions reference table, the external cavity wall with masonry inner leaf is G for Type 1, G for Type 2 and G for Type 3.",
+     "In the separating floor junctions reference table, the external cavity wall with timber frame inner leaf is G for Type 1, G for Type 2 and G for Type 3.",
+     "In the separating floor junctions reference table, the external solid masonry wall is N for Type 1, N for Type 2 and N for Type 3.",
+     "In the separating floor junctions reference table, the internal wall – framed is G for Type 1, G for Type 2 and G for Type 3.",
+     "In the separating floor junctions reference table, the internal wall – masonry is G for Type 1, G for Type 2 and N for Type 3.",
+     "In the separating floor junctions reference table, floor penetrations is G for Type 1, G for Type 2 and G for Type 3.",
+     "In the separating floor junctions reference table, for flats, separating wall type 1 – solid masonry is G for Type 1, G for Type 2 and G for Type 3.",
+     "In the separating floor junctions reference table, for flats, separating wall type 2 – cavity masonry is G for Type 1, G for Type 2 and G for Type 3.",
+     "In the separating floor junctions reference table, for flats, separating wall type 3 – masonry between independent panels is G for Type 1, G for Type 2 and G for Type 3.",
+     "In the separating floor junctions reference table, for flats, separating wall type 4 – framed wall with absorbent material is N for Type 1, N for Type 2 and G for Type 3."
+    ]
+   },
+   "reason": "Table 3.1 has an element column and three separating floor types; the italic row 'For flats the following may also apply:' is a sub-heading. Key and Note are outside the grid.",
+   "evidence": "Page 45 table: header Separating floor type over Type 1, Type 2, Type 3; 10 data rows plus one sub-heading row.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "d416a0531775b36a",
+   "kind": "figure_description",
+   "target": "diagram-3.2: Ceiling treatments A, B and C",
+   "value": "This is a section diagram titled \"Diagram 3.2 Ceiling treatments A, B and C\" showing four ceiling build-ups. The labels are: \"Ceiling treatment A (independent joists)\"; \"Ceiling treatment B (resilient bars)\"; \"Ceiling treatment C (timber battens)\"; \"Ceiling treatment C (resilient channels)\". Each drawing shows a ceiling board with quilted insulation above it, and the diagram is marked \"SECTION\".",
+   "reason": "Labels read directly from the image.",
+   "evidence": "Printed title and four treatment labels visible in the image.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "8d7e8f6ec0859ac3",
+   "kind": "figure_description",
+   "target": "diagram-3.3: Floor type 1.1C – floor type 1.1 with ceiling treatment C",
+   "value": "This is a section diagram titled \"Diagram 3.3 Floor type 1.1C – floor type 1.1 with ceiling treatment C\". It shows a thick concrete floor slab with three timber battens fixed under it and a ceiling board below the battens. It is marked \"SECTION\".",
+   "reason": "Simple drawing with no other labels.",
+   "evidence": "Title and SECTION label printed; slab, three battens and board drawn.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "fa57f064538d35ec",
+   "kind": "figure_description",
+   "target": "diagram-3.4: Floor type 1.2B – floor type 1.2 with ceiling treatment B",
+   "value": "This is a section diagram titled \"Diagram 3.4 Floor type 1.2B – floor type 1.2 with ceiling treatment B\". It shows a floor deck on a row of joists with round holes in the webs, with a ceiling below that has insulation on resilient bars. One label with an arrow reads \"Timber batten\", and the diagram is marked \"SECTION\".",
+   "reason": "Described from visible drawing and label.",
+   "evidence": "Label \"Timber batten\" and SECTION printed.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "908657e98a1553ed",
+   "kind": "figure_description",
+   "target": "diagram-3.5: Floor type 1.2B – external cavity wall with masonry inner leaf",
+   "value": "This is a section diagram titled \"Diagram 3.5 Floor type 1.2B – external cavity wall with masonry inner leaf\". It shows a floor with ceiling treatment meeting an external cavity wall, with the printed labels \"Cavity stop\"; \"Minimum 300mm\"; \"Timber batten\"; \"External cavity wall\". It is marked \"SECTION\".",
+   "reason": "Labels read directly from the image.",
+   "evidence": "Four labels and title visible.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "4caf270aa888cf4a",
+   "kind": "figure_description",
+   "target": "diagram-3.6: Floor type 1 – floor penetrations",
+   "value": "This is a section diagram titled \"Diagram 3.6 Floor type 1 – floor penetrations\". It shows a pipe passing through a concrete floor slab and a wall, with an enclosure around it. The printed labels are \"Lag pipes with mineral wool\"; \"Seal with tape or sealant\"; \"Enclosure\", and it is marked \"SECTION\".",
+   "reason": "Labels read directly from the image.",
+   "evidence": "Three labels and title visible.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "7a504d352dccd5b4",
+   "kind": "figure_description",
+   "target": "diagram-3.7: Floor type 1.1C – wall type 1",
+   "value": "This is a section diagram titled \"Diagram 3.7 Floor type 1.1C – wall type 1\". It shows a concrete floor slab passing through a block wall that is above and below it. The printed labels are \"Separating floor type 1.1C carried through\"; \"Floor type 1.1C\"; \"Separating wall type 1\", and it is marked \"SECTION\".",
+   "reason": "Labels read directly from the image.",
+   "evidence": "Three labels and title visible.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "734c655cc3536e40",
+   "kind": "figure_description",
+   "target": "diagram-3.8: Floor type 1.2B – wall type 1",
+   "value": "This is a section diagram titled \"Diagram 3.8 Floor type 1.2B – wall type 1\", showing a floor with round holes in its depth passing through a hatched separating wall. Printed labels are \"Timber batten\" (two arrows pointing at the underside of the floor), \"Fill gap between head of wall and underside of floor\", \"Floor type 1.2B\", \"Separating wall type 1\" and \"SECTION\".",
+   "reason": "Read the labels and shapes directly from the image.",
+   "evidence": "Image labels: Timber batten; Fill gap between head of wall and underside of floor; Floor type 1.2B; Separating wall type 1; SECTION.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "8c6dd60e54350ccc",
+   "kind": "figure_description",
+   "target": "diagram-3.9: Floor types 1.1C and 1.2B – wall type 2",
+   "value": "This is a section diagram titled \"Diagram 3.9 Floor types 1.1C and 1.2B – wall type 2\", showing two floor types meeting a separating wall made of two leaves with a cavity between them. Printed labels are \"Separating floor type 1 carried through to cavity face\", \"Timber batten\", \"Floor type 1.1C\", \"Floor type 1.2B\", \"Minimum 300mm\", \"Separating wall type 2\" and \"SECTION\".",
+   "reason": "Read the labels and shapes directly from the image.",
+   "evidence": "Image labels: Separating floor type 1 carried through to cavity face; Timber batten; Floor type 1.1C; Floor type 1.2B; Minimum 300mm; Separating wall type 2; SECTION.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "0107a9ec5f2adc24",
+   "kind": "figure_description",
+   "target": "diagram-3.10: Floor type 1.1C – wall types 3.1 and 3.2",
+   "value": "This is a section diagram titled \"Diagram 3.10 Floor type 1.1C – wall types 3.1 and 3.2\", showing a solid floor slab passing through a separating wall with a cavity and outer leaves. Printed labels are \"Separating floor type 1.1C carried through\", \"Floor type 1.1C\", \"Separating wall types 3.1 and 3.2\" and \"SECTION\".",
+   "reason": "Read the labels and shapes directly from the image.",
+   "evidence": "Image labels: Separating floor type 1.1C carried through; Floor type 1.1C; Separating wall types 3.1 and 3.2; SECTION.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "b385ce75929bde51",
+   "kind": "figure_description",
+   "target": "diagram-3.11: Floating floors (a) and (b)",
+   "value": "This is a section diagram titled \"Diagram 3.11 Floating floors (a) and (b)\", showing two floating floor build-ups one above the other. Floating floor (a) has a board layer on timber battens over a quilted layer, and floating floor (b) has a thicker screed-like layer over a quilted layer, each turned up at the left edge; the printed labels are \"Floating floor (a)\", \"Floating floor (b)\" and \"SECTION\".",
+   "reason": "Read the labels and shapes directly from the image.",
+   "evidence": "Image labels: Floating floor (a); Floating floor (b); SECTION.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "d775a4900f6f823a",
+   "kind": "figure_description",
+   "target": "diagram-3.12: Floor type 2.1C(a) – floor type 2.1 with ceiling treatment C and floating floor (a)",
+   "value": "This is a section diagram titled \"Diagram 3.12 Floor type 2.1C(a) – floor type 2.1 with ceiling treatment C and floating floor (a)\", showing layers of a floor in cross-section. From top to bottom it shows a board on timber battens, a quilted layer, a thick concrete-style slab, and a ceiling board fixed to timber battens below; the only printed label besides the title is \"SECTION\".",
+   "reason": "Read the title and layers directly from the image.",
+   "evidence": "Image shows layered floor section with battens at top and bottom; label SECTION.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "6dde041c9101c93e",
+   "kind": "figure_description",
+   "target": "diagram-3.13: Floor type 2.1C(b) – floor type 2.1 with ceiling treatment C and floating floor (b)",
+   "value": "This is a section diagram titled \"Diagram 3.13 Floor type 2.1C(b) – floor type 2.1 with ceiling treatment C and floating floor (b)\", showing layers of a floor in cross-section. From top to bottom it shows a screed-like layer, a quilted layer, a thick concrete-style slab, and a ceiling board fixed to timber battens below; the only printed label besides the title is \"SECTION\".",
+   "reason": "Read the title and layers directly from the image.",
+   "evidence": "Image shows layered floor section with top screed layer, quilt, slab, ceiling on battens; label SECTION.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "693481b1526be493",
+   "kind": "figure_description",
+   "target": "diagram-3.14: Floor type 2.2B(a) – floor type 2.2 with ceiling treatment B and floating floor (a)",
+   "value": "A line diagram titled \"Diagram 3.14 Floor type 2.2B(a) – floor type 2.2 with ceiling treatment B and floating floor (a)\", shown as a SECTION through a floor. It shows a floating floor deck on battens over a layer of quilt, a joisted floor with round holes through the joists, and a ceiling below with quilt between the joists. One label is printed: \"Timber batten\".",
+   "reason": "Section drawing with a single printed callout.",
+   "evidence": "Image shows title, section drawing, label 'Timber batten' and 'SECTION'.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "eac939cac865ce57",
+   "kind": "figure_description",
+   "target": "diagram-3.15: Floor type 2.2B(b) – floor type 2.2 with ceiling treatment B and floating floor (b)",
+   "value": "A line diagram titled \"Diagram 3.15 Floor type 2.2B(b) – floor type 2.2 with ceiling treatment B and floating floor (b)\", shown as a SECTION through a floor. It shows a floating floor of screed or heavy deck (dotted fill) over a layer of quilt, a joisted floor with round holes through the joists, and a ceiling below with quilt between the joists. One label is printed: \"Timber batten\".",
+   "reason": "Section drawing with a single printed callout.",
+   "evidence": "Image shows title, dotted screed layer, label 'Timber batten' and 'SECTION'.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "ccc943653b6b2961",
+   "kind": "figure_description",
+   "target": "diagram-3.16: Floor type 2 – external cavity wall with masonry internal leaf",
+   "value": "A line diagram titled \"Diagram 3.16 Floor type 2 – external cavity wall with masonry internal leaf\", shown as a SECTION where a floor meets an external cavity wall. It shows the brick outer leaf and block inner leaf, a joisted floor with a floating floor above and a ceiling below. Printed labels are: \"Cavity stop\"; \"Fill small gap with flexible seal\"; \"Minimum 300mm\"; \"Timber batten\"; \"External cavity wall\".",
+   "reason": "Section drawing with several printed labels, quoted as printed.",
+   "evidence": "Image shows the five labels and the title and 'SECTION'.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "3b1d4e9fa1d2ba8b",
+   "kind": "figure_description",
+   "target": "diagram-3.17: Floor type 2 – floor penetrations",
+   "value": "A line diagram titled \"Diagram 3.17 Floor type 2 – floor penetrations\", shown as a SECTION through a floor where a pipe passes through it. It shows a concrete-type floor slab between block walls, with a lagged pipe and an enclosure running vertically through the floor. Printed labels are: \"Lag pipes with mineral wool\"; \"Fill small gap with flexible seal\"; \"Seal with tape or sealant\"; \"Enclosure\".",
+   "reason": "Section drawing with four printed labels, quoted as printed.",
+   "evidence": "Image shows the four labels, the title and 'SECTION'.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "2eb4a0a089847aae",
+   "kind": "figure_description",
+   "target": "diagram-3.18: Floor types 2.2B(a) and 2.2B(b) – wall type 1",
+   "value": "A line diagram titled \"Diagram 3.18 Floor types 2.2B(a) and 2.2B(b) – wall type 1\", shown as a SECTION where two joisted floors meet at a separating wall. The block wall runs through the floor, with one floor on each side. Printed labels are: \"Fill small gap with flexible seal\"; \"Floor 2.2B(a)\"; \"Floor 2.2B(b)\"; \"Timber batten\"; \"Separating wall type 1\".",
+   "reason": "Section drawing with several printed labels, quoted as printed.",
+   "evidence": "Image shows the five labels, the title and 'SECTION'.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "1edd3803c441039c",
+   "kind": "figure_description",
+   "target": "diagram-3.19: Floor type 2.1C – wall types 3.1 and 3.2",
+   "value": "A line diagram titled \"Diagram 3.19 Floor type 2.1C – wall types 3.1 and 3.2\", shown as a SECTION where a solid floor slab runs through a separating wall. It shows a wall with a block core and a lined face on each side, with a floor either side of it. Printed labels are: \"Fill small gap with flexible seal\"; \"Floor 2.1C(a)\"; \"Floor 2.1C(b)\"; \"Separating wall types 3.1 and 3.2\".",
+   "reason": "Section drawing with several printed labels, quoted as printed.",
+   "evidence": "Image shows the four labels, the title and 'SECTION'.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "786fa50586118e6d",
+   "kind": "figure_description",
+   "target": "diagram-3.20: Floor type 3.1A",
+   "value": "This is a section diagram titled \"Diagram 3.20 Floor type 3.1A\", marked \"SECTION\". It shows a floor build-up with a dimension arrow labelled \"At least 100mm\", joists, a layer of mineral wool quilt between them and boards above and below.",
+   "reason": "Plain description of the printed diagram with its labels.",
+   "evidence": "Title, \"At least 100mm\" label and \"SECTION\" label are printed in the image.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "d5e20f7bfb36cfa7",
+   "kind": "figure_description",
+   "target": "diagram-3.21: Floor type 3 – floor penetrations",
+   "value": "This is a section diagram titled \"Diagram 3.21 Floor type 3 – floor penetrations\", marked \"SECTION\". It shows a pipe passing through a floor beside a wall, with labels \"Lag pipes with mineral wool\"; \"Fill small gap with flexible seal\"; \"Seal with tape or sealant\"; \"Enclosure\".",
+   "reason": "Plain description of the printed diagram with its labels.",
+   "evidence": "All four labels, the title and \"SECTION\" are printed in the image.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "dac8b1766771edb1",
+   "kind": "figure_description",
+   "target": "diagram-3.22: Floor type 3 – wall type 1",
+   "value": "This is a section diagram titled \"Diagram 3.22 Floor type 3 – wall type 1\", marked \"SECTION\". It shows a floor meeting a separating wall, with labels \"Hanger\"; \"Seal with tape or sealant\"; \"Separating wall type 1\".",
+   "reason": "Plain description of the printed diagram with its labels.",
+   "evidence": "Title, three labels and \"SECTION\" are printed in the image.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "ae1c5687974b1fe2",
+   "kind": "figure_description",
+   "target": "diagram-3.23: Floor type 3 – wall type 2",
+   "value": "This is a section diagram titled \"Diagram 3.23 Floor type 3 – wall type 2\", marked \"SECTION\". It shows a floor meeting a separating wall made of two leaves, with labels \"Hanger\"; \"Seal with tape or sealant\"; \"Separating wall type 2\".",
+   "reason": "Plain description of the printed diagram with its labels.",
+   "evidence": "Title, three labels and \"SECTION\" are printed in the image.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "1607ba52b2be81e6",
+   "kind": "figure_description",
+   "target": "diagram-4.1: Treatments for material change of use",
+   "value": "This is a diagram titled \"Diagram 4.1 Treatments for material change of use\" with four small drawings of build-ups that use mineral wool. The drawings are labelled \"Wall treatment 1\"; \"Floor treatment 1\"; \"Floor treatment 2\"; \"Stair treatment 1\".",
+   "reason": "Plain description of the printed diagram with its labels.",
+   "evidence": "Title and four captions are printed in the image.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "dc9351843e0487be",
+   "kind": "figure_description",
+   "target": "diagram-4.2: Wall treatment 1",
+   "value": "This is a plan diagram titled \"Diagram 4.2 Wall treatment 1\", marked \"PLAN\". It shows two ways of lining an existing wall, one with a frame and \"2 layers plasterboard\" and one with a \"Free-standing panel\", both with \"Mineral wool\". Labels include \"Minimum distance is 10mm\"; \"Frame\"; \"Existing wall\"; \"Minimum distance is 35mm\" (printed twice).",
+   "reason": "Plain description of the printed diagram with its labels.",
+   "evidence": "Title, labels, dimensions and \"PLAN\" are printed in the image.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "eb14d25a2f7ade1e",
+   "kind": "figure_description",
+   "target": "diagram-4.3: Floor treatment 1",
+   "value": "This is a section diagram titled \"Diagram 4.3 Floor treatment 1\". It shows an existing floor above an existing ceiling upgraded to 20kg/m², with an independent ceiling joist below holding mineral wool. Printed labels: \"Existing floor\"; \"Existing ceiling upgraded to 20kg/m²\"; \"At least 25mm clearance\"; \"Independent ceiling joist\"; \"Mineral wool\"; \"At least 125mm\".",
+   "reason": "Read the printed labels and drawing in the image.",
+   "evidence": "Labels visible in the diagram image, marked SECTION.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "98f4bf7329bf5f6e",
+   "kind": "figure_description",
+   "target": "diagram-4.4: Floor treatment 1 – high window head detail",
+   "value": "This is a section diagram titled \"Diagram 4.4 Floor treatment 1 – high window head detail\". It shows an independent ceiling with mineral wool stepping up beside a window head and pelmet recess, below the original ceiling. Printed labels: \"Original ceiling level\"; \"Pelmet recess\"; \"Independent ceiling level\".",
+   "reason": "Read the printed labels and drawing in the image.",
+   "evidence": "Labels visible in the diagram image, marked SECTION.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "9080750b5deb447a",
+   "kind": "figure_description",
+   "target": "diagram-4.5: Floor treatment 1 – wall treatment 1",
+   "value": "This is a section diagram titled \"Diagram 4.5 Floor treatment 1 – wall treatment 1\". It shows a masonry wall with a lining layer on the room side, a floor with joists, and an independent ceiling below with mineral wool between its joists. It has no printed labels other than the title and \"SECTION\".",
+   "reason": "Read the title and drawing in the image; no other labels are printed.",
+   "evidence": "Only title and SECTION text visible.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "31ca6ad4f0287b73",
+   "kind": "figure_description",
+   "target": "diagram-4.6: Floor treatment 2",
+   "value": "This is a section diagram titled \"Diagram 4.6 Floor treatment 2\". It shows a floor build-up with a floating layer on top of a resilient layer, joists with mineral wool between them, and a ceiling below. Printed labels: \"Floating layer\"; \"Resilient layer\"; \"Existing ceiling upgraded to 20kg/m²\"; \"Mineral wool\".",
+   "reason": "Read the printed labels and drawing in the image.",
+   "evidence": "Labels visible in the diagram image, marked SECTION.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "e76348f56b4a728c",
+   "kind": "figure_description",
+   "target": "diagram-4.7: Floor treatment 2 – wall treatment 1",
+   "value": "This is a section diagram titled \"Diagram 4.7 Floor treatment 2 – wall treatment 1\". It shows a masonry wall with a lining layer, and a floor with a floating layer on a resilient layer, joists with mineral wool between them, and a ceiling below. It has no printed labels other than the title and \"SECTION\".",
+   "reason": "Read the title and drawing in the image; no other labels are printed.",
+   "evidence": "Only title and SECTION text visible.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "82415f48beb8e8cd",
+   "kind": "figure_description",
+   "target": "diagram-4.8: Stair treatment",
+   "value": "This is a section diagram titled \"Diagram 4.8 Stair treatment\". It shows a sloping stair with a soft covering on the steps and, underneath, mineral wool fixed with battens and finished with plasterboard. Printed labels: \"Soft covering\"; \"Mineral wool\"; \"Fixing batten\"; \"Plasterboard\".",
+   "reason": "Read the printed labels and drawing in the image.",
+   "evidence": "Labels visible in the diagram image, marked SECTION.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "53c780e940ecfa24",
+   "kind": "figure_description",
+   "target": "diagram-4.9: Floor penetrations",
+   "value": "This is a section diagram titled \"Diagram 4.9 Floor penetrations\". It shows a brick wall with a floor and ceiling on each side and a pair of pipes passing vertically through the floor. Printed labels: \"Lag pipes with mineral wool\"; \"Enclosure\"; \"SECTION\".",
+   "reason": "Figure is a labelled section drawing of pipes passing through a floor.",
+   "evidence": "Image shows title, two arrow labels and the word SECTION.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "7308d8da7b2f3dcb",
+   "kind": "figure_description",
+   "target": "diagram-5.1: Internal wall type A",
+   "value": "This is a plan diagram titled \"Diagram 5.1 Internal wall type A\". It shows two thin parallel wall leaves with two crossed blocks (timber studs) between them, and a gap in between. The only other printed label is \"PLAN\".",
+   "reason": "Simple plan drawing of a wall build-up with one printed label.",
+   "evidence": "Image shows two vertical leaves, two crossed boxes, PLAN.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "b5c8d090f2f14d12",
+   "kind": "figure_description",
+   "target": "diagram-5.2: Internal wall type B",
+   "value": "This is a plan diagram titled \"Diagram 5.2 Internal wall type B\". It shows two thin wall leaves with two crossed blocks between them and a zig-zag quilted layer (mineral wool) along the inner face of the right-hand leaf. The only other printed label is \"PLAN\".",
+   "reason": "Plan drawing of a wall build-up with a quilt layer; only PLAN printed.",
+   "evidence": "Image shows two leaves, crossed boxes, quilt hatching, PLAN.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "56ab9eadd34e9c66",
+   "kind": "figure_description",
+   "target": "diagram-5.3: Internal wall type C",
+   "value": "This is a section diagram titled \"Diagram 5.3 Internal wall type C\". It shows a tall, narrow wall cut in four stacked parts, each filled with a diamond crossed pattern, with thin layers on both faces. The only other printed label is \"SECTION\".",
+   "reason": "Section drawing of a wall with crossed hatching; only SECTION printed.",
+   "evidence": "Image shows four stacked hatched panels and SECTION.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "3aced21ecc6adf94",
+   "kind": "figure_description",
+   "target": "diagram-5.4: Internal wall type D",
+   "value": "This is a section diagram titled \"Diagram 5.4 Internal wall type D\". It shows a tall, narrow wall cut in four stacked parts, each filled with a pattern of small hexagons, with thin layers on both faces. The only other printed label is \"SECTION\".",
+   "reason": "Section drawing of a wall with hexagon fill; only SECTION printed.",
+   "evidence": "Image shows four stacked hexagon-filled panels and SECTION.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "dfaa201bc628212f",
+   "kind": "figure_description",
+   "target": "diagram-5.5: Internal floor type A",
+   "value": "This is a section diagram titled \"Diagram 5.5 Internal floor type A\". It shows a dotted top layer over a row of precast slabs with round holes, a round cross-hatched joint between two slabs, and three crossed battens below a thin ceiling layer. The only other printed label is \"SECTION\".",
+   "reason": "Section drawing of a floor build-up; only SECTION printed.",
+   "evidence": "Image shows dotted screed, hollow slabs, joint, battens, ceiling line, SECTION.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "2cfe9f4a886a16f0",
+   "kind": "figure_description",
+   "target": "diagram-5.6: Internal floor type B",
+   "value": "Diagram 5.6, Internal floor type B, is a line drawing of a floor in section. It shows a thin screed layer on top of a deeper layer marked with small triangles, with stepped support pieces beneath it and a thin board along the bottom with small cross-marked blocks. The only printed label is SECTION.",
+   "reason": "Line drawing of a floor build-up in section; the only printed words are the title and SECTION.",
+   "evidence": "Image shows title bar 'Diagram 5.6 Internal floor type B', stippled top layer, triangle-filled layer, crossed blocks and a bottom board, and the word SECTION.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "8ef0404ba1604af1",
+   "kind": "figure_description",
+   "target": "diagram-5.7: Internal floor type C",
+   "value": "Diagram 5.7, Internal floor type C, is a line drawing of a floor in section. It shows a thin board layer at the top and another at the bottom, held apart by two cross-marked timber pieces, with a wavy mineral-wool style quilt filling the space between them. The only printed label is SECTION.",
+   "reason": "Line drawing of a floor build-up in section with an insulation-type fill between top and bottom layers.",
+   "evidence": "Image shows title 'Diagram 5.7 Internal floor type C', top and bottom layers, two crossed vertical pieces, a looped quilt pattern between, and the word SECTION.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "59b34f9a3bdff6b0",
+   "kind": "figure_description",
+   "target": "diagram-6.1: Ceiling void and roof space (only applicable to rooms for residential purposes)",
+   "value": "Diagram 6.1, Ceiling void and roof space (only applicable to rooms for residential purposes), is a section drawing of a cross-hatched wall running up to a ceiling line with a quilt layer over it. The printed labels are \"Mineral wool\", which points to the quilt laid over and across the top of the wall, and \"Ceiling not continuous between rooms, joints sealed with tape or flexible sealant\", which points to the ceiling at both sides of the wall. The word SECTION is printed in the corner.",
+   "reason": "Section diagram with two printed callouts and the SECTION label.",
+   "evidence": "Image shows labels 'Mineral wool' and 'Ceiling not continuous between rooms, joints sealed with tape or flexible sealant', a cross-hatched wall and a wavy quilt layer.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "f49cec0cc2533be3",
+   "kind": "table",
+   "target": "table-7.1: Absorption coefficient data for common materials in",
+   "value": {
+    "columns": [
+     "Material",
+     "250 Hz",
+     "500 Hz",
+     "1000 Hz",
+     "2000 Hz",
+     "4000 Hz"
+    ],
+    "rows": [
+     [
+      "Fair-faced concrete or plastered masonry",
+      "0.01",
+      "0.01",
+      "0.02",
+      "0.02",
+      "0.03"
+     ],
+     [
+      "Fair-faced brick",
+      "0.02",
+      "0.03",
+      "0.04",
+      "0.05",
+      "0.07"
+     ],
+     [
+      "Painted concrete block",
+      "0.05",
+      "0.06",
+      "0.07",
+      "0.09",
+      "0.08"
+     ],
+     [
+      "Windows, glass façade",
+      "0.08",
+      "0.05",
+      "0.04",
+      "0.03",
+      "0.02"
+     ],
+     [
+      "Doors (timber)",
+      "0.10",
+      "0.08",
+      "0.08",
+      "0.08",
+      "0.08"
+     ],
+     [
+      "Glazed tile/marble",
+      "0.01",
+      "0.01",
+      "0.01",
+      "0.02",
+      "0.02"
+     ],
+     [
+      "Hard floor coverings (e.g. lino, parquet) on concrete floor",
+      "0.03",
+      "0.04",
+      "0.05",
+      "0.05",
+      "0.06"
+     ],
+     [
+      "Soft floor coverings (e.g. carpet) on concrete floor",
+      "0.03",
+      "0.06",
+      "0.15",
+      "0.30",
+      "0.40"
+     ],
+     [
+      "Suspended plaster or plasterboard ceiling (with large air space behind)",
+      "0.15",
+      "0.10",
+      "0.05",
+      "0.05",
+      "0.05"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Absorption coefficient data for common materials in buildings: for fair-faced concrete or plastered masonry, the sound absorption coefficient, α, in octave frequency bands (Hz) is 0.01 at 250, 0.01 at 500, 0.02 at 1000, 0.02 at 2000 and 0.03 at 4000.",
+     "Absorption coefficient data for common materials in buildings: for fair-faced brick, the sound absorption coefficient, α, in octave frequency bands (Hz) is 0.02 at 250, 0.03 at 500, 0.04 at 1000, 0.05 at 2000 and 0.07 at 4000.",
+     "Absorption coefficient data for common materials in buildings: for painted concrete block, the sound absorption coefficient, α, in octave frequency bands (Hz) is 0.05 at 250, 0.06 at 500, 0.07 at 1000, 0.09 at 2000 and 0.08 at 4000.",
+     "Absorption coefficient data for common materials in buildings: for windows, glass façade, the sound absorption coefficient, α, in octave frequency bands (Hz) is 0.08 at 250, 0.05 at 500, 0.04 at 1000, 0.03 at 2000 and 0.02 at 4000.",
+     "Absorption coefficient data for common materials in buildings: for doors (timber), the sound absorption coefficient, α, in octave frequency bands (Hz) is 0.10 at 250, 0.08 at 500, 0.08 at 1000, 0.08 at 2000 and 0.08 at 4000.",
+     "Absorption coefficient data for common materials in buildings: for glazed tile/marble, the sound absorption coefficient, α, in octave frequency bands (Hz) is 0.01 at 250, 0.01 at 500, 0.01 at 1000, 0.02 at 2000 and 0.02 at 4000.",
+     "Absorption coefficient data for common materials in buildings: for hard floor coverings (e.g. lino, parquet) on concrete floor, the sound absorption coefficient, α, in octave frequency bands (Hz) is 0.03 at 250, 0.04 at 500, 0.05 at 1000, 0.05 at 2000 and 0.06 at 4000.",
+     "Absorption coefficient data for common materials in buildings: for soft floor coverings (e.g. carpet) on concrete floor, the sound absorption coefficient, α, in octave frequency bands (Hz) is 0.03 at 250, 0.06 at 500, 0.15 at 1000, 0.30 at 2000 and 0.40 at 4000.",
+     "Absorption coefficient data for common materials in buildings: for suspended plaster or plasterboard ceiling (with large air space behind), the sound absorption coefficient, α, in octave frequency bands (Hz) is 0.15 at 250, 0.10 at 500, 0.05 at 1000, 0.05 at 2000 and 0.05 at 4000."
+    ]
+   },
+   "reason": "Single table with a Material column and five octave band columns; the header row has a spanning heading with the frequencies beneath.",
+   "evidence": "Page image p72 shows Table 7.1 with 9 material rows and values for 250, 500, 1000, 2000 and 4000 Hz.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  },
+  {
+   "key": "6b0d46e91fabbdea",
+   "kind": "table",
+   "target": "table-7.2: Example calculation for an entrance hall (Method B)",
+   "value": {
+    "columns": [
+     "Step",
+     "Surface",
+     "Surface finish",
+     "Area (m2)",
+     "250Hz",
+     "500Hz",
+     "1000Hz",
+     "2000Hz",
+     "4000Hz"
+    ],
+    "rows": [
+     [
+      "Step 1",
+      "Floor",
+      "Carpet on concrete base",
+      "12.00",
+      "",
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "Step 1",
+      "Doors",
+      "Timber",
+      "9.60",
+      "",
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "Step 1",
+      "Walls (excluding door area)",
+      "Concrete block, painted",
+      "25.40",
+      "",
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "Step 1",
+      "Ceiling",
+      "To be determined from this calculation",
+      "12.00",
+      "",
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "Step 2",
+      "Floor",
+      "",
+      "12.00",
+      "0.03",
+      "0.06",
+      "0.15",
+      "0.30",
+      "0.40"
+     ],
+     [
+      "Step 2",
+      "Doors",
+      "",
+      "9.60",
+      "0.10",
+      "0.08",
+      "0.08",
+      "0.08",
+      "0.08"
+     ],
+     [
+      "Step 2",
+      "Walls",
+      "",
+      "25.40",
+      "0.05",
+      "0.06",
+      "0.07",
+      "0.09",
+      "0.08"
+     ],
+     [
+      "Step 2",
+      "Ceiling",
+      "",
+      "12.00",
+      "To be determined from this calculation",
+      "To be determined from this calculation",
+      "To be determined from this calculation",
+      "To be determined from this calculation",
+      "To be determined from this calculation"
+     ],
+     [
+      "Step 3",
+      "Floor",
+      "",
+      "",
+      "0.36 (12.00 x 0.03)",
+      "0.72",
+      "1.80",
+      "3.60",
+      "4.80"
+     ],
+     [
+      "Step 3",
+      "Doors",
+      "",
+      "",
+      "0.96 (9.60 x 0.10)",
+      "0.77",
+      "0.77",
+      "0.77",
+      "0.77"
+     ],
+     [
+      "Step 3",
+      "Walls",
+      "",
+      "",
+      "1.27 (25.40 x 0.05)",
+      "1.52",
+      "1.78",
+      "2.29",
+      "2.03"
+     ],
+     [
+      "Step 4",
+      "Total absorption area (m2)",
+      "",
+      "",
+      "2.59 (0.36 + 0.96 + 1.27)",
+      "3.01",
+      "4.35",
+      "6.66",
+      "7.60"
+     ],
+     [
+      "Step 5",
+      "AT (m2)",
+      "",
+      "",
+      "6.00",
+      "6.00",
+      "6.00",
+      "6.00",
+      "6.00"
+     ],
+     [
+      "Step 6",
+      "Additional absorption area (m2)",
+      "",
+      "",
+      "3.41 (6.00 – 2.59)",
+      "2.99",
+      "1.65",
+      "-0.66",
+      "-1.60"
+     ],
+     [
+      "Step 7",
+      "Required absorption coefficient, α",
+      "",
+      "",
+      "0.28 (3.41 ÷ 12.0)",
+      "0.25",
+      "0.14",
+      "Any value",
+      "Any value"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Example calculation for an entrance hall (Method B), Step 1: the floor has surface finish carpet on concrete base and area 12.00 m2.",
+     "Example calculation for an entrance hall (Method B), Step 1: the doors have surface finish timber and area 9.60 m2.",
+     "Example calculation for an entrance hall (Method B), Step 1: the walls (excluding door area) have surface finish concrete block, painted and area 25.40 m2.",
+     "Example calculation for an entrance hall (Method B), Step 1: the ceiling has surface finish to be determined from this calculation and area 12.00 m2.",
+     "Example calculation for an entrance hall (Method B), Step 2: the floor, area 12.00 m2, has absorption coefficient (α) of 0.03 at 250Hz, 0.06 at 500Hz, 0.15 at 1000Hz, 0.30 at 2000Hz and 0.40 at 4000Hz.",
+     "Example calculation for an entrance hall (Method B), Step 2: the doors, area 9.60 m2, have absorption coefficient (α) of 0.10 at 250Hz, 0.08 at 500Hz, 0.08 at 1000Hz, 0.08 at 2000Hz and 0.08 at 4000Hz.",
+     "Example calculation for an entrance hall (Method B), Step 2: the walls, area 25.40 m2, have absorption coefficient (α) of 0.05 at 250Hz, 0.06 at 500Hz, 0.07 at 1000Hz, 0.09 at 2000Hz and 0.08 at 4000Hz.",
+     "Example calculation for an entrance hall (Method B), Step 2: the ceiling, area 12.00 m2, has absorption coefficients to be determined from this calculation.",
+     "Example calculation for an entrance hall (Method B), Step 3: the floor has absorption area (m2) of 0.36 (12.00 x 0.03) at 250Hz, 0.72 at 500Hz, 1.80 at 1000Hz, 3.60 at 2000Hz and 4.80 at 4000Hz.",
+     "Example calculation for an entrance hall (Method B), Step 3: the doors have absorption area (m2) of 0.96 (9.60 x 0.10) at 250Hz, 0.77 at 500Hz, 0.77 at 1000Hz, 0.77 at 2000Hz and 0.77 at 4000Hz.",
+     "Example calculation for an entrance hall (Method B), Step 3: the walls have absorption area (m2) of 1.27 (25.40 x 0.05) at 250Hz, 1.52 at 500Hz, 1.78 at 1000Hz, 2.29 at 2000Hz and 2.03 at 4000Hz.",
+     "Example calculation for an entrance hall (Method B), Step 4: the total absorption area (m2) is 2.59 (0.36 + 0.96 + 1.27) at 250Hz, 3.01 at 500Hz, 4.35 at 1000Hz, 6.66 at 2000Hz and 7.60 at 4000Hz.",
+     "Example calculation for an entrance hall (Method B), Step 5: AT (m2) is 6.00.",
+     "Example calculation for an entrance hall (Method B), Step 6: the additional absorption area (m2) is 3.41 (6.00 – 2.59) at 250Hz, 2.99 at 500Hz, 1.65 at 1000Hz, -0.66 at 2000Hz and -1.60 at 4000Hz, and negative values indicate that no additional absorption is necessary.",
+     "Example calculation for an entrance hall (Method B), Step 7: the required absorption coefficient, α, is 0.28 (3.41 ÷ 12.0) at 250Hz, 0.25 at 500Hz, 0.14 at 1000Hz, any value at 2000Hz and any value at 4000Hz."
+    ]
+   },
+   "reason": "Table 7.2 is a stack of step blocks; merged into one table with a Step column, cells spanning columns repeated. Step 8 is text only and has no row.",
+   "evidence": "Page image p73 shows Steps 1 to 7 with sub-tables and Step 8 as text.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "medium",
+   "date": "2026-11-22"
+  }
+ ]
+}

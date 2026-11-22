@@ -398,15 +398,6 @@ REAL = [  # source, part (start of the part name), counts from the parsed docume
 ]
 
 
-REDO_AFTER_FRAME_RULE = {
-    "ada": {"diagram-6", "diagram-6-continued"},
-    "adc": {"diagram-6"},
-    "adj": {"diagram-10", "diagram-19", "diagram-40"},
-    "adk": {"diagram-1.1", "diagram-1.2", "diagram-1.9", "diagram-1.11", "diagram-1.13", "diagram-2.2", "diagram-3.2",
-            "diagram-5.1", "diagram-5.2", "diagram-5.3", "diagram-9.3"},
-}
-
-
 def _real_tree(source, part):
     pytest.importorskip("pdfplumber")
     import yaml
@@ -427,10 +418,7 @@ def test_real_approved_documents_counts_and_all_checks_settled(source, part, cou
     t = _real_tree(source, part)
     got = {k: sum(1 for s in t["sections"] if s["type"] == k) for k in counts}
     assert got == counts
-    # Figures whose labels changed when crops moved to the drawn frame (22 Nov 2026): their descriptions are to be
-    # written again from the right crop (parking lot S-entry "AD figure descriptions after the frame rule").
-    redo = REDO_AFTER_FRAME_RULE.get(source, set())
-    assert {c["section_id"] for c in t["checks"]} <= redo and all(c["kind"] == "figure" for c in t["checks"])
+    assert not t["checks"]  # every model check settled by a saved fix
     assert not [i for i in t["issues"] if "duplicate" in i]
     ids = [s["id"] for s in t["sections"]]
     assert len(ids) == len(set(ids))

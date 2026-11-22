@@ -119,3 +119,16 @@ def test_sentence_rules_allow_closing_brackets_and_list_numbers():
     sign = ("A fire action notice with three steps: 1. Operate nearest fire alarm. 2. Leave building by the "
             "nearest exit. 3. Report to the assembly point. A red box gives two rules.")
     assert _sentence_count(sign) == 4  # the list numbers do not end sentences
+
+
+def test_listed_table_is_not_bound_by_its_title_family():
+    from system.rag.checks import lint_fixes, table_family
+
+    def fix(target, cols):
+        return {"key": target[:16].ljust(16, "0"), "kind": "table", "target": target,
+                "value": {"columns": cols, "rows": [["a"] * len(cols)], "heading_rows": [], "sentences": ["A row."]}}
+    t11 = fix("table-11: Minimum dimensions for access fittings and inspection chambers", ["Type", "Size", "Depth"])
+    t12 = fix("table-12: Minimum dimensions for manholes", ["Type", "Size of largest pipe"])
+    assert table_family("adh", t12["target"]) is None and table_family("adh", t11["target"]) == "minimum dimensions"
+    assert not any("same family" in p for p in lint_fixes("adh", [t11, t12]))
+    assert any("same family" in p for p in lint_fixes("other", [t11, t12]))  # elsewhere the rule still binds

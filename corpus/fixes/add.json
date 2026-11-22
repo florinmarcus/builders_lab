@@ -1,0 +1,32 @@
+{
+ "source_id": "add",
+ "about": "Saved model fixes for add (ADR 0010).",
+ "fixes": [
+  {
+   "key": "777cd8a52eb8c775",
+   "kind": "table",
+   "target": "the-requirement-box-1: The Requirement",
+   "value": {
+    "columns": [
+     "Requirement",
+     "Limits on application"
+    ],
+    "rows": [
+     [
+      "Cavity insulation D1. If insulating material is inserted into a cavity in a cavity wall, reasonable precautions shall be taken to prevent the subsequent permeation of any toxic fumes from that material into any part of the building occupied by people.",
+      ""
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "The Requirement table says, for cavity insulation, D1: if insulating material is inserted into a cavity in a cavity wall, reasonable precautions shall be taken to prevent the subsequent permeation of any toxic fumes from that material into any part of the building occupied by people, and it gives no limits on application."
+    ]
+   },
+   "reason": "The page shows a two-column box with headings Requirement and Limits on application and one requirement row; the limits cell is empty on the page.",
+   "evidence": "Page 5 (printed page 3): headings 'Requirement' and 'Limits on application'; row 'Cavity insulation' with D1 text; nothing under Limits on application.",
+   "by": "model check, Claude Code headless Sonnet (packet)",
+   "confidence": "high",
+   "date": "2026-11-22"
+  }
+ ]
+}
