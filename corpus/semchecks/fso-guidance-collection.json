@@ -155,6 +155,17 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "7d6448995390bf58": {
+   "version_id": "fire-safety-in-purpose-built-blocks-of-flats--fire-safety-in-purpose-built-blocks-of-flats@2024-12-02-5c6ae503",
+   "unit": "p151",
+   "kind": "semcheck-pdf",
+   "family": "flats-guide-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "b2723eb04395fe96": {
    "version_id": "fire-safety-in-purpose-built-blocks-of-flats--fire-safety-in-purpose-built-blocks-of-flats@2024-12-02-5c6ae503",
    "unit": "p151",
@@ -850,6 +861,17 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "7927dbde27d0104d": {
+   "version_id": "fire-safety-risk-assessment-animal-premises-and-st--fire-safety-risk-assessment-animal-premises-and-stables@2023-09-12-697807b1",
+   "unit": "p93",
+   "kind": "semcheck-pdf",
+   "family": "fire-risk-guide-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "2b5ea455c41115c5": {
    "version_id": "fire-safety-risk-assessment-educational-premises--fire-safety-risk-assessment-educational-premises@2023-09-12-148e02df",
    "unit": "p1",
@@ -908,6 +930,17 @@
   "0d2626d69ffb6395": {
    "version_id": "fire-safety-risk-assessment-educational-premises--fire-safety-risk-assessment-educational-premises@2023-09-12-148e02df",
    "unit": "p119",
+   "kind": "semcheck-pdf",
+   "family": "fire-risk-guide-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "a0d519cb94e4c7e3": {
+   "version_id": "fire-safety-risk-assessment-educational-premises--fire-safety-risk-assessment-educational-premises@2023-09-12-148e02df",
+   "unit": "p120",
    "kind": "semcheck-pdf",
    "family": "fire-risk-guide-pdf",
    "verdict": "ok",
@@ -1276,6 +1309,30 @@
    "verdict": "ok",
    "findings": [],
    "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "5c6970b9156379fe": {
+   "version_id": "fire-safety-risk-assessment-factories-and-warehous--fire-safety-risk-assessment-factories-and-warehouses@2023-09-12-ca8d9634",
+   "unit": "p124",
+   "kind": "semcheck-pdf",
+   "family": "fire-risk-guide-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The heading, table title, table text and notes keep the single ligature glyph for \"fi\" instead of the two letters.",
+     "evidence": "source: \"Example form for recording significant findings\" / tree: \"Example form for recording signiﬁcant ﬁndings\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The section band \"Step 2 – People at risk\" sits in the Field column with an empty Section, unlike Step 1 and Step 3 which sit in the Section column.",
+     "evidence": "tree: [\"\", \"Step 2 – People at risk\"]"
+    }
+   ],
+   "confidence": "high",
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
@@ -1654,6 +1711,30 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "28a00a82d645c94d": {
+   "version_id": "fire-safety-risk-assessment-healthcare-premises--fire-safety-risk-assessment-healthcare-premises@2023-09-12-9afdb9f7",
+   "unit": "p133",
+   "kind": "semcheck-pdf",
+   "family": "fire-risk-guide-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The printed page number is kept as a body paragraph under A2.",
+     "evidence": "source: page number \"131\" in the margin / tree: paragraph text \"131\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The section band \"Step 2 – People at risk\" sits in the Field column with an empty Section, unlike Step 1 and Step 3 which sit in the Section column.",
+     "evidence": "tree: [\"\", \"Step 2 – People at risk\"]"
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "7df77f37ff25cb0a": {
    "version_id": "fire-safety-risk-assessment-healthcare-premises--fire-safety-risk-assessment-healthcare-premises@2023-09-12-9afdb9f7",
    "unit": "p134",
@@ -1668,6 +1749,17 @@
      "evidence": "source: first row \"Single-storey premises | 30 minutes\" / tree columns: \"Premises\", \"Minimum period of fire resistance\""
     }
    ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "ebf9748dad8faa9d": {
+   "version_id": "fire-safety-risk-assessment-healthcare-premises--fire-safety-risk-assessment-healthcare-premises@2023-09-12-9afdb9f7",
+   "unit": "p134",
+   "kind": "semcheck-pdf",
+   "family": "fire-risk-guide-pdf",
+   "verdict": "ok",
+   "findings": [],
    "confidence": "high",
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
@@ -2098,6 +2190,24 @@
     }
    ],
    "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "5adf165b7b81b93b": {
+   "version_id": "fire-safety-risk-assessment-large-places-of-assemb--fire-safety-risk-assessment-large-places-of-assembly@2023-09-12-a078a988",
+   "unit": "p128",
+   "kind": "semcheck-pdf",
+   "family": "fire-risk-guide-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The section band \"Step 2 – People at risk\" sits in the Field column with an empty Section, unlike Step 1 and Step 3 which sit in the Section column.",
+     "evidence": "tree: [\"\", \"Step 2 – People at risk\"]"
+    }
+   ],
+   "confidence": "high",
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
@@ -2594,6 +2704,24 @@
    "verdict": "ok",
    "findings": [],
    "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "637c874a0c8550f5": {
+   "version_id": "fire-safety-risk-assessment-offices-and-shops--fire-safety-risk-assessment-offices-and-shops@2023-09-12-33a009ce",
+   "unit": "p119",
+   "kind": "semcheck-pdf",
+   "family": "fire-risk-guide-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The section band \"Step 2 – People at risk\" is put in the Field column with an empty Section, while the other step bands sit in the Section column.",
+     "evidence": "source: \"Step 2 – People at risk\" (section band) / tree: [\"\", \"Step 2 – People at risk\"]"
+    }
+   ],
+   "confidence": "medium",
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
@@ -3264,6 +3392,24 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "53314fbf2de7c22e": {
+   "version_id": "fire-safety-risk-assessment-residential-care-premi--fire-safety-risk-assessment-residential-care-premises@2023-09-12-1b600793",
+   "unit": "p123",
+   "kind": "semcheck-pdf",
+   "family": "fire-risk-guide-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The group heading \"Step 2 – People at risk\" sits in the Field column with an empty Section cell, unlike the other step headings.",
+     "evidence": "source: \"Step 2 – People at risk\" (group heading bar) / tree: [\"\", \"Step 2 – People at risk\"]"
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "42d0b39f37835f0d": {
    "version_id": "fire-safety-risk-assessment-residential-care-premi--fire-safety-risk-assessment-residential-care-premises@2023-09-12-1b600793",
    "unit": "p125",
@@ -3639,6 +3785,24 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "8632f141744fdfa0": {
+   "version_id": "fire-safety-risk-assessment-sleeping-accommodation--fire-safety-risk-assessment-sleeping-accommodation@2023-09-12-ff019659",
+   "unit": "p122",
+   "kind": "semcheck-pdf",
+   "family": "fire-risk-guide-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The section band \"Step 2 – People at risk\" is put in the Field column with an empty Section cell, unlike the Step 1 and Step 3 bands.",
+     "evidence": "source: \"Step 2 – People at risk\" (section band) / tree: [\"\", \"Step 2 – People at risk\"]"
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "ba0eac319cf35653": {
    "version_id": "fire-safety-risk-assessment-sleeping-accommodation--fire-safety-risk-assessment-sleeping-accommodation@2023-09-12-ff019659",
    "unit": "p122",
@@ -3710,6 +3874,17 @@
   "2d4e766d882e4c32": {
    "version_id": "fire-safety-risk-assessment-sleeping-accommodation--fire-safety-risk-assessment-sleeping-accommodation@2023-09-12-ff019659",
    "unit": "p137",
+   "kind": "semcheck-pdf",
+   "family": "fire-risk-guide-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "3f05219eb10f5ea7": {
+   "version_id": "fire-safety-risk-assessment-sleeping-accommodation--fire-safety-risk-assessment-sleeping-accommodation@2023-09-12-ff019659",
+   "unit": "p142",
    "kind": "semcheck-pdf",
    "family": "fire-risk-guide-pdf",
    "verdict": "ok",
@@ -4001,6 +4176,17 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "e8a6e8a11880c692": {
+   "version_id": "fire-safety-risk-assessment-sleeping-accommodation--fire-safety-risk-assessment-sleeping-accommodation@2023-09-12-ff019659",
+   "unit": "p91",
+   "kind": "semcheck-pdf",
+   "family": "fire-risk-guide-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "238339b5139c5939": {
    "version_id": "fire-safety-risk-assessment-small-and-medium-place--fire-safety-risk-assessment-small-and-medium-places-of-ass-8089035@2024-08-28-3384dda7",
    "unit": "p103",
@@ -4071,6 +4257,17 @@
     }
    ],
    "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "8f2faca59774f542": {
+   "version_id": "fire-safety-risk-assessment-small-and-medium-place--fire-safety-risk-assessment-small-and-medium-places-of-ass-8089035@2024-08-28-3384dda7",
+   "unit": "p118",
+   "kind": "semcheck-pdf",
+   "family": "fire-risk-guide-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
@@ -4187,6 +4384,35 @@
      "severity": "low",
      "problem": "The table has no header row in the source, but the tree gives it invented column names.",
      "evidence": "source: first row is \"BS 4422 | Fire. Vocabulary. British Standards Institution.\" / tree: columns \"Standard\", \"Description\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "fd7877a3105edb13": {
+   "version_id": "fire-safety-risk-assessment-small-and-medium-place--fire-safety-risk-assessment-small-and-medium-places-of-ass-8089035@2024-08-28-3384dda7",
+   "unit": "p139",
+   "kind": "semcheck-pdf",
+   "family": "fire-risk-guide-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "3b14adfffd85c719": {
+   "version_id": "fire-safety-risk-assessment-small-and-medium-place--fire-safety-risk-assessment-small-and-medium-places-of-ass-8089035@2024-08-28-3384dda7",
+   "unit": "p140",
+   "kind": "semcheck-pdf",
+   "family": "fire-risk-guide-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The list of other publications is printed below the table on this page, but the tree gives it before the table, joined to the intro text from the page before.",
+     "evidence": "source: table rows \"BS 5499-1 ... BS 5268-4.2\" then \"Technical standards for places of entertainment.\" / tree: \"Technical standards for places of entertainment.\" before the table"
     }
    ],
    "confidence": "medium",
@@ -4347,6 +4573,17 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "9427f1c24ca5d0d9": {
+   "version_id": "fire-safety-risk-assessment-small-and-medium-place--fire-safety-risk-assessment-small-and-medium-places-of-ass-8089035@2024-08-28-3384dda7",
+   "unit": "p85",
+   "kind": "semcheck-pdf",
+   "family": "fire-risk-guide-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "f44eeb8ab448f19b": {
    "version_id": "fire-safety-risk-assessment-small-and-medium-place--fire-safety-risk-assessment-small-and-medium-places-of-ass-8089035@2024-08-28-3384dda7",
    "unit": "p85",
@@ -4486,6 +4723,24 @@
     }
    ],
    "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "f0c26b350ba86c0e": {
+   "version_id": "fire-safety-risk-assessment-theatres-cinemas-and-s--fire-safety-risk-assessment-theatres-cinemas-and-similar-p@2023-09-12-ede06ce4",
+   "unit": "p135",
+   "kind": "semcheck-pdf",
+   "family": "fire-risk-guide-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The heading, table title, table text and notes keep the single ligature glyph for \"fi\" instead of the two letters.",
+     "evidence": "source: \"Example form for recording significant findings\" / tree: \"Example form for recording signiﬁcant ﬁndings\""
+    }
+   ],
+   "confidence": "high",
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
@@ -4864,6 +5119,24 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "758ba451416352cb": {
+   "version_id": "fire-safety-risk-assessment-transport-premises-and--fire-safety-risk-assessment-transport-premises-and-facilit@2023-09-12-249a59ff",
+   "unit": "p137",
+   "kind": "semcheck-pdf",
+   "family": "fire-risk-guide-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "In the table's text the Step 4 heading is mixed letter by letter with the Step 5 heading; the grid has it right.",
+     "evidence": "source: \"Step 4 – Record, plan, inform, instruct and train\" / tree: \"Step 54 – Revcioerwd, plan, inform, instruct and train\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "a372b0276c5653ab": {
    "version_id": "fire-safety-risk-assessment-transport-premises-and--fire-safety-risk-assessment-transport-premises-and-facilit@2023-09-12-249a59ff",
    "unit": "p137",
@@ -5156,6 +5429,17 @@
   "d1d50002a25edb2f": {
    "version_id": "fire-safety-risk-assessment-transport-premises-and--fire-safety-risk-assessment-transport-premises-and-facilit@2023-09-12-249a59ff",
    "unit": "p82",
+   "kind": "semcheck-pdf",
+   "family": "fire-risk-guide-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "5fdee0f8b2351682": {
+   "version_id": "fire-safety-risk-assessment-transport-premises-and--fire-safety-risk-assessment-transport-premises-and-facilit@2023-09-12-249a59ff",
+   "unit": "p99",
    "kind": "semcheck-pdf",
    "family": "fire-risk-guide-pdf",
    "verdict": "ok",

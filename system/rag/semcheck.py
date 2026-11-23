@@ -729,7 +729,10 @@ def run(source_ids: list[str] | None = None, parallel: int = 4, model: str = MOD
     out_dir = out_dir or CORPUS_DIR / "parsed" / "_semcheck" / datetime.datetime.now().strftime("run-%Y%m%d-%H%M%S")
     out_dir = (out_dir if out_dir.is_absolute() else ROOT / out_dir).resolve()
     out_dir.mkdir(parents=True, exist_ok=True)
-    todo = batches(packet_files(source_ids))
+    # Only packets with no verdict yet: a folder left from an earlier export (another --source) is not judged again.
+    files = [f for f in packet_files(source_ids)
+             if (pk := json.loads(f.read_text(encoding="utf-8")))["key"] not in load_verdicts(pk["source_id"])["verdicts"]]
+    todo = batches(files)
 
     lock = threading.Lock()
     failed = [0]  # batches in a row that left no answers: after 8 the run stops (the plan's usage limit is spent)

@@ -31,6 +31,17 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "72982335081ab490": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p107",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "ca331925010e745f": {
    "version_id": "main@2024-12-06-9ed204da",
    "unit": "p107",
@@ -58,6 +69,17 @@
     }
    ],
    "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "afb9c642d8ff6faa": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p108",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
@@ -279,6 +301,24 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "8cf13db6290b219f": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p136",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The form's printed title is kept only in the raw text, and the table is titled with the heading of an earlier section instead.",
+     "evidence": "source: \"ASBESTOS BULK IDENTIFICATION SHEET (PLM dispersion staining)\" / tree: \"Record and sample retention\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "a1060426b0033805": {
    "version_id": "main@2024-12-06-9ed204da",
    "unit": "p138",
@@ -315,6 +355,24 @@
      "severity": "low",
      "problem": "The fi ligature is lost in the A2.81 text kept in the table text.",
      "evidence": "source: \"different colours used in the identification\" / tree: \"different colours used in the identifcation\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "7d21b43069505c99": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p141",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Paragraph A2.81, printed as body text under the table, is not a paragraph in the tree and sits only at the end of Table A2.10's text as if it were a table note.",
+     "evidence": "source: \"A2.81 Colour or other vision defects need not disqualify a prospective analyst\" / tree: last lines of table-a2-10 text, no paragraph A2.81"
     }
    ],
    "confidence": "high",
@@ -419,6 +477,30 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "c22dfb8ff5a26ee4": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p17",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The text of Table 2.2 starts with all the rows of Table 2.1 and its note, so site audit items and the reinspection note are attached to the desktop review table.",
+     "evidence": "tree (table-2-2 text): \"The correct PPE and RPE are worn.\" ... \"*Note: It will be impractical to reinspect all areas in a large or complex enclosure.\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The first group heading \"General\" is joined to the end of both table titles.",
+     "evidence": "source: \"Table 2.1 Site auditing protocol for 4-stage clearances\" / tree: \"Site auditing protocol for 4-stage clearances General\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "7c011980968097ef": {
    "version_id": "main@2024-12-06-9ed204da",
    "unit": "p172",
@@ -480,6 +562,17 @@
      "evidence": "source: first row \"Before starting the 4-stage clearance\" / tree: columns \"Item\", \"Column 2\""
     }
    ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "bf04f4e466391785": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p175",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
    "confidence": "high",
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
@@ -927,9 +1020,31 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "47faa130bcd0c6e1": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p222",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "cf262b2642bf7cad": {
    "version_id": "main@2024-12-06-9ed204da",
    "unit": "p222",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "175b3344f4ecb664": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p223",
    "kind": "semcheck-pdf",
    "family": "guidance-pdf",
    "verdict": "ok",
@@ -956,6 +1071,30 @@
      "severity": "low",
      "problem": "The title of Table A9.3 lost the fi ligature.",
      "evidence": "source: \"Fibre identification – bulk analysis\" / tree: \"Fibre identifcation – bulk analysis\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "557234a0817a3ef1": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p224",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The rows of 'Table A9.3 continued' at the top of the page are not in any grid; their words sit only at the end of the `text` of Table A9.4 (Air sampling and fibre counting), so fibre identification competences are put under the wrong table.",
+     "evidence": "source: \"Table A9.3 continued ... Understand operation of the fume cupboard, the requirements for maintenance of performance\" / tree: only in table-a9-4 `text`, after \"refer to standards/control limits.\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The single 'Detail of core competence' cell of Table A9.4 is split into ten grid rows, each repeating the left cell; the words are all kept.",
+     "evidence": "tree rows: \"Understand types of sampling error.\" / \"Be able to prepare microscope slides following sampling.\""
     }
    ],
    "confidence": "high",
@@ -1007,6 +1146,60 @@
     }
    ],
    "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "e8457b1a234e54db": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p225",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The one table row has four cells for two columns: the 'Detail of core competence' cell is cut into three cells, with the cuts in the middle of sentences.",
+     "evidence": "tree cell 2 ends \"minimising exposure below the control limit,\" / cell 3 starts \"clearance levels and STEL\"; cell 3 ends \"clearance and certification\" / cell 4 starts \"for reoccupation protocols\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "36594fa6c3311c05": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p226",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The top table, printed as 'Table A9.4 continued', is given as Table A9.5 'Building survey work', so its clearance competences sit under the wrong table.",
+     "evidence": "source: \"Table A9.4 continued ... Be able to stand firm and justify their professional judgement\" / tree: table-a9-5 \"Building survey work\" grid \"Be able to stand firm and justify their professional judgement\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The real Table A9.5 'Building survey work' (the lower table) has lost its number and title and is given as an unnamed table with the appendix title.",
+     "evidence": "source: \"Table A9.5 Building survey work ... Substantial on-site survey work for the duty to manage asbestos\" / tree: \"Table (Recommended core competences to be achieved via on- and off-the-job development)\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The note printed under the Table A9.5 caption is joined to Paragraph 2 from page 221 instead of the table, together with stray table captions.",
+     "evidence": "tree para 2: \"practical skills and expertise. Table A9.3 continued Table continues Table A9.4 continued This table is primarily for survey-related bulk sampling\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The lower table's row has three cells for two columns: the 'Detail of core competence' cell is cut in two in the middle of a sentence.",
+     "evidence": "tree cell 2 ends \"The above will include knowledge of\" / cell 3 starts \"building services and plant and equipment\""
+    }
+   ],
+   "confidence": "high",
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
@@ -1389,6 +1582,24 @@
      "severity": "low",
      "problem": "Three sub-headings are joined to the end of the paragraph before them as body text.",
      "evidence": "tree: \"...suitable for the individual wearer. Tight-fitting facepieces, fit testing and fit checking\"; \"...provide protection. Repeat fit tests\"; \"...found in INDG479. Pre-use checks\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "1510e2e3d1b334df": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p72",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-heading above paragraph 8.32 is read as body text at the end of paragraph 8.31, and is missing from the heading path of 8.32.",
+     "evidence": "source heading: \"Entry into ‘live’ enclosures (see definition in paragraph 1.6 and associated footnote)\" / tree para 8.31: \"...along with suitable RPE. Entry into ‘live’ enclosures (see definition in paragraph 1.6 and associated footnote)\""
     }
    ],
    "confidence": "high",

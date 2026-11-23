@@ -257,6 +257,17 @@
    "by": "Fable 5.2, Claude Code headless (packet)",
    "date": "2026-11-23"
   },
+  "678ba2ada6750777": {
+   "version_id": "approved-document-m-access-to-and-use-of-buildings-volume-1@2024-10-01-fb66dd25",
+   "unit": "p64",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "e629ae2b267c91de": {
    "version_id": "approved-document-m-access-to-and-use-of-buildings-volume-2@2024-10-01-0e5d4dee",
    "unit": "p15",
@@ -393,6 +404,48 @@
    "by": "Fable 5.2, Claude Code headless (packet)",
    "date": "2026-11-23"
   },
+  "01923e06b7e80661": {
+   "version_id": "approved-document-m-access-to-and-use-of-buildings-volume-2@2024-10-01-0e5d4dee",
+   "unit": "p41",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The second line of the Table 3 title is read as a new heading, so items d to m of paragraph 4.12 are split from 4.12 and placed under that false heading.",
+     "evidence": "source: \"Table 3 Provision of wheelchair space in audience seating\" / tree: heading \"in audience seating\" > Text \"d. some wheelchair spaces (whether permanent or created by removing seats)\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The table's words and its note are repeated as a running text block under the false heading, and the note is not attached to Table 3.",
+     "evidence": "tree: text \"Seating Minimum provision of capacity spaces for wheelchairs Permanent Removable Up to 600 ... Note: For seating capacities of 10,000 or more\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The title of Table 3 is cut short.",
+     "evidence": "source: \"Provision of wheelchair space in audience seating\" / tree: \"Provision of wheelchair space\""
+    },
+    {
+     "kind": "figure",
+     "severity": "low",
+     "problem": "The caption of Diagram 13 is cut in two, with its second half put in labels, and the printed labels are not in labels.",
+     "evidence": "source: \"An example of wheelchair spaces in a lecture theatre\" / tree: title \"An example of wheelchair\", labels \"spaces in a lecture theatre\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Two italic sub-headings are read as body text at the end of the paragraph before them.",
+     "evidence": "tree: \"or a lip speaker (see 4.32 to 4.34). Entertainment, leisure and social facilities\" and \"places of entertainment. Sports facilities\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "5b7152ffefff03f3": {
    "version_id": "approved-document-m-access-to-and-use-of-buildings-volume-2@2024-10-01-0e5d4dee",
    "unit": "p41",
@@ -504,6 +557,24 @@
    "by": "Fable 5.2, Claude Code headless (packet)",
    "date": "2026-11-23"
   },
+  "8acbe2539cfd2d4b": {
+   "version_id": "corrections-to-approved-document-m@2024-10-01-b11dd2b3",
+   "unit": "p7",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "high",
+     "problem": "Several dimensions printed inside Diagram 3.17 are not in the figure labels, including the 1700mm bath length that the correction asks to show.",
+     "evidence": "source: \"2200mm 1700mm 1200mm 750mm\" (3.17A) and \"2600mm 1700mm 800mm 150mm 1200mm 800mm 450mm\" (3.17B) / tree: labels have only \"3100mm\", \"1000mm 800mm 450mm 150mm\", \"2900mm\", \"700mm 1200mm\", \"1000mm\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "f5884710195cace4": {
    "version_id": "corrections-to-approved-document-m@2024-10-01-b11dd2b3",
    "unit": "p7",
@@ -560,6 +631,30 @@
    ],
    "confidence": "high",
    "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "3610539449593c47": {
+   "version_id": "frequently-asked-questions@2024-10-01-4f6523fc",
+   "unit": "p28",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The page heading is missing, so the question, the answer and the table sit under an unrelated heading and the table takes that heading as its title.",
+     "evidence": "source: \"Which Edition and Volume of Approved Document applies?\" / tree: heading_path \"Frequently Asked Questions > Shared refreshment facilities > Paragraph 4.25-4.29\", table title \"Paragraph 4.25-4.29\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The question and answer of this page are joined to the end of a bullet from the earlier page's answer about switch heights.",
+     "evidence": "tree: \"can be operated by a person in a wheelchair with limited reach. Question: Which version of the Approved Document applies to my project?\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
   "cd155c63235051a0": {
@@ -645,6 +740,24 @@
    "by": "Fable 5.2, Claude Code headless (packet)",
    "date": "2026-11-23"
   },
+  "edaea4d4a6ba53ac": {
+   "version_id": "july-2020-amendments-to-approved-document-m-access-to-and-us@2024-10-01-01b210b3",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The standard number to be inserted at page 59 is read as a heading directly under 'List of amendments', apart from the 'Page 59 Insert' instruction it belongs to, which sits under Section 5.",
+     "evidence": "source: \"Page 59 Insert the following British Standard. BS 8300-2:2018 Design of an accessible and inclusive built environment.\" / tree: heading_path \"List of amendments > BS 8300-2:2018\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "96fdee9a14b301f1": {
    "version_id": "july-2020-amendments-to-approved-document-m-access-to-and-us@2024-10-01-01b210b3",
    "unit": "p4",
@@ -683,6 +796,17 @@
    ],
    "confidence": "medium",
    "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "e96a4f7b1f23d136": {
+   "version_id": "may-2024-amendments-to-approved-document-m-access-to-and-use@2024-10-01-1bbe02bb",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
   "06f1c66e3c43d0e9": {

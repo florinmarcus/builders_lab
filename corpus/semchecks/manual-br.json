@@ -2,6 +2,30 @@
  "source_id": "manual-br",
  "about": "Model verdicts on source against tree for manual-br (system/rag/semcheck.py).",
  "verdicts": {
+  "a985da4729c07983": {
+   "version_id": "manual-to-the-building-regulations@2020-07-20-f04e1e10",
+   "unit": "p10",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The heading \"Following other guidance\" and the four body paragraphs under it are kept only inside the text of Table 1.1, after its notes, and not as a section of their own.",
+     "evidence": "source: \"Following other guidance\" (heading, then body text) / tree: table-1-1 text \"Following other guidance\", \"It is important to agree with the building control body\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The page's running footer is kept as the last line of the table's text.",
+     "evidence": "tree: \"10 Overview Manual to the Building Regulations\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "e33acc36ca7283d8": {
    "version_id": "manual-to-the-building-regulations@2020-07-20-f04e1e10",
    "unit": "p10",
@@ -227,6 +251,30 @@
     }
    ],
    "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "3e6e85305688dc2c": {
+   "version_id": "manual-to-the-building-regulations@2020-07-20-f04e1e10",
+   "unit": "p31",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The table's caption is kept as a separate note, so the table has no number and carries the wrong title \"Chapter A\" instead of Table A2 and its name; the grid cells match the page.",
+     "evidence": "source: \"Table A2 Requirements that apply to material changes of use\" / tree: note-3 holds the caption; table title \"Chapter A\", heading_path \"Chapter A > Table (Chapter A)\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The page's running footer is kept as the last line of the table's text.",
+     "evidence": "tree: \"Manual to the Building Regulations Further guidance 31\""
+    }
+   ],
+   "confidence": "medium",
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },

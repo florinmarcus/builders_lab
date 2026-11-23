@@ -164,6 +164,30 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "4b0fb789e796e93b": {
+   "version_id": "amendments-relating-to-energy-efficiency-and-compe--circular-03-2010-the-building-act-1984-the-building-regula@2010-03-16-39da5298",
+   "unit": "p10",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The words of the sentence that introduces the Annex D table are run together without spaces.",
+     "evidence": "source: \"The following table lists all the changes made by S.I. 2010/719 to The Building (Amendment No.2)\" / tree: \"ThefollowingtablelistsallthechangesmadebyS.I.2010/719toTheBuilding(Amendment No.2)\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The printed heading under ANNEX D is kept as body text, joined to the sentence that follows it.",
+     "evidence": "source heading: \"The Building and Approved Inspectors (Amendment) Regulations 2010 (S.I. 2010/719)\" / tree: text \"The Building and Approved Inspectors (Amendment) Regulations 2010 (S.I. 2010/719) Thefollowingtablelists...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "72ccbe487139b95b": {
    "version_id": "amendments-relating-to-energy-efficiency-and-compe--circular-03-2010-the-building-act-1984-the-building-regula@2010-03-16-39da5298",
    "unit": "p10",
@@ -200,6 +224,36 @@
      "severity": "low",
      "problem": "The headings ANNEX E and Building Act 1984 are read as body text, with no heading in the path for the notice table.",
      "evidence": "source: \"ANNEX E\" / \"Building Act 1984\" (headings) / tree: text \"ANNEX E Building Act 1984 £6\", heading_path \"Text\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "a6720bfb0b246dd3": {
+   "version_id": "amendments-relating-to-energy-efficiency-and-compe--circular-03-2010-the-building-act-1984-the-building-regula@2010-03-16-39da5298",
+   "unit": "p11",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The grid leaves out the first two rows of the notice, its title and the paragraph with the date the approval takes effect; they are only in the table's `text`.",
+     "evidence": "source: \"NOTICE OF APPROVAL OF AN REVISED DOCUMENT ...\" and \"This approval takes effect on 6 April 2010.\" / tree grid: starts at \"Approved Document G ...\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading \"Building Act 1984\" is kept as body text and has \"£6\" joined to it, which is not printed on this page.",
+     "evidence": "source: \"Building Act 1984\" / tree: \"Building Act 1984 £6\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The signature row is kept as a data row under the column names \"Document\" and \"Requirement of the Building Regulations...\", which do not apply to it.",
+     "evidence": "tree: [\"Signed by authority of the Secretary of State\", \"John Fiennes An Under Secretary in the Department for Communities and Local Government 12 March 2010\"]"
     }
    ],
    "confidence": "medium",
@@ -260,6 +314,41 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "88d4ab9460c0c84f": {
+   "version_id": "amendments-relating-to-energy-efficiency-and-compe--circular-03-2010-the-building-act-1984-the-building-regula@2010-03-16-39da5298",
+   "unit": "p6",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The words of the sentence that introduces the Annex A table are run together without spaces.",
+     "evidence": "source: \"The following table lists all the changes made by SI 2010/719 to the Building Regulations 2000\" / tree: \"ThefollowingtablelistsallthechangesmadebySI2010/719totheBuildingRegulations2000\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The printed heading under ANNEX A is kept as body text, joined to the sentence that follows it.",
+     "evidence": "source heading: \"The Building and Approved Inspectors (Amendment) Regulations 2010 (S.I. 2010/719)\" / tree: text \"The Building and Approved Inspectors (Amendment) Regulations 2010 (S.I. 2010/719) Thefollowingtablelists...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "a5eba496f8eb8d0d": {
+   "version_id": "amendments-relating-to-energy-efficiency-and-compe--circular-03-2010-the-building-act-1984-the-building-regula@2010-03-16-39da5298",
+   "unit": "p7",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "a9f25f756635b5e6": {
    "version_id": "amendments-relating-to-energy-efficiency-and-compe--circular-03-2010-the-building-act-1984-the-building-regula@2010-03-16-39da5298",
    "unit": "p7",
@@ -267,6 +356,30 @@
    "family": "guidance-pdf",
    "verdict": "ok",
    "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "36e36599b5f1fddf": {
+   "version_id": "amendments-relating-to-energy-efficiency-and-compe--circular-03-2010-the-building-act-1984-the-building-regula@2010-03-16-39da5298",
+   "unit": "p8",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The end of the sentence that introduces the Annex B table has its words run together without spaces.",
+     "evidence": "source: \"the Building (Approved Inspectors etc) Regulations 2000 (S.I. 2000/2532).\" / tree: \"the Building (Approved Inspectorsetc)Regulations2000 (S.I.2000/2532).\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The printed heading under ANNEX B is kept as body text, joined to the sentence that follows it.",
+     "evidence": "source heading: \"The Building and Approved Inspectors (Amendment) Regulations 2010 (S.I. 2010/719)\" / tree: text \"The Building and Approved Inspectors (Amendment) Regulations 2010 (S.I. 2010/719) The following table lists...\""
+    }
+   ],
    "confidence": "high",
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
@@ -313,6 +426,30 @@
      "severity": "low",
      "problem": "The headings ANNEX C and the regulations title are kept as body text joined to the intro sentence, not as headings.",
      "evidence": "tree: \"ANNEX C The Building and Approved Inspectors (Amendment) Regulations 2010 (S.I. 2010/719) Thefollowingtablelists\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "fdddbb83abb0b947": {
+   "version_id": "amendments-relating-to-energy-efficiency-and-compe--circular-03-2010-the-building-act-1984-the-building-regula@2010-03-16-39da5298",
+   "unit": "p9",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The sentence that introduces the Annex C table has its words run together without spaces.",
+     "evidence": "source: \"The following table lists all the changes made by S.I. 2010/719 to the Building and Approved Inspectors (Amendment) Regulations 2009\" / tree: \"ThefollowingtablelistsallthechangesmadebyS.I.2010/719totheBuildingandApproved Inspectors(Amendment)Regulations2009(S.I.2009/1219)whichinturnamendtheBuilding Regulations2000\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The printed sub-heading of Annex C is kept as the start of the body text, not as a heading.",
+     "evidence": "source heading: \"The Building and Approved Inspectors (Amendment) Regulations 2010 (S.I. 2010/719)\" / tree: same words at the start of annex-c-text-1"
     }
    ],
    "confidence": "high",
@@ -613,6 +750,17 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "4860ba2827352d12": {
+   "version_id": "amendments-to-approved-document-l1-on-conservation--circular-04-2005-amendments-to-approved-document-l1@2012-11-14-ec2e728a",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "b553f75b9faff5c6": {
    "version_id": "amendments-to-approved-document-l1-on-conservation--circular-04-2005-amendments-to-approved-document-l1@2012-11-14-ec2e728a",
    "unit": "p4",
@@ -631,7 +779,60 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "f210650e8e86c0d3": {
+   "version_id": "amendments-to-approved-document-l1-on-conservation--circular-04-2005-amendments-to-approved-document-l1@2012-11-14-ec2e728a",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "figure",
+   "findings": [
+    {
+     "kind": "figure",
+     "severity": "high",
+     "problem": "The picture on the page is only a handwritten signature of Anne Hemming, but the description says it is a printed Table 4.6 on duct heat losses with numbers that are not on this page.",
+     "evidence": "source: handwritten signature \"Anne Hemming\" / tree: \"A cropped picture of a printed table, Table 4.6, Maximum heat losses and gains for ducts delivering air for heating and/or cooling\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The signing line is body text above the signer's name, but the tree uses it as the figure's caption and as a heading in the path.",
+     "evidence": "source: \"Signed by authority of the First Secretary of State, Anne Hemming\" / tree: title \"Signed by authority of the First Secretary of State,\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "6a5827a111b0ff53": {
+   "version_id": "amendments-to-approved-document-l1-on-conservation--circular-04-2005-amendments-to-approved-document-l1@2012-11-14-ec2e728a",
+   "unit": "p8",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "7140286c1ccaf3e2": {
+   "version_id": "amendments-to-approved-document-l1-on-conservation--circular-04-2005-amendments-to-approved-document-l1@2012-11-14-ec2e728a",
+   "unit": "p8",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The publisher's imprint on the back cover is filed under ANNEX A, which is the notice of approval and ended on page 4.",
+     "evidence": "source: \"Published by TSO (The Stationery Office) and available from:\" / tree: heading_path \"ANNEX A > Text\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "9b736fef7694175a": {
    "version_id": "amendments-to-approved-document-l1-on-conservation--circular-04-2005-amendments-to-approved-document-l1@2012-11-14-ec2e728a",
    "unit": "p8",
    "kind": "semcheck-pdf",
@@ -714,6 +915,24 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "22557574e009a6a1": {
+   "version_id": "amendments-to-approved-documents-a-and-c-circular--circular-01-2013-the-building-act-1984-building-regulations@2013-07-30-1a449989",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Capital letters are lost in the signature block, so the name and the words of the job title and department start with small letters.",
+     "evidence": "source: \"Signed: Bob Ledsome An Assistant Secretary in the Department for Communities and Local Government\" / tree: \"signed: Bob ledsome An Assistant secretary in the department for communities and local government\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "a4b149c6855528ff": {
    "version_id": "amendments-to-approved-documents-a-and-c-circular--circular-01-2013-the-building-act-1984-building-regulations@2013-07-30-1a449989",
    "unit": "p3",
@@ -759,6 +978,24 @@
     }
    ],
    "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "e58ae53f806ab5a2": {
+   "version_id": "amendments-to-approved-documents-a-and-c-circular--circular-01-2013-the-building-act-1984-building-regulations@2013-07-30-1a449989",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The boxed notice heading and the notice paragraph above the column headings are kept only in the table's raw text, not as a title or body text, and the table is titled only \"Annex A\".",
+     "evidence": "source: \"NOTICE OF APPROVAL OF A DOCUMENT FOR THE PURPOSE OF GIVING PRACTICAL GUIDANCE\" / tree: title \"Annex A\""
+    }
+   ],
+   "confidence": "medium",
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
@@ -860,6 +1097,17 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "ae24e6b3a831c56c": {
+   "version_id": "approved-document-b-2022-amendments-circular-02202--approved-document-b-2022-amendments-circular-02-2022@2022-06-01-8802c568",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "cc233485ba2541b3": {
    "version_id": "approved-document-b-2022-amendments-circular-02202--approved-document-b-2022-amendments-circular-02-2022@2022-06-01-8802c568",
    "unit": "p4",
@@ -878,6 +1126,24 @@
      "severity": "low",
      "problem": "The signature row is kept as a data row under the column headings Document and Requirements, where it does not belong.",
      "evidence": "tree: \"Signed by authority of the Secretary of State\" | \"F V Molho An Assistant Secretary in the Department ...\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "9ff1b32545729f11": {
+   "version_id": "approved-document-b-2022-amendments-circular-02202--approved-document-b-2022-amendments-circular-02-2022@2022-06-01-8802c568",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The signature row has two cells in the source but the grid joins them into one cell under the column \"Document\".",
+     "evidence": "source: \"Signed by authority of the Secretary of State\" | \"V Molho An Assistant Secretary...\" / tree: \"Signed by authority of the Secretary of State V Molho An Assistant Secretary in the Department\""
     }
    ],
    "confidence": "medium",
@@ -1141,6 +1407,24 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "236c92805bad9a50": {
+   "version_id": "approved-document-b-april-2019-edition-circular-01--approved-document-b-april@2019-04-16-fdcc340b",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The word \"specified\" in the notice text lost a letter (the fi ligature) in the table text.",
+     "evidence": "source: \"with respect to the specified requirements\" / tree: \"with respect to the specifed requirements\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "7c6f6b9227e38f30": {
    "version_id": "approved-document-b-april-2019-edition-circular-01--approved-document-b-april@2019-04-16-fdcc340b",
    "unit": "p4",
@@ -1173,6 +1457,24 @@
    "verdict": "ok",
    "findings": [],
    "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "be373f920ee8ddda": {
+   "version_id": "approved-document-b-april-2019-edition-circular-01--approved-document-b-april@2019-04-16-fdcc340b",
+   "unit": "p8",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The back-cover publisher's imprint is kept as body text under ANNEX B, though it is not part of that annex.",
+     "evidence": "source: \"Published by TSO (The Stationery Office), part of Williams Lea\" / tree: heading_path \"ANNEX B > Text\""
+    }
+   ],
+   "confidence": "medium",
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
@@ -1270,6 +1572,24 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "216b68c1219ab7fa": {
+   "version_id": "approved-document-b-july-2019-edition-circular-022--approved-document-b@2019-07-05-38c1bccc",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The table's title row and the full-width row with the notice of approval and its effective date are not in the grid; they survive only in the table's raw text.",
+     "evidence": "source: \"NOTICE OF APPROVAL OF REVISION OF DOCUMENTS GIVING PRACTICAL GUIDANCE\" and \"The approval takes effect on 30 August 2019 except in respect of work already commenced\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "73dfc5898d953f05": {
    "version_id": "approved-document-b-july-2019-edition-circular-022--approved-document-b@2019-07-05-38c1bccc",
    "unit": "p4",
@@ -1285,6 +1605,17 @@
     }
    ],
    "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "6c278a7908fb798f": {
+   "version_id": "approved-document-b-july-2019-edition-circular-022--approved-document-b@2019-07-05-38c1bccc",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
@@ -1406,6 +1737,24 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "d8c96775a962fbe5": {
+   "version_id": "approved-document-b-volume-1-and-2-circular-012020--approved-document-b-volume-1-and-2-circular-01-2020@2020-05-26-b6056ce0",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading \"Building Act 1984\" under ANNEX A is kept as body text, not as a heading.",
+     "evidence": "source: heading \"Building Act 1984\" / tree: type \"text\", text \"Building Act 1984\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "34efd732c98a76a5": {
    "version_id": "approved-document-b-volume-1-and-2-circular-012020--approved-document-b-volume-1-and-2-circular-01-2020@2020-05-26-b6056ce0",
    "unit": "p5",
@@ -1426,6 +1775,17 @@
      "evidence": "source: \"Signed by authority of the Secretary of State\" | \"F Kirwan\" / tree: columns \"Notice text\", one cell"
     }
    ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "a1982dd9990d65ce": {
+   "version_id": "approved-document-b-volume-1-and-2-circular-012020--approved-document-b-volume-1-and-2-circular-01-2020@2020-05-26-b6056ce0",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
    "confidence": "high",
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
@@ -1532,6 +1892,30 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "4eb313aae60da794": {
+   "version_id": "approved-document-b-volume-1-and-volume-2-circular--approved-document-b-volume-1-and-volume-2-circular-03-2018@2018-12-18-a4b2255d",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The word \"specified\" in the notice lost its ligature letter in the table text.",
+     "evidence": "source: \"with respect to the specified requirements\" / tree: \"with respect to the specifed requirements\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading \"Building Act 1984\" under ANNEX A is kept as body text, not as a heading.",
+     "evidence": "source: heading \"Building Act 1984\" / tree: type \"text\", text \"Building Act 1984\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "7d8fbf0d0c96065e": {
    "version_id": "approved-document-b-volume-1-and-volume-2-circular--approved-document-b-volume-1-and-volume-2-circular-03-2018@2018-12-18-a4b2255d",
    "unit": "p5",
@@ -1556,6 +1940,36 @@
      "severity": "low",
      "problem": "The table carries the collection title instead of the notice's own heading.",
      "evidence": "source: \"NOTICE OF WITHDRAWAL OF APPROVAL OF DOCUMENTS GIVING PRACTICAL GUIDANCE\" / tree: title \"Building regulations: circulars (collection, 2003 to 2026)\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "95ed420997371697": {
+   "version_id": "approved-document-b-volume-1-and-volume-2-circular--approved-document-b-volume-1-and-volume-2-circular-03-2018@2018-12-18-a4b2255d",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The signature row of the table is not in the grid; it is kept only in the table text.",
+     "evidence": "source: \"Signed by authority of the Secretary of State | R J Ledsome ... 18 December 2018\" / tree: grid has only the two document rows"
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The word \"specified\" in the notice lost its ligature letter in the table text.",
+     "evidence": "source: \"with respect to the specified requirements\" / tree: \"with respect to the specifed\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading \"Building Act 1984\" under ANNEX B is kept as body text, not as a heading.",
+     "evidence": "source: heading \"Building Act 1984\" / tree: type \"text\", text \"Building Act 1984\""
     }
    ],
    "confidence": "high",
@@ -1668,6 +2082,24 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "e671c761b8236c7f": {
+   "version_id": "approved-document-j-2022-amendments-circular-03202--approved-document-j-2022-amendments-circular-03-2022@2022-09-30-fcb1b6a9",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The date and signature block that closes the Circular is merged into paragraph 9 (the enquiries address) instead of standing on its own.",
+     "evidence": "source: \"Date: 29 July 2022\" \"Signed:\" \"V Molho\" as a separate sign-off / tree: \"E-mail: enquiries.br@levellingup.gov.uk Date: 29 July 2022 Signed: V Molho An Assistant Secretary\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "4bcb91229583ab3b": {
    "version_id": "approved-document-j-2022-amendments-circular-03202--approved-document-j-2022-amendments-circular-03-2022@2022-09-30-fcb1b6a9",
    "unit": "p4",
@@ -1692,6 +2124,17 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "bd16769e5d57d7a6": {
+   "version_id": "approved-document-j-2022-amendments-circular-03202--approved-document-j-2022-amendments-circular-03-2022@2022-09-30-fcb1b6a9",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "76b04818665c4654": {
    "version_id": "approved-document-j-2022-amendments-circular-03202--approved-document-j-2022-amendments-circular-03-2022@2022-09-30-fcb1b6a9",
    "unit": "p5",
@@ -1710,6 +2153,24 @@
      "severity": "low",
      "problem": "The two cells of the signature row are joined into one cell.",
      "evidence": "source: \"Signed by authority of the Secretary of State\" | \"V Molho An Assistant Secretary...\" / tree: \"Signed by authority of the Secretary of State. V Molho. An Assistant Secretary\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "956ef9215615daa5": {
+   "version_id": "approved-document-j-2022-amendments-circular-03202--approved-document-j-2022-amendments-circular-03-2022@2022-09-30-fcb1b6a9",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The signature row is printed as two cells but the grid joins them into one cell of a one-column table; the words are all kept.",
+     "evidence": "source: \"Signed by authority of the Secretary of State\" | \"V Molho\" / tree: \"Signed by authority of the Secretary of State. V Molho. An Assistant Secretary\""
     }
    ],
    "confidence": "high",
@@ -1900,6 +2361,24 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "83c400dfa8eb6c22": {
+   "version_id": "approved-document-m-volume-2-amendments-circular-0--approved-document-m-volume-2-amendments-circular-02-2020@2020-07-19-8c7f70eb",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The Annex B table has an invented second column heading that is not printed; the source has only \"Document\".",
+     "evidence": "source: \"Document\" / tree: columns \"Document\", \"Details\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "cdb3f87d1afd3463": {
    "version_id": "approved-document-m-volume-2-amendments-circular-0--circular-letter-on-approved-document-m-volume-2-amendments@2020-07-19-29f0acd0",
    "unit": "p1",
@@ -1989,6 +2468,17 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "d0c8ab172d746ad4": {
+   "version_id": "building-amendment-regulations-2014-circular-02201--circular-02-2014-the-building-act-building-regulations-201@2014-09-08-4c74af37",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "2a586de727a0f15e": {
    "version_id": "building-amendment-regulations-2014-circular-02201--circular-02-2014-the-building-act-building-regulations-201@2014-09-08-4c74af37",
    "unit": "p4",
@@ -2001,6 +2491,42 @@
      "severity": "low",
      "problem": "The headings \"Annex A\" and the annex title are kept as body text, joined to the signature block from page 3 in one section.",
      "evidence": "source: \"Annex A\" / \"The Building (Amendment) Regulations 2014 (S.I. 2014/2362)\" (headings) / tree: \"Signed: R J Ledsome An Assistant Secretary ... Annex A The Building (Amendment) Regulations 2014\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "5593162a9fb09f53": {
+   "version_id": "building-amendment-regulations-2014-circular-02201--circular-02-2014-the-building-act-building-regulations-201@2014-09-08-4c74af37",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The printed sub-heading of Annex A is kept as the start of the body text, not as a heading.",
+     "evidence": "source heading: \"The Building (Amendment) Regulations 2014 (S.I. 2014/2362)\" / tree: same words at the start of annex-a-text-1"
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "8e7d19b085626cd0": {
+   "version_id": "building-amendment-regulations-2016-circular-04201--circular-04-2016-building-regulations-amendment-regulation@2016-04-20-ca98656b",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading of the annex is read as body text and joined to the sentence that introduces the table.",
+     "evidence": "source: heading \"The Building (Amendment) Regulations 2016 (S.I. 2016/490)\" / tree: \"The Building (Amendment) Regulations 2016 (S.I. 2016/490) The following table lists all the changes\""
     }
    ],
    "confidence": "high",
@@ -2043,6 +2569,42 @@
      "severity": "low",
      "problem": "The Annex B heading and its title are read as body text, and the table carries the collection title instead.",
      "evidence": "source: headings \"ANNEX B\", \"Building Act 1984\" / tree: text \"ANNEX B Building Act 1984 £6\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "bb4d1feaea628d03": {
+   "version_id": "building-amendment-regulations-2016-circular-04201--circular-04-2016-building-regulations-amendment-regulation@2016-04-20-ca98656b",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The two full-width rows at the top of the table, the notice title and the paragraph that gives the approval and its exception for work already started or notified, are not in the grid; they are only in the table's text.",
+     "evidence": "source: \"This approval takes effect as listed in the table below except in respect of work commenced before the coming into force dates\" / tree grid: absent"
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "A price that is not on this page is added to the heading text.",
+     "evidence": "source: \"Building Act 1984\" / tree: \"Building Act 1984 £6\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading Building Act 1984 is read as body text.",
+     "evidence": "source: heading \"Building Act 1984\" / tree: type text \"Building Act 1984 £6\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The signature block is a grid row, so the signatory's name and date sit under the column for the requirement.",
+     "evidence": "tree: column \"Requirement of the Building Regulations in respect of which the document is approved\" holds \"R J Ledsome An Assistant Secretary ... 13 April 2016\""
     }
    ],
    "confidence": "medium",
@@ -2121,6 +2683,42 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "33cb45afb62d3497": {
+   "version_id": "building-amendment-regulations-2017-circular-01201--circular-01-2017-building-amendment-regulations-2017@2017-10-19-1f5347b5",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The annex title is a printed heading but the tree keeps it as body text joined to the intro sentence.",
+     "evidence": "source: heading \"The Building (Amendment) Regulations 2017 (S.I. 2017/856)\" / tree: text \"The Building (Amendment) Regulations 2017 (S.I. 2017/856) The following table lists all the changes\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "c0190d00a5259332": {
+   "version_id": "building-amendment-regulations-2017-circular-01201--circular-01-2017-building-amendment-regulations-2017@2017-10-19-1f5347b5",
+   "unit": "p8",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The back cover imprint, price and copyright notice are filed as text under ANNEX A, which they are not part of.",
+     "evidence": "tree: heading_path \"ANNEX A > Text\" for \"£6\" and \"Published by TSO (The Stationery Office), part of Williams Lea Tag\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "d8320ccf892d9066": {
    "version_id": "building-amendment-regulations-2017-circular-01201--circular-01-2017-building-amendment-regulations-2017@2017-10-19-1f5347b5",
    "unit": "p8",
@@ -2144,6 +2742,24 @@
      "severity": "low",
      "problem": "The section headings are read as body text and numbered paragraphs 1 to 7 are merged into one text block with no numbers or heading path of their own; the words are all there.",
      "evidence": "tree: \"APPROVED DOCUMENT 7 INTRODUCTION 1. I am directed by the Secretary of State\" ... \"SI 2018/1230. APPLICATION OF THE REGULATIONS 6. All the changes\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "365255e78cceb620": {
+   "version_id": "building-amendment-regulations-2018-circular-02201--building-amendment-regulations-2018-circular-02-2018@2018-11-29-29419d26",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading of the annex is read as body text and joined to the sentence that follows it.",
+     "evidence": "tree: \"The Building (Amendment) Regulations 2018 (S.I. 2018/1230) The following table lists all the changes made by S.I. 2018/1230\""
     }
    ],
    "confidence": "high",
@@ -2174,6 +2790,30 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "2d109e0bf533fc32": {
+   "version_id": "building-amendment-regulations-2018-circular-02201--building-amendment-regulations-2018-circular-02-2018@2018-11-29-29419d26",
+   "unit": "p6",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "In the notice paragraph, which the tree holds only in the table text, the letters \"fi\" are lost from a word.",
+     "evidence": "source: \"with respect to the specified requirements\" / tree: \"with respect to the specifed requirements\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading \"Building Act 1984\" is read as body text.",
+     "evidence": "source: heading \"Building Act 1984\" / tree: type \"text\", \"Building Act 1984\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "7699911b8feae7a6": {
    "version_id": "building-amendment-regulations-2018-circular-02201--building-amendment-regulations-2018-circular-02-2018@2018-11-29-29419d26",
    "unit": "p6",
@@ -2192,6 +2832,36 @@
      "severity": "low",
      "problem": "The notice text kept with the table loses the fi ligature in one word.",
      "evidence": "source: \"with respect to the specified requirements\" / tree: \"with respect to the specifed requirements\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "baac81a49d5cd3a1": {
+   "version_id": "building-amendment-regulations-2018-circular-02201--building-amendment-regulations-2018-circular-02-2018@2018-11-29-29419d26",
+   "unit": "p7",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The signature row of the table is not in the grid; its words are only in the table text.",
+     "evidence": "source: \"Signed by authority of the Secretary of State | R J Ledsome An Assistant Secretary in the Ministry of Housing, Communities and Local Government 27 December 2018\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "In the notice paragraph, which the tree holds only in the table text, the letters \"fi\" are lost from a word.",
+     "evidence": "source: \"with respect to the specified requirements\" / tree: \"with respect to the specifed requirements\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading \"Building Act 1984\" is read as body text.",
+     "evidence": "source: heading \"Building Act 1984\" / tree: type \"text\", \"Building Act 1984\""
     }
    ],
    "confidence": "high",
@@ -2243,6 +2913,24 @@
     }
    ],
    "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "b21919d63d10bfed": {
+   "version_id": "building-amendment-regulations-2018-circular-02201--building-amendment-regulations-2018-circular-02-2018@2018-11-29-29419d26",
+   "unit": "p8",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The publisher's imprint on the back cover is kept as body text under Annex C, which it is not part of.",
+     "evidence": "tree: heading_path \"ANNEX C > Text\", \"Published by TSO (The Stationery Office), part of Williams Lea Tag, and available from:\""
+    }
+   ],
+   "confidence": "medium",
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
@@ -2490,6 +3178,35 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "ba99950ea686e5a4": {
+   "version_id": "building-regulation-amendment-regulations-2015-cir--building-regulations-c-amendment-regulations-2015-circular@2015-03-27-8e622593",
+   "unit": "p10",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "high",
+     "problem": "The heading above the second table is not in the tree, so the revocation table sits under the same title as the authorisation table.",
+     "evidence": "source: \"REVOCATION OF AUTHORISATION\" / tree: title \"Annex C\", heading_path \"Annex C > Table (Annex C)\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "cda7f34a4adb6049": {
+   "version_id": "building-regulation-amendment-regulations-2015-cir--building-regulations-c-amendment-regulations-2015-circular@2015-03-27-8e622593",
+   "unit": "p11",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "f24f0407ce39d02f": {
    "version_id": "building-regulation-amendment-regulations-2015-cir--building-regulations-c-amendment-regulations-2015-circular@2015-03-27-8e622593",
    "unit": "p11",
@@ -2538,6 +3255,17 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "faaaa32bc24c8731": {
+   "version_id": "building-regulation-amendment-regulations-2015-cir--building-regulations-c-amendment-regulations-2015-circular@2015-03-27-8e622593",
+   "unit": "p12",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "040b43c965e17179": {
    "version_id": "building-regulation-amendment-regulations-2015-cir--building-regulations-c-amendment-regulations-2015-circular@2015-03-27-8e622593",
    "unit": "p13",
@@ -2556,6 +3284,48 @@
      "severity": "low",
      "problem": "The notice title is kept only in the table's raw text, not as a heading.",
      "evidence": "source: \"NOTICE OF APPROVAL BY THE SECRETARY OF STATE OF A METHODOLOGY FOR THE MEASUREMENT OF THE POTENTIAL CONSUMPTION OF WHOLESOME WATER\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "3c173a2d56d6a4b2": {
+   "version_id": "building-regulation-amendment-regulations-2015-cir--building-regulations-c-amendment-regulations-2015-circular@2015-03-27-8e622593",
+   "unit": "p13",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The annex subtitle in the tree ends with a price \"£6\" that is not printed on the page.",
+     "evidence": "source: \"The Building Regulations 2010\" / tree: \"The Building Regulations 2010 £6\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "1d35048a7fc05050": {
+   "version_id": "building-regulation-amendment-regulations-2015-cir--building-regulations-c-amendment-regulations-2015-circular@2015-03-27-8e622593",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Three section headings on this page are read as body text and joined to the end of the paragraph before them, instead of heading the paragraph that follows.",
+     "evidence": "tree: \"...the transitional provisions apply. CHANGES TO APPROVED DOCUMENTS\"; \"...www.planningportal.gov.uk. APPROVAL OF WATER EFFICIENCY CALCULATION METHODOLOGY\"; \"...new Approved Document G. ENQUIRIES\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Paragraphs 16 to 19 all sit under the wrong heading in heading_path, not under their own printed headings; the heading \"TRANSITIONAL PROVISIONS\" above paragraph 16 is not in this page's content at all.",
+     "evidence": "source: \"TRANSITIONAL PROVISIONS 16. Amendment regulations 4 and 5 specify\" / tree: \"• CALCULATION OF WATER EFFICIENCY OF NEW DWELLINGS > Paragraph 16\""
     }
    ],
    "confidence": "high",
@@ -2592,6 +3362,17 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "470c163f4ade5460": {
+   "version_id": "building-regulation-amendment-regulations-2015-cir--building-regulations-c-amendment-regulations-2015-circular@2015-03-27-8e622593",
+   "unit": "p6",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "fc2b715dde593146": {
    "version_id": "building-regulation-amendment-regulations-2015-cir--building-regulations-c-amendment-regulations-2015-circular@2015-03-27-8e622593",
    "unit": "p6",
@@ -2610,6 +3391,17 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "2331b79479c20400": {
+   "version_id": "building-regulation-amendment-regulations-2015-cir--building-regulations-c-amendment-regulations-2015-circular@2015-03-27-8e622593",
+   "unit": "p7",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "36842d4baca333c9": {
    "version_id": "building-regulation-amendment-regulations-2015-cir--building-regulations-c-amendment-regulations-2015-circular@2015-03-27-8e622593",
    "unit": "p7",
@@ -2618,6 +3410,24 @@
    "verdict": "ok",
    "findings": [],
    "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "1553288687d6f0a4": {
+   "version_id": "building-regulation-amendment-regulations-2015-cir--building-regulations-c-amendment-regulations-2015-circular@2015-03-27-8e622593",
+   "unit": "p8",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading printed under \"Annex B\" is read as the start of the body text instead of a heading or title.",
+     "evidence": "source: heading \"The Building Regulations &c. (Amendment) Regulations 2015 (S.I. 2015/767)\" / tree: \"The Building Regulations &c. (Amendment) Regulations 2015 (S.I. 2015/767) The following table lists all the changes\""
+    }
+   ],
+   "confidence": "high",
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
@@ -2666,6 +3476,30 @@
     }
    ],
    "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "9118e30bd4f24c27": {
+   "version_id": "building-regulation-amendment-regulations-2015-cir--building-regulations-c-amendment-regulations-2015-circular@2015-03-27-8e622593",
+   "unit": "p9",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The heading of this page's table is read as body text and joined with the heading of a later table, so the tree does not say whether the table lists authorisations or revocations.",
+     "evidence": "source: \"AUTHORISATIONS, ALL OF WHICH COME INTO EFFECT ON 18 APRIL 2015\" above the table / tree: \"... ON 18 APRIL 2015 REVOCATION OF AUTHORISATION\" then table titled \"Annex C\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading printed under \"Annex C\" is read as the start of the body text instead of a heading.",
+     "evidence": "tree: \"The Building Regulations &c. (Amendment) Regulations 2015 (S.I. 2015/767) The following tables list all the changes\""
+    }
+   ],
+   "confidence": "medium",
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
@@ -2795,6 +3629,35 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "92cbfc91e3f7d8d4": {
+   "version_id": "building-regulations-2010-amended-approved-documen--circular-01-2018-amended-approved-document-l1b-and-domesti@2018-04-05-a4baf69a",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "4d4cc285ad45447c": {
+   "version_id": "building-regulations-2010-amended-approved-documen--circular-01-2018-amended-approved-document-l1b-and-domesti@2018-04-05-a4baf69a",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading \"Building Act 1984\" is kept as body text and has the price \"£6\" joined to it, which is not printed on this page (it is on the back cover).",
+     "evidence": "source: \"Building Act 1984\" / tree: \"Building Act 1984 £6\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "b3b2f21c32c503e5": {
    "version_id": "building-regulations-2010-amended-approved-documen--circular-01-2018-amended-approved-document-l1b-and-domesti@2018-04-05-a4baf69a",
    "unit": "p5",
@@ -2819,6 +3682,17 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "4211ade4e9e195c7": {
+   "version_id": "building-regulations-2010-amended-approved-documen--circular-01-2018-amended-approved-document-l1b-and-domesti@2018-04-05-a4baf69a",
+   "unit": "p6",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "957744dd52c1f167": {
    "version_id": "building-regulations-2010-amended-approved-documen--circular-01-2018-amended-approved-document-l1b-and-domesti@2018-04-05-a4baf69a",
    "unit": "p6",
@@ -2837,6 +3711,35 @@
    "family": "guidance-pdf",
    "verdict": "ok",
    "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "97c9d7efb607e35f": {
+   "version_id": "building-regulations-and-amendment-regulations-201--circular-03-2016-building-regulations-c-amendment-regulati@2016-03-22-cf64cf0b",
+   "unit": "p12",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "17138304d55f2fd1": {
+   "version_id": "building-regulations-and-amendment-regulations-201--circular-03-2016-building-regulations-c-amendment-regulati@2016-03-22-cf64cf0b",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The annex's sub-heading is read as body text and joined to the paragraph below it.",
+     "evidence": "source: heading \"The Building Regulations &c. (Amendment) Regulations 2016 (S.I. 2016/285)\" / tree: \"...(S.I. 2016/285) The following table lists all the changes...\""
+    }
+   ],
    "confidence": "high",
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
@@ -2870,7 +3773,29 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "9bdfde0c8a22bce8": {
+   "version_id": "building-regulations-and-amendment-regulations-201--circular-03-2016-building-regulations-c-amendment-regulati@2016-03-22-cf64cf0b",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "b54ba558c2b8fb2c": {
+   "version_id": "building-regulations-and-amendment-regulations-201--circular-03-2016-building-regulations-c-amendment-regulati@2016-03-22-cf64cf0b",
+   "unit": "p6",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "fde66ad114cc974f": {
    "version_id": "building-regulations-and-amendment-regulations-201--circular-03-2016-building-regulations-c-amendment-regulati@2016-03-22-cf64cf0b",
    "unit": "p6",
    "kind": "semcheck-pdf",
@@ -2899,7 +3824,36 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "bd52daa8cbad2282": {
+   "version_id": "building-regulations-and-amendment-regulations-201--circular-03-2016-building-regulations-c-amendment-regulati@2016-03-22-cf64cf0b",
+   "unit": "p7",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The annex's sub-heading is read as body text and joined to the paragraph below it.",
+     "evidence": "source: heading \"The Building Regulations &c. (Amendment) Regulations 2016 (S.I. 2016/285)\" / tree: \"...(S.I. 2016/285) The following table lists all the changes...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "5146c6bf1eb9e655": {
+   "version_id": "building-regulations-and-amendment-regulations-201--circular-03-2016-building-regulations-c-amendment-regulati@2016-03-22-cf64cf0b",
+   "unit": "p8",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "bf769c1441d6445e": {
    "version_id": "building-regulations-and-amendment-regulations-201--circular-03-2016-building-regulations-c-amendment-regulati@2016-03-22-cf64cf0b",
    "unit": "p8",
    "kind": "semcheck-pdf",
@@ -2931,6 +3885,36 @@
     }
    ],
    "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "c05ced9fab37a295": {
+   "version_id": "building-regulations-and-amendment-regulations-201--circular-03-2016-building-regulations-c-amendment-regulati@2016-03-22-cf64cf0b",
+   "unit": "p9",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The tree adds a price \"£6\" after the heading that is not printed on the page.",
+     "evidence": "source: \"Building Act 1984\" / tree: \"Building Act 1984 £6\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The notice title row and the full-width paragraph row at the top of the table are not in the grid; they are kept only in the table's text.",
+     "evidence": "source: \"The Secretary of State hereby gives notice under section 6 of the Building Act 1984 that\" / tree: no grid row"
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading \"Building Act 1984\" is read as body text.",
+     "evidence": "source: heading \"Building Act 1984\" / tree: text \"Building Act 1984 £6\""
+    }
+   ],
+   "confidence": "medium",
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
@@ -3042,6 +4026,17 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "8c0618f714c4732b": {
+   "version_id": "building-regulations-and-new-minimum-water-efficie--circular-05-2009-new-part-g-in-schedule-1-to-the-building-@2009-05-13-299d20a4",
+   "unit": "p14",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "3b4db8905504f264": {
    "version_id": "building-regulations-and-new-minimum-water-efficie--circular-05-2009-new-part-g-in-schedule-1-to-the-building-@2009-05-13-299d20a4",
    "unit": "p4",
@@ -3066,6 +4061,30 @@
      "severity": "low",
      "problem": "Numbered paragraphs 10 to 16 and the two section headings are merged into one text block, with the headings read as body text.",
      "evidence": "tree: \"servedelectronically. AMENDMENTS TO SCHEDULE 2A: COMPETENT PERSON SELF-CERTIFICATION SCHEMES 15. The Amendment Regulations make minor changes\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "70e3ef7b7010854a": {
+   "version_id": "building-regulations-and-new-minimum-water-efficie--circular-05-2009-new-part-g-in-schedule-1-to-the-building-@2009-05-13-299d20a4",
+   "unit": "p6",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The sentence that introduces the table has its words run together with no spaces.",
+     "evidence": "source: \"The following table lists all of the changes made by SI 2009/1219 to the Building Regulations\" / tree: \"ThefollowingtablelistsallofthechangesmadebySI2009/1219totheBuildingRegulations\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The second line of the annex title is cut from the title and joined to the body text.",
+     "evidence": "source: \"The Building and Approved Inspectors (Amendment) Regulations 2009 (SI 2009/1219)\" / tree title: \"The Building and Approved Inspectors (Amendment)\""
     }
    ],
    "confidence": "high",
@@ -3103,6 +4122,41 @@
    "family": "guidance-pdf",
    "verdict": "ok",
    "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "db4855b9313f407c": {
+   "version_id": "building-regulations-and-new-minimum-water-efficie--circular-05-2009-new-part-g-in-schedule-1-to-the-building-@2009-05-13-299d20a4",
+   "unit": "p7",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "85ab285bbc9bade3": {
+   "version_id": "building-regulations-and-new-minimum-water-efficie--circular-05-2009-new-part-g-in-schedule-1-to-the-building-@2009-05-13-299d20a4",
+   "unit": "p8",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Words in the sentence that introduces the table are run together.",
+     "evidence": "source: \"Inspectors etc) Regulations 2000 (S.I. 2000/2532)\" / tree: \"Inspectorsetc)Regulations2000 (S.I.2000/2532)\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The second line of the annex title is cut from the title and joined to the body text.",
+     "evidence": "source: \"The Building and Approved Inspectors (Amendment) Regulations 2009 (S.I. 2009/1219)\" / tree title: \"The Building and Approved Inspectors (Amendment)\""
+    }
+   ],
    "confidence": "high",
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
@@ -3513,6 +4567,48 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "12a7eb4042910951": {
+   "version_id": "building-regulations-self-certification-schemes-an--circular-01-2009-minor-changes-to-schedule-2a-to-the-build@2009-03-09-dd3ffeff",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The three-column table of changes is read as one run of text, so the columns and rows are lost and the cells of each row are mixed together.",
+     "evidence": "tree: \"Schedule 2A, 2(2)(a) Adds persons registered by Capita Gas paragraph 2, Registration and Ancillary Services column 2 Limited to the list\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The tree text ends with an amount that is not printed on the page.",
+     "evidence": "tree: \"ELECSA Limited column 2 £6\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Words in the sentence before the table are run together.",
+     "evidence": "source: \"Regulations 2000 (S.I. 2000/2531) as amended.\" / tree: \"Regulations2000(S.I.2000/2531) asamended.\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The last line of the annex heading is read as body text.",
+     "evidence": "source: heading \"The Building (Amendment) Regulations 2009 (S.I. 2009/466)\" / tree text: \"(S.I. 2009/466) The following table lists\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "A ligature character is kept in the word Certification.",
+     "evidence": "source: \"EC Certification Limited\" / tree: \"EC Certiﬁcation Limited\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "9d437ebe736229bf": {
    "version_id": "building-regulations-self-certification-schemes-an--circular-01-2009-minor-changes-to-schedule-2a-to-the-build@2009-03-09-dd3ffeff",
    "unit": "p3",
@@ -3573,6 +4669,36 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "cb94e5fdccb2090e": {
+   "version_id": "building-regulations-self-certification-schemes-an--circular-01-2009-minor-changes-to-schedule-2a-to-the-build@2009-03-09-dd3ffeff",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The publisher's imprint text is kept with the spaces between words lost, so words run together.",
+     "evidence": "source: \"Published by TSO (The Stationery Office) and available from:\" / tree: \"PublishedbyTSO(TheStationeryOffice)andavailablefrom:\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The copyright notice is kept with all spaces lost, including in the postcode and ISBN.",
+     "evidence": "source: \"Extracts of up to 10 per cent of this publication may be photocopied\" / tree: \"Extractsofupto10percentofthispublicationmaybephotocopied\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The back-cover imprint is filed as body text under Annex A, The Building (Amendment) Regulations 2009, which it is not part of.",
+     "evidence": "tree heading_path: \"ANNEX A The Building (Amendment) Regulations 2009 > Text\" / source: \"Published by TSO (The Stationery Office) and available from:\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "59906553be971601": {
    "version_id": "changes-to-part-b-fire-safety-of-the-building-regu--circular-05-2006-the-building-regulations-2000-and-the-bui@2006-12-18-4cc3c4bb",
    "unit": "p10",
@@ -3627,6 +4753,54 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "6401b24edce8bfb7": {
+   "version_id": "changes-to-part-b-fire-safety-of-the-building-regu--circular-05-2006-the-building-regulations-2000-and-the-bui@2006-12-18-4cc3c4bb",
+   "unit": "p14",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The two full-width rows at the top of the table, the notice title and the approval statement with its date of effect, are not in the grid and are only in the raw text with words run together.",
+     "evidence": "source: \"she has approved the documents listed below ... This approval takes effect on 6 April 2007.\" / tree text: \"Thisapprovaltakeseffecton 6April2007.\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The signature block is kept as a data row under the Document and Requirement columns.",
+     "evidence": "tree grid row: \"Signed by authority of the Secretary of State\" | \"Mark Coulshed an Assistant Secretary in the Department for Communities and Local Government 18 December 2006\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The printed sub-heading of Annex F is kept as body text, not as a heading.",
+     "evidence": "source heading: \"Building Act 1984\" / tree: text of annex-f-text-1"
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "347dddb800fe1a12": {
+   "version_id": "changes-to-part-b-fire-safety-of-the-building-regu--circular-05-2006-the-building-regulations-2000-and-the-bui@2006-12-18-4cc3c4bb",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The printed sub-heading of Annex A is kept as the start of the body text, not as a heading.",
+     "evidence": "source heading: \"The Building and Approved Inspectors (Amendment) (No. 2) Regulations 2006 (S.I. 2006/3318)\" / tree: same words at the start of annex-a-text-1"
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "d4ed2ec4188ba6c6": {
    "version_id": "changes-to-part-b-fire-safety-of-the-building-regu--circular-05-2006-the-building-regulations-2000-and-the-bui@2006-12-18-4cc3c4bb",
    "unit": "p5",
@@ -3666,6 +4840,30 @@
     }
    ],
    "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "529367aa55f56488": {
+   "version_id": "changes-to-part-b-fire-safety-of-the-building-regu--circular-05-2006-the-building-regulations-2000-and-the-bui@2006-12-18-4cc3c4bb",
+   "unit": "p6",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The end of the sentence that introduces the Annex B table has its words run together.",
+     "evidence": "source: \"the Building (Approved Inspectors etc.) Regulations 2000 (S.I. 2000/2532)\" / tree: \"the Building (Approved Inspectorsetc.)Regulations2000(S.I.2000/2532)\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The printed sub-heading of Annex B is kept as the start of the body text, not as a heading.",
+     "evidence": "source heading: \"The Building and Approved Inspectors (Amendment) (No. 2) Regulations 2006 (SI 2006/3318)\" / tree: same words at the start of annex-b-text-1"
+    }
+   ],
+   "confidence": "high",
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
@@ -3765,6 +4963,42 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "5ab0f605730522b3": {
+   "version_id": "electronic-communication-of-specified-building-con--circular-05-2008-the-building-act-1984-the-building-regula@2012-11-14-9676603d",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The Annex A table is read as running text, so its two columns, header and rows are lost and joined with the intro sentence.",
+     "evidence": "tree: \"Section in the Building Act Description of document for which 1984 as amended provision has been made for electronic service in section 94A 16(6) Notice on\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Many words are run together with no spaces in paragraph 9, the enquiries block and the Annex A intro.",
+     "evidence": "source: \"Director in the Department for Communities and Local Government\" / tree: \"DirectorintheDepartmentforCommunitiesandLocalGovernment\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The ENQUIRIES heading, contact details and signature are merged into paragraph 9.",
+     "evidence": "tree: \"served electronically. ENQUIRIES Allenquiriesonmatterscovered bythiscircularshouldbeaddressedto:\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page-turn word \"continued\" under the table is kept inside the table text between two rows.",
+     "evidence": "source: \"Notice of change of person intending to carry out work\" / tree: \"carry out work continued 52 Notice of cancellation\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "2a65c28cda562fc4": {
    "version_id": "electronic-communication-of-specified-building-con--circular-05-2008-the-building-act-1984-the-building-regula@2012-11-14-9676603d",
    "unit": "p8",
@@ -3773,6 +5007,30 @@
    "verdict": "ok",
    "findings": [],
    "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "5b24fc0c8c1efc11": {
+   "version_id": "electronic-communication-of-specified-building-con--circular-05-2008-the-building-act-1984-the-building-regula@2012-11-14-9676603d",
+   "unit": "p8",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The publisher's imprint on the back cover is kept as body text under the Annex C heading, as if it were part of the annex.",
+     "evidence": "tree heading_path: \"ANNEX C THE BUILDING (APPROVED INSPECTORS etc.) > Text\" / source: \"Published by TSO (The Stationery Office) and available from:\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Words in the imprint are run together with no spaces.",
+     "evidence": "source: \"Copyright in the typographical arrangements rests with the Crown.\" / tree: \"CopyrightinthetypographicalarrangementsrestswiththeCrown.\""
+    }
+   ],
+   "confidence": "high",
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
@@ -3919,6 +5177,24 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "116ae6d41a75ed92": {
+   "version_id": "introduction-of-target-fabric-energy-efficiency-ra--circular-03-2013-the-building-act-1984-building-regulation@2013-08-08-d8aed573",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-heading under Annex A is read as body text and joined to the sentence that follows it.",
+     "evidence": "source: \"The Building Regulations &c (Amendment) (No.2) Regulations 2013 (S.I. 2013/1959)\" (heading) / tree: \"The Building Regulations &c (Amendment) (no.2) Regulations 2013 (s.i. 2013/1959) The following table lists\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "a6da64c91e343132": {
    "version_id": "introduction-of-target-fabric-energy-efficiency-ra--circular-03-2013-the-building-act-1984-building-regulation@2013-08-08-d8aed573",
    "unit": "p4",
@@ -3946,6 +5222,24 @@
     }
    ],
    "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "81e501855d065ea8": {
+   "version_id": "introduction-of-target-fabric-energy-efficiency-ra--circular-03-2013-the-building-act-1984-building-regulation@2013-08-08-d8aed573",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-heading under Annex B is read as body text and joined to the sentence that follows it.",
+     "evidence": "source: \"The Building Regulations etc (Amendment) (No2) Regulations 2013 (S.I. 2013/1959)\" (heading) / tree: \"The Building Regulations etc (Amendment) (no2) Regulations 2013 (s.i. 2013/1959) The following table lists the change\""
+    }
+   ],
+   "confidence": "high",
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
@@ -4033,6 +5327,48 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "6f5a03a41134e14f": {
+   "version_id": "introduction-of-third-party-certification-schemes--circular-01-2014-the-building-act-1984-building-regulations@2014-03-14-5ef5a17d",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The capitals in \"S.I.\" are lost in the Annex A text.",
+     "evidence": "source: \"Regulations 2014 (S.I. 2014/579)\" and \"changes made by S.I. 2014/579\" / tree: \"Regulations 2014 (s.i. 2014/579)\" and \"changes made by s.i. 2014/579\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The Annex A title is kept as body text, joined to the sentence that follows it.",
+     "evidence": "source: \"The Building Regulations &c. (Amendment) Regulations 2014 (S.I. 2014/579)\" (heading) / tree: \"...(s.i. 2014/579) The following table lists all the changes...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "0c2ccb53a89be389": {
+   "version_id": "introduction-of-third-party-certification-schemes--circular-01-2014-the-building-act-1984-building-regulations@2014-03-14-5ef5a17d",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The Annex B heading and intro line have capital letters turned to lower case in the tree.",
+     "evidence": "source: \"(S.I. 2014/579) ... Building (Approved Inspectors etc.) Regulations 2010\" / tree: \"(s.i. 2014/579) ... Building (Approved inspectors etc.) Regulations 2010\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "990f12dfcbfb9855": {
    "version_id": "introduction-of-third-party-certification-schemes--circular-01-2014-the-building-act-1984-building-regulations@2014-03-14-5ef5a17d",
    "unit": "p5",
@@ -4064,6 +5400,30 @@
    "family": "guidance-pdf",
    "verdict": "ok",
    "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "8a9995a3b90c27b8": {
+   "version_id": "multi-foil-insulation-circular-06-2009--circular-06-2009-building-regulations-2000-schedule-1-part-l@2009-06-18-a391587a",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Many words are run together with no spaces.",
+     "evidence": "source: \"All enquiries on matters addressed by this Circular should be addressed to:\" / tree: \"AllenquiriesonmattersaddressedbythisCircularshouldbeaddressedto:\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The ENQUIRIES heading, the contact details and the signature are merged into the body paragraph above.",
+     "evidence": "tree: \"energy efficiency requirements in 2010. ENQUIRIES AllenquiriesonmattersaddressedbythisCircular\""
+    }
+   ],
    "confidence": "high",
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
@@ -4122,6 +5482,30 @@
      "severity": "low",
      "problem": "Annex A, its heading and its three numbered paragraphs are merged into the circular's body text section instead of being a separate annex with headings.",
      "evidence": "source: headings \"Annex A\" and \"MULTI-FOIL THERMAL INSULATION PRODUCTS\" / tree: \"...DeputyDirectorinCommunitiesandLocalGovernment Annex A MULTI-FOIL THERMAL INSULATION PRODUCTS 1. Multi-foil...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "b7223f5c4addf804": {
+   "version_id": "multi-foil-insulation-circular-06-2009--circular-06-2009-building-regulations-2000-schedule-1-part-l@2009-06-18-a391587a",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading and the three numbered paragraphs 1, 2 and 3 are merged into one text block instead of a heading and separate numbered paragraphs.",
+     "evidence": "tree: \"MULTI-FOIL THERMAL INSULATION PRODUCTS 1. Multi-foil insulation products consist\" ... \"testing. 2. The Department maintains\" ... \"apply. 3. The Department accepts\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Many words in paragraphs 2 and 3 are run together with no spaces.",
+     "evidence": "source: \"that, currently, the only appropriate methods for measuring the thermal performance of\" / tree: \"that,currently,theonlyappropriatemethodsformeasuringthethermalperformanceof\""
     }
    ],
    "confidence": "high",
@@ -4188,6 +5572,35 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "72a4ae991a039837": {
+   "version_id": "new-approved-document-on-electrical-safety-circula--circular-05-2004-new-approved-document-giving-guidance-on-@2012-11-14-2e9f7139",
+   "unit": "p6",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The annex title is a heading on the page but the tree runs it into the body text of the paragraph that follows.",
+     "evidence": "source heading: \"THE BUILDING (AMENDMENT) (NO. 2) REGULATIONS 2004 (S.I. 2004/1808)\" / tree: \"...(S.I. 2004/1808) The following table lists all of the changes\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "384ee8237e5f5b5d": {
+   "version_id": "new-approved-document-on-electrical-safety-circula--circular-05-2004-new-approved-document-giving-guidance-on-@2012-11-14-2e9f7139",
+   "unit": "p7",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "e8a8dd02fce8a98d": {
    "version_id": "new-approved-document-on-electrical-safety-circula--circular-05-2004-new-approved-document-giving-guidance-on-@2012-11-14-2e9f7139",
    "unit": "p7",
@@ -4195,6 +5608,42 @@
    "family": "guidance-pdf",
    "verdict": "ok",
    "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "34c2404eec662aac": {
+   "version_id": "new-approved-document-on-electrical-safety-circula--circular-05-2004-new-approved-document-giving-guidance-on-@2012-11-14-2e9f7139",
+   "unit": "p8",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Paragraphs B.1, B.2 and B.3 are merged into one text block and their numbers are stripped out into a separate note, so later references to paragraph B.1 and B.2 cannot be followed.",
+     "evidence": "source: \"B.2 Regulation 3(3) and 3(4) provide that\" / tree: \"...subject to the amended Regulations. Regulation 3(3) and 3(4) provide that\" and note \"B.1 B.2 B.3\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The headings of the annex are read as body text at the start of paragraph B.1.",
+     "evidence": "tree: \"TRANSITIONAL PROVISIONS The Building (Amendment) (No.2) Regulations 2004 Regulation 3 of the Building (Amendment) (No. 2) Regulations 2004 contains\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The paragraphs that follow each bullet list are joined onto the last bullet of the list.",
+     "evidence": "tree: \"• an initial notice or an amendment notice given to the local authority. There are supplementary provisions in Regulation 3\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Words next to bold or italic words are run together.",
+     "evidence": "source: \"a building notice and a commencement notice\" / tree: \"a building notice anda commencement notice\"; source: \"is subject\" / tree: \"issubject\""
+    }
+   ],
    "confidence": "high",
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
@@ -4259,6 +5708,24 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "1ce188141585814c": {
+   "version_id": "new-approved-documents-and-guidance-circular-06-20--circular-06-2010-the-building-act-1984-the-building-regula@2010-04-30-64833aed",
+   "unit": "p10",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The first of the two headings printed above the notice on this page is not in the tree; the second heading is kept twice instead.",
+     "evidence": "source: \"Building Regulations 2000\" / tree: \"Building (Approved Inspectors etc) Regulations 2000 Building (Approved Inspectors etc) Regulations 2000\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "8991e4543f3fc048": {
    "version_id": "new-approved-documents-and-guidance-circular-06-20--circular-06-2010-the-building-act-1984-the-building-regula@2010-04-30-64833aed",
    "unit": "p10",
@@ -4277,6 +5744,24 @@
      "severity": "low",
      "problem": "The table is titled with the collection name, and the notice title is kept only in the table text.",
      "evidence": "source: \"NOTICE OF APPROVAL BY THE SECRETARY OF STATE OF THE MANNER IN WHICH THE RESULTS OF PRESSURE TESTING\" / tree title: \"Building regulations: circulars (collection, 2003 to 2026)\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "076cac3bbfa2b102": {
+   "version_id": "new-approved-documents-and-guidance-circular-06-20--circular-06-2010-the-building-act-1984-the-building-regula@2010-04-30-64833aed",
+   "unit": "p11",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The first of the two headings printed above the notice on this page is not in the tree; only the second heading is kept.",
+     "evidence": "source: \"Building Regulations 2000\" / tree: \"Building (Approved Inspectors etc) Regulations 2000 Building (Approved Inspectors etc) Regulations 2000\""
     }
    ],
    "confidence": "medium",
@@ -4349,6 +5834,17 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "804e5cdf892afb0f": {
+   "version_id": "new-approved-documents-and-guidance-circular-06-20--circular-06-2010-the-building-act-1984-the-building-regula@2010-04-30-64833aed",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "0410fc19e4274a87": {
    "version_id": "new-approved-documents-and-guidance-circular-06-20--circular-06-2010-the-building-act-1984-the-building-regula@2010-04-30-64833aed",
    "unit": "p6",
@@ -4369,6 +5865,17 @@
      "evidence": "source: \"NOTICE OF APPROVAL BY THE SECRETARY OF STATE OF THE CIRCUMSTANCES FOR CARRYING OUT PRESSURE TESTING OF NEW BUILDINGS\" / tree: \"Building regulations: circulars (collection, 2003 to 2026)\""
     }
    ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "919912f9746e6006": {
+   "version_id": "new-approved-documents-and-guidance-circular-06-20--circular-06-2010-the-building-act-1984-the-building-regula@2010-04-30-64833aed",
+   "unit": "p6",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
    "confidence": "high",
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
@@ -4400,6 +5907,42 @@
     }
    ],
    "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "b91be51a0b432c43": {
+   "version_id": "new-approved-documents-and-guidance-circular-06-20--circular-06-2010-the-building-act-1984-the-building-regula@2010-04-30-64833aed",
+   "unit": "p7",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The heading \"Building Regulations 2000\" is printed again on this page, but the tree holds it only once, for the page before.",
+     "evidence": "source: \"Building Regulations 2000\" / tree: \"Building Regulations 2000 Building (Approved Inspectors etc) Regulations 2000 Building (Approved Inspectors etc) Regulations 2000\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "0aaec6bfbe64c716": {
+   "version_id": "new-approved-documents-and-guidance-circular-06-20--circular-06-2010-the-building-act-1984-the-building-regula@2010-04-30-64833aed",
+   "unit": "p8",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The two heading lines printed above the notice are not kept as this page's headings but run together with the same lines from other pages in two repeated text blocks.",
+     "evidence": "source: \"Building Regulations 2000\" then \"Building (Approved Inspectors etc) Regulations 2000\" / tree: \"Building (Approved Inspectors etc) Regulations 2000 Building (Approved Inspectors etc) Regulations 2000\""
+    }
+   ],
+   "confidence": "medium",
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
@@ -4463,6 +6006,30 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "d9cf2dc405d064ea": {
+   "version_id": "new-approved-documents-and-guidance-circular-06-20--circular-06-2010-the-building-act-1984-the-building-regula@2010-04-30-64833aed",
+   "unit": "p9",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The first heading line above the notice is not in the content for this page.",
+     "evidence": "source: \"Building Regulations 2000\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The second heading line is kept only as a doubled text block carried over from the page before.",
+     "evidence": "source: \"Building (Approved Inspectors etc) Regulations 2000\" / tree: \"Building (Approved Inspectors etc) Regulations 2000 Building (Approved Inspectors etc) Regulations 2000\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "36ed59b4389b0bf2": {
    "version_id": "new-approved-documents-and-new-compliance-guides-s--circular-04-2013-the-building-act-1984-the-building-regula@2013-11-29-d0eb9192",
    "unit": "p4",
@@ -4484,6 +6051,17 @@
     }
    ],
    "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "3bf50b8d508bab30": {
+   "version_id": "new-approved-documents-and-new-compliance-guides-s--circular-04-2013-the-building-act-1984-the-building-regula@2013-11-29-d0eb9192",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "medium",
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
@@ -4511,6 +6089,17 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "2dde079c14c68d79": {
+   "version_id": "new-approved-documents-and-new-compliance-guides-s--circular-04-2013-the-building-act-1984-the-building-regula@2013-11-29-d0eb9192",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "fdd5becd0d9ea507": {
    "version_id": "new-approved-documents-and-new-compliance-guides-s--circular-04-2013-the-building-act-1984-the-building-regula@2013-11-29-d0eb9192",
    "unit": "p7",
@@ -4522,6 +6111,24 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "61c90277995c9c52": {
+   "version_id": "new-approved-documents-and-new-compliance-guides-s--circular-04-2013-the-building-act-1984-the-building-regula@2013-11-29-d0eb9192",
+   "unit": "p8",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The publisher's back-cover imprint is kept as body text under the heading path ANNEX B, though it is not part of Annex B.",
+     "evidence": "source: back cover \"Published by TSO (The Stationery Office) and available from:\" / tree: heading_path \"ANNEX B > Text\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "875f29803cc5a8ac": {
    "version_id": "new-approved-documents-and-new-compliance-guides-s--circular-04-2013-the-building-act-1984-the-building-regula@2013-11-29-d0eb9192",
    "unit": "p8",
@@ -4529,6 +6136,24 @@
    "family": "guidance-pdf",
    "verdict": "ok",
    "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "8ffcff7898ab6e36": {
+   "version_id": "new-approved-documents-circular-odpm-04-2004--circular-4-2004-new-approved-documents-on-parts-a-c-and-e@2012-11-14-1afc5f49",
+   "unit": "p10",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The page heading is read as body text and joined to the text of the earlier table's section, so the table has no heading of its own beyond \"Annex A\".",
+     "evidence": "source: heading \"THE BUILDING (APPROVED INSPECTORS ETC.) REGULATIONS 2004 (SI 2004/1466)\" / tree: inside text of \"Annex A > Text\""
+    }
+   ],
    "confidence": "high",
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
@@ -4551,6 +6176,66 @@
      "severity": "low",
      "problem": "The table has the collection title as its title and heading path, not the heading printed above it on the page.",
      "evidence": "source: \"THE BUILDING (APPROVED INSPECTORS ETC.) REGULATIONS 2004 (SI 2004/1466)\" / tree: \"Table (Building regulations: circulars (collection, 2003 to 2026))\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "7c6b5f94e25081f5": {
+   "version_id": "new-approved-documents-circular-odpm-04-2004--circular-4-2004-new-approved-documents-on-parts-a-c-and-e@2012-11-14-1afc5f49",
+   "unit": "p16",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The flowchart is read as running text, so the boxes, the Yes and No branches and the arrows are lost and the decision route cannot be followed.",
+     "evidence": "tree: \"Before 1 December Before 1 December 2004, 2004, has building No No has a plans certificate work started? been given? AND Yes\""
+    },
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "The words of separate boxes are mixed line by line, so a question and an outcome run into each other.",
+     "evidence": "source: \"Before 1 December 2004, has an initial notice been given?\" / tree: \"Building work is subject to the Before 1 December 2004, has No amendments to Regulation 6 and an initial notice been given?\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The footnote under the last outcome box is cut after its first line, and the rest is placed at the end of the body text after a different box.",
+     "evidence": "source: \"* But individual new buildings started on or after 1 December 2004 are subject to the revised Parts A and C\" / tree footnote: \"* But individual new buildings started on or\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The annex heading is split into number \"B\" and title \".3\", and the page headings are read as body text.",
+     "evidence": "source: \"Annex B.3\" / tree: number \"B\", title \".3\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "a42e0ef09139bed7": {
+   "version_id": "new-approved-documents-circular-odpm-04-2004--circular-4-2004-new-approved-documents-on-parts-a-c-and-e@2012-11-14-1afc5f49",
+   "unit": "p16",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "The Annex B.3 flowchart is read as one running text with the boxes side by side mixed into each other, so the questions, the Yes/No branches and the outcomes cannot be followed.",
+     "evidence": "source: \"Before 1 December 2004, has an initial notice been given?\" / tree: \"Building work is subject to the Before 1 December 2004, has No amendments to Regulation 6 and an initial notice been given?\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The starred footnote in the right-hand outcome box is cut in two: its first line is in footnotes and the rest is mixed into the text of the left-hand outcome box.",
+     "evidence": "source: \"* But individual new buildings started on or after 1 December 2004 are subject to the revised Parts A and C\" / tree: \"applicable at the time the initial notice after 1 December 2004 are subject to the revised was given.\""
     }
    ],
    "confidence": "high",
@@ -4611,6 +6296,42 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "f7d6494c14df3eb9": {
+   "version_id": "new-approved-documents-circular-odpm-04-2004--circular-4-2004-new-approved-documents-on-parts-a-c-and-e@2012-11-14-1afc5f49",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Numbered paragraphs 7, 8, 9 and 10 on this page are merged into one section numbered paragraph 1, so their rules sit under the wrong provision.",
+     "evidence": "source: \"7. SI 2004/1465 introduces a revised Part C\" / tree: number \"1\", heading_path \"Paragraph 1\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "Both tables are placed after all the running text, away from the sentences that introduce them.",
+     "evidence": "tree: \"Requirement C1 is sub-divided as follows: Requirement C1(2) relates to contaminants on or in the ground\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Headings are read as body text inside the merged paragraph.",
+     "evidence": "tree: \"December 2004. PART C (SITE PREPARATION AND RESISTANCE TO CONTAMINANTS AND MOISTURE) AND APPROVED DOCUMENT C 7. SI 2004/1465\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The two tables have no header row in the source, but the tree gives them column names, and it titles them with the collection title.",
+     "evidence": "tree: columns \"Requirement\", \"Previous requirement\", \"Subject\" and \"Requirement\", \"Subject\", \"Note\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "4872952f048fda74": {
    "version_id": "new-approved-documents-circular-odpm-04-2004--circular-4-2004-new-approved-documents-on-parts-a-c-and-e@2012-11-14-1afc5f49",
    "unit": "p5",
@@ -4623,6 +6344,48 @@
      "severity": "high",
      "problem": "Numbered paragraphs 14, 15, 16 and 17 are not separate provisions; they are body text inside one section called Paragraph 1, which holds the whole circular.",
      "evidence": "source: \"15. A new paragraph (4) is introduced into each of Regulations 20A and 12A\" / tree: number \"1\", heading_path \"Paragraph 1\", text \"... 1 July 2004. 15. A new paragraph (4) is introduced ...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "8b006653b51d3828": {
+   "version_id": "new-approved-documents-circular-odpm-04-2004--circular-4-2004-new-approved-documents-on-parts-a-c-and-e@2012-11-14-1afc5f49",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Numbered paragraphs 14, 15, 16 and 17 on this page are merged into one section numbered paragraph 1, so their rules sit under the wrong provision.",
+     "evidence": "source: \"16. The exemption from PCT applies to specified separating structures\" / tree: number \"1\", heading_path \"Paragraph 1\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "512bf6f9598ce45f": {
+   "version_id": "new-approved-documents-circular-odpm-04-2004--circular-4-2004-new-approved-documents-on-parts-a-c-and-e@2012-11-14-1afc5f49",
+   "unit": "p6",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Numbered paragraphs 18, 19 and 20 on this page, and the end of 17, are merged into one section numbered paragraph 1, so their rules sit under the wrong provision.",
+     "evidence": "source: \"20. SI 2004/1465 comes into force on 1 December 2004\" / tree: number \"1\", heading_path \"Paragraph 1\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The three headings on the page are read as body text inside the merged paragraph.",
+     "evidence": "tree: \"or a flat. Amendments 2004 to Approved Document E 19. Regulations 20A and 12A\""
     }
    ],
    "confidence": "high",
@@ -4665,6 +6428,24 @@
      "severity": "low",
      "problem": "The table has the collection title as its title and heading path, not Annex A or the heading printed above it.",
      "evidence": "source: \"Annex A THE BUILDING (AMENDMENT) REGULATIONS 2004 (SI 2004/1465)\" / tree: \"Table (Building regulations: circulars (collection, 2003 to 2026))\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "7705aaa4eadc54ac": {
+   "version_id": "new-approved-documents-circular-odpm-04-2004--circular-4-2004-new-approved-documents-on-parts-a-c-and-e@2012-11-14-1afc5f49",
+   "unit": "p9",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The annex title is a printed heading but the tree keeps it as body text joined to the intro sentence.",
+     "evidence": "source: heading \"THE BUILDING (AMENDMENT) REGULATIONS 2004 (SI 2004/1465)\" / tree: text \"THE BUILDING (AMENDMENT) REGULATIONS 2004 (SI 2004/1465) The following table lists all of the changes\""
     }
    ],
    "confidence": "high",
@@ -4772,6 +6553,17 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "de66eea37a44717e": {
+   "version_id": "new-provision-for-local-authority-building-control--circular-01-2010-the-building-act-1984-the-building-local-@2010-02-25-e3c8cf7f",
+   "unit": "p10",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "b9639aa15d159617": {
    "version_id": "new-provision-for-local-authority-building-control--circular-01-2010-the-building-act-1984-the-building-local-@2010-02-25-e3c8cf7f",
    "unit": "p11",
@@ -4783,7 +6575,29 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "d93e76415d6777c1": {
+   "version_id": "new-provision-for-local-authority-building-control--circular-01-2010-the-building-act-1984-the-building-local-@2010-02-25-e3c8cf7f",
+   "unit": "p11",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "091bbeb48e74addc": {
+   "version_id": "new-provision-for-local-authority-building-control--circular-01-2010-the-building-act-1984-the-building-local-@2010-02-25-e3c8cf7f",
+   "unit": "p12",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "3e3db6c2015281b5": {
    "version_id": "new-provision-for-local-authority-building-control--circular-01-2010-the-building-act-1984-the-building-local-@2010-02-25-e3c8cf7f",
    "unit": "p12",
    "kind": "semcheck-pdf",
@@ -4806,6 +6620,24 @@
      "severity": "low",
      "problem": "The headings CANCELLATION and ENQUIRIES are read as body text inside one merged section, so paragraphs 11 and 12 sit under INTRODUCTION with paragraph 10.",
      "evidence": "source: \"CANCELLATION\" and \"ENQUIRIES\" as bold headings / tree: \"www.cipfa.org.uk/shop CANCELLATION 11. This Circular hereby cancels\" and \"above. ENQUIRIES 12. All enquiries\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "bf57f2701dbcb591": {
+   "version_id": "new-provision-for-local-authority-building-control--circular-01-2010-the-building-act-1984-the-building-local-@2010-02-25-e3c8cf7f",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The headings CANCELLATION and ENQUIRIES are read as body text, and paragraphs 10, 11 and 12 are merged into one text block under INTRODUCTION.",
+     "evidence": "source: heading \"CANCELLATION\" then \"11. This Circular hereby cancels\" / tree: \"www.cipfa.org.uk/shop CANCELLATION 11. This Circular hereby cancels\" under \"INTRODUCTION > Text\""
     }
    ],
    "confidence": "high",
@@ -4836,6 +6668,35 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "8b131683b5a86cff": {
+   "version_id": "new-provision-for-local-authority-building-control--circular-01-2010-the-building-act-1984-the-building-local-@2010-02-25-e3c8cf7f",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The annex sub-heading is read as body text and joined to the introductory sentence.",
+     "evidence": "source: heading \"THE BUILDING (LOCAL AUTHORITY CHARGES) REGULATIONS 2010 (SI 2010/404)\" / tree: \"...REGULATIONS 2010 (SI 2010/404) The following table lists and briefly explains\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "757907cee36efed7": {
+   "version_id": "new-provision-for-local-authority-building-control--circular-01-2010-the-building-act-1984-the-building-local-@2010-02-25-e3c8cf7f",
+   "unit": "p6",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "e90fdddef752b69f": {
    "version_id": "new-provision-for-local-authority-building-control--circular-01-2010-the-building-act-1984-the-building-local-@2010-02-25-e3c8cf7f",
    "unit": "p6",
@@ -4858,9 +6719,42 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "5e33f84b7e25b2d0": {
+   "version_id": "new-provision-for-local-authority-building-control--circular-01-2010-the-building-act-1984-the-building-local-@2010-02-25-e3c8cf7f",
+   "unit": "p7",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "61c48a2340fb9434": {
    "version_id": "new-provision-for-local-authority-building-control--circular-01-2010-the-building-act-1984-the-building-local-@2010-02-25-e3c8cf7f",
    "unit": "p8",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "95be5072aaf10104": {
+   "version_id": "new-provision-for-local-authority-building-control--circular-01-2010-the-building-act-1984-the-building-local-@2010-02-25-e3c8cf7f",
+   "unit": "p8",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "af0e7028f6fe3d68": {
+   "version_id": "new-provision-for-local-authority-building-control--circular-01-2010-the-building-act-1984-the-building-local-@2010-02-25-e3c8cf7f",
+   "unit": "p9",
    "kind": "semcheck-pdf",
    "family": "guidance-pdf",
    "verdict": "ok",
@@ -4988,6 +6882,42 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "3b3fc91b8e9a8236": {
+   "version_id": "sound-insulation-testing-circular-odpm-03-2002--circular-03-2002-amendment-of-approved-document-giving-guida@2012-11-14-272b0adb",
+   "unit": "p18",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "The Annex E.3 flowchart is read as one running text with the boxes side by side mixed into each other, so the questions, the Yes/No branches and the outcomes cannot be followed.",
+     "evidence": "source: \"Before 1/7/03, has an initial notice been given?\" / tree: \"Building work is subject to the Before 1/7/03, has an initial No revised Part E and the new notice been given?\""
+    },
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "The starred footnote of the right-hand outcome box is mixed into the text of the left-hand outcome box.",
+     "evidence": "source: \"at the time the initial notice was given.\" / tree: \"at the time the initial notice was * But individual new buildings started on or given. after 1/7/03\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The annex title is kept as a top-level chapter beside Annex E.3 instead of under it, and the flowchart text sits under that chapter as a note that repeats the annex number and title.",
+     "evidence": "tree: heading_path \"THE BUILDING (AMENDMENT) (No. 2) REGULATIONS 2002: TRANSITIONAL PROVISIONS IN RELATION TO REQUIREMENTS OF PART E > Note\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is kept as a note of its own.",
+     "evidence": "tree: \"18\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "4589e0c1940482e4": {
    "version_id": "sound-insulation-testing-circular-odpm-03-2002--circular-03-2002-amendment-of-approved-document-giving-guida@2012-11-14-272b0adb",
    "unit": "p18",
@@ -5018,6 +6948,72 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "ab0ba1ade6674d15": {
+   "version_id": "sound-insulation-testing-circular-odpm-03-2002--circular-03-2002-amendment-of-approved-document-giving-guida@2012-11-14-272b0adb",
+   "unit": "p18",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "The flowchart boxes and their Yes/No answers are run together line by line, so questions, answers and outcomes are mixed.",
+     "evidence": "source: \"Before 1/7/03, has a plans certificate been given?\" and \"Before 1/7/03, has building work started?\" / tree: \"Before 1/7/03, has Before 1/7/03, has a plans building work No No certificate been given? started?\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The flowchart is kept as a note of running text, so which answer leads to which outcome is lost.",
+     "evidence": "tree: \"given? Approved Document E. Yes Before 1/7/03, has\" and \"initial notice was given*. Part E provisions applicable at the time the initial notice was * But individual new buildings\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The annex heading is split, with number E and title \".3\" instead of Annex E.3.",
+     "evidence": "source: \"Annex E.3\" / tree: number \"E\", title \".3\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The annex title is a separate chapter beside Annex E.3, and the flowchart text sits under that chapter, not under Annex E.3.",
+     "evidence": "tree: heading_path \"THE BUILDING (AMENDMENT) (No. 2) REGULATIONS 2002: TRANSITIONAL PROVISIONS IN RELATION TO REQUIREMENTS OF PART E > Note\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The page number is kept as a note.",
+     "evidence": "tree: note \"18\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "7f212df459fce583": {
+   "version_id": "sound-insulation-testing-circular-odpm-03-2002--circular-03-2002-amendment-of-approved-document-giving-guida@2012-11-14-272b0adb",
+   "unit": "p7",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The annex title is cut after its first line; the rest of the title and the intro sentence are held only in the table text.",
+     "evidence": "source: \"THE BUILDING (AMENDMENT) (NO. 2) REGULATIONS 2002 (SI 2002/2871)\" / tree: title \"THE BUILDING (AMENDMENT) (NO. 2)\", table text \"REGULATIONS 2002\", \"(SI 2002/2871)\", \"The following table lists the changes\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The page number is kept as a note.",
+     "evidence": "tree: note \"7\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "b817a9904638d6a4": {
    "version_id": "sound-insulation-testing-circular-odpm-03-2002--circular-03-2002-amendment-of-approved-document-giving-guida@2012-11-14-272b0adb",
    "unit": "p7",
@@ -5036,6 +7032,30 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "4f0ec80449c319dd": {
+   "version_id": "sound-insulation-testing-circular-odpm-03-2002--circular-03-2002-amendment-of-approved-document-giving-guida@2012-11-14-272b0adb",
+   "unit": "p8",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The annex title is cut after its first line; the rest of the title and the intro sentence are held only in the table text.",
+     "evidence": "source: \"THE BUILDING (APPROVED INSPECTORS ETC.) (AMENDMENT) REGULATIONS 2002 (SI 2002/2872)\" / tree: title \"THE BUILDING (APPROVED\", table text \"INSPECTORS ETC.) (AMENDMENT)\", \"REGULATIONS 2002 (SI 2002/2872)\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The page number is kept as a note.",
+     "evidence": "tree: note \"8\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "b56dab2552a739e3": {
    "version_id": "sound-insulation-testing-circular-odpm-03-2002--circular-03-2002-amendment-of-approved-document-giving-guida@2012-11-14-272b0adb",
    "unit": "p8",
@@ -5048,6 +7068,30 @@
      "severity": "low",
      "problem": "The printed page number is kept as a note under Annex B.",
      "evidence": "source: \"8\" (page number) / tree: note \"8\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "4dccab5284018f3b": {
+   "version_id": "sound-insulation-testing-circular-odpm-03-2002--circular-03-2002-amendment-of-approved-document-giving-guida@2012-11-14-272b0adb",
+   "unit": "p9",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The two columns of the signature block are mixed into one line, so the signer's name sits inside the words of the left column.",
+     "evidence": "source: \"Signed by authority of the First Secretary of State\" / tree: \"Signed by authority of the Paul F. Everall First Secretary of State An Assistant Secretary\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is kept as a note under Annex C.",
+     "evidence": "tree: note \"9\""
     }
    ],
    "confidence": "high",
@@ -5078,6 +7122,17 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "3e00aea780816afc": {
+   "version_id": "the-building-act-1984-and-building-regulations-201--circular-07-2010-the-building-act-1984-building-regulation@2010-09-24-fa1eea59",
+   "unit": "p10",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "4b270b3bde17727b": {
    "version_id": "the-building-act-1984-and-building-regulations-201--circular-07-2010-the-building-act-1984-building-regulation@2010-09-24-fa1eea59",
    "unit": "p10",
@@ -5100,9 +7155,42 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "a8eaf68405a0eb15": {
+   "version_id": "the-building-act-1984-and-building-regulations-201--circular-07-2010-the-building-act-1984-building-regulation@2010-09-24-fa1eea59",
+   "unit": "p11",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "04bb7e03fb9edaaa": {
+   "version_id": "the-building-act-1984-and-building-regulations-201--circular-07-2010-the-building-act-1984-building-regulation@2010-09-24-fa1eea59",
+   "unit": "p12",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "dbc3da7eeb0afd07": {
    "version_id": "the-building-act-1984-and-building-regulations-201--circular-07-2010-the-building-act-1984-building-regulation@2010-09-24-fa1eea59",
    "unit": "p12",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "2354ae6de55dac1f": {
+   "version_id": "the-building-act-1984-and-building-regulations-201--circular-07-2010-the-building-act-1984-building-regulation@2010-09-24-fa1eea59",
+   "unit": "p13",
    "kind": "semcheck-pdf",
    "family": "guidance-pdf",
    "verdict": "ok",
@@ -5140,9 +7228,42 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "804b3623466afc47": {
+   "version_id": "the-building-act-1984-and-building-regulations-201--circular-07-2010-the-building-act-1984-building-regulation@2010-09-24-fa1eea59",
+   "unit": "p14",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "de5da486e100be96": {
+   "version_id": "the-building-act-1984-and-building-regulations-201--circular-07-2010-the-building-act-1984-building-regulation@2010-09-24-fa1eea59",
+   "unit": "p15",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "f730c56e047681cf": {
    "version_id": "the-building-act-1984-and-building-regulations-201--circular-07-2010-the-building-act-1984-building-regulation@2010-09-24-fa1eea59",
    "unit": "p15",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "773acad3eaf75163": {
+   "version_id": "the-building-act-1984-and-building-regulations-201--circular-07-2010-the-building-act-1984-building-regulation@2010-09-24-fa1eea59",
+   "unit": "p16",
    "kind": "semcheck-pdf",
    "family": "guidance-pdf",
    "verdict": "ok",
@@ -5173,6 +7294,17 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "29efdc0a97976011": {
+   "version_id": "the-building-act-1984-and-building-regulations-201--circular-07-2010-the-building-act-1984-building-regulation@2010-09-24-fa1eea59",
+   "unit": "p17",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "8c5aa7b119f77075": {
    "version_id": "the-building-act-1984-and-building-regulations-201--circular-07-2010-the-building-act-1984-building-regulation@2010-09-24-fa1eea59",
    "unit": "p18",
@@ -5191,6 +7323,24 @@
      "severity": "low",
      "problem": "The headings \"ANNEX C\" and \"Building Act 1984\" are kept as one body text block under the path \"Text\", not as headings above the table.",
      "evidence": "source: \"ANNEX C\" / \"Building Act 1984\" / tree: \"ANNEX C Building Act 1984 £8\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "cc47274f35026e09": {
+   "version_id": "the-building-act-1984-and-building-regulations-201--circular-07-2010-the-building-act-1984-building-regulation@2010-09-24-fa1eea59",
+   "unit": "p18",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The text under ANNEX C ends with a price \"£8\" that is not printed on the page.",
+     "evidence": "source: \"Building Act 1984\" / tree: \"Building Act 1984 £8\""
     }
    ],
    "confidence": "medium",
@@ -5233,6 +7383,28 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "d1061e7c36f3a3ab": {
+   "version_id": "the-building-act-1984-and-building-regulations-201--circular-07-2010-the-building-act-1984-building-regulation@2010-09-24-fa1eea59",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "1807783e6ab9c64c": {
+   "version_id": "the-building-act-1984-and-building-regulations-201--circular-07-2010-the-building-act-1984-building-regulation@2010-09-24-fa1eea59",
+   "unit": "p6",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "562fde33fe503a41": {
    "version_id": "the-building-act-1984-and-building-regulations-201--circular-07-2010-the-building-act-1984-building-regulation@2010-09-24-fa1eea59",
    "unit": "p6",
@@ -5255,6 +7427,28 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "c143ced7cb0b4a28": {
+   "version_id": "the-building-act-1984-and-building-regulations-201--circular-07-2010-the-building-act-1984-building-regulation@2010-09-24-fa1eea59",
+   "unit": "p7",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "1901840f9517138f": {
+   "version_id": "the-building-act-1984-and-building-regulations-201--circular-07-2010-the-building-act-1984-building-regulation@2010-09-24-fa1eea59",
+   "unit": "p8",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "7fc7cc7a6f31b1bf": {
    "version_id": "the-building-act-1984-and-building-regulations-201--circular-07-2010-the-building-act-1984-building-regulation@2010-09-24-fa1eea59",
    "unit": "p8",
@@ -5267,6 +7461,17 @@
    "date": "2026-11-23"
   },
   "6e0a1b8ff2b07e73": {
+   "version_id": "the-building-act-1984-and-building-regulations-201--circular-07-2010-the-building-act-1984-building-regulation@2010-09-24-fa1eea59",
+   "unit": "p9",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "73b722a11708e480": {
    "version_id": "the-building-act-1984-and-building-regulations-201--circular-07-2010-the-building-act-1984-building-regulation@2010-09-24-fa1eea59",
    "unit": "p9",
    "kind": "semcheck-pdf",
@@ -5336,6 +7541,24 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "17946c7400c1310c": {
+   "version_id": "the-building-act-1984-building-amendment-regulatio--circular-01-2013-the-building-act-1984-building-amendment-@2013-05-13-c4ec4d3e",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading ENQUIRIES and the paragraph number 9 are read as body text, run together with the address and the signature block.",
+     "evidence": "source: heading \"ENQUIRIES\" then \"9. All enquiries on matters covered by this Circular\" / tree: \"ENQUIRIES 9. All enquiries on matters covered by this Circular\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "9afa213ee0f67471": {
    "version_id": "the-building-act-1984-building-amendment-regulatio--circular-01-2013-the-building-act-1984-building-amendment-@2013-05-13-c4ec4d3e",
    "unit": "p3",
@@ -5378,6 +7601,24 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "9cd60932366c61e2": {
+   "version_id": "the-building-act-1984-building-amendment-regulatio--circular-01-2013-the-building-act-1984-building-amendment-@2013-05-13-c4ec4d3e",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading of the annex is read as body text and joined to the sentence that introduces the table.",
+     "evidence": "source: heading \"The Building Regulations etc (Amendment) Regulations 2013 (S.I. 2013/1105)\" / tree: \"...Regulations 2013 (S.I. 2013/1105) The following table lists all the changes\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "7a278a1534bee022": {
    "version_id": "the-building-act-1984-building-amendment-regulatio--circular-02-2011-the-building-act-1984-building-amendment-@2011-06-22-d08d62c5",
    "unit": "p3",
@@ -5392,6 +7633,35 @@
      "evidence": "source: \"TRANSITIONAL PROVISIONS\" (heading) / tree: \"Regulations 2007. TRANSITIONAL PROVISIONS 11. There are no transitional provisions\""
     }
    ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "c97671446db9a9e5": {
+   "version_id": "the-building-act-1984-building-amendment-regulatio--circular-02-2011-the-building-act-1984-building-amendment-@2011-06-22-d08d62c5",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Numbered paragraphs 9 to 13 and their four section headings are run together as one body text block, so the headings read as body text.",
+     "evidence": "source: heading \"TRANSITIONAL PROVISIONS\" then \"11. There are no transitional provisions\" / tree: \"Regulations 2007. TRANSITIONAL PROVISIONS 11. There are no transitional provisions\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "38d834b14291df2a": {
+   "version_id": "the-building-act-1984-building-amendment-regulatio--circular-02-2011-the-building-act-1984-building-amendment-@2011-06-22-d08d62c5",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
    "confidence": "high",
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
@@ -5444,6 +7714,28 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "f87cec4f21e86701": {
+   "version_id": "the-building-act-1984-building-amendment-regulatio--circular-02-2011-the-building-act-1984-building-amendment-@2011-06-22-d08d62c5",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "3d61f062bf3e7bc7": {
+   "version_id": "the-building-act-1984-building-amendment-regulatio--the-building-act-1984-building-amendment-regulations-2012-@2012-12-19-da25fded",
+   "unit": "p10",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "69c29068f734b9df": {
    "version_id": "the-building-act-1984-building-amendment-regulatio--the-building-act-1984-building-amendment-regulations-2012-@2012-12-19-da25fded",
    "unit": "p10",
@@ -5462,6 +7754,35 @@
    "family": "guidance-pdf",
    "verdict": "ok",
    "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "cf46b13aba52b2f3": {
+   "version_id": "the-building-act-1984-building-amendment-regulatio--the-building-act-1984-building-amendment-regulations-2012-@2012-12-19-da25fded",
+   "unit": "p11",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "02d21b823a1e5358": {
+   "version_id": "the-building-act-1984-building-amendment-regulatio--the-building-act-1984-building-amendment-regulations-2012-@2012-12-19-da25fded",
+   "unit": "p12",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-heading under Annex B is read as body text and joined to the sentence that follows it.",
+     "evidence": "source: \"The Building Regulations etc (Amendment) Regulations 2012 (S.I. 2012/3119)\" (heading) / tree: \"The Building Regulations etc (Amendment) Regulations 2012 (s.i. 2012/3119) The following table lists all the changes\""
+    }
+   ],
    "confidence": "high",
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
@@ -5508,9 +7829,84 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "a20156bbc6cbbe4b": {
+   "version_id": "the-building-act-1984-building-amendment-regulatio--the-building-act-1984-building-amendment-regulations-2012-@2012-12-19-da25fded",
+   "unit": "p13",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The heading \"Annex C\" is read as body text, so the Annex C text and its table sit under Annex B and the table is titled Annex B.",
+     "evidence": "source: \"Annex C\" (heading) / tree: text \"Annex c The Building Regulations etc (Amendment) Regulations 2012\", heading_path \"Annex B > Table (Annex B)\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-heading under Annex C is read as body text and joined to the sentence that follows it.",
+     "evidence": "source: \"The Building Regulations etc (Amendment) Regulations 2012 (S.I. 2012/3119)\" (heading) / tree: \"Regulations 2012 (s.i. 2012/3119) The following table lists all the changes\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "f3a52bc7883fccfb": {
+   "version_id": "the-building-act-1984-building-amendment-regulatio--the-building-act-1984-building-amendment-regulations-2012-@2012-12-19-da25fded",
+   "unit": "p13",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading printed under Annex C is kept as the start of the body text instead of as a heading.",
+     "evidence": "source: heading \"The Building Regulations etc (Amendment) Regulations 2012 (S.I. 2012/3119)\" / tree: text \"The Building Regulations etc (Amendment) Regulations 2012 (s.i. 2012/3119) The following table lists\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "43fb14f78dcfc1cb": {
+   "version_id": "the-building-act-1984-building-amendment-regulatio--the-building-act-1984-building-amendment-regulations-2012-@2012-12-19-da25fded",
+   "unit": "p14",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "53e0204ec2e9ab57": {
+   "version_id": "the-building-act-1984-building-amendment-regulatio--the-building-act-1984-building-amendment-regulations-2012-@2012-12-19-da25fded",
+   "unit": "p14",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "93e5dc9e43b27c39": {
    "version_id": "the-building-act-1984-building-amendment-regulatio--the-building-act-1984-building-amendment-regulations-2012-@2012-12-19-da25fded",
    "unit": "p14",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "5af0ae2cce2f3a18": {
+   "version_id": "the-building-act-1984-building-amendment-regulatio--the-building-act-1984-building-amendment-regulations-2012-@2012-12-19-da25fded",
+   "unit": "p16",
    "kind": "semcheck-pdf",
    "family": "guidance-pdf",
    "verdict": "ok",
@@ -5537,6 +7933,30 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "6d472a02108d4f37": {
+   "version_id": "the-building-act-1984-building-amendment-regulatio--the-building-act-1984-building-amendment-regulations-2012-@2012-12-19-da25fded",
+   "unit": "p16",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Annex E is read as a plain heading under Annex B, not as an annex of its own, so the approval notice and its table sit under the wrong annex.",
+     "evidence": "source: \"Annex E\" / tree: \"Annex B > Annex e\", \"Annex B > Building Act 1984 > Table (Building Act 1984)\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The signature block is read as a data row, with the signer's name, post and date under the requirement column.",
+     "evidence": "tree: \"Signed by authority of the Secretary of State\" | \"Bob Ledsome An Assistant Secretary in the Department for Communities and Local Government 19 December 2012\" | \"\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "79f83d8cff802752": {
    "version_id": "the-building-act-1984-building-amendment-regulatio--the-building-act-1984-building-amendment-regulations-2012-@2012-12-19-da25fded",
    "unit": "p17",
@@ -5552,6 +7972,41 @@
     }
    ],
    "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "f42fdd7e97358b93": {
+   "version_id": "the-building-act-1984-building-amendment-regulatio--the-building-act-1984-building-amendment-regulations-2012-@2012-12-19-da25fded",
+   "unit": "p17",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "2d706ca94ee70edb": {
+   "version_id": "the-building-act-1984-building-amendment-regulatio--the-building-act-1984-building-amendment-regulations-2012-@2012-12-19-da25fded",
+   "unit": "p8",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "One two-line heading is split into two sibling headings, and the text and table hang only under the second half.",
+     "evidence": "source: \"The Building Regulations etc (Amendment) Regulations 2012 (S.I. 2012/3119)\" / tree: \"The Building Regulations etc (Amendment) Regulations\" and \"2012 (s.i. 2012/3119)\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "S.I. is written in lower case in the heading and in the sentence before the table.",
+     "evidence": "source: \"changes made by S.I. 2012/3119\" / tree: \"changes made by s.i. 2012/3119\""
+    }
+   ],
+   "confidence": "high",
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
@@ -5574,6 +8029,17 @@
    "date": "2026-11-23"
   },
   "fbb7df6c119109c1": {
+   "version_id": "the-building-act-1984-building-amendment-regulatio--the-building-act-1984-building-amendment-regulations-2012-@2012-12-19-da25fded",
+   "unit": "p9",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "fcff3fcf81b3a6c6": {
    "version_id": "the-building-act-1984-building-amendment-regulatio--the-building-act-1984-building-amendment-regulations-2012-@2012-12-19-da25fded",
    "unit": "p9",
    "kind": "semcheck-pdf",
@@ -5644,6 +8110,54 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "a8f42909d98c759f": {
+   "version_id": "the-building-act-1994-the-building-regulations-200--circular-07-2000-the-building-regulations-2000-and-the-bui@2012-11-14-beea9961",
+   "unit": "p11",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Numbered paragraphs 3.1 to 3.4 and their three headings are merged into one note, with the headings read as body text.",
+     "evidence": "tree: \"Energy Ratings of Dwellings INTRODUCTION 3.1. This annex contains guidance ... CHANGES IN THE NEW PRINCIPAL REGULATIONS AND NEW AI REGULATIONS 3.2. Regulation 16\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The annex title lines are repeated as body text at the start of the note, and the title chapters are not under ANNEX 3 in the heading path.",
+     "evidence": "tree: \"ANNEX 3 THE BUILDING REGULATIONS 2000 THE BUILDING (APPROVED INSPECTORS ETC.) REGULATIONS 2000 Energy Ratings of Dwellings INTRODUCTION\" / heading_path \"Energy Ratings of Dwellings > Note\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The page number is kept as a note of its own.",
+     "evidence": "tree: note-18 text \"11\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "4694c76caa78eb45": {
+   "version_id": "the-building-act-1994-the-building-regulations-200--circular-07-2000-the-building-regulations-2000-and-the-bui@2012-11-14-beea9961",
+   "unit": "p18",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The page number is kept as a note of its own under ANNEX 4.",
+     "evidence": "tree: note-31 text \"18\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "eecf33412d6f32f6": {
    "version_id": "the-building-act-1994-the-building-regulations-200--circular-07-2000-the-building-regulations-2000-and-the-bui@2012-11-14-beea9961",
    "unit": "p18",
@@ -5673,6 +8187,30 @@
    "family": "guidance-pdf",
    "verdict": "ok",
    "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "5c0ae7f912abdec8": {
+   "version_id": "the-building-act-1994-the-building-regulations-200--circular-07-2000-the-building-regulations-2000-and-the-bui@2012-11-14-beea9961",
+   "unit": "p20",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The annex number and title are repeated as body text at the start of the note, and the title chapter is not under ANNEX 5 in the heading path.",
+     "evidence": "tree: \"ANNEX 5 THE BUILDING (APPROVED INSPECTORS ETC.) REGULATIONS 2000 The following table cross-references\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The page number is kept as a note of its own.",
+     "evidence": "tree: note-34 text \"20\""
+    }
+   ],
    "confidence": "high",
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
@@ -5778,6 +8316,30 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "d223abd6a91ceca3": {
+   "version_id": "the-building-act-1994-the-building-regulations-200--circular-07-2000-the-building-regulations-2000-and-the-bui@2012-11-14-beea9961",
+   "unit": "p6",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The page number is kept as a note of its own.",
+     "evidence": "tree: note-10 text \"6\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The title chapter is not under ANNEX 1 in the heading path.",
+     "evidence": "tree: heading_path \"THE BUILDING REGULATIONS 2000\" beside \"ANNEX 1\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "f668ab1b415bf9f4": {
    "version_id": "the-building-act-1994-the-building-regulations-200--circular-07-2000-the-building-regulations-2000-and-the-bui@2012-11-14-beea9961",
    "unit": "p7",
@@ -5823,6 +8385,24 @@
     }
    ],
    "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "e1080595b0ee28e7": {
+   "version_id": "the-building-act-1994-the-building-regulations-200--circular-07-2000-the-building-regulations-2000-and-the-bui@2012-11-14-beea9961",
+   "unit": "p8",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is kept as a note section of its own after the table.",
+     "evidence": "source: \"8\" (page number at the foot) / tree: note-12 text \"8\""
+    }
+   ],
+   "confidence": "high",
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
@@ -6028,6 +8608,71 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "df10cb25e1cc4524": {
+   "version_id": "the-building-amendment-no-3-regulations-2004-circu--circular-08-2004-the-building-amendment-no-3-regulations-2@2012-11-14-f0c8ac6c",
+   "unit": "p10",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "fddc788b4b4f3ca8": {
+   "version_id": "the-building-amendment-no-3-regulations-2004-circu--circular-08-2004-the-building-amendment-no-3-regulations-2@2012-11-14-f0c8ac6c",
+   "unit": "p10",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "A stray text block holding only a dash follows the table; it comes from a speck on the scan, not from printed text.",
+     "evidence": "tree: \"-\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "17913f4ed7f667aa": {
+   "version_id": "the-building-amendment-no-3-regulations-2004-circu--circular-08-2004-the-building-amendment-no-3-regulations-2@2012-11-14-f0c8ac6c",
+   "unit": "p11",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The two-column table of document and requirement is read as running text, so the header and the cells of the two columns are mixed together.",
+     "evidence": "source: \"Amendment to Approved Document P: Electrical safety\" | \"Schedule 1 Part P of the Building Regulations 2000\" / tree: \"Amendment to Approved Document P: Schedule 1Part P of the Building Electrical safety Regulations 2000\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The signature block's two columns are mixed line by line into one text.",
+     "evidence": "source: \"Signed by authority of the First Secretary of State\" / tree: \"Signed by authority of the Paul F Everall First Secretary ofState an Assistant Secretary\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Two stray lines of scan noise are kept as text.",
+     "evidence": "tree: \"•  //\" and \"•  IJ\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Some words are run together.",
+     "evidence": "source: \"in exercise of his powers\", \"1 January 2005\" / tree: \"in exercise ofhis powers\", \"1January 2005\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "b58943b3f93a89ca": {
    "version_id": "the-building-amendment-no-3-regulations-2004-circu--circular-08-2004-the-building-amendment-no-3-regulations-2@2012-11-14-f0c8ac6c",
    "unit": "p11",
@@ -6106,6 +8751,36 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "9025a2a4a5fbbc0a": {
+   "version_id": "the-building-amendment-no-3-regulations-2004-circu--circular-08-2004-the-building-amendment-no-3-regulations-2@2012-11-14-f0c8ac6c",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The statutory instrument abbreviation \"S.I.\" is read as \"S.1.\" or \"S.l.\" throughout the intro text; the numbers themselves are intact.",
+     "evidence": "source: \"(S.I. 2004/3210) ... S.I. 2001/3335, S.I. 2002/440\" / tree: \"(S.1. 2004/3210) ... S.1. 2001/3335, S.l. 2002/440\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Scan noise is kept as text at the end of the intro paragraph.",
+     "evidence": "tree: \".-' ~ ... : 4 - -\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The annex title is read as body text and run into the intro sentence, and the annex heading is joined as one word.",
+     "evidence": "source: \"Annex A\" / \"THE BUILDING (AMENDMENT) (NO. 3) REGULATIONS 2004 (S.I. 2004/3210)\" as heading / tree: title \"AnnexA\", heading inside text"
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "c310db8f47b3250f": {
    "version_id": "the-building-amendment-no-3-regulations-2004-circu--circular-08-2004-the-building-amendment-no-3-regulations-2@2012-11-14-f0c8ac6c",
    "unit": "p5",
@@ -6154,6 +8829,35 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "f908b1b68e61b281": {
+   "version_id": "the-building-amendment-no-3-regulations-2004-circu--circular-08-2004-the-building-amendment-no-3-regulations-2@2012-11-14-f0c8ac6c",
+   "unit": "p6",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "0e275cf4bd2053e4": {
+   "version_id": "the-building-amendment-no-3-regulations-2004-circu--circular-08-2004-the-building-amendment-no-3-regulations-2@2012-11-14-f0c8ac6c",
+   "unit": "p7",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "A text section after the table holds only dashes, which are scan noise and not printed text.",
+     "evidence": "tree: \"- - - -\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "8eb180f5b3ada590": {
    "version_id": "the-building-amendment-no-3-regulations-2004-circu--circular-08-2004-the-building-amendment-no-3-regulations-2@2012-11-14-f0c8ac6c",
    "unit": "p7",
@@ -6177,6 +8881,35 @@
      "severity": "low",
      "problem": "A text section of stray dashes follows the table, but the page has no text after the table.",
      "evidence": "tree: \"- - - -\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "a64bcd04b0fcd15a": {
+   "version_id": "the-building-amendment-no-3-regulations-2004-circu--circular-08-2004-the-building-amendment-no-3-regulations-2@2012-11-14-f0c8ac6c",
+   "unit": "p8",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "3011718d3d05f96b": {
+   "version_id": "the-building-amendment-no-3-regulations-2004-circu--circular-08-2004-the-building-amendment-no-3-regulations-2@2012-11-14-f0c8ac6c",
+   "unit": "p9",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "A text section after the table holds only dashes, which are scan noise and not printed text.",
+     "evidence": "tree: \"- - -\""
     }
    ],
    "confidence": "high",
@@ -6248,6 +8981,36 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "e7151ba6206fdbfe": {
+   "version_id": "the-building-amendment-regulation-2003-circular-od--odpm-circular-11-2003-the-building-amendment-regulation-20@2003-11-05-ba14a335",
+   "unit": "p12",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The Annex B heading and the signature block are read as body text inside paragraph 17 of \"Enquiries\", merged with Annexes A and C, and the approval notice table sits under \"Enquiries\" instead of under Annex B.",
+     "evidence": "source: \"Annex B: Building Act\" (heading) / tree: heading_path \"Enquiries > Paragraph 17\" text \"... Annex B: Building Act Signed by authority of the First Secretary of State Paul F Everall ...\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The signature block printed under the table comes before the table in the tree, inside paragraph 17.",
+     "evidence": "source: table, then \"Signed by authority of the First Secretary of State\" / tree: \"Annex B: Building Act Signed by authority of the First Secretary of State\" before the table"
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The notice rows of the table (title and operative text) are not in the grid, only in the table's text.",
+     "evidence": "source: \"This approval takes effect on 1 May 2004.\" / tree: grid has only the row \"Approved Document M ... Schedule 1 Part M\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "56e9997639ccb879": {
    "version_id": "the-building-amendment-regulation-2003-circular-od--odpm-circular-11-2003-the-building-amendment-regulation-20@2003-11-05-ba14a335",
    "unit": "p2",
@@ -6291,6 +9054,17 @@
      "evidence": "source: \"ANNEX A THE BUILDING (AMENDMENT) REGULATIONS 2001 (SI 2001/3335)\" / tree: \"Enquiries > Paragraph 36\"; \"Enquiries > Table (Enquiries)\""
     }
    ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "a6f7ee7a19b949c5": {
+   "version_id": "the-building-amendment-regulations-2001-and-the-bu--circular-03-2001-new-parts-h-j-and-l-in-schedule-1-to-the-@2012-11-14-4cf3bffc",
+   "unit": "p14",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
    "confidence": "medium",
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
@@ -6523,6 +9297,17 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "caecec0cd52320cc": {
+   "version_id": "the-building-etc-amendment-england-no-2-regulation--the-building-etc-amendment-england-no-2-regulations-2022-c@2022-10-04-5b4f2640",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "d4d0b353fe2b0782": {
    "version_id": "the-building-etc-amendment-england-no-2-regulation--the-building-etc-amendment-england-no-2-regulations-2022-c@2022-10-04-5b4f2640",
    "unit": "p3",
@@ -6552,6 +9337,24 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "cd6218423a8f4dc5": {
+   "version_id": "the-building-etc-amendment-england-no-2-regulation--the-building-etc-amendment-england-no-2-regulations-2022-c@2022-10-04-5b4f2640",
+   "unit": "p6",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The bold heading at the top of the page is kept as the first words of the body text, not as a heading.",
+     "evidence": "source: \"The Building (Approved Inspectors Etc.) Regulations 2010, The Building Regulations &c. (Amendment) Regulations 2015\" (bold heading) / tree: \"...Regulations 2015 Schedule 1, Forms, is amended to provide...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "5162a465e763b271": {
    "version_id": "the-building-etc-amendment-england-no-2-regulation--the-building-etc-amendment-england-no-2-regulations-2022-c@2022-10-04-5b4f2640",
    "unit": "p7",
@@ -6576,6 +9379,17 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "793606b57b32d558": {
+   "version_id": "the-building-etc-amendment-england-no-2-regulation--the-building-etc-amendment-england-no-2-regulations-2022-c@2022-10-04-5b4f2640",
+   "unit": "p7",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "17a76befed7f10ed": {
    "version_id": "the-building-etc-amendment-england-no-2-regulation--the-building-etc-amendment-england-no-2-regulations-2022-c@2022-10-04-5b4f2640",
    "unit": "p8",
@@ -6590,6 +9404,17 @@
      "evidence": "source: \"ANNEX C Building Act 1984 NOTICE OF WITHDRAWAL OF APPROVAL OF DOCUMENTS\" / tree: title \"ENQUIRIES\", heading_path \"ENQUIRIES > ENQUIRIES\""
     }
    ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "c4eebc95cea65b6b": {
+   "version_id": "the-building-etc-amendment-england-no-2-regulation--the-building-etc-amendment-england-no-2-regulations-2022-c@2022-10-04-5b4f2640",
+   "unit": "p8",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
    "confidence": "medium",
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
@@ -6769,6 +9594,36 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "7c42dd869aff82aa": {
+   "version_id": "the-building-regulations-and-the-building-approved--circular-062007-the-building-regulations-and-the-building-@2007-12-07-f5b155f7",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Many lines have all their words run together with no spaces.",
+     "evidence": "source: \"with Regulation 7 and Part L of Building Regulations for England and Wales\" / tree: \"withRegulation7andPartLofBuildingRegulationsforEnglandandWales\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading \"Enquiries\" is read as body text, so the enquiries and signature block sits inside Annex A; the headings \"WITHDRAWN\" and \"Multi-Foil Thermal Insulation Products\" are also body text.",
+     "evidence": "source: heading \"Enquiries\" / tree: \"testingbodies. Enquiries AllenquiriesonmattersaddressedbythisCircularshouldbeaddressedto:\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The tree ends with characters that are not printed on the page, probably read from the handwritten signature.",
+     "evidence": "tree: \"AssistantSecretaryinCommunitiesandLocalGovernment £6\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "904a7b0ad2f0f2aa": {
    "version_id": "the-building-regulations-and-the-building-approved--circular-062007-the-building-regulations-and-the-building-@2007-12-07-f5b155f7",
    "unit": "p4",
@@ -6816,6 +9671,24 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "1bc787ac961a76dc": {
+   "version_id": "the-builiding-regulations-2000-and-the-building-ap--circular-05-2007-the-building-regulations-2000-and-the-bui@2007-12-05-2e591312",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The second line of the annex title is cut from the title and joined to the body text.",
+     "evidence": "source: \"The Building and Approved Inspectors (Amendment) Regulations 2007 (S.I.2007/3384)\" / tree title: \"The Building and Approved Inspectors (Amendment)\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "ae0da4a9e9d84e1c": {
    "version_id": "the-builiding-regulations-2000-and-the-building-ap--circular-05-2007-the-building-regulations-2000-and-the-bui@2007-12-05-2e591312",
    "unit": "p4",
@@ -6828,6 +9701,30 @@
      "severity": "low",
      "problem": "The heading \"ANNEX A\" and its title are read as body text at the end of the circular letter's section that starts at paragraph 11, so the annex and its table have no heading of their own.",
      "evidence": "tree: \"FileReference:CI/43/1/21 ANNEX A The Building and Approved Inspectors (Amendment) Regulations 2007 (S.I.2007/3384) The following table lists\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "0c964d535c53b49b": {
+   "version_id": "the-builiding-regulations-2000-and-the-building-ap--circular-05-2007-the-building-regulations-2000-and-the-bui@2007-12-05-2e591312",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Words in the sentence that introduces the table are run together.",
+     "evidence": "source: \"Inspectors etc.) Regulations 2000 (SI 2000/2532)\" / tree: \"Inspectorsetc.)Regulations2000 (SI2000/2532)\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The second line of the annex title is cut from the title and joined to the body text.",
+     "evidence": "source: \"The Building and Approved Inspectors (Amendment) Regulations 2007 (SI 2007/3384)\" / tree title: \"The Building and Approved Inspectors (Amendment)\""
     }
    ],
    "confidence": "high",
@@ -6888,6 +9785,54 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "ce2454860590a2fc": {
+   "version_id": "the-builiding-regulations-2000-and-the-building-ap--circular-05-2007-the-building-regulations-2000-and-the-bui@2007-12-05-2e591312",
+   "unit": "p6",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Most of the body text has its words run together with no spaces, in every paragraph and bullet.",
+     "evidence": "source: \"The transitional provisions of the Amendment Regulations set out the circumstances in\" / tree: \"ThetransitionalprovisionsoftheAmendmentRegulationssetoutthecircumstancesin\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Two paragraphs that stand outside the bullets are joined to the bullet before them, so the closing rule reads as part of the last bullet only.",
+     "evidence": "source: separate lines \"The circumstances in respect of the amendments made by regulation 2(4)(b) are that if\" and \"the amendments made by regulation 2(4)(b) do not apply to that work.\" / tree: \"orworkdescribedinSchedule2B, theamendmentsmadebyregulation2(4)(b) donot applytothatwork.\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The bold sub-heading is read as the start of the body text.",
+     "evidence": "source heading: \"THE BUILDING AND APPROVED INSPECTORS (AMENDMENT) REGULATIONS 2007\" / tree: \"THE BUILDING AND APPROVED INSPECTORS (AMENDMENT) REGULATIONS 2007 Thetransitionalprovisions\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "309b98d18cda656b": {
+   "version_id": "the-builiding-regulations-2000-and-the-building-ap--circular-05-2007-the-building-regulations-2000-and-the-bui@2007-12-05-2e591312",
+   "unit": "p7",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The whole paragraph has lost the spaces between its words, so almost every word is run together.",
+     "evidence": "source: \"There is a supplementary provision to the above in that if an initial notice given before 2 January 2008\" / tree: \"Thereisasupplementaryprovisiontotheaboveinthatifaninitialnoticegivenbefore 2January2008\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "9736d30f1246bbcd": {
    "version_id": "the-builiding-regulations-2000-and-the-building-ap--circular-05-2007-the-building-regulations-2000-and-the-bui@2007-12-05-2e591312",
    "unit": "p7",
@@ -6913,6 +9858,36 @@
    "family": "guidance-pdf",
    "verdict": "ok",
    "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "f217ef27d6028091": {
+   "version_id": "the-builiding-regulations-2000-and-the-building-ap--circular-05-2007-the-building-regulations-2000-and-the-bui@2007-12-05-2e591312",
+   "unit": "p8",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The copyright and imprint text has lost the spaces between its words.",
+     "evidence": "source: \"Copyright in the typographical arrangements rests with the Crown.\" / tree: \"CopyrightinthetypographicalarrangementsrestswiththeCrown.\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The back-cover publisher's imprint and price are kept as body text under Annex C Transitional Provisions, where they do not belong.",
+     "evidence": "tree heading_path: \"ANNEX C Transitional Provisions > Text\" / source: \"Published by TSO (The Stationery Office) and available from:\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The price is printed at the bottom of the page but comes first in the tree.",
+     "evidence": "tree first block: \"£6\""
+    }
+   ],
    "confidence": "high",
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"

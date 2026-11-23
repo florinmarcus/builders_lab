@@ -1,7 +1,9 @@
 # P: semantic validation of the parsed corpus (23 Nov 2026)
 
-**Status: sample fully judged (3,022 of 3,022 units).** Findings are model-flagged; a hand check of a sample of
-them, the fixes and the numbers after the fixes follow below.
+**Status (23 Nov 2026): sample fully judged, 50 findings checked by hand, judge noise measured, six fixes made
+and judged again.** Approved Documents: high rate on random pages 16.3% before, 10.3% after; on table pages 28.7%
+before, 13.1% after. Guidance PDFs are almost unchanged (23.3% on random pages): their main causes are still open.
+
 ## Question
 
 Code checks pass (coverage 0 open, crops 0 bad, model checks 0 open). Does each tree also say what its source
@@ -10,7 +12,7 @@ says? A model reads the source next to the tree and names differences.
 ## Method
 
 Tool: `system/rag/semcheck.py` (design: [regulations-corpus.md](../../architecture/design/regulations-corpus.md),
-"Semantic check"). Model: Fable 5.2 only, headless Claude Code, 6 packets a batch, 4 batches at a time.
+"Semantic check"). Model: Fable 5.2 only, headless Claude Code, 6 packets a batch, 4 to 8 batches at a time.
 
 - PDF: one page. The page image against the page's tree content in reading order.
 - Web page: one part of a page, cut at headings. The visible text (dropped text named) against the tree sections.
@@ -103,63 +105,131 @@ Corrected high rates (rate times 0.94; intervals scaled the same way, so they le
 | Legislation | 2.8% | about 3% |
 | Web pages | 0.5% | under 1% |
 
-## Main causes (high-severity findings, rough grouping by keyword)
+## Main causes (before the fixes)
 
-1. **Table grids drop group headings over several columns** (73 pages in Approved Documents). The model-check
-   instruction asked for "the lowest header row". Examples: AD B Table B1 loses "Alternative minimum provisions
-   when tested to the relevant part of BS 476"; AD B volume 2 Table B4 loses "basement depth" against "height of
-   top floor"; Table B3 has two "Walls" and two "Door leaf" columns with nothing to tell single stair from more
-   than one stair.
-2. **Other table faults** (28 pages in Approved Documents, 12 in guidance): AD F 2026 Table 1.2 has three printed
-   columns and two in the tree; AD B 2029 booklet Table B3 row 8 reads 1100mm where the page prints 100mm; a
-   table row cut at a page break with its end in the running text (Awaab tenant guides).
-3. **Provisions merged or split** (25 pages): amendment booklets join "Replace paragraph ..." instructions and the
-   new text to the paragraph before (AD B March 2024: new 3.56(b) sits inside 3.54); closing sentences of a
-   paragraph joined to its last list item (AD B 15.8).
-4. **Wrong parent or validity** (20 pages): collated AD B puts text printed after an amendment box under the
-   box's "effective from" heading (3.36, 3.37); Table C1 has valid_to 2029-09-01 where the page says until
-   29 September 2026; the 2025 booklet files Volume 2 amendments under a Volume 1 chapter.
-5. **Headings and body text confused** (13 pages in Approved Documents, 7 in guidance): a heading printed on two
-   lines becomes two headings (AD M Table 3 title, AD A "Construction materials and workmanship"); FAQ documents
-   parsed with the Approved Document parser lose question headings (AD A, AD G, AD M FAQs).
-6. **Notes under tables in the wrong place or scrambled** (15 pages): AD G Table A2.7's footnote sits in Table
-   A2.5; AD J Table 10 note 2 has its words interleaved.
-7. **Garbled text**: "fi" and "fl" lost (HSG33, AD G, 13 more documents); formulas flattened so a fraction loses
-   its division (AD L U-value, AD L 2026 equation 5.4); Bengali, Urdu and Arabic guides with broken characters,
-   and one of them kept as a single "Paragraph 8" for the whole document.
-8. **Figures** (6 pages): words inside older diagrams (AD A Diagrams 5, 10, 14) are not in `labels`, only in the
-   model's description; AD E Diagram A.1 and AD K Diagram 9.1 are not figures at all.
+1. **Table grids drop group headings over several columns** (73 Approved Document pages, more in guidance): the
+   model-check instruction asked for "the lowest header row". AD B Table B1 lost "Alternative minimum provisions
+   when tested to the relevant part of BS 476"; Table B4 "basement depth" against "height of top floor"; Table B5
+   two "Walls" and two "Door leaf" columns; AD L Table 4.3 was forced into the two columns of its "family".
+2. **Amendment booklets**: "Replace paragraph ..." instructions joined to the paragraph before (AD B March 2024:
+   new 3.56(b) inside 3.54); margin page references ("to 128") read as headings; "Page 115 Insert" as a key term.
+3. **Collated AD B edition boxes**: text printed after a box filed under the box's heading (3.36, 3.37) and no
+   box dates on the sections.
+4. **Circular annex titles**: "ANNEX A" (20pt over 12pt body) read as the end of the last paragraph, so notices
+   of approval sat under "ENQUIRIES" (58 high findings in circulars).
+5. **"fi" and "fl" lost** where the PDF maps the ligature glyph to "f" (HSG33, AD B, AD G, AD M, L108, HSG248).
+6. **Classic headings on two lines** read as two headings (AD A "Construction materials and" / "workmanship").
+7. Not fixed (still open, see the end): tables over pages not joined; text after a table held in the table's text
+   (HSG248); headings read as body text in HSE guides; two columns mixed (leaflets, short guides); formulas
+   flattened; Bengali, Urdu and Arabic tenant guides with broken characters; FAQ PDFs without question headings;
+   shading in tables not recorded; footnote markers joined to numbers.
 
-Web pages (0.5%), legislation (2.8%) and the fire guides' random pages (1.1%) are close to clean.
+## Judge noise: how often does a fresh run change the verdict?
 
-## What this implies
+150 unchanged units, drawn by family (seed 20261125), were judged again by Fable in fresh runs and kept apart
+(`evals/experiments/data/semcheck-noise-2026-11-23.json`; the saved verdicts were not touched). A batch run that
+picked up stale packets judged 281 more unchanged units again by mistake; those answers are kept in the same file
+as extra noise data and the saved verdicts were put back.
 
-- For Approved Documents the high rate on random pages is 16% (13 to 21%), far above the 2% line. Judging every
-  page would not change the decision; fixing the causes would. Widening was not done.
-- For unsampled Approved Document pages: about 2,000 pages, so roughly 250 to 420 more pages with a finding the
-  model would call high, before any fix and before the model's own errors are taken off.
-- HSE guidance random pages: 22.8% (17.9 to 28.5%). Fire guides, web pages and legislation are near or under the
-  2% line on ordinary pages.
+| Set | Units | Class flips (ok / low only / high) | High-flag flips | High to not high | Not high to high |
+|---|---|---|---|---|---|
+| Designed (150) | 150 | 17 (11%) | 5 (3.3%; 1.4 to 7.6%) | 3 of 21 (14%) | 2 of 129 (1.6%) |
+| Extra (batch) | 281 | 50 (18%) | 18 (6.4%; 4.1 to 9.9%) | 12 of 91 (13%) | 6 of 190 (3.2%) |
+| **All** | 431 | 67 (16%) | 23 (5.3%; 3.6 to 7.9%) | **15 of 112 (13%; 8 to 21%)** | **8 of 319 (2.5%; 1.3 to 4.9%)** |
 
-## Left to do
+By family (designed set): Approved Documents 2 of 40 high flips, guidance PDFs 3 of 50, fire guides, web pages,
+legislation, flats guide and booklets 0. The extra set: guidance PDFs 10 of 168, legislation 8 of 71, web 0 of 42.
 
-1. Judge the other 2,132 units: `semcheck export`, then `semcheck run --by "..."` (answers are saved after every
-   batch; only units with no verdict are exported).
-2. Check about 50 high findings against the page images, settle them (`accept --as model-wrong` or leave open),
-   and give the model's error rate.
-3. Fix causes, biggest first. Started and not committed (kept in a local git stash, not pushed):
-   - the reader takes ligature glyphs by glyph name (`parse_pdf`, `parse_adoc`); with it 17 trees in 9 sources
-     change and 55 model checks reopen; all other trees stay byte-identical;
-   - `CORPUS_REDO` so a saved fix can be done again without a hand edit;
-   - the table instruction joins group headings into the column names; the flagged tables then need redoing.
-4. Run the report again; table pages and base pages apart.
+So a unit flagged high loses the flag on a fresh run about one time in eight, and an unflagged unit gains one about
+one time in forty. A fix is read against that: on n units that were high before, about 0.13 n "fixed" are noise;
+on m units that were not high, about 0.025 m "broken" are noise.
+
+## Fixes and their effect (paired, on the units each fix changed)
+
+Each fix was made in the parser with a synthetic test that fails on the old code, then every PDF and Approved
+Document tree was parsed again. Byte identity: the ligature fix changed 17 trees, all other 240 trees stayed
+byte-identical; the structure fixes changed 68 trees (189 identical); saving the re-done and re-keyed model fixes
+changed 90 (167 identical, all in the sources whose fixes changed); the two refinements changed 37 (circulars
+only) and 15 (220 and 242 identical). In all, 111 of the 257 PDF and Approved Document trees changed and 146 are
+byte-identical to before.
+Model checks (re-done or new), crop check and coverage were run for every changed tree and end at 0 open, 0 bad,
+0 not judged, coverage 0 open items. Then every sampled unit whose content changed was judged again.
+
+"Fixed" = high before, not high after; "broken" = not high before, high after. McNemar exact test on the two.
+"Noise" = what the noise rates above would give on the same units.
+
+| Fix | Units changed | High before / after | Fixed | Broken | McNemar p | Noise would give (fixed / broken) |
+|---|---|---|---|---|---|---|
+| Table group headings (instruction + 198 table fixes re-done with CORPUS_REDO) | 236 | 113 / 32 | 86 | 5 | 4e-20 | 15 / 3 |
+| Circular annex titles (parse_pdf) | 159 | 37 / 22 | 21 | 6 | 0.006 | 5 / 3 |
+| AD structure: edition boxes, booklet instructions, classic headings (parse_adoc) | 29 | 17 / 10 | 10 | 3 | 0.09 | 2 / 0.3 |
+| Ligature and AD structure in the same tree (AD B, AD M) | 29 | 11 / 4 | 7 | 0 | 0.016 | 1.4 / 0.5 |
+| Ligature alone ("fi", "fl" from the glyph name) | 35 | 11 / 8 | 3 | 0 | 0.25 | 1.4 / 0.6 |
+| semcheck picks the provision version by extent | 2 | 2 / 0 | 2 | 0 | 0.5 | 0.3 / 0 |
+
+Reading:
+- The table instruction is the clear win: 86 fixed against 15 expected from noise.
+- Annex titles and the AD structure fixes fix clearly more than noise would, with small numbers.
+- The ligature fix alone cannot be told apart from judge noise on the sample (3 fixed, 1.4 expected). It stays
+  because it is checked by code: the tree's words now match the PDF's glyph names (17 trees, synthetic test).
+
+**Every broken unit was looked at (14).** None is caused by a fix: in each the fault the model names was already
+in the tree before (same table grid, same text, or a parser behaviour the fix does not touch), and the earlier run
+did not flag it. They are: may-2020 booklet paragraph 13.5 read as headings (the whole booklet is bold, as before);
+AD C footnote mark run into "No. 27"; AD M corrections Diagram 3.17 labels; an Awaab impact assessment table cut at
+a page break (S118); two circular notice tables whose grids are unchanged; a circular flowchart and a two-column
+table read as text; a circular paragraph with no spaces in the PDF itself; AD B volume 2 Table 14.2 in a version
+the re-do did not reach; HSE L5 biohazard sign not a figure; manual-br Table A2 caption kept as a note; two
+supplier-information pages with headings and order faults. Their count (5, 6, 3) is close to what noise gives.
+
+Three breaks found on the way were real and were fixed before the final run: headings printed inside an edition
+box lost the box date and stayed the parent after the box (AD B pages 38, 145, 147: headings inside a box now
+end with it); "Annex c" in small capitals and "AnnexA" were missed, so Annex C sat under Annex B; a signature over
+"Signed by authority ..." became a figure and took another circular's figure description (figure keys of empty
+figures can collide, S129).
+
+## Results after the fixes
+
+| Family | Units | ok | Low only | High | High rate | 95% | Before |
+|---|---|---|---|---|---|---|---|
+| Approved Documents, random pages | 319 | 189 | 97 | 33 | 10.3% | 7.5 to 14.2% | 16.3% |
+| Approved Documents, table pages | 467 | 276 | 130 | 61 | 13.1% | 10.3 to 16.4% | 28.7% |
+| Guidance PDFs, random pages | 726 | 194 | 363 | 169 | 23.3% | 20.3 to 26.5% | 23.3% |
+| Guidance PDFs, table pages | 580 | 188 | 245 | 147 | 25.3% | 22.0 to 29.0% | 29.0% |
+| Fire guides, random pages | 188 | 149 | 37 | 2 | 1.1% | 0.3 to 3.8% | 1.1% |
+| Fire guides, table pages | 161 | 111 | 37 | 13 | 8.1% | 4.8 to 13.3% | 8.1% |
+| Flats guide | 21 | 12 | 9 | 0 | 0% | 0 to 15.5% | 0% |
+| Home Office booklets | 16 | 9 | 6 | 1 | 6.2% | 1.1 to 28.3% | 6.2% |
+| Web pages (parts) | 218 | 191 | 26 | 1 | 0.5% | 0.1 to 2.6% | 0.5% |
+| Legislation (provisions) | 326 | 258 | 61 | 7 | 2.1% | 1.0 to 4.4% | 2.8% |
+
+High findings by kind after, Approved Documents: structure 48, garbled 30, table 17, missing 13, order 12, extra 3,
+figure 1 (before: table 94, structure 74). Guidance PDFs: structure 216, order 78, garbled 73, table 35, missing 29.
+The hand check (94% of high units real) and the noise above apply to these numbers too.
+
+## What is left
+
+- Approved Documents are still well above the 2% line on random pages (10%). Remaining causes: formulas flattened
+  (AD L), FAQ PDFs read with the Approved Document parser, notes under tables misplaced in the classic layout
+  (AD H, AD J), diagram words only in the model description (AD A), headings read as body text.
+- Guidance PDFs are unchanged on random pages (23%): HSE guides keep text after a table inside the table's text
+  (HSG248), read some headings as body text (HSG33, HSG248, L5), mix two columns (CIS54, leaflets, short guides);
+  tables over pages are not joined (S118); the Awaab tenant guides in Bengali, Urdu and Arabic have broken
+  characters (S130).
+- Legislation: provisions marked prospective in the XML are given as in force (RRA 2025, S131; parse_legislation,
+  not changed here).
+- Open findings are left open; none was accepted to make the report pass (one tool fault settled as model-wrong).
 
 ## Limits
 
-- One model, one pass, no second opinion. A finding is a claim until someone checks it.
+- One model judges, with the noise measured above; a finding is a claim until checked. The hand check covers 50
+  units; findings the model missed (pages called ok) are not measured.
 - A PDF page's tree content is worked out by code (which sections are on the page). A section that ends on the
   page with fewer than five words there is left out and may be reported as missing.
 - Row sentences of tables are not shown to the model, only grids, columns and printed text.
 - Web pages are checked as text, not as rendered pages. Pictures count only by their alt text.
 - 140 legislation units (tables inside Schedules, Schedule 1 requirements of the Building Regulations, copies
   for other nations) have no element id in the XML and are outside the sample.
+- Two pages printed the same in two versions share one key and one verdict.
+- Fix attribution is by tree and page: a page with a re-done table counts under the table fix even when another
+  fix changed the same tree.

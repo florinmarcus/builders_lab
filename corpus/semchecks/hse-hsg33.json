@@ -32,6 +32,24 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "b2c78507652bf8d8": {
+   "version_id": "main@2024-12-06-d32a754c",
+   "unit": "p15",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-heading \"Emergency rescue procedures\" is read as the end of paragraph 47, so paragraphs 48 to 51 are not under it.",
+     "evidence": "source: \"safest possible work area.\" then heading \"Emergency rescue procedures\" / tree: \"the safest possible work area. Emergency rescue procedures\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "4b599c682089dca2": {
    "version_id": "main@2024-12-06-d32a754c",
    "unit": "p19",
@@ -50,6 +68,35 @@
      "severity": "low",
      "problem": "The fi ligature is dropped in words in paragraphs 65, 66, 68 and 69 and in the title of Table 2.",
      "evidence": "source: \"fix\", \"roofing\", \"fixings\" / tree: \"fx\", \"roofng\", \"fxings\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "cb59850990ac819b": {
+   "version_id": "main@2024-12-06-d32a754c",
+   "unit": "p19",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "86d13d648f5001a3": {
+   "version_id": "main@2024-12-06-d32a754c",
+   "unit": "p29",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "Figure 14(b) is placed before Figure 14(a) in the tree.",
+     "evidence": "source: \"Figure 14(a) Decking system\" then \"Figure 14(b) Airbags\" / tree: figure-14b, then figure-14a, then figure-14c"
     }
    ],
    "confidence": "high",
@@ -104,6 +151,35 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "7041c93dc7e8cd8c": {
+   "version_id": "main@2024-12-06-d32a754c",
+   "unit": "p34",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-heading \"Roof truss erection\" is read as the end of the last bullet of paragraph 132, so paragraphs 133 and 134 are not under it.",
+     "evidence": "source: \"securing fall-protection systems.\" then heading \"Roof truss erection\" / tree: \"• securing fall-protection systems. Roof truss erection\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "0d0f3911b0a66027": {
+   "version_id": "main@2024-12-06-d32a754c",
+   "unit": "p40",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "68672629bbb15b52": {
    "version_id": "main@2024-12-06-d32a754c",
    "unit": "p40",
@@ -128,6 +204,17 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "19033f7c324faa03": {
+   "version_id": "main@2024-12-06-d32a754c",
+   "unit": "p52",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "86fc758ced096693": {
    "version_id": "main@2024-12-06-d32a754c",
    "unit": "p52",
@@ -140,6 +227,24 @@
      "severity": "low",
      "problem": "The fi ligature is dropped in words in paragraphs 240 and 243.",
      "evidence": "source: \"significant\", \"roofing sheets\" / tree: \"signifcant\", \"roofng sheets\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "0c784da9aa33337c": {
+   "version_id": "main@2024-12-06-d32a754c",
+   "unit": "p58",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Paragraphs 279 to 283 on glues and solvents are merged into one section numbered 249 under the heading Manual handling, and the heading Glues and solvents is kept only as body text.",
+     "evidence": "source: \"282 Possible control measures include: brush application rather than spraying\" / tree: number \"249\", heading_path \"DEALING WITH HEALTH RISKS > Manual handling > Paragraph 249\""
     }
    ],
    "confidence": "high",
@@ -200,6 +305,35 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "c03c45896be5266a": {
+   "version_id": "main@2024-12-06-d32a754c",
+   "unit": "p61",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "255c53ff463f88ce": {
+   "version_id": "main@2024-12-06-d32a754c",
+   "unit": "p66",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The two boxed examples are printed between paragraphs 342 and 343 but the tree puts them after paragraph 345, so \"the examples above\" in 343 comes before them.",
+     "evidence": "source: \"Example of risk elimination through design\" then \"343 Outcomes such as those in the examples above\" / tree: 343, 344, 345, then the two notes"
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "86612c7ca8b90bb5": {
    "version_id": "main@2024-12-06-d32a754c",
    "unit": "p66",
@@ -230,6 +364,30 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "5ed2100c770a7727": {
+   "version_id": "main@2024-12-06-d32a754c",
+   "unit": "p73",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The running header is kept as body text in a section under the CDM chapter, The role of the contractor.",
+     "evidence": "tree: \"Health and safety in roof work Appendix 1 Issues for method statements in roof work\" under \"CONSTRUCTION (DESIGN AND MANAGEMENT) REGULATIONS > The role of the contractor > Text\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "Table 3 has no printed header row, but the tree gives it column names.",
+     "evidence": "source: first row \"Risk of falling, eg getting on/off ladders at eaves\" / tree: columns \"Topic\", \"Checklist\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "92797f775ffba9ea": {
    "version_id": "main@2024-12-06-d32a754c",
    "unit": "p73",
@@ -254,6 +412,36 @@
      "severity": "low",
      "problem": "Ligature letters are dropped in the table's text lines (the grid cells are right).",
      "evidence": "source: \"roofing\", \"Gutter fixing\", \"sufficient\", \"specified\" / tree text: \"roofng\", \"Gutter fxing\", \"suffcient\", \"specifed\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "3e26425a528ecbe2": {
+   "version_id": "main@2024-12-06-d32a754c",
+   "unit": "p74",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The rows on this page continue Table 3, but the tree holds them as a separate table with no number, titled \"Further information\", so the link to the low-pitch industrial roof checklist is lost.",
+     "evidence": "source: continuation of \"Table 3 Checklist for preparing method statements for low-pitch industrial roof\" / tree: title \"Further information\", columns \"Risk\", \"Checklist\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The first row has three cells in a two-column grid, because the checklist cell is split in the middle of a sentence.",
+     "evidence": "source: \"These will have to be protected. How will this be achieved?\" / tree: cell ends \"How will this\", next cell starts \"be achieved? If covers are used\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The running header is kept as body text twice, once under the CDM chapter and once under Appendix 1 Further information.",
+     "evidence": "tree: \"Health and safety in roof work Appendix 1 Issues for method statements in roof work\""
     }
    ],
    "confidence": "medium",
@@ -326,6 +514,30 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "dc1cff28c5eed537": {
+   "version_id": "main@2024-12-06-d32a754c",
+   "unit": "p76",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "In paragraph 8 the superscript reference numbers are joined to the standard numbers, so the standards read as different numbers.",
+     "evidence": "source: \"BS EN 1263-1.[32] ... BS EN 1263-2[34] and the guidance given in BS 8411.[33]\" / tree: \"BS EN 1263-1.32 ... BS EN 1263-234 ... BS 8411.33\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The superscript in the area unit is flattened to a plain digit.",
+     "evidence": "source: \"not less than 35 m²\" / tree: \"not less than 35 m2\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "19eae570911c72fc": {
    "version_id": "main@2024-12-06-d32a754c",
    "unit": "p79",
@@ -344,6 +556,35 @@
      "severity": "low",
      "problem": "The footnote marker 36 is joined to the standard number in paragraph 13.",
      "evidence": "source: \"BS EN 795.\" with superscript 36 / tree: \"BS EN 795.36\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "901ad21bedf4bc83": {
+   "version_id": "main@2024-12-06-d32a754c",
+   "unit": "p79",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "550f829ca7d79160": {
+   "version_id": "main@2024-12-06-d32a754c",
+   "unit": "p80",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Five italic sub-headings are read as body text and stuck on the end of the paragraph before them, so paragraphs 19 to 23 have lost their headings.",
+     "evidence": "source: heading \"Pre-use checks\" above paragraph 19 / tree: paragraph 18 ends \"authorised by the manufacturer. Pre-use checks\"; same for \"Detailed examination of equipment\", \"Interim inspections\", \"Inspection after a fall\", \"Inspection of rescue equipment\""
     }
    ],
    "confidence": "high",
@@ -388,6 +629,17 @@
      "evidence": "source: \"must be fitted\", \"naked flame\", \"fire extinguisher\", \"bitumen fire\", \"gas-fired\", \"open-flame heating\" / tree: \"must be ftted\", \"naked fame\", \"fre extinguisher\", \"bitumen fre\", \"gas-fred\", \"open-fame heating\""
     }
    ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "a9ea9274b5a62beb": {
+   "version_id": "main@2024-12-06-d32a754c",
+   "unit": "p90",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
    "confidence": "high",
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"

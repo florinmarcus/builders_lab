@@ -373,6 +373,28 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "f45e39a856a8b9e5": {
+   "version_id": "procurement-act-2023-short-guides--new-legislative-requirements-under-the-procurement-act-2023@2026-10-21-ce3353d0",
+   "unit": "p18",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "39c936d60eec1d79": {
+   "version_id": "procurement-act-2023-short-guides--new-legislative-requirements-under-the-procurement-act-2023@2026-10-21-ce3353d0",
+   "unit": "p19",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "f8033679f79d9eba": {
    "version_id": "procurement-act-2023-short-guides--new-legislative-requirements-under-the-procurement-act-2023@2026-10-21-ce3353d0",
    "unit": "p19",
@@ -1369,6 +1391,30 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "2d856ede1481c0aa": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p127",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The table has column names that are not printed on the page; the printed table has no header row.",
+     "evidence": "source: no header row, first row \"Pipeline notice\" / tree: columns \"Notice\", \"Benefit\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The bold lead-in line of the table is run into the end of the bullet text instead of standing as the table's lead-in.",
+     "evidence": "tree: \"against 30-day invoice payment terms. Some key benefits of the new notices include:\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "66f02b6f08e8a774": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
    "unit": "p13",
@@ -1856,6 +1902,36 @@
      "severity": "low",
      "problem": "The diagram label \"Time\" is left as a stray word in the running text.",
      "evidence": "tree: \"delivering better value for money. Time Following the conditions of participation / participation stage\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "68581acc57d97cb2": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p238",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading \"Multi-stage processes\" is read as body text and joined to the last bullet, together with the paragraph that follows it.",
+     "evidence": "tree: \"• A site visit for waste management and recycling services Multi-stage processes The next example demonstrates\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The timeline diagram is read as a table of two rows instead of a figure; the cell values still sit under the right stage.",
+     "evidence": "tree: type \"table\", columns \"Conditions of Participation stage\", \"Tender Stages: Stage 1\" ... \"Award Stage\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The diagram's label \"Time\" is left in the running text between two paragraphs, and the diagram itself comes after the paragraphs printed below it.",
+     "evidence": "tree: \"in delivering better value for money. Time Following the conditions of participation / participation stage\""
     }
    ],
    "confidence": "medium",
@@ -2365,6 +2441,42 @@
     }
    ],
    "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "4df96613a26e4e15": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p351",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "The factors table is placed after the section B paragraph, so it follows \"the following two headline criteria:\" instead of its own lead-in \"These may include:\".",
+     "evidence": "source: \"These may include:\" [table] \"B) Setting Conditions\" / tree: \"These may include: B) Setting Conditions Where they are required\" ... \"two headline criteria:\" [table]"
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-headings A) and B) are read as body text inside one paragraph.",
+     "evidence": "tree: \"drafting its own conditions of participation. A) Do I Need to Set Conditions of Participation? Conditions of participation are not mandatory\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The footnote reference 2 is joined to the word before it.",
+     "evidence": "source: \"invite to tender\" with footnote mark 2 / tree: \"invite to tender2.\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The table has column names that are not printed on the page; the printed table has no header row.",
+     "evidence": "source: no header row, first row \"Contract value\" / tree: columns \"Factor\", \"Description\""
+    }
+   ],
+   "confidence": "medium",
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
@@ -3098,6 +3210,30 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "b47b8f247bb8c9b4": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p49",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The two headings printed above the two tables are read as body text, joined together at the end of the earlier text section, so neither table carries its own heading.",
+     "evidence": "source: \"Scope, definitions and general principles\" [table] \"Transparency\" [table] / tree: \"in the tender or transparency notice Scope, definitions and general principles Transparency\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "Both tables have column names that are not printed on the page; the printed tables have no header row.",
+     "evidence": "source: no header row, first row \"The national procurement policy statement (section 13)\" / tree: columns \"Provision\", \"Rule\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "4e921848b44dced7": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
    "unit": "p491",
@@ -3464,6 +3600,36 @@
      "severity": "low",
      "problem": "Both tables have column names that are not printed in the source, which has no header row.",
      "evidence": "tree: columns \"Topic\", \"Rule\" and \"Topic\", \"Details\" / source: no header row"
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "a08d471242bde329": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p54",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The two headings above the tables are read as body text at the end of the last bullet, and both tables are titled \"Light touch contracts\" instead of their own headings.",
+     "evidence": "source: headings \"Scope, definitions and general principles\" and \"Transparency\" / tree: \"under certain defence and security contracts. Scope, definitions and general principles Transparency\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The paragraph after the bullet list is joined to the last bullet.",
+     "evidence": "tree: \"• miscellaneous services Table 2 of Schedule 1 to the Procurement Regulations 2024 specifies additional light touch services\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The tables have no header row in the source, but the tree gives them column names.",
+     "evidence": "tree: columns \"Provision\", \"Rule\""
     }
    ],
    "confidence": "high",
@@ -4081,6 +4247,17 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "0803691075ff564d": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p612",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "fb9db2395315836c": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
    "unit": "p612",
@@ -4281,6 +4458,24 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "cc8a235ce9abe6fa": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p633",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The table text ends with a stray number that is not in the table (the page number 628, garbled).",
+     "evidence": "source: \"628\" (page number) / tree: \"6238\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "4fd3d7be809c5eb0": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
    "unit": "p634",
@@ -4445,6 +4640,24 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "b17bd6af8387511c": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p645",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The table text ends with a stray number that is not in the table (the page number 640, garbled).",
+     "evidence": "source: \"640\" (page number) / tree: \"61450\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "d8b8629864b023a9": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
    "unit": "p645",
@@ -4499,6 +4712,42 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "dfb30065210d06cc": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p647",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The table text ends with a stray number that is not in the table (the page number 642, garbled).",
+     "evidence": "source: \"642\" (page number) / tree: \"61472\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "2abef37df9d161c6": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p648",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The table text ends with a stray number that is not in the table (the page number 643, garbled).",
+     "evidence": "source: \"643\" (page number) / tree: \"61483\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "6dd73b9b52e3f2cd": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
    "unit": "p648",
@@ -4525,6 +4774,24 @@
    "verdict": "ok",
    "findings": [],
    "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "0b7f4a9d6e830fef": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p651",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The table text ends with a stray number that is not printed on the page.",
+     "evidence": "tree: \"62416\""
+    }
+   ],
+   "confidence": "medium",
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
@@ -4725,6 +4992,17 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "10d04d24ff7069d6": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p67",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "faddb80d5af867b0": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
    "unit": "p67",
@@ -4775,6 +5053,17 @@
      "evidence": "tree: \"Topic\", \"Detail\""
     }
    ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "d2763de986c5a67c": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p68",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
    "confidence": "high",
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
@@ -4947,6 +5236,36 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "6809c0264e2c5c8d": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p84",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The table row under \"Remedies, procurement oversight and the debarment list\" is read as a note with both cells run together, not as a table row.",
+     "evidence": "tree: \"Procurement investigations (section 108) A private utility is not considered a “relevant contracting authority”\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The group headings of the tables are joined into one body text block before the table, so the rows no longer sit under their own heading.",
+     "evidence": "tree: \"Assessment and award Remedies, procurement oversight and the debarment list Contract governance\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The heading \"Contract governance\" is not printed on this page.",
+     "evidence": "tree: \"Contract governance\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "982ff0494f81b6f5": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
    "unit": "p84",
@@ -4995,6 +5314,24 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "9912912b483d7942": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p85",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The group heading printed above the table is not in this page's content, so the rows have lost their group heading.",
+     "evidence": "source: \"Contract governance\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "8a552d77d15d9e65": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
    "unit": "p86",
@@ -5024,6 +5361,60 @@
      "severity": "low",
      "problem": "The title and its subtitle are read as two separate chapters of the same level, and the running banner is kept as a note.",
      "evidence": "source: \"Exemptions cheat sheet\" / \"Concession contracts\" / tree: note \"Transforming Public Procurement\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "9326ffecb5ee5bfb": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p87",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The group heading above the table is read as body text, joined to the end of the definition, and not kept as a heading of the table.",
+     "evidence": "source: \"Scope, definitions and general principles\" / tree: \"exposed to a real operating risk Scope, definitions and general principles Transparency Procedures\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "A text block under \"Private utilities\" holds a title line that is not printed on the page in this form.",
+     "evidence": "tree: \"Exemptions cheat sheet - concession contracts\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "2337a17e44c9ba26": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p88",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The table row on valuation of contracts is read as a note and its two cells are mixed into one text.",
+     "evidence": "source: \"Valuation of contracts (section 4 and schedule 3)\" | \"The value of a concession contract must be estimated\" / tree: \"(section 4 and schedule The value of a concession contract must be 3) estimated\""
+    },
+    {
+     "kind": "missing",
+     "severity": "high",
+     "problem": "The group headings above the tables are not in the tree, so the N/A rows no longer say which topic has no exemption.",
+     "evidence": "source: \"Transparency\", \"Procedures\", \"Competitive flexible procedure\" / tree: \"N/A N/A\" under \"Concession contracts > Note\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The two N/A table rows are read as notes instead of table rows.",
+     "evidence": "source: \"N/A\" | \"N/A\" under \"Procedures\" / tree: note \"N/A N/A\""
     }
    ],
    "confidence": "high",
@@ -5090,6 +5481,36 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "f48071e5e1cf4f9c": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p89",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The five group headings are run together in one text block away from their tables, so each N/A row and each table has lost its topic.",
+     "evidence": "tree: \"Frameworks and dynamic markets Supplier selection Assessment and award Remedies, procurement oversight and the debarment list Contract governance\" then \"N/A N/A\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The table row on key performance indicators under Contract governance is read as a note with both cells joined into one text.",
+     "evidence": "tree: \"Key performance indicators (section 52) The requirement to set and publish key performance indicators does not apply to concession contracts.\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The headings text ends with a heading that is not printed on this page.",
+     "evidence": "tree: \"Exemptions cheat sheet - schools\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "f824bfa5d15046f8": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
    "unit": "p90",
@@ -5097,6 +5518,36 @@
    "family": "guidance-pdf",
    "verdict": "ok",
    "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "3f9059e3476ea586": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p92",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "The table row on below-threshold contracts is read as a note and its two cells are mixed into one text.",
+     "evidence": "source: \"Below-threshold contracts (Part 6 - sections 84 to 88)\" | \"Are exempt from the rules governing regulated below-threshold contracts.\" / tree: \"sections 84 Are exempt from the rules governing regulated to 88) below-threshold contracts.\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "This page's five group headings are joined to the end of the definition text from page 91, away from their tables, so the N/A rows and the tables have lost their topics.",
+     "evidence": "tree: \"section 91 of that act Scope, definitions and general principles Transparency Procedures Competitive flexible procedure Frameworks and dynamic markets\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The three N/A table rows are read as notes instead of table rows.",
+     "evidence": "source: \"N/A\" | \"N/A\" under \"Procedures\" / tree: note \"N/A N/A\""
+    }
+   ],
    "confidence": "high",
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
@@ -5128,6 +5579,36 @@
     }
    ],
    "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "7294953d7910c0be": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p93",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The four group headings are run together in one text block away from their tables, so the N/A rows and the Contract governance table have lost their topics.",
+     "evidence": "tree: \"Supplier selection Assessment and award Remedies, procurement oversight and the debarment list Contract governance Exempted contracts - cheat sheet\" then \"N/A N/A\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The headings text ends with a heading that is not printed on this page.",
+     "evidence": "tree: \"Exempted contracts - cheat sheet\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The three N/A table rows are read as notes instead of table rows.",
+     "evidence": "source: \"N/A\" | \"N/A\" under \"Supplier selection\" / tree: note \"N/A N/A\""
+    }
+   ],
+   "confidence": "medium",
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },

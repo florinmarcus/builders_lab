@@ -26,6 +26,30 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "6941699e589bed32": {
+   "version_id": "main@2026-07-21-56258caf",
+   "unit": "p111",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "In the Summary text the group labels Spraying, Dry stripping with control at source, Waste disposal and Final clearance are dropped, so their points run on under Injection.",
+     "evidence": "source: \"Spraying – Only wets the outer surface\" / tree: \"New equipment should comply with PAS 60. – Only wets the outer surface\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The second half of the Summary bullet list is also read as a one-column table named Summary, which the page does not have, so the same text is held twice.",
+     "evidence": "tree: table \"Summary\" with rows \"Spraying – Only wets the outer surface...\", \"Waste disposal – Any asbestos waste should be packaged...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "235e799d07046c1a": {
    "version_id": "main@2026-07-21-56258caf",
    "unit": "p113",

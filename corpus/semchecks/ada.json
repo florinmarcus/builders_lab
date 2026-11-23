@@ -97,6 +97,41 @@
    "by": "Fable 5.2, Claude Code headless (packet)",
    "date": "2026-11-23"
   },
+  "beb3928a56e8a6a4": {
+   "version_id": "approved-document-a-structure@2013-09-01-96a5a374",
+   "unit": "p20",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "figure",
+   "findings": [
+    {
+     "kind": "figure",
+     "severity": "low",
+     "problem": "The labels of Diagram 5 leave out the words and area limits printed inside the picture; they are kept only in the model description.",
+     "evidence": "source: \"a. Structural walls on all sides\" \"Area not exceeding 70m2\" \"b. Structural walls on three sides\" \"Area not exceeding 36m2\" / tree labels: \"See para 2C14\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Diagram 5 belongs to paragraph 2C14 and is printed above the heading, but the tree puts it under 'Construction materials and workmanship'.",
+     "evidence": "source: \"See para 2C14\" / tree: \"Construction materials and workmanship > Maximum floor area enclosed by structural walls\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "57f94fa8f9d6eab9": {
+   "version_id": "approved-document-a-structure@2013-09-01-96a5a374",
+   "unit": "p25",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "610ebc9b21460e9f": {
    "version_id": "approved-document-a-structure@2013-09-01-96a5a374",
    "unit": "p25",
@@ -131,6 +166,54 @@
    "confidence": "medium",
    "by": "Fable 5.2, Claude Code headless (packet)",
    "date": "2026-11-22"
+  },
+  "b3921e54b4a6b796": {
+   "version_id": "approved-document-a-structure@2013-09-01-96a5a374",
+   "unit": "p26",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "figure",
+   "findings": [
+    {
+     "kind": "figure",
+     "severity": "high",
+     "problem": "The description gives the minimum wall thickness only for walls below ground floor level when Hf exceeds 1m, but the three storey picture also sets it for a ground storey internal wall with no Hf condition.",
+     "evidence": "source: \"This wall to be at least 140mm thick blockwork or 215mm thick brickwork\" / tree: \"Walls below ground floor level are to be at least 140mm thick in blockwork or 215mm in brickwork if Hf exceeds 1m\""
+    },
+    {
+     "kind": "figure",
+     "severity": "low",
+     "problem": "The labels leave out all words inside the picture, including the key, the wall thickness limits and the four printed notes; these are kept only as a summary in the model description.",
+     "evidence": "source: \"Hf Less than or equal to 1m, Condition A\" \"2 If Hs is greater than 2.7m, the compressive strength\" / tree labels: \"See para 2C21\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "5c69b1e5a9d7726c": {
+   "version_id": "approved-document-a-structure@2013-09-01-96a5a374",
+   "unit": "p27",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Diagram 10 belongs to paragraph 2C23 under 'Loading on walls' and is printed above the 'End restraint' heading, but the tree puts it under 'End restraint'.",
+     "evidence": "source: \"See para 2C23\" / tree: \"End restraint > Maximum span of floors\""
+    },
+    {
+     "kind": "figure",
+     "severity": "low",
+     "problem": "The labels of Diagram 10 leave out the words printed inside the picture, including the span limit; they are kept only in the model description.",
+     "evidence": "source: \"Floor span maximum 6m\" \"Centre line of bearing\" \"Wall\" \"Floor\" / tree labels: \"See para 2C23\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
   },
   "82b94c984a0386fc": {
    "version_id": "approved-document-a-structure@2013-09-01-96a5a374",

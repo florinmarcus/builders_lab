@@ -20,6 +20,17 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "c7ec5878f43a1eb9": {
+   "version_id": "main@2024-12-06-95519090",
+   "unit": "p15",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "40932729f981c0d9": {
    "version_id": "main@2024-12-06-95519090",
    "unit": "p24",
@@ -248,6 +259,28 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "d66a6223c221a427": {
+   "version_id": "main@2024-12-06-95519090",
+   "unit": "p85",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "5eb4c0ac7c226bee": {
+   "version_id": "main@2024-12-06-95519090",
+   "unit": "p86",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "f63371beba083616": {
    "version_id": "main@2024-12-06-95519090",
    "unit": "p86",
@@ -266,6 +299,17 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "211215989a87e4c4": {
+   "version_id": "main@2024-12-06-95519090",
+   "unit": "p87",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "745dc0a26c822190": {
    "version_id": "main@2024-12-06-95519090",
    "unit": "p87",
@@ -278,6 +322,24 @@
      "severity": "high",
      "problem": "The group heading 'Containment levels' over the three level columns is lost, so the grid columns are named only 2, 3 and 4.",
      "evidence": "source: \"Containment measures | Containment levels | 2 | 3 | 4\" / tree: columns \"Containment measures\", \"2\", \"3\", \"4\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "2de780da8b21b964": {
+   "version_id": "main@2024-12-06-95519090",
+   "unit": "p88",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "high",
+     "problem": "The biohazard sign picture that Part IV says is 'shown below' is on this page but the tree has no figure for it, so the required form of the sign is lost.",
+     "evidence": "source: \"The biohazard sign required by regulation 7(6)(a) shall be in the form shown below –\" followed by a yellow triangle with the black biohazard symbol / tree: no figure"
     }
    ],
    "confidence": "medium",

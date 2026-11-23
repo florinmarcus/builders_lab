@@ -164,6 +164,24 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "2d14595810430c66": {
+   "version_id": "a-decent-home-definition-and-guidance-for-implementation-jun@2006-06-07-fd1d0009",
+   "unit": "p34",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The annex heading is read as body text and joined to the start of paragraph 1.",
+     "evidence": "source: heading \"Component lifetimes and definition of ‘in poor condition’ used in the national measurement of the disrepair criterion\" / tree: \"...the disrepair criterion 1. Table 1 shows the component lifetimes\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "0f9ff368aa30eb36": {
    "version_id": "a-decent-home-definition-and-guidance-for-implementation-jun@2006-06-07-fd1d0009",
    "unit": "p35",
@@ -188,6 +206,36 @@
      "severity": "low",
      "problem": "Table 2 sits under the wrong parent in the heading path: Section 7 instead of Annex A.",
      "evidence": "tree: \"SECTION 7 > Predicting impact of investment > Table 2 Definition of ‘poor condition’ used in disrepair criterion\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "1ad6db02bc9de6b5": {
+   "version_id": "a-decent-home-definition-and-guidance-for-implementation-jun@2006-06-07-fd1d0009",
+   "unit": "p35",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The three bullet conditions that end paragraph 3 are not in the paragraph's text but are placed in the text of Table 2, so the paragraph stops at \"unless:\".",
+     "evidence": "source: \"unless: • the component is sufficiently damaged that it is impossible to repair;\" / tree (table-2 text): \"the component is sufficiently damaged that it is impossible to repair;\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading \"In poor condition\" is read as body text, and paragraphs 2 and 3 are joined with it into one line.",
+     "evidence": "source: heading \"In poor condition\" / tree: \"In poor condition 2. Table 2 sets out the definitions\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The bullet symbols of the three conditions are kept as stray letters \"l\" on their own lines, after or inside the text they mark.",
+     "evidence": "source: \"• the component is unsuitable\" / tree: \"l\", \"the component is unsuitable, and would be even it were repaired, either because\", \"l\""
     }
    ],
    "confidence": "high",

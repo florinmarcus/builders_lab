@@ -40,10 +40,11 @@ change:
    versions are out of scope (legislation history, 13 old AD B files); they are not chunked, loaded or checked. adb-historical: the 4 files in scope are clean (230 crops ok, 0 checks
    open, coverage 0 open).
 
-**Semantic check of the parsed trees (Florin 22 Nov; paused 23 Nov to save usage).** A model reads each sampled
-page, web page part and provision next to its tree: [experiments/P-semantic-validation.md](experiments/P-semantic-validation.md).
-Partial: 890 of 3,022 units judged. Approved Documents: 16% of random pages have a high-severity finding (not yet
-checked by hand); the biggest cause is table grids that drop group headings. Chunking should wait for this.
+**Semantic check of the parsed trees (Florin 22 Nov; done 23 Nov).** A model reads each sampled page, web page
+part and provision next to its tree: [experiments/P-semantic-validation.md](experiments/P-semantic-validation.md).
+All 3,022 units judged; 94% of high findings checked by hand are real; judge noise 5% high-flag flips. After six
+fixes, Approved Document random pages 10% high (was 16%), table pages 13% (was 29%); guidance PDFs still 23%.
+Remaining causes are listed in the report (S128); decide whether chunking waits for them.
 
 **Flow per document family, parse to vectors (status 22 Nov night).** Green: done. Amber: in progress.
 Grey: not started. Each parser's own diagram is in

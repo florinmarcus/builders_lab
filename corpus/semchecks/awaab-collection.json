@@ -229,6 +229,30 @@
    "by": "Fable 5.2, Claude Code headless (packet)",
    "date": "2026-11-23"
   },
+  "7af8305efa6b4324": {
+   "version_id": "awaabs-law-consultation-on-timescales-for-repairs--awaab-s-law-final-stage-impact-assessment@2025-06-25-6bb2585a",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The section \"What is the problem under consideration?\" with its four paragraphs is running text, but the tree keeps it only as text of the cost table and not as a section or in the grid.",
+     "evidence": "source: \"What is the problem under consideration? Why is government action or intervention necessary?\" / tree: only in table `text` after \"£-180.6m £-92.7m £10.8m\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The reading order is wrong: the title box at the top of the page comes last, and text from the next page comes before the cost table and the problem section.",
+     "evidence": "tree: \"RPC Opinion: N/A What are the policy objectives of the action or intervention and the intended effects?\" then the cost table, then \"Date: 23 June 2025\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "b50a52bfbda5e476": {
    "version_id": "awaabs-law-consultation-on-timescales-for-repairs--awaab-s-law-final-stage-impact-assessment@2025-06-25-6bb2585a",
    "unit": "p12",
@@ -1069,6 +1093,17 @@
    "by": "Fable 5.2, Claude Code headless (packet)",
    "date": "2026-11-23"
   },
+  "8c65f4028e2ecc74": {
+   "version_id": "awaabs-law-guidance-for-tenants-in-social-housing--awaab-s-law-guidance-for-tenants-in-social-housing-punjabi@2025-12-04-25baa43e",
+   "unit": "p10",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "52d5e8b1a539c49d": {
    "version_id": "awaabs-law-guidance-for-tenants-in-social-housing--awaab-s-law-guidance-for-tenants-in-social-housing-punjabi@2025-12-04-25baa43e",
    "unit": "p12",
@@ -1630,6 +1665,42 @@
    "by": "Fable 5.2, Claude Code headless (packet)",
    "date": "2026-11-23"
   },
+  "97d82950d05c1a8f": {
+   "version_id": "awaabs-law-phase-2-final-stage-impact-assessment--awaab-s-law-phase-2-final-stage-impact-assessment@2026-07-13-5c1854f4",
+   "unit": "p13",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The three table rows at the top of the page (end of the table before part 2) are read as running text inside Paragraph 9, with their row labels and ratings split off into separate notes, so no rating sits beside its row.",
+     "evidence": "source: \"Monetised impacts | Total monetised cost of £190.2m ... | Negative Based on likely £NPSV\" / tree: \"12 Total monetised cost of £190.2m (present value)\" in para-9, note \"Negative\" \"Based on likely £NPSV\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Row labels of these rows are broken into pieces, part kept in the paragraph text and part as separate notes.",
+     "evidence": "source: \"Non-monetised impacts\", \"Any significant or adverse distributional impacts?\" / tree: \"Non-monetised There are significant\", note \"impacts\", note \"or adverse distributional impacts?\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading for part 3 is read as body text inside Paragraph 9 instead of as a heading.",
+     "evidence": "source: \"(3) Expected impacts on households\" / tree: \"below median household income. (3) Expected impacts on households 13 Households will benefit\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is kept inside the paragraph text.",
+     "evidence": "source: \"13\" (page number at the foot) / tree: \"(3) Expected impacts on households 13 Households will benefit\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "bab3f95a8981c7c5": {
    "version_id": "awaabs-law-phase-2-final-stage-impact-assessment--awaab-s-law-phase-2-final-stage-impact-assessment@2026-07-13-5c1854f4",
    "unit": "p13",
@@ -1658,6 +1729,30 @@
    ],
    "confidence": "high",
    "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "0cda2ce60d16eb6d": {
+   "version_id": "awaabs-law-phase-2-final-stage-impact-assessment--awaab-s-law-phase-2-final-stage-impact-assessment@2026-07-13-5c1854f4",
+   "unit": "p15",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The headings on this page are read as body text inside one long section called \"Paragraph 9\", which is not a provision of the document.",
+     "evidence": "source: headings \"Analysis\" and \"Monetised costs\" / tree: \"rating Analysis Awaab’s Law works alongside\" under heading_path \"Paragraph 9\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The printed page number is kept inside the running sentence.",
+     "evidence": "source: \"costs of sending written\" [page end] / tree: \"costs of sending written 15 summaries\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
   "f3eea742afe5dde8": {
@@ -1720,6 +1815,42 @@
    "by": "Fable 5.2, Claude Code headless (packet)",
    "date": "2026-11-23"
   },
+  "8faa8a3229fecaa4": {
+   "version_id": "awaabs-law-phase-2-final-stage-impact-assessment--awaab-s-law-phase-2-final-stage-impact-assessment@2026-07-13-5c1854f4",
+   "unit": "p18",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "One sentence is split in two sections because the number 10 in \"10 years\" was taken as a paragraph number, so the text loses the number.",
+     "evidence": "source: \"estimated to be £213.6 million over 10 years in undiscounted, 2026 prices\" / tree: para-9 ends \"£213.6 million over\", para-10 (number \"10\") starts \"years in undiscounted\""
+    },
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The three table captions, which name the subject and the unit (£m), sit together in the running text and none is attached to its table, so the tables cannot be told apart.",
+     "evidence": "source: \"PRP costs (undiscounted 2026 prices), £m:\" above first table / tree: \"PRP costs (undiscounted 2026 prices), £m: LA costs (undiscounted 2026 prices), £m: Total sector costs (undiscounted 2026 prices), £m: 18\"; table title \"Awaab's Law in the social rented sector (collection)\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The total sector costs table runs on to the next page but is kept as a separate one-row table with no link to its other rows.",
+     "evidence": "tree: document-table-p18-2-2 grid has only \"Familiarisation\", \"£0.9\", \"£0.0\", \"£0.0\", \"£0.9\", \"£0.1\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading on this page is read as body text inside sections called \"Paragraph 9\" and \"Paragraph 10\".",
+     "evidence": "source: heading \"Summary of monetised costs:\" / tree: \"£189.3m in present value terms. Summary of monetised costs: The total costs\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "c92f0b0b8db234d1": {
    "version_id": "awaabs-law-phase-2-final-stage-impact-assessment--awaab-s-law-phase-2-final-stage-impact-assessment@2026-07-13-5c1854f4",
    "unit": "p19",
@@ -1748,6 +1879,36 @@
    ],
    "confidence": "medium",
    "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "f27b565045159495": {
+   "version_id": "awaabs-law-phase-2-final-stage-impact-assessment--awaab-s-law-phase-2-final-stage-impact-assessment@2026-07-13-5c1854f4",
+   "unit": "p19",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The rows on this page are the end of the total sector costs table from page 18, but the tree keeps them as a separate table with no caption, so the subject and the unit (£m) are lost and the Familiarisation row is in another table.",
+     "evidence": "source: continuation of \"Total sector costs (undiscounted 2026 prices), £m:\" / tree: document-table-p19 title \"Awaab's Law in the social rented sector (collection)\", rows \"Triage, prep and postage\", \"Total\" only"
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The headings on this page are read as body text inside one long section called \"Paragraph 10\", which is not a provision of the document.",
+     "evidence": "source: headings \"Non-monetised costs\", \"Benefits\", \"Qualitative summary\", \"Tenants\", \"Health and wellbeing\" / tree: \"£m: 18 Non-monetised costs It is possible that registered providers\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Printed page numbers are kept inside the running text.",
+     "evidence": "tree: \"Works will have to prevent the hazard from reoccurring. 19 Hazardous housing conditions\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
   "42434c540928db96": {
@@ -1780,6 +1941,42 @@
    "by": "Fable 5.2, Claude Code headless (packet)",
    "date": "2026-11-23"
   },
+  "50f8476b37cd8261": {
+   "version_id": "awaabs-law-phase-2-final-stage-impact-assessment--awaab-s-law-phase-2-final-stage-impact-assessment@2026-07-13-5c1854f4",
+   "unit": "p20",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The headings on this page are read as body text inside one long section called \"Paragraph 10\", which is not a provision of the document.",
+     "evidence": "source: headings \"Mental wellbeing\", \"Education\" / tree: \"per individual. Mental wellbeing Tenant’s mental health and wellbeing is likely\" under heading_path \"Paragraph 10\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "3cc2f23d0865f79d": {
+   "version_id": "awaabs-law-phase-2-final-stage-impact-assessment--awaab-s-law-phase-2-final-stage-impact-assessment@2026-07-13-5c1854f4",
+   "unit": "p21",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The headings on this page are read as body text inside one long section called \"Paragraph 10\", which is not a provision of the document.",
+     "evidence": "source: headings \"Clearer route to redress for residents\", \"Energy efficiency\", \"Government and the taxpayer\", \"Savings to the NHS\" / tree: \"comfort for tenants6. Government and the taxpayer Savings to the NHS The BRE report\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "c581be4296e005e7": {
    "version_id": "awaabs-law-phase-2-final-stage-impact-assessment--awaab-s-law-phase-2-final-stage-impact-assessment@2026-07-13-5c1854f4",
    "unit": "p21",
@@ -1810,6 +2007,30 @@
    "by": "Fable 5.2, Claude Code headless (packet)",
    "date": "2026-11-23"
   },
+  "036ac12f8a2b48b0": {
+   "version_id": "awaabs-law-phase-2-final-stage-impact-assessment--awaab-s-law-phase-2-final-stage-impact-assessment@2026-07-13-5c1854f4",
+   "unit": "p24",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The headings on this page are read as body text inside one long section called \"Paragraph 10\", which is not a provision of the document.",
+     "evidence": "source: headings \"Labour market\", \"8. Monitoring and evaluation of preferred option\", \"What will be evaluated and monitored?\" / tree: \"have therefore been provided. 8. Monitoring and evaluation of preferred option What will be evaluated\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The printed page number is kept inside the running text.",
+     "evidence": "tree: \"end of the four year evaluation project. 24 The monitoring and evaluation framework\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "2ffbe4e1cc6ddb86": {
    "version_id": "awaabs-law-phase-2-final-stage-impact-assessment--awaab-s-law-phase-2-final-stage-impact-assessment@2026-07-13-5c1854f4",
    "unit": "p24",
@@ -1838,6 +2059,36 @@
    ],
    "confidence": "medium",
    "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "a9057f12bdad62b7": {
+   "version_id": "awaabs-law-phase-2-final-stage-impact-assessment--awaab-s-law-phase-2-final-stage-impact-assessment@2026-07-13-5c1854f4",
+   "unit": "p30",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The Annex C heading is read as body text inside one very long section called Paragraph 10, so the annex text has the wrong parent.",
+     "evidence": "source: heading \"Annex C: Longlist Options and Critical Success Factors\" / tree: heading_path \"Paragraph 10\", text \"... 29 Annex C: Longlist Options and Critical Success Factors This annex provides ...\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The table is split at the page break, so the Affordability row stops in the middle of a sentence and its end sits in a separate table.",
+     "evidence": "tree: \"Regulations will have financial implications on landlords; however, landlords should have already\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Printed page numbers are kept inside the running text.",
+     "evidence": "tree: \"The different options are discussed in the matrices below. 30 Annex D: Longlist Options Decision Matrices\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
   "e8fceeda1e0dc69a": {
@@ -1900,6 +2151,30 @@
    "by": "Fable 5.2, Claude Code headless (packet)",
    "date": "2026-11-23"
   },
+  "c3d23d82aed4b863": {
+   "version_id": "awaabs-law-phase-2-final-stage-impact-assessment--awaab-s-law-phase-2-final-stage-impact-assessment@2026-07-13-5c1854f4",
+   "unit": "p31",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The continued table lost its column headings, so the cells no longer say which option they belong to.",
+     "evidence": "source (headings from page 30): \"Business As Usual\", \"Regulations – Extend Awaab’s Law to a wider set of hazards\" / tree: \"Topic\", \"Column 2\", \"Column 3\""
+    },
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The first row is the end of the Affordability row from the page before, but it stands as a row of its own without the Affordability label and with half a sentence.",
+     "evidence": "tree: \"Demonstration by IA modelling that the longlisted options objectives ...\", \"\", \"accounted for Phase 2 of Awaab’s Law to come into force in 2026.\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "48e2e50046770829": {
    "version_id": "awaabs-law-phase-2-final-stage-impact-assessment--awaab-s-law-phase-2-final-stage-impact-assessment@2026-07-13-5c1854f4",
    "unit": "p32",
@@ -1930,6 +2205,30 @@
    "by": "Fable 5.2, Claude Code headless (packet)",
    "date": "2026-11-23"
   },
+  "a1a631ef7e006881": {
+   "version_id": "awaabs-law-phase-2-final-stage-impact-assessment--awaab-s-law-phase-2-final-stage-impact-assessment@2026-07-13-5c1854f4",
+   "unit": "p32",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The Annex D heading and the sub-heading A are read as body text inside one very long section called Paragraph 10, so the annex text has the wrong parent.",
+     "evidence": "source: headings \"Annex D: Longlist Options Decision Matrices\", \"A. Implementation timeline for Phase 2 regulations\" / tree: heading_path \"Paragraph 10\", text \"... 30 Annex D: Longlist Options Decision Matrices This annex provides ...\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Printed page numbers are kept inside the running text.",
+     "evidence": "tree: \"A. Implementation timeline for Phase 2 regulations 32 • Achievability: Landlords will have more time to prepare for implementation. 33\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "43a98158756fdb79": {
    "version_id": "awaabs-law-phase-2-final-stage-impact-assessment--awaab-s-law-phase-2-final-stage-impact-assessment@2026-07-13-5c1854f4",
    "unit": "p33",
@@ -1958,6 +2257,30 @@
    ],
    "confidence": "medium",
    "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "dc01f184c5dcca84": {
+   "version_id": "awaabs-law-phase-2-final-stage-impact-assessment--awaab-s-law-phase-2-final-stage-impact-assessment@2026-07-13-5c1854f4",
+   "unit": "p33",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The last table cell of option A2 (delay to 2027, discounted) is read as running text in Paragraph 10, so it is cut off from its row and option.",
+     "evidence": "source: table cell \"Achievability: Landlords will have more time to prepare for implementation.\" / tree: paragraph text \"A. Implementation timeline for Phase 2 regulations 32 • Achievability: Landlords will have more time to prepare for implementation. 33\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Printed page numbers are kept inside the running text.",
+     "evidence": "tree: \"regulations 32 • Achievability\" and \"implementation. 33\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
   "5b94666b8bb6a587": {
@@ -2000,6 +2323,36 @@
    ],
    "confidence": "medium",
    "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "f903e0d8e7342b42": {
+   "version_id": "awaabs-law-phase-2-final-stage-impact-assessment--awaab-s-law-phase-2-final-stage-impact-assessment@2026-07-13-5c1854f4",
+   "unit": "p6",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The headings on the page are read as body text inside one very long section called Paragraph 9.",
+     "evidence": "source: headings \"Current position on quality and repairs in the social rented sector\", \"Quality\", \"Repairs\" / tree: \"... explained in Annex A. Current position on quality and repairs in the social rented sector Quality The English Housing Survey ...\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "A printed page number is kept inside the running text.",
+     "evidence": "tree: \"rather than a case-by-case basis. 5 While the DHS aims for long-term improvements\""
+    },
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The figure labels leave out the axis title and the legend names, though the description gives them.",
+     "evidence": "source: \"Percentage of dwellings\", \"PRP\", \"LA\" / tree labels: \"Source: EHS\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
   "43f66963ac55757c": {

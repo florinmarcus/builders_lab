@@ -62,6 +62,24 @@
    "by": "Fable 5.2, Claude Code headless (packet)",
    "date": "2026-11-23"
   },
+  "ec340fa06bf22617": {
+   "version_id": "approved-document-g-sanitation-hot-water-safety-and-water-ef@2024-10-01-cc02cbfc",
+   "unit": "p19",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Words with the fi ligature lose a letter all through the body text, including the number word five.",
+     "evidence": "source: \"no later than five days\" / tree: \"no later than fve days\"; source: \"fittings approach\" / tree: \"fttings approach\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "13a023ff91bb1b74": {
    "version_id": "approved-document-g-sanitation-hot-water-safety-and-water-ef@2024-10-01-cc02cbfc",
    "unit": "p2",
@@ -122,6 +140,24 @@
    "by": "Fable 5.2, Claude Code headless (packet)",
    "date": "2026-11-23"
   },
+  "c3a847a5cf9b0d7a": {
+   "version_id": "approved-document-g-sanitation-hot-water-safety-and-water-ef@2024-10-01-cc02cbfc",
+   "unit": "p40",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Words with the fi and fl ligatures lose a letter in the paragraphs A5, A8 and A9.",
+     "evidence": "source: \"fittings with varying flow rates and capacities are specified\" / tree: \"fttings with varying fow rates and capacities are specifed\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "ce975097d464c0f5": {
    "version_id": "approved-document-g-sanitation-hot-water-safety-and-water-ef@2024-10-01-cc02cbfc",
    "unit": "p40",
@@ -144,6 +180,36 @@
    ],
    "confidence": "high",
    "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "aa2d6ca88b98990c": {
+   "version_id": "approved-document-g-sanitation-hot-water-safety-and-water-ef@2024-10-01-cc02cbfc",
+   "unit": "p41",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Two rows of Table A2.1 are kept a second time as a loose text block placed after Table A2.3.",
+     "evidence": "tree text block \"Calculation tables\": \"(f) Maximum fow rate (litres/min) Proportionate fow rate (litres/min) = [(f) × 0.7]\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The tables are out of reading order: A2.3 comes before A2.2, which is printed below A2.1 in the left column.",
+     "evidence": "source: A2.1, A2.2, A2.3, A2.4 / tree: A2.1, A2.3, A2.2, A2.4"
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Words with the fi and fl ligatures lose a letter in paragraphs A8 to A10.",
+     "evidence": "source: \"The figure which is the greater of the average or proportionate flow rate\" / tree: \"The fgure which is the greater of the average or proportionate fow rate\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
   "b2eedef2cda56b9e": {
@@ -218,6 +284,36 @@
    "by": "Fable 5.2, Claude Code headless (packet)",
    "date": "2026-11-23"
   },
+  "665600084374d59b": {
+   "version_id": "approved-document-g-sanitation-hot-water-safety-and-water-ef@2024-10-01-cc02cbfc",
+   "unit": "p42",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The footnote of Table A2.7 that gives the effective flushing volume formula is kept in the text of Table A2.5 (washing machines), and Table A2.7 has no note.",
+     "evidence": "source under Table A2.7: \"* The effective flushing volume for dual flush WCs is: (full flushing volume (litres) × 0.33) + (part flushing volume (litres) × 0.67)\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "Table A2.7 is placed before Table A2.6 and paragraph A11, though it is printed in the right column after them.",
+     "evidence": "source: A2.5, A2.6, A11, A2.7, A12 / tree: A2.5, A2.7, A2.6, A11, A12"
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Words with the fi and fl ligatures lose a letter in paragraphs A11 to A13.",
+     "evidence": "source: \"average effective flushing volume\" / tree: \"average effective fushing volume\"; source: \"more efficient water softeners\" / tree: \"more effcient water softeners\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "83c5770571ca3ee0": {
    "version_id": "approved-document-g-sanitation-hot-water-safety-and-water-ef@2024-10-01-cc02cbfc",
    "unit": "p43",
@@ -264,6 +360,84 @@
    ],
    "confidence": "high",
    "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "87dcc3104c51f446": {
+   "version_id": "approved-document-g-sanitation-hot-water-safety-and-water-ef@2024-10-01-cc02cbfc",
+   "unit": "p43",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Words from a table cell are run into the middle of the footnote sentence in A14.",
+     "evidence": "source: \"the total capacity used in this calculation needs to reflect the hardness\" / tree: \"used in this calculation=Sumof(b)=Sum needs to refect the hardness\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-heading \"Greywater collection calculations\", printed above A18 in the right column, is joined to the end of the body text of A17.",
+     "evidence": "tree A17: \"entering details into Tables A4.1 and A4.2. Greywater collection calculations\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading \"Greywater calculations\" is kept as a definition and the sub-heading under it as its body text.",
+     "evidence": "tree: type \"definition\", title \"Greywater calculations\", text \"Greywater demand calculation\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Rows (e) and (f) of Table A3 are kept a second time as a loose text block after the table.",
+     "evidence": "tree text block \"Calculation tables\": \"(e) Water consumed beyond 4% (litres/day) = [1 - [4/(a)]] × [(b) × (c)]\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Words with the fi and fl ligatures lose a letter in the body text.",
+     "evidence": "source: \"based on two in the first bedroom\" / tree: \"based on two in the frst bedroom\"; source: \"Studio flats\" / tree: \"Studio fats\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "1cd5799b90ef7236": {
+   "version_id": "approved-document-g-sanitation-hot-water-safety-and-water-ef@2024-10-01-cc02cbfc",
+   "unit": "p44",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "Table A4.5 has invented row labels in a first column that is not printed, and its (e) and (f) totals cells are joined into one cell.",
+     "evidence": "source: four blank entry rows, \"(e) Total fittings = Sum of (b)\" and \"(f) Total greywater supply = Sum of (d)\" in separate cells / tree: \"Column headings\", \"Entry line 1\", \"(e) Total fittings = Sum of (b); (f) Total greywater supply = Sum of (d)\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-heading \"Greywater savings calculations\", printed above A19, is joined to the end of the body text of A18.",
+     "evidence": "tree A18: \"the results entered into Table A4.6. Greywater savings calculations\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "Table A4.5 is placed before Table A4.4, which is printed first in the left column.",
+     "evidence": "source: A4.3, A4.4, A4.5 / tree: A4.3, A4.5, A4.4"
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Words with the fi ligature lose a letter in paragraph A19.",
+     "evidence": "source: \"a proportion of fittings\" / tree: \"a proportion of fttings\"; source: \"greywater saving figure\" / tree: \"greywater saving fgure\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
   "9dcd626356281987": {
@@ -338,6 +512,42 @@
    "by": "Fable 5.2, Claude Code headless (packet)",
    "date": "2026-11-23"
   },
+  "7295a6f650d8aa2b": {
+   "version_id": "approved-document-g-sanitation-hot-water-safety-and-water-ef@2024-10-01-cc02cbfc",
+   "unit": "p46",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The cells and the footnote of Table A5.5 are mixed into the text of Table A5.3, so the note on rainwater savings sits under the wrong table and Table A5.5 has no note.",
+     "evidence": "source (under Table A5.5): \"*where the amount collected (a) is greater than the demand (b), the rainwater savings (c) are equal to the demand (b)\" / tree: in table-a5.3 text"
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading \"Rainwater saving calculations\" printed above A27 is kept as body text at the end of A26, not as a heading.",
+     "evidence": "source: \"Rainwater saving calculations\" (heading above A27) / tree A26: \"...to calculate the rainwater savings. Rainwater saving calculations\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The totals rows of Table A5.3 are repeated as a separate running-text section after Table A5.5.",
+     "evidence": "tree text block: \"(e) Total (f) Total fttings rainwater demand = Sum of (b) = Sum of (d) Average rainwater demand = [(f)/(e)] × 4.42 from WCs\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The \"fi\" letter pair is lost in words in A27, A28 and the table text.",
+     "evidence": "source: \"consumption of fittings\", \"This figure should\" / tree: \"consumption of fttings\", \"This fgure should\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "d0a11f66f6ff3698": {
    "version_id": "approved-document-g-sanitation-hot-water-safety-and-water-ef@2024-10-01-cc02cbfc",
    "unit": "p46",
@@ -397,6 +607,17 @@
    "by": "Fable 5.2, Claude Code headless (packet)",
    "date": "2026-11-23"
   },
+  "f287e59af99d745e": {
+   "version_id": "approved-document-g-sanitation-hot-water-safety-and-water-ef@2024-10-01-cc02cbfc",
+   "unit": "p53",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "9080df9048e43415": {
    "version_id": "approved-document-g-sanitation-hot-water-safety-and-water-ef@2024-10-01-cc02cbfc",
    "unit": "p54",
@@ -435,6 +656,30 @@
    "findings": [],
    "confidence": "high",
    "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "205de4e144f65856": {
+   "version_id": "corrections-to-approved-document-g@2024-10-01-49732fbd",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The copyright notice at the foot of the page is joined to the text of the paragraph 2.11 amendment.",
+     "evidence": "source: \"...must be completed.”\" then, at the page foot, \"© Crown copyright, 2016\" / tree: \"...must be completed.” © Crown copyright, 2016 You may re-use this information\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Two separate headings are joined into one chapter title.",
+     "evidence": "source: \"2016 AMENDMENTS TO 2015 EDITION OF APPROVED DOCUMENT G\" and \"Section G2\" / tree: \"2016 AMENDMENTS TO 2015 EDITION OF APPROVED DOCUMENT G Section G2\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
   "95b63835fc951ee4": {
@@ -620,6 +865,36 @@
    ],
    "confidence": "high",
    "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "c1a3050f856515b6": {
+   "version_id": "may-2024-amendments-to-approved-document-g-sanitation-hot-wa@2024-10-01-334ba3a9",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The end of paragraphs 4.12, 4.19 and 5.7 is read as a heading, so each paragraph is cut off and loses the standard it points to.",
+     "evidence": "source: \"4.12 Guidance on the provision of activity space around sanitary appliances is given in BS 6465-2.\" / tree: paragraph \"...is given in\" then heading \"BS 6465-2.\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Paragraphs 4.15, 4.16, 4.19, 5.7 and 5.8 and the replace instructions are filed under the false heading BS 6465-2. and not under the real heading.",
+     "evidence": "source: \"Scale of provision and layout in buildings other than dwellings\" / tree: \"List of amendments May 2024 > BS 6465-2. > Paragraph 4.15\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The note printed under paragraph 5.7 is a separate text block and is not part of paragraph 5.7.",
+     "evidence": "source: \"5.7 ... BS 6465-2. Note: Refer to Appendix D of Approved Document T\" / tree: text block \"Note: Refer to Appendix D of Approved Document T for guidance on minimum depth\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
   "67e75a3d299dc4f6": {
