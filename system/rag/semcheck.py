@@ -500,7 +500,17 @@ def xml_ids(path: Path) -> dict:
     from lxml import etree
 
     root = etree.parse(str(path), etree.XMLParser(resolve_entities=False, no_network=True, huge_tree=True)).getroot()
-    return {e.get("id"): e for e in root.iter() if isinstance(e.tag, str) and e.get("id")}
+    out: dict[str, list] = {}
+    for e in root.iter():
+        if isinstance(e.tag, str) and e.get("id"):
+            out.setdefault(e.get("id"), []).append(e)
+    return out
+
+
+def pick_version(els: list, extent: str | None):
+    """The element of a provision printed in several versions for different extents (HSWA s.43A for E+W+S and for
+    N.I., both with the id "section-43A"): the one whose RestrictExtent is the tree's `applies_to`, else the first."""
+    return next((e for e in els if extent and e.get("RestrictExtent") == extent), els[0])
 
 
 # ---------------------------------------------------------------- the sample
@@ -652,7 +662,8 @@ def unit_packets(rec: dict, tree: dict, chosen: dict) -> list[dict]:
         for uid in chosen["provisions"]:
             if uid not in ids:
                 continue
-            src, content = xml_snippet(ids[uid]), leg_content(tree, uid)
+            content = leg_content(tree, uid)
+            src = xml_snippet(pick_version(ids[uid], (content[0] if content else {}).get("applies_to")))
             out.append(_packet("xml", rec, tree, uid, _sha(_canon(src), _canon(content)), "sample",
                                {"source_xml": src, "content": content}, []))
     for r in renderers.values():

@@ -69,14 +69,39 @@ version above. Eight packets came back without an answer in the batch run and we
 - Awaab's Law PDFs (tenant guides in Bengali, Urdu, Arabic and Polish, impact assessments) are the worst group.
 - Until the hand check below, the rates are "what the model flagged", not "what is wrong".
 
-## Checked by hand so far
+## Checked by hand: how often is the model wrong?
 
-- Table group headings dropped: confirmed on AD B volume 1 pages 139 and 153 (page images).
-- "fi" and "fl" lost in HSG33: confirmed in the PDF itself. The font names the glyph "fi" but the file's text
-  table says "f". A scan of all PDFs in scope finds this in 15 documents.
-- One false alarm that was mine, not the model's: the first packets showed tables as grid only, so the model
-  reported the notes under tables as missing. The notes are in the table's text. Packets now show the text too,
-  and those answers were thrown away before saving.
+I checked 50 units with a high finding against the page image (or the XML or web text), drawn at random within
+each family and kind of finding (seed 20261123 and 20261124): 24 Approved Document pages (table 8, structure 7,
+garbled 4, missing 2, order 2, figure 1) and 26 others (guidance PDFs 18, fire guides 3, legislation 3, web 1,
+booklet 1).
+
+| Result | Units |
+|---|---|
+| Finding real and high | 45 |
+| Finding real, but the explanation partly off (still high) | 2 |
+| Finding real, but low, not high (a label or a title page; no rule lost) | 2 |
+| Finding wrong | 1 |
+
+- **Precision of a "high" unit: 47 of 50 = 94% (95% interval 84 to 98%).** Outright wrong: 1 of 50 (2%).
+- The one wrong finding was the tool's fault, not the model's: HSWA 1974 section 43A is printed twice with one id
+  (for E+W+S and for N.I.); the packet showed the N.I. text and the tree holds the E+W+S text. `semcheck` now picks
+  the version by the tree's extent; the finding is settled as model-wrong.
+- The model's quotes were exact every time I looked them up in the tree.
+- Not measured: findings the model missed (pages it called ok). The rates below are what is wrong among what the
+  model saw, not a full error rate.
+
+Corrected high rates (rate times 0.94; intervals scaled the same way, so they leave out the doubt in the 0.94):
+
+| Family | Flagged | Corrected |
+|---|---|---|
+| Approved Documents, random pages | 16.3% | about 15% (12 to 20%) |
+| Approved Documents, table pages | 28.7% | about 27% (23 to 31%) |
+| Guidance PDFs, random pages | 23.3% | about 22% (19 to 25%) |
+| Guidance PDFs, table pages | 29.0% | about 27% (24 to 31%) |
+| Fire guides, random pages | 1.1% | about 1% |
+| Legislation | 2.8% | about 3% |
+| Web pages | 0.5% | under 1% |
 
 ## Main causes (high-severity findings, rough grouping by keyword)
 

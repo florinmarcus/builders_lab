@@ -235,3 +235,16 @@ def test_batches_and_prompt():
     assert "Do not change any file except" in p and "/repo/a.jsonl" in p
     assert S.MODEL == "claude-fable-5-2"
     assert C.PDF == "application/pdf"
+
+
+def test_xml_ids_keep_every_version_and_the_tree_extent_picks_one(tmp_path):
+    # HSWA 1974 s.43A is printed twice under one id: for E+W+S and for N.I. The checked version must be the one the
+    # tree holds; the last one in the file used to win, so the model compared the tree with the N.I. text.
+    p = tmp_path / "law.xml"
+    p.write_text('<Legislation><P1group><P1 id="section-43A" RestrictExtent="E+W+S"><Text>ORR</Text></P1></P1group>'
+                 '<P1group><P1 id="section-43A" RestrictExtent="N.I."><Text>Executive</Text></P1></P1group></Legislation>')
+    ids = S.xml_ids(p)
+    assert len(ids["section-43A"]) == 2
+    assert S.pick_version(ids["section-43A"], "E+W+S").get("RestrictExtent") == "E+W+S"
+    assert S.pick_version(ids["section-43A"], "N.I.").get("RestrictExtent") == "N.I."
+    assert S.pick_version(ids["section-43A"], None).get("RestrictExtent") == "E+W+S"
