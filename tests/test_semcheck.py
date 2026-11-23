@@ -158,6 +158,7 @@ def _setup(tmp_path, monkeypatch):
     corpus = tmp_path / "corpus"
     monkeypatch.setattr(S, "CORPUS_DIR", corpus)
     monkeypatch.setattr(S, "ROOT", tmp_path)
+    monkeypatch.setenv("SEMCHECK_MODEL", "claude-fable-5-2")  # these tests read the first-round store
     d = corpus / "parsed" / "demo" / "semcheck"
     d.mkdir(parents=True)
     for key, unit in (("a" * 16, "p1"), ("b" * 16, "p2"), ("c" * 16, "p3")):
@@ -228,12 +229,27 @@ def test_accept_settles_one_finding_or_all_and_needs_a_reason(tmp_path, monkeypa
     assert not S.open_findings(v) and len(S.real_findings(v)) == 2
 
 
+def test_each_judge_has_its_own_verdicts(tmp_path, monkeypatch):
+    """Florin, 23 Nov 2026: the judge is a setting (default Opus 5.5). Fable's first-round verdicts stay where they
+    were; another model's go to corpus/semchecks/<model>/, so a paired table never mixes judges."""
+    corpus = _setup(tmp_path, monkeypatch)
+    monkeypatch.delenv("SEMCHECK_MODEL", raising=False)
+    assert S.verdicts_path("demo", "claude-fable-5-2") == corpus / "semchecks" / "demo.json"
+    assert S.verdicts_path("demo") == corpus / "semchecks" / "claude-opus-5-5" / "demo.json"
+    (tmp_path / "a.jsonl").write_text(json.dumps({"key": "a" * 16, "kind": "semcheck-pdf", "verdict": "ok", "findings": []}))
+    assert S.save(tmp_path / "a.jsonl", "m", today="2026-11-23") == 0
+    v = json.loads((corpus / "semchecks" / "claude-opus-5-5" / "demo.json").read_text())["verdicts"]["a" * 16]
+    assert v["model"] == "claude-opus-5-5" and not (corpus / "semchecks" / "demo.json").exists()
+    monkeypatch.setenv("SEMCHECK_MODEL", "claude-fable-5-2")
+    assert S.load_verdicts("demo")["verdicts"] == {}
+
+
 def test_batches_and_prompt():
     files = [S.ROOT / f"corpus/parsed/x/semcheck/{i}.json" for i in range(14)]
     assert [len(b) for b in S.batches(files)] == [6, 6, 2]
     p = S.PROMPT.format(root="/repo", answers="a.jsonl", packets="- `x`")
     assert "Do not change any file except" in p and "/repo/a.jsonl" in p
-    assert S.MODEL == "claude-fable-5-2"
+    assert S.MODEL == "claude-opus-5-5" and S.LEGACY_MODEL == "claude-fable-5-2"
     assert C.PDF == "application/pdf"
 
 

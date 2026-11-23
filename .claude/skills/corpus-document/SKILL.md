@@ -46,7 +46,7 @@ The parser for a source is named in `sources.yaml` (`parser:`); `parser.files` c
 python -m system.rag.checks export --source <source_id>
 ```
 
-This writes one packet per open check to `corpus/parsed/<source_id>/checks/`. Split the packet file names into batches of up to 6 (in name order) and start one subagent per batch, up to 8 at a time, with exactly this prompt (fill in the source, packet names and batch number):
+This writes one packet per open check to `corpus/parsed/<source_id>/checks/`. Split the packet file names into batches of up to 6 (in name order) and start one subagent per batch (Opus 5.5, `claude-opus-5-5`, since 23 Nov 2026), up to 8 at a time, with exactly this prompt (fill in the source, packet names and batch number):
 
 > You are doing model checks for a regulations corpus. Work in the repo at `<repo>`. Do not change any file except the one answers file named below.
 >
@@ -80,13 +80,13 @@ python -m system.rag.checks review --source <source_id>
 
 Look at the review sheet (`corpus/parsed/<source_id>/<version>-figures.png`). A crop that is cut short or shows a neighbour is a parser bug: fix the code and add a test (step 2).
 
-Then the model crop check (Sonnet; it beat Haiku on HSG33, 22 Nov 2026). Each crop is shown next to its page with the
+Then the model crop check (Opus 5.5, `claude-opus-5-5`, since 23 Nov 2026; before that Sonnet). Each crop is shown next to its page with the
 crop box drawn in red:
 
 ```
 python -m system.rag.cropcheck export --source <source_id>     # only crops not judged before (keyed by image hash)
-# run the packets in corpus/parsed/<source_id>/cropcheck/ exactly as in step 3, with Sonnet
-python -m system.rag.cropcheck save --source <source_id> --answers <answers.jsonl> --by "crop check, Sonnet"
+# run the packets in corpus/parsed/<source_id>/cropcheck/ exactly as in step 3, with Opus 5.5
+python -m system.rag.cropcheck save --source <source_id> --answers <answers.jsonl> --by "crop check, Opus 5.5"
 python -m system.rag.cropcheck report --source <source_id>      # must say 0 bad, 0 not judged
 ```
 
@@ -104,13 +104,16 @@ parser, parse again, report again. Keep an item only when the source itself expl
 `python -m system.rag.coverage accept --source <source_id> --item <key> --reason "..." --by "..."`
 (saved in `corpus/coverage/<source_id>.json`; commit it). Never accept items just to make the report pass.
 
-Then the semantic check (Fable 5.2; a model reads the source next to the tree). It works on a sample drawn once
+Then the semantic check (a model reads the source next to the tree). The judge is a setting: `--model` or
+`SEMCHECK_MODEL`, default Opus 5.5 (`claude-opus-5-5`). Each judge keeps its own verdicts (Fable 5.2's first round in
+`corpus/semchecks/<source>.json`, any other model's in `corpus/semchecks/<model>/<source>.json`); never compare
+verdicts of two judges in one paired table. It works on a sample drawn once
 (`corpus/semchecks/sample.json`, fixed seed); only units whose source or tree content changed come back.
 
 ```
 python -m system.rag.semcheck export --source <source_id>      # packets for sampled units not judged yet
-python -m system.rag.semcheck run --source <source_id>         # headless: claude -p "<prompt>" --model claude-fable-5-2 --allowedTools "Read,Write"
-python -m system.rag.semcheck save --answers corpus/parsed/_semcheck/<run folder> --by "Fable 5.2, Claude Code headless (packet)"
+python -m system.rag.semcheck run --source <source_id>         # headless: claude -p "<prompt>" --model <judge> --allowedTools "Read,Write"
+python -m system.rag.semcheck save --answers corpus/parsed/_semcheck/<run folder> --by "Opus 5.5, Claude Code headless (packet)"
 python -m system.rag.semcheck report --source <source_id> --verbose
 ```
 

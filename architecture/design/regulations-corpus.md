@@ -363,8 +363,9 @@ Pictures on web pages are kept only as alt text; 38 GOV.UK pictures with no alt 
 ### Semantic check: a model reads source and tree side by side (built 22 Nov 2026)
 
 The coverage check counts words. It cannot see a value in the wrong column, a heading read as body text or a
-paragraph under the wrong number. `system/rag/semcheck.py` asks a model (Fable 5.2 in headless Claude Code on the
-user's plan; no model on our server, ADR 0006) to compare the source with the tree, one unit at a time.
+paragraph under the wrong number. `system/rag/semcheck.py` asks a model (headless Claude Code on the user's plan; no
+model on our server, ADR 0006; the judge is a setting, `--model` or `SEMCHECK_MODEL`, default Opus 5.5 since
+23 Nov 2026, Fable 5.2 in the first round) to compare the source with the tree, one unit at a time.
 
 ```mermaid
 flowchart TD
@@ -399,6 +400,9 @@ flowchart TD
   changed (McNemar exact test), read against that noise, and every unit it "broke" is looked at.
 - **Legislation versions:** a provision printed twice under one id (for E+W+S and for N.I.) is shown in the
   version whose extent is the tree's `applies_to`. `semcheck run` judges only packets with no verdict.
+- **One store per judge (23 Nov 2026):** Fable 5.2's verdicts stay in `corpus/semchecks/<source>.json`, any other
+  model's go to `corpus/semchecks/<model>/<source>.json`, each verdict naming its model. A paired before/after table
+  uses one judge on both sides; rates are always given with the judge named.
 - **Not a gate.** The report lists open findings and exits 1 while any are open. No test asserts zero: a finding is
   never accepted only to make the report pass.
 

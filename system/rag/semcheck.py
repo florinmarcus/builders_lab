@@ -29,6 +29,7 @@ import datetime
 import hashlib
 import json
 import math
+import os
 import random
 import re
 import subprocess
@@ -44,7 +45,8 @@ from system.rag.corpus import CORPUS_DIR
 ROOT = CORPUS_DIR.parent
 SEED = 20261122
 SCALE = 1.5                 # page images at 108 dpi: small print stays readable, an A4 page is about 890 x 1260
-MODEL = "claude-fable-5-2"  # the only model used for this check (Florin, 22 Nov 2026)
+MODEL = "claude-opus-5-5"   # the default judge (Florin, 23 Nov 2026); --model or SEMCHECK_MODEL picks another
+LEGACY_MODEL = "claude-fable-5-2"  # the first round's judge: its verdicts stay in corpus/semchecks/<source>.json
 BATCH = 6
 LINE = 1500                 # no packet line is longer: the Read tool cuts lines over 2,000 characters
 LONG_TEXT = 3000            # a section that runs over pages and is longer than this is cut to the part on the page
@@ -224,20 +226,31 @@ def family(tree: dict) -> str:
     return (tree.get("parser") or "unknown").split("/")[0]
 
 
-def verdicts_path(source_id: str) -> Path:
-    return CORPUS_DIR / "semchecks" / f"{source_id}.json"
+def judge() -> str:
+    """The model that judges and whose verdicts are read and written: SEMCHECK_MODEL, else MODEL."""
+    return os.environ.get("SEMCHECK_MODEL") or MODEL
+
+
+def verdicts_path(source_id: str, model: str | None = None) -> Path:
+    """Each judge has its own verdicts, never mixed: Fable's (the first round) in corpus/semchecks/<source>.json,
+    any other model's in corpus/semchecks/<model>/<source>.json."""
+    model = model or judge()
+    if model == LEGACY_MODEL:
+        return CORPUS_DIR / "semchecks" / f"{source_id}.json"
+    return CORPUS_DIR / "semchecks" / model / f"{source_id}.json"
 
 
 def sample_path() -> Path:
     return CORPUS_DIR / "semchecks" / "sample.json"
 
 
-def load_verdicts(source_id: str) -> dict:
-    p = verdicts_path(source_id)
+def load_verdicts(source_id: str, model: str | None = None) -> dict:
+    model = model or judge()
+    p = verdicts_path(source_id, model)
     if p.exists():
         return json.loads(p.read_text(encoding="utf-8"))
-    return {"source_id": source_id,
-            "about": f"Model verdicts on source against tree for {source_id} (system/rag/semcheck.py).", "verdicts": {}}
+    return {"source_id": source_id, "model": model,
+            "about": f"Verdicts of {model} on source against tree for {source_id} (system/rag/semcheck.py).", "verdicts": {}}
 
 
 def load_sample() -> dict:
@@ -721,17 +734,18 @@ def batches(files: list[Path], size: int = BATCH) -> list[list[Path]]:
     return [files[i:i + size] for i in range(0, len(files), size)]
 
 
-def run(source_ids: list[str] | None = None, parallel: int = 4, model: str = MODEL, out_dir: Path | None = None,
+def run(source_ids: list[str] | None = None, parallel: int = 4, model: str | None = None, out_dir: Path | None = None,
         timeout: int = 1500, by: str | None = None) -> int:
     """Run the open packets through headless Claude Code, `parallel` batches at a time. Answers go to out_dir
     (one .jsonl per batch). With `by`, each batch's answers are saved as soon as it ends, so a run that is cut
     off loses nothing. A batch that fails or times out leaves no file: `export` and run again."""
+    model = model or judge()
     out_dir = out_dir or CORPUS_DIR / "parsed" / "_semcheck" / datetime.datetime.now().strftime("run-%Y%m%d-%H%M%S")
     out_dir = (out_dir if out_dir.is_absolute() else ROOT / out_dir).resolve()
     out_dir.mkdir(parents=True, exist_ok=True)
     # Only packets with no verdict yet: a folder left from an earlier export (another --source) is not judged again.
     files = [f for f in packet_files(source_ids)
-             if (pk := json.loads(f.read_text(encoding="utf-8")))["key"] not in load_verdicts(pk["source_id"])["verdicts"]]
+             if (pk := json.loads(f.read_text(encoding="utf-8")))["key"] not in load_verdicts(pk["source_id"], model)["verdicts"]]
     todo = batches(files)
 
     lock = threading.Lock()
@@ -752,7 +766,7 @@ def run(source_ids: list[str] | None = None, parallel: int = 4, model: str = MOD
         failed[0] = 0 if ans.exists() else failed[0] + 1
         if ans.exists() and by:
             with lock:
-                save(ans, by, quiet=True)
+                save(ans, by, quiet=True, model=model)
         return ans.exists()
 
     with ThreadPoolExecutor(max_workers=parallel) as ex:
@@ -789,7 +803,7 @@ def check_answer(a: dict) -> str | None:
 
 
 def save(answers: Path, by: str, source_ids: list[str] | None = None, today: str | None = None,
-         quiet: bool = False) -> int:
+         quiet: bool = False, model: str | None = None) -> int:
     """Check each answer against its packet and the rules; save the good ones per source, report the rest."""
     packets = {}
     for f in packet_files(source_ids):
@@ -815,17 +829,17 @@ def save(answers: Path, by: str, source_ids: list[str] | None = None, today: str
                 rejected += 1
                 continue
             sid = pk["source_id"]
-            doc = docs.setdefault(sid, load_verdicts(sid))
+            doc = docs.setdefault(sid, load_verdicts(sid, model))
             doc["verdicts"][a["key"]] = {
                 "version_id": pk["version_id"], "unit": pk["unit"], "kind": pk["kind"], "family": pk["family"],
                 "verdict": a["verdict"],
                 "findings": [{"kind": x["kind"], "severity": x["severity"], "problem": str(x["problem"]).strip(),
                               "evidence": str(x["evidence"]).strip()} for x in a.get("findings") or []],
                 "confidence": a.get("confidence") if a.get("confidence") in ("high", "medium", "low") else "medium",
-                "by": by, "date": today}
+                "by": by, "model": model or judge(), "date": today}
             saved += 1
     for sid, doc in docs.items():
-        p = verdicts_path(sid)
+        p = verdicts_path(sid, model)
         p.parent.mkdir(parents=True, exist_ok=True)
         doc["verdicts"] = dict(sorted(doc["verdicts"].items(), key=lambda kv: (kv[1]["version_id"], kv[1]["unit"], kv[0])))
         p.write_text(json.dumps(doc, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
@@ -940,6 +954,7 @@ def report(source_ids: list[str] | None = None, verbose: bool = False, json_out:
 
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("--model", help=f"the judge whose verdicts are read and written (default {MODEL}, or SEMCHECK_MODEL)")
     sub = ap.add_subparsers(dest="cmd", required=True)
     sm = sub.add_parser("sample", help="draw the sample (fixed seed) and write corpus/semchecks/sample.json")
     sm.add_argument("--cap", type=int, default=PDF_CAP)
@@ -968,6 +983,8 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--verbose", action="store_true")
     p.add_argument("--json", type=Path)
     a = ap.parse_args(argv)
+    if a.model:
+        os.environ["SEMCHECK_MODEL"] = a.model
     if a.cmd == "sample":
         doc = draw_sample(cap=a.cap, all_pages=tuple(a.all_pages))
         sample_path().parent.mkdir(parents=True, exist_ok=True)
