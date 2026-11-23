@@ -5,13 +5,12 @@ An AI assistant for UK building firms, first for Romanian-run firms: Claude (the
 ## Where we are (23 Nov 2026)
 
 **Start here: branch `claude/wonderful-wright-rd0v80`.** It holds main plus the unfinished corpus work: the ligature-glyph
-fix for parse_pdf and parse_adoc, `CORPUS_REDO`, the table instruction for group headings (with tests), and copies of
-the five re-downloaded laws' raw files (S126). Fetch it and continue there. Main is the live, deployed state: merge the
+fix for parse_pdf and parse_adoc, `CORPUS_REDO` and the table instruction for group headings (with tests). Fetch it and continue there. Main is the live, deployed state: merge the
 branch into main only when its work is finished and its tests pass, because every push to main deploys.
 
 - **Live:** MCP server on AWS London behind API keys (`deploy/README.md`), 12 tools, mock firm "Marcus Limited" (`system/data/mock/`), ingestion of demo email, deterministic answer checks (`verify_answer`). Its regulations index is still the one from 20 Nov.
 - **Built, not yet tried by users:** the Builders plugin (`plugin/`: skills, Haiku specialist agents, rules), the demo Gmail tool.
-- **Regulations corpus:** parsing done for PDFs, web pages and legislation in scope (versions in force from 1 Jan 2025, ADR 0016); coverage check 0 open items, crop check clean, model checks 0 open in scope. Open: five laws downloaded but not parsed (S126); semantic check part-run, 890 of 3,022 units judged, tables lose group headings (S125, `evals/experiments/P-semantic-validation.md`).
+- **Regulations corpus:** parsing done for PDFs, web pages and legislation in scope (versions in force from 1 Jan 2025, ADR 0016); coverage check 0 open items, crop check clean, model checks 0 open in scope. Open: five laws not parsed; their raw files are not in git or S3 yet, so fetch them again with `python -m system.rag.harvest --only car2012 fso2005 housing-act-2004-p1 ess2020 awaab-regs-2025 --accept-refetch` (S126); semantic check part-run, 890 of 3,022 units judged, tables lose group headings (S125, `evals/experiments/P-semantic-validation.md`).
 - **Next, in order:** parse the five laws; finish the semantic check and fix its causes; chunk, embed, load and switch the live index; fix the gold labels (S116) and measure the baseline; then the ADR 0016 retrieval work (lanes, "too broad", get_section, read_document) and the two-server split (ADR 0015).
 - **Gaps and shortcuts:** `requirements/parking-lot.md`. Read it before starting anything.
 
