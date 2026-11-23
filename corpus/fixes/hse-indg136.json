@@ -183,6 +183,66 @@
    "by": "model check, Claude Code subagent (packet)",
    "confidence": "high",
    "date": "2026-11-22"
+  },
+  {
+   "key": "522eb0a189f6728c",
+   "kind": "table",
+   "target": "document-safety-data-sheets-european-symbols-table-1: Safety data sheets European symbols",
+   "value": {
+    "columns": [
+     "European symbols"
+    ],
+    "rows": [
+     [
+      "Toxic"
+     ],
+     [
+      "Very toxic"
+     ],
+     [
+      "Harmful"
+     ],
+     [
+      "Irritant"
+     ],
+     [
+      "Highly flammable"
+     ],
+     [
+      "Extremely flammable"
+     ],
+     [
+      "Explosive"
+     ],
+     [
+      "Dangerous to the environment"
+     ],
+     [
+      "Oxidising"
+     ],
+     [
+      "Corrosive"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Safety data sheets European symbols: there is a hazard symbol for Toxic.",
+     "Safety data sheets European symbols: there is a hazard symbol for Very toxic.",
+     "Safety data sheets European symbols: there is a hazard symbol for Harmful.",
+     "Safety data sheets European symbols: there is a hazard symbol for Irritant.",
+     "Safety data sheets European symbols: there is a hazard symbol for Highly flammable.",
+     "Safety data sheets European symbols: there is a hazard symbol for Extremely flammable.",
+     "Safety data sheets European symbols: there is a hazard symbol for Explosive.",
+     "Safety data sheets European symbols: there is a hazard symbol for Dangerous to the environment.",
+     "Safety data sheets European symbols: there is a hazard symbol for Oxidising.",
+     "Safety data sheets European symbols: there is a hazard symbol for Corrosive."
+    ]
+   },
+   "reason": "This is not a real table. It is a picture grid of ten orange hazard symbols, each with a caption below it, under the printed heading European symbols. There are no printed column headings, so the answer uses one column named after that heading and one row per caption, read left to right and top to bottom. The library grid only caught the letters T+ and F+, which are marks printed inside the Very toxic and Extremely flammable pictures, not cells. The library text also lost the captions Highly, Extremely, Explosive and Dangerous.",
+   "evidence": "Page 3, Safety data sheets box, right side under European symbols. Row 1 captions: Toxic, Very toxic, Harmful, Irritant. Row 2 captions: Highly flammable, Extremely flammable, Explosive, Dangerous to the environment. Row 3 captions: Oxidising, Corrosive. T+ is printed in the Very toxic symbol and F+ in the Extremely flammable symbol.",
+   "by": "model check, Fable 5.2, Claude Code headless (packet)",
+   "confidence": "medium",
+   "date": "2026-11-23"
   }
  ]
 }

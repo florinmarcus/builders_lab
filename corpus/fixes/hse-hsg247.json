@@ -1490,6 +1490,43 @@
    "by": "model check, Claude Code headless (packet), Opus 5.5",
    "confidence": "medium",
    "date": "2026-11-23"
+  },
+  {
+   "key": "cc4bc1f46324ebd4",
+   "kind": "table",
+   "target": "table-1-3: Control limits and action levels for asbestos",
+   "value": {
+    "columns": [
+     "Asbestos type",
+     "4-hr control limit (f/ml)",
+     "10-min control limit (f/ml)",
+     "Action level (fibre hrs/ml2)"
+    ],
+    "rows": [
+     [
+      "Chrystoline alone",
+      "0.3",
+      "0.9",
+      "72"
+     ],
+     [
+      "Any other form of asbestos, either alone or in mixtures, including mixtures of chrysotile with any other form of asbestos",
+      "0.2",
+      "0.6",
+      "48"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Control limits and action levels for asbestos: for the asbestos type Chrystoline alone, the 4-hr control limit is 0.3 f/ml, the 10-min control limit is 0.9 f/ml and the action level is 72 fibre hrs/ml2.",
+     "Control limits and action levels for asbestos: for the asbestos type any other form of asbestos, either alone or in mixtures, including mixtures of chrysotile with any other form of asbestos, the 4-hr control limit is 0.2 f/ml, the 10-min control limit is 0.6 f/ml and the action level is 48 fibre hrs/ml2."
+    ]
+   },
+   "reason": "The page image shows a four-column table with one header row and two data rows, and the template matches it cell for cell. The spelling Chrystoline is printed that way on the page and is kept. The 2 in the last heading is printed as a superscript and is kept as ml2 as in the template.",
+   "evidence": "Page 18, Table 1.3: Chrystoline alone 0.3, 0.9, 72; Any other form of asbestos 0.2, 0.6, 48.",
+   "by": "model check, Fable 5.2, Claude Code headless (packet)",
+   "confidence": "high",
+   "date": "2026-11-23"
   }
  ]
 }

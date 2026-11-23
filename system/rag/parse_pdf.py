@@ -458,6 +458,9 @@ def _caption_under(cap_top: float, im: dict) -> bool:
     bottom: some images have white space at the bottom, with the caption printed over it (HSG227)."""
     return im["top"] < cap_top <= im["bottom"] + 40
 
+# The start of a note or key printed under a table (kept with the table)
+NOTE_START_RE = re.compile(r"^(Notes?\b|Key\b|Source\b|[*†‡]|\([ivx]+\)\s|[A-Z][\w-]*( [\w-]+)? [–-] )")
+MEDIUM_RE = re.compile(r"-(Md|Medium|Semibold|SemiBold|Demi)")  # a medium weight (HelveticaNeueLTStd-MdCnO)
 BOLD_ABBR_RE = re.compile(r"-(Bd|Hv|Blk|Bk|Hvy)(Cn|It|CnO|O|Ex)?$")
 
 
@@ -1459,8 +1462,46 @@ class Builder:
         # 11pt Garamond text).
         bigger = (_is_bold(l["font"]) and self.body_size + 0.5 <= l["size"]) or \
             (l["size"] >= 1.3 * self.body_size and l["font"].split("-")[0] != self.body_font.split("-")[0])
-        return (bigger and "Italic" not in l["font"] and l["size"] < 2 * self.body_size
-                and self.left(l) - 6 <= l["x0"] <= self.left(l) + 25)
+        if bigger and "Italic" not in l["font"] and l["size"] < 2 * self.body_size \
+                and self.left(l) - 6 <= l["x0"] <= self.left(l) + 25:
+            return True
+        # S128 (HSG248): a heading set clearly larger in bold over a text column that is not the page's margin
+        # ("Records and reporting of sampling" at 13pt over a column beside the figures), and a sub-heading in a
+        # medium weight a point larger than body text ("Video evidence", 11pt medium condensed oblique).
+        t = l["text"].strip()
+        run, first = self._block_run(l, first=True)
+        if len(t.split()) > (16 if run == 2 else 12) or not first or t.endswith((".", ",", ";", ":")) \
+                or not t[:1].isupper() or self._boxed(l) \
+                or re.match(r"^(Figure|Table|Diagram)\s+[A-Z]?\d", t) or re.search(r"\bPage\s+\d+|HSE Books", t) \
+                or all(len(w) <= 1 for w in t.split()) or (len(t) <= 6 and not re.search(r"[a-z]", t)) or run > 2:
+            return False
+        if _is_bold(l["font"]) and self.body_size + 2 <= l["size"] < 2 * self.body_size and "Italic" not in l["font"]:
+            return any(abs(l["x0"] - c) <= 2.5 for c in self.text_lefts)
+        return bool(MEDIUM_RE.search(l["font"])) and self.body_size + 0.5 <= l["size"] < 1.3 * self.body_size \
+            and abs(l["x0"] - self.left(l)) <= 3 and len(t.split()) <= (16 if run == 2 else 8)
+
+    def _heading_wrap(self, h: dict, x: dict) -> bool:
+        """The second line of a wrapped heading: same font, size and left edge, and it starts in lower case or a
+        bracket ("Îndatoriri generale [Construction (Design" / "and Management) Regulations 2015]") or the two
+        lines stand alone in that style ("What are the main changes ... under the" / "Procurement Act 2023?")."""
+        t = x["text"].strip()
+        return x["font"] == h["font"] and x["size"] == h["size"] and abs(x["x0"] - h["x0"]) <= 3 and bool(t) \
+            and len(t.split()) <= 10 and (t[0].islower() or t[0] in "([" or self._block_run(h) == 2)
+
+    def _block_run(self, l, first: bool = False):
+        """How many lines in a row, one under the other at the same left edge, share this line's font and size: a
+        heading wraps to two lines at most; three or more are a paragraph set large (a lead-in beside a column)."""
+        same = sorted((x for x in self.lines_by_page.get(l["page"], []) if x["font"] == l["font"]
+                       and x["size"] == l["size"] and abs(x["x0"] - l["x0"]) <= 3), key=lambda x: x["top"])
+        k = next((i for i, x in enumerate(same) if x is l), None)
+        if k is None:
+            return (1, True) if first else 1
+        a = b = k
+        while a > 0 and 0 < same[a]["top"] - same[a - 1]["top"] <= 1.8 * l["size"]:
+            a -= 1
+        while b + 1 < len(same) and 0 < same[b + 1]["top"] - same[b]["top"] <= 1.8 * l["size"]:
+            b += 1
+        return (b - a + 1, a == k) if first else b - a + 1
 
     def is_body_line(self, l) -> bool:
         """Ordinary running text at the left margin (not in a box, not a caption)."""
@@ -1525,6 +1566,10 @@ class Builder:
                 j -= 1
             photo_above = not fig_above and any(im["page"] == l["page"] and _caption_under(l["top"], im) for im in self.images)
             if not got and not photo_above:  # nothing above: the caption may sit above its table or figure (HSG227)
+                ruled = next((t for t in sorted(self.doc_tables, key=lambda t: t["top"]) if t["page"] == l["page"]
+                              and 0 <= t["top"] - l["top"] <= 60 and self._ruled_grid(t)), None) \
+                    if l["text"].startswith("Table") else None
+                note_on = False
                 j = k + 1
                 while j < len(self.lines) and self.lines[j]["page"] == l["page"]:
                     x = self.lines[j]
@@ -1534,6 +1579,16 @@ class Builder:
                     # Under a body-size caption the rows are body-size too: only a numbered paragraph ends them.
                     body_stop = self.is_body_line(x) and (id(l) not in self.body_captions or
                                                           (PARA_RE.match(x["text"]) and abs(x["x0"] - self.left(x)) <= 3))
+                    # S128 (HSG248): body text after the ruled table under the caption, or a numbered paragraph
+                    # "3.6 ..." at a text column's left edge, is no longer the table's (it was kept as a table note)
+                    # A note under the table ("Note: ...", "* ...", "Intermittent – not persistent") stays with it.
+                    gap_ok = j > k + 1 and 0 < x["top"] - self.lines[j - 1]["top"] <= 1.6 * x["size"]
+                    note_on = bool(NOTE_START_RE.match(x["text"].strip())) or (note_on and gap_ok)
+                    if not body_stop and not note_on and x["size"] >= self.body_size - 0.5 and not self.is_small(x) and (
+                            (DEC_PARA_RE.match(x["text"]) and any(abs(x["x0"] - c) <= 2.5 for c in self.text_lefts))
+                            or (ruled is not None and x["top"] > ruled["bottom"] + 2 and len(x["text"].split()) >= 4
+                                and x["size"] >= self.body_size)):
+                        break
                     if body_stop or self.is_caption(x) or self.is_chapter(x) or self.is_heading(x) \
                             or (self.rect_of(x) and not self.is_small(x)):
                         break
@@ -2139,8 +2194,9 @@ class Builder:
             expected = counters.get(counter_key, 0) + 1
             if (self.is_heading(l) and not self._bullet_continuation(k_line)) or self.is_runin_heading(k_line, expected):
                 title = l["text"]
-                while i < len(self.lines) and self.is_heading(self.lines[i]) and self.lines[i]["page"] == l["page"] \
-                        and self.lines[i]["top"] - l["top"] < 16 and not self.rect_of(self.lines[i]):
+                while i < len(self.lines) and self.lines[i]["page"] == l["page"] and not self.rect_of(self.lines[i]) \
+                        and ((self.is_heading(self.lines[i]) and self.lines[i]["top"] - l["top"] < max(16, 1.6 * l["size"]))
+                             or (self._heading_wrap(l, self.lines[i]) and self.lines[i]["top"] - l["top"] < 1.8 * l["size"])):
                     title += " " + self.lines[i]["text"]
                     i += 1
                 hid = f"{chapter['id']}-{slugify(title)}"

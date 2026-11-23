@@ -124,6 +124,12 @@ NOT_A_FAMILY = {
                                                     "following B1 to B5' over three columns, no BS 476 group (page 8).",
     ("adb-amendments", "amendments-2029-fire-resistance-2-table-b1"): "2029 Table B1, Volume 2 copy: same layout as "
                                                                       "the Volume 1 copy, no BS 476 group.",
+    # L108 page 85 (S128, 23 Nov 2026): four different tables under the heading "Ready-reckoner tables for daily and
+    # weekly noise exposure": a worked example, exposure points totals, the points grid, a colour key.
+    ("hse-l108", "ep-ready-reckoner-tables-for-daily-and-weekly-noise-exposure-table-p85"): "Worked example: noise level, duration, notes, points.",
+    ("hse-l108", "ep-ready-reckoner-tables-for-daily-and-weekly-noise-exposure-table-p85-2"): "Totals: exposure points against daily exposure (2 columns).",
+    ("hse-l108", "ep-ready-reckoner-tables-for-daily-and-weekly-noise-exposure-table-p85-2-2"): "Points grid: sound pressure level by duration.",
+    ("hse-l108", "ep-ready-reckoner-tables-for-daily-and-weekly-noise-exposure-table-p85-2-2-2"): "Colour key: colour, exposure action value band.",
     ("hse-l140", "table-9"): "Two saved fixes share this id: the current one and an older one whose text no longer "
                              "occurs in the tree. The page prints no column headings (S104), so both name them.",
     # The same two tables in source adb (S123, checked on pages 153 and 168 of volume 1, 22 Nov 2026).
