@@ -37,7 +37,7 @@ from collections import Counter
 
 import lxml.html
 
-from system.rag.corpus import CORPUS_DIR, slugify
+from system.rag.corpus import CORPUS_DIR, english, slugify
 
 PARSER = "html/0.1"
 TEXT_LIMIT = 1500  # a text section is closed before it would pass this many characters
@@ -637,7 +637,7 @@ def main(argv: list[str] | None = None) -> int:
     recs = [json.loads(p.read_text(encoding="utf-8")) for p in sorted((CORPUS_DIR / "versions" / a.source).glob("*.json"))]
     root = CORPUS_DIR.parent
     todo = [r for r in recs if r.get("valid_to") is None and r.get("media_type", "").split(";")[0] in
-            ("text/html", "application/xhtml+xml")]
+            ("text/html", "application/xhtml+xml") and english(r, src)]  # English only (ADR 0012)
     if not todo:
         print(f"{a.source}: no current HTML versions")
     for r in todo:

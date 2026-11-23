@@ -34,7 +34,7 @@ import sys
 from collections import Counter
 from pathlib import Path
 
-from system.rag.corpus import CORPUS_DIR, parser_for, slugify
+from system.rag.corpus import CORPUS_DIR, english, parser_for, slugify
 from system.rag.fixes import content_key, index, load_fixes
 
 PARSER = "guidance-pdf/0.3"
@@ -3136,7 +3136,7 @@ def main(argv: list[str] | None = None) -> int:
     src = next((s for s in doc["sources"] if s["id"] == a.source), None)
     recs = [json.loads(p.read_text(encoding="utf-8")) for p in (CORPUS_DIR / "versions" / a.source).glob("*.json")]
     root = CORPUS_DIR.parent
-    for r in [r for r in recs if r["valid_to"] is None and r["media_type"] == "application/pdf"]:
+    for r in [r for r in recs if r["valid_to"] is None and r["media_type"] == "application/pdf" and english(r, src)]:
         if src and parser_for(src, r["version_id"]) not in (None, "parse_pdf"):
             continue  # this file goes to another parser (sources.yaml parser.files)
         raw = root / r["raw_path"]

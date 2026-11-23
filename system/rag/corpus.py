@@ -168,6 +168,12 @@ def validate_sources(doc: dict) -> list[str]:
                     r"^\d{4}-\d\d-\d\d$", _iso(p["to"])) or (p.get("from") and not re.match(
                     r"^\d{4}-\d\d-\d\d$", _iso(p["from"]))):
                 errors.append(f"{sid}: in_force_parts {part} needs to (YYYY-MM-DD), why, optional from")
+        if s.get("language") is not None and not re.fullmatch(r"[a-z]{2}", str(s["language"])):
+            errors.append(f"{sid}: language must be a two-letter code (en, ro)")
+        tr = s.get("translations")
+        if tr is not None and (not isinstance(tr, dict) or not str(tr.get("why") or "").strip()
+                               or not isinstance(tr.get("versions"), list) or not tr["versions"]):
+            errors.append(f"{sid}: translations needs why and a list of version id prefixes (versions)")
         files = (s.get("parser") or {}).get("files")
         if files is not None and (not isinstance(files, dict) or not all(
                 isinstance(v, list) and v and all(isinstance(x, str) and x for x in v) for v in files.values())):
@@ -201,8 +207,24 @@ def force_period(record: dict, source: dict | None = None) -> tuple[str | None, 
     return record.get("valid_from"), record.get("valid_to")
 
 
+def english(record: dict, source: dict | None = None) -> bool:
+    """The corpus stores English text only (ADR 0012, S130, 23 Nov 2026). A source in another language says so
+    (language: ro); translated versions of an English source are listed by version id prefix:
+
+        translations: {why: "...", versions: ["awaab-s-law-guidance-for-tenants-in-social-housing-arabic", ...]}
+    """
+    src = source or {}
+    if (src.get("language") or "en") != "en":
+        return False
+    vid = record.get("version_id") or ""
+    return not any(vid.startswith(p) for p in ((src.get("translations") or {}).get("versions") or []))
+
+
 def in_scope(record: dict, source: dict | None = None, since: str = SCOPE_FROM) -> bool:
-    """The one scope rule (ADR 0016, S115): in scope = valid_to is null or valid_to >= 1 January 2025."""
+    """The one scope rule (ADR 0016, S115): in scope = valid_to is null or valid_to >= 1 January 2025, and the
+    text is English (ADR 0012: translations and other-language sources are not ingested)."""
+    if not english(record, source if source is not None else record):
+        return False
     valid_to = force_period(record, source)[1]
     return valid_to is None or valid_to >= since
 

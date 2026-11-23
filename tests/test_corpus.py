@@ -318,3 +318,20 @@ def test_accept_refetch_writes_dated_legislation_file_and_lists_it(store):
     assert e["record_sha256"] == rec["sha256"] and e["file_sha256"] != rec["sha256"]
     assert e["text_check"].startswith(("same text", "not verifiable"))
     assert store.records("demo")[0]["sha256"] == rec["sha256"]  # record untouched
+
+
+def test_the_corpus_is_english_only():
+    """ADR 0012, S130 (Florin, 23 Nov 2026): a source in another language (language: ro) and translated versions of
+    an English source (translations.versions, by version id prefix) are out of scope everywhere the scope rule is
+    used (parse, checks, coverage, semantic check, chunks, load)."""
+    from system.rag.corpus import english, in_scope, validate_sources
+    src = {"id": "guide", "translations": {"why": "the guide in Urdu", "versions": ["guide-urdu"]}}
+    assert english({"version_id": "guide@2025-12-04-abc"}, src)
+    assert not english({"version_id": "guide-urdu@2025-12-04-abc"}, src)
+    assert not in_scope({"version_id": "guide-urdu@2025-12-04-abc", "valid_to": None}, src)
+    assert in_scope({"version_id": "guide@2025-12-04-abc", "valid_to": None}, src)
+    assert not in_scope({"version_id": "main@2024-12-06-abc", "valid_to": None}, {"id": "hse-ro", "language": "ro"})
+    assert not in_scope({"id": "hse-ro", "language": "ro"})  # a source row on its own (coverage's source list)
+    base = {"id": "x", "title": "X", "publisher": "P", "url": "https://x", "kind": "guidance", "mode": "ingest"}
+    errs = validate_sources({"sources": [{**base, "language": "Romanian", "translations": {"versions": []}}]})
+    assert any("language" in e for e in errs) and any("translations" in e for e in errs)

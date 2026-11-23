@@ -1629,6 +1629,7 @@ sources:
   fetch: {method: url}
 
 - id: hse-indg344-ro
+  language: ro  # not ingested: the corpus stores English text only (ADR 0012, S130)
   title: INDG344 small construction contractor toolkit (Romanian)
   publisher: HSE
   url: https://www.hse.gov.uk/pubns/romanian/indg344.pdf
@@ -2071,6 +2072,7 @@ sources:
   fetch: {method: url}
 
 - id: hse-romanian
+  language: ro  # not ingested: the corpus stores English text only (ADR 0012, S130)
   title: HSE Romanian-language page
   publisher: HSE
   url: https://www.hse.gov.uk/languages/romanian.htm
@@ -2088,6 +2090,7 @@ sources:
   fetch: {method: url}
 
 - id: hse-ro-indg450
+  language: ro  # not ingested: the corpus stores English text only (ADR 0012, S130)
   title: INDG450 Your health, your safety (Romanian)
   publisher: HSE
   url: https://www.hse.gov.uk/pubns/romanian/indg450-romanian.pdf
@@ -2104,6 +2107,7 @@ sources:
   fetch: {method: url}
 
 - id: hse-ro-indg410
+  language: ro  # not ingested: the corpus stores English text only (ADR 0012, S130)
   title: INDG410 Working in Great Britain from overseas (Romanian)
   publisher: HSE
   url: https://www.hse.gov.uk/pubns/romanian/indg410-romanian.pdf
@@ -2120,6 +2124,7 @@ sources:
   fetch: {method: url}
 
 - id: hse-ro-law
+  language: ro  # not ingested: the corpus stores English text only (ADR 0012, S130)
   title: Health and safety law leaflet (Romanian)
   publisher: HSE
   url: https://www.hse.gov.uk/pubns/romanian/law-romanian.pdf
@@ -2136,6 +2141,7 @@ sources:
   fetch: {method: none}
 
 - id: hse-ro-watch-your-step
+  language: ro  # not ingested: the corpus stores English text only (ADR 0012, S130)
   title: Watch your step - construction (Romanian)
   publisher: HSE
   url: https://www.hse.gov.uk/pubns/romanian/watch-your-step-construction.pdf
@@ -2152,6 +2158,7 @@ sources:
   fetch: {method: url}
 
 - id: hse-ro-cis26
+  language: ro  # not ingested: the corpus stores English text only (ADR 0012, S130)
   title: CIS26 Cement (Romanian)
   publisher: HSE
   url: https://www.hse.gov.uk/pubns/romanian/cis26.pdf
@@ -2168,6 +2175,7 @@ sources:
   fetch: {method: url}
 
 - id: hse-ro-cis59
+  language: ro  # not ingested: the corpus stores English text only (ADR 0012, S130)
   title: CIS59 Welfare (Romanian, 2010)
   publisher: HSE
   url: https://www.hse.gov.uk/pubns/cis59r.htm
@@ -2184,6 +2192,7 @@ sources:
   fetch: {method: url, url: https://www.hse.gov.uk/pubns/romanian/cis59.pdf}
 
 - id: hse-ro-migrant-workers
+  language: ro  # not ingested: the corpus stores English text only (ADR 0012, S130)
   title: HSE migrant workers pages (Romanian, worker)
   publisher: HSE
   url: https://www.hse.gov.uk/migrantworkers/languages/romanian/worker/
@@ -2705,7 +2714,10 @@ sources:
   why: Plain summary for explaining to a tenant what will happen.
   status: current
   checked: 2026-11-19
-  parser: {module: parse_pdf}
+  parser: {module: parse_html}  # the English guide (HTML page); the PDFs are translations
+  translations:
+    why: The PDFs are the guide in Arabic, Bangla, Polish, Punjabi, Romanian and Urdu; the corpus stores English text only (ADR 0012, S130).
+    versions: [awaab-s-law-guidance-for-tenants-in-social-housing-arabic, awaab-s-law-guidance-for-tenants-in-social-housing-bangla, awaab-s-law-guidance-for-tenants-in-social-housing-polish-po, awaab-s-law-guidance-for-tenants-in-social-housing-punjabi, awaab-s-law-guidance-for-tenants-in-social-housing-romanian, awaab-s-law-guidance-for-tenants-in-social-housing-urdu]
   fetch: {method: govuk, page: /government/publications/awaabs-law-guidance-for-tenants-in-social-housing, attachments: all}
 
 - id: awaab-collection
@@ -2724,6 +2736,9 @@ sources:
   checked: 2026-11-19
   parser: {module: parse_pdf}
   fetch: {method: govuk, page: /government/collections/awaabs-law-in-the-social-rented-sector, attachments: none, body: true}
+  translations:
+    why: The tenant guide in Arabic, Bangla, Polish, Punjabi, Romanian and Urdu; the corpus stores English text only (ADR 0012, S130).
+    versions: [awaabs-law-guidance-for-tenants-in-social-housing--awaab-s-law-guidance-for-tenants-in-social-housing-arabic, awaabs-law-guidance-for-tenants-in-social-housing--awaab-s-law-guidance-for-tenants-in-social-housing-bangla, awaabs-law-guidance-for-tenants-in-social-housing--awaab-s-law-guidance-for-tenants-in-social-housing-polish-p, awaabs-law-guidance-for-tenants-in-social-housing--awaab-s-law-guidance-for-tenants-in-social-housing-punjabi, awaabs-law-guidance-for-tenants-in-social-housing--awaab-s-law-guidance-for-tenants-in-social-housing-romanian, awaabs-law-guidance-for-tenants-in-social-housing--awaab-s-law-guidance-for-tenants-in-social-housing-urdu]
 
 - id: damp-mould-health
   title: "Damp and mould: understanding and addressing the health risks for rented housing providers"

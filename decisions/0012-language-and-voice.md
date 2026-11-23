@@ -27,3 +27,6 @@ Builders will ask in Romanian or English, often by voice, on site. Our data and 
 - Most glossary rows are "unverified": a native-speaker tradesperson must review them (parking lot).
 - Word-ending matching for Romanian is simple and will miss some forms.
 - Evals need Romanian questions and spoken-style checks (N9).
+- The regulations corpus stores English text only; translated versions are not ingested (23 Nov 2026, S130: the
+  Awaab's Law tenant guide translations and the Romanian HSE leaflets are excluded by `language` and `translations`
+  in `corpus/sources.yaml`). Romanian is only the translation layer in the answer flow.
