@@ -50,6 +50,9 @@ ANNEX_RE = re.compile(r"^(ANNEX|Annex)\s*(\d+|[IVX]+(?=\s|$)|[A-H]|[a-h](?=[\s.]
 # A numbered paragraph: "12 Text" (HSE guides) or "12. Text" / "1.—(1) Text" (legislation printed as PDF).
 PARA_RE = re.compile(r"^(\d{1,3})(?:\.—|\.\s|\s)\s*(\S.*)$")
 DEC_PARA_RE = re.compile(r"^(A?\d{1,2})\.(\d{1,3})\s+(\S.*)$")  # "2.14 Text": paragraph 14 of chapter 2 (HSG248)
+# "Table A9.3 continued", "(continued)", "Table continues": a label over or under the part of a table on another page
+CONT_LABEL_RE = re.compile(r"^(Table\s+\S+\s+)?\(?(continued|cont\.)\)?\.?$|^Table continues\.?$", re.I)
+JOIN_PAGES = 4  # a table over pages is one section of at most this many pages (S118)
 SIGNED_RE = re.compile(r"^(Signed\b|Yours\s+(faithfully|sincerely))", re.I)  # just above or below a signature
 ROLE_RE = re.compile(r"(Director|Secretary|Inspector|Minister|Chief Executive|Head of)")  # the signer's job title
 # A picture of the printed cover beside the web version's text ("This is a web-friendly version of leaflet
@@ -524,6 +527,19 @@ class Builder:
         self.lines_by_page: dict[int, list[dict]] = {}
         for l in self.lines:
             self.lines_by_page.setdefault(l["page"], []).append(l)
+        self.run_on_only: set[int] = set()
+        self.absorbed: Counter = Counter()  # per-page table sections not made because the page joined a table
+        self.skipped_notes = 0  # boxes read as notes before, now rows of a table run on from the page before
+        self.run_on = {id(t): src for t in self.doc_tables if (src := self._run_on_source(t)) is not None}
+        # "Table A9.3 continued" over the rest of a table, "Table continues" under the first part: kept with the table
+        self.cont_labels: dict[int, list[dict]] = {}
+        for t in self.doc_tables:
+            src = self.run_on.get(id(t))
+            if src is not None:
+                self.cont_labels[id(t)] = [l for l in self.lines_by_page.get(src["page"], []) if l["top"] > src["bottom"]
+                                           and CONT_LABEL_RE.match(l["text"].strip())] + \
+                    [l for l in self.lines_by_page.get(t["page"], []) if l["top"] < t["top"] - 2]
+        self._cont_label_ids = {id(l) for ls in self.cont_labels.values() for l in ls}
         self.data_grids = self._data_grids()
         self._photo_captions()
         self._caption_sides()
@@ -1490,10 +1506,15 @@ class Builder:
             if fig_above:
                 j = -1  # the document prints figure captions above their figures: the labels are below
             stop_bottom = 72.0  # below the page header if nothing stops the walk
+            # A table caption with a ruled table of its own just below: the rows run on from the page before, above
+            # the caption, are not its rows (HSG248 Table 3.3 under the end of Table 3.2) (S118).
+            own_below = l["text"].startswith("Table") and any(
+                t["page"] == l["page"] and 0 < t["top"] - l["top"] <= 120 and id(t) not in self.run_on for t in self.doc_tables)
             while j >= 0 and self.lines[j]["page"] == l["page"]:
                 x = self.lines[j]
                 if self.is_body_line(x) or self.is_caption(x) or self.is_chapter(x) or self.is_heading(x) \
                         or j in cont or (self.rect_of(x) and not self.is_small(x)) \
+                        or (own_below and self.grid_at(x) is not None and id(self.grid_at(x)) in self.run_on) \
                         or (self.graphics is not None and len(x["text"].split()) >= 6   # a numbered paragraph
                             and (DEC_PARA_RE.match(x["text"]) or PARA_RE.match(x["text"])) and not self._boxed(x)
                             and any(abs(x["x0"] - c) <= 2.5 for c in self.text_lefts)) \
@@ -1722,7 +1743,7 @@ class Builder:
                 text = _join(text, t)
             if not text and not title:
                 continue
-            k = 1 + sum(1 for s in self.sections if s["type"] == "note")
+            k = 1 + sum(1 for s in self.sections if s["type"] == "note") + self.skipped_notes
             last = self.new(f"note-{k}", "note", parent, None, title,
                             [*parent["heading_path"], title.rstrip(":") if title else "Note"], block[0]["page"], text)
             last["aside"] = True
@@ -1763,6 +1784,7 @@ class Builder:
         diagram_lines: set[int] = set()
         areas = self.caption_areas()
         consumed = {j for js in areas.values() for j in js}
+        held: set[int] = set()  # notes between a table caption and its grid further down (kept in the table's text)
         i = 0
         while i < len(self.lines):
             l = self.lines[i]
@@ -1846,7 +1868,7 @@ class Builder:
                         heading = para = None
                 else:
                     continue
-            if k_line in consumed and mode == "content":
+            if (k_line in consumed or k_line in held) and mode == "content":
                 continue
             if mode == "back":
                 chapter["text"] = "\n".join(x for x in [chapter["text"], l["text"]] if x)
@@ -1854,6 +1876,9 @@ class Builder:
             if chapter is None:  # a document without chapter titles: one chapter, named after the document
                 chapter = self.new("document", "chapter", None, None, self.title, [self.title], l["page"])
             parent = heading or chapter
+            if id(l) in self._cont_label_ids and any(self._run_on_owner(t) is not None for t in self.doc_tables
+                                                     if l in self.cont_labels.get(id(t), [])):
+                continue  # "Table A9.3 continued": kept in the table's text (_extend_table)
             # ---- a whole page that is one picture (flow chart, illustrated key)
             if l["page"] in self.diagram_pages and l["page"] not in diagram_done:
                 diagram_done.add(l["page"])
@@ -1875,6 +1900,14 @@ class Builder:
             if l["page"] in self.table_pages and l["page"] not in diagram_done:
                 diagram_done.add(l["page"])
                 rest = [j for j in range(k_line, len(self.lines)) if self.lines[j]["page"] == l["page"]]
+                g = next((t for t in self.doc_tables if t["page"] == l["page"] and id(t) in self.run_on), None)
+                owner = self._run_on_owner(g)
+                if owner is not None:  # a whole page of rows run on from the table on the page before (S118)
+                    self._extend_table(owner, g, [self.lines[j] for j in rest if id(self.lines[j]) not in self._cont_label_ids])
+                    self.by_id.setdefault(f"table-p{l['page']}", owner)
+                    self.absorbed[parent["id"]] += 1
+                    diagram_lines.update(rest)
+                    continue
                 ws = l.get("words") or []
                 titled = bool(ws) and all(w.get("b") for w in ws) and len(ws) <= 14 and l["size"] >= self.body_size \
                     and not any(t["page"] == l["page"] and t["top"] - 2 <= l["top"] <= t["bottom"] for t in self.doc_tables)
@@ -1890,6 +1923,27 @@ class Builder:
                 continue
             # ---- a ruled table with no caption inside running text (EH40 Table 1, circulars' Annex tables)
             g = self.grid_at(l)
+            if g is not None and id(g) not in grids_done and id(g) in self.run_on:
+                owner = self._run_on_owner(g)
+                if owner is not None:  # the rest of a table from the page before: one table section (S118)
+                    grids_done.add(id(g))
+                    rest = [j for j in range(k_line, len(self.lines)) if self.lines[j]["page"] == l["page"]
+                            and j not in consumed and self._in_grid(g, self.lines[j])]
+                    rows = [self.lines[j] for j in rest]
+                    self._extend_table(owner, g, rows)
+                    if id(g) in self.run_on_only:  # boxed cells read as notes before: later note ids stay as they were
+                        boxes = {id(r): r for x in rows if (r := self.rect_of(x)) is not None and not self.is_small(x)}
+                        for r in boxes.values():
+                            inside = [x for x in self.lines_by_page.get(r["page"], []) if self.rect_of(x) is r and not self.is_small(x)]
+                            if inside and not re.match(r"^Box\s+\d+\s*:", inside[0]["text"]):
+                                self.skipped_notes += 1
+                    if id(g) not in self.run_on_only:  # a table section of its own before: later ids stay as they were
+                        self.by_id.setdefault(f"{parent['id']}-table-p{l['page']}", owner)
+                        self.absorbed[parent["id"]] += 1
+                    grid_lines.update(rest)
+                    continue
+                if id(g) in self.run_on_only:  # not a grid after all: the lines are read as before
+                    g = None
             if g is not None and id(g) not in grids_done:
                 grids_done.add(id(g))
                 rest = [j for j in range(k_line, len(self.lines)) if self.lines[j]["page"] == l["page"]
@@ -1897,10 +1951,12 @@ class Builder:
                 rows = [self.lines[j] for j in rest]
                 # "Table N" printed just above the grid, its table still empty: these are its rows (L108 prints
                 # table captions above tables and figure captions below, so the caption looked up, not down)
-                capd = next((c for c in reversed(captions_on_page) if c["type"] == "table" and not c["text"]
-                             and c["caption_box"]["page"] == l["page"] and 0 <= g["top"] - c["caption_box"]["top"] <= 40), None)
+                capd = next((c for c in reversed(captions_on_page) if c["type"] == "table" and c["caption_box"]["page"] == l["page"]
+                             and ((not c["text"] and 0 <= g["top"] - c["caption_box"]["top"] <= 40)
+                                  or c.get("grid_below") == id(g))), None)
                 if capd is not None:
-                    capd["text"] = "\n".join(x["text"] for x in rows)
+                    capd.pop("grid_below", None)
+                    capd["text"] = "\n".join(x for x in [capd["text"], *[x["text"] for x in rows]] if x)
                     capd.pop("spans", None)
                     self.span(capd, l["page"], capd["caption_box"]["top"], g["bottom"])
                     grid_lines.update(rest)
@@ -1974,6 +2030,21 @@ class Builder:
                         first["labels"].extend(area)
                     else:
                         first["text"] = "\n".join(x for x in [first["text"], *area] if x)
+                elif prev_caption_line and prev_caption_line[0]["type"] == "table" and not prev_caption_line[0]["text"]:
+                    # No rows next to the caption: a ruled grid a little further down, under a note printed between
+                    # caption and table (HSG248 Table A9.5), is this table's (its rows join in the grid step).
+                    g2 = next((t for t in self.data_grids.get(l["page"], []) if 40 < t["top"] - l["top"] <= 120
+                               and id(t) not in self.run_on), None)
+                    between = [j for j in range(k_line + 1, len(self.lines)) if self.lines[j]["page"] == l["page"]
+                               and g2 is not None and l["top"] < self.lines[j]["top"] < g2["top"] - 2
+                               and j not in self.caption_continuations]
+                    if g2 is not None and not any(self.is_heading(self.lines[j]) or self.is_caption(self.lines[j])
+                                                  or PARA_RE.match(self.lines[j]["text"]) or DEC_PARA_RE.match(self.lines[j]["text"])
+                                                  for j in between):
+                        first = prev_caption_line[0]
+                        first["text"] = "\n".join(self.lines[j]["text"] for j in between)
+                        first["grid_below"] = id(g2)
+                        held.update(between)
                 prev_caption_top = l["top"]
                 continue
             if prev_caption_line and k_line in self.caption_continuations:
@@ -2029,7 +2100,7 @@ class Builder:
                     n = m.group(1)
                     sec = self.new(f"box-{n}", "box", parent, n, t, [*parent["heading_path"], f"Box {n} {t}"], l["page"], text)
                 else:
-                    k = 1 + sum(1 for s in self.sections if s["type"] == "note")
+                    k = 1 + sum(1 for s in self.sections if s["type"] == "note") + self.skipped_notes
                     # A note led by a few bold words ("Summary This regulation ...") takes them as its title.
                     ws0 = inside[0].get("words") or [] if inside else []
                     lead = []
@@ -2060,7 +2131,7 @@ class Builder:
                     text = _join(text, self.lines[i]["text"])
                     last_top = self.lines[i]["top"]
                     i += 1
-                k = 1 + sum(1 for s in self.sections if s["type"] == "note")
+                k = 1 + sum(1 for s in self.sections if s["type"] == "note") + self.skipped_notes
                 last_body = self.new(f"note-{k}", "note", parent, None, None, [*parent["heading_path"], "Note"],
                                      l["page"], text)
                 continue
@@ -2131,6 +2202,8 @@ class Builder:
                 last_body = para
             para["text"] = _join(para["text"], l["text"])
             text_page[para["id"]] = l["page"]
+        for s in self.sections:
+            s.pop("grid_below", None)
         self.place_small(small_lines, captions_on_page)
         self.place_images(captions_on_page)
         self.attach_grids()
@@ -2288,7 +2361,7 @@ class Builder:
             if t is not None and page > max(int(pg) for pg in t["spans"]) + 1:
                 t = None  # small print pages later is another table, not more rows of this one (bc-changes-2023)
             if t is None:
-                k = 1 + sum(1 for s in self.sections if s["parent_id"] == key and s["type"] == "table")
+                k = 1 + sum(1 for s in self.sections if s["parent_id"] == key and s["type"] == "table") + self.absorbed[key]
                 t = self.new(f"{key}-table-{k}", "table", parent, None, parent["title"],
                              [*parent["heading_path"], f"Table ({parent['title']})"], page)
                 unnamed[key] = t
@@ -2369,6 +2442,52 @@ class Builder:
         """A ruled table with two or more filled columns, not a box drawn round text (a one-column 'table')."""
         return len({k for r in t["rows"] for k, c in enumerate(r) if c and c.strip()}) >= 2
 
+    def _run_on_source(self, t: dict) -> dict | None:
+        """The ruled table at the foot of the page before that this one continues (S118): the lowest grid there,
+        ending in the last 150pt of its page, with the same number of columns and the same width (left and right
+        pages may have other margins), and nothing above this one on its page but a "continued" label."""
+        page = t["page"]
+        if page <= 1 or not t["rows"] or not any(c and c.strip() for r in t["rows"] for c in r):
+            return None
+        if any(l["top"] < t["top"] - 2 and not CONT_LABEL_RE.match(l["text"].strip())
+               for l in self.lines_by_page.get(page, [])):
+            return None
+        before = [x for x in self.doc_tables if x["page"] == page - 1 and self._ruled_grid(x)]
+        if not before:
+            return None
+        p = max(before, key=lambda x: x["bottom"])
+        if p["bottom"] < self.page_size(page - 1)[1] - 150 or len(p["rows"][0]) != len(t["rows"][0]) \
+                or abs((p["x1"] - p["x0"]) - (t["x1"] - t["x0"])) > 10:
+            return None
+        return p
+
+    def _run_on_owner(self, t: dict | None) -> dict | None:
+        """The table section that holds the grid this ruled table continues, if any."""
+        src = self.run_on.get(id(t)) if t is not None else None
+        if src is None:
+            return None
+        pg = str(src["page"])
+        for s in reversed(self.sections):
+            if s["type"] in ("chapter", "appendix", "heading"):
+                return None  # a new chapter or heading began after it (an annex title set inside the next grid)
+            if s["type"] != "table":
+                continue
+            if len(s.get("spans") or {}) >= JOIN_PAGES:
+                return None  # long tables are cut into parts of JOIN_PAGES pages (one model check each)
+            sp = (s.get("spans") or {}).get(pg)
+            if sp and sp[0] <= src["bottom"] + 15 and sp[1] >= src["top"] - 15:
+                return s
+            if not s.get("spans") and (s.get("caption_box") or {}).get("page") == src["page"] \
+                    and s["caption_box"]["top"] <= src["bottom"]:
+                return s  # a captioned table whose rows are placed later (small print)
+        return None
+
+    def _extend_table(self, owner: dict, t: dict, rows: list[dict]) -> None:
+        labels = [l["text"] for l in self.cont_labels.get(id(t), [])]
+        owner["text"] = "\n".join(x for x in [owner["text"], *labels, *[x["text"] for x in rows]] if x)
+        bottom = max([t["bottom"], *[x["top"] + x["size"] + 2 for x in rows]])
+        self.span(owner, t["page"], min([t["top"], *[x["top"] for x in rows]]), bottom)
+
     def _data_grids(self) -> dict[int, list[dict]]:
         """Ruled tables that hold data, by page: two or more filled columns in at least two rows, cells of a few
         words or a header row of short headings (not paragraphs side by side in boxes), not a whole-page table or
@@ -2376,26 +2495,37 @@ class Builder:
         from their caption)."""
         out: dict[int, list[dict]] = {}
         for t in sorted(self.doc_tables, key=lambda t: (t["page"], t["top"])):
-            if t["page"] in self.table_pages or t["page"] in self.diagram_pages or not self._ruled_grid(t):
+            if t["page"] in self.table_pages or t["page"] in self.diagram_pages:
                 continue
-            rows = t["rows"]
-            # the same table run on from the page before (same columns and edges, the header printed once)
-            # (or a second grid of the same table under a sub-heading on the same page)
-            runs_on = any(len(p["rows"][0]) == len(rows[0]) and abs(p["x0"] - t["x0"]) <= 5 and abs(p["x1"] - t["x1"]) <= 5
-                          for p in out.get(t["page"] - 1, []) + out.get(t["page"], []))
-            if len(rows) < 2 or sum(1 for r in rows if sum(1 for c in r if c and c.strip()) >= 2) < (1 if runs_on else 2):
-                continue
-            words = sorted(len(c.split()) for r in rows for c in r if c and c.strip())
-            head = [c for c in rows[0] if c and c.strip()]
-            headed = len(head) >= 2 and len(head) == len(rows[0]) and all(len(c.split()) <= 6 for c in head)
-            if words[len(words) // 2] > 25 and not headed and not runs_on:
-                continue  # paragraphs set in a ruled frame: layout, not data (a header row makes it a table)
-            caps = [l for l in self.lines_by_page.get(t["page"], []) if CAPTION_RE.match(l["text"])
-                    and l["text"].startswith("Table") and t["top"] - 60 <= l["top"] <= t["bottom"] + 60]
-            if caps and not all(0 <= t["top"] - l["top"] <= 40 for l in caps):
-                continue  # placed from its caption (a caption just above may still need its rows: build)
-            out.setdefault(t["page"], []).append(t)
+            if self._ruled_grid(t) and self._grid_rule(t, out):
+                out.setdefault(t["page"], []).append(t)
+            elif id(t) in self.run_on:  # the rest of a table from the page before (S118), one row or cell
+                self.run_on_only.add(id(t))  # a grid only if build finds the table it continues
+        for t in self.doc_tables:  # added last: the rule above does not see them
+            if id(t) in self.run_on_only:
+                out.setdefault(t["page"], []).append(t)
+                out[t["page"]].sort(key=lambda x: x["top"])
         return out
+
+    def _grid_rule(self, t: dict, out: dict[int, list[dict]]) -> bool:
+        """The data-grid rule of _data_grids for one ruled table (see there)."""
+        rows = t["rows"]
+        # the same table run on from the page before (same columns and edges, the header printed once)
+        # (or a second grid of the same table under a sub-heading on the same page)
+        runs_on = any(len(p["rows"][0]) == len(rows[0]) and abs(p["x0"] - t["x0"]) <= 5 and abs(p["x1"] - t["x1"]) <= 5
+                      for p in out.get(t["page"] - 1, []) + out.get(t["page"], []))
+        if len(rows) < 2 or sum(1 for r in rows if sum(1 for c in r if c and c.strip()) >= 2) < (1 if runs_on else 2):
+            return False
+        words = sorted(len(c.split()) for r in rows for c in r if c and c.strip())
+        head = [c for c in rows[0] if c and c.strip()]
+        headed = len(head) >= 2 and len(head) == len(rows[0]) and all(len(c.split()) <= 6 for c in head)
+        if words[len(words) // 2] > 25 and not headed and not runs_on:
+            return False  # paragraphs set in a ruled frame: layout, not data (a header row makes it a table)
+        caps = [l for l in self.lines_by_page.get(t["page"], []) if CAPTION_RE.match(l["text"])
+                and l["text"].startswith("Table") and t["top"] - 60 <= l["top"] <= t["bottom"] + 60]
+        if caps and not all(0 <= t["top"] - l["top"] <= 40 for l in caps):
+            return False  # placed from its caption (a caption just above may still need its rows: build)
+        return True
 
     @staticmethod
     def _in_grid(t: dict, l: dict) -> bool:

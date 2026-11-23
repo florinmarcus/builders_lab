@@ -5614,6 +5614,64 @@
    "by": "model check, Claude Code headless (packet), Opus 5.5",
    "confidence": "medium",
    "date": "2026-11-23"
+  },
+  {
+   "key": "c8fd3da9dfefefba",
+   "kind": "table",
+   "target": "table-1: ",
+   "value": {
+    "columns": [
+     "Building type",
+     "Number of deaths per thousand fires",
+     "Number of Non-fatal Casualties per thousand fires"
+    ],
+    "rows": [
+     [
+      "Single-family house",
+      "6.1",
+      "175.3"
+     ],
+     [
+      "Single-family bungalow",
+      "16.2",
+      "217.0"
+     ],
+     [
+      "Purpose-built block of flats (1-3 storeys)",
+      "5.9",
+      "193.0"
+     ],
+     [
+      "Purpose-built block of flats (4-9 storeys)",
+      "3.2",
+      "148.1"
+     ],
+     [
+      "Purpose-built block of flats (1-9 storeys)",
+      "5.1",
+      "180.3"
+     ],
+     [
+      "Purpose-built block of flats (10 storeys and above)",
+      "5.1",
+      "190.3"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Fatal and non-fatal casualties per thousand fires for different domestic building types: for a single-family house, the number of deaths per thousand fires is 6.1 and the number of non-fatal casualties per thousand fires is 175.3.",
+     "Fatal and non-fatal casualties per thousand fires for different domestic building types: for a single-family bungalow, the number of deaths per thousand fires is 16.2 and the number of non-fatal casualties per thousand fires is 217.0.",
+     "Fatal and non-fatal casualties per thousand fires for different domestic building types: for a purpose-built block of flats (1-3 storeys), the number of deaths per thousand fires is 5.9 and the number of non-fatal casualties per thousand fires is 193.0.",
+     "Fatal and non-fatal casualties per thousand fires for different domestic building types: for a purpose-built block of flats (4-9 storeys), the number of deaths per thousand fires is 3.2 and the number of non-fatal casualties per thousand fires is 148.1.",
+     "Fatal and non-fatal casualties per thousand fires for different domestic building types: for a purpose-built block of flats (1-9 storeys), the number of deaths per thousand fires is 5.1 and the number of non-fatal casualties per thousand fires is 180.3.",
+     "Fatal and non-fatal casualties per thousand fires for different domestic building types: for a purpose-built block of flats (10 storeys and above), the number of deaths per thousand fires is 5.1 and the number of non-fatal casualties per thousand fires is 190.3."
+    ]
+   },
+   "reason": "The table has three columns and six data rows, four on file page 9 and two continued on file page 10. The library grid matches the page images in every cell; the stray \"6\" in the section text is the printed page number, not table content.",
+   "evidence": "p9.png: Table 1 'Fatal and Non-fatal Casualties per Thousand Fires for Different Domestic Building Types*', header row plus rows Single-family house 6.1 / 175.3 to Purpose-built block of flats (4-9 storeys) 3.2 / 148.1. p10.png: rows (1-9 storeys) 5.1 / 180.3 and (10 storeys and above) 5.1 / 190.3.",
+   "by": "model check, Fable 5.2, Claude Code headless (packet)",
+   "confidence": "high",
+   "date": "2026-11-23"
   }
  ]
 }

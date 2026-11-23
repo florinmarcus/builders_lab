@@ -106,6 +106,17 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "fda5f5b65097ee6a": {
+   "version_id": "main@2024-12-06-b89e9812",
+   "unit": "p6",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
   "c0cf7fdbb9501cdb": {
    "version_id": "main@2024-12-06-b89e9812",
    "unit": "p7",
@@ -148,6 +159,53 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "fa77cd79fbd77fed": {
+   "version_id": "main@2024-12-06-b89e9812",
+   "unit": "p7",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "high",
+     "problem": "The first table footnote (*), printed in the margin, is not in the tree at all.",
+     "evidence": "source: \"*Organisations or individuals can carry out the role of more than one dutyholder, provided they have the skills, knowledge, experience and (if an organisation) the organisational capability\""
+    },
+    {
+     "kind": "missing",
+     "severity": "high",
+     "problem": "The start of the second footnote (**) is lost, including its \"not\"; only its end is kept, and that sits in the text of a different table.",
+     "evidence": "source: \"** Principal designers are not a direct replacement for CDM co-ordinators.\" / tree: \"co-ordinators. The range of duties they carry out is different to those\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The footnote remainder is attached to an invented second table and is mixed with bullet lines from the Workers row, not attached to Table 1.",
+     "evidence": "tree: \"they carry out is different to those ■■ report anything they see which is likely to undertaken by CDM co-ordinators\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The tree holds a second table that is not on the page: it repeats the three rows of Table 1 under invented column names and a wrong title.",
+     "evidence": "tree: title \"Who this book is for\", columns \"Dutyholder\", \"Duties\", rows \"Principal contractors are contractors appointed by the client...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "f035addfb70bc371": {
+   "version_id": "main@2024-12-06-b89e9812",
+   "unit": "p71",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
   "fd77a0a8687fa6ee": {
    "version_id": "main@2024-12-06-b89e9812",
    "unit": "p71",
@@ -168,6 +226,17 @@
    "findings": [],
    "confidence": "high",
    "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "f2e8441011a63d28": {
+   "version_id": "main@2024-12-06-b89e9812",
+   "unit": "p72",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
    "date": "2026-11-23"
   },
   "526ae7414d5766f2": {

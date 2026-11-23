@@ -157,6 +157,22 @@ flowchart TD
     d -->|no| text["stays text: paragraphs in a frame, a form, a flow chart's boxes<br/>(coverage: accepted with a reason)"]
 ```
 
+Tables over pages (S118, 23 Nov 2026). A table that ran on to the next page became a second table, named after the
+heading above it (HSG248 Table 4.1), or its rows were taken by the next table's caption (Table 3.2 into Table 3.3):
+
+```mermaid
+flowchart TD
+    g["ruled grid at the top of a page"] --> a{"nothing above it but a 'continued' label,<br/>and the lowest grid on the page before ends<br/>in its last 150pt with the same columns and width?"}
+    a -->|no| old["as before: its own table, or text"]
+    a -->|yes| o{"the table section holding that grid,<br/>no chapter or heading begun since,<br/>under 4 pages long?"}
+    o -->|yes| j["more rows of that table: one section,<br/>spans on both pages, one model check<br/>(a one-row, one-cell grid too: the last cell)"]
+    o -->|no| old
+    j --> c["a caption below with its own grid does not take these rows;<br/>'Table A9.3 continued' / 'Table continues' kept in the table's text"]
+```
+
+A table caption with no rows next to it takes a grid up to 120pt below, and the note printed between (HSG248 Table
+A9.5). Ids of later tables and notes stay as they were. Long tables are cut into parts of four pages (S132).
+
 Running text is body-size text of six words or more not set in a drawn box, starting at a left edge many long
 lines share, at a bullet or list number, or in a block of such lines; plus the lines hanging under it, subheadings
 over it, bold-italic callouts, "Box N" titles, headings, captions (also caption-like lines the caption rules did not

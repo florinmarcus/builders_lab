@@ -141,6 +141,36 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "cc66207b95dd0855": {
+   "version_id": "main@2024-12-06-95519090",
+   "unit": "p76",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The header row \"Column 1 / Column 2\" is not in the column names, though a cell refers to \"Column 1\".",
+     "evidence": "source: \"Column 1 Description of substance\", \"Column 2 Purpose for which the substance is prohibited\" / tree: \"Description of substance\", \"Purpose for which the substance is prohibited\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The item number has no column of its own and is joined to the substance name, so item 1 reads like part of the chemical name.",
+     "evidence": "source: \"1\" | \"2-naphthylamine; benzidine;\" / tree: \"1 2-naphthylamine; benzidine; 4-aminodiphenyl;\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The label \"Regulation 4(1)\" printed above the table is joined to the start of the definitions text, which is not on this page.",
+     "evidence": "source: \"Regulation 4(1)\" / tree: \"Regulation 4(1) In this Schedule – “aerosol dispenser” means\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
   "e7ad5acaccd03377": {
    "version_id": "main@2024-12-06-95519090",
    "unit": "p76",
@@ -171,6 +201,17 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "8c3a22d5ac897b66": {
+   "version_id": "main@2024-12-06-95519090",
+   "unit": "p77",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
   "a9259c4d2caa87b4": {
    "version_id": "main@2024-12-06-95519090",
    "unit": "p77",
@@ -191,6 +232,17 @@
    "findings": [],
    "confidence": "high",
    "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "bc3a4167027fbe2f": {
+   "version_id": "main@2024-12-06-95519090",
+   "unit": "p78",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
    "date": "2026-11-23"
   },
   "a0051083dbb3f58d": {
@@ -235,6 +287,30 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "4e07511c8374e27b": {
+   "version_id": "main@2024-12-06-95519090",
+   "unit": "p85",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The margin shows this page is in Schedule 3, but the heading paths of Part I and Part II start at the Part and do not name Schedule 3.",
+     "evidence": "source: \"Schedule 3\" / tree: \"PART II Containment measures for health and veterinary care facilities, laboratories and animal rooms\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Paragraph 6 is split in two sections in the middle of its list, so item (c) of sub-paragraph (2) starts a new section.",
+     "evidence": "tree: \"(c) the biological agent is or is suspected of being present in a human patient or animal\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
   "cff6e597c4038284": {
    "version_id": "main@2024-12-06-95519090",
    "unit": "p85",
@@ -268,6 +344,24 @@
    "findings": [],
    "confidence": "high",
    "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "202371eabb0828ae": {
+   "version_id": "main@2024-12-06-95519090",
+   "unit": "p86",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The margin shows this table is in Schedule 3, but its heading path starts at Part II and does not name Schedule 3.",
+     "evidence": "source: \"Schedule 3\" / tree: \"PART II Containment measures for health and veterinary care facilities, laboratories and animal rooms > Table\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
    "date": "2026-11-23"
   },
   "5eb4c0ac7c226bee": {
@@ -328,6 +422,24 @@
    "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
+  "d73dc72eaec28b9c": {
+   "version_id": "main@2024-12-06-95519090",
+   "unit": "p87",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The margin shows Part III is in Schedule 3, but its heading path starts at the Part and does not name Schedule 3.",
+     "evidence": "source: \"Schedule 3\" / tree: \"PART III Containment measures for industrial processes\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
   "2de780da8b21b964": {
    "version_id": "main@2024-12-06-95519090",
    "unit": "p88",
@@ -344,6 +456,30 @@
    ],
    "confidence": "medium",
    "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "7ebf21e3a7981518": {
+   "version_id": "main@2024-12-06-95519090",
+   "unit": "p88",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "high",
+     "problem": "The biohazard sign picture, which is the form the rule requires, has no figure in the tree; only the sentence that points to it is kept.",
+     "evidence": "source: \"shall be in the form shown below –\" followed by the yellow triangle biohazard sign / tree: no figure"
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The margin shows Part III and Part IV are in Schedule 3, but their heading paths start at the Part and do not name Schedule 3.",
+     "evidence": "source: \"Schedule 3\" / tree: \"PART IV Biohazard sign > Text\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
    "date": "2026-11-23"
   },
   "7ed9e8cfeb9b6141": {

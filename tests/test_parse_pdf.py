@@ -406,7 +406,9 @@ def test_real_table_grids(hsg264):
     assert len(S["table-1"]["grid"][0]) == 11
     a4 = S["appendix-4-table-p67"]["grid"]  # a ruled table with no caption, one per page (S105)
     assert any(r and r[0].startswith("Product type") for r in a4)
-    a2 = [S[f"appendix-2-table-p{p}"] for p in range(52, 57)]  # one table per page, one family (S105)
+    # One ruled table over five pages (S105): joined into parts of at most four pages (S118), one family
+    a2 = [S["appendix-2-table-p52"], S["appendix-2-table-p56"]]
+    assert sorted(S["appendix-2-table-p52"]["spans"]) == ["52", "53", "54", "55"]
     assert all(t["columns"][0] == "Asbestos product" for t in a2)
     assert not [r for t in a2 for r in t["grid"] if r and r[0] == "Asbestos product"]  # header not repeated
 
@@ -849,8 +851,8 @@ def test_real_l143_structure(l143):
     regs = [s for s in secs if s["type"] == "chapter" and s["id"].startswith("regulation-")]
     assert len(regs) == 35
     assert sorted(int(s["number"]) for s in secs if s["type"] == "table" and s["number"]) == list(range(1, 8))
-    assert [s["id"] for s in secs if s["type"] == "table" and not s["number"]] == ["schedule-3-table-p112",
-                                                                                  "schedule-3-table-p113"]
+    tabs = [s for s in secs if s["type"] == "table" and not s["number"]]  # Schedule 3 runs on to page 113 (S118)
+    assert [s["id"] for s in tabs] == ["schedule-3-table-p112"] and sorted(tabs[0]["spans"]) == ["112", "113"]
     S = {s["id"]: s for s in secs}
     assert S["para-46"]["status"] == "guidance" and S["para-36"]["status"] == "acop"
     assert S["para-46"]["text"].startswith("Licensable work does not meet")
@@ -1480,3 +1482,72 @@ def test_signature_over_a_signed_by_line_is_not_a_figure():
     lines = [{"text": "Signed by authority of the First Secretary of State,", "top": 547, "bottom": 558, "x0": 128, "x1": 400},
              {"text": "Anne Hemming", "top": 561, "bottom": 572, "x0": 128, "x1": 200}]
     assert signature_or_logo(im, 4, lines)
+
+
+def _runon_doc():
+    """HSG248-like pages: Table 3.2 ends at the foot of page 2 and runs on at the top of page 3 under a
+    "Table 3.2 continued" label, on a page with other margins (the grid is shifted right); Table 3.3 follows
+    with its own grid. Page 4 ends a third table whose last cell runs on to page 5 as one row with one cell."""
+    B, L = "HelveticaNeueLTStd-MdCn", "HelveticaNeueLTStd-LtCn"
+    lines = [ln(2, 98, "3 Competence", 28.0, "HelveticaNeue-Medium"),
+             ln(2, 150, "3.1 Analysts need training in the topics listed in the tables of this chapter here.", 10.0, L, x0=57),
+             ln(2, 400, "Table 3.2 Core competences", 10.0, B, x0=57),
+             ln(2, 425, "Module Core competences", 8.0, B, x0=61),
+             *[ln(2, 440 + 20 * k, f"Module {k} Know the risk number {k}", 8.0, L, x0=61) for k in range(16)],
+             ln(3, 101, "Table 3.2 continued", 10.0, B, x0=176),
+             ln(3, 125, "Module Core competences", 8.0, B, x0=180),
+             ln(3, 140, "Air sampling Count fibres accurately", 8.0, L, x0=180),
+             ln(3, 160, "Clearance Carry out clearance for reoccupation", 8.0, L, x0=180),
+             ln(3, 400, "Table 3.3 Examples of modules", 10.0, B, x0=176),
+             ln(3, 425, "Module code Module title", 8.0, B, x0=180),
+             ln(3, 440, "P401 Identification of asbestos", 8.0, L, x0=180),
+             ln(3, 460, "P402 Surveying and sampling", 8.0, L, x0=180),
+             ln(3, 600, "3.2 Proficiency modules are offered by several course providers in this country.", 10.0, L, x0=176),
+             *[ln(3, 612 + 12 * k, "and the analyst should keep a record of the training done and its results.", 10.0, L, x0=176)
+               for k in range(14)],
+             *[ln(2, 162 + 12 * k, "and the employer should plan the training of each analyst against these lists.", 10.0, L, x0=57)
+               for k in range(14)]]
+    tables = [_grid(2, 420, 790, [["Module", "Core competences"]] + [[f"Module {k}", f"Know the risk number {k}"] for k in range(16)], 57, 419),
+              _grid(3, 121, 180, [["Module", "Core competences"], ["Air sampling", "Count fibres accurately"],
+                                  ["Clearance", "Carry out clearance for reoccupation"]], 176, 538),
+              _grid(3, 420, 480, [["Module code", "Module title"], ["P401", "Identification of asbestos"],
+                                  ["P402", "Surveying and sampling"]], 176, 538)]
+    return {"lines": lines, "rects": [], "images": [], "page_count": 3, "tables": tables}
+
+
+def test_a_table_run_on_to_the_next_page_is_one_table_section():
+    """S118: the rows of a table that runs on at the top of the next page were a table of their own, named after
+    the heading above (HSG248 Table 4.1), or were swallowed by the next table's caption (Table 3.2 into Table 3.3).
+    Now a ruled grid at the top of a page, with the same columns and width as the grid at the foot of the page
+    before and nothing above it but a "continued" label, is more rows of that table: one section, spans on both
+    pages, its rows from both grids (the repeated header row once)."""
+    t = build_tree(_runon_doc(), META)
+    tabs = [s for s in t["sections"] if s["type"] == "table"]
+    assert [s["id"] for s in tabs] == ["table-3-2", "table-3-3"]
+    t32, t33 = tabs
+    assert set(t32["spans"]) == {"2", "3"} and set(t33["spans"]) == {"3"}
+    assert ["Air sampling", "Count fibres accurately"] in t32["grid"] and t32["grid"].count(["Module", "Core competences"]) == 1
+    assert "Air sampling" not in t33["text"] and "P401" in t33["text"] and "Air sampling" in t32["text"]
+    assert "Table 3.2 continued" in t32["text"]
+    assert not any("continued" in (s["text"] or "") for s in t["sections"] if s["type"] != "table")
+    assert len(t["checks"]) == 2
+
+
+def test_the_last_cell_of_a_table_run_on_to_the_next_page_stays_in_the_table():
+    """Awaab's Law tenant guides: the last cell of a table ends on the next page, in a ruled row with only that
+    cell filled. It was running text, glued to the paragraph before the table. Now it is in the table."""
+    T = "ArialMT"
+    lines = [ln(1, 80, "Investigations", 20.0, T, x0=72),
+             ln(1, 120, "Your landlord must investigate the hazard within the time set out below in the table.", 12.0, T, x0=72),
+             ln(1, 300, "Type Description", 12.0, T, x0=75),
+             ln(1, 320, "Visual Your landlord looks at the problem", 12.0, T, x0=75),
+             ln(1, 740, "Further Your landlord must still act to keep you safe,", 12.0, T, x0=75),
+             ln(2, 75, "such as treating visible mould.", 12.0, T, x0=170),
+             ln(2, 200, "After the investigation your landlord must write to you within three working days.", 12.0, T, x0=72)]
+    tables = [_grid(1, 296, 760, [["Type", "Description"], ["Visual", "Your landlord looks at the problem"],
+                                  ["Further", "Your landlord must still act to keep you safe,"]], 72, 540),
+              _grid(2, 72, 106, [["", "such as treating visible mould."]], 72, 540)]
+    t = build_tree({"lines": lines, "rects": [], "images": [], "page_count": 2, "tables": tables}, META)
+    tab = next(s for s in t["sections"] if s["type"] == "table")
+    assert set(tab["spans"]) == {"1", "2"} and "treating visible mould" in tab["text"]
+    assert not any("treating visible mould" in (s["text"] or "") for s in t["sections"] if s["type"] != "table")
