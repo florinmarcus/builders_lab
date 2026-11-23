@@ -259,6 +259,7 @@ lenient; its rates are not comparable with Fable's.
 | 2. HSE headings, table rows stop at body text (Opus 5.5) | 252 | 54 / 33 | 25 | 4 | 0.0001 | 0 / 3 |
 | S132. Parts of long tables keep title and headings (Opus 5.5) | 8 | 1 / 1 | 0 | 0 | 1 | 0 / 0.1 |
 | 3. Two columns (reader) (Opus 5.5) | 80 | 30 / 17 | 13 | 0 | 0.00024 | 0 / 0.8 |
+| 4. Leaflet headings: bold at body size, large regular type (Opus 5.5) | 299 | 82 / 45 | 47 | 10 | 7.5e-7 | 0 / 3.3 |
 
 Fix 2: 30 trees changed against the fix-1 trees, 395 byte-identical; model checks (Fable, then Opus for the last
 tables) 0 open; crops 0 bad (one crop of a go-live slide kept with a named defect: the same cut was there before);
@@ -272,6 +273,13 @@ Fix 3 (reader): two columns of separate lines found from where lines start and e
 its column starts; a 4pt gap cuts a joined line at a gutter. A fourth change (a page set smaller than body text) was
 dropped: its target was out of scope and it moved 34 Home Office guide pages. 24 trees changed, 405 byte-identical;
 model checks 0 open, crops 0 bad, coverage 0 open. No unit broke.
+
+Fix 4: 96 trees changed (mostly circulars), 333 byte-identical; 116 model checks (Opus) 0 open; crops 0 bad; coverage
+0 open. Of the 10 broken units, 7 faults were in the tree before (spaces missing in three circulars' PDF text, a
+circular annex title, the PD guide's "X" chapter and rule (h), a footnote mark run into a year); 3 are the side effect
+seen in fix 2: a heading is found above and the next one is not (Part B circular Volume 2, HHSRS Part 3 "Specialised
+Housing", circular 2001 Annex F), so text sits under the wrong sub-heading. A first run found a table cell and table
+header rows read as headings; fixed before the final run.
 
 ### English only (S130, Florin, 23 Nov 2026)
 

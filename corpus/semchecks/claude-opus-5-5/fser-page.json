@@ -1,0 +1,858 @@
+{
+ "source_id": "fser-page",
+ "model": "claude-opus-5-5",
+ "about": "Verdicts of claude-opus-5-5 on source against tree for fser-page (system/rag/semcheck.py).",
+ "verdicts": {
+  "a04f1f7947732f33": {
+   "version_id": "impact-assessment@2023-07-24-cd8d7385",
+   "unit": "p10",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Table 1 is read as running text inside paragraph 1, and the label 'Volume of buildings' is split around the values.",
+     "evidence": "tree: \"Height (m) 0–11 11–18 18-29 30+ Volume of 1,596,000 75,000 8,160 3,840 buildings\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The page's footnotes 12 to 21 are attached to the text of a duplicated Table 2 instead of being kept as footnotes.",
+     "evidence": "tree table-13 text: \"12 Page 11-12 Building Safety Programme: Monthly data release - October 2021...\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Table 2 appears twice: there is a second copy with the same grid.",
+     "evidence": "tree: document-a-4-consultation-table-13 grid \"Watch Manager 21.94 ... Admin Processing 15.33\" repeated"
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The Table 1 source note is placed after paragraph 5 instead of straight after Table 1.",
+     "evidence": "source: \"Source: Volume of buildings; 0-11m sourced from Fire Safety Consultation IA\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading path names 'A.4 Consultation', but this page is in the general assumptions section.",
+     "evidence": "tree: \"A.4 Consultation > Paragraph 1\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The Table 2 caption is in paragraph 2's text, and the table's title is just the section name.",
+     "evidence": "source: \"Table 2, Total labour cost per hour, £, 2021 prices.\" / tree title: \"A.4 Consultation\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "b54ea6286b6ea5a5": {
+   "version_id": "impact-assessment@2023-07-24-cd8d7385",
+   "unit": "p10",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Table 1 is read as running text inside paragraph 1, and the label 'Volume of buildings' is split around the values.",
+     "evidence": "tree: \"Height (m) 0–11 11–18 18-29 30+ Volume of 1,596,000 75,000 8,160 3,840 buildings\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The page's footnotes 12 to 21 are attached to the text of a duplicated Table 2 instead of being kept as footnotes.",
+     "evidence": "tree table-2 text: \"12 Page 11-12 Building Safety Programme: Monthly data release - October 2021...\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Table 2 appears twice: there is a second copy with the same grid.",
+     "evidence": "tree: document-general-assumptions-and-data-table-2 grid \"Watch Manager 21.94 ... Admin Processing 15.33\" repeated"
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The Table 1 source note is placed after paragraph 5 instead of straight after Table 1.",
+     "evidence": "source: \"Source: Volume of buildings; 0-11m sourced from Fire Safety Consultation IA\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The Table 2 caption is in paragraph 2's text, and the table's title is just the section name.",
+     "evidence": "source: \"Table 2, Total labour cost per hour, £, 2021 prices.\" / tree title: \"General assumptions and data\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "18db970d52cc1820": {
+   "version_id": "impact-assessment@2023-07-24-cd8d7385",
+   "unit": "p13",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The subheading 'FRA (Public sector)' is run into one long Paragraph 6 under 'A.4 Consultation' instead of being kept as a heading.",
+     "evidence": "source: heading \"FRA (Public sector)\" / tree: \"(2021/22 prices). FRA (Public sector) There will also be a level of familiarisation cost\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Footnotes 31 to 33, which belong to the body text, are stored in the notes text of Table 3.",
+     "evidence": "tree table text: \"31 Available within FIRE1102 at Fire statistics data tables\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "5dc073531a6591b6": {
+   "version_id": "impact-assessment@2023-07-24-cd8d7385",
+   "unit": "p13",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Page footnotes 31-33, which belong to the body text above the table, are attached to the notes of Table 3.",
+     "evidence": "tree table-3 text: \"31 Available within FIRE1102 at Fire statistics data tables - GOV.UK\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "259b0920c9c0f5db": {
+   "version_id": "impact-assessment@2023-07-24-cd8d7385",
+   "unit": "p16",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The subheadings 'Set-up costs.' and 'Ongoing and total costs' under Information Boxes are merged into the body text.",
+     "evidence": "source: heading \"Set-up costs.\" / tree: \"hard copies of the building floor plans. Set-up costs. The provision for all\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "f8e8599e65619e89": {
+   "version_id": "impact-assessment@2023-07-24-cd8d7385",
+   "unit": "p16",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The page's text and headings sit inside one merged body text labelled Paragraph 6 under A.4 Consultation instead of their own sections.",
+     "evidence": "tree: \"A.4 Consultation > Paragraph 6\" holding \"Information Boxes The RPs of existing high-rise\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The headings 'Information Boxes' and 'Set-up costs.' are read as body text.",
+     "evidence": "source: \"Information Boxes\" (heading) / tree: \"£1.9 million. Information Boxes The RPs of existing high-rise residential buildings\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "4978eff99eb85fc0": {
+   "version_id": "impact-assessment@2023-07-24-cd8d7385",
+   "unit": "p18",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The paragraphs printed below Table 4 are placed in the text block before the table.",
+     "evidence": "tree: \"Table 4 presents estimates for the costs of this proposal The total cost of lifts and essential firefighting equipment is estimated to be £23.7 million\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "a9d94edb6cec9783": {
+   "version_id": "impact-assessment@2023-07-24-cd8d7385",
+   "unit": "p18",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The lifts text on this page, including the equation and the totals after Table 4, sits inside General Assumption 'Paragraph 6' under 'A.4 Consultation' instead of under the Lifts and Essential Fire Fighting Equipment section.",
+     "evidence": "tree heading_path: \"A.4 Consultation > Paragraph 6\" holds \"The total cost of lifts and essential firefighting equipment is estimated to be £23.7 million (PV)\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "Text printed after Table 4 comes before the table in the tree, inside the paragraph blob.",
+     "evidence": "source: \"Table 4 presents estimates for the costs of this proposal\" then table, then \"The total cost of lifts...\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "00247ec6d324fda1": {
+   "version_id": "impact-assessment@2023-07-24-cd8d7385",
+   "unit": "p19",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The \"Set-up costs\" heading is put at the end of Table 6's notes instead of before the set-up costs text, which is run into the Assumptions text.",
+     "evidence": "source: \"Set-up costs.\" / tree: Table 6 text \"Source: Internal HO assumptions developed with DLUHC. Set-up costs.\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Assumptions is a top-level heading instead of sitting under Fire Doors.",
+     "evidence": "tree: heading_path \"Assumptions\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "d78258e4ddf79ae9": {
+   "version_id": "impact-assessment@2023-07-24-cd8d7385",
+   "unit": "p19",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The Fire Doors text is merged into one huge 'Paragraph 6' under 'A.4 Consultation', and the Fire Doors tables are also put under A.4 Consultation.",
+     "evidence": "tree heading_path: \"A.4 Consultation > Paragraph 6\"; \"A.4 Consultation > Table 5 ...\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The headings 'Fire Doors' and 'Assumptions' are run into body text.",
+     "evidence": "tree: \"£2.1 million. Fire Doors This proposal is to legislate\"; \"self-closing mechanisms. Assumptions It is assumed\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The subheading 'Set-up costs.' that follows Table 6 is attached to the table as a note.",
+     "evidence": "tree table-6 text: \"Source: Internal HO assumptions developed with DLUHC.\", \"Set-up costs.\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "9a266ecdb9a24b0d": {
+   "version_id": "impact-assessment@2023-07-24-cd8d7385",
+   "unit": "p21",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The fire doors totals and the whole Instructions to Residents section on this page sit inside General Assumption 'Paragraph 6' under 'A.4 Consultation', so they are filed under the wrong provision.",
+     "evidence": "tree heading_path: \"A.4 Consultation > Paragraph 6\" holds \"The total cost of fire doors is estimated to be £194.9 million (PV)...\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading 'Instructions to Residents' is read as body text inside the paragraph instead of as a heading.",
+     "evidence": "tree: \"...£7.0 million to £15.4 million. Instructions to Residents This proposal is to legislate...\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The text printed under 'Set-up costs.' is in the paragraph blob, while the 'Set-up costs.' note itself holds no text.",
+     "evidence": "source: \"Set-up costs. The costs resulting from this legislation are the time required...\" / tree: note-1 \"Set-up costs.\" with no text"
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "b85d32bd6f6e6afa": {
+   "version_id": "impact-assessment@2023-07-24-cd8d7385",
+   "unit": "p21",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The text printed under 'Set-up costs.' is put in the Instructions to Residents text block before that heading, and the 'Set-up costs.' note holds no text.",
+     "evidence": "source: \"Set-up costs. The costs resulting from this legislation are the time required...\" / tree: note-1 \"Set-up costs.\" with no text"
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The 'Assumptions' heading path does not show that it sits under Fire Doors.",
+     "evidence": "tree: \"Assumptions > Table 7 Total cost of the Fire Doors proposal (£ million)\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "bd84d31e9fe930e8": {
+   "version_id": "impact-assessment@2023-07-24-cd8d7385",
+   "unit": "p23",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The bold subheading 'Set-up costs.' is run into the Wayfinding Signage body text instead of being kept as a heading.",
+     "evidence": "source: \"Set-up costs.\" (bold subheading) / tree: \"stairwells of relevant buildings Set-up costs. Only existing buildings\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "fc43d8ba3616b2ce": {
+   "version_id": "impact-assessment@2023-07-24-cd8d7385",
+   "unit": "p23",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The page's text and headings sit inside one merged body text labelled Paragraph 6 under A.4 Consultation instead of their own sections.",
+     "evidence": "tree: \"A.4 Consultation > Paragraph 6\" holding \"Wayfinding Signage The RPs of all high-rise\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The headings 'Wayfinding Signage' and 'Set-up costs.' are read as body text.",
+     "evidence": "source: \"Wayfinding Signage\" (heading) / tree: \"£2.7 million. Wayfinding Signage The RPs of all high-rise\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "Tables 8 and 9 come after the whole merged paragraph rather than where they are printed, between the sentences that introduce them.",
+     "evidence": "source: \"presented in Table 8. Table 8: Signage installation costs\" / tree: table-8 placed after \"...reap the benefits of the proposal. The [...]\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "81312c21f2cf6e18": {
+   "version_id": "impact-assessment@2023-07-24-cd8d7385",
+   "unit": "p24",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The subheadings 'Ongoing and total costs' (wayfinding) and 'Set-up costs.' (additional costs to FRSs) are run into body text instead of being headings.",
+     "evidence": "tree: \"...first year of the appraisal period only. Ongoing and total costs There is a small ongoing cost...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "d07f4bbee1deca2a": {
+   "version_id": "impact-assessment@2023-07-24-cd8d7385",
+   "unit": "p24",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "All text on the page is merged into one huge 'Paragraph 6' under 'A.4 Consultation', so the Wayfinding Signage and Additional costs to FRSs material sits under the wrong provision.",
+     "evidence": "tree heading_path: \"A.4 Consultation > Paragraph 6\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The headings 'Ongoing and total costs', 'Additional costs to FRSs' and 'Set-up costs.' are run into body text.",
+     "evidence": "tree: \"appraisal period only. Ongoing and total costs There is a small ongoing cost\"; \"£1.8 million. Additional costs to FRSs It is expected\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "b5910ef5466d30dd": {
+   "version_id": "impact-assessment@2023-07-24-cd8d7385",
+   "unit": "p26",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The Annual per year values leak into the running text after the heading 'Summary of Total Costs', so they read as loose numbers.",
+     "evidence": "tree: \"Summary of Total Costs 28.3 43.6 58.6 The total set-up costs...\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The summary table appears twice. The table's top-left header and its row labels are also made into separate notes.",
+     "evidence": "tree: note-3 title \"Familiarisation (inc. FRS) External Wall Systems Building Plans ... Annual per year\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading 'Summary of Total Costs' is read as body text, and the table is titled 'Ongoing and total costs'.",
+     "evidence": "source: \"Summary of Total Costs\" / tree title: \"Ongoing and total costs\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The text printed below the table comes before it in the tree.",
+     "evidence": "source (below table): \"The total set-up costs for all of the GTI recommendations is estimated to be £139.4 million\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "e4f31e126440bfeb": {
+   "version_id": "impact-assessment@2023-07-24-cd8d7385",
+   "unit": "p26",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The whole costs section, with its headings, is merged into one body text labelled Paragraph 6 under A.4 Consultation, and the heading 'Summary of Total Costs' is read as body text.",
+     "evidence": "tree: \"A.4 Consultation > Paragraph 6\" ... \"Summary of Total Costs 28.3 43.6 58.6 The total set-up costs\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The same Summary of Total Costs table is given twice as two separate table blocks with identical grids.",
+     "evidence": "tree: \"document-a-4-consultation-table-p26\" and \"document-a-4-consultation-table-14\" both hold \"Total cost (PV) 95.0 139.4 187.0\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The table's 'Annual per year' values leak into the running text after the heading.",
+     "evidence": "tree: \"Summary of Total Costs 28.3 43.6 58.6 The total set-up costs\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Two spurious note blocks hold the table's corner label and its row labels run together as titles.",
+     "evidence": "tree: \"Costs, £m\" / \"Familiarisation (inc. FRS) External Wall Systems Building Plans Information Boxes ...\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "43d362930833ba64": {
+   "version_id": "impact-assessment@2023-07-24-cd8d7385",
+   "unit": "p29",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The paragraphs printed below Table 10 (total cost, NPSV, BNPV) are joined to the intro sentence and placed before the table.",
+     "evidence": "tree text-1: \"...presented in Table 10. The total cost of Option 1 is estimated in a range of £255.0 to 526.0 million\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "ddbdebd38f24347b": {
+   "version_id": "impact-assessment@2023-07-24-cd8d7385",
+   "unit": "p29",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The NPSV, BNPV, EANDCB text is merged into one huge 'Paragraph 6' under 'A.4 Consultation', and Table 10 is also put under A.4 Consultation.",
+     "evidence": "tree heading_path: \"A.4 Consultation > Paragraph 6\"; \"A.4 Consultation > Table 10 ...\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading 'NPSV, BNPV, EANDCB' is run into body text.",
+     "evidence": "tree: \"reduce their fear of fire. NPSV, BNPV, EANDCB The Net Present Social Value\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "0f542e88945fd903": {
+   "version_id": "impact-assessment@2023-07-24-cd8d7385",
+   "unit": "p33",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Table 12 is also read a second time as fake headings and running text, so its header rows and a data row become headings and the following body text sits under a heading made of table numbers.",
+     "evidence": "tree: heading \"40 10 30.0 -390.8\" / text \"50 15 35.3 -396.1 60 17.5 40.4 -401.2 70 20 45.6 -406.4 This demonstrates that the PV cost\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The subheading for the second risk is merged into the body text instead of being a heading.",
+     "evidence": "source: heading \"Proportion of high-rise buildings which currently have no, or some form of, building plans\" / tree: inside text block"
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Words from the next page's Table 13 and the heading 'I. Wider impacts' are run into the text after Table 12.",
+     "evidence": "tree: \"Proposal Familiarisation External Wall Systems Building Plans Information Boxes Lifts and Essential Firefighting Low Central High 3.0 0.2 18.4 4.3\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The source note of Table 12 is a separate text under the fake heading, not attached to the table.",
+     "evidence": "source: \"Source: Home Office internal calculations. Central estimate used for all calculations\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "19a40fa3e4d3bf29": {
+   "version_id": "impact-assessment@2023-07-24-cd8d7385",
+   "unit": "p33",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "The paragraph printed after Table 11 and the Table 12 introduction come before Table 11 in the tree.",
+     "evidence": "source: Table 11 then \"This demonstrates that the NPSV is relatively sensitive\" / tree: that text in para-6 before table-11"
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Table 12 is also read a second time as fake headings and running text, so a data row becomes a heading and body text sits under it.",
+     "evidence": "tree: heading \"40 10 30.0 -390.8\" / text \"50 15 35.3 -396.1 60 17.5 40.4 -401.2 70 20 45.6 -406.4 This demonstrates\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The risk subheadings are merged into body text inside a paragraph under 'A.4 Consultation'.",
+     "evidence": "source: heading \"Proportion of high-rise buildings which currently have no, or some form of, building plans\" / tree: inside para-6 text"
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Words from the next page's Table 13 are run into the text after Table 12.",
+     "evidence": "tree: \"Proposal Familiarisation External Wall Systems Building Plans Information Boxes Lifts and Essential Firefighting Low Central High 3.0 0.2 18.4 4.3\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "1d9da8a370276321": {
+   "version_id": "impact-assessment@2023-07-24-cd8d7385",
+   "unit": "p34",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Table 13 is given twice, the second time as an unnumbered table titled with numbers from Table 12.",
+     "evidence": "tree: table \"40 10 30.0 -390.8\" with the same rows as Table 13"
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The section heading 'H. Direct costs and benefits to business calculations' is lost as a heading and stored as the note text of Table 13; Table 13 sits under a fake heading.",
+     "evidence": "source: heading \"H. Direct costs and benefits to business calculations\" / tree: table-13 text \"H. Direct costs and benefits to business calculations\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The text at the top of the page has scrambled Table 13 words and numbers and the heading 'I. Wider impacts' run into it.",
+     "evidence": "tree: \"Lifts and Essential Firefighting Low Central High 3.0 0.2 18.4 4.3 Equipment Fire Doors ... I. Wider impacts 17.0 25.5\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "'Leaseholder impacts in buildings over 11 metres' is a top-level heading, not under 'I. Wider impacts', and the table source note sits under the fake heading.",
+     "evidence": "tree: heading_path \"Leaseholder impacts in buildings over 11 metres\"; \"Source: Home Office, own estimates, 2022.\" under \"40 10 30.0 -390.8\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "2d1e48372dc0ffc5": {
+   "version_id": "impact-assessment@2023-07-24-cd8d7385",
+   "unit": "p34",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Table 13 is given twice, the second time as an unnumbered table titled with numbers from Table 12.",
+     "evidence": "tree: table \"40 10 30.0 -390.8\" with the same rows as Table 13"
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The section heading 'H. Direct costs and benefits to business calculations' is lost as a heading and stored as the note text of Table 13.",
+     "evidence": "source: heading \"H. Direct costs and benefits to business calculations\" / tree: table-13 text"
+    },
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "The leaseholder impacts text, printed after Table 13, comes before Table 13 in the tree, with the headings run into it.",
+     "evidence": "tree: \"I. Wider impacts 17.0 25.5 134.9 109.3 18.2 306.1 -306.1 33.9 Leaseholder impacts in buildings over 11 metres It is likely\" before table-13"
+    },
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The text at the top of the page has scrambled Table 13 words and numbers run into it.",
+     "evidence": "tree: \"Proposal Familiarisation External Wall Systems Building Plans Information Boxes Lifts and Essential Firefighting Low Central High 3.0 0.2 18.4 4.3\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Headings 'I. Wider impacts' and 'Leaseholder impacts in buildings over 11 metres' are kept only as body text.",
+     "evidence": "source: headings \"I. Wider impacts\" / \"Leaseholder impacts in buildings over 11 metres\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "cc9d17927ad35e77": {
+   "version_id": "impact-assessment@2023-07-24-cd8d7385",
+   "unit": "p37",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The SaMBA box is a two-column table but is read as running text, and its 'Yes' cell is pushed into the middle of a sentence.",
+     "evidence": "source: \"compared to any larger businesses also in scope\" | Yes / tree: \"compared to any larger businesses Yes also in scope of the legislation\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The page's text and table sit under a nonsense heading path made from table numbers, not under 'L. Annexes'.",
+     "evidence": "tree heading_path: \"40 10 30.0 -390.8 > Text\"; table title \"40 10 30.0 -390.8\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The headings 'L. Annexes', 'Impact Assessment Checklist' and 'Economic Impact Tests' are run into body text.",
+     "evidence": "tree: \"L. Annexes Impact Assessment Checklist Economic Impact Tests Small and Micro-business Assessment (SaMBA) A SaMBA has been\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The Statutory Equalities Duties table is placed after the Economic Impact Tests text, but on the page it comes first.",
+     "evidence": "source order: Impact Assessment Checklist table, then Economic Impact Tests / tree: SaMBA text, then table"
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "db083dafa9aca450": {
+   "version_id": "impact-assessment@2023-07-24-cd8d7385",
+   "unit": "p37",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The SaMBA box is a two-column table but is read as a heading and running text, and its 'Yes' cell is pushed into the middle of a sentence.",
+     "evidence": "source: \"compared to any larger businesses also in scope\" | Yes / tree: \"compared to any larger businesses Yes also in scope of the legislation\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The Annexes headings and the Equalities table are put under 'Impact on the supply of new housing', and the table is titled with that heading.",
+     "evidence": "tree heading_path: \"Impact on the supply of new housing > Table (Impact on the supply of new housing)\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "'Economic Impact Tests' is placed before the Statutory Equalities Duties table, but on the page it comes after that table.",
+     "evidence": "tree: \"L. Annexes Impact Assessment Checklist Economic Impact Tests\" then the Equalities table"
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "3a385693be499901": {
+   "version_id": "impact-assessment@2023-07-24-cd8d7385",
+   "unit": "p9",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "A footnote marker is run into the year, so the date reads as a different number.",
+     "evidence": "source: \"published on 9 July 2020¹⁰\" / tree: \"published on 9 July 202010\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The section heading \"E. Appraisal\" is read as body text inside the previous section, so the appraisal text and \"General assumptions and data\" are not under it.",
+     "evidence": "tree: \"...commence on 23 January 2023. E. Appraisal The following sections present analysis...\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The subheading \"Preferred option and implementation plan\" is read as body text.",
+     "evidence": "tree: \"...through these regulations. Preferred option and implementation plan Option 1 is...\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "A footnote marker is run into the word before it.",
+     "evidence": "source: \"Green Book (2020) guidance¹¹\" / tree: \"Green Book (2020) guidance11\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "3d176496755448c3": {
+   "version_id": "impact-assessment@2023-07-24-cd8d7385",
+   "unit": "p9",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Text from sections D and E (options, appraisal, general assumptions) is placed under the heading path A.4 Consultation instead of its own headings.",
+     "evidence": "tree heading_path: \"A.4 Consultation > Text\" for \"E. Appraisal The following sections present analysis...\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The headings 'Preferred option and implementation plan', 'E. Appraisal' and 'General assumptions and data' are run into body text instead of being headings.",
+     "evidence": "tree: \"...evacuation plans, are not being implemented through these regulations. Preferred option and implementation plan Option 1 is...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "47bd0efa9025a919": {
+   "version_id": "impact-assessment@2023-07-24-cd8d7385",
+   "unit": "p9",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The headings 'Preferred option and implementation plan' and 'E. Appraisal' are run into body text, and the appraisal text sits under the heading path 'High-rise residential buildings'.",
+     "evidence": "tree: \"High-rise residential buildings > Text\": \"...23 January 2023. E. Appraisal The following sections present analysis...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  }
+ }
+}

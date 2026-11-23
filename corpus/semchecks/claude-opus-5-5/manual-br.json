@@ -1,0 +1,531 @@
+{
+ "source_id": "manual-br",
+ "model": "claude-opus-5-5",
+ "about": "Verdicts of claude-opus-5-5 on source against tree for manual-br (system/rag/semcheck.py).",
+ "verdicts": {
+  "a985da4729c07983": {
+   "version_id": "manual-to-the-building-regulations@2020-07-20-f04e1e10",
+   "unit": "p10",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The 'Following other guidance' heading and the four body paragraphs printed below Table 1.1 are kept only inside the table's text as if they were table notes, not as their own section.",
+     "evidence": "source: \"Following other guidance It is important to agree with the building control body\" / tree: only in table-1-1 text after \"NOTES:\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "f17b5e4d0e43dfe1": {
+   "version_id": "manual-to-the-building-regulations@2020-07-20-f04e1e10",
+   "unit": "p10",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The heading 'Following other guidance' and its four body paragraphs are kept only inside the table's note text, not as a heading and text sections of their own.",
+     "evidence": "tree table text: \"NOTES: ... Following other guidance It is important to agree with the building control body\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Running footers are kept in the table text and as a text section.",
+     "evidence": "tree: \"10 Overview Manual to the Building Regulations\" / \"Manual to the Building Regulations Overview 9\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "130de586228e4379": {
+   "version_id": "manual-to-the-building-regulations@2020-07-20-f04e1e10",
+   "unit": "p12",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The figure caption is joined to the text printed below the figure, and that text comes before the figure's table.",
+     "evidence": "tree: \"Figure 2.1 The building control process Refer to Volume 2, Chapter E for details of approved inspectors' initial notices.\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "b6078811494ca410": {
+   "version_id": "manual-to-the-building-regulations@2020-07-20-f04e1e10",
+   "unit": "p12",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Figure 2.1 (a flowchart) is read as a one-column table titled 'Chapter 2', and its caption is a separate text block joined with the paragraphs printed below the figure.",
+     "evidence": "source: \"Figure 2.1 The building control process\" / tree: table title \"Chapter 2\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The two closing paragraphs printed after the figure come before the figure content in the tree.",
+     "evidence": "tree: \"Figure 2.1 The building control process Refer to Volume 2, Chapter E for details...\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "11bee26051691c51": {
+   "version_id": "manual-to-the-building-regulations@2020-07-20-f04e1e10",
+   "unit": "p15",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The flowchart grid drops the Yes/No branch labels, so it does not say which answer leads to which box.",
+     "evidence": "source: \"Do Building Regulations apply to the work? No -> No notification required\" / tree: [\"Start: Do Building Regulations apply to the work?\"], [\"No notification required\"]"
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading \"Is a building control body involved?\" is read as the start of the body text.",
+     "evidence": "tree: \"Is a building control body involved? When Building Regulations apply to the work...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "131e050065013b96": {
+   "version_id": "manual-to-the-building-regulations@2020-07-20-f04e1e10",
+   "unit": "p15",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "2f04cf16fc54b566": {
+   "version_id": "manual-to-the-building-regulations@2020-07-20-f04e1e10",
+   "unit": "p19",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The flowchart is flattened into a single-column list, so the No branch (building notice) seems to pass through the substantive plan assessment box, which the arrow on the page skips.",
+     "evidence": "source: arrow from \"No\" goes straight to \"Work may start after...\" / tree: rows in sequence after \"No: The applicant may deposit a building notice application\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The subheading 'Local authority building control' is run into the body text instead of being a heading.",
+     "evidence": "tree: \"you must use local authority building control. Local authority building control If you apply for approval\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The flowchart's top two boxes are repeated as a separate text section before the table.",
+     "evidence": "tree: \"Local authority route Local authority building control under the Building Regulations 2010\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "e48ec1a77d36007e": {
+   "version_id": "manual-to-the-building-regulations@2020-07-20-f04e1e10",
+   "unit": "p19",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The flowchart title and first box are repeated as a separate text section as well as in the table grid.",
+     "evidence": "tree: \"Local authority route Local authority building control under the Building Regulations 2010\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "0800f28f0de14841": {
+   "version_id": "manual-to-the-building-regulations@2020-07-20-f04e1e10",
+   "unit": "p20",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "high",
+     "problem": "The text beside the flowchart, about the initial notice, the insurance declaration and what the notice must contain, is in no section; it appears only jumbled into the table's raw text.",
+     "evidence": "\"i. a site plan to a scale of not less than 1:1250 showing the boundaries and location of the site\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Two flowchart boxes are repeated as separate text sections after the table.",
+     "evidence": "tree: \"Approved inspector route Approved inspectors under the Building (Approved Inspectors etc.) Regulations 2010\"; \"In conjunction with the approved inspector an initial notice...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "e1159051cf95fac8": {
+   "version_id": "manual-to-the-building-regulations@2020-07-20-f04e1e10",
+   "unit": "p20",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "The side text about the initial notice and insurance declaration is not in any section; it exists only in the table text, interleaved line by line with the flowchart boxes.",
+     "evidence": "tree: \"Agree site inspection plan with approved b. an insurance declaration demonstrating that the approved\""
+    },
+    {
+     "kind": "missing",
+     "severity": "high",
+     "problem": "The rules for initial notice content (site plan scale 1:1250, sewer consultation statement) are absent from the grid and from text sections.",
+     "evidence": "source: \"i. a site plan to a scale of not less than 1:1250 showing the boundaries and location of the site\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The first two flowchart boxes are repeated as separate text sections as well as in the table.",
+     "evidence": "tree: \"Approved inspector route Approved inspectors under the Building (Approved Inspectors etc.) Regulations 2010\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "6f3d916fe3806773": {
+   "version_id": "manual-to-the-building-regulations@2020-07-20-f04e1e10",
+   "unit": "p21",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The body paragraph after Table 7.1, which states the Regulation 7 materials and workmanship rule, is kept only inside the table's text, not as its own text section.",
+     "evidence": "source: \"must be carried out with adequate and proper materials and in a workmanlike manner, as required by Regulation 7\" / tree: only in table-7-1 text"
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The subheading 'Complying with the Building Regulations' is run into the body text.",
+     "evidence": "tree: \"Complying with the Building Regulations The key legal requirements\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "c9c6a76a21f021ea": {
+   "version_id": "manual-to-the-building-regulations@2020-07-20-f04e1e10",
+   "unit": "p21",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The body paragraph under the table about Regulation 7 workmanship is held only in the table's text as a note, not as running text.",
+     "evidence": "source: \"In addition to complying with the technical requirements in Schedule 1 ... workmanlike manner, as required by Regulation 7\" / tree: inside table-7-1 text"
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "5dd36ca67db7ecc7": {
+   "version_id": "manual-to-the-building-regulations@2020-07-20-f04e1e10",
+   "unit": "p28",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Paragraph A12, with its subheading and conditions a to e, is printed after Table A1 but is kept only inside the table's text, as if it were a table note, not as its own provision.",
+     "evidence": "source: \"A12 The exemption in Class 7 ... c. The extension has a maximum floor area of 30m²\" / tree: only in table-a1 text"
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The column headings 'Class' and 'Description' are not printed in the source table.",
+     "evidence": "tree: columns \"Class\", \"Description\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "c037cf79236ff615": {
+   "version_id": "manual-to-the-building-regulations@2020-07-20-f04e1e10",
+   "unit": "p28",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Paragraph A12 and its heading are held only inside Table A1's text as if they were table notes, not as a provision of their own.",
+     "evidence": "source: \"A12 The exemption in Class 7 ... maximum floor area of 30m²\" / tree: only in table-a1 text after the NOTE"
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The table NOTE is put into the grid as a data row labelled NOTE.",
+     "evidence": "tree: [\"NOTE\", \"If any water or electricity in an exempt greenhouse...\"]"
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "124dd6bf04bf74f8": {
+   "version_id": "manual-to-the-building-regulations@2020-07-20-f04e1e10",
+   "unit": "p30",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The subheadings \"Material alteration\" and \"Material change of use\" are run into body text, not kept as headings.",
+     "evidence": "tree: \"...the change does not have to comply with the Building Regulations. Material alteration A19 The Building Regulations always apply...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "a855b8ffbf4bb089": {
+   "version_id": "manual-to-the-building-regulations@2020-07-20-f04e1e10",
+   "unit": "p30",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The subheadings 'Material alteration' and 'Material change of use' are run into the body text instead of being kept as headings.",
+     "evidence": "tree: \"...the Building Regulations. Material alteration A19 The Building Regulations always apply...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "3e6e85305688dc2c": {
+   "version_id": "manual-to-the-building-regulations@2020-07-20-f04e1e10",
+   "unit": "p31",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The table has no number and a generic title; its caption 'Table A2 Requirements that apply to material changes of use' sits in a separate note block.",
+     "evidence": "source: \"Table A2 Requirements that apply to material changes of use\" / tree: title \"Chapter A\", no number"
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "beaba1be1fe1b3af": {
+   "version_id": "manual-to-the-building-regulations@2020-07-20-f04e1e10",
+   "unit": "p31",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The table caption 'Table A2 Requirements that apply to material changes of use' is split off into a note; the table itself has no number and is titled with the section heading.",
+     "evidence": "source: \"Table A2 Requirements that apply to material changes of use\" / tree: table title \"Do the Building Regulations apply?\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "503121b8c3486bc1": {
+   "version_id": "manual-to-the-building-regulations@2020-07-20-f04e1e10",
+   "unit": "p41",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Numbered paragraphs E1 to E7 are merged into one text section, and the subheading 'The initial notice' is run into the body text.",
+     "evidence": "tree: \"may negotiate the fees involved. The initial notice E6 When the person carrying out\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "f447d2152242e909": {
+   "version_id": "manual-to-the-building-regulations@2020-07-20-f04e1e10",
+   "unit": "p41",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The headings 'Approved inspectors' and 'The initial notice' are read as body text inside the Chapter E text.",
+     "evidence": "tree: \"Approved inspectors E1 This chapter refers...\" / \"E5 ... fees involved. The initial notice E6\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Running footers are kept as text sections.",
+     "evidence": "tree: \"Manual to the Building Regulations Further guidance 41\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "336fda7dfe9d39cc": {
+   "version_id": "manual-to-the-building-regulations@2020-07-20-f04e1e10",
+   "unit": "p56",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "e798cb955049d66b": {
+   "version_id": "manual-to-the-building-regulations@2020-07-20-f04e1e10",
+   "unit": "p56",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The running footer is kept as its own text sections in the tree.",
+     "evidence": "tree: \"56 Appendices Manual to the Building Regulations\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "b722f96ab32e7927": {
+   "version_id": "manual-to-the-building-regulations@2020-07-20-f04e1e10",
+   "unit": "p57",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "d90e7cefb591835c": {
+   "version_id": "manual-to-the-building-regulations@2020-07-20-f04e1e10",
+   "unit": "p57",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "923e01efb526f59b": {
+   "version_id": "manual-to-the-building-regulations@2020-07-20-f04e1e10",
+   "unit": "p61",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "d610bb290481cd8b": {
+   "version_id": "manual-to-the-building-regulations@2020-07-20-f04e1e10",
+   "unit": "p61",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  }
+ }
+}

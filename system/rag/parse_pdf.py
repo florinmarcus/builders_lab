@@ -1524,9 +1524,44 @@ class Builder:
             return False
         if _is_bold(l["font"]) and self.body_size + 2 <= l["size"] < 2 * self.body_size and "Italic" not in l["font"]:
             return any(abs(l["x0"] - c) <= 2.5 for c in self.text_lefts)
+        at_edge = self.left(l) - 40 <= l["x0"] <= self.left(l) + 3 or any(abs(l["x0"] - c) <= 2.5 for c in self.text_lefts)
+        # S128 fix 4 (leaflets): a heading in regular type set 1.5 to 2 times body size (INDG450 "Introduction" in
+        # 18pt over 11pt), and a heading in bold at body size standing on its own line, with space above it and
+        # running text under it (CIS26 "Health effects").
+        if self.body_size * 1.4 <= l["size"] < 2 * self.body_size and at_edge and "Italic" not in l["font"] \
+                and "Oblique" not in l["font"]:
+            return True
+        if _is_bold(l["font"]) and l["size"] == self.body_size and at_edge and len(t.split()) <= 8 \
+                and "Italic" not in l["font"] and "Oblique" not in l["font"] and run <= 2:
+            return self._standalone(l, two=run == 2)
         return bool(MEDIUM_RE.search(l["font"])) and self.body_size + 0.5 <= l["size"] < 1.5 * self.body_size \
             and (self.left(l) - 3 <= l["x0"] <= self.left(l) + 25 or any(abs(l["x0"] - c) <= 2.5 for c in self.text_lefts)) \
             and len(t.split()) <= (16 if run == 2 else 12)
+
+    def _standalone(self, l: dict, two: bool = False) -> bool:
+        """A line with space above it (or first on its page) and a line of running text (not bold) under it, after
+        a gap of 1.5 to 2.6 times its size."""
+        ls = self.lines_by_page.get(l["page"], [])
+        if any(x is not l and abs(x["top"] - l["top"]) < 3 and x.get("col") == l.get("col") and x.get("band") == l.get("band")
+               for x in ls):
+            return False  # something else on its row in its column: a table cell or a label, not a heading
+        ws = l.get("words") or []
+        if any(b["x0"] - a.get("x1", b["x0"]) > 2 * l["size"] for a, b in zip(ws, ws[1:])):
+            return False  # wide gaps between its words: a table row
+        last = l
+        if two:  # a heading on two lines: the space under it is measured from its second line
+            last = min((x for x in ls if x["font"] == l["font"] and x["size"] == l["size"] and abs(x["x0"] - l["x0"]) <= 3
+                        and 0 < x["top"] - l["top"] <= 1.8 * l["size"]), key=lambda x: x["top"], default=l)
+        above = [x for x in ls if x["top"] < l["top"] - 1 and abs(x["x0"] - l["x0"]) < 200]
+        below = sorted((x for x in ls if x["top"] > last["top"] + 1 and abs(x["x0"] - l["x0"]) <= 40), key=lambda x: x["top"])
+        if above and l["top"] - max(x["top"] for x in above) < 1.5 * l["size"]:
+            return False
+        # A heading has space under it too; a bold opening sentence runs on at normal line spacing
+        if not below or not 1.5 * l["size"] <= below[0]["top"] - last["top"] <= 2.6 * l["size"]:
+            return False
+        nxt = below[0]
+        return not _is_bold(nxt["font"]) and nxt["size"] >= self.body_size - 0.5 and len(nxt["text"].split()) >= 4 \
+            and not nxt["text"].lstrip()[:1].islower()
 
     def _heading_wrap(self, h: dict, x: dict) -> bool:
         """The second line of a wrapped heading: same font, size and left edge, and it starts in lower case or a

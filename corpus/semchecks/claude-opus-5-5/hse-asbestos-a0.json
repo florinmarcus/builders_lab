@@ -3,6 +3,56 @@
  "model": "claude-opus-5-5",
  "about": "Verdicts of claude-opus-5-5 on source against tree for hse-asbestos-a0 (system/rag/semcheck.py).",
  "verdicts": {
+  "07b448a8f92faf1c": {
+   "version_id": "main@2024-12-06-3078ecac",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The subheading 'Consider the asbestos type' is kept as body text rather than a heading.",
+     "evidence": "source: \"Consider the asbestos type\" (heading) / tree: text line \"Consider the asbestos type\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The subheading 'Consider the material's condition' is run into the end of a bullet as body text.",
+     "evidence": "tree: \"...are considered to be firmly bound in a matrix. Consider the material’s condition\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The paragraphs after the last bullet are merged into that bullet.",
+     "evidence": "tree: \"with gel or steam? Once you’ve considered these three elements, the Decision flow chart...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "f921e5a461785aff": {
+   "version_id": "main@2024-12-06-3078ecac",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The paragraphs after the last bullet are merged into that bullet.",
+     "evidence": "tree: \"with gel or steam? Once you’ve considered these three elements, the Decision flow chart...\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
   "80e0299c9ce0537f": {
    "version_id": "main@2024-12-06-3078ecac",
    "unit": "p8",

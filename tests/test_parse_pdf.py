@@ -1682,3 +1682,25 @@ def test_a_gutter_starts_where_its_column_starts_and_cuts_a_small_gap():
     b = _wl(1, 200, 303, "guidance for CDM duty")
     out = split_columns(rows + [{**a, "text": a["text"] + " " + b["text"], "words": a["words"] + b["words"]}], 10.0, 595.0, [], 842.0)
     assert any(l["text"] == "guidance for CDM duty" for l in out)
+
+
+def test_leaflet_headings_in_bold_at_body_size_or_large_regular_type():
+    """S128 fix 4 (CIS26, INDG450, building regulations circulars): headings set in bold at body size on a line of
+    their own, with space above and below, and headings in regular type 1.4 to 2 times body size, were read as body
+    text. A bold opening sentence that runs on at normal line spacing, and a table cell with others on its row, are
+    not headings."""
+    H, B = "Helvetica", "Helvetica-Bold"
+    body = "Cement is widely used in construction and anyone who uses it should know the hazard."
+    lines = [ln(1, 60, "Construction Information Sheet No 26", 20.0, B, x0=44)]
+    lines += [ln(1, 148, "Health effects", 10.0, B, x0=44), ln(1, 172, body, 10.0, H, x0=44)]
+    lines += [ln(1, 184 + 12 * k, body, 10.0, H, x0=44) for k in range(6)]
+    lines += [ln(1, 280, "Irritant dermatitis is caused by the cement", 10.0, B, x0=44),
+              ln(1, 292, "particles that irritate the skin when they are wet or dry on site.", 10.0, H, x0=44),
+              ln(1, 330, "Your health and safety", 15.0, H, x0=44), ln(1, 360, body, 10.0, H, x0=44),
+              ln(1, 400, "Grade D1 Category LD1", 10.0, B, x0=44), ln(1, 400, "Two storeys", 10.0, H, x0=300),
+              ln(1, 424, body, 10.0, H, x0=44)]
+    lines += [ln(1, 436 + 12 * k, body, 10.0, H, x0=44) for k in range(10)]
+    t = build_tree({"lines": lines, "rects": [], "images": [], "page_count": 1}, META)
+    heads = {s["title"] for s in t["sections"] if s["type"] == "heading"}
+    assert {"Health effects", "Your health and safety"} <= heads
+    assert not any(h.startswith(("Irritant", "Grade")) for h in heads)

@@ -3823,6 +3823,481 @@
    "by": "model check, Opus 5.5, Claude Code headless (packet)",
    "confidence": "medium",
    "date": "2026-11-23"
+  },
+  {
+   "key": "2e150343317ba504",
+   "kind": "table",
+   "target": "document-risks-and-assumptions-table-p24: Risks and assumptions",
+   "value": {
+    "columns": [
+     "Survey Question",
+     "Lower Bound of Responses",
+     "Average (when used)",
+     "Upper Bound of Responses"
+    ],
+    "rows": [
+     [
+      "How many non-emergency responsive repairs were carried out per property owned in the financial year 2022-23?",
+      "1.7",
+      "4.2",
+      "6.6"
+     ],
+     [
+      "What is the average time between a non-emergency responsive repair being brought to the landlord’s attention by the resident (or a third party) and the landlord assessing what type of repair work will be required.",
+      "<1 day",
+      "-",
+      "22.0 days"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Risks and assumptions, survey question \"How many non-emergency responsive repairs were carried out per property owned in the financial year 2022-23?\": lower bound of responses 1.7, average (when used) 4.2, upper bound of responses 6.6.",
+     "Risks and assumptions, survey question \"What is the average time between a non-emergency responsive repair being brought to the landlord’s attention by the resident (or a third party) and the landlord assessing what type of repair work will be required\": lower bound of responses <1 day, average (when used) -, upper bound of responses 22.0 days."
+    ]
+   },
+   "reason": "The page shows one header row with four columns and two data rows; the grid's extra rows are split header fragments and are dropped.",
+   "evidence": "Page 24 table: Survey Question | Lower Bound of Responses | Average (when used) | Upper Bound of Responses; rows 1.7/4.2/6.6 and <1 day/-/22.0 days.",
+   "by": "model check, Opus 5.5, Claude Code headless (packet)",
+   "confidence": "high",
+   "date": "2026-11-23"
+  },
+  {
+   "key": "fed1abbab5a9f4ce",
+   "kind": "table",
+   "target": "document-phase-2-options-table-p15: Phase 2 options",
+   "value": {
+    "columns": [
+     "Area",
+     "Question",
+     "Assessment",
+     "Rating"
+    ],
+    "rows": [
+     [
+      "Business environment:",
+      "Does the measure impact on the ease of doing business in the UK?",
+      "The measure is unlikely to significantly impact the business environment in the UK. As with many forms of regulation, it may act as a barrier to entry. However, minimum repair times could improve efficiency by forcing firms to improve standards and reduce costs. The net impact is therefore more likely to be positive from a societal perspective. The vast majority of social housing is provided by domestic non-profit public sector organisations, so the impact on foreign investment is likely to be minimal. Similarly, the impact on innovation is also likely to be minimal.",
+      "Neutral"
+     ],
+     [
+      "International Considerations:",
+      "Does the measure support international trade and investment?",
+      "N/a",
+      "Neutral"
+     ],
+     [
+      "Natural capital and Decarbonisation:",
+      "Does the measure support commitments to improve the environment and decarbonise?",
+      "Hazards that relate to energy efficiency such as excess cold, for example, due to windows in disrepair, will be fixed more rapidly under Awaab’s Law. The additional impact of the legislation is likely to be small but positive.",
+      "Supports"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Phase 2 options, business environment (does the measure impact on the ease of doing business in the UK?): the measure is unlikely to significantly impact the business environment in the UK; it may act as a barrier to entry, but minimum repair times could improve efficiency, so the net impact is more likely to be positive from a societal perspective, and the impact on foreign investment and innovation is likely to be minimal; rating Neutral.",
+     "Phase 2 options, international considerations (does the measure support international trade and investment?): N/a; rating Neutral.",
+     "Phase 2 options, natural capital and decarbonisation (does the measure support commitments to improve the environment and decarbonise?): hazards that relate to energy efficiency such as excess cold, for example due to windows in disrepair, will be fixed more rapidly under Awaab’s Law, and the additional impact of the legislation is likely to be small but positive; rating Supports."
+    ]
+   },
+   "reason": "The page prints no column headings for this table (it continues from an earlier page), so short descriptive headings were added because every column needs one; the first column holds a bold area heading and a question on separate lines, so it is split into two columns; the grid wrongly put each rating on its own row, and each rating is merged back into its row.",
+   "evidence": "Page 15 table: three bordered rows, each with bold area and question, assessment text, and a coloured rating cell (Neutral, Neutral, Supports).",
+   "by": "model check, Opus 5.5, Claude Code headless (packet)",
+   "confidence": "medium",
+   "date": "2026-11-23"
+  },
+  {
+   "key": "24ac2d29f8149cb9",
+   "kind": "table",
+   "target": "document-monetised-costs-table-p18: Monetised costs",
+   "value": {
+    "columns": [
+     "Year",
+     "2026",
+     "2027",
+     "2028-2035 (per annum)",
+     "Total (2026-2035)",
+     "Average per annum"
+    ],
+    "rows": [
+     [
+      "Familiarisation",
+      "£0.7",
+      "£0.0",
+      "£0.0",
+      "£0.7",
+      "£0.1"
+     ],
+     [
+      "Triage, prep and postage",
+      "£27.8",
+      "£27.8",
+      "£10.0",
+      "£135.5",
+      "£13.6"
+     ],
+     [
+      "Total",
+      "£28.5",
+      "£27.8",
+      "£10.0",
+      "£136.2",
+      "£13.6"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Monetised costs, PRP costs (undiscounted 2026 prices, £m), familiarisation: 2026 £0.7, 2027 £0.0, 2028-2035 £0.0 per annum, total (2026-2035) £0.7, average per annum £0.1.",
+     "Monetised costs, PRP costs (undiscounted 2026 prices, £m), triage, prep and postage: 2026 £27.8, 2027 £27.8, 2028-2035 £10.0 per annum, total (2026-2035) £135.5, average per annum £13.6.",
+     "Monetised costs, PRP costs (undiscounted 2026 prices, £m), total: 2026 £28.5, 2027 £27.8, 2028-2035 £10.0 per annum, total (2026-2035) £136.2, average per annum £13.6."
+    ]
+   },
+   "reason": "The grid matches the first table on page 18 exactly; the caption printed above it (PRP costs, undiscounted 2026 prices, £m) is used to say which table this is.",
+   "evidence": "Page 18, table under 'PRP costs (undiscounted 2026 prices), £m:' with rows Familiarisation, Triage, prep and postage, Total.",
+   "by": "model check, Opus 5.5, Claude Code headless (packet)",
+   "confidence": "high",
+   "date": "2026-11-23"
+  },
+  {
+   "key": "98bba11587b64aff",
+   "kind": "table",
+   "target": "document-monetised-costs-table-p18-2: Monetised costs",
+   "value": {
+    "columns": [
+     "Year",
+     "2026",
+     "2027",
+     "2028-2035 (per annum)",
+     "Total (2026-2035)",
+     "Average per annum"
+    ],
+    "rows": [
+     [
+      "Familiarisation",
+      "£0.2",
+      "£0.0",
+      "£0.0",
+      "£0.2",
+      "£0.1"
+     ],
+     [
+      "Triage, prep and postage",
+      "£15.9",
+      "£15.9",
+      "£5.7",
+      "£77.2",
+      "£7.7"
+     ],
+     [
+      "Total",
+      "£16.1",
+      "£15.9",
+      "£5.7",
+      "£77.4",
+      "£7.7"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Monetised costs, LA costs (undiscounted 2026 prices, £m), familiarisation: 2026 £0.2, 2027 £0.0, 2028-2035 £0.0 per annum, total (2026-2035) £0.2, average per annum £0.1.",
+     "Monetised costs, LA costs (undiscounted 2026 prices, £m), triage, prep and postage: 2026 £15.9, 2027 £15.9, 2028-2035 £5.7 per annum, total (2026-2035) £77.2, average per annum £7.7.",
+     "Monetised costs, LA costs (undiscounted 2026 prices, £m), total: 2026 £16.1, 2027 £15.9, 2028-2035 £5.7 per annum, total (2026-2035) £77.4, average per annum £7.7."
+    ]
+   },
+   "reason": "The grid matches the second table on page 18 exactly; the caption printed above it (LA costs, undiscounted 2026 prices, £m) is used to say which table this is.",
+   "evidence": "Page 18, table under 'LA costs (undiscounted 2026 prices), £m:' with rows Familiarisation, Triage, prep and postage, Total.",
+   "by": "model check, Opus 5.5, Claude Code headless (packet)",
+   "confidence": "high",
+   "date": "2026-11-23"
+  },
+  {
+   "key": "4f7e627660e14767",
+   "kind": "table",
+   "target": "document-monetised-costs-table-p18-2-2: Monetised costs",
+   "value": {
+    "columns": [
+     "Year",
+     "2026",
+     "2027",
+     "2028-2035 (per annum)",
+     "Total (2026-2035)",
+     "Average per annum"
+    ],
+    "rows": [
+     [
+      "Familiarisation",
+      "£0.9",
+      "£0.0",
+      "£0.0",
+      "£0.9",
+      "£0.1"
+     ],
+     [
+      "Triage, prep and postage",
+      "£43.7",
+      "£43.7",
+      "£15.7",
+      "£212.8",
+      "£21.3"
+     ],
+     [
+      "Total",
+      "£44.6",
+      "£43.7",
+      "£15.7",
+      "£213.6",
+      "£21.4"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Monetised costs, total sector costs (undiscounted 2026 prices, £m), familiarisation: 2026 £0.9, 2027 £0.0, 2028-2035 £0.0 per annum, total (2026-2035) £0.9, average per annum £0.1.",
+     "Monetised costs, total sector costs (undiscounted 2026 prices, £m), triage, prep and postage: 2026 £43.7, 2027 £43.7, 2028-2035 £15.7 per annum, total (2026-2035) £212.8, average per annum £21.3.",
+     "Monetised costs, total sector costs (undiscounted 2026 prices, £m), total: 2026 £44.6, 2027 £43.7, 2028-2035 £15.7 per annum, total (2026-2035) £213.6, average per annum £21.4."
+    ]
+   },
+   "reason": "The table starts at the bottom of page 18 (header and Familiarisation) and continues at the top of page 19 (Triage, prep and postage and Total); the grid joins both parts correctly.",
+   "evidence": "Page 18, table under 'Total sector costs (undiscounted 2026 prices), £m:'; page 19 top rows £43.7 £43.7 £15.7 £212.8 £21.3 and £44.6 £43.7 £15.7 £213.6 £21.4.",
+   "by": "model check, Opus 5.5, Claude Code headless (packet)",
+   "confidence": "high",
+   "date": "2026-11-23"
+  },
+  {
+   "key": "d62d9dd6dbd2ed4c",
+   "kind": "table",
+   "target": "document-sensitivity-analysis-table-p24: Sensitivity analysis",
+   "value": {
+    "columns": [
+     "Scenario",
+     "Cost per year",
+     "Total cost"
+    ],
+    "rows": [
+     [
+      "No reduction in hazards",
+      "£21.3",
+      "£213.6"
+     ],
+     [
+      "-0.8% per year",
+      "£20.5",
+      "£205.2"
+     ],
+     [
+      "-1.6% per year",
+      "£19.8",
+      "£198.0"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Sensitivity analysis, no reduction in hazards: cost per year £21.3, total cost £213.6.",
+     "Sensitivity analysis, -0.8% per year: cost per year £20.5, total cost £205.2.",
+     "Sensitivity analysis, -1.6% per year: cost per year £19.8, total cost £198.0."
+    ]
+   },
+   "reason": "The grid matches the first table on page 24; its first column heading is blank on the page, so 'Scenario' was used because every column needs a heading and the text above calls these cost scenarios.",
+   "evidence": "Page 24 table: blank | Cost per year | Total cost; rows No reduction in hazards £21.3 £213.6, -0.8% per year £20.5 £205.2, -1.6% per year £19.8 £198.0.",
+   "by": "model check, Opus 5.5, Claude Code headless (packet)",
+   "confidence": "high",
+   "date": "2026-11-23"
+  },
+  {
+   "key": "575528a890c3c975",
+   "kind": "table",
+   "target": "document-sensitivity-analysis-table-p24-2: Sensitivity analysis",
+   "value": {
+    "columns": [
+     "Labour cost scenario",
+     "Total cost"
+    ],
+    "rows": [
+     [
+      "No increase in labour costs",
+      "£213.6"
+     ],
+     [
+      "+10%",
+      "£233.3"
+     ],
+     [
+      "+20%",
+      "£252.9"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "In the sensitivity analysis, the total cost with no increase in labour costs is £213.6.",
+     "In the sensitivity analysis, the total cost with a +10% labour cost increase is £233.3.",
+     "In the sensitivity analysis, the total cost with a +20% labour cost increase is £252.9."
+    ]
+   },
+   "reason": "The library grid matches the page: two columns and three data rows. The first column has no printed heading, so it is named from the paragraph above the table, which describes increases in labour (staffing) costs.",
+   "evidence": "Page 24 (printed 24): second table under 'Labour market', heading 'Total cost', rows 'No increase in labour costs £213.6', '+10% £233.3', '+20% £252.9'.",
+   "by": "model check, Opus 5.5, Claude Code headless (packet)",
+   "confidence": "high",
+   "date": "2026-11-23"
+  },
+  {
+   "key": "7dd217b60a7ab700",
+   "kind": "table",
+   "target": "document-annex-c-longlist-options-and-critical-success-factors-table-p30: Annex C: Longlist Options and Critical Success Factors",
+   "value": {
+    "columns": [
+     "Critical success factor",
+     "Business As Usual",
+     "Regulations – Extend Awaab’s Law to a wider set of hazards"
+    ],
+    "rows": [
+     [
+      "Strategic fit: Alignment to meeting policy objectives.",
+      "Landlords unlikely to meet Awaab’s Law timescales for wider HHSRS hazards. This potentially results in tenants living in hazardous conditions for longer.",
+      "Landlords required to meet set timeframes for investigating and repairing wider HHSRS hazards, beyond damp and mould."
+     ],
+     [
+      "Supplier capacity and capability: Demonstration ahead of delivery that the capacity and capability of landlords is at the required level to the policies demand profile.",
+      "No increase in demands on landlords, however, may result in a lack of clarity for landlords on the required timescales to fix hazards.",
+      "Landlords are already required to ensure that the homes they rent out are free from Category 1 hazards and action repairs accordingly. The requirement under Awaab’s Law is to action these repairs within set timeframes. Landlords have been expecting Awaab’s Law to be extended to a wider set of hazards for Phase 2. A phased approach has been implemented to allow time to ‘test and learn’ between phases to ensure the policy is working in practice for both landlords and tenants."
+     ],
+     [
+      "Potential value for money (for govt): Demonstration that the longlisted option is designed and configured to achieve greatest VfM.",
+      "No costs or benefits for government",
+      "Reducing health and safety hazards should deliver wider benefits, including fewer sickness-related absences, better productivity and school attendance, and lower NHS costs from improved health."
+     ],
+     [
+      "Affordability: Demonstration by IA modelling that the longlisted options objectives, outcome and benefits are deliverable within landlords budgets.",
+      "No additionally financial burden placed on landlords.",
+      "Regulations will have financial implications on landlords; however, landlords should have already accounted for Phase 2 of Awaab’s Law to come into force in 2026."
+     ],
+     [
+      "Achievability: Ability of sector to implement option.",
+      "No additional burdens on landlords or wider sector.",
+      "Landlords have been expecting Awaab’s Law to be extended to a wider set of hazards for Phase 2. Delivering Awaab’s Law through a phased approach will allow time for landlords to adapt to new hazards coming into scope. We would expect limited change to staffing levels across the sector overall. However, more substantial change may be needed among landlords that are significantly underperforming, and it is in these cases that we would expect the greatest benefits. The capacity of general repairs and maintenance staff is considered elsewhere, but it is not possible to separate this from the broader suite of reforms."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "For the longlist options against the critical success factor Strategic fit (alignment to meeting policy objectives), under Business As Usual landlords are unlikely to meet Awaab’s Law timescales for wider HHSRS hazards, potentially leaving tenants in hazardous conditions for longer, while under Regulations to extend Awaab’s Law to a wider set of hazards landlords are required to meet set timeframes for investigating and repairing wider HHSRS hazards, beyond damp and mould.",
+     "For the longlist options against the critical success factor Supplier capacity and capability, Business As Usual means no increase in demands on landlords but may result in a lack of clarity on the required timescales to fix hazards, while under Regulations landlords, already required to keep homes free from Category 1 hazards, must action these repairs within set timeframes, have been expecting Awaab’s Law to be extended for Phase 2, and a phased approach allows time to ‘test and learn’ between phases.",
+     "For the longlist options against the critical success factor Potential value for money (for govt), Business As Usual has no costs or benefits for government, while Regulations should deliver wider benefits by reducing health and safety hazards, including fewer sickness-related absences, better productivity and school attendance, and lower NHS costs from improved health.",
+     "For the longlist options against the critical success factor Affordability, Business As Usual places no additionally financial burden on landlords, while Regulations will have financial implications on landlords, although landlords should have already accounted for Phase 2 of Awaab’s Law to come into force in 2026.",
+     "For the longlist options against the critical success factor Achievability (ability of sector to implement option), Business As Usual places no additional burdens on landlords or wider sector, while under Regulations a phased approach will allow time for landlords to adapt to new hazards, limited change to staffing levels is expected overall with more substantial change among significantly underperforming landlords, and the capacity of general repairs and maintenance staff cannot be separated from the broader suite of reforms."
+    ]
+   },
+   "reason": "The table runs over pages 30 and 31. The library grid split the Affordability row at the page break into two rows; they are one printed row and are joined here. The first column has no printed heading, so it is named from the table title (critical success factors). Each factor cell keeps its bold factor name and its description together.",
+   "evidence": "Page 30 (printed 30): headings 'Business As Usual' and 'Regulations – Extend Awaab’s Law to a wider set of hazards'; rows Strategic fit, Supplier capacity and capability, Potential value for money, Affordability. Page 31 (printed 31): continuation 'Demonstration by IA modelling...' and 'accounted for Phase 2 of Awaab’s Law to come into force in 2026.', then the Achievability row.",
+   "by": "model check, Opus 5.5, Claude Code headless (packet)",
+   "confidence": "medium",
+   "date": "2026-11-23"
+  },
+  {
+   "key": "e57bfc06f0322d9a",
+   "kind": "table",
+   "target": "document-annex-d-longlist-options-decision-matrices-table-p32: Annex D: Longlist Options Decision Matrices",
+   "value": {
+    "columns": [
+     "Option",
+     "Decision",
+     "Rationale (linked to critical success factors)"
+    ],
+    "rows": [
+     [
+      "A1 – Regulations to come into force in 2026",
+      "Taken forward",
+      "• Strategic fit: This timeframe would meet the commitment for Phase 2 to come into force in 2026, requiring landlords to fix dangerous hazards within set timeframes. • Supplier capacity and capability: Aligns with landlords business plans, however timescales for implementation will only be confirmed 5 months in advance. • Affordability: Landlords have been preparing for Phase 2 to come into force in 2026 and should align with landlords business plans. • Achievability: Landlords have been expecting Phase 2 to come into force in 2026. However, this timeframe only allows the sector 5 months of preparation time. Key risks & mitigations: Risk: Lack of sector preparation Mitigation: Detailed guidance provided to support landlords with implementation"
+     ],
+     [
+      "A2 – Delay regulations to come into force in 2027",
+      "Discounted",
+      "• Strategic fit: This timeframe would not meet the commitment for Phase 2 to come into force in 2026 and could result in adverse health and safety consequences for tenants. However, this longer lead in time could improve implementation. • Supplier capacity and capability: Would offer more time for preparation. • Affordability: Landlords have been expecting Phase 2 to come into force in 2026. Delaying to 2027 could bring modest affordability benefits by giving landlords more time to prepare, spread the costs of staff training and system changes, and longer-term business planning. • Achievability: Landlords will have more time to prepare for implementation."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "In the longlist options decision matrix for the implementation timeline, option A1 – Regulations to come into force in 2026 was taken forward because it meets the commitment for Phase 2 to come into force in 2026, aligns with landlords business plans though timescales will only be confirmed 5 months in advance, and landlords have been preparing for it though it allows only 5 months of preparation time, with the key risk of lack of sector preparation mitigated by detailed guidance to support landlords with implementation.",
+     "In the longlist options decision matrix for the implementation timeline, option A2 – Delay regulations to come into force in 2027 was discounted because it would not meet the commitment for Phase 2 to come into force in 2026 and could result in adverse health and safety consequences for tenants, although it would offer more time for preparation, could bring modest affordability benefits, and landlords will have more time to prepare for implementation."
+    ]
+   },
+   "reason": "The table runs over pages 32 and 33. The library grid made the Achievability bullet on page 33 a separate row; it is the end of the A2 rationale cell and is joined to that row here. Headings and other cells match the page.",
+   "evidence": "Page 32 (printed 32): headings 'Option', 'Decision', 'Rationale (linked to critical success factors)', rows A1 (Taken forward) and A2 (Discounted). Page 33 (printed 33): continuation row with only '• Achievability: Landlords will have more time to prepare for implementation.' in the rationale column.",
+   "by": "model check, Opus 5.5, Claude Code headless (packet)",
+   "confidence": "high",
+   "date": "2026-11-23"
+  },
+  {
+   "key": "4ad57ef651ac9e91",
+   "kind": "table",
+   "target": "document-policy-context-table-1: Policy Context",
+   "value": {
+    "columns": [
+     "Footnote"
+    ],
+    "rows": [
+     [
+      "It should be noted that years 2020-2021 were modelled, given inability for surveyors to visit homes during the Pandemic period. In other years, data are based on a sample of observed dwellings."
+     ],
+     [
+      "Annex tables for English Housing Survey 2024 to 2025 headline findings on housing quality and energy efficiency - GOV.UK"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Policy Context footnote 1: it should be noted that years 2020-2021 were modelled, given inability for surveyors to visit homes during the Pandemic period, and in other years data are based on a sample of observed dwellings.",
+     "Policy Context footnote 2: Annex tables for English Housing Survey 2024 to 2025 headline findings on housing quality and energy efficiency - GOV.UK."
+    ]
+   },
+   "reason": "This is not a printed table. The area at the foot of page 6 holds footnotes 1 and 2 under a short rule, so it is a single-column text box with one row per footnote. The heading Footnote names that box; the page prints no column heading.",
+   "evidence": "Page 6 bottom: footnote 1 starts \"It should be noted that years 2020-2021 were modelled\" and footnote 2 is the link \"Annex tables for English Housing Survey 2024 to 2025 headline findings on housing quality and energy efficiency - GOV.UK\".",
+   "by": "model check, Opus 5.5, Claude Code headless (packet)",
+   "confidence": "medium",
+   "date": "2026-11-23"
+  },
+  {
+   "key": "0606b4b70ec93c0b",
+   "kind": "table",
+   "target": "document-benefits-table-1: Benefits",
+   "value": {
+    "columns": [
+     "Footnote"
+    ],
+    "rows": [
+     [
+      "For example; https://pubmed.ncbi.nlm.nih.gov/28963007/, https://researchonline.lshtm.ac.uk/id/eprint/856558/1/CD008657.pdf, https://jech.bmj.com/content/72/10/896"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Benefits footnote 5: for example; https://pubmed.ncbi.nlm.nih.gov/28963007/, https://researchonline.lshtm.ac.uk/id/eprint/856558/1/CD008657.pdf, https://jech.bmj.com/content/72/10/896."
+    ]
+   },
+   "reason": "This is not a printed table. The area at the foot of page 20 is footnote 5, a list of three source links, so it is a single-column text box with one row. The heading Footnote names that box; the page prints no column heading.",
+   "evidence": "Page 20 bottom, under a short rule: footnote 5 \"For example; https://pubmed.ncbi.nlm.nih.gov/28963007/, https://researchonline.lshtm.ac.uk/id/eprint/856558/1/CD008657.pdf, https://jech.bmj.com/content/72/10/896\".",
+   "by": "model check, Opus 5.5, Claude Code headless (packet)",
+   "confidence": "medium",
+   "date": "2026-11-23"
+  },
+  {
+   "key": "3ea40f3e290e7d47",
+   "kind": "table",
+   "target": "document-government-and-the-taxpayer-table-1: Government and the taxpayer",
+   "value": {
+    "columns": [
+     "Footnote"
+    ],
+    "rows": [
+     [
+      "There is a wealth of evidence in support of remedying cold homes, for example, see https://www.instituteofhealthequity.org/resources-reports/fuel-poverty-cold-homes-and-health-inequalities-in-the-uk/read-the-report.pdf"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Government and the taxpayer footnote 6: there is a wealth of evidence in support of remedying cold homes, for example, see https://www.instituteofhealthequity.org/resources-reports/fuel-poverty-cold-homes-and-health-inequalities-in-the-uk/read-the-report.pdf."
+    ]
+   },
+   "reason": "This is not a printed table. The area at the foot of page 21 is footnote 6, one sentence with a link, so it is a single-column text box with one row. The heading Footnote names that box; the page prints no column heading. The library text lost the ligature in instituteofhealthequity.",
+   "evidence": "Page 21 bottom, under a short rule: footnote 6 \"There is a wealth of evidence in support of remedying cold homes, for example, see https://www.instituteofhealthequity.org/resources-reports/fuel-poverty-cold-homes-and-health-inequalities-in-the-uk/read-the-report.pdf\".",
+   "by": "model check, Opus 5.5, Claude Code headless (packet)",
+   "confidence": "medium",
+   "date": "2026-11-23"
   }
  ]
 }

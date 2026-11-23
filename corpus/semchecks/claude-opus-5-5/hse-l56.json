@@ -3,6 +3,106 @@
  "model": "claude-opus-5-5",
  "about": "Verdicts of claude-opus-5-5 on source against tree for hse-l56 (system/rag/semcheck.py).",
  "verdicts": {
+  "e8b61539a630c06a": {
+   "version_id": "main@2024-12-06-769c6338",
+   "unit": "p46",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Status labels are shifted: the regulation text is labelled guidance, ACOP paragraph 200 is labelled regulation, and guidance paragraph 201 is labelled ACOP.",
+     "evidence": "source: \"ACOP 18(1)-(2) 200\" / \"Guidance 18(1)-(2) 201\" / tree: para-200 \"status\": \"regulation\", para-201 \"status\": \"acop\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The text of regulation 18(1) and (2) is merged into the summary box text instead of being a separate regulation provision.",
+     "evidence": "tree: \"of the need for equipotential bonding. 1) No person shall install any installation pipework\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "ACOP and guidance paragraphs 200-203 are placed under the 'Summary of regulation 18' heading.",
+     "evidence": "tree: \"Regulation 18 Safe use of pipes > Summary of regulation 18 > Paragraph 200\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "f44cb2f0281f145e": {
+   "version_id": "main@2024-12-06-769c6338",
+   "unit": "p46",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The status labels are shifted: ACOP paragraph 200 is marked as regulation and guidance paragraph 201 is marked as acop.",
+     "evidence": "source: \"ACOP 18(1)-(2) 200 The location and routing...\" / tree: para-200 \"status\": \"regulation\"; para-201 \"status\": \"acop\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The regulation 18(1)-(2) text is merged into the summary box block, and the block is marked as guidance, not regulation.",
+     "evidence": "source: \"Regulation 18(1)-(2) 1) No person shall install...\" / tree: \"Summary of regulation 18 ... 1) No person shall install\" status \"guidance\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "9486c22e1abaf69b": {
+   "version_id": "main@2024-12-06-769c6338",
+   "unit": "p72",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Paragraph 304 sits in the Guidance 36A box but is labelled as regulation text.",
+     "evidence": "source: \"Guidance 36A ... 304 The changes set out in regulation 36A\" / tree: \"number\": \"304\", \"status\": \"regulation\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "aadd5304a209cac0": {
+   "version_id": "main@2024-12-06-769c6338",
+   "unit": "p72",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Paragraph 304 sits in the Guidance 36A box but is labelled as regulation text.",
+     "evidence": "source: \"Guidance 36A ... 304 The changes set out in regulation 36A\" / tree: \"number\": \"304\", \"status\": \"regulation\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Regulation 36A(4) and guidance paragraphs 304 and 305 are placed under the 'Summary of regulation 36A' heading, which only covers the summary box.",
+     "evidence": "tree: \"Regulation 36A ... > Summary of regulation 36A > Paragraph 304\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
   "41d057a719b2e34b": {
    "version_id": "main@2024-12-06-769c6338",
    "unit": "p83",

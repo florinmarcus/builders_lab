@@ -11,9 +11,11 @@ pairs = json.loads(Path(sys.argv[1]).read_text())
 model = next((a for a in sys.argv[2:] if not a.startswith("--")), S.MODEL)
 store = {}
 rows, missing = [], 0
+allv = {}
+for sid in sorted({p["source_id"] for p in pairs} | {"circ-adb-2024", "circ-01-2024", "circ-01-2026"}):
+    allv.update(S.load_verdicts(sid, model)["verdicts"])  # a page printed in two sources has one key and one verdict
 for p in pairs:
-    v = store.setdefault(p["source_id"], S.load_verdicts(p["source_id"], model)["verdicts"])
-    b, a = v.get(p["before"]), v.get(p["after"])
+    b, a = allv.get(p["before"]), allv.get(p["after"])
     if not b or not a:
         missing += 1
         continue

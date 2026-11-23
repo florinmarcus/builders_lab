@@ -3,6 +3,25 @@
  "model": "claude-opus-5-5",
  "about": "Verdicts of claude-opus-5-5 on source against tree for hse-indg450 (system/rag/semcheck.py).",
  "verdicts": {
+  "12dab871771be34e": {
+   "version_id": "main@2024-12-06-528d0a96",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The margin note beside the cover picture is mixed into the middle of the introduction text, splitting sentences.",
+     "evidence": "tree: \"an This is a web-friendly apprentice, mobile worker ... (even if you are version of leaflet INDG450, working in the UK without permission). published 04/13\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
   "5e6c00130c1ad460": {
    "version_id": "main@2024-12-06-528d0a96",
    "unit": "p1",
@@ -21,6 +40,37 @@
      "severity": "low",
      "problem": "The headings 'Introduction' and 'Your health and safety' are read as body text in one block, with no sections.",
      "evidence": "tree: \"A brief guide for workers Introduction This information is from...\" / \"...visit www.hse.gov.uk/voluntary/. Your health and safety You have the right to:\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "1103141e64cbca48": {
+   "version_id": "main@2024-12-06-528d0a96",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Lead-in lines and the bold note are merged into the end of the preceding bullet instead of standing on their own, so the self-employed note reads as part of the night-work bullet.",
+     "evidence": "tree: \"a check before you start. Note: If you are genuinely self-employed, ... Your employer must provide you with the following information:\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The lead-in 'Your employer must provide, free of charge:' is joined onto the first-aid bullet.",
+     "evidence": "tree: \"what to do in an emergency. Your employer must provide, free of charge:\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The running footer is kept as a text section.",
+     "evidence": "tree: \"Your health, your safety: A brief guide for workers Page 2 of 3\""
     }
    ],
    "confidence": "high",
@@ -82,6 +132,25 @@
      "kind": "extra",
      "severity": "low",
      "problem": "The imprint and page footer are kept as body text.",
+     "evidence": "tree: \"Published by the Health and Safety Executive 04/13 INDG450 Page 3 of 3\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "9424af25b256c417": {
+   "version_id": "main@2024-12-06-528d0a96",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The running footer is kept as a text section.",
      "evidence": "tree: \"Published by the Health and Safety Executive 04/13 INDG450 Page 3 of 3\""
     }
    ],

@@ -340,6 +340,154 @@
    "by": "model check, Claude Code subagent (packet)",
    "confidence": "low",
    "date": "2026-11-22"
+  },
+  {
+   "key": "851a035b56fae46c",
+   "kind": "figure_description",
+   "target": "x-side-wall-extensions-extending-beyond-rear-walls-figure-1: Side wall extensions extending beyond rear walls",
+   "value": "Side elevation diagram of a house marked Front on the left and Rear on the right, with a two-storey extension at the rear and an X in a box showing it is not allowed. A ground-floor rear extension 4m deep is labelled \"Previously added rear extension\", and a first-floor extension 3m deep above it is labelled \"New extension at first floor would not be permitted development\".",
+   "reason": "The image is a simple elevation drawing with dimension arrows and labels; all printed text is copied.",
+   "evidence": "Labels in the image: Front, Rear, 3m, 4m, New extension at first floor would not be permitted development, Previously added rear extension, X box.",
+   "by": "model check, Opus 5.5, Claude Code headless (packet)",
+   "confidence": "high",
+   "date": "2026-11-23"
+  },
+  {
+   "key": "8f50a542b0015b7b",
+   "kind": "figure_description",
+   "target": "x-figure-1: X",
+   "value": "Plan diagram of a house with a stepped outline, split by a vertical centre line. Arrows point to three stepped walls labelled \"These are all walls forming a side elevation\". A dimension arrow below is labelled \"This is the width of the original house (measured at widest point) for the purpose of calculating the \"half width\" limit for the extension\".",
+   "reason": "The image is a plan drawing with two printed labels; the labels are copied as printed, including \"at widest point\" without \"the\".",
+   "evidence": "The image shows a stepped cyan house shape, a vertical line, three arrows to the stepped side walls and a dimension arrow under the right half.",
+   "by": "model check, Opus 5.5, Claude Code headless (packet)",
+   "confidence": "high",
+   "date": "2026-11-23"
+  },
+  {
+   "key": "c4534d35a940a020",
+   "kind": "figure_description",
+   "target": "x-rear-and-side-extensions-figure-1: Rear and side extensions",
+   "value": "Plan diagram of a T-shaped house with parts labelled A and B, and a hatched extension added beside part A, marked with an X in a box to show it is not allowed. The extension is labelled 3m deep, \"No more than half the width of the original house\" wide, and \"Extends more than 6m beyond wall B\". A dimension arrow below is labelled \"This is the width of the original house (measured at widest point) for the purpose of calculating the \"half width\" limit for the extension\".",
+   "reason": "The image is a plan drawing with dimension arrows; all printed labels are copied.",
+   "evidence": "Labels in the image: 3m, A, B, No more than half the width of the original house, Extends more than 6m beyond wall B, the width label and the X box.",
+   "by": "model check, Opus 5.5, Claude Code headless (packet)",
+   "confidence": "high",
+   "date": "2026-11-23"
+  },
+  {
+   "key": "2dff29c6e178dca7",
+   "kind": "table",
+   "target": "x-rear-and-side-extensions-table-1: Rear and side extensions",
+   "value": {
+    "columns": [
+     "Diagram label"
+    ],
+    "rows": [
+     [
+      "3m"
+     ],
+     [
+      "More than half the width of the original house"
+     ],
+     [
+      "This is the width of the original house (measured at the widest point) for the purpose of calculating the “half width” limit for the extension"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Rear and side extensions diagram label: 3m.",
+     "Rear and side extensions diagram label: More than half the width of the original house.",
+     "Rear and side extensions diagram label: This is the width of the original house (measured at the widest point) for the purpose of calculating the “half width” limit for the extension."
+    ]
+   },
+   "reason": "This is not a printed table but the first plan diagram on page 26, marked with an X in a box, showing a rear extension 3m deep that is more than half the width of the original house. It has no printed column headings, so its labels are given as a single column under a plain heading; it should be treated as a figure, not a table.",
+   "evidence": "Page 26, top diagram: labels 3m, More than half the width of the original house, and the width label; X box to the right. No table lines or headings on the page.",
+   "by": "model check, Opus 5.5, Claude Code headless (packet)",
+   "confidence": "low",
+   "date": "2026-11-23"
+  },
+  {
+   "key": "3fc037c9f6e474c2",
+   "kind": "table",
+   "target": "x-table-1: X",
+   "value": {
+    "columns": [
+     "Diagram label"
+    ],
+    "rows": [
+     [
+      "3m"
+     ],
+     [
+      "More than half the width of the original house"
+     ],
+     [
+      "This is the width of the original house (measured at the widest point) for the purpose of calculating the “half width” limit for the extension"
+     ],
+     [
+      "3m"
+     ],
+     [
+      "Total enlargement (A+B) is now more than half the width of the original house"
+     ],
+     [
+      "B"
+     ],
+     [
+      "A"
+     ],
+     [
+      "This is the width of the original house (measured at the widest point) for the purpose of calculating the “half width” limit for the extension"
+     ],
+     [
+      "3m"
+     ],
+     [
+      "B"
+     ],
+     [
+      "A"
+     ],
+     [
+      "Enlarged part of house (A) that extends beyond side wall of house remains less than half the width of the original house"
+     ],
+     [
+      "This is the width of the original house (measured at the widest point) for the purpose of calculating the “half width” limit for the extension"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Diagram label on page 26 (lower diagram, not permitted): 3m.",
+     "Diagram label on page 26 (lower diagram, not permitted): More than half the width of the original house.",
+     "Diagram label on page 26 (lower diagram, not permitted): This is the width of the original house (measured at the widest point) for the purpose of calculating the “half width” limit for the extension.",
+     "Diagram label on page 27 (not permitted): 3m.",
+     "Diagram label on page 27 (not permitted): Total enlargement (A+B) is now more than half the width of the original house.",
+     "Diagram label on page 27 (not permitted): B.",
+     "Diagram label on page 27 (not permitted): A.",
+     "Diagram label on page 27 (not permitted): This is the width of the original house (measured at the widest point) for the purpose of calculating the “half width” limit for the extension.",
+     "Diagram label on page 28 (permitted): 3m.",
+     "Diagram label on page 28 (permitted): B.",
+     "Diagram label on page 28 (permitted): A.",
+     "Diagram label on page 28 (permitted): Enlarged part of house (A) that extends beyond side wall of house remains less than half the width of the original house.",
+     "Diagram label on page 28 (permitted): This is the width of the original house (measured at the widest point) for the purpose of calculating the “half width” limit for the extension."
+    ]
+   },
+   "reason": "This is not a printed table but three separate plan diagrams (page 26 lower, page 27 and page 28), each with an X or tick box, that the library merged into one grid. The table title is only \"X\", so each sentence names the page and whether the diagram is marked permitted or not. There are no printed column headings, so the labels are given as one column under a plain heading; these should be treated as figures, not a table.",
+   "evidence": "Page 26 lower diagram with X box; page 27 diagram with A, B and X box; page 28 diagram with A, B and tick box. No table lines or headings on any page.",
+   "by": "model check, Opus 5.5, Claude Code headless (packet)",
+   "confidence": "low",
+   "date": "2026-11-23"
+  },
+  {
+   "key": "82d99873c7844e43",
+   "kind": "figure_description",
+   "target": "x-figure-2: X",
+   "value": "Plan diagram of a house split by a vertical centre line, with a hatched rear extension B 3m deep and a hatched side extension A, marked with a tick in a box to show it is allowed. A label reads \"Enlarged part of house (A) that extends beyond side wall of house remains less than half the width of the original house\". A dimension arrow below is labelled \"This is the width of the original house (measured at the widest point) for the purpose of calculating the \"half width\" limit for the extension\".",
+   "reason": "The image is a plan drawing with dimension arrows; all printed labels are copied, and B is drawn apart from A so they do not join.",
+   "evidence": "Labels in the image: 3m, B, A, the enlarged part label, the width label and the tick box.",
+   "by": "model check, Opus 5.5, Claude Code headless (packet)",
+   "confidence": "high",
+   "date": "2026-11-23"
   }
  ]
 }

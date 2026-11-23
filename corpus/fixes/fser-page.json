@@ -2812,6 +2812,448 @@
    "by": "model check, Claude Code subagent (packet)",
    "confidence": "high",
    "date": "2026-11-22"
+  },
+  {
+   "key": "cf4f659a5600fbef",
+   "kind": "table",
+   "target": "document-general-assumptions-and-data-table-p10: General assumptions and data",
+   "value": {
+    "columns": [
+     "Occupation",
+     "Labour cost per hour (£)"
+    ],
+    "rows": [
+     [
+      "Watch Manager",
+      "21.94"
+     ],
+     [
+      "Building Safety Manager",
+      "20.68"
+     ],
+     [
+      "Admin Processing",
+      "15.33"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "In Table 2, total labour cost per hour, £, 2021 prices, the labour cost per hour for the occupation Watch Manager is £21.94.",
+     "In Table 2, total labour cost per hour, £, 2021 prices, the labour cost per hour for the occupation Building Safety Manager is £20.68.",
+     "In Table 2, total labour cost per hour, £, 2021 prices, the labour cost per hour for the occupation Admin Processing is £15.33."
+    ]
+   },
+   "reason": "The page shows Table 2 with two columns and three data rows; the grid matches the printed table.",
+   "evidence": "Table 2, Total labour cost per hour, £, 2021 prices: Watch Manager 21.94, Building Safety Manager 20.68, Admin Processing 15.33.",
+   "by": "model check, Opus 5.5, Claude Code headless (packet)",
+   "confidence": "high",
+   "date": "2026-11-23"
+  },
+  {
+   "key": "86b3088d367ea420",
+   "kind": "table",
+   "target": "document-ongoing-and-total-costs-2-2-table-p26: Ongoing and total costs",
+   "value": {
+    "columns": [
+     "Costs, £m: Proposal",
+     "Set-up: Low",
+     "Set-up: Central",
+     "Set-up: High",
+     "Ongoing: Low",
+     "Ongoing: Central",
+     "Ongoing: High",
+     "Total: Low",
+     "Total: Central",
+     "Total: High"
+    ],
+    "rows": [
+     [
+      "Familiarisation (inc. FRS)",
+      "0.1",
+      "0.7",
+      "3.5",
+      "0.0",
+      "0.0",
+      "0.0",
+      "0.1",
+      "0.7",
+      "3.5"
+     ],
+     [
+      "External Wall Systems",
+      "0.1",
+      "0.2",
+      "0.2",
+      "0.1",
+      "0.1",
+      "0.1",
+      "0.1",
+      "0.3",
+      "0.4"
+     ],
+     [
+      "Building Plans",
+      "15.8",
+      "20.7",
+      "26.2",
+      "8.2",
+      "9.3",
+      "10.5",
+      "24.0",
+      "30.0",
+      "36.7"
+     ],
+     [
+      "Information Boxes",
+      "0.9",
+      "4.5",
+      "8.6",
+      "0.0",
+      "0.0",
+      "0.0",
+      "0.9",
+      "4.5",
+      "8.6"
+     ],
+     [
+      "Lifts and Essential Firefighting Equipment",
+      "0.0",
+      "0.0",
+      "0.0",
+      "11.7",
+      "23.7",
+      "35.9",
+      "11.7",
+      "23.7",
+      "35.9"
+     ],
+     [
+      "Fire Doors",
+      "14.5",
+      "20.7",
+      "26.9",
+      "107.6",
+      "174.2",
+      "240.7",
+      "122.1",
+      "194.9",
+      "267.7"
+     ],
+     [
+      "Instructions to residents",
+      "52.2",
+      "69.6",
+      "87.0",
+      "31.2",
+      "41.6",
+      "47.5",
+      "83.4",
+      "111.2",
+      "134.5"
+     ],
+     [
+      "Wayfinding Signage",
+      "11.3",
+      "22.6",
+      "33.8",
+      "0.9",
+      "1.7",
+      "2.6",
+      "12.1",
+      "24.3",
+      "36.4"
+     ],
+     [
+      "Additional Costs to FRS",
+      "0.2",
+      "0.5",
+      "0.8",
+      "0.3",
+      "0.8",
+      "1.7",
+      "0.5",
+      "1.3",
+      "2.5"
+     ],
+     [
+      "Total cost (PV)",
+      "95.0",
+      "139.4",
+      "187.0",
+      "159.9",
+      "251.4",
+      "339.0",
+      "255.0",
+      "390.8",
+      "526.0"
+     ],
+     [
+      "Annual per year",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "28.3",
+      "43.6",
+      "58.6"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "In the summary of total costs (£m), Familiarisation (inc. FRS) has set-up low 0.1, central 0.7 and high 3.5; ongoing low 0.0, central 0.0 and high 0.0; total low 0.1, central 0.7 and high 3.5.",
+     "In the summary of total costs (£m), External Wall Systems has set-up low 0.1, central 0.2 and high 0.2; ongoing low 0.1, central 0.1 and high 0.1; total low 0.1, central 0.3 and high 0.4.",
+     "In the summary of total costs (£m), Building Plans has set-up low 15.8, central 20.7 and high 26.2; ongoing low 8.2, central 9.3 and high 10.5; total low 24.0, central 30.0 and high 36.7.",
+     "In the summary of total costs (£m), Information Boxes has set-up low 0.9, central 4.5 and high 8.6; ongoing low 0.0, central 0.0 and high 0.0; total low 0.9, central 4.5 and high 8.6.",
+     "In the summary of total costs (£m), Lifts and Essential Firefighting Equipment has set-up low 0.0, central 0.0 and high 0.0; ongoing low 11.7, central 23.7 and high 35.9; total low 11.7, central 23.7 and high 35.9.",
+     "In the summary of total costs (£m), Fire Doors has set-up low 14.5, central 20.7 and high 26.9; ongoing low 107.6, central 174.2 and high 240.7; total low 122.1, central 194.9 and high 267.7.",
+     "In the summary of total costs (£m), Instructions to residents has set-up low 52.2, central 69.6 and high 87.0; ongoing low 31.2, central 41.6 and high 47.5; total low 83.4, central 111.2 and high 134.5.",
+     "In the summary of total costs (£m), Wayfinding Signage has set-up low 11.3, central 22.6 and high 33.8; ongoing low 0.9, central 1.7 and high 2.6; total low 12.1, central 24.3 and high 36.4.",
+     "In the summary of total costs (£m), Additional Costs to FRS has set-up low 0.2, central 0.5 and high 0.8; ongoing low 0.3, central 0.8 and high 1.7; total low 0.5, central 1.3 and high 2.5.",
+     "In the summary of total costs (£m), the Total cost (PV) is set-up low 95.0, central 139.4 and high 187.0; ongoing low 159.9, central 251.4 and high 339.0; total low 255.0, central 390.8 and high 526.0.",
+     "In the summary of total costs (£m), the Annual per year total cost is low 28.3, central 43.6 and high 58.6."
+    ]
+   },
+   "reason": "The grid merged the values into a few cells and lost the proposal names. Rebuilt from the page: group headings Set-up, Ongoing and Total over Low, Central and High; nine proposal rows, the Total cost (PV) row and the Annual per year row, which has values only in the Total columns.",
+   "evidence": "Summary of Total Costs on page 26: Costs, £m over Proposal; Fire Doors 14.5 20.7 26.9 107.6 174.2 240.7 122.1 194.9 267.7; Total cost (PV) 95.0 139.4 187.0 159.9 251.4 339.0 255.0 390.8 526.0; Annual per year 28.3 43.6 58.6.",
+   "by": "model check, Opus 5.5, Claude Code headless (packet)",
+   "confidence": "high",
+   "date": "2026-11-23"
+  },
+  {
+   "key": "3eada1324190e1fc",
+   "kind": "table",
+   "target": "document-impact-on-the-supply-of-new-housing-table-p37: Impact on the supply of new housing",
+   "value": {
+    "columns": [
+     "Mandatory specific impact test - Statutory Equalities Duties",
+     "Complete"
+    ],
+    "rows": [
+     [
+      "Statutory Equalities Duties The EIA considers that overall the impact of the regulations will be positive and improve overall fire safety for all regardless of the nature of any protected characteristic that an RP or building resident may have. As such the EIA concludes that any impact on individual’s protected characteristics does not constitute unlawful discrimination, harassment, victimisation, or any other conduct prohibited by the Equality Act. The SRO has agreed these summary findings of the Equality Impact Assessment.",
+      "Yes"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "In the impact assessment checklist, the mandatory specific impact test on Statutory Equalities Duties is complete (Yes): the EIA considers that overall the impact of the regulations will be positive and improve overall fire safety for all regardless of the nature of any protected characteristic that an RP or building resident may have, it concludes that any impact on individual’s protected characteristics does not constitute unlawful discrimination, harassment, victimisation, or any other conduct prohibited by the Equality Act, and the SRO has agreed these summary findings of the Equality Impact Assessment."
+    ]
+   },
+   "reason": "The page shows the Impact Assessment Checklist box with two columns and one data row; the grid matches it. The section title 'Impact on the supply of new housing' does not match the page, which is Annex L.",
+   "evidence": "Page 37, Impact Assessment Checklist: 'Mandatory specific impact test - Statutory Equalities Duties' and 'Complete', with the Statutory Equalities Duties text and 'Yes'.",
+   "by": "model check, Opus 5.5, Claude Code headless (packet)",
+   "confidence": "high",
+   "date": "2026-11-23"
+  },
+  {
+   "key": "0a71296b37cf74e6",
+   "kind": "table",
+   "target": "document-general-assumptions-and-data-table-2: General assumptions and data",
+   "value": {
+    "columns": [
+     "Occupation",
+     "Labour cost per hour (£)"
+    ],
+    "rows": [
+     [
+      "Watch Manager",
+      "21.94"
+     ],
+     [
+      "Building Safety Manager",
+      "20.68"
+     ],
+     [
+      "Admin Processing",
+      "15.33"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "In Table 2, total labour cost per hour, £, 2021 prices, the labour cost per hour for the occupation Watch Manager is £21.94.",
+     "In Table 2, total labour cost per hour, £, 2021 prices, the labour cost per hour for the occupation Building Safety Manager is £20.68.",
+     "In Table 2, total labour cost per hour, £, 2021 prices, the labour cost per hour for the occupation Admin Processing is £15.33."
+    ]
+   },
+   "reason": "The page shows Table 2 with two columns and three data rows; the grid matches it. The section text holds the source note and footnotes, not the table.",
+   "evidence": "Table 2, Total labour cost per hour, £, 2021 prices: Watch Manager 21.94, Building Safety Manager 20.68, Admin Processing 15.33.",
+   "by": "model check, Opus 5.5, Claude Code headless (packet)",
+   "confidence": "high",
+   "date": "2026-11-23"
+  },
+  {
+   "key": "2a4bcb688acad742",
+   "kind": "table",
+   "target": "document-ongoing-and-total-costs-2-2-table-2: Ongoing and total costs",
+   "value": {
+    "columns": [
+     "Costs, £m: Proposal",
+     "Set-up: Low",
+     "Set-up: Central",
+     "Set-up: High",
+     "Ongoing: Low",
+     "Ongoing: Central",
+     "Ongoing: High",
+     "Total: Low",
+     "Total: Central",
+     "Total: High"
+    ],
+    "rows": [
+     [
+      "Familiarisation (inc. FRS)",
+      "0.1",
+      "0.7",
+      "3.5",
+      "0.0",
+      "0.0",
+      "0.0",
+      "0.1",
+      "0.7",
+      "3.5"
+     ],
+     [
+      "External Wall Systems",
+      "0.1",
+      "0.2",
+      "0.2",
+      "0.1",
+      "0.1",
+      "0.1",
+      "0.1",
+      "0.3",
+      "0.4"
+     ],
+     [
+      "Building Plans",
+      "15.8",
+      "20.7",
+      "26.2",
+      "8.2",
+      "9.3",
+      "10.5",
+      "24.0",
+      "30.0",
+      "36.7"
+     ],
+     [
+      "Information Boxes",
+      "0.9",
+      "4.5",
+      "8.6",
+      "0.0",
+      "0.0",
+      "0.0",
+      "0.9",
+      "4.5",
+      "8.6"
+     ],
+     [
+      "Lifts and Essential Firefighting Equipment",
+      "0.0",
+      "0.0",
+      "0.0",
+      "11.7",
+      "23.7",
+      "35.9",
+      "11.7",
+      "23.7",
+      "35.9"
+     ],
+     [
+      "Fire Doors",
+      "14.5",
+      "20.7",
+      "26.9",
+      "107.6",
+      "174.2",
+      "240.7",
+      "122.1",
+      "194.9",
+      "267.7"
+     ],
+     [
+      "Instructions to residents",
+      "52.2",
+      "69.6",
+      "87.0",
+      "31.2",
+      "41.6",
+      "47.5",
+      "83.4",
+      "111.2",
+      "134.5"
+     ],
+     [
+      "Wayfinding Signage",
+      "11.3",
+      "22.6",
+      "33.8",
+      "0.9",
+      "1.7",
+      "2.6",
+      "12.1",
+      "24.3",
+      "36.4"
+     ],
+     [
+      "Additional Costs to FRS",
+      "0.2",
+      "0.5",
+      "0.8",
+      "0.3",
+      "0.8",
+      "1.7",
+      "0.5",
+      "1.3",
+      "2.5"
+     ],
+     [
+      "Total cost (PV)",
+      "95.0",
+      "139.4",
+      "187.0",
+      "159.9",
+      "251.4",
+      "339.0",
+      "255.0",
+      "390.8",
+      "526.0"
+     ],
+     [
+      "Annual per year",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "28.3",
+      "43.6",
+      "58.6"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "In the summary of total costs (£m), Familiarisation (inc. FRS) has set-up low 0.1, central 0.7 and high 3.5; ongoing low 0.0, central 0.0 and high 0.0; total low 0.1, central 0.7 and high 3.5.",
+     "In the summary of total costs (£m), External Wall Systems has set-up low 0.1, central 0.2 and high 0.2; ongoing low 0.1, central 0.1 and high 0.1; total low 0.1, central 0.3 and high 0.4.",
+     "In the summary of total costs (£m), Building Plans has set-up low 15.8, central 20.7 and high 26.2; ongoing low 8.2, central 9.3 and high 10.5; total low 24.0, central 30.0 and high 36.7.",
+     "In the summary of total costs (£m), Information Boxes has set-up low 0.9, central 4.5 and high 8.6; ongoing low 0.0, central 0.0 and high 0.0; total low 0.9, central 4.5 and high 8.6.",
+     "In the summary of total costs (£m), Lifts and Essential Firefighting Equipment has set-up low 0.0, central 0.0 and high 0.0; ongoing low 11.7, central 23.7 and high 35.9; total low 11.7, central 23.7 and high 35.9.",
+     "In the summary of total costs (£m), Fire Doors has set-up low 14.5, central 20.7 and high 26.9; ongoing low 107.6, central 174.2 and high 240.7; total low 122.1, central 194.9 and high 267.7.",
+     "In the summary of total costs (£m), Instructions to residents has set-up low 52.2, central 69.6 and high 87.0; ongoing low 31.2, central 41.6 and high 47.5; total low 83.4, central 111.2 and high 134.5.",
+     "In the summary of total costs (£m), Wayfinding Signage has set-up low 11.3, central 22.6 and high 33.8; ongoing low 0.9, central 1.7 and high 2.6; total low 12.1, central 24.3 and high 36.4.",
+     "In the summary of total costs (£m), Additional Costs to FRS has set-up low 0.2, central 0.5 and high 0.8; ongoing low 0.3, central 0.8 and high 1.7; total low 0.5, central 1.3 and high 2.5.",
+     "In the summary of total costs (£m), the Total cost (PV) is set-up low 95.0, central 139.4 and high 187.0; ongoing low 159.9, central 251.4 and high 339.0; total low 255.0, central 390.8 and high 526.0.",
+     "In the summary of total costs (£m), the Annual per year total cost is low 28.3, central 43.6 and high 58.6."
+    ]
+   },
+   "reason": "The grid merged the values into a few cells and lost the proposal names; the section text holds only the headings and source. Rebuilt from the page: group headings Set-up, Ongoing and Total over Low, Central and High; nine proposal rows, the Total cost (PV) row and the Annual per year row, which has values only in the Total columns.",
+   "evidence": "Summary of Total Costs on page 26: Costs, £m over Proposal; Fire Doors 14.5 20.7 26.9 107.6 174.2 240.7 122.1 194.9 267.7; Total cost (PV) 95.0 139.4 187.0 159.9 251.4 339.0 255.0 390.8 526.0; Annual per year 28.3 43.6 58.6.",
+   "by": "model check, Opus 5.5, Claude Code headless (packet)",
+   "confidence": "high",
+   "date": "2026-11-23"
   }
  ]
 }

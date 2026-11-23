@@ -181,6 +181,8 @@ flowchart TD
     r -->|no| h
     r -->|"yes: a lead-in set large"| t["text"]
     m -->|no| t
+    m -->|no| lf{"leaflets (fix 4): regular type 1.4-2x body, or bold at body size<br/>alone on its row, space above, 1.5-2.6x its size to the<br/>running text below, no wide gaps between words?"}
+    lf -->|yes| h
     h --> w["second line joins when it starts in lower case or a bracket,<br/>or the two lines stand alone in that style"]
     cap["body-size table caption, rows read downwards"] --> stop{"a '3.6 ...' paragraph, or body text<br/>under the ruled grid (not 'Note:', '*', a key)?"}
     stop -->|yes| end1["the table ends there"]

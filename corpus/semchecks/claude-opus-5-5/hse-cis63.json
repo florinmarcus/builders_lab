@@ -3,6 +3,74 @@
  "model": "claude-opus-5-5",
  "about": "Verdicts of claude-opus-5-5 on source against tree for hse-cis63 (system/rag/semcheck.py).",
  "verdicts": {
+  "7aebdc48d99d4f68": {
+   "version_id": "main@2024-12-06-1569ba38",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The box heading is split, half kept as the title and half moved into the box text.",
+     "evidence": "source: \"What can happen if health and safety is ignored?\" / tree: title \"What can happen if health and\", text \"safety is ignored? A young worker...\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The last bullet is merged with the following summary paragraph and the 'See over' line.",
+     "evidence": "tree: \"• Make sure the people on your site are trained to do the work safely. This is just a summary – you can find out...\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The subtitle is kept as a body line instead of a heading, and the intro box comes after the bullets it introduces.",
+     "evidence": "tree: \"What you need to know as a busy builder\" as first text line; note-1 \"Want to run a successful construction site?\" after the bullets"
+    },
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The printed main title is not in the tree; the chapter title uses different words.",
+     "evidence": "source: \"Running a small construction site?\" / tree: \"CIS63 Running a small site (busy builder sheet)\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "ed22225f77de6daf": {
+   "version_id": "main@2024-12-06-1569ba38",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The box heading is split, half kept as the title and half moved into the box text.",
+     "evidence": "source: \"What can happen if health and safety is ignored?\" / tree: title \"What can happen if health and\", text \"safety is ignored? A young worker...\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The last bullet is merged with the following summary paragraph and the 'See over' line.",
+     "evidence": "tree: \"• Make sure the people on your site are trained to do the work safely. This is just a summary – you can find out...\""
+    },
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The printed main title is not in the tree; the chapter title uses different words.",
+     "evidence": "source: \"Running a small construction site?\" / tree: \"CIS63 Running a small site (busy builder sheet)\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
   "15c99157352dd39f": {
    "version_id": "main@2024-12-06-1569ba38",
    "unit": "p2",

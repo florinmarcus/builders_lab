@@ -1,0 +1,87 @@
+{
+ "source_id": "hse-cis65",
+ "model": "claude-opus-5-5",
+ "about": "Verdicts of claude-opus-5-5 on source against tree for hse-cis65 (system/rag/semcheck.py).",
+ "verdicts": {
+  "7ef22b29498f1b55": {
+   "version_id": "main@2024-12-06-5bab86dd",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "high",
+     "problem": "Words are dropped from the bullet about the electricity supplier, so it no longer says what should be covered.",
+     "evidence": "source: \"arrange with the electricity supplier for overhead power lines to be shrouded (covered)\" / tree: \"arrange with the electricity supplier for (covered)\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The 'What can happen if health and safety is ignored?' box, its heading and the 'See over' line are merged into the last bullet.",
+     "evidence": "tree: \"turn the electricity supply off before drilling into walls etc. What can happen if health and safety is ignored? Two experienced ground workers...\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The two distance sub-bullets are flattened to the same level as the main bullets.",
+     "evidence": "tree: \"• 15m (plus length of jib) if the line is suspended from steel towers; or\""
+    },
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The printed main title is not in the tree; the chapter title uses different words.",
+     "evidence": "source: \"Avoiding concealed services and overhead power lines:\" / tree: \"CIS65 Concealed services (busy builder sheet)\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "9c836e1d246ec00f": {
+   "version_id": "main@2024-12-06-5bab86dd",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "high",
+     "problem": "Words are dropped from the bullet about the electricity supplier, so it no longer says what should be covered.",
+     "evidence": "source: \"arrange with the electricity supplier for overhead power lines to be shrouded (covered)\" / tree: \"arrange with the electricity supplier for (covered)\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The 'What can happen if health and safety is ignored?' box, its heading and the 'See over' line are merged into the last bullet.",
+     "evidence": "tree: \"turn the electricity supply off before drilling into walls etc. What can happen if health and safety is ignored? Two experienced ground workers...\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The subtitle is a body line rather than a heading, and the intro box comes after the bullets it introduces.",
+     "evidence": "tree: \"What you need to know as a busy builder\" as first text line; note-1 \"Don’t let your building project strike the wrong note.\" after the bullets"
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The two distance sub-bullets are flattened to the same level as the main bullets.",
+     "evidence": "tree: \"• 9m (plus length of jib) if the line is supported on wooden poles.\""
+    },
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The printed main title is not in the tree; the chapter title uses different words.",
+     "evidence": "source: \"Avoiding concealed services and overhead power lines:\" / tree: \"CIS65 Concealed services (busy builder sheet)\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  }
+ }
+}
