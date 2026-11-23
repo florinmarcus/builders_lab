@@ -3,78 +3,6 @@
  "about": "Saved model fixes for hse-l5 (ADR 0010).",
  "fixes": [
   {
-   "key": "fcc9ce050b77b8fc",
-   "kind": "table",
-   "target": "table-1: The employer’s duties",
-   "value": {
-    "columns": [
-     "Duty of employer relating to:",
-     "Employees",
-     "Other people on the premises",
-     "Other people likely to be affected by the work"
-    ],
-    "rows": [
-     [
-      "Assessment (regulation 6)",
-      "Yes",
-      "SFARP",
-      "SFARP"
-     ],
-     [
-      "Prevention/control of exposure (regulation 7)",
-      "Yes",
-      "SFARP",
-      "SFARP"
-     ],
-     [
-      "Use of control measures and maintenance, examination and test of control measures (regulations 8 and 9)",
-      "Yes",
-      "SFARP",
-      "SFARP"
-     ],
-     [
-      "Monitoring exposure (regulation 10)",
-      "Yes, where required",
-      "SFARP",
-      "No"
-     ],
-     [
-      "Health surveillance (regulation 11)",
-      "Yes, where appropriate",
-      "No",
-      "No"
-     ],
-     [
-      "Information, training etc (regulation 12)",
-      "Yes",
-      "SFARP",
-      "No"
-     ],
-     [
-      "Arrangements to deal with accidents and emergencies (regulation 13)",
-      "Yes",
-      "SFARP",
-      "No"
-     ]
-    ],
-    "heading_rows": [],
-    "sentences": [
-     "The employer's duties: for Assessment (regulation 6), the duty for the protection of employees is Yes, of other people on the premises is SFARP, and of other people likely to be affected by the work is SFARP.",
-     "The employer's duties: for Prevention/control of exposure (regulation 7), the duty for the protection of employees is Yes, of other people on the premises is SFARP, and of other people likely to be affected by the work is SFARP.",
-     "The employer's duties: for Use of control measures and maintenance, examination and test of control measures (regulations 8 and 9), the duty for the protection of employees is Yes, of other people on the premises is SFARP, and of other people likely to be affected by the work is SFARP.",
-     "The employer's duties: for Monitoring exposure (regulation 10), the duty for the protection of employees is Yes, where required, of other people on the premises is SFARP, and of other people likely to be affected by the work is No.",
-     "The employer's duties: for Health surveillance (regulation 11), the duty for the protection of employees is Yes, where appropriate, of other people on the premises is No, and of other people likely to be affected by the work is No.",
-     "The employer's duties: for Information, training etc (regulation 12), the duty for the protection of employees is Yes, of other people on the premises is SFARP, and of other people likely to be affected by the work is No.",
-     "The employer's duties: for Arrangements to deal with accidents and emergencies (regulation 13), the duty for the protection of employees is Yes, of other people on the premises is SFARP, and of other people likely to be affected by the work is No."
-    ]
-   },
-   "reason": "Rebuilt from the page image; the library grid matched the printed table. The spanning header 'Duty for the protection of:' sits above the lowest header row, which is used for columns.",
-   "evidence": "Page 15 image, Table 1 The employer's duties: 7 data rows, 4 columns, values match the grid.",
-   "by": "model check, Sonnet (Claude Code headless, packet)",
-   "confidence": "high",
-   "date": "2026-11-22"
-  },
-  {
    "key": "3b9858ac4b44af4a",
    "kind": "figure_description",
    "target": "figure-1: Route map for adequate control",
@@ -127,85 +55,6 @@
    },
    "reason": "Page image shows a number column with no heading of its own (Column 1 spans number and description), so item numbers are kept at the start of the first cell and the table has two headed columns.",
    "evidence": "Page 77 image: headings 'Description of substance' and 'Purpose for which the substance is prohibited'; items 5 to 9.",
-   "by": "model check, Sonnet (Claude Code headless, packet)",
-   "confidence": "high",
-   "date": "2026-11-22"
-  },
-  {
-   "key": "579067708c6536a9",
-   "kind": "table",
-   "target": "table-p86: Containment measures for health and veterinary care facilities, laboratories and animal rooms",
-   "value": {
-    "columns": [
-     "Containment measures",
-     "2",
-     "3",
-     "4"
-    ],
-    "rows": [
-     [
-      "7 Efficient vector control, eg rodents and insects.",
-      "Yes, for animal containment",
-      "Yes, for animal containment",
-      "Yes"
-     ],
-     [
-      "8 Surfaces impervious to water and easy to clean.",
-      "Yes, for bench",
-      "Yes, for bench and floor (and walls for animal containment)",
-      "Yes, for bench, floor, walls and ceiling"
-     ],
-     [
-      "9 Surfaces resistant to acids, alkalis, solvents, disinfectants.",
-      "Yes, for bench",
-      "Yes, for bench and floor (and walls for animal containment)",
-      "Yes, for bench, floor, walls and ceiling"
-     ],
-     [
-      "10 Safe storage of biological agents.",
-      "Yes",
-      "Yes",
-      "Yes, secure storage"
-     ],
-     [
-      "11 An observation window, or alternative, is to be present, so that occupants can be seen.",
-      "No",
-      "Yes",
-      "Yes"
-     ],
-     [
-      "12 A laboratory is to contain its own equipment.",
-      "No",
-      "Yes, so far as is reasonably practicable",
-      "Yes"
-     ],
-     [
-      "13 Infected material, including any animal, is to be handled in a safety cabinet or isolator or other suitable containment.",
-      "Yes, where aerosol produced",
-      "Yes, where aerosol produced",
-      "Yes"
-     ],
-     [
-      "14 Incinerator for disposal of animal carcases.",
-      "Accessible",
-      "Accessible",
-      "Yes, on site"
-     ]
-    ],
-    "heading_rows": [],
-    "sentences": [
-     "For containment measures for health and veterinary care facilities, laboratories and animal rooms, measure 7, efficient vector control, eg rodents and insects, is: at containment level 2 yes, for animal containment; at level 3 yes, for animal containment; at level 4 yes.",
-     "For containment measures for health and veterinary care facilities, laboratories and animal rooms, measure 8, surfaces impervious to water and easy to clean, is: at containment level 2 yes, for bench; at level 3 yes, for bench and floor (and walls for animal containment); at level 4 yes, for bench, floor, walls and ceiling.",
-     "For containment measures for health and veterinary care facilities, laboratories and animal rooms, measure 9, surfaces resistant to acids, alkalis, solvents, disinfectants, is: at containment level 2 yes, for bench; at level 3 yes, for bench and floor (and walls for animal containment); at level 4 yes, for bench, floor, walls and ceiling.",
-     "For containment measures for health and veterinary care facilities, laboratories and animal rooms, measure 10, safe storage of biological agents, is: at containment level 2 yes; at level 3 yes; at level 4 yes, secure storage.",
-     "For containment measures for health and veterinary care facilities, laboratories and animal rooms, measure 11, an observation window, or alternative, is to be present, so that occupants can be seen, is: at containment level 2 no; at level 3 yes; at level 4 yes.",
-     "For containment measures for health and veterinary care facilities, laboratories and animal rooms, measure 12, a laboratory is to contain its own equipment, is: at containment level 2 no; at level 3 yes, so far as is reasonably practicable; at level 4 yes.",
-     "For containment measures for health and veterinary care facilities, laboratories and animal rooms, measure 13, infected material, including any animal, is to be handled in a safety cabinet or isolator or other suitable containment, is: at containment level 2 yes, where aerosol produced; at level 3 yes, where aerosol produced; at level 4 yes.",
-     "For containment measures for health and veterinary care facilities, laboratories and animal rooms, measure 14, incinerator for disposal of animal carcases, is: at containment level 2 accessible; at level 3 accessible; at level 4 yes, on site."
-    ]
-   },
-   "reason": "The number column has no printed heading, so measure numbers are kept at the start of the first cell; the lowest header row gives 2, 3 and 4 under 'Containment levels'.",
-   "evidence": "Page 86 image: headings 'Containment measures', 'Containment levels' over 2, 3, 4; measures 7 to 14.",
    "by": "model check, Sonnet (Claude Code headless, packet)",
    "confidence": "high",
    "date": "2026-11-22"
@@ -278,243 +127,6 @@
    },
    "reason": "Rebuilt from page 78 image. The repeal note is a printed table row with an empty purpose cell, so it is a normal row.",
    "evidence": "Page 78 image: row 10 Hydrogen cyanide with exceptions (a)-(c); row [11–13 with the repeal text and empty second column.",
-   "by": "model check, Claude Code subagent (packet)",
-   "confidence": "high",
-   "date": "2026-11-22"
-  },
-  {
-   "key": "ba8c3da7e95e54a6",
-   "kind": "table",
-   "target": "part-ii-table-p85: Containment measures for health and veterinary care facilities, laboratories and animal rooms",
-   "value": {
-    "columns": [
-     "Containment measures",
-     "2",
-     "3",
-     "4"
-    ],
-    "rows": [
-     [
-      "1 The workplace is to be separated from any other activities in the same building.",
-      "No",
-      "Yes",
-      "Yes"
-     ],
-     [
-      "2 Input air and extract air to the workplace are to be filtered using HEPA or equivalent.",
-      "No",
-      "Yes, on extract air",
-      "Yes, on input and double on extract air"
-     ],
-     [
-      "3 Access is to be restricted to authorised persons only.",
-      "Yes",
-      "Yes",
-      "Yes, via air-lock key procedure"
-     ],
-     [
-      "4 The workplace is to be sealable to permit disinfection.",
-      "No",
-      "Yes",
-      "Yes"
-     ],
-     [
-      "5 Specified disinfection procedure.",
-      "Yes",
-      "Yes",
-      "Yes"
-     ],
-     [
-      "6 The workplace is to be maintained at an air pressure negative to atmosphere.",
-      "No",
-      "Yes",
-      "Yes"
-     ]
-    ],
-    "heading_rows": [],
-    "sentences": [
-     "For containment measures for health and veterinary care facilities, laboratories and animal rooms, measure 1, the workplace is to be separated from any other activities in the same building, is: at containment level 2 no; at level 3 yes; at level 4 yes.",
-     "For containment measures for health and veterinary care facilities, laboratories and animal rooms, measure 2, input air and extract air to the workplace are to be filtered using HEPA or equivalent, is: at containment level 2 no; at level 3 yes, on extract air; at level 4 yes, on input and double on extract air.",
-     "For containment measures for health and veterinary care facilities, laboratories and animal rooms, measure 3, access is to be restricted to authorised persons only, is: at containment level 2 yes; at level 3 yes; at level 4 yes, via air-lock key procedure.",
-     "For containment measures for health and veterinary care facilities, laboratories and animal rooms, measure 4, the workplace is to be sealable to permit disinfection, is: at containment level 2 no; at level 3 yes; at level 4 yes.",
-     "For containment measures for health and veterinary care facilities, laboratories and animal rooms, measure 5, specified disinfection procedure, is: at containment level 2 yes; at level 3 yes; at level 4 yes.",
-     "For containment measures for health and veterinary care facilities, laboratories and animal rooms, measure 6, the workplace is to be maintained at an air pressure negative to atmosphere, is: at containment level 2 no; at level 3 yes; at level 4 yes."
-    ]
-   },
-   "reason": "Rebuilt from page 85 image using the template columns (measure number joined to its text). The Part II table starts at row 1 here and the grid matched the image.",
-   "evidence": "Page 85 image: Containment measures / Containment levels 2, 3, 4; rows 1 to 6 with the values shown.",
-   "by": "model check, Claude Code subagent (packet)",
-   "confidence": "high",
-   "date": "2026-11-22"
-  },
-  {
-   "key": "0ce8aa234b62e4c7",
-   "kind": "table",
-   "target": "part-iii-table-p87: Containment measures for industrial processes",
-   "value": {
-    "columns": [
-     "Containment measures",
-     "2",
-     "3",
-     "4"
-    ],
-    "rows": [
-     [
-      "1 Viable micro-organisms should be contained in a system which physically separates the process from the environment (closed system).",
-      "Yes",
-      "Yes",
-      "Yes"
-     ],
-     [
-      "2 Exhaust gases from the closed system should be treated so as to –",
-      "Minimise release",
-      "Prevent release",
-      "Prevent release"
-     ],
-     [
-      "3 Sample collection, addition of materials to a closed system and transfer of viable micro-organisms to another closed system, should be performed so as to –",
-      "Minimise release",
-      "Prevent release",
-      "Prevent release"
-     ],
-     [
-      "4 Bulk culture fluids should not be removed from the closed system unless the viable micro-organisms have been –",
-      "Inactivated by validated means",
-      "Inactivated by validated chemical or physical means",
-      "Inactivated by validated chemical or physical means"
-     ],
-     [
-      "5 Seals should be designed so as to –",
-      "Minimise release",
-      "Prevent release",
-      "Prevent release"
-     ],
-     [
-      "6 Closed systems should be located within a controlled area –",
-      "Optional",
-      "Optional",
-      "Yes, and purpose-built"
-     ],
-     [
-      "(a) biohazard signs should be posted;",
-      "Optional",
-      "Yes",
-      "Yes"
-     ],
-     [
-      "(b) access should be restricted to nominated personnel only;",
-      "Optional",
-      "Yes",
-      "Yes, via airlock"
-     ],
-     [
-      "(c) personnel should wear protective clothing;",
-      "Yes, work clothing",
-      "Yes",
-      "Yes, a complete change"
-     ],
-     [
-      "(d) decontamination and washing facilities should be provided for personnel;",
-      "Yes",
-      "Yes",
-      "Yes"
-     ],
-     [
-      "(e) personnel should shower before leaving the controlled area;",
-      "No",
-      "Optional",
-      "Yes"
-     ]
-    ],
-    "heading_rows": [],
-    "sentences": [
-     "For containment measures for industrial processes, measure 1, viable micro-organisms should be contained in a system which physically separates the process from the environment (closed system), is: at containment level 2 yes; at level 3 yes; at level 4 yes.",
-     "For containment measures for industrial processes, measure 2, exhaust gases from the closed system should be treated so as to, is: at containment level 2 minimise release; at level 3 prevent release; at level 4 prevent release.",
-     "For containment measures for industrial processes, measure 3, sample collection, addition of materials to a closed system and transfer of viable micro-organisms to another closed system, should be performed so as to, is: at containment level 2 minimise release; at level 3 prevent release; at level 4 prevent release.",
-     "For containment measures for industrial processes, measure 4, bulk culture fluids should not be removed from the closed system unless the viable micro-organisms have been, is: at containment level 2 inactivated by validated means; at level 3 inactivated by validated chemical or physical means; at level 4 inactivated by validated chemical or physical means.",
-     "For containment measures for industrial processes, measure 5, seals should be designed so as to, is: at containment level 2 minimise release; at level 3 prevent release; at level 4 prevent release.",
-     "For containment measures for industrial processes, measure 6, closed systems should be located within a controlled area, is: at containment level 2 optional; at level 3 optional; at level 4 yes, and purpose-built.",
-     "For containment measures for industrial processes, measure 6(a), biohazard signs should be posted, is: at containment level 2 optional; at level 3 yes; at level 4 yes.",
-     "For containment measures for industrial processes, measure 6(b), access should be restricted to nominated personnel only, is: at containment level 2 optional; at level 3 yes; at level 4 yes, via airlock.",
-     "For containment measures for industrial processes, measure 6(c), personnel should wear protective clothing, is: at containment level 2 yes, work clothing; at level 3 yes; at level 4 yes, a complete change.",
-     "For containment measures for industrial processes, measure 6(d), decontamination and washing facilities should be provided for personnel, is: at containment level 2 yes; at level 3 yes; at level 4 yes.",
-     "For containment measures for industrial processes, measure 6(e), personnel should shower before leaving the controlled area, is: at containment level 2 no; at level 3 optional; at level 4 yes."
-    ]
-   },
-   "reason": "Rebuilt from page 87 image with the template columns. Items (a) to (e) are sub-measures of measure 6 with their own values, so they are normal rows and keep their letters; the trailing dashes are dropped in sentences.",
-   "evidence": "Page 87 image: rows 1 to 6 and sub-rows (a) to (e) with the level 2, 3, 4 values shown.",
-   "by": "model check, Claude Code subagent (packet)",
-   "confidence": "high",
-   "date": "2026-11-22"
-  },
-  {
-   "key": "408f9459da577b81",
-   "kind": "table",
-   "target": "part-iii-table-p88: Containment measures for industrial processes",
-   "value": {
-    "columns": [
-     "Containment measures",
-     "2",
-     "3",
-     "4"
-    ],
-    "rows": [
-     [
-      "(f) effluent from sinks and showers should be collected and inactivated before release;",
-      "No",
-      "Optional",
-      "Yes"
-     ],
-     [
-      "(g) the controlled area should be adequately ventilated to minimise air contamination;",
-      "Optional",
-      "Optional",
-      "Yes"
-     ],
-     [
-      "(h) the controlled area should be maintained at an air pressure negative to atmosphere;",
-      "No",
-      "Optional",
-      "Yes"
-     ],
-     [
-      "(i) input and extract air to the controlled area should be HEPA filtered;",
-      "No",
-      "Optional",
-      "Yes"
-     ],
-     [
-      "(j) the controlled area should be designed to contain spillage of the entire contents of closed system;",
-      "Optional",
-      "Yes",
-      "Yes"
-     ],
-     [
-      "(k) the controlled area should be sealable to permit fumigation.",
-      "No",
-      "Optional",
-      "Yes"
-     ],
-     [
-      "7 Effluent treatment before final discharge.",
-      "Inactivated by validated means",
-      "Inactivated by validated chemical or physical means",
-      "Inactivated by validated physical means"
-     ]
-    ],
-    "heading_rows": [],
-    "sentences": [
-     "For containment measures for industrial processes, measure 6(f), effluent from sinks and showers should be collected and inactivated before release, is: at containment level 2 no; at level 3 optional; at level 4 yes.",
-     "For containment measures for industrial processes, measure 6(g), the controlled area should be adequately ventilated to minimise air contamination, is: at containment level 2 optional; at level 3 optional; at level 4 yes.",
-     "For containment measures for industrial processes, measure 6(h), the controlled area should be maintained at an air pressure negative to atmosphere, is: at containment level 2 no; at level 3 optional; at level 4 yes.",
-     "For containment measures for industrial processes, measure 6(i), input and extract air to the controlled area should be HEPA filtered, is: at containment level 2 no; at level 3 optional; at level 4 yes.",
-     "For containment measures for industrial processes, measure 6(j), the controlled area should be designed to contain spillage of the entire contents of closed system, is: at containment level 2 optional; at level 3 yes; at level 4 yes.",
-     "For containment measures for industrial processes, measure 6(k), the controlled area should be sealable to permit fumigation, is: at containment level 2 no; at level 3 optional; at level 4 yes.",
-     "For containment measures for industrial processes, measure 7, effluent treatment before final discharge, is: at containment level 2 inactivated by validated means; at level 3 inactivated by validated chemical or physical means; at level 4 inactivated by validated physical means."
-    ]
-   },
-   "reason": "Rebuilt from page 88 image. The page continues measure 6 with (f) to (k), then measure 7; level 4 of measure 7 reads 'validated physical means' as printed.",
-   "evidence": "Page 88 image: header repeated, rows (f) to (k) and 7 with the values shown.",
    "by": "model check, Claude Code subagent (packet)",
    "confidence": "high",
    "date": "2026-11-22"
@@ -773,6 +385,430 @@
    "by": "model check, Claude Code subagent (packet)",
    "confidence": "high",
    "date": "2026-11-22"
+  },
+  {
+   "key": "fcc9ce050b77b8fc",
+   "kind": "table",
+   "target": "table-1: The employer’s duties",
+   "value": {
+    "columns": [
+     "Duty of employer relating to:",
+     "Duty for the protection of: Employees",
+     "Duty for the protection of: Other people on the premises",
+     "Duty for the protection of: Other people likely to be affected by the work"
+    ],
+    "rows": [
+     [
+      "Assessment (regulation 6)",
+      "Yes",
+      "SFARP",
+      "SFARP"
+     ],
+     [
+      "Prevention/control of exposure (regulation 7)",
+      "Yes",
+      "SFARP",
+      "SFARP"
+     ],
+     [
+      "Use of control measures and maintenance, examination and test of control measures (regulations 8 and 9)",
+      "Yes",
+      "SFARP",
+      "SFARP"
+     ],
+     [
+      "Monitoring exposure (regulation 10)",
+      "Yes, where required",
+      "SFARP",
+      "No"
+     ],
+     [
+      "Health surveillance (regulation 11)",
+      "Yes, where appropriate",
+      "No",
+      "No"
+     ],
+     [
+      "Information, training etc (regulation 12)",
+      "Yes",
+      "SFARP",
+      "No"
+     ],
+     [
+      "Arrangements to deal with accidents and emergencies (regulation 13)",
+      "Yes",
+      "SFARP",
+      "No"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "The employer's duties: for Assessment (regulation 6), the duty for the protection of employees is Yes, of other people on the premises is SFARP, and of other people likely to be affected by the work is SFARP.",
+     "The employer's duties: for Prevention/control of exposure (regulation 7), the duty for the protection of employees is Yes, of other people on the premises is SFARP, and of other people likely to be affected by the work is SFARP.",
+     "The employer's duties: for Use of control measures and maintenance, examination and test of control measures (regulations 8 and 9), the duty for the protection of employees is Yes, of other people on the premises is SFARP, and of other people likely to be affected by the work is SFARP.",
+     "The employer's duties: for Monitoring exposure (regulation 10), the duty for the protection of employees is Yes, where required, of other people on the premises is SFARP, and of other people likely to be affected by the work is No.",
+     "The employer's duties: for Health surveillance (regulation 11), the duty for the protection of employees is Yes, where appropriate, of other people on the premises is No, and of other people likely to be affected by the work is No.",
+     "The employer's duties: for Information, training etc (regulation 12), the duty for the protection of employees is Yes, of other people on the premises is SFARP, and of other people likely to be affected by the work is No.",
+     "The employer's duties: for Arrangements to deal with accidents and emergencies (regulation 13), the duty for the protection of employees is Yes, of other people on the premises is SFARP, and of other people likely to be affected by the work is No."
+    ]
+   },
+   "reason": "Two-row header with group heading 'Duty for the protection of:' over three columns, joined top-down; seven data rows match the page image and the library grid.",
+   "evidence": "Page 15, Table 1 The employer's duties: header row 'Duty of employer relating to:' / 'Duty for the protection of:' over 'Employees', 'Other people on the premises', 'Other people likely to be affected by the work'; rows from 'Assessment (regulation 6) Yes SFARP SFARP' to 'Arrangements to deal with accidents and emergencies (regulation 13) Yes SFARP No'.",
+   "by": "model check, Claude Code headless (packet), Opus 5.5",
+   "confidence": "high",
+   "date": "2026-11-23"
+  },
+  {
+   "key": "ba8c3da7e95e54a6",
+   "kind": "table",
+   "target": "part-ii-table-p85: Containment measures for health and veterinary care facilities, laboratories and animal rooms",
+   "value": {
+    "columns": [
+     "Item",
+     "Containment measures",
+     "Containment levels: 2",
+     "Containment levels: 3",
+     "Containment levels: 4"
+    ],
+    "rows": [
+     [
+      "1",
+      "The workplace is to be separated from any other activities in the same building.",
+      "No",
+      "Yes",
+      "Yes"
+     ],
+     [
+      "2",
+      "Input air and extract air to the workplace are to be filtered using HEPA or equivalent.",
+      "No",
+      "Yes, on extract air",
+      "Yes, on input and double on extract air"
+     ],
+     [
+      "3",
+      "Access is to be restricted to authorised persons only.",
+      "Yes",
+      "Yes",
+      "Yes, via air-lock key procedure"
+     ],
+     [
+      "4",
+      "The workplace is to be sealable to permit disinfection.",
+      "No",
+      "Yes",
+      "Yes"
+     ],
+     [
+      "5",
+      "Specified disinfection procedure.",
+      "Yes",
+      "Yes",
+      "Yes"
+     ],
+     [
+      "6",
+      "The workplace is to be maintained at an air pressure negative to atmosphere.",
+      "No",
+      "Yes",
+      "Yes"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Containment measures for health and veterinary care facilities, laboratories and animal rooms, item 1: the workplace is to be separated from any other activities in the same building: containment level 2 No, level 3 Yes, level 4 Yes.",
+     "Containment measures for health and veterinary care facilities, laboratories and animal rooms, item 2: input air and extract air to the workplace are to be filtered using HEPA or equivalent: containment level 2 No, level 3 Yes, on extract air, level 4 Yes, on input and double on extract air.",
+     "Containment measures for health and veterinary care facilities, laboratories and animal rooms, item 3: access is to be restricted to authorised persons only: containment level 2 Yes, level 3 Yes, level 4 Yes, via air-lock key procedure.",
+     "Containment measures for health and veterinary care facilities, laboratories and animal rooms, item 4: the workplace is to be sealable to permit disinfection: containment level 2 No, level 3 Yes, level 4 Yes.",
+     "Containment measures for health and veterinary care facilities, laboratories and animal rooms, item 5: specified disinfection procedure: containment level 2 Yes, level 3 Yes, level 4 Yes.",
+     "Containment measures for health and veterinary care facilities, laboratories and animal rooms, item 6: the workplace is to be maintained at an air pressure negative to atmosphere: containment level 2 No, level 3 Yes, level 4 Yes."
+    ]
+   },
+   "reason": "Table has a two-row header: 'Containment levels' spans columns 2, 3 and 4, so those are joined top-down. The first column holds item numbers and the page prints no heading there, so it is named 'Item'. Six data rows, no sub-heading rows; the grid matches the image.",
+   "evidence": "Page 85 shows the table under 'PART II Containment measures for health and veterinary care facilities, laboratories and animal rooms' with rows 1 to 6 and level columns 2, 3, 4.",
+   "by": "model check, Claude Code headless (packet), Opus 5.5",
+   "confidence": "high",
+   "date": "2026-11-23"
+  },
+  {
+   "key": "579067708c6536a9",
+   "kind": "table",
+   "target": "table-p86: Containment measures for health and veterinary care facilities, laboratories and animal rooms",
+   "value": {
+    "columns": [
+     "Item",
+     "Containment measures",
+     "Containment levels: 2",
+     "Containment levels: 3",
+     "Containment levels: 4"
+    ],
+    "rows": [
+     [
+      "7",
+      "Efficient vector control, eg rodents and insects.",
+      "Yes, for animal containment",
+      "Yes, for animal containment",
+      "Yes"
+     ],
+     [
+      "8",
+      "Surfaces impervious to water and easy to clean.",
+      "Yes, for bench",
+      "Yes, for bench and floor (and walls for animal containment)",
+      "Yes, for bench, floor, walls and ceiling"
+     ],
+     [
+      "9",
+      "Surfaces resistant to acids, alkalis, solvents, disinfectants.",
+      "Yes, for bench",
+      "Yes, for bench and floor (and walls for animal containment)",
+      "Yes, for bench, floor, walls and ceiling"
+     ],
+     [
+      "10",
+      "Safe storage of biological agents.",
+      "Yes",
+      "Yes",
+      "Yes, secure storage"
+     ],
+     [
+      "11",
+      "An observation window, or alternative, is to be present, so that occupants can be seen.",
+      "No",
+      "Yes",
+      "Yes"
+     ],
+     [
+      "12",
+      "A laboratory is to contain its own equipment.",
+      "No",
+      "Yes, so far as is reasonably practicable",
+      "Yes"
+     ],
+     [
+      "13",
+      "Infected material, including any animal, is to be handled in a safety cabinet or isolator or other suitable containment.",
+      "Yes, where aerosol produced",
+      "Yes, where aerosol produced",
+      "Yes"
+     ],
+     [
+      "14",
+      "Incinerator for disposal of animal carcases.",
+      "Accessible",
+      "Accessible",
+      "Yes, on site"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Containment measures for health and veterinary care facilities, laboratories and animal rooms, item 7: efficient vector control, eg rodents and insects: containment level 2 Yes, for animal containment, level 3 Yes, for animal containment, level 4 Yes.",
+     "Containment measures for health and veterinary care facilities, laboratories and animal rooms, item 8: surfaces impervious to water and easy to clean: containment level 2 Yes, for bench, level 3 Yes, for bench and floor (and walls for animal containment), level 4 Yes, for bench, floor, walls and ceiling.",
+     "Containment measures for health and veterinary care facilities, laboratories and animal rooms, item 9: surfaces resistant to acids, alkalis, solvents, disinfectants: containment level 2 Yes, for bench, level 3 Yes, for bench and floor (and walls for animal containment), level 4 Yes, for bench, floor, walls and ceiling.",
+     "Containment measures for health and veterinary care facilities, laboratories and animal rooms, item 10: safe storage of biological agents: containment level 2 Yes, level 3 Yes, level 4 Yes, secure storage.",
+     "Containment measures for health and veterinary care facilities, laboratories and animal rooms, item 11: an observation window, or alternative, is to be present, so that occupants can be seen: containment level 2 No, level 3 Yes, level 4 Yes.",
+     "Containment measures for health and veterinary care facilities, laboratories and animal rooms, item 12: a laboratory is to contain its own equipment: containment level 2 No, level 3 Yes, so far as is reasonably practicable, level 4 Yes.",
+     "Containment measures for health and veterinary care facilities, laboratories and animal rooms, item 13: infected material, including any animal, is to be handled in a safety cabinet or isolator or other suitable containment: containment level 2 Yes, where aerosol produced, level 3 Yes, where aerosol produced, level 4 Yes.",
+     "Containment measures for health and veterinary care facilities, laboratories and animal rooms, item 14: incinerator for disposal of animal carcases: containment level 2 Accessible, level 3 Accessible, level 4 Yes, on site."
+    ]
+   },
+   "reason": "Continuation of the Part II table from p85; used the template columns and sentence pattern. The two printed header rows are joined as 'Containment levels: 2/3/4'. Eight data rows, items 7 to 14, all match the page.",
+   "evidence": "Page 86 shows the header 'Containment measures | Containment levels' over '2 | 3 | 4', then rows 7 to 14, ending with '14 Incinerator for disposal of animal carcases. Accessible | Accessible | Yes, on site'.",
+   "by": "model check, Claude Code headless (packet), Opus 5.5",
+   "confidence": "high",
+   "date": "2026-11-23"
+  },
+  {
+   "key": "0ce8aa234b62e4c7",
+   "kind": "table",
+   "target": "part-iii-table-p87: Containment measures for industrial processes",
+   "value": {
+    "columns": [
+     "Item",
+     "Containment measures",
+     "Containment levels: 2",
+     "Containment levels: 3",
+     "Containment levels: 4"
+    ],
+    "rows": [
+     [
+      "1",
+      "Viable micro-organisms should be contained in a system which physically separates the process from the environment (closed system).",
+      "Yes",
+      "Yes",
+      "Yes"
+     ],
+     [
+      "2",
+      "Exhaust gases from the closed system should be treated so as to –",
+      "Minimise release",
+      "Prevent release",
+      "Prevent release"
+     ],
+     [
+      "3",
+      "Sample collection, addition of materials to a closed system and transfer of viable micro-organisms to another closed system, should be performed so as to –",
+      "Minimise release",
+      "Prevent release",
+      "Prevent release"
+     ],
+     [
+      "4",
+      "Bulk culture fluids should not be removed from the closed system unless the viable micro-organisms have been –",
+      "Inactivated by validated means",
+      "Inactivated by validated chemical or physical means",
+      "Inactivated by validated chemical or physical means"
+     ],
+     [
+      "5",
+      "Seals should be designed so as to –",
+      "Minimise release",
+      "Prevent release",
+      "Prevent release"
+     ],
+     [
+      "6",
+      "Closed systems should be located within a controlled area –",
+      "Optional",
+      "Optional",
+      "Yes, and purpose-built"
+     ],
+     [
+      "",
+      "(a) biohazard signs should be posted;",
+      "Optional",
+      "Yes",
+      "Yes"
+     ],
+     [
+      "",
+      "(b) access should be restricted to nominated personnel only;",
+      "Optional",
+      "Yes",
+      "Yes, via airlock"
+     ],
+     [
+      "",
+      "(c) personnel should wear protective clothing;",
+      "Yes, work clothing",
+      "Yes",
+      "Yes, a complete change"
+     ],
+     [
+      "",
+      "(d) decontamination and washing facilities should be provided for personnel;",
+      "Yes",
+      "Yes",
+      "Yes"
+     ],
+     [
+      "",
+      "(e) personnel should shower before leaving the controlled area;",
+      "No",
+      "Optional",
+      "Yes"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Containment measures for industrial processes, item 1: viable micro-organisms should be contained in a system which physically separates the process from the environment (closed system): containment level 2 Yes, level 3 Yes, level 4 Yes.",
+     "Containment measures for industrial processes, item 2: exhaust gases from the closed system should be treated so as to: containment level 2 Minimise release, level 3 Prevent release, level 4 Prevent release.",
+     "Containment measures for industrial processes, item 3: sample collection, addition of materials to a closed system and transfer of viable micro-organisms to another closed system, should be performed so as to: containment level 2 Minimise release, level 3 Prevent release, level 4 Prevent release.",
+     "Containment measures for industrial processes, item 4: bulk culture fluids should not be removed from the closed system unless the viable micro-organisms have been: containment level 2 Inactivated by validated means, level 3 Inactivated by validated chemical or physical means, level 4 Inactivated by validated chemical or physical means.",
+     "Containment measures for industrial processes, item 5: seals should be designed so as to: containment level 2 Minimise release, level 3 Prevent release, level 4 Prevent release.",
+     "Containment measures for industrial processes, item 6: closed systems should be located within a controlled area: containment level 2 Optional, level 3 Optional, level 4 Yes, and purpose-built.",
+     "Containment measures for industrial processes, (a) biohazard signs should be posted: containment level 2 Optional, level 3 Yes, level 4 Yes.",
+     "Containment measures for industrial processes, (b) access should be restricted to nominated personnel only: containment level 2 Optional, level 3 Yes, level 4 Yes, via airlock.",
+     "Containment measures for industrial processes, (c) personnel should wear protective clothing: containment level 2 Yes, work clothing, level 3 Yes, level 4 Yes, a complete change.",
+     "Containment measures for industrial processes, (d) decontamination and washing facilities should be provided for personnel: containment level 2 Yes, level 3 Yes, level 4 Yes.",
+     "Containment measures for industrial processes, (e) personnel should shower before leaving the controlled area: containment level 2 No, level 3 Optional, level 4 Yes."
+    ]
+   },
+   "reason": "Used the template columns and sentence pattern. Items 1 to 6 and sub-items (a) to (e) match the page; the item cell of the sub-items is printed empty, so it stays empty. 'purpose- built' is a line-break hyphen, printed as 'purpose-built'.",
+   "evidence": "Page 87, Part III table: rows 1 to 6, then (a) to (e), ending '(e) personnel should shower before leaving the controlled area; No | Optional | Yes'.",
+   "by": "model check, Claude Code headless (packet), Opus 5.5",
+   "confidence": "high",
+   "date": "2026-11-23"
+  },
+  {
+   "key": "408f9459da577b81",
+   "kind": "table",
+   "target": "part-iii-table-p88: Containment measures for industrial processes",
+   "value": {
+    "columns": [
+     "Item",
+     "Containment measures",
+     "Containment levels: 2",
+     "Containment levels: 3",
+     "Containment levels: 4"
+    ],
+    "rows": [
+     [
+      "",
+      "(f) effluent from sinks and showers should be collected and inactivated before release;",
+      "No",
+      "Optional",
+      "Yes"
+     ],
+     [
+      "",
+      "(g) the controlled area should be adequately ventilated to minimise air contamination;",
+      "Optional",
+      "Optional",
+      "Yes"
+     ],
+     [
+      "",
+      "(h) the controlled area should be maintained at an air pressure negative to atmosphere;",
+      "No",
+      "Optional",
+      "Yes"
+     ],
+     [
+      "",
+      "(i) input and extract air to the controlled area should be HEPA filtered;",
+      "No",
+      "Optional",
+      "Yes"
+     ],
+     [
+      "",
+      "(j) the controlled area should be designed to contain spillage of the entire contents of closed system;",
+      "Optional",
+      "Yes",
+      "Yes"
+     ],
+     [
+      "",
+      "(k) the controlled area should be sealable to permit fumigation.",
+      "No",
+      "Optional",
+      "Yes"
+     ],
+     [
+      "7",
+      "Effluent treatment before final discharge.",
+      "Inactivated by validated means",
+      "Inactivated by validated chemical or physical means",
+      "Inactivated by validated physical means"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Containment measures for industrial processes, (f) effluent from sinks and showers should be collected and inactivated before release: containment level 2 No, level 3 Optional, level 4 Yes.",
+     "Containment measures for industrial processes, (g) the controlled area should be adequately ventilated to minimise air contamination: containment level 2 Optional, level 3 Optional, level 4 Yes.",
+     "Containment measures for industrial processes, (h) the controlled area should be maintained at an air pressure negative to atmosphere: containment level 2 No, level 3 Optional, level 4 Yes.",
+     "Containment measures for industrial processes, (i) input and extract air to the controlled area should be HEPA filtered: containment level 2 No, level 3 Optional, level 4 Yes.",
+     "Containment measures for industrial processes, (j) the controlled area should be designed to contain spillage of the entire contents of closed system: containment level 2 Optional, level 3 Yes, level 4 Yes.",
+     "Containment measures for industrial processes, (k) the controlled area should be sealable to permit fumigation: containment level 2 No, level 3 Optional, level 4 Yes.",
+     "Containment measures for industrial processes, item 7: effluent treatment before final discharge: containment level 2 Inactivated by validated means, level 3 Inactivated by validated chemical or physical means, level 4 Inactivated by validated physical means."
+    ]
+   },
+   "reason": "Continuation of the Part III table from p87; used the template columns and sentence pattern. Sub-items (f) to (k) have an empty item cell as printed, then item 7. All cells match the page.",
+   "evidence": "Page 88 table rows (f) to (k), then '7 Effluent treatment before final discharge. Inactivated by validated means | Inactivated by validated chemical or physical means | Inactivated by validated physical means'.",
+   "by": "model check, Claude Code headless (packet), Opus 5.5",
+   "confidence": "high",
+   "date": "2026-11-23"
   }
  ]
 }

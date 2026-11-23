@@ -2156,6 +2156,1153 @@
    "by": "model check, Claude Code subagent (packet)",
    "confidence": "high",
    "date": "2026-11-22"
+  },
+  {
+   "key": "d4d1a95512203e5f",
+   "kind": "table",
+   "target": "table-a1: The water efficiency calculator",
+   "value": {
+    "columns": [
+     "Installation type",
+     "Unit of measure",
+     "(1) Capacity/ flow rate",
+     "(2) Use factor",
+     "(3) Fixed use (litres/ person/ day)",
+     "(4) Litres/ person/day = [(1) × (2)] + (3)"
+    ],
+    "rows": [
+     [
+      "WC (single flush)",
+      "Flush volume (litres)",
+      "",
+      "4.42",
+      "0.00",
+      ""
+     ],
+     [
+      "WC (dual flush)",
+      "Full flush volume (litres)",
+      "",
+      "1.46",
+      "0.00",
+      ""
+     ],
+     [
+      "WC (dual flush)",
+      "Part flush volume (litres)",
+      "",
+      "2.96",
+      "0.00",
+      ""
+     ],
+     [
+      "WCs (multiple fittings)",
+      "Average effective flushing volume (litres)",
+      "",
+      "4.42",
+      "0.00",
+      ""
+     ],
+     [
+      "Taps (excluding kitchen/utility room taps)",
+      "Flow rate (litres/minute)",
+      "",
+      "1.58",
+      "1.58",
+      ""
+     ],
+     [
+      "Bath (where shower also present)",
+      "Capacity to overflow (litres)",
+      "",
+      "0.11",
+      "0.00",
+      ""
+     ],
+     [
+      "Shower (where bath also present)",
+      "Flow rate (litres/minute)",
+      "",
+      "4.37",
+      "0.00",
+      ""
+     ],
+     [
+      "Bath only",
+      "Capacity to overflow (litres)",
+      "",
+      "0.50",
+      "0.00",
+      ""
+     ],
+     [
+      "Shower only",
+      "Flow rate (litres/minute)",
+      "",
+      "5.60",
+      "0.00",
+      ""
+     ],
+     [
+      "Kitchen/utility room sink taps",
+      "Flow rate (litres/minute)",
+      "",
+      "0.44",
+      "10.36",
+      ""
+     ],
+     [
+      "Washing machine",
+      "Litres/kg dry load",
+      "",
+      "2.1",
+      "0.00",
+      ""
+     ],
+     [
+      "Dishwasher",
+      "Litres/place setting",
+      "",
+      "3.6",
+      "0.00",
+      ""
+     ],
+     [
+      "Waste disposal unit",
+      "Litres/use",
+      "If present = 1 If absent = 0",
+      "3.08",
+      "0.00",
+      ""
+     ],
+     [
+      "Water softener",
+      "Litres/person/day",
+      "",
+      "1.00",
+      "0.00",
+      ""
+     ],
+     [
+      "(5) Total calculated use = (Sum column 4)",
+      "",
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "(6) Contribution from greywater (litres/person/day) from Table 4.6",
+      "",
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "(7) Contribution from rainwater (litres/person/day) from Table 5.5",
+      "",
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "(8) Normalisation factor",
+      "",
+      "",
+      "",
+      "",
+      "0.91"
+     ],
+     [
+      "(9) Total water consumption = [ (5) – (6) – (7) ] × (8)",
+      "",
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "(10) External water use",
+      "",
+      "",
+      "",
+      "",
+      "5.0"
+     ],
+     [
+      "(11) Total water consumption = (9) + (10) (litres/person/day)",
+      "",
+      "",
+      "",
+      "",
+      ""
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "The water efficiency calculator: for WC (single flush) the unit of measure is flush volume (litres), the use factor is 4.42 and the fixed use is 0.00 litres/person/day.",
+     "The water efficiency calculator: for WC (dual flush) the unit of measure is full flush volume (litres), the use factor is 1.46 and the fixed use is 0.00 litres/person/day.",
+     "The water efficiency calculator: for WC (dual flush) the unit of measure is part flush volume (litres), the use factor is 2.96 and the fixed use is 0.00 litres/person/day.",
+     "The water efficiency calculator: for WCs (multiple fittings) the unit of measure is average effective flushing volume (litres), the use factor is 4.42 and the fixed use is 0.00 litres/person/day.",
+     "The water efficiency calculator: for taps (excluding kitchen/utility room taps) the unit of measure is flow rate (litres/minute), the use factor is 1.58 and the fixed use is 1.58 litres/person/day.",
+     "The water efficiency calculator: for a bath (where shower also present) the unit of measure is capacity to overflow (litres), the use factor is 0.11 and the fixed use is 0.00 litres/person/day.",
+     "The water efficiency calculator: for a shower (where bath also present) the unit of measure is flow rate (litres/minute), the use factor is 4.37 and the fixed use is 0.00 litres/person/day.",
+     "The water efficiency calculator: for bath only the unit of measure is capacity to overflow (litres), the use factor is 0.50 and the fixed use is 0.00 litres/person/day.",
+     "The water efficiency calculator: for shower only the unit of measure is flow rate (litres/minute), the use factor is 5.60 and the fixed use is 0.00 litres/person/day.",
+     "The water efficiency calculator: for kitchen/utility room sink taps the unit of measure is flow rate (litres/minute), the use factor is 0.44 and the fixed use is 10.36 litres/person/day.",
+     "The water efficiency calculator: for a washing machine the unit of measure is litres/kg dry load, the use factor is 2.1 and the fixed use is 0.00 litres/person/day.",
+     "The water efficiency calculator: for a dishwasher the unit of measure is litres/place setting, the use factor is 3.6 and the fixed use is 0.00 litres/person/day.",
+     "The water efficiency calculator: for a waste disposal unit the unit of measure is litres/use, the capacity/flow rate is 1 if present and 0 if absent, the use factor is 3.08 and the fixed use is 0.00 litres/person/day.",
+     "The water efficiency calculator: for a water softener the unit of measure is litres/person/day, the use factor is 1.00 and the fixed use is 0.00 litres/person/day.",
+     "The water efficiency calculator: line (5) is the total calculated use = (Sum column 4).",
+     "The water efficiency calculator: line (6) is the contribution from greywater (litres/person/day) from Table 4.6.",
+     "The water efficiency calculator: line (7) is the contribution from rainwater (litres/person/day) from Table 5.5.",
+     "The water efficiency calculator: line (8) is the normalisation factor, 0.91.",
+     "The water efficiency calculator: line (9) is the total water consumption = [ (5) – (6) – (7) ] × (8).",
+     "The water efficiency calculator: line (10) is the external water use, 5.0.",
+     "The water efficiency calculator: line (11) is the total water consumption = (9) + (10) (litres/person/day)."
+    ]
+   },
+   "reason": "Rebuilt from the page image. Column numbers (1)-(4) printed above the headings are kept as prefixes. WC (dual flush) spans two rows and is repeated. Capacity/flow rate and column (4) are blank boxes to fill in, except the waste disposal unit. Lines (5)-(11) are totals rows: label in the first column, printed values 0.91 and 5.0 in column (4). Spelling 'flush'/'overflow' follows the page image (the text layer lost the fl ligature).",
+   "evidence": "p40 (printed page 38): Table A1 rows WC (single flush) 4.42/0.00 ... Water softener 1.00/0.00; (8) Normalisation factor 0.91; (10) External water use 5.0.",
+   "by": "model check, Claude Code headless (packet), Opus 5.5",
+   "confidence": "high",
+   "date": "2026-11-23"
+  },
+  {
+   "key": "62d0d382e681acb4",
+   "kind": "table",
+   "target": "table-a2.1: Consumption calculator for multiple taps (excluding kitchen sink taps)",
+   "value": {
+    "columns": [
+     "Item",
+     "(a)",
+     "(b) Quantity (No.)",
+     "(c) Total per fitting type = [(a) × (b)]"
+    ],
+    "rows": [
+     [
+      "Tap fitting type",
+      "Flow rate (litres/min)",
+      "Quantity (No.)",
+      "Total per fitting type = [(a) × (b)]"
+     ],
+     [
+      "1",
+      "",
+      "",
+      ""
+     ],
+     [
+      "2",
+      "",
+      "",
+      ""
+     ],
+     [
+      "3",
+      "",
+      "",
+      ""
+     ],
+     [
+      "4",
+      "",
+      "",
+      ""
+     ],
+     [
+      "(d) Total (Sum of all quantities)",
+      "",
+      "",
+      ""
+     ],
+     [
+      "(e) Total (Sum of all totals per fitting type)",
+      "",
+      "",
+      ""
+     ],
+     [
+      "Average flow rate (litres/min) = [(e)/(d)]",
+      "",
+      "",
+      ""
+     ],
+     [
+      "(f) Maximum flow rate (litres/min)",
+      "",
+      "",
+      ""
+     ],
+     [
+      "Proportionate flow rate (litres/min) = [(f) × 0.7]",
+      "",
+      "",
+      ""
+     ]
+    ],
+    "heading_rows": [
+     0
+    ],
+    "sentences": [
+     "Consumption calculator for multiple taps (excluding kitchen sink taps): row 1 is a blank line for a tap fitting type with its flow rate (litres/min), quantity and total per fitting type.",
+     "Consumption calculator for multiple taps (excluding kitchen sink taps): row 2 is a blank line for a tap fitting type with its flow rate (litres/min), quantity and total per fitting type.",
+     "Consumption calculator for multiple taps (excluding kitchen sink taps): row 3 is a blank line for a tap fitting type with its flow rate (litres/min), quantity and total per fitting type.",
+     "Consumption calculator for multiple taps (excluding kitchen sink taps): row 4 is a blank line for a tap fitting type with its flow rate (litres/min), quantity and total per fitting type.",
+     "Consumption calculator for multiple taps (excluding kitchen sink taps): box (d) is the total (sum of all quantities).",
+     "Consumption calculator for multiple taps (excluding kitchen sink taps): box (e) is the total (sum of all totals per fitting type).",
+     "Consumption calculator for multiple taps (excluding kitchen sink taps): the average flow rate (litres/min) = [(e)/(d)].",
+     "Consumption calculator for multiple taps (excluding kitchen sink taps): box (f) is the maximum flow rate (litres/min).",
+     "Consumption calculator for multiple taps (excluding kitchen sink taps): the proportionate flow rate (litres/min) = [(f) × 0.7]."
+    ]
+   },
+   "reason": "Template columns used. Row 0 is the second header row (Tap fitting type / Flow rate / Quantity / Total). Rows 1-4 are blank fill-in lines; the (d), (e), average, (f) and proportionate rows are blank boxes with labels kept in the first column. The page says 'Maximum flow rate' here (the text layer had 'Highest' from a neighbouring table).",
+   "evidence": "p41 (printed page 39), left column: Table A2.1 rows 1-4, (d) Total (Sum of all quantities), (e) Total (Sum of all totals per fitting type), Average flow rate (litres/min) = [(e)/(d)], (f) Maximum flow rate (litres/min), Proportionate flow rate (litres/min) = [(f) × 0.7].",
+   "by": "model check, Claude Code headless (packet), Opus 5.5",
+   "confidence": "high",
+   "date": "2026-11-23"
+  },
+  {
+   "key": "cfbdd6c573a8c9a7",
+   "kind": "table",
+   "target": "table-a2.3: Consumption calculator for multiple taps (kitchen/utility room sink)",
+   "value": {
+    "columns": [
+     "Item",
+     "(a)",
+     "(b) Quantity (No.)",
+     "(c) Total per fitting type = [(a) × (b)]"
+    ],
+    "rows": [
+     [
+      "Tap fitting type",
+      "Flow rate (litres/min)",
+      "Quantity (No.)",
+      "Total per fitting type = [(a) × (b)]"
+     ],
+     [
+      "1",
+      "",
+      "",
+      ""
+     ],
+     [
+      "2",
+      "",
+      "",
+      ""
+     ],
+     [
+      "3",
+      "",
+      "",
+      ""
+     ],
+     [
+      "4",
+      "",
+      "",
+      ""
+     ],
+     [
+      "(d) Total (Sum of all quantities)",
+      "",
+      "",
+      ""
+     ],
+     [
+      "(e) Total (Sum of all totals per fitting type)",
+      "",
+      "",
+      ""
+     ],
+     [
+      "Average flow rate (litres/min) = [(e)/(d)]",
+      "",
+      "",
+      ""
+     ],
+     [
+      "(f) Highest flow rate (litres/min) (litres)",
+      "",
+      "",
+      ""
+     ],
+     [
+      "Proportionate flow rate (litres/min) = [(f) × 0.7]",
+      "",
+      "",
+      ""
+     ]
+    ],
+    "heading_rows": [
+     0
+    ],
+    "sentences": [
+     "Consumption calculator for multiple taps (kitchen/utility room sink): row 1 is a blank line for a tap fitting type with its flow rate (litres/min), quantity and total per fitting type.",
+     "Consumption calculator for multiple taps (kitchen/utility room sink): row 2 is a blank line for a tap fitting type with its flow rate (litres/min), quantity and total per fitting type.",
+     "Consumption calculator for multiple taps (kitchen/utility room sink): row 3 is a blank line for a tap fitting type with its flow rate (litres/min), quantity and total per fitting type.",
+     "Consumption calculator for multiple taps (kitchen/utility room sink): row 4 is a blank line for a tap fitting type with its flow rate (litres/min), quantity and total per fitting type.",
+     "Consumption calculator for multiple taps (kitchen/utility room sink): box (d) is the total (sum of all quantities).",
+     "Consumption calculator for multiple taps (kitchen/utility room sink): box (e) is the total (sum of all totals per fitting type).",
+     "Consumption calculator for multiple taps (kitchen/utility room sink): the average flow rate (litres/min) = [(e)/(d)].",
+     "Consumption calculator for multiple taps (kitchen/utility room sink): box (f) is the highest flow rate (litres/min) (litres).",
+     "Consumption calculator for multiple taps (kitchen/utility room sink): the proportionate flow rate (litres/min) = [(f) × 0.7]."
+    ]
+   },
+   "reason": "Template columns used. Row 0 is the second header row. Rows 1-4 are blank fill-in lines, then the (d), (e), average, (f) and proportionate boxes. The page prints '(f) Highest flow rate (litres/min) (litres)' with the doubled unit, kept as printed. The text layer captured only the header and row 1.",
+   "evidence": "p41 (printed page 39), top right: Table A2.3 rows 1-4, (d) Total (Sum of all quantities), (e) Total (Sum of all totals per fitting type), Average flow rate (litres/min) = [(e)/(d)], (f) Highest flow rate (litres/min) (litres), Proportionate flow rate (litres/min) = [(f) × 0.7].",
+   "by": "model check, Claude Code headless (packet), Opus 5.5",
+   "confidence": "high",
+   "date": "2026-11-23"
+  },
+  {
+   "key": "61f3e58b52988896",
+   "kind": "table",
+   "target": "table-a2.2: Consumption calculator for multiple baths",
+   "value": {
+    "columns": [
+     "Item",
+     "(a)",
+     "(b) Quantity (No.)",
+     "(c) Total per fitting type = [(a) × (b)]"
+    ],
+    "rows": [
+     [
+      "Bath fitting type",
+      "Capacity to overflow (litres)",
+      "Quantity (No.)",
+      "Total per fitting type = [(a) × (b)]"
+     ],
+     [
+      "1",
+      "",
+      "",
+      ""
+     ],
+     [
+      "2",
+      "",
+      "",
+      ""
+     ],
+     [
+      "3",
+      "",
+      "",
+      ""
+     ],
+     [
+      "4",
+      "",
+      "",
+      ""
+     ],
+     [
+      "(d) Total (Sum of all quantities)",
+      "",
+      "",
+      ""
+     ],
+     [
+      "(e) Total (Sum of all totals per fitting type)",
+      "",
+      "",
+      ""
+     ],
+     [
+      "Average capacity to overflow = [(e)/(d)]",
+      "",
+      "",
+      ""
+     ],
+     [
+      "(f) Highest capacity to overflow (litres)",
+      "",
+      "",
+      ""
+     ],
+     [
+      "Proportionate capacity to overflow (litres) = [(f) × 0.7]",
+      "",
+      "",
+      ""
+     ]
+    ],
+    "heading_rows": [
+     0
+    ],
+    "sentences": [
+     "Consumption calculator for multiple baths: row 1 is a blank line for a bath fitting type with its capacity to overflow (litres), quantity and total per fitting type.",
+     "Consumption calculator for multiple baths: row 2 is a blank line for a bath fitting type with its capacity to overflow (litres), quantity and total per fitting type.",
+     "Consumption calculator for multiple baths: row 3 is a blank line for a bath fitting type with its capacity to overflow (litres), quantity and total per fitting type.",
+     "Consumption calculator for multiple baths: row 4 is a blank line for a bath fitting type with its capacity to overflow (litres), quantity and total per fitting type.",
+     "Consumption calculator for multiple baths: box (d) is the total (sum of all quantities).",
+     "Consumption calculator for multiple baths: box (e) is the total (sum of all totals per fitting type).",
+     "Consumption calculator for multiple baths: the average capacity to overflow = [(e)/(d)].",
+     "Consumption calculator for multiple baths: box (f) is the highest capacity to overflow (litres).",
+     "Consumption calculator for multiple baths: the proportionate capacity to overflow (litres) = [(f) × 0.7]."
+    ]
+   },
+   "reason": "Template columns used. Row 0 is the second header row with column (a) 'Capacity to overflow (litres)'. Rows 1-4 are blank fill-in lines, then the summary boxes. The text layer mixed in lines from Table A2.4 (litres per place setting); those are left out.",
+   "evidence": "p41 (printed page 39), bottom left: Table A2.2 header Bath fitting type / Capacity to overflow (litres) / Quantity (No.) / Total per fitting type = [(a) × (b)]; Average capacity to overflow = [(e)/(d)]; (f) Highest capacity to overflow (litres); Proportionate capacity to overflow (litres) = [(f) × 0.7].",
+   "by": "model check, Claude Code headless (packet), Opus 5.5",
+   "confidence": "high",
+   "date": "2026-11-23"
+  },
+  {
+   "key": "d9ab11147f679347",
+   "kind": "table",
+   "target": "table-a2.4: Consumption calculator for multiple dishwashers",
+   "value": {
+    "columns": [
+     "Item",
+     "(a)",
+     "(b) Quantity (No.)",
+     "(c) Total per fitting type = [(a) × (b)]"
+    ],
+    "rows": [
+     [
+      "Type of dishwasher",
+      "Litres per place setting",
+      "Quantity (No.)",
+      "Total per fitting type = [(a) × (b)]"
+     ],
+     [
+      "1",
+      "",
+      "",
+      ""
+     ],
+     [
+      "2",
+      "",
+      "",
+      ""
+     ],
+     [
+      "3",
+      "",
+      "",
+      ""
+     ],
+     [
+      "4",
+      "",
+      "",
+      ""
+     ],
+     [
+      "(d) Total (Sum of all quantities)",
+      "",
+      "",
+      ""
+     ],
+     [
+      "(e) Total (Sum of all totals per fitting type)",
+      "",
+      "",
+      ""
+     ],
+     [
+      "Average litres per place setting = [(e)/(d)]",
+      "",
+      "",
+      ""
+     ],
+     [
+      "(f) Highest litres per place setting",
+      "",
+      "",
+      ""
+     ],
+     [
+      "Proportionate litres per place setting = [(f) × 0.7]",
+      "",
+      "",
+      ""
+     ]
+    ],
+    "heading_rows": [
+     0
+    ],
+    "sentences": [
+     "Consumption calculator for multiple dishwashers: row 1 is a blank line for a type of dishwasher with its litres per place setting, quantity and total per fitting type.",
+     "Consumption calculator for multiple dishwashers: row 2 is a blank line for a type of dishwasher with its litres per place setting, quantity and total per fitting type.",
+     "Consumption calculator for multiple dishwashers: row 3 is a blank line for a type of dishwasher with its litres per place setting, quantity and total per fitting type.",
+     "Consumption calculator for multiple dishwashers: row 4 is a blank line for a type of dishwasher with its litres per place setting, quantity and total per fitting type.",
+     "Consumption calculator for multiple dishwashers: box (d) is the total (sum of all quantities).",
+     "Consumption calculator for multiple dishwashers: box (e) is the total (sum of all totals per fitting type).",
+     "Consumption calculator for multiple dishwashers: the average litres per place setting = [(e)/(d)].",
+     "Consumption calculator for multiple dishwashers: box (f) is the highest litres per place setting.",
+     "Consumption calculator for multiple dishwashers: the proportionate litres per place setting = [(f) × 0.7]."
+    ]
+   },
+   "reason": "Template columns used. Row 0 is the second header row with column (a) 'Litres per place setting'. Rows 1-4 are blank fill-in lines, then the summary boxes. The text layer captured only the header and row 1.",
+   "evidence": "p41 (printed page 39), bottom right: Table A2.4 header Type of dishwasher / Litres per place setting / Quantity (No.) / Total per fitting type = [(a) × (b)]; Average litres per place setting = [(e)/(d)]; (f) Highest litres per place setting; Proportionate litres per place setting = [(f) × 0.7].",
+   "by": "model check, Claude Code headless (packet), Opus 5.5",
+   "confidence": "high",
+   "date": "2026-11-23"
+  },
+  {
+   "key": "c687f1d7242889af",
+   "kind": "table",
+   "target": "table-a2.5: Consumption calculator for multiple washing machines",
+   "value": {
+    "columns": [
+     "Item",
+     "(a)",
+     "(b) Quantity (No.)",
+     "(c) Total per fitting type = [(a) × (b)]"
+    ],
+    "rows": [
+     [
+      "Type of washing machine",
+      "Litres per kg dry load",
+      "Quantity (No.)",
+      "Total per fitting type = [(a) × (b)]"
+     ],
+     [
+      "1",
+      "",
+      "",
+      ""
+     ],
+     [
+      "2",
+      "",
+      "",
+      ""
+     ],
+     [
+      "3",
+      "",
+      "",
+      ""
+     ],
+     [
+      "4",
+      "",
+      "",
+      ""
+     ],
+     [
+      "(d) Total (Sum of all quantities)",
+      "",
+      "",
+      ""
+     ],
+     [
+      "(e) Total (Sum of all totals per fitting type)",
+      "",
+      "",
+      ""
+     ],
+     [
+      "Average litres per kilogram of dry load = [(e)/(d)]",
+      "",
+      "",
+      ""
+     ],
+     [
+      "(f) Highest litres per kilogram of dry load",
+      "",
+      "",
+      ""
+     ],
+     [
+      "Proportionate litres per kilogram of dry load = [(f) × 0.7]",
+      "",
+      "",
+      ""
+     ]
+    ],
+    "heading_rows": [
+     0
+    ],
+    "sentences": [
+     "Consumption calculator for multiple washing machines: row 1 is a blank line for a type of washing machine with its litres per kg dry load, quantity and total per fitting type.",
+     "Consumption calculator for multiple washing machines: row 2 is a blank line for a type of washing machine with its litres per kg dry load, quantity and total per fitting type.",
+     "Consumption calculator for multiple washing machines: row 3 is a blank line for a type of washing machine with its litres per kg dry load, quantity and total per fitting type.",
+     "Consumption calculator for multiple washing machines: row 4 is a blank line for a type of washing machine with its litres per kg dry load, quantity and total per fitting type.",
+     "Consumption calculator for multiple washing machines: box (d) is the total (sum of all quantities).",
+     "Consumption calculator for multiple washing machines: box (e) is the total (sum of all totals per fitting type).",
+     "Consumption calculator for multiple washing machines: the average litres per kilogram of dry load = [(e)/(d)].",
+     "Consumption calculator for multiple washing machines: box (f) is the highest litres per kilogram of dry load.",
+     "Consumption calculator for multiple washing machines: the proportionate litres per kilogram of dry load = [(f) × 0.7]."
+    ]
+   },
+   "reason": "Template columns used. Only the left table on the page (A2.5) is rebuilt; the text layer mixed in Table A2.7 (multiple WCs) and its footnote, which belong to another table and are left out. Row 0 is the second header row; rows 1-4 are blank fill-in lines, then the summary boxes.",
+   "evidence": "p42 (printed page 40), top left: Table A2.5 header Type of washing machine / Litres per kg dry load / Quantity (No.) / Total per fitting type = [(a) × (b)]; Average litres per kilogram of dry load = [(e)/(d)]; (f) Highest litres per kilogram of dry load; Proportionate litres per kilogram of dry load = [(f) × 0.7].",
+   "by": "model check, Claude Code headless (packet), Opus 5.5",
+   "confidence": "high",
+   "date": "2026-11-23"
+  },
+  {
+   "key": "052f16f56ea84233",
+   "kind": "table",
+   "target": "table-a2.6: Consumption calculator for multiple showers",
+   "value": {
+    "columns": [
+     "Item",
+     "(a)",
+     "(b) Quantity (No.)",
+     "(c) Total per fitting type = [(a) × (b)]"
+    ],
+    "rows": [
+     [
+      "Shower fitting type",
+      "Flow rate (litres/min)",
+      "Quantity (No.)",
+      "Total per fitting type = [(a) × (b)]"
+     ],
+     [
+      "1",
+      "",
+      "",
+      ""
+     ],
+     [
+      "2",
+      "",
+      "",
+      ""
+     ],
+     [
+      "3",
+      "",
+      "",
+      ""
+     ],
+     [
+      "4",
+      "",
+      "",
+      ""
+     ],
+     [
+      "(d) Total (Sum of all quantities)",
+      "",
+      "",
+      ""
+     ],
+     [
+      "(e) Total (Sum of all totals per fitting type)",
+      "",
+      "",
+      ""
+     ],
+     [
+      "Average flow rate (litres/min) = [(e)/(d)]",
+      "",
+      "",
+      ""
+     ],
+     [
+      "(f) Highest flow rate (litres/min)",
+      "",
+      "",
+      ""
+     ],
+     [
+      "Proportionate flow rate (litres/min) = [(f) × 0.7]",
+      "",
+      "",
+      ""
+     ]
+    ],
+    "heading_rows": [
+     0
+    ],
+    "sentences": [
+     "Consumption calculator for multiple showers: row 1 is a blank line for a shower fitting type with its flow rate (litres/min), quantity and total per fitting type.",
+     "Consumption calculator for multiple showers: row 2 is a blank line for a shower fitting type with its flow rate (litres/min), quantity and total per fitting type.",
+     "Consumption calculator for multiple showers: row 3 is a blank line for a shower fitting type with its flow rate (litres/min), quantity and total per fitting type.",
+     "Consumption calculator for multiple showers: row 4 is a blank line for a shower fitting type with its flow rate (litres/min), quantity and total per fitting type.",
+     "Consumption calculator for multiple showers: row (d) is a blank line for the total (sum of all quantities).",
+     "Consumption calculator for multiple showers: row (e) is a blank line for the total (sum of all totals per fitting type).",
+     "Consumption calculator for multiple showers: the next row is a blank line for the average flow rate (litres/min) = [(e)/(d)].",
+     "Consumption calculator for multiple showers: row (f) is a blank line for the highest flow rate (litres/min).",
+     "Consumption calculator for multiple showers: the last row is a blank line for the proportionate flow rate (litres/min) = [(f) × 0.7]."
+    ]
+   },
+   "reason": "Blank form table with the same layout as Table A2.1; template columns and sentence pattern used, header row 'Shower fitting type...' kept as row 0, four numbered blank rows, then the (d), (e), average, (f) and proportionate rows with their labels in the first column and blank value cells.",
+   "evidence": "p42 (printed page 40), Table A2.6: headings (a) Flow rate (litres/min), (b) Quantity (No.), (c) Total per fitting type = [(a) × (b)]; rows 1-4; (d) Total (Sum of all quantities); (e) Total (Sum of all totals per fitting type); Average flow rate (litres/min) = [(e)/(d)]; (f) Highest flow rate (litres/min); Proportionate flow rate (litres/min) = [(f) × 0.7].",
+   "by": "model check, Claude Code headless (packet), Opus 5.5",
+   "confidence": "high",
+   "date": "2026-11-23"
+  },
+  {
+   "key": "f43b9a7a9981b3ac",
+   "kind": "table",
+   "target": "table-a4.1: Greywater demand calculations – WCs",
+   "value": {
+    "columns": [
+     "(a): Effective flushing volume (litres)",
+     "(b): Number of fittings present",
+     "(c): Quantity using greywater",
+     "(d): Greywater demand = [(a) × (c)]"
+    ],
+    "rows": [
+     [
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "(e) Total fittings = Sum of (b)",
+      "",
+      "(f) Total greywater demand = Sum of (d)",
+      ""
+     ],
+     [
+      "Average greywater demand from WCs = (f)/(e) × 4.42",
+      "",
+      "",
+      ""
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Greywater demand calculations – WCs: row 1 is a blank line for the effective flushing volume (litres), number of fittings present, quantity using greywater and greywater demand = [(a) × (c)].",
+     "Greywater demand calculations – WCs: row 2 is a blank line for the effective flushing volume (litres), number of fittings present, quantity using greywater and greywater demand = [(a) × (c)].",
+     "Greywater demand calculations – WCs: row 3 is a blank line for the effective flushing volume (litres), number of fittings present, quantity using greywater and greywater demand = [(a) × (c)].",
+     "Greywater demand calculations – WCs: row 4 is a blank line for the effective flushing volume (litres), number of fittings present, quantity using greywater and greywater demand = [(a) × (c)].",
+     "Greywater demand calculations – WCs: the totals row has blank cells for (e) total fittings = sum of (b) and (f) total greywater demand = sum of (d).",
+     "Greywater demand calculations – WCs: the last row is a blank line for the average greywater demand from WCs = (f)/(e) × 4.42."
+    ]
+   },
+   "reason": "Blank form with two-line column headings (letter over name), joined with ': '. Four blank data rows, a totals row with (e) under column (a) and (f) under column (c), and an average row whose label and formula span columns (a) to (c).",
+   "evidence": "p43 (printed page 41), Table A4.1: (a) Effective flushing volume (litres), (b) Number of fittings present, (c) Quantity using greywater, (d) Greywater demand = [(a) × (c)]; (e) Total fittings = Sum of (b); (f) Total greywater demand = Sum of (d); Average greywater demand from WCs = (f)/(e) × 4.42.",
+   "by": "model check, Claude Code headless (packet), Opus 5.5",
+   "confidence": "high",
+   "date": "2026-11-23"
+  },
+  {
+   "key": "773c1fae11d2d1c9",
+   "kind": "table",
+   "target": "table-a4.2: Greywater demand calculations – washing machines",
+   "value": {
+    "columns": [
+     "(a): Litres per kg",
+     "(b): Number of fittings present",
+     "(c): Quantity using greywater",
+     "(d): Greywater demand = [(a) × (c)]"
+    ],
+    "rows": [
+     [
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "(e) Total fittings = Sum of (b)",
+      "",
+      "(f) Total greywater demand = Sum of (d)",
+      ""
+     ],
+     [
+      "Average greywater demand from washing machines = [(f)/(e)] × 2.1",
+      "",
+      "",
+      ""
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Greywater demand calculations – washing machines: row 1 is a blank line for the litres per kg, number of fittings present, quantity using greywater and greywater demand = [(a) × (c)].",
+     "Greywater demand calculations – washing machines: row 2 is a blank line for the litres per kg, number of fittings present, quantity using greywater and greywater demand = [(a) × (c)].",
+     "Greywater demand calculations – washing machines: row 3 is a blank line for the litres per kg, number of fittings present, quantity using greywater and greywater demand = [(a) × (c)].",
+     "Greywater demand calculations – washing machines: row 4 is a blank line for the litres per kg, number of fittings present, quantity using greywater and greywater demand = [(a) × (c)].",
+     "Greywater demand calculations – washing machines: the totals row has blank cells for (e) total fittings = sum of (b) and (f) total greywater demand = sum of (d).",
+     "Greywater demand calculations – washing machines: the last row is a blank line for the average greywater demand from washing machines = [(f)/(e)] × 2.1."
+    ]
+   },
+   "reason": "Same blank form layout as Table A4.1. The library text stops after the headings; the page also shows four blank rows, the (e)/(f) totals row and the average row with factor 2.1.",
+   "evidence": "p43 (printed page 41), Table A4.2: (a) Litres per kg, (b) Number of fittings present, (c) Quantity using greywater, (d) Greywater demand = [(a) × (c)]; (e) Total fittings = Sum of (b); (f) Total greywater demand = Sum of (d); Average greywater demand from washing machines = [(f)/(e)] × 2.1.",
+   "by": "model check, Claude Code headless (packet), Opus 5.5",
+   "confidence": "high",
+   "date": "2026-11-23"
+  },
+  {
+   "key": "d9bacccbb612bc84",
+   "kind": "table",
+   "target": "table-a4.3: Greywater collection calculations – taps",
+   "value": {
+    "columns": [
+     "(a): Litres per minute",
+     "(b): Number of fittings present",
+     "(c): Quantity supplying greywater",
+     "(d): Greywater supply = [(a) × (c)]"
+    ],
+    "rows": [
+     [
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "(e) Total fittings = Sum of (b)",
+      "",
+      "(f) Total greywater supply = Sum of (d)",
+      ""
+     ],
+     [
+      "Average greywater supply from taps = [(f)/(e)] × 1.58 +1.58",
+      "",
+      "",
+      ""
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Greywater collection calculations – taps: row 1 is a blank line for the litres per minute, number of fittings present, quantity supplying greywater and greywater supply = [(a) × (c)].",
+     "Greywater collection calculations – taps: row 2 is a blank line for the litres per minute, number of fittings present, quantity supplying greywater and greywater supply = [(a) × (c)].",
+     "Greywater collection calculations – taps: row 3 is a blank line for the litres per minute, number of fittings present, quantity supplying greywater and greywater supply = [(a) × (c)].",
+     "Greywater collection calculations – taps: row 4 is a blank line for the litres per minute, number of fittings present, quantity supplying greywater and greywater supply = [(a) × (c)].",
+     "Greywater collection calculations – taps: the totals row has blank cells for (e) total fittings = sum of (b) and (f) total greywater supply = sum of (d).",
+     "Greywater collection calculations – taps: the last row is a blank line for the average greywater supply from taps = [(f)/(e)] × 1.58 +1.58."
+    ]
+   },
+   "reason": "Only Table A4.3 (left column, top) is rebuilt. The library text merged it with Table A4.5 (baths) beside it, so the bath rows (× 0.11, × 0.50) are left out. Blank form with joined two-line headings, four blank rows, totals row and the taps average row.",
+   "evidence": "p44 (printed page 42), Table A4.3: (a) Litres per minute, (b) Number of fittings present, (c) Quantity supplying greywater, (d) Greywater supply = [(a) × (c)]; (e) Total fittings = Sum of (b); (f) Total greywater supply = Sum of (d); Average greywater supply from taps = [(f)/(e)] × 1.58 +1.58.",
+   "by": "model check, Claude Code headless (packet), Opus 5.5",
+   "confidence": "high",
+   "date": "2026-11-23"
+  },
+  {
+   "key": "6db302d0afea0c12",
+   "kind": "table",
+   "target": "table-a4.4: Greywater collection calculations – showers",
+   "value": {
+    "columns": [
+     "(a): Litres per minute",
+     "(b): Number of fittings present",
+     "(c): Quantity supplying greywater",
+     "(d): Greywater supply = [(a) × (c)]"
+    ],
+    "rows": [
+     [
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "(e) Total fittings = Sum of (b)",
+      "",
+      "(f) Total greywater supply = Sum of (d)",
+      ""
+     ],
+     [
+      "Average greywater supply from showers (where bath present) = [(f)/(e)] × 4.37",
+      "",
+      "",
+      ""
+     ],
+     [
+      "Average greywater supply from showers (shower only) = [(f)/(e)] × 5.60",
+      "",
+      "",
+      ""
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Greywater collection calculations – showers: row 1 is a blank line for the litres per minute, number of fittings present, quantity supplying greywater and greywater supply = [(a) × (c)].",
+     "Greywater collection calculations – showers: row 2 is a blank line for the litres per minute, number of fittings present, quantity supplying greywater and greywater supply = [(a) × (c)].",
+     "Greywater collection calculations – showers: row 3 is a blank line for the litres per minute, number of fittings present, quantity supplying greywater and greywater supply = [(a) × (c)].",
+     "Greywater collection calculations – showers: row 4 is a blank line for the litres per minute, number of fittings present, quantity supplying greywater and greywater supply = [(a) × (c)].",
+     "Greywater collection calculations – showers: the totals row has blank cells for (e) total fittings = sum of (b) and (f) total greywater supply = sum of (d).",
+     "Greywater collection calculations – showers: one row is a blank line for the average greywater supply from showers (where bath present) = [(f)/(e)] × 4.37.",
+     "Greywater collection calculations – showers: the last row is a blank line for the average greywater supply from showers (shower only) = [(f)/(e)] × 5.60."
+    ]
+   },
+   "reason": "Blank form with joined two-line headings, four blank rows, a totals row, and two average rows (where bath present, shower only) with their formulas.",
+   "evidence": "p44 (printed page 42), Table A4.4: (a) Litres per minute, (b) Number of fittings present, (c) Quantity supplying greywater, (d) Greywater supply = [(a) × (c)]; (e) Total fittings = Sum of (b); (f) Total greywater supply = Sum of (d); Average greywater supply from showers (where bath present) = [(f)/(e)] × 4.37; Average greywater supply from showers (shower only) = [(f)/(e)] × 5.60.",
+   "by": "model check, Claude Code headless (packet), Opus 5.5",
+   "confidence": "high",
+   "date": "2026-11-23"
+  },
+  {
+   "key": "c2da415d32ebcf63",
+   "kind": "table",
+   "target": "table-a5.3: Rainwater demand calculations – WCs",
+   "value": {
+    "columns": [
+     "(a): Effective flushing volume (litres)",
+     "(b): Number of fittings present",
+     "(c): Quantity using rainwater",
+     "(d): Rainwater demand = [(a)×(c)]"
+    ],
+    "rows": [
+     [
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "(e) Total fittings = Sum of (b)",
+      "",
+      "(f) Total rainwater demand = Sum of (d)",
+      ""
+     ],
+     [
+      "Average rainwater demand from WCs = [(f)/(e)] × 4.42",
+      "",
+      "",
+      ""
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Rainwater demand calculations – WCs: row 1 is a blank line for the effective flushing volume (litres), number of fittings present, quantity using rainwater and rainwater demand = [(a)×(c)].",
+     "Rainwater demand calculations – WCs: row 2 is a blank line for the effective flushing volume (litres), number of fittings present, quantity using rainwater and rainwater demand = [(a)×(c)].",
+     "Rainwater demand calculations – WCs: row 3 is a blank line for the effective flushing volume (litres), number of fittings present, quantity using rainwater and rainwater demand = [(a)×(c)].",
+     "Rainwater demand calculations – WCs: row 4 is a blank line for the effective flushing volume (litres), number of fittings present, quantity using rainwater and rainwater demand = [(a)×(c)].",
+     "Rainwater demand calculations – WCs: the totals row has blank cells for (e) total fittings = sum of (b) and (f) total rainwater demand = sum of (d).",
+     "Rainwater demand calculations – WCs: the last row is a blank line for the average rainwater demand from WCs = [(f)/(e)] × 4.42."
+    ]
+   },
+   "reason": "Only Table A5.3 (left column, top) is rebuilt. The library text mixed in Table A5.5 (rainwater saving) from the right column, so its rows and footnote are left out. Blank form with joined two-line headings, four blank rows, totals row and the average row.",
+   "evidence": "p46 (printed page 44), Table A5.3: (a) Effective flushing volume (litres), (b) Number of fittings present, (c) Quantity using rainwater, (d) Rainwater demand = [(a)×(c)]; (e) Total fittings = Sum of (b); (f) Total rainwater demand = Sum of (d); Average rainwater demand from WCs = [(f)/(e)] × 4.42.",
+   "by": "model check, Claude Code headless (packet), Opus 5.5",
+   "confidence": "high",
+   "date": "2026-11-23"
+  },
+  {
+   "key": "b7ab76c12d94c0d2",
+   "kind": "table",
+   "target": "table-a5.4: Rainwater demand calculations – washing machines",
+   "value": {
+    "columns": [
+     "(a): Litres per kg",
+     "(b): Number of fittings present",
+     "(c): Quantity using rainwater",
+     "(d): Rainwater demand = [(a) × (c)]"
+    ],
+    "rows": [
+     [
+      "(e) Total fittings = Sum of (b)",
+      "",
+      "(f) Total rainwater demand = Sum of (d)",
+      ""
+     ],
+     [
+      "Average rainwater demand from washing machines",
+      "= [(f)/(e)] × 2.1",
+      "= [(f)/(e)] × 2.1",
+      ""
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "In the rainwater demand calculations for washing machines, (e) Total fittings = Sum of (b), and (f) Total rainwater demand = Sum of (d).",
+     "In the rainwater demand calculations for washing machines, the average rainwater demand from washing machines = [(f)/(e)] × 2.1."
+    ]
+   },
+   "reason": "Blank calculation form: four column headings printed in two rows (letter over name), joined top-down. The four empty entry rows hold no printed text and are left out. The totals row and the average row are kept; the average formula spans columns (b) and (c) so it is repeated in both.",
+   "evidence": "Page 44 (file p46), Table A5.4: headings (a) Litres per kg, (b) Number of fittings present, (c) Quantity using rainwater, (d) Rainwater demand = [(a) × (c)]; row '(e) Total fittings = Sum of (b)' / '(f) Total rainwater demand = Sum of (d)'; row 'Average rainwater demand from washing machines' '= [(f)/(e)] × 2.1'.",
+   "by": "model check, Claude Code headless (packet), Opus 5.5",
+   "confidence": "medium",
+   "date": "2026-11-23"
   }
  ]
 }

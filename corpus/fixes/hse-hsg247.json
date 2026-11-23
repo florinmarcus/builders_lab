@@ -842,42 +842,6 @@
    "date": "2026-11-22"
   },
   {
-   "key": "091a155a24dca444",
-   "kind": "table",
-   "target": "chapter-7-controlled-techniques-for-the-removal-and-repair-o-summary-table-1: Summary",
-   "value": {
-    "columns": [
-     "Summary"
-    ],
-    "rows": [
-     [
-      "Spraying"
-     ],
-     [
-      "Dry stripping with control at source"
-     ],
-     [
-      "Waste disposal"
-     ],
-     [
-      "Final clearance"
-     ]
-    ],
-    "heading_rows": [],
-    "sentences": [
-     "The Chapter 7 summary lists spraying.",
-     "The Chapter 7 summary lists dry stripping with control at source.",
-     "The Chapter 7 summary lists waste disposal.",
-     "The Chapter 7 summary lists final clearance."
-    ]
-   },
-   "reason": "On page 111 this is the bulleted Summary list, not a ruled table. It has no column headings, so I used one column and one row per bullet topic, as in the section text.",
-   "evidence": "Page 111 Summary: bullets Wetting solutions, Injection, Spraying, Dry stripping with control at source, Waste disposal, Final clearance, each with dash sub-points. The grid only holds the last four bullets.",
-   "by": "model check, Sonnet (Claude Code headless, packet)",
-   "confidence": "low",
-   "date": "2026-11-22"
-  },
-  {
    "key": "80bf93e26ab9ebf9",
    "kind": "table",
    "target": "table-5-3: Worked example",
@@ -1490,6 +1454,42 @@
    "by": "model check, Claude Code subagent (packet)",
    "confidence": "high",
    "date": "2026-11-22"
+  },
+  {
+   "key": "091a155a24dca444",
+   "kind": "table",
+   "target": "chapter-7-controlled-techniques-for-the-removal-and-repair-o-summary-table-1: Summary",
+   "value": {
+    "columns": [
+     "Summary"
+    ],
+    "rows": [
+     [
+      "Spraying – Only wets the outer surface, although increased wetting can be achieved with several sprays over a number of hours. – Is not suitable for thick pipe insulation or sprayed coatings. – Can be used for many types of dust suppression (eg when dry spots are found, debris etc)."
+     ],
+     [
+      "Dry stripping with control at source – This technique includes wrap-and-cut, glovebags, shadow vacuuming, direct removal by vacuum systems and enhanced air management. – Is used where wet stripping is not possible or to supplement wet stripping techniques to further enhance control."
+     ],
+     [
+      "Waste disposal – Any asbestos waste should be packaged, labelled and transferred appropriately."
+     ],
+     [
+      "Final clearance – Final cleaance should be performed by a person who is: competent to do so; independent of the contractors carrying out the work. – Final clearance should be carried out in four stages: Stage 1: Preliminary check of site condition and job completeness; Stage 2: A thorough visual inspection inside the enclosure/work area; Stage 3: Clearance air monitoring; Stage 4: Final assessment post-enclosure/work area dismantling."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "In the summary of controlled techniques for the removal and repair of ACMs, spraying only wets the outer surface, although increased wetting can be achieved with several sprays over a number of hours; it is not suitable for thick pipe insulation or sprayed coatings; and it can be used for many types of dust suppression (eg when dry spots are found, debris etc).",
+     "In the summary of controlled techniques for the removal and repair of ACMs, dry stripping with control at source includes wrap-and-cut, glovebags, shadow vacuuming, direct removal by vacuum systems and enhanced air management, and is used where wet stripping is not possible or to supplement wet stripping techniques to further enhance control.",
+     "In the summary of controlled techniques for the removal and repair of ACMs, for waste disposal any asbestos waste should be packaged, labelled and transferred appropriately.",
+     "In the summary of controlled techniques for the removal and repair of ACMs, final clearance should be performed by a person who is competent to do so and independent of the contractors carrying out the work, and should be carried out in four stages: Stage 1: Preliminary check of site condition and job completeness; Stage 2: A thorough visual inspection inside the enclosure/work area; Stage 3: Clearance air monitoring; Stage 4: Final assessment post-enclosure/work area dismantling."
+    ]
+   },
+   "reason": "This is not a real grid. It is a single-column bulleted summary box. The packet's section text covers the last four topics (Spraying to Final clearance), so I made one column, 'Summary', and one row per topic, with the topic's points copied word for word. The printed typo 'cleaance' is kept.",
+   "evidence": "p111, the 'Summary' box under the Chapter 7 photo: Spraying (3 points), Dry stripping with control at source (2 points), Waste disposal (1 point), Final clearance (two points with sub-bullets and Stages 1-4). The first two topics, Wetting solutions and Injection, sit above the span (520-699 pt) and are not in the section text.",
+   "by": "model check, Claude Code headless (packet), Opus 5.5",
+   "confidence": "medium",
+   "date": "2026-11-23"
   }
  ]
 }

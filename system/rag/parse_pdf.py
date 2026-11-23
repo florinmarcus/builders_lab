@@ -45,6 +45,8 @@ PAGE_NO_RE = re.compile(r"\bPage\s+(\S+)\s+of\s+\d+\b|^(\d+)\s+of\s+\d+\s+pages$
 BULLET_RE = re.compile(r"^[■●•▪]+\s*")
 LIST_MARK_RE = re.compile(r"\(cid:\d+\)|[■●•▪]")  # a bullet as its own word (an unmapped glyph reads "(cid:2)")
 PART_RE = re.compile(r"^(PART|Part|SCHEDULE|Schedule|SECTION|Section)\s+(\d+[A-Z]?|[IVX]+|[A-H])\b")
+# "ANNEX A", "Annex B.1", "AnnexA" (a scan), "Annex c" (small capitals read as lower case); not "Annexes".
+ANNEX_RE = re.compile(r"^(ANNEX|Annex)\s*(\d+|[IVX]+(?=\s|$)|[A-H]|[a-h](?=[\s.]|$))(?:\.(\d+))?(?![a-z])")
 # A numbered paragraph: "12 Text" (HSE guides) or "12. Text" / "1.—(1) Text" (legislation printed as PDF).
 PARA_RE = re.compile(r"^(\d{1,3})(?:\.—|\.\s|\s)\s*(\S.*)$")
 DEC_PARA_RE = re.compile(r"^(A?\d{1,2})\.(\d{1,3})\s+(\S.*)$")  # "2.14 Text": paragraph 14 of chapter 2 (HSG248)
@@ -83,7 +85,7 @@ def signature_or_logo(im: dict, page: int, lines: list[dict]) -> bool:
         return True
     if small and any(SIGNED_RE.match(t.strip()) for t in left):
         return True  # "Signed by authority of the Secretary of State" in the cell beside it
-    if small and below and (re.fullmatch(r"Signed:?", first) or len(first.split()) <= 4
+    if small and below and (re.fullmatch(r"Signed:?", first) or SIGNED_RE.match(first) or len(first.split()) <= 4
                             and any(ROLE_RE.search(l["text"]) for l in below[:3])):
         return True
     if first.startswith("©") or re.search(r"\bwww\.|\bISBN\b", first):
@@ -1328,6 +1330,7 @@ class Builder:
                 fonts[l["font"]] += len(l["text"])
         self.body_font = fonts.most_common(1)[0][0] if fonts else ""
         self.part_size = max((l["size"] for l in self.lines if PART_RE.match(l["text"].strip())), default=0.0)
+        self.annex_size = max((l["size"] for l in self.lines if ANNEX_RE.match(l["text"].strip())), default=0.0)
         # Chapter titles set only a little larger than body text, when "Contents" is the only larger title.
         self.contents_style: set[tuple[float, str]] = set()
         self.contents_style = self._contents_style()
@@ -1565,16 +1568,20 @@ class Builder:
             t = l["text"].strip()
             if t.lower() in SKIP_TITLES:
                 return l["size"] >= 1.3 * self.body_size  # not a "Contents" heading inside a chapter (L143)
-            m = PART_RE.match(t)
+            m = PART_RE.match(t) or ANNEX_RE.match(t)
             if m:
+                if re.search(r"\.{4,}", t):
+                    return False  # a contents entry with dot leaders ("Annex A Policy Landscape ........ 2")
                 if t[m.end():].lstrip(" ,")[:1].islower():
                     return False  # "Schedule 3 to the Building Regulations ...": running text naming a Schedule
+                if m.re is ANNEX_RE:  # annex titles of one circular differ by a point or two (16pt and 17pt)
+                    return l["size"] >= max(self.body_size + 2, self.annex_size - 1.5)
                 return l["size"] >= self.part_size - 0.5
         return False
 
     def _part_title(self, i: int, title: str) -> tuple[str, int]:
         """A bare "PART 1" takes the line below it (larger than body text, not bold body text) as its title."""
-        if not PART_RE.fullmatch(title.strip()) or i >= len(self.lines):
+        if not (PART_RE.fullmatch(title.strip()) or ANNEX_RE.fullmatch(title.strip())) or i >= len(self.lines):
             return title, i
         nxt, cur = self.lines[i], self.lines[i - 1]
         if nxt["page"] == cur["page"] and 0 < nxt["top"] - cur["top"] < 40 and nxt["size"] > self.body_size + 0.4 \
@@ -1727,7 +1734,13 @@ class Builder:
         self.lines_seen_contents = False
         # Short documents (task sheets, leaflets) have a title on page 1 and no chapter titles after it: the whole
         # document is one chapter and page 1 is content, not a cover.
-        self.has_chapters = any(self.is_chapter(l) for l in self.lines if l["page"] > 1)
+        later = [l for l in self.lines if l["page"] > 1 and self.is_chapter(l)]
+        self.has_chapters = bool(later)
+        # A circular whose only titles after page 1 are its annexes ("ANNEX A" in 20pt): read like a document
+        # without chapters up to the first annex (page 1 is content, not a cover), then one appendix per annex.
+        self.annex_only = self.has_chapters and all(ANNEX_RE.match(l["text"].strip()) for l in later)
+        if self.annex_only:
+            self.has_chapters = False
         self.page_one_chapters = self._page_one_chapters() if self.has_chapters else set()
         front_pages = self._front_pages()  # content before the first chapter title (not cover, contents, imprint)
         front_caption = False    # content mode entered at a captioned figure before chapter 1 (HSG227)
@@ -1765,7 +1778,7 @@ class Builder:
                 title = " ".join(parts)
                 title, i = self._part_title(i, title)
                 low = title.lower().strip()
-                if not self.has_chapters:
+                if not self.has_chapters and not (self.annex_only and l["page"] > 1 and ANNEX_RE.match(title)):
                     continue  # the document's own title (page 1)
                 para = None
                 heading = None
@@ -1781,7 +1794,7 @@ class Builder:
                 mode = "content"
                 m_num = re.match(r"^(\d+)\s+(.*)$", title)
                 m_app = re.match(r"^Appendix\s+(\d+)\s*[:\-–—]?\s*(.*)$", title, flags=re.I)
-                m_part = PART_RE.match(title)
+                m_part = PART_RE.match(title) or ANNEX_RE.match(title)
                 m_annex = re.match(r"^Appendix\s+(\d+)\s*:?\s*Annex\s+(\d+)\s*(.*)$", title, flags=re.I)
                 if m_annex:
                     n, a, t = m_annex.groups()
@@ -1790,13 +1803,15 @@ class Builder:
                     counter_key = chapter["id"]
                 elif m_part:
                     kind, n = m_part.group(1).lower(), m_part.group(2)
+                    if m_part.re is ANNEX_RE:
+                        n = n.upper() + (f".{m_part.group(3)}" if m_part.group(3) else "")
                     t = title[m_part.end():].strip(" :-–—")
-                    cid = f"{kind}-{n.lower()}"
+                    cid = f"{kind}-{n.lower().replace('.', '-')}"
                     while cid in self.by_id:
                         cid += "-2"
-                    chapter = self.new(cid, "appendix" if kind == "schedule" else "chapter", None, n, t or title,
-                                       [self.title, title], l["page"])
-                    counter_key = cid if kind == "schedule" else "main"
+                    chapter = self.new(cid, "appendix" if kind in ("schedule", "annex") else "chapter", None, n,
+                                       t or title, [self.title, title], l["page"])
+                    counter_key = cid if kind in ("schedule", "annex") else "main"
                 elif m_app:
                     n, t = m_app.group(1), m_app.group(2).lstrip(":-–— ")
                     chapter = self.new(f"appendix-{n}", "appendix", None, n, t, [self.title, f"Appendix {n} {t}"], l["page"])

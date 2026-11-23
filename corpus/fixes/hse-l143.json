@@ -208,49 +208,6 @@
    "date": "2026-11-20"
   },
   {
-   "key": "31352519c50e75cf",
-   "kind": "table",
-   "target": "table-4: Summary of employers’ (and self-employed people’s) duties under the Control of Asbestos Regulations 2012 in respect of employees and others",
-   "value": {
-    "columns": [
-     "Duty of employer relating to",
-     "Employees",
-     "Other people on the premises",
-     "Other people likely to be affected by the work"
-    ],
-    "rows": [
-     [
-      "Regulations 5–9, 11, 13–15, 17–19 and 23",
-      "Yes",
-      "So far as is reasonably practicable",
-      "So far as is reasonably practicable"
-     ],
-     [
-      "Regulation 10 – provision of information, instruction and training",
-      "Yes",
-      "So far as is reasonably practicable",
-      "No"
-     ],
-     [
-      "Regulation 22 – health records and medical surveillance",
-      "Yes",
-      "No",
-      "No"
-     ]
-    ],
-    "sentences": [
-     "For Regulations 5–9, 11, 13–15, 17–19 and 23, the employer's duty protects employees (Yes), other people on the premises so far as is reasonably practicable, and other people likely to be affected by the work so far as is reasonably practicable.",
-     "For Regulation 10 – provision of information, instruction and training, the employer's duty protects employees (Yes), other people on the premises so far as is reasonably practicable, and not other people likely to be affected by the work (No).",
-     "For Regulation 22 – health records and medical surveillance, the employer's duty protects employees (Yes) but not other people on the premises (No) or other people likely to be affected by the work (No)."
-    ]
-   },
-   "reason": "Grid rebuilt from the page images; merged cells repeated so each row stands alone; one sentence per data row from the table's own words.",
-   "evidence": "Two header rows ('Duty for the protection of:' spans the last three columns) merged into one header row.",
-   "by": "model check, Claude Code subagent (page images and pdfplumber grid)",
-   "confidence": "high",
-   "date": "2026-11-20"
-  },
-  {
    "key": "65e1ff7cbca1326c",
    "kind": "table",
    "target": "table-5: Duty to manage in common parts of domestic premises",
@@ -638,6 +595,50 @@
    "by": "model check, Claude Code subagent (packet)",
    "confidence": "high",
    "date": "2026-11-22"
+  },
+  {
+   "key": "31352519c50e75cf",
+   "kind": "table",
+   "target": "table-4: Summary of employers’ (and self-employed people’s) duties under the Control of Asbestos Regulations 2012 in respect of employees and others",
+   "value": {
+    "columns": [
+     "Duty of employer relating to:",
+     "Duty for the protection of: Employees",
+     "Duty for the protection of: Other people on the premises",
+     "Duty for the protection of: Other people likely to be affected by the work"
+    ],
+    "rows": [
+     [
+      "Regulations 5–9, 11, 13–15, 17–19 and 23",
+      "Yes",
+      "So far as is reasonably practicable",
+      "So far as is reasonably practicable"
+     ],
+     [
+      "Regulation 10 – provision of information, instruction and training",
+      "Yes",
+      "So far as is reasonably practicable",
+      "No"
+     ],
+     [
+      "Regulation 22 – health records and medical surveillance",
+      "Yes",
+      "No",
+      "No"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Under the Control of Asbestos Regulations 2012, the employer's (and self-employed person's) duty relating to Regulations 5–9, 11, 13–15, 17–19 and 23 applies for the protection of employees: Yes; other people on the premises: so far as is reasonably practicable; other people likely to be affected by the work: so far as is reasonably practicable.",
+     "Under the Control of Asbestos Regulations 2012, the employer's (and self-employed person's) duty relating to Regulation 10 – provision of information, instruction and training applies for the protection of employees: Yes; other people on the premises: so far as is reasonably practicable; other people likely to be affected by the work: No.",
+     "Under the Control of Asbestos Regulations 2012, the employer's (and self-employed person's) duty relating to Regulation 22 – health records and medical surveillance applies for the protection of employees: Yes; other people on the premises: No; other people likely to be affected by the work: No."
+    ]
+   },
+   "reason": "Four columns, three data rows, two header rows. On the page the top-left heading box 'Duty of employer relating to:' runs over the Employees column, but 'Employees' is clearly one of the groups protected, so it is joined to 'Duty for the protection of:' with the other two groups. The first column keeps only the top heading because its second header cell is empty. Cell text matches the library grid and the image.",
+   "evidence": "p25 Table 4: header row 1 'Duty of employer relating to:' | 'Duty for the protection of:'; header row 2 '' | 'Employees' | 'Other people on the premises' | 'Other people likely to be affected by the work'; rows Regulations 5–9, 11, 13–15, 17–19 and 23 / Regulation 10 / Regulation 22.",
+   "by": "model check, Claude Code headless (packet), Opus 5.5",
+   "confidence": "medium",
+   "date": "2026-11-23"
   }
  ]
 }

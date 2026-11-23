@@ -813,107 +813,6 @@
    "date": "2026-11-22"
   },
   {
-   "key": "8e017df7903e455d",
-   "kind": "table",
-   "target": "table-3.1: Separating floor junctions reference table",
-   "value": {
-    "columns": [
-     "Building element attached to separating wall",
-     "Type 1",
-     "Type 2",
-     "Type 3"
-    ],
-    "rows": [
-     [
-      "External cavity wall with masonry inner leaf",
-      "G",
-      "G",
-      "G"
-     ],
-     [
-      "External cavity wall with timber frame inner leaf",
-      "G",
-      "G",
-      "G"
-     ],
-     [
-      "External solid masonry wall",
-      "N",
-      "N",
-      "N"
-     ],
-     [
-      "Internal wall – framed",
-      "G",
-      "G",
-      "G"
-     ],
-     [
-      "Internal wall – masonry",
-      "G",
-      "G",
-      "N"
-     ],
-     [
-      "Floor penetrations",
-      "G",
-      "G",
-      "G"
-     ],
-     [
-      "For flats the following may also apply:",
-      "",
-      "",
-      ""
-     ],
-     [
-      "Separating wall type 1 – solid masonry",
-      "G",
-      "G",
-      "G"
-     ],
-     [
-      "Separating wall type 2 – cavity masonry",
-      "G",
-      "G",
-      "G"
-     ],
-     [
-      "Separating wall type 3 – masonry between independent panels",
-      "G",
-      "G",
-      "G"
-     ],
-     [
-      "Separating wall type 4 – framed wall with absorbent material",
-      "N",
-      "N",
-      "G"
-     ]
-    ],
-    "heading_rows": [
-     6
-    ],
-    "sentences": [
-     "In the separating floor junctions reference table, the external cavity wall with masonry inner leaf is G for Type 1, G for Type 2 and G for Type 3.",
-     "In the separating floor junctions reference table, the external cavity wall with timber frame inner leaf is G for Type 1, G for Type 2 and G for Type 3.",
-     "In the separating floor junctions reference table, the external solid masonry wall is N for Type 1, N for Type 2 and N for Type 3.",
-     "In the separating floor junctions reference table, the internal wall – framed is G for Type 1, G for Type 2 and G for Type 3.",
-     "In the separating floor junctions reference table, the internal wall – masonry is G for Type 1, G for Type 2 and N for Type 3.",
-     "In the separating floor junctions reference table, floor penetrations is G for Type 1, G for Type 2 and G for Type 3.",
-     "In the separating floor junctions reference table, for flats, separating wall type 1 – solid masonry is G for Type 1, G for Type 2 and G for Type 3.",
-     "In the separating floor junctions reference table, for flats, separating wall type 2 – cavity masonry is G for Type 1, G for Type 2 and G for Type 3.",
-     "In the separating floor junctions reference table, for flats, separating wall type 3 – masonry between independent panels is G for Type 1, G for Type 2 and G for Type 3.",
-     "In the separating floor junctions reference table, for flats, separating wall type 4 – framed wall with absorbent material is N for Type 1, N for Type 2 and G for Type 3."
-    ]
-   },
-   "reason": "Table 3.1 has an element column and three separating floor types; the italic row 'For flats the following may also apply:' is a sub-heading. Key and Note are outside the grid.",
-   "evidence": "Page 45 table: header Separating floor type over Type 1, Type 2, Type 3; 10 data rows plus one sub-heading row.",
-   "by": "model check, Claude Code headless Sonnet (packet)",
-   "confidence": "high",
-   "date": "2026-11-22"
-  },
-  {
    "key": "d416a0531775b36a",
    "kind": "figure_description",
    "target": "diagram-3.2: Ceiling treatments A, B and C",
@@ -1655,6 +1554,107 @@
    "by": "model check, Claude Code headless Sonnet (packet)",
    "confidence": "medium",
    "date": "2026-11-22"
+  },
+  {
+   "key": "8e017df7903e455d",
+   "kind": "table",
+   "target": "table-3.1: Separating floor junctions reference table",
+   "value": {
+    "columns": [
+     "Building element attached to separating wall",
+     "Separating floor type: Type 1",
+     "Separating floor type: Type 2",
+     "Separating floor type: Type 3"
+    ],
+    "rows": [
+     [
+      "External cavity wall with masonry inner leaf",
+      "G",
+      "G",
+      "G"
+     ],
+     [
+      "External cavity wall with timber frame inner leaf",
+      "G",
+      "G",
+      "G"
+     ],
+     [
+      "External solid masonry wall",
+      "N",
+      "N",
+      "N"
+     ],
+     [
+      "Internal wall – framed",
+      "G",
+      "G",
+      "G"
+     ],
+     [
+      "Internal wall – masonry",
+      "G",
+      "G",
+      "N"
+     ],
+     [
+      "Floor penetrations",
+      "G",
+      "G",
+      "G"
+     ],
+     [
+      "For flats the following may also apply:",
+      "",
+      "",
+      ""
+     ],
+     [
+      "Separating wall type 1 – solid masonry",
+      "G",
+      "G",
+      "G"
+     ],
+     [
+      "Separating wall type 2 – cavity masonry",
+      "G",
+      "G",
+      "G"
+     ],
+     [
+      "Separating wall type 3 – masonry between independent panels",
+      "G",
+      "G",
+      "G"
+     ],
+     [
+      "Separating wall type 4 – framed wall with absorbent material",
+      "N",
+      "N",
+      "G"
+     ]
+    ],
+    "heading_rows": [
+     6
+    ],
+    "sentences": [
+     "In the separating floor junctions reference table, for the building element external cavity wall with masonry inner leaf, separating floor Type 1 is G, Type 2 is G and Type 3 is G.",
+     "In the separating floor junctions reference table, for the building element external cavity wall with timber frame inner leaf, separating floor Type 1 is G, Type 2 is G and Type 3 is G.",
+     "In the separating floor junctions reference table, for the building element external solid masonry wall, separating floor Type 1 is N, Type 2 is N and Type 3 is N.",
+     "In the separating floor junctions reference table, for the building element internal wall – framed, separating floor Type 1 is G, Type 2 is G and Type 3 is G.",
+     "In the separating floor junctions reference table, for the building element internal wall – masonry, separating floor Type 1 is G, Type 2 is G and Type 3 is N.",
+     "In the separating floor junctions reference table, for the building element floor penetrations, separating floor Type 1 is G, Type 2 is G and Type 3 is G.",
+     "In the separating floor junctions reference table, for flats, for the building element separating wall type 1 – solid masonry, separating floor Type 1 is G, Type 2 is G and Type 3 is G.",
+     "In the separating floor junctions reference table, for flats, for the building element separating wall type 2 – cavity masonry, separating floor Type 1 is G, Type 2 is G and Type 3 is G.",
+     "In the separating floor junctions reference table, for flats, for the building element separating wall type 3 – masonry between independent panels, separating floor Type 1 is G, Type 2 is G and Type 3 is G.",
+     "In the separating floor junctions reference table, for flats, for the building element separating wall type 4 – framed wall with absorbent material, separating floor Type 1 is N, Type 2 is N and Type 3 is G."
+    ]
+   },
+   "reason": "Two-row header: 'Separating floor type' is a group heading over Type 1, Type 2 and Type 3, so it is joined to each. The italic line 'For flats the following may also apply:' is a sub-heading row with no values. The key and note under the table are not data rows.",
+   "evidence": "Page 45 (printed page 43), Table 3.1: 11 data rows with G/N values, plus the italic sub-heading before the four separating wall types; matches the section text.",
+   "by": "model check, Claude Code headless (packet), Opus 5.5",
+   "confidence": "high",
+   "date": "2026-11-23"
   }
  ]
 }

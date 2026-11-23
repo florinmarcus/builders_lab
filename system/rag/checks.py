@@ -111,6 +111,21 @@ NOT_A_FAMILY = {
     ("adb-historical", "v2-table-b1-from-2029-09-02"): "2029 Table B1: 5 printed columns, no BS 476 column (page 187).",
     ("adb-historical", "v1-table-c1-from-2029-09-02"): "2029 Table C1: 2 columns, no BS 476-22 column (page 193).",
     ("adb-historical", "v2-table-c1-from-2029-09-02"): "2029 Table C1: 2 columns, no BS 476-22 column (page 204).",
+    # Group headings joined into column names (23 Nov 2026) show these "families" are different layouts:
+    ("adl", "v1-table-4.3"): "Existing elements: Element, then U-value (a) Threshold and (b) Improved (page 36).",
+    ("adl", "v2-table-4.2"): "Existing elements: Element, then U-value (a) Threshold and (b) Improved (page 37).",
+    ("adl", "v2-table-4.1"): "Second column printed 'Maximum U-value W/(m2·K) or air permeability' (page 35).",
+    ("adl", "v2-table-4.5"): "Group heading 'for domestic hot water services'; Table 4.4 is for low temperature hot water.",
+    ("adb-amendments", "amendments-2029-table-c1"): "2029 Table C1: one value column (European or assessed), "
+                                                    "no BS 476-22 column (pages 19 and 20).",
+    ("adb-amendments", "amendments-2029-application-of-the-fire-resistance-standards-in-table-b2-2-table-c1"):
+        "2029 Table C1, Volume 2 copy: one value column, no BS 476-22 column (pages 37 and 38).",
+    ("adb-amendments", "amendments-2029-table-b1"): "2029 Table B1: one group 'tested and classified ... or assessed "
+                                                    "following B1 to B5' over three columns, no BS 476 group (page 8).",
+    ("adb-amendments", "amendments-2029-fire-resistance-2-table-b1"): "2029 Table B1, Volume 2 copy: same layout as "
+                                                                      "the Volume 1 copy, no BS 476 group.",
+    ("hse-l140", "table-9"): "Two saved fixes share this id: the current one and an older one whose text no longer "
+                             "occurs in the tree. The page prints no column headings (S104), so both name them.",
     # The same two tables in source adb (S123, checked on pages 153 and 168 of volume 1, 22 Nov 2026).
     ("adb", "table-b1-from-2029-09-02"): "2029 Table B1: 5 printed columns, no BS 476 group (page 153); 2025 has 6.",
     ("adb", "table-c1-from-2029-09-02"): "2029 Table C1: 2 columns, no BS 476-22 column (page 168); 2025 has 3.",

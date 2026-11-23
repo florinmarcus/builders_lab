@@ -234,48 +234,6 @@
    "date": "2026-11-20"
   },
   {
-   "key": "64887e47bdc0bbd8",
-   "kind": "table",
-   "target": "table-4: Imposed loads",
-   "value": {
-    "columns": [
-     "Element",
-     "Loading"
-    ],
-    "rows": [
-     [
-      "Distributed loads",
-      ""
-     ],
-     [
-      "Roof",
-      "1.00kN/m² for spans not exceeding 12m; 1.5kN/m² for spans not exceeding 6m"
-     ],
-     [
-      "Floors",
-      "Distributed load: 2.00kN/m²"
-     ],
-     [
-      "Ceilings",
-      "Distributed load: 0.25kN/m² together with concentrated load: 0.9kN"
-     ]
-    ],
-    "heading_rows": [
-     0
-    ],
-    "sentences": [
-     "Imposed loads, Distributed loads: Element Roof; Loading 1.00kN/m² for spans not exceeding 12m; 1.5kN/m² for spans not exceeding 6m.",
-     "Imposed loads, Distributed loads: Element Floors; Loading Distributed load: 2.00kN/m².",
-     "Imposed loads, Distributed loads: Element Ceilings; Loading Distributed load: 0.25kN/m² together with concentrated load: 0.9kN."
-    ]
-   },
-   "reason": "Two-column table; 'Distributed loads' is a sub-heading row.",
-   "evidence": "page image corpus/parsed/ada/approved-document-a-structure@2013-09-01-96a5a374/pages/p20.png",
-   "by": "model check, Claude Code (AD parser agent, page images)",
-   "confidence": "high",
-   "date": "2026-11-20"
-  },
-  {
    "key": "64e84fe828061fc7",
    "kind": "table",
    "target": "table-5: Cavity wall ties",
@@ -1280,6 +1238,42 @@
    "by": "model check, Claude Code headless Sonnet (packet)",
    "confidence": "high",
    "date": "2026-11-22"
+  },
+  {
+   "key": "64887e47bdc0bbd8",
+   "kind": "table",
+   "target": "table-4: Imposed loads",
+   "value": {
+    "columns": [
+     "Element",
+     "Loading"
+    ],
+    "rows": [
+     [
+      "Roof",
+      "Distributed loads 1.00kN/m² for spans not exceeding 12m 1.5kN/m² for spans not exceeding 6m"
+     ],
+     [
+      "Floors",
+      "Distributed load: 2.00kN/m²"
+     ],
+     [
+      "Ceilings",
+      "Distributed load: 0.25kN/m² together with concentrated load: 0.9kN"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Imposed loads: for the Roof, the loading is distributed loads of 1.00kN/m² for spans not exceeding 12m and 1.5kN/m² for spans not exceeding 6m.",
+     "Imposed loads: for Floors, the loading is a distributed load of 2.00kN/m².",
+     "Imposed loads: for Ceilings, the loading is a distributed load of 0.25kN/m² together with a concentrated load of 0.9kN."
+    ]
+   },
+   "reason": "Table 4 has two single-row column headings (Element, Loading) and three data rows separated by rules; the Roof loading cell prints 'Distributed loads' and two span limits on three lines inside one cell, so it is kept as one row.",
+   "evidence": "Page 20 (printed 18), Table 4 Imposed loads: Roof - Distributed loads / 1.00kN/m² for spans not exceeding 12m / 1.5kN/m² for spans not exceeding 6m; Floors - Distributed load: 2.00kN/m²; Ceilings - Distributed load: 0.25kN/m² together with concentrated load: 0.9kN.",
+   "by": "model check, Claude Code headless (packet), Opus 5.5",
+   "confidence": "high",
+   "date": "2026-11-23"
   }
  ]
 }

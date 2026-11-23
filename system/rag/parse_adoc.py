@@ -61,6 +61,20 @@ SKIP_CHAPTERS = {"contents"}
 STOP_CHAPTERS = {"index", "list of approved documents"}
 
 
+INSTRUCTION_VERBS = {"Replace", "Insert", "Delete", "Add", "Amend", "Remove"}
+MARGIN_MORE_RE = re.compile(r"(?:to|and|–|-)\s*\d{1,3}")  # "to 128": a margin page reference's second line
+
+
+def _instruction(ws) -> bool:
+    """A booklet line that starts an amendment instruction: a bold page reference in the margin ("Page 30
+    Replace ..."), or a bold verb first, after an optional list number ("Replace paragraph 3.35 ...",
+    "1. Replace row 2 ...")."""
+    if len(ws) > 1 and re.fullmatch(r"Pages?", ws[0]["text"]) and _bold(ws[0]) and re.fullmatch(r"\d{1,3}", ws[1]["text"]):
+        return True
+    i = 1 if len(ws) > 1 and re.fullmatch(r"\d{1,2}\.", ws[0]["text"]) else 0
+    return ws[i]["text"] in INSTRUCTION_VERBS and _bold(ws[i])
+
+
 def _date(text: str) -> str:
     return datetime.datetime.strptime(text, "%d %B %Y").date().isoformat()
 
@@ -118,6 +132,8 @@ class AdocBuilder:
         self.definitions: list[dict] = []
         self.printed: dict[int, str] = {}
         self.banner: dict[int, tuple[str, str]] = {}
+        self.box: dict | None = None  # the edition box being read: its end (page, bottom), heading and date
+        self._pos: tuple[int, float] = (0, 0.0)
         self.pages: dict[int, list[dict]] = defaultdict(list)
         self._diagram_top: dict[tuple[int, int], float] = {}
         self._diagram_area: dict[tuple[int, int], tuple[float, float, float, float]] = {}
@@ -496,6 +512,8 @@ class AdocBuilder:
             sec["valid_to"] = chap["valid_to"]
         if chap and chap.get("valid_from"):
             sec["valid_from"] = chap["valid_from"]
+        if self.box and self._pos <= self.box["end"]:  # inside an edition box ("Effective until ...", "... from ...")
+            sec[self.box["valid"][0]] = self.box["valid"][1]
         if sid in self.by_id and chap and kind in ("paragraph", "table", "figure") \
                 and self.by_id[sid].get("_chapter") not in (None, chap["id"]):
             # The same number in another chapter (two volumes or two Parts in one booklet): scope it by chapter.
@@ -900,6 +918,15 @@ class AdocBuilder:
                     continue  # a double-page spread: the right page is the back cover's list of documents
                 if skipping or self.chapter is None:
                     continue
+                self._pos = (page, l["top"])
+                if self.box and self._pos > self.box["end"]:
+                    # Past the bottom of an edition box: what follows is printed outside it (AD B 3.36 after the
+                    # 2026 amendment box), so it goes back under the heading the box sat in, with no box date.
+                    # Everything inside the box, under headings printed in it too, carries the box's date.
+                    if self.box["chapter"] is self.chapter:
+                        h1, h2, h3 = self.box["prev"]  # headings printed inside the box end with it
+                        current = h3 or h2 or h1 or self.chapter
+                    self.box = None
                 parent_h = h3 or h2 or h1 or self.chapter
                 if kind == "rtable":
                     sec = region_secs.get(n)
@@ -1010,6 +1037,29 @@ class AdocBuilder:
                         and current["type"] in ("paragraph", "text") and prev_line[0] == (page, l.get("col")) \
                         and 0 < l["top"] - prev_line[1] < 13:
                     all_bold = False  # a bold run-in title wrapping onto the next line ("2C6 Solid external walls ...")
+                # Booklet: an amendment instruction ("Page 120 Replace paragraph B4 with the following.", "Replace
+                # paragraph 3.35 ...", "1. Replace row 2 ...", "In Table B3 ... replace rows as follows.") is a text
+                # block of its own. It never ends the paragraph before it, and is never a key term or a heading.
+                if self.simple and ws:
+                    if all_bold and MARGIN_MORE_RE.fullmatch(t) and current is not None and current.get("_instruction") == page:
+                        current["text"] = re.sub(r"^(Pages?\s+\d+)", lambda m: f"{m.group(1)} {t}", current["text"], count=1)
+                        continue  # the second line of a page reference in the margin ("Pages 125" / "to 128")
+                    if current is not None and current.get("_instruction") == page and prev_line \
+                            and 0 < l["top"] - prev_line[1] < 16 and not current["text"].rstrip().endswith((".", ":")):
+                        current["text"] = self._join(current["text"], t)  # the instruction wraps ("... and Exit" / "passageway.")
+                        prev_line = ((page, l.get("col")), l["top"])
+                        continue
+                    if _instruction(ws) or (current is not None and current["type"] == "paragraph"
+                                            and current.get("_cont_x0", 0) > current["_num_x0"] + 15
+                                            and l["x0"] < current["_cont_x0"] - 15
+                                            and not all_bold and not NUM_RE.match(ws[0]["text"])):
+                        # (the second test: a line set back to the number column, after a paragraph whose lines
+                        # run on indented under its text, is not part of it)
+                        k = 1 + sum(1 for s in self.sections if s["parent_id"] == parent_h["id"] and s["type"] == "text")
+                        current = self.add(f"{parent_h['id']}-text-{k}", "text", parent_h, None, None, page, t)
+                        current["_instruction"] = page
+                        prev_line = ((page, l.get("col")), l["top"])
+                        continue
                 # Definitions (key terms): a bold term at the start of a line, then its meaning.
                 # Older editions (AD P 2013) print the term in the accent colour on its own line, the meaning below.
                 if self.chapter["id"].startswith("appendix-a") and ws and not t.startswith("NOTE") \
@@ -1033,7 +1083,12 @@ class AdocBuilder:
                 # Headings
                 if all_bold and l["size"] >= 14.5 and current is not None and current["type"] == "heading" \
                         and current.get("_heading_top") is not None and current.get("_size") == l["size"] \
-                        and 0 < l["top"] - current["_heading_top"] < l.get("orig_size", l["size"]) * 1.3:
+                        and (0 < l["top"] - current["_heading_top"] < l.get("orig_size", l["size"]) * 1.3
+                             or self.classic and 0 < l["top"] - current["_heading_top"] < l["size"] * 1.45
+                             and current["title"].isupper() == t.isupper()):
+                    # Classic 14pt headings also wrap a little wider apart (AD A "Construction materials and" /
+                    # "workmanship"); there a line in capitals over one in lower case is another heading (AD J
+                    # "EXAMPLES: SEE PARAGRAPH 1.55" over "Hearth, fireplace, flues and chimneys").
                     current["title"] = f"{current['title']} {t}"
                     current["heading_path"][-1] = current["title"]
                     current["_heading_top"] = l["top"]
@@ -1057,7 +1112,15 @@ class AdocBuilder:
                         current["title"] = (current["title"] + " " + t)
                         current["heading_path"][-1] = current["title"]
                         continue
+                    before = h3
                     h3 = self._heading(t, page, h2 or h1 or self.chapter, 3, l)
+                    ban = BANNER_RE.search(t)
+                    box = self._edition_box(page, l) if ban else None
+                    if box:
+                        self.box = {"end": box, "chapter": self.chapter, "prev": (h1, h2, before),
+                                    "valid": ("valid_to" if "until" in ban.group(1).lower() else "valid_from",
+                                              _date(ban.group(2)))}
+                        h3[self.box["valid"][0]] = self.box["valid"][1]
                     current = h3
                     continue
                 # Numbered paragraphs ("3.100Doors": a long number can touch the first word)
@@ -1072,6 +1135,7 @@ class AdocBuilder:
                     num = ws[0]["text"]
                     sec = self.add(f"para-{num.lower()}" + self.suffix(), "paragraph", parent_h, num,
                                    f"Paragraph {num}", page, _text(ws[1:]))
+                    sec["_num_x0"] = l["x0"]
                     current = sec
                     self._terms(sec, ws[1:])
                     prev_line = ((page, l.get("col")), l["top"])
@@ -1081,6 +1145,8 @@ class AdocBuilder:
                     host = current or self.chapter
                     k = 1 + sum(1 for s in self.sections if s["parent_id"] == host["id"] and s["type"] == "text")
                     current = self.add(f"{host['id']}-text-{k}", "text", host, None, None, page)
+                if current["type"] == "paragraph" and "_num_x0" in current:
+                    current.setdefault("_cont_x0", l["x0"])
                 current["text"] = self._join(current["text"], t)
                 prev_line = ((page, l.get("col")), l["top"])
                 self._terms(current, ws)
@@ -1124,6 +1190,22 @@ class AdocBuilder:
         self.by_id.pop(sec["id"], None)
         sec["id"] = sid
         self.by_id[sid] = sec
+
+    def _edition_box(self, page: int, l: dict) -> tuple[int, float] | None:
+        """(page, bottom) of the ruled box under an edition band printed inside a page ("Effective until 29
+        September 2026 - see 2026 amendment, below" in the collated AD B), or None when the band has no box. A box
+        that reaches the foot of the page goes on at the top of the next one when side rules continue there."""
+        fr = self._frame(page, l["x0"], l["top"], below=True)
+        if not fr:
+            return None
+        _t, bottom, x0, x1 = fr
+        while bottom > 740:
+            sides = [s for s in self.shapes.get(page + 1, []) if not s["fill"] and s["x1"] - s["x0"] < 3
+                     and (abs(s["x0"] - x0) < 4 or abs(s["x0"] - x1) < 4) and s["top"] < 130]
+            if not sides:
+                break
+            page, bottom = page + 1, max(s["bottom"] for s in sides)
+        return page, bottom
 
     def _heading(self, t, page, parent, level, l) -> dict:
         title = (t)
@@ -1196,6 +1278,8 @@ class AdocBuilder:
             s.pop("_heading_top", None)
             s.pop("_size", None)
             s.pop("_chapter", None)
+            for k in ("_box", "_prev", "_box_valid", "_num_x0", "_cont_x0", "_instruction"):
+                s.pop(k, None)
             s["text"] = (s["text"]) if s.get("text") else s.get("text", "")
         pre = self.meta.get("id_prefix") or ""
         if pre:  # one source, several parts (two volumes, FAQ, amendment booklets): ids unique across the parts

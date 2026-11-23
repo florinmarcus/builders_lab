@@ -756,3 +756,84 @@ def test_real_adb_historical_trees_in_scope_have_no_open_checks():
         S = t["sections"]
         assert all(s.get("description_source") == "model" for s in S if s["type"] == "figure")
         assert all(s.get("grid_source") == "model" and s.get("row_sentences") for s in S if s["type"] == "table")
+
+
+def test_text_after_an_edition_box_leaves_the_box():
+    # Collated AD B volume 1, page 46: "Effective until 29 September 2026" and "2026 amendment – effective from 30
+    # September 2026" are ruled boxes inside the page. Paragraphs 3.36 and 3.37 are printed after the second box
+    # closes: they belong under "Common escape routes", not under the box, and carry no box date.
+    W = {"b": True, "c": WHITE}
+    L = page_furniture(1, "34") + [
+        ln(1, 84, bold("Section", "3:", "Means", "of", "escape"), 26.0, "Agenda-Bold"),
+        ln(1, 120, bold("Common", "escape", "routes"), 15.0, "Agenda-Bold"),
+        ln(1, 154, [(w, W) for w in "Effective until 29 September 2026 – see 2026 amendment, below".split()], x0=34.0),
+        ln(1, 174, [("3.33", B), "Old", "rule."], font="Agenda-Semibold", x0=34.0),
+        ln(1, 200, bold("Number", "of", "routes"), 15.0, "Agenda-Bold", x0=34.0),  # a heading printed in the box
+        ln(1, 222, [("3.34", B), "Old", "rule", "too."], font="Agenda-Semibold", x0=34.0),
+        ln(1, 317, [(w, W) for w in "2026 amendment – effective from 30 September 2026".split()], x0=34.0),
+        ln(1, 337, [("3.37", B), "New", "rule."], font="Agenda-Semibold", x0=34.0),
+        ln(1, 480, [("3.36", B), "A", "fire", "doorset."], font="Agenda-Semibold", x0=34.0),
+        ln(1, 494, ["Text", "after", "the", "box."], x0=57.0)]
+    shapes = []
+    for top, bottom in ((148, 297), (311, 474)):
+        shapes += [_shape(1, top, top + 20, 28, 544, fill=True), _shape(1, top, top, 28, 545),
+                   _shape(1, top + 20, bottom, 28, 28), _shape(1, top + 20, bottom, 544, 544), _shape(1, bottom, bottom, 28, 545)]
+    t = build_tree({"lines": L, "tables": [], "shapes": shapes, "page_width": 595.0}, META)
+    by = {s["id"]: s for s in t["sections"]}
+    old, new, after = (next(s for s in t["sections"] if s.get("number") == n) for n in ("3.33", "3.37", "3.36"))
+    assert by[old["parent_id"]]["title"].startswith("Effective until") and old["valid_to"] == "2026-09-29"
+    assert by[new["parent_id"]]["title"].startswith("2026 amendment") and new["valid_from"] == "2026-09-30"
+    inner = next(s for s in t["sections"] if s.get("number") == "3.34")
+    assert inner["valid_to"] == "2026-09-29"  # under a heading inside the box, still dated by it (AD B p145)
+    assert by[after["parent_id"]]["title"] == "Common escape routes"
+    assert "valid_from" not in after and "valid_to" not in after
+    assert after["text"] == "A fire doorset. Text after the box."
+
+
+def test_booklet_amendment_instructions_stand_apart_from_the_paragraph_before():
+    # March 2024 and June 2022 AD B booklets: "Replace ..." instructions (with or without a page reference in the
+    # margin, wrapped over two lines, or as a numbered list) and "In Table B3 ... replace rows as follows." used to
+    # be joined to the paragraph printed before them; a margin reference's second line ("to 128") became a heading.
+    d = booklet()
+    d["lines"] += [
+        ln(3, 336, ["The", "rest", "of", "the", "paragraph."], x0=87.0),
+        ln(3, 356, bold("Replace", "sub-paragraph") + ["2.12", "(b)", "with", "the", "following."]),
+        ln(3, 372, ["b.", "Not", "be", "in", "a", "stair."], x0=87.0),
+        ln(3, 392, bold("Pages", "125") + [("Replace", B), "paragraph", "2.20", "with", "the", "following."], x0=30.0),
+        ln(3, 406, bold("to", "128"), x0=30.0),
+        ln(3, 412, [("2.20", B), "Use", "Table", "2.1."], font="Agenda-Semibold"),
+        ln(3, 426, ["Second", "line", "of", "2.20."], x0=87.0),
+        ln(3, 446, ["In", "Table", "2.1", "replace", "rows", "as", "follows."]),
+        ln(3, 466, ["1.", ("Replace", B), "row", "2", "with", "the", "following."]),
+        ln(3, 486, bold("Page", "131", "Insert") + ["the", "entry", "between", "Evacuation", "lift", "and", "Exit"], x0=30.0),
+        ln(3, 500, bold("passageway."))]
+    t = build_tree(d, META)
+    texts = [s["text"] for s in t["sections"] if s["file_page"] == 3]
+    assert "New text for volume 1. The rest of the paragraph." in texts
+    assert "Replace sub-paragraph 2.12 (b) with the following.\nb. Not be in a stair." in texts
+    assert "Pages 125 to 128 Replace paragraph 2.20 with the following." in texts
+    assert "Use Table 2.1. Second line of 2.20." in texts
+    assert "In Table 2.1 replace rows as follows." in texts and "1. Replace row 2 with the following." in texts
+    assert "Page 131 Insert the entry between Evacuation lift and Exit passageway." in texts
+    assert not [s for s in t["sections"] if s["type"] == "heading" and s["title"] in ("to 128", "passageway.")]
+
+
+def test_classic_heading_on_two_lines_is_one_heading_but_capitals_above_it_are_not():
+    # AD A page 20: "Construction materials and" / "workmanship" (14pt, about 20pt apart) used to become two headings and
+    # the paragraphs sat under "workmanship". AD J Appendix A: "EXAMPLES: SEE PARAGRAPH 1.55" over "Hearth,
+    # fireplace, flues and chimneys" are two headings.
+    def cl(top, words, size=10.5, font="HelveticaNeue-Roman", x0=70.9):
+        return ln(3, top, words, size, font, x0)
+    d = classic_doc()
+    d["lines"] += [cl(560, bold("Construction", "materials", "and"), 14.0, "HelveticaNeue-Bold"),
+                   cl(580.5, bold("workmanship"), 14.0, "HelveticaNeue-Bold"),
+                   cl(600, [("2C19", B), "Wall", "ties", "should", "comply."]),
+                   cl(640, bold("EXAMPLES:", "SEE", "PARAGRAPH", "1.55"), 14.0, "HelveticaNeue-Bold"),
+                   cl(660.5, bold("Hearth,", "fireplace,", "flues"), 14.0, "HelveticaNeue-Bold"),
+                   cl(680, ["The", "checklist", "can", "help", "you."])]
+    t = build_tree(d, META)
+    heads = [s["title"] for s in t["sections"] if s["type"] == "heading" and s["file_page"] == 3]
+    assert "Construction materials and workmanship" in heads and "workmanship" not in heads
+    assert "EXAMPLES: SEE PARAGRAPH 1.55" in heads and "Hearth, fireplace, flues" in heads
+    para = next(s for s in t["sections"] if s.get("number") == "2C19")
+    assert para["heading_path"][-2] == "Construction materials and workmanship"

@@ -53,12 +53,12 @@ flowchart TB
 ```mermaid
 flowchart TD
     line["line after page 1"] --> big{"2x body size, or 1.5x in a condensed font,<br/>or PART / SCHEDULE / Contents set larger?"}
-    big -->|yes| ch["chapter title"]
+    big -->|yes| ch["chapter title<br/>(ANNEX A: an appendix, 23 Nov 2026)"]
     big -->|no| only{"is 'Contents' the only chapter title after page 1?<br/>(the whole document would be skipped as front matter)"}
     only -->|no| body["heading or body text"]
     only -->|yes| style["chapter style = the largest later lines whose text<br/>is a contents-page entry; every line in that style"]
     style --> ch
-    big -->|"yes, but a phone number or web address ('Tel: 0800 ...'),<br/>or 'Schedule 3 to the ...' (running text)"| body
+    big -->|"yes, but a phone number or web address ('Tel: 0800 ...'),<br/>'Schedule 3 to the ...' (running text),<br/>or a contents entry with dot leaders"| body
 ```
 
 Before the first chapter title (coverage check, S105, 22 Nov 2026):
@@ -74,6 +74,14 @@ flowchart TD
     kind -->|"under 40 words near body size"| skip
     kind -->|"40+ words near body size<br/>(cover blurb, key facts, a circular's letter)"| front["kept in a 'Front matter' chapter;<br/>small print there is text;<br/>a cover thumbnail's own text is dropped"]
 ```
+
+"ANNEX A" set larger than body text (building regulations circulars: 20pt over 12pt) counts like PART and
+SCHEDULE (23 Nov 2026); before, the annex title and its notice of approval ran on in the last paragraph
+("ENQUIRIES"). This was the largest single cause in the semantic check's guidance PDFs. Annex titles also match
+in small capitals read as lower case ("Annex c"), without a space ("AnnexA", a scan) and with a point ("Annex B.1"),
+and may be a point or two smaller than the largest. A circular whose only titles are annexes is read like a document
+without chapters up to the first annex (its letter and page 1 are content), then one appendix per annex. A picture
+over a "Signed ..." line is a signature, not a figure.
 
 HHSRS operating guidance Parts 1 and 2, the HHSRS enforcement guidance and three Procurement Act short guides parsed
 to empty trees before the contents-page rule (parking lot S103). Before the front-matter rule INDG285 kept only its
@@ -204,6 +212,22 @@ quoted regulation 12(6A), AD K's Diagram 9.1 caption) is halved and counted in `
 were; a ruled table with no caption, set in body type, with two or more filled rows (the FAQ notes' "which edition
 applies" tables) is a table named after the heading above it; and in a booklet a one- or two-line block of small
 print is a replacement table row, kept as text, not skipped as a picture of a page.
+
+Fixes from the semantic check (23 Nov 2026, synthetic tests, [report](../../evals/experiments/P-semantic-validation.md)):
+
+```mermaid
+flowchart TD
+    box["Edition band inside a page<br/>('Effective until 29 September 2026',<br/>'2026 amendment – effective from ...')"] --> fr["its ruled box: the band's frame<br/>(on to the next page when side rules go on)"]
+    fr --> in["inside: under the band heading,<br/>valid_to / valid_from from the band"]
+    fr --> out["below the box: back under the headings<br/>the box sat in (headings printed in the box end with it),<br/>no box date (AD B 3.36, 3.37)"]
+    ins["Booklet line: bold 'Page(s) N' in the margin,<br/>or a bold Replace / Insert / Delete / Add first,<br/>or set back to the number column after an<br/>indented paragraph ('In Table B3 ... replace rows')"] --> blk["a text block of its own;<br/>never part of the paragraph before,<br/>never a key term or a heading"]
+    blk --> wrap["'to 128' in the margin and a wrapped<br/>last line ('passageway.') join the instruction"]
+    cl["Classic heading on two lines,<br/>19pt apart (AD A 'Construction materials and' /<br/>'workmanship')"] --> one["one heading; not when one line is in<br/>capitals and the other not (AD J 'EXAMPLES: ...')"]
+```
+
+The ligature fix (both readers): some PDFs map the "fi" and "fl" glyphs to a bare "f" ("frst", "foor"). The reader
+now takes a named ligature glyph's letters from its glyph name when the file's text table gives only the start of
+them (`parse_pdf.ligature_text`).
 
 ### Home Office fire risk assessment guides (parse_guide, built 22 Nov 2026)
 
@@ -354,6 +378,11 @@ flowchart TD
 - **The sample** (rule and counts are in `sample.json`): every web page; per PDF a random 10% of pages, at least 3,
   plus every other page with a table; about 300 provisions over all laws. Rates per parser family come from the
   random (base) pages; table pages are reported apart because they are picked, not drawn.
+- **Judge noise (23 Nov 2026):** unchanged units judged again flip their high flag 5% of the time (13% of high
+  units lose it, 2.5% of the others gain it). A fix is judged by a paired before/after table on the units it
+  changed (McNemar exact test), read against that noise, and every unit it "broke" is looked at.
+- **Legislation versions:** a provision printed twice under one id (for E+W+S and for N.I.) is shown in the
+  version whose extent is the tree's `applies_to`. `semcheck run` judges only packets with no verdict.
 - **Not a gate.** The report lists open findings and exits 1 while any are open. No test asserts zero: a finding is
   never accepted only to make the report pass.
 
@@ -377,6 +406,16 @@ flowchart LR
 ```
 
 Tables in one family (same title before " for ", like the HSG227 worked examples) share one layout: the first one goes alone, and the rest get its saved fix as a template. A table whose title only looks like a family's, but whose printed layout differs (checked on the page), is listed in `NOT_A_FAMILY` in `checks.py` with the reason (AD H Table 12, AD L Volume 2 Table 5.4).
+
+Table columns (23 Nov 2026): when headings are printed in two or more rows, a column's name joins them from the top down
+with ": " ("Alternative minimum provisions when tested to BS 476 (minutes): Integrity"), so no column loses its group
+heading. Before, the instruction asked for the lowest header row only, and the semantic check found AD B Tables B1,
+B3, B4 and B5 with columns such as "Walls", "Door leaf", "Walls", "Door leaf".
+
+To do a saved fix again (a better instruction, a wrong fix), set `CORPUS_REDO=key1,key2` while parsing, exporting
+and saving: the fix file is read as if those fixes were not there, the checks come back, and `checks save` writes
+the new answer over the old one. The file is never edited by hand. When a parser fix only changes a section's id
+(its text and labels are the same), the saved fix is re-keyed by script, with the reason added to the fix.
 
 A model answer can vary between runs, so every model fix is saved in `corpus/fixes/` (git) with a fingerprint of the content it is about, and reused. The parser lists what is still open as `checks`. Re-parsing gives the same result unless we choose to redo a fix. Counting fixes shows what the library should learn next.
 

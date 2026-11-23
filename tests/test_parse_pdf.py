@@ -1428,3 +1428,55 @@ def test_ligature_glyph_mapped_to_a_bare_f_is_read_by_its_glyph_name():
     with ligature_glyphs():
         assert [font.to_unichr(c) for c in (31, 102, 65)] == ["fi", "f", "A"]
     assert pdffont.PDFSimpleFont.to_unichr is plain  # the reader is put back
+
+
+def test_annex_title_set_larger_than_body_text_starts_an_annex():
+    # Building regulations circulars (AD J 2022, circular 03/2022): "ANNEX A" in 20pt over "Building Act 1984" in
+    # 18pt, on 12pt body text, used to be read as the end of the last numbered paragraph ("ENQUIRIES"), so the
+    # notice of approval sat under ENQUIRIES.
+    T, B = "TimesNewRomanPSMT", "TimesNewRomanPS-BoldMT"
+    lines = [ln(2, 75, "ENQUIRIES", 12.0, B, x0=72),
+             ln(2, 98, "9. All enquiries on matters covered by this Circular should be addressed to the Department.", 12.0, T, x0=72),
+             ln(2, 113, "Technical Policy Division, Fry Building, 2 Marsham Street, London and more words here", 12.0, T, x0=72),
+             ln(3, 99, "ANNEX A", 20.0, T, x0=72), ln(3, 132, "Building Act 1984", 18.0, T, x0=72),
+             ln(3, 240, "The Secretary of State hereby gives notice under section 6 of the Building Act 1984.", 12.0, T, x0=72)]
+    lines += [ln(2, 140 + 14 * i, "words of the circular run on here for a while longer", 12.0, T, x0=72) for i in range(8)]
+    t = build_tree({"lines": lines, "rects": [], "images": [], "page_count": 3}, META)
+    a = sec(t, "annex-a")
+    assert a["type"] == "appendix" and a["title"] == "Building Act 1984"
+    assert not [s for s in t["sections"] if "ANNEX" in (s["text"] or "")]
+    assert any("All enquiries" in (s["text"] or "") for s in t["sections"])  # the letter before the annex is kept
+    assert any(s["parent_id"] == "annex-a" and "Secretary of State" in s["text"] for s in t["sections"])
+
+
+def test_part_or_annex_entry_with_dot_leaders_is_a_contents_line_not_a_chapter():
+    # Awaab's Law phase 2 impact assessment: "Annex A Policy Landscape ........ 2" on the contents page became an
+    # annex holding the whole document.
+    T = "ArialMT"
+    lines = [ln(2, 100, "Annex A Policy Landscape ................................ 2", 14.0, T, x0=72),
+             ln(3, 99, "1. Introduction and problem under consideration of the document here", 11.0, T, x0=72)]
+    lines += [ln(3, 120 + 14 * i, "words of the assessment run on here for a while longer", 11.0, T, x0=72) for i in range(8)]
+    t = build_tree({"lines": lines, "rects": [], "images": [], "page_count": 3}, META)
+    assert not [s for s in t["sections"] if s["id"].startswith("annex-")]
+
+
+def test_annex_titles_in_small_capitals_or_without_a_space_or_a_point_smaller():
+    # Circular 02/2011: "Annex c", "Annex d" (small capitals read as lower case) were missed while "Annex B" was
+    # found, so Annex C's notice sat under Annex B. Circular 08/2004 (a scan): "AnnexA" at 16pt, "Annex B" at 17pt.
+    T = "GoudyOldStyleBT-Roman"
+    lines = []
+    for p, title, size in ((3, "Annex B", 17.0), (4, "Annex c", 17.0), (5, "AnnexA", 16.0)):
+        lines += [ln(p, 79, title, size, T, x0=79)]
+        lines += [ln(p, 120 + 14 * i, "The Secretary of State gives notice of approval of these documents.", 11.0, T, x0=79)
+                  for i in range(5)]
+    lines += [ln(2, 100 + 14 * i, "words of the circular letter run on here for a while longer", 11.0, T, x0=79) for i in range(8)]
+    t = build_tree({"lines": lines, "rects": [], "images": [], "page_count": 5}, META)
+    assert {s["id"] for s in t["sections"] if s["type"] == "appendix"} == {"annex-a", "annex-b", "annex-c"}
+
+
+def test_signature_over_a_signed_by_line_is_not_a_figure():
+    from system.rag.parse_pdf import signature_or_logo
+    im = {"page": 4, "top": 473.3, "bottom": 535.2, "x0": 126.3, "x1": 291.2}
+    lines = [{"text": "Signed by authority of the First Secretary of State,", "top": 547, "bottom": 558, "x0": 128, "x1": 400},
+             {"text": "Anne Hemming", "top": 561, "bottom": 572, "x0": 128, "x1": 200}]
+    assert signature_or_logo(im, 4, lines)

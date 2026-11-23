@@ -148,6 +148,21 @@ load the corpus database, `deploy/rds/`). Add the new document's `parser:` entry
 - If the parser or the check rules changed, update `architecture/design/regulations-corpus.md`.
 - Commit to `main` with the counts in the message: sections by type, fixes saved, checks open (should be 0). Then push.
 
+## Doing saved fixes again
+
+To redo some saved fixes (a better instruction, a fix found wrong), set `CORPUS_REDO` to their keys, comma separated,
+for the parse, `checks export` and `checks save` steps; then parse again without it:
+
+```
+CORPUS_REDO=key1,key2 python -m system.rag.parse_adoc --source adb --part <part>
+CORPUS_REDO=key1,key2 python -m system.rag.checks export --source adb
+# run the packets as in step 3
+CORPUS_REDO=key1,key2 python -m system.rag.checks save --source adb --answers <answers.jsonl> --by "..."
+python -m system.rag.parse_adoc --source adb --part <part>      # must say "0 model checks"
+```
+
+Redo a whole table family together (the first saved fix of a family is the template for the rest).
+
 ## Changing the instructions or rules
 
 The instructions and answer formats live in `system/rag/checks.py` (`INSTRUCTIONS`, `ANSWER_FORMAT`, `lint_fixes`). Change them between documents, not halfway through one. After a change, run `checks lint` on all sources and bring older fixes up to date with a script.
