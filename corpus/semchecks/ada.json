@@ -1,0 +1,324 @@
+{
+ "source_id": "ada",
+ "about": "Model verdicts on source against tree for ada (system/rag/semcheck.py).",
+ "verdicts": {
+  "1c36254a348e3802": {
+   "version_id": "approved-document-a-structure@2013-09-01-96a5a374",
+   "unit": "p12",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The list items of paragraph 2.1 (Section 2A to Section 2E) are read as headings, so paragraph 2.2, which belongs to General, is placed under the heading Section 2E.",
+     "evidence": "source: \"2.2 Section 2A gives general rules\" under \"General\" / tree: heading_path \"... > General > Section 2E > Paragraph 2.2\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-22"
+  },
+  "2101f2c7a6135639": {
+   "version_id": "approved-document-a-structure@2013-09-01-96a5a374",
+   "unit": "p14",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "6113394029cff8f7": {
+   "version_id": "approved-document-a-structure@2013-09-01-96a5a374",
+   "unit": "p15",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "A separate paragraph printed after item e of 2C3 is joined into item e.",
+     "evidence": "source: new paragraph \"BS EN 1996-1-1:2005 with its UK National Annex gives design strengths for walls\" / tree: \"e. ... Tables 6 and 7. BS EN 1996-1-1:2005 with its UK National Annex gives\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "d24ac092deb1dd2d": {
+   "version_id": "approved-document-a-structure@2013-09-01-96a5a374",
+   "unit": "p18",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The words printed inside the Diagram 3 flow chart are not in labels; only the description carries them.",
+     "evidence": "source: \"Are conditions relating to the building satisfied?\" \"NO\" \"Outside scope of this part\" \"YES\" / tree labels: \"See para 2C5\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "7805b927c63ea1b2": {
+   "version_id": "approved-document-a-structure@2013-09-01-96a5a374",
+   "unit": "p20",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "high",
+     "problem": "The area limits printed inside Diagram 5 are not in labels; they appear only in the model-written description.",
+     "evidence": "source: \"a. Structural walls on all sides\" \"Area not exceeding 70m2\" \"b. Structural walls on three sides\" \"Area not exceeding 36m2\" / tree labels: \"See para 2C14\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "One heading printed on two lines is split into two headings, and the paragraphs below it sit under the second half only.",
+     "evidence": "source: \"Construction materials and workmanship\" / tree: \"Construction materials and\" and \"workmanship\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "In Table 4 the words \"Distributed loads\" belong to the Loading cell of the Roof row, but the grid makes them a heading row in the Element column above all rows.",
+     "evidence": "source: Roof | \"Distributed loads 1.00kN/m² for spans not exceeding 12m\" / tree: [\"Distributed loads\", \"\"] as heading row"
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "610ebc9b21460e9f": {
+   "version_id": "approved-document-a-structure@2013-09-01-96a5a374",
+   "unit": "p25",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "2840ab1ad04723a5": {
+   "version_id": "approved-document-a-structure@2013-09-01-96a5a374",
+   "unit": "p26",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "figure",
+   "findings": [
+    {
+     "kind": "figure",
+     "severity": "high",
+     "problem": "The description gives the 140mm or 215mm thickness rule only for walls below ground floor level where Hf exceeds 1m, but the three storey drawing also applies it to a lowest storey wall with no Hf condition.",
+     "evidence": "source (c. Three storeys): \"This wall to be at least 140mm thick blockwork or 215mm thick brickwork\" / tree: \"Walls below ground floor level are to be at least 140mm thick in blockwork or 215mm in brickwork if Hf exceeds 1m\""
+    },
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The words and the four notes printed inside Diagram 9 are not in labels; they are kept only as a summary in the description, and note 1 is left out.",
+     "evidence": "source: \"1 If Hs is not greater than 2.7m, the compressive strength of bricks or blocks should be used in walls as indicated by the key.\" / tree labels: \"See para 2C21\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-22"
+  },
+  "82b94c984a0386fc": {
+   "version_id": "approved-document-a-structure@2013-09-01-96a5a374",
+   "unit": "p27",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "figure",
+   "findings": [
+    {
+     "kind": "figure",
+     "severity": "low",
+     "problem": "Diagram 10 labels hold only the paragraph reference; the words printed in the picture, including the 6m limit, are only in the model description (the limit is also in paragraph 2C23).",
+     "evidence": "source: \"Floor span maximum 6m\", \"Centre line of bearing\", \"a. Floor member bearing on wall\", \"b. Floor member bearing on joist hanger\" / tree labels: \"See para 2C23\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Diagram 10 is placed under the heading End restraint, but it is printed beside Loading on walls and belongs to paragraph 2C23.",
+     "evidence": "tree: \"End restraint > Maximum span of floors\" / source: \"Diagram 10 Maximum span of floors\" \"See para 2C23\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "a50ce8da7b4140b9": {
+   "version_id": "approved-document-a-structure@2013-09-01-96a5a374",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-22"
+  },
+  "72ac4a6fd3749158": {
+   "version_id": "approved-document-a-structure@2013-09-01-96a5a374",
+   "unit": "p31",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "high",
+     "problem": "Diagram 14 notes 1 to 7, which give the opening and pier rules, are not in the labels; only note 8 is kept as printed and the rest survive only as a model summary.",
+     "evidence": "source: \"2 W1, W2 or W3 should not exceed 3m\", \"7 P5 should be greater than or equal to W4/X but should not be less than 665mm\" / tree labels: \"8 Take the value of the Factor X from Table 8\""
+    },
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "Words printed inside Diagram 14, including the height limit, are not in the labels.",
+     "evidence": "source: \"H should not be greater than 2.1 m\", \"L = length of wall\", \"corner of two external walls\", \"Outer face of return wall\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "a7457807f8e0ea76": {
+   "version_id": "approved-document-a-structure@2013-09-01-96a5a374",
+   "unit": "p39",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "In Table 10 rows V and VI the note that spans the 40 to 70 kN columns is put only in the 40 column and the 50, 60 and 70 columns are left empty.",
+     "evidence": "source: \"Note: Foundations on soil types V and VI do not fall within the provisions of this section if the total load exceeds 30kN/m.\" / tree: \"\", \"\", \"\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "757e5ad5fdc2b16e": {
+   "version_id": "approved-document-a-structure@2013-09-01-96a5a374",
+   "unit": "p40",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-22"
+  },
+  "3b34de61db0548fb": {
+   "version_id": "approved-document-a-structure@2013-09-01-96a5a374",
+   "unit": "p44",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-22"
+  },
+  "54075c6297ab1bd9": {
+   "version_id": "approved-document-a-structure@2013-09-01-96a5a374",
+   "unit": "p46",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Paragraph 5.3 holds only the word Definitions; the two definitions printed under it (nominal length of load-bearing wall, key elements) are separate sections beside it, not under 5.3, so a reader sent to paragraph 5.3 finds no definition.",
+     "evidence": "source: \"5.3 Definitions\" then \"Nominal length of load-bearing wall\" ... \"Key elements\" / tree: para 5.3 text \"Definitions\"; heading_path \"Section 5: ... > Nominal length of load-bearing wall\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Table 11 is placed under the heading Nominal length of load-bearing wall, but it is a table for the whole section (used by paragraph 5.1a).",
+     "evidence": "tree: \"Nominal length of load-bearing wall > Building consequence classes\" / source: \"Table 11 Building consequence classes\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The heading Key elements lost its capital letter.",
+     "evidence": "source: \"Key elements\" / tree: \"key elements\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "e263ae8d12600a76": {
+   "version_id": "frequently-asked-questions@2013-09-01-224c5c74",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-22"
+  },
+  "a964013e8ce9d45d": {
+   "version_id": "frequently-asked-questions@2013-09-01-224c5c74",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The heading \"Timber sizes for floor joists\" is not a heading in the tree; the heading and its question and answer are run into one text block under \"Frequently Asked Questions\" together with the copyright imprint and the contents list.",
+     "evidence": "source: \"Timber sizes for floor joists\" (heading) / tree: \"ISBN: 978-1-4098-4803-5 Timber sizes for floor joists 4 How do I go about applying ... 5 3 Where can I obtain the timber sizes\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "In the basement answer the page number 4 is run into the sentence, and the text jumps straight to words that are not on this page, so the sentence does not read on.",
+     "evidence": "source: \"Planning and Building Control offices\" (page ends, then page number 4) / tree: \"Planning and Building Control offices 4 dwellings’ on basement design and construction\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-22"
+  },
+  "aecfa45a4d2326bc": {
+   "version_id": "frequently-asked-questions@2013-09-01-224c5c74",
+   "unit": "p6",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "high",
+     "problem": "The start of condition 2 is lost, so the tree no longer says that Local Authority Building Control must be content.",
+     "evidence": "source: \"2. Local Authority Building Control are content with respect to all the relevant parts of the Building Regulations.\" / tree: \"has been granted 5 Building Regulations.\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Page numbers 5 and 6 are run into the body text.",
+     "evidence": "tree: \"Planning Permission has been granted 5 Building Regulations.\" and \"not exempt from the Building Regulations. 6\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-22"
+  }
+ }
+}

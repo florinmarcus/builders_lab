@@ -1,0 +1,116 @@
+{
+ "source_id": "ad7",
+ "about": "Model verdicts on source against tree for ad7 (system/rag/semcheck.py).",
+ "verdicts": {
+  "95755d25756e7099": {
+   "version_id": "2018-amendment-to-approved-document-7-material-and-workmansh@2018-11-29-94100392",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-22"
+  },
+  "7ac79dda1d6947bc": {
+   "version_id": "2018-amendment-to-approved-document-7-material-and-workmansh@2018-11-29-94100392",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The separate closing paragraph and the page footnote are merged into list item (b) instead of standing on their own.",
+     "evidence": "source: \"(b) is started within the period of two months beginning on that day.\" / tree: \"(b) is started within the period of two months beginning on that day. Please note that “building notice” [...] * This approved document gives guidance\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-22"
+  },
+  "c1dd62820d70a684": {
+   "version_id": "2018-amendment-to-approved-document-7-material-and-workmansh@2018-11-29-94100392",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading \"Materials\" is placed under the box title \"Regulation\", and the new heading with paragraph 1.28 is not under \"Materials\", though the page puts them there.",
+     "evidence": "source: \"Materials / Page 6 Insert the following new heading and paragraph.\" / tree: \"... > Regulation > Materials\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "c9f3ca3502b3773d": {
+   "version_id": "2018-amendment-to-approved-document-7-material-and-workmansh@2018-11-29-94100392",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-22"
+  },
+  "cc89533db3153a3e": {
+   "version_id": "approved-document-7-material-and-workmanship@2018-11-29-ed10d1c5",
+   "unit": "p17",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "One heading line is split into two headings, and the right-hand column of key terms is filed under the invented heading \"document:\".",
+     "evidence": "source: \"The following are key terms used in this document:\" / tree: \"The following are key terms used in this\" and \"document:\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The key term names are read as body text and all the definitions in a column are merged into one running text block instead of one entry per term.",
+     "evidence": "source: \"Building control body\" (term heading) \"A local authority or an approved inspector.\" / tree: \"www.bsigroup.co.uk Building control body A local authority or an approved inspector. CEN The Comité\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "A web address broken across two lines is kept with a space inside it.",
+     "evidence": "source: \"http://ec.europa.eu/enterprise/newapproach/nando\" / tree: \"http://ec.europa.eu/ enterprise/newapproach/nando\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-22"
+  },
+  "df3bec25c6e1bff0": {
+   "version_id": "approved-document-7-material-and-workmanship@2018-11-29-ed10d1c5",
+   "unit": "p21",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-22"
+  },
+  "df6814f538f2aedd": {
+   "version_id": "approved-document-7-material-and-workmanship@2018-11-29-ed10d1c5",
+   "unit": "p24",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-22"
+  }
+ }
+}

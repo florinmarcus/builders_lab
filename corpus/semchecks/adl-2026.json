@@ -1,0 +1,1233 @@
+{
+ "source_id": "adl-2026",
+ "about": "Model verdicts on source against tree for adl-2026 (system/rag/semcheck.py).",
+ "verdicts": {
+  "b3b536d6dd32e32d": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p108",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The lead-in sentence for the second list in B9 is a separate line that applies to the whole paragraph, but the tree joins it to the end of item b of the first list.",
+     "evidence": "source: \"This should include the following as appropriate.\" (own line) / tree: \"...standards given in paragraph 5.77. This should include the following as appropriate.\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "270040326350ff78": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p109",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "e9a2bdcc92f2602f": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p11",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "be847bb1cac9b5b9": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p111",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "a2f178d0a9713ba6": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p112",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "0991a2a6440c8668": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p113",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "65cf5bf51c1c4d65": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p118",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "The two short entries on this page are mixed line by line with the two-column 'List of Approved Documents' text from another page.",
+     "evidence": "source: \"Assessment Procedure for Dwellings [2005]\" / tree: \"Assessment Procedure for Dwellings [2005] The following documents have been published to give guidance on how to meet the Building\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The RICS document is put under an invented heading 'Approved Document A Approved Document L' and not under the RICS heading.",
+     "evidence": "source: \"Royal Institution of Chartered Surveyors (RICS) (www.rics.org) Code of Measuring Practice [2015]\" / tree: \"Code of Measuring Practice [2015] Structure Energy and greenhouse gas emissions Volume 1: Dwellings\""
+    },
+    {
+     "kind": "extra",
+     "severity": "high",
+     "problem": "The tree gives this page many Approved Document headings and texts (A to T and 7) that are not printed on it.",
+     "evidence": "tree: \"Approved Document B\", \"Fire safety Approved Document L Volume 1: Dwellings Energy and greenhouse gas emissions Volume 2: Buildings other than dwellings\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The RICS web address is run together with a sentence from the Approved Documents list that is not on this page.",
+     "evidence": "source: \"(www.rics.org)\" / tree: \"Regulations. You can find the date of the edition approved by the Secretary of State at www.gov.uk. (www.rics.org)\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The ODPM heading is joined with another page's heading 'List of Approved Documents'.",
+     "evidence": "source: \"Office of the Deputy Prime Minister (ODPM)\" / tree: \"Office of the Deputy Prime Minister (ODPM) List of Approved Documents\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "a6d90d6c29afc4ea": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p17",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "6e114c1e474db884": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p18",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The one-column regulation box is given as one row with two cells, split in the middle of sub-paragraph (cc); all the words are kept.",
+     "evidence": "source: \"(cc) whether the building has been constructed in accordance with the list of specifications\" / tree: \"...has been constructed in\" | \"accordance with the list of specifications...\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "1cfc117f2afc8ade": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p19",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The one-column regulation box is given as one row with two cells, split in the middle of sub-paragraph (bb); all the words are kept.",
+     "evidence": "source: \"in accordance with the methodology approved pursuant to regulation 24, and\" / tree: \"...approved pursuant to\" | \"regulation 24, and (cc) whether...\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "302ec1d24cb6ed32": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p20",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The one-column regulation box is given as one row with two cells, split between the label (cc) and its text; all the words are kept.",
+     "evidence": "source: \"(cc) whether the building has been constructed in accordance with the list of specifications\" / tree: \"...regulation 24, and (cc)\" | \"whether the building has been constructed...\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "3e2cf73cd747436d": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p23",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "b66ef40be0aebcf1": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p24",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The formula in paragraph 1.11 is printed as a fraction, but the tree runs the top and bottom together with no division sign and with the subscripts flattened into the words.",
+     "evidence": "source: \"[(target primary energy rate₁ × floor area₁) + … + …]\" over \"(floor area₁ + floor area₂ + floor area₃ + …)\" / tree: \"+ …] (floor area1 + floor area2 + floor area3 + …)\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "Table 1.2 has no printed column heading, but the tree gives it a column name that is not on the page.",
+     "evidence": "source: first printed row is \"Electrically powered heat pumps(1)\" / tree: columns \"Low carbon heat source\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "96c6c297b3b8fc10": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p26",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The closing paragraph of 2.5, which applies to items (a) to (d), is joined onto list item d.",
+     "evidence": "tree: \"d. A list of specifications used in the as-built calculations, ... design stage calculations. Building control bodies can accept evidence of (a) to (d) above\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "In 2.6 the separate lines EITHER and OR and the closing guidance sentence are joined onto the lead-in and onto items a.iii and b.iii.",
+     "evidence": "tree: \"must comply with the following. EITHER\" ; \"target fabric energy efficiency rate. OR\" ; \"for the whole building. Guidance on how to calculate an average\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "114525f7e0986921": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p29",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "e5d79ab0df043a08": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p35",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "c48b572546ad68a6": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p36",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "863dda4f11bcdc0b": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p38",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The column names of Table 3.3 have words that are not printed, and the two printed value columns (a) Threshold and (b) Improved are joined into one cell; the values themselves are right.",
+     "evidence": "source: \"Element\" \"U-value(1) W/(m2·K)\" \"(a) Threshold\" \"(b) Improved\" / tree: \"Element type\" \"Maximum U-value(1) W/(m2·K)\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "d963e57981e77431": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p39",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "66a8c6c3bd6e5b58": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p41",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "8c89926fcb664016": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p44",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "11b73d477d998a7d": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p45",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "In note 1 of Table 3.5 the exponent 0.4 on V is flattened onto the line, so the formula no longer reads as V to the power 0.4.",
+     "evidence": "source: \"(16.66 + (8.33 × V^0.4))/1000 ÷ 24)\" with 0.4 as a superscript / tree: \"(16.66 + (8.33 × V0.4))/1000 ÷ 24)\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "5d7a86fc60b3f919": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p54",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "a7c60b8c2c20df90": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p55",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "440ecedf22647f45": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p56",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "e07e2fe71bab2147": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p58",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "60639910055c2877": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p60",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "901e81c24ee861cf": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p65",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "c1b5de818552ffaf": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p66",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The page prints no rule between the last two light source types, so the value 80 appears to cover both, but the grid makes the colour rendering index line a separate row with an empty value.",
+     "evidence": "source: \"Tuneable LED devices 80 / Light source with colour rendering index greater than or equal to 95\" (one cell block, value 80) / tree: [\"Light source with colour rendering index greater than or equal to 95\", \"\"]"
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "5caa5ee6cafbe517": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p67",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Paragraph 5.74 is placed under the heading \"Equation 5.1\" in heading_path, but it is an ordinary numbered paragraph of the section, not part of the equation box.",
+     "evidence": "source: \"5.74 Roof-mounted photovoltaic arrays on buildings containing one or more dwellings\" / tree: \"... > Equation 5.1 > Paragraph 5.74\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "42f12bf63c7d8606": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p68",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The note printed after the equation boxes applies to equations 5.1, 5.2 and 5.3 but is parented under the heading \"Equation 5.3\" only.",
+     "evidence": "source: \"NOTE: For equations 5.1, 5.2 and 5.3:\" / tree: \"... > Equation 5.3 > Text\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Paragraph 5.74, which ends on this page, is placed under the heading \"Equation 5.1\" in heading_path although it is not part of that equation box.",
+     "evidence": "tree: \"... > Equation 5.1 > Paragraph 5.74\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "3f0c27a3c6a98966": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p72",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The one-column Regulations box has its first row split into two cells in the middle of the sentence of regulation 44(5), inventing a second column.",
+     "evidence": "source: \"(5) Where the regulator is the building control authority by virtue of section 91ZB of the Act\" / tree: \"...building control authority by\" | \"virtue of section 91ZB...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "0d619f6982393987": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p73",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "d88fd18990eb230f": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p81",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The new paragraph that opens the second list is joined onto the end of list item b of the first list, so two provisions are merged into one line.",
+     "evidence": "source: \"b. Relevant information for work on existing systems in accordance with paragraphs 9.7 to 9.10.\" then new paragraph \"In the Secretary of State’s view, when a new dwelling is created\" / tree: \"...paragraphs 9.7 to 9.10. In the Secretary of State’s view, when a new dwelling is created...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "53bc415291fdfe30": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p92",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The one-column Regulations box is split into two cells in the middle of regulation 6(1)(e), inventing a second column.",
+     "evidence": "source: \"(e) in the case of a material change of use described in regulation 5(a), C2 (resistance to moisture);\" / tree: \"...described in\" | \"regulation 5(a), C2 (resistance to moisture);...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "7e4c6339bb4c2564": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p93",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The regulations box has one column, but its first grid row is split into two cells in the middle of the sentence of paragraph (3).",
+     "evidence": "source: \"to ensure that any external wall, or specified attachment, of the building\" / tree: cell 1 ends \"that any external\", cell 2 starts \"wall, or specified attachment\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "f0d43c6369c19bb5": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p94",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "f6872e3434df1578": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p95",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "a1d32a1d4ab2362d": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p99",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The asterisk that marks the term as a Building Regulations 2010 definition is dropped from the Building envelope entry.",
+     "evidence": "source: \"*Building envelope (in relation to a building) Defined in regulation 35\" / tree: title \"Building envelope\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "c2cbbfa0621ccecd": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "df6c0bb541fe03e0": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p100",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The definition of \"*Room for residential purposes\" has no entry of its own and part of its text is merged into the Roof window definition.",
+     "evidence": "source: \"*Room for residential purposes Defined in regulation 2(1) as a room, or a suite of rooms\" / tree (Roof window): \"the surrounding roof. regulation 2(1) as a room, or a suite of rooms, sleep and includes\""
+    },
+    {
+     "kind": "missing",
+     "severity": "high",
+     "problem": "The term name and the middle of the Room for residential purposes definition are in no definition; they appear only as stray words in the text of Table A2.",
+     "evidence": "source: \"which is not a dwellinghouse or a flat and which is used by one or more persons to live and sleep\" / tree: \"a suite of rooms, sleep and includes\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The text of Table A2 has words from the next column's definition mixed into its rows; the grid itself is right.",
+     "evidence": "tree: \"Air-cooled chiller’s ambient 20 25 30 35 *Room for residential purposes Defined in\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "4cc919bb249f3bec": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p104",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The Step 8 formula is flattened into one scrambled line and the divisor 1000 is lost.",
+     "evidence": "source: \"En = (Pl × Fo × Fc × Tn) / 1000\" / tree: \"The night-time energy use is: P× F × F × T E = l o c n\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The Step 9 LENI formula is flattened, with subscripts and the fraction scrambled, though the prose still states the rule.",
+     "evidence": "source: \"LENI = (Ep + Ed + En) / A\" / tree: \"E + E + E LENI = p d n A\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Table B1 is placed under the Step 9 heading, although it is the appendix table that paragraph B2 refers to.",
+     "evidence": "tree: \"Step 9: Calculate total energy (kWh) per square metre per year (LENI). > Recommended maximum LENI\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "9b38f46cc5e7f6af": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p107",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "2705f56a54ced4b0": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p108",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "83e06e632ca650b6": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p11",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "d52cafff9edd1782": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p112",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "f1d9822f9a022d93": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p114",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The MHCLG web address has a space inside it where the printed line broke.",
+     "evidence": "source: \"(www.gov.uk/government/publications/department-for-communities-and-local-government-approved-...\" / tree: \"(www.gov. uk/government/publications/department-for-\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "ace70da36a4fc04f": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p17",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "26efbf7d1c475faa": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p18",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The single box of regulation 27 is split into two cells in one grid row, cut in the middle of sub-paragraph (cc), though the table has one column; no words are lost.",
+     "evidence": "source: \"(cc) whether the building has been constructed in accordance with the list of specifications\" / tree: \"...constructed in\" | \"accordance with the list...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "163f2655d7ab560f": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p19",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The single box of regulation 27C is split into two cells in one grid row, cut between the label (cc) and its text, though the table has one column; no words are lost.",
+     "evidence": "source: \"(cc) whether the building has been constructed in accordance with the list of specifications\" / tree: \"...and (cc)\" | \"whether the building has been constructed...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "317a6194d188e33c": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p22",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "ac45a525fba2700e": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p23",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "Table 1.2 has no printed column heading, but the tree gives it an invented column name; the rows and the note are right.",
+     "evidence": "source: first line under the caption is \"Electrically powered heat pumps(1)\" / tree: columns \"Low carbon heat source\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "d9fcc2cf93b6426a": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p27",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The NOTE with the worked example is printed after Table 2.1, but the tree puts it inside paragraph 2.8 before the table; the words are unchanged.",
+     "evidence": "source (after Table 2.1 notes): \"NOTE: For example, if the CO2 emissions due to electrical energy consumption were 70kgCO2/(m2·year)\" / tree: last line of Paragraph 2.8, before table 2.1"
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "7a9328351bd0e837": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p28",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "917cd3f5902f60c1": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p29",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "e01894affcd3622a": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p32",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "e4722a721fb303aa": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p36",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "7820651f64d91f4f": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p38",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The two value columns of Table 3.2, (a) Threshold and (b) Improved, are merged into one column under a heading that is not the printed one; the values themselves are kept and labelled.",
+     "evidence": "source: \"Element | U-value(1) W/(m2·K) | (a) Threshold | (b) Improved\" / tree: \"Element type\", \"Maximum U-value(1) W/(m2·K)\", \"(a) Threshold 0.35; (b) Improved 0.18\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "9311c4dd8ac33a8d": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p40",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "3eb2f0ad5f2b21fc": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p41",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "754ff4297a75fc8e": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p42",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "f3af27a5874f92cf": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p43",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "In note 2 of Table 3.7 the exponent 2/3 on V lost its superscript, so the formula reads as V2/3 instead of V to the power 2/3.",
+     "evidence": "source: \"1.28 × (0.2 + 0.051V^(2/3))\" with 2/3 printed as a superscript / tree: \"1.28 × (0.2 + 0.051V2/3)\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "39345f838db5d5ad": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p52",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading path of Table 5.1 has a stray body-text fragment \"BS EN 16147.\" as a parent heading; the table sits directly under Heat pumps and no such heading is printed.",
+     "evidence": "tree: \"Heat pumps > BS EN 16147. > Ecodesign product regulations applicable to different types of heat pump\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "9f29f54585d82ae7": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p53",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "ed281c914a3fa3aa": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p54",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "291d8efae8662b71": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p56",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "d049f406ad488d7d": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p59",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "Equation 5.4 in paragraph 5.30 is flattened with its terms out of order, so the formula for heater output can no longer be read.",
+     "evidence": "source: \"heater output = recovery rate of heater in litres/second × specific heat capacity of water × temperature rise of water\" / tree: \"recovery rate specific heat heater temperature rise = of heater in × capacity of × equation 5.4 output of water litres/second water\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "586cdb2a26f76d0d": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p61",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "100722a1fa7f39f6": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p63",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "31f6bd8bb0f1fbaf": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p64",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The formula in note 4 of Table 5.9 lost its fraction bar and its subscripts are moved to a separate line, so the division of total power by total flow rate is no longer shown.",
+     "evidence": "source: \"(Pmains,1 + Pmains,2 + Pmains,3 + ...) / (Flow rate1 + Flow rate2 + Flow rate3 + ...)\" / tree: \"(P + P +P + ...) mains,1 mains,2 mains,3 (Flow rate1 + Flow rate2 + Flow rate3 + ...)\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "d7c12712ca74a0b2": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p69",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "6db3815eb1d384dd": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p73",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The one-column Regulations box has regulation 44 split into two cells in its row, cut in the middle of sub-paragraph (5); no words are lost.",
+     "evidence": "source: \"(5) Where the regulator is the building control authority by virtue of section 91ZB of the Act\" / tree: cell 1 ends \"building control authority by\", cell 2 starts \"virtue of section 91ZB\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "0a7cf3da4ba36098": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p74",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "85eb618e7442ffcd": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p77",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "54b1ce57b699cffb": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p78",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The second lead-in sentence of the Intention (work on an existing building) is joined onto list item b of the first list instead of standing as its own paragraph.",
+     "evidence": "tree: \"b. Other important documentation, in accordance with paragraphs 8.3 and 8.4. In the Secretary of State’s view, when work is carried out on an existing building\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "46d317efc6c15e8d": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p79",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "83a8ff088aa3ec90": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p83",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "In paragraph 9.7 the closing text that follows the list, and the separate last sentence, are joined onto list item b.",
+     "evidence": "tree: \"b. greater than 25% of the total useful floor area of the existing building that extension should be regarded as a new building\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "In paragraph 9.10 the sentence that starts the second list is joined onto list item d of the first list.",
+     "evidence": "tree: \"d. Existing fabric elements ... paragraphs 10.2 to 10.4. In addition, if either of the following areas is greater than that of the existing building\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "74cc0b125035234a": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p86",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The one-column regulations box is split into two cells in the middle of sub-paragraph (e); all the words are kept.",
+     "evidence": "source: \"(e) in the case of a material change of use described in regulation 5(a), C2 (resistance to moisture);\" / tree: cell 1 ends \"described in\", cell 2 starts \"regulation 5(a), C2\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "cf80685b784069dc": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p87",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The one-column regulations box is split into two cells in the middle of paragraph (3); all the words are kept.",
+     "evidence": "source: \"to ensure that any external wall, or specified attachment, of the building\" / tree: cell 1 ends \"any external\", cell 2 starts \"wall, or specified attachment\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "3c784069da18a328": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p96",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The asterisk that marks the term as taken from the Building Regulations 2010 is dropped from the definition title.",
+     "evidence": "source: \"*Controlled service or fitting\" / tree: \"Controlled service or fitting\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "6406043b1868c701": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p98",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The subscript 3 of the chemical formula is lost in the hard water definition.",
+     "evidence": "source: \"greater than 200ppm of CaCO3.\" / tree: \"greater than 200ppm of CaCO .\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The second defined term is left out of the title and put at the start of the definition text.",
+     "evidence": "source: \"Heating appliance or heat generator The part of a heating system\" / tree: title \"Heating appliance\", text \"or heat generator The part of a heating system\""
+    },
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The asterisk that marks the term as taken from the Building Regulations 2010 is dropped from the definition title.",
+     "evidence": "source: \"*Fixed building services\" / tree: \"Fixed building services\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  }
+ }
+}

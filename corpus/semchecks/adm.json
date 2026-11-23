@@ -1,0 +1,700 @@
+{
+ "source_id": "adm",
+ "about": "Model verdicts on source against tree for adm (system/rag/semcheck.py).",
+ "verdicts": {
+  "a4ec3b7e8d9efee2": {
+   "version_id": "approved-document-m-access-to-and-use-of-buildings-volume-1@2024-10-01-fb66dd25",
+   "unit": "p16",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "Dimensions and a label printed inside Diagram 1.3 are not in the figure labels, though the description gives them.",
+     "evidence": "source: \"750mm\", \"250mm\", \"Opening to front of WC\" / tree labels: \"450*mm 400mm\", \"450*mm 450*mm\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "a0d5623a6e128d11": {
+   "version_id": "approved-document-m-access-to-and-use-of-buildings-volume-1@2024-10-01-fb66dd25",
+   "unit": "p18",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "0e965f1540e63414": {
+   "version_id": "approved-document-m-access-to-and-use-of-buildings-volume-1@2024-10-01-fb66dd25",
+   "unit": "p25",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Sideways dimensions in Diagram 2.3 are run together and reversed in the labels, and the 1050mm and 750mm labels are missing; the description gives the values correctly.",
+     "evidence": "source: \"900mm\", \"1050mm\", \"800mm\", \"750mm\" / tree: \"800mmmm009 mm009\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The second column heading of Table 2.1 has a unit added that is not printed on this page.",
+     "evidence": "source: \"Corridor clear passageway width\" / tree: \"Corridor clear passageway width (mm)\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "08533866a0632418": {
+   "version_id": "approved-document-m-access-to-and-use-of-buildings-volume-1@2024-10-01-fb66dd25",
+   "unit": "p26",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "74c27f5bfb609f68": {
+   "version_id": "approved-document-m-access-to-and-use-of-buildings-volume-1@2024-10-01-fb66dd25",
+   "unit": "p31",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "761e1db2ca48eff6": {
+   "version_id": "approved-document-m-access-to-and-use-of-buildings-volume-1@2024-10-01-fb66dd25",
+   "unit": "p33",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "75780a22d725b5ea": {
+   "version_id": "approved-document-m-access-to-and-use-of-buildings-volume-1@2024-10-01-fb66dd25",
+   "unit": "p34",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Diagram 3.1 (ramp lengths, printed before the steps heading and belonging to paragraph 3.10 on ramps) is placed under the external steps heading in heading_path.",
+     "evidence": "source: \"Diagram 3.1 Maximum length of ramp at a given gradient\" printed above \"External steps forming part of an additional route\" / tree: \"Approach routes > External steps forming part of an additional route > Maximum length of ramp at a given gradient\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "d45cbb6f9059160d": {
+   "version_id": "approved-document-m-access-to-and-use-of-buildings-volume-1@2024-10-01-fb66dd25",
+   "unit": "p38",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "39e252ef9e22ba07": {
+   "version_id": "approved-document-m-access-to-and-use-of-buildings-volume-1@2024-10-01-fb66dd25",
+   "unit": "p42",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Diagram 3.6 (wheelchair storage and transfer space, printed under paragraph 3.25) is placed under the through-floor lifting device heading in heading_path.",
+     "evidence": "source: \"Diagram 3.6 Wheelchair storage and transfer space\" printed before \"General storage space\" / tree: \"Through-floor lifting device provision > Wheelchair storage and transfer space\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The closing sentence of the NOTE in 3.26 is a separate line in the source but is joined onto the second bullet in the tree.",
+     "evidence": "source: \"lower than 900mm: do not count.\" then new line \"The full area under a stair...\" / tree: \"• lower than 900mm: do not count. The full area under a stair that forms part of the storage provision should be counted as 1m2.\""
+    },
+    {
+     "kind": "figure",
+     "severity": "low",
+     "problem": "The 1700mm dimension printed in Diagram 3.6 is missing from the labels, though the description does give it.",
+     "evidence": "source: \"1700mm\" / tree labels: \"1100mm\", \"1200mm\", \"Power socket\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "a15e91604dcc9c3f": {
+   "version_id": "approved-document-m-access-to-and-use-of-buildings-volume-1@2024-10-01-fb66dd25",
+   "unit": "p44",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "a4c96c06495c18a3": {
+   "version_id": "approved-document-m-access-to-and-use-of-buildings-volume-1@2024-10-01-fb66dd25",
+   "unit": "p45",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "figure",
+   "findings": [
+    {
+     "kind": "figure",
+     "severity": "low",
+     "problem": "The labels of Diagram 3.8 start with the two rows of Table 3.3, which are printed above the diagram and not inside it.",
+     "evidence": "tree labels: \"Number of bedspaces 2 3 & 4 5 6–8\", \"Minimum worktop length (mm) 4330 4730 5630 6730\""
+    },
+    {
+     "kind": "figure",
+     "severity": "low",
+     "problem": "The labels of Diagram 3.8 are out of order, with dimensions mixed into the middle of the notes.",
+     "evidence": "source: \"2. Unit length should be measured through mid-line of the worktop\" / tree: \"2. Unit length should be measured through mid-line of the\", \"600mm 800mm 400mm\", \"worktop, not the front or rear edge.\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "aa9cf2e0ec2c9a54": {
+   "version_id": "approved-document-m-access-to-and-use-of-buildings-volume-1@2024-10-01-fb66dd25",
+   "unit": "p46",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "317a2e6fb6f08bcc": {
+   "version_id": "approved-document-m-access-to-and-use-of-buildings-volume-1@2024-10-01-fb66dd25",
+   "unit": "p49",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The end of the Table 3.5 caption is cut from the table title and stuck on the end of NOTE 3 of paragraph 3.36.",
+     "evidence": "source: \"Summary of minimum requirements for sanitary provision in typical dwelling types (dwellings should also comply with relevant detailed requirements set out in paragraphs 3.36-3.43)\" / tree: \"as two bedspaces. types (dwellings should also comply with relevant detailed requirements set out in paragraphs 3.36-3.43)\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Table 3.5 is held twice: a second table with no number and the title \"General provisions\" repeats the same grid.",
+     "evidence": "tree: second table titled \"General provisions\" with rows \"2 or 3 bedspaces\", \"Bathroom with level access shower\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "92d09fe64db46c86": {
+   "version_id": "approved-document-m-access-to-and-use-of-buildings-volume-1@2024-10-01-fb66dd25",
+   "unit": "p61",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "3d8b341bb2218d86": {
+   "version_id": "approved-document-m-access-to-and-use-of-buildings-volume-1@2024-10-01-fb66dd25",
+   "unit": "p63",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "4dab7fa72b22d36e": {
+   "version_id": "approved-document-m-access-to-and-use-of-buildings-volume-1@2024-10-01-fb66dd25",
+   "unit": "p64",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The group heading over the seven number columns is not in the column names, so the grid columns are bare numbers with no meaning; it survives only in the table text.",
+     "evidence": "source: \"Number bedspaces / number furniture items required\" above \"2 3 4 5 6 7 8\" / tree: columns \"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "e629ae2b267c91de": {
+   "version_id": "approved-document-m-access-to-and-use-of-buildings-volume-2@2024-10-01-0e5d4dee",
+   "unit": "p15",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "7a507521809ae4b1": {
+   "version_id": "approved-document-m-access-to-and-use-of-buildings-volume-2@2024-10-01-0e5d4dee",
+   "unit": "p19",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "figure",
+   "findings": [
+    {
+     "kind": "figure",
+     "severity": "low",
+     "problem": "The caption of Diagram 1 is cut in the title and its rest is stored as labels, while the words printed inside the picture are not in labels (they are only in the description).",
+     "evidence": "source: \"Tactile paving and an example of its use at an uncontrolled crossing\" / tree: title \"Tactile paving and an\", labels \"example of its use at an\", \"uncontrolled crossing\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Diagram 1 is printed beside paragraph 1.13 (level approach provisions) but the tree puts it under the later heading for on-site car parking.",
+     "evidence": "tree: \"On-site car parking and setting down > Design considerations > Tactile paving and an\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "308736f0fd453d22": {
+   "version_id": "approved-document-m-access-to-and-use-of-buildings-volume-2@2024-10-01-0e5d4dee",
+   "unit": "p21",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "A table value, 10m, has been pushed into the sentence of paragraph 1.20, so the text carries a number that is not printed there.",
+     "evidence": "source: \"lack the strength to propel themselves up a slope\" / tree: \"lack the strength to propel themselves up10m a slope\""
+    },
+    {
+     "kind": "figure",
+     "severity": "low",
+     "problem": "The caption of Diagram 3 is cut in the title and its rest is stored as labels, while the axis words and rise values are not in labels (they are only in the description).",
+     "evidence": "source: \"Relationship of ramp gradient to the going of a flight\" / tree: title \"Relationship of ramp\", labels \"gradient to the going of\", \"a flight\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The separate note printed after paragraph 1.25 is joined into the paragraph's text.",
+     "evidence": "tree: \"even if a number of rest landings are provided. Note: Guidance is given in BS 8300 on: – lighting ramped access.\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "0eecdd7f03776bcb": {
+   "version_id": "approved-document-m-access-to-and-use-of-buildings-volume-2@2024-10-01-0e5d4dee",
+   "unit": "p27",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The caption of Table 2 is split: the title is cut short and its second line is made into a heading, under which the whole table is repeated as running text with its note, so the note is not attached to the table.",
+     "evidence": "source: \"Table 2 Minimum effective clear widths of doors\" / tree: title \"Minimum effective clear\", heading \"widths of doors\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "In the running-text copy of Table 2 the words of the third row are mixed up.",
+     "evidence": "source: \"At right angles to an access route at least 1200mm wide\" / tree: \"Atleast right1200mm angles towide an access route 825 775\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "A stray word is inserted into paragraph 2.11.",
+     "evidence": "source: \"for a variety of users, including wheelchair users\" / tree: \"for a variety of users,at including wheelchair users\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Paragraph 2.12 ends with junk characters.",
+     "evidence": "source: \"privacy or security.\" / tree: \"privacy or security.(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)\""
+    },
+    {
+     "kind": "figure",
+     "severity": "low",
+     "problem": "Diagram 9 has no labels, so the printed words with a dimension are kept only in the description, and the figure sits under the later heading instead of the provisions of 2.13.",
+     "evidence": "source: \"300mm minimum unless door is power operated\" / tree: no labels"
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "e15e0c44099d7457": {
+   "version_id": "approved-document-m-access-to-and-use-of-buildings-volume-2@2024-10-01-0e5d4dee",
+   "unit": "p34",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The note printed after the list of paragraph 3.14 is joined onto item l instead of standing as a note to the paragraph.",
+     "evidence": "tree: \"l. any glazed screens ... Approved Document K, section 7. Note: In respect of 3.14(b), for school buildings, the preferred corridor width\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "a25a9dc4b27d0d2f": {
+   "version_id": "approved-document-m-access-to-and-use-of-buildings-volume-2@2024-10-01-0e5d4dee",
+   "unit": "p38",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "5b7152ffefff03f3": {
+   "version_id": "approved-document-m-access-to-and-use-of-buildings-volume-2@2024-10-01-0e5d4dee",
+   "unit": "p41",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Items d to m of paragraph 4.12 are split off into an unnumbered text block under an invented heading 'in audience seating', so they no longer belong to paragraph 4.12.",
+     "evidence": "source: \"d. some wheelchair spaces (whether permanent or created by removing seats) are provided in pairs\" / tree: heading_path \"Audience and spectator facilities > in audience seating > Text\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The second line of the Table 3 title was read as a section heading, so the table title is cut short and a false heading is created.",
+     "evidence": "source: \"Table 3 Provision of wheelchair space in audience seating\" / tree: title \"Provision of wheelchair space\" + heading \"in audience seating\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The whole of Table 3 is repeated as a running text block, and the table note sits only in that block, not with the table.",
+     "evidence": "tree: \"Seating Minimum provision of capacity spaces for wheelchairs Permanent Removable Up to 600 1% of total seating Remainder to make\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The spanning column heading over Permanent and Removable is missing from the table columns.",
+     "evidence": "source: \"Minimum provision of spaces for wheelchairs\" / tree: columns \"Seating capacity\", \"Permanent\", \"Removable\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Italic sub-headings are read as body text and joined to the end of the paragraph before them.",
+     "evidence": "source: \"Sports facilities\" (heading above 4.11) / tree 4.10: \"Technical standard for places of entertainment. Sports facilities\"; tree 4.9: \"(see 4.32 to 4.34). Entertainment, leisure and social facilities\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-heading 'For audience seating generally' is run into the opening line of paragraph 4.12.",
+     "evidence": "tree: \"Audience and spectator facilities will satisfy Requirement M1 if: For audience seating generally\""
+    },
+    {
+     "kind": "figure",
+     "severity": "low",
+     "problem": "The caption of Diagram 13 is cut in two, with its second half put in labels, and the words printed inside the diagram are not in labels.",
+     "evidence": "source: \"An example of wheelchair spaces in a lecture theatre\" / tree: title \"An example of wheelchair\", labels \"spaces in a lecture theatre\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "ccc182a5a185ae53": {
+   "version_id": "approved-document-m-access-to-and-use-of-buildings-volume-2@2024-10-01-0e5d4dee",
+   "unit": "p48",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "5668a1393f2889ea": {
+   "version_id": "approved-document-m-access-to-and-use-of-buildings-volume-2@2024-10-01-0e5d4dee",
+   "unit": "p59",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Diagram 24 belongs to paragraph 5.18 on shower facilities but is placed under the later heading for wheelchair-accessible bathrooms.",
+     "evidence": "source: \"Diagram 24 An example of a shower room incorporating a corner WC for individual use\" / tree: heading_path \"Wheelchair-accessible bathrooms > Design considerations > An example of a shower room\""
+    },
+    {
+     "kind": "figure",
+     "severity": "low",
+     "problem": "Diagram 24 has no labels list; the words and dimensions printed inside it are kept only in the model description.",
+     "evidence": "source: \"2400mm\", \"2500mm\", \"1500mm x 1500mm wheelchair turning space\", \"140–160mm\" / tree: no labels"
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "4ab23ce94e771545": {
+   "version_id": "approved-document-m-access-to-and-use-of-buildings-volume-2@2024-10-01-0e5d4dee",
+   "unit": "p68",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "0500e14099de10cf": {
+   "version_id": "corrections-to-approved-document-m@2024-10-01-b11dd2b3",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "f5884710195cace4": {
+   "version_id": "corrections-to-approved-document-m@2024-10-01-b11dd2b3",
+   "unit": "p7",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "Several dimensions printed sideways inside Diagram 3.17 are not in the figure labels, though the room sizes are in the description.",
+     "evidence": "source: \"2200mm\", \"1700mm\", \"1200mm\", \"750mm\", \"2600mm\", \"800mm\", \"450mm\" / tree labels: only \"3100mm\", \"1000mm 800mm 450mm 150mm\", \"2900mm\", \"700mm 1200mm\", \"1000mm\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "3f8ff96b8cffccb7": {
+   "version_id": "corrections-to-approved-document-m@2024-10-01-b11dd2b3",
+   "unit": "p9",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "427b86a74855f4af": {
+   "version_id": "frequently-asked-questions@2024-10-01-4f6523fc",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "a0d3c9c1591c141a": {
+   "version_id": "frequently-asked-questions@2024-10-01-4f6523fc",
+   "unit": "p23",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The topic heading \"Upper storey extensions\" is not in the tree, so its \"General guidance\" question and answer sit under \"Change of use\" instead.",
+     "evidence": "source: \"Upper storey extensions\" / tree: \"Frequently Asked Questions > Change of use > General guidance\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "cd155c63235051a0": {
+   "version_id": "frequently-asked-questions@2024-10-01-4f6523fc",
+   "unit": "p28",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The heading \"Which Edition and Volume of Approved Document applies?\" is missing, so its question and answer are merged into the end of the earlier switches text under \"Shared refreshment facilities > Paragraph 4.25-4.29\".",
+     "evidence": "source: \"Which Edition and Volume of Approved Document applies?\" / tree: \"...can be operated by a person in a wheelchair with limited reach. Question: Which version of the Approved Document applies to my project?\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The table has the wrong title and parent, it is named after an unrelated paragraph heading from an earlier topic.",
+     "evidence": "source: \"Which Edition and Volume of Approved Document applies?\" / tree: \"Shared refreshment facilities > Paragraph 4.25-4.29 > Paragraph 4.25-4.29\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The group header \"Edition\" above the two volume columns is not in the column names.",
+     "evidence": "source: \"Edition\" over \"Dwellings\" and \"Buildings other than dwellings\" / tree: \"Dwellings\", \"Buildings other than dwellings\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "28f1abef3918ebca": {
+   "version_id": "frequently-asked-questions@2024-10-01-4f6523fc",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "This is a contents page, but the tree keeps the contents entries as body text under a heading made from a contents line and its page number.",
+     "evidence": "source: \"Kitchen furniture 11\" (contents entry) / tree: \"Frequently Asked Questions > Frequently Asked Questions 8 > Text\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "a7ead6c98ed2cb27": {
+   "version_id": "july-2020-amendments-to-approved-document-m-access-to-and-us@2024-10-01-01b210b3",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "13954b5170e2995f": {
+   "version_id": "july-2020-amendments-to-approved-document-m-access-to-and-us@2024-10-01-01b210b3",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The new sub-paragraph (e) of paragraph 5.7 and its note, including items ii to vi on this page, are held inside the section numbered 5.6, so the rule sits under the wrong provision.",
+     "evidence": "tree: number \"5.6\", title \"Paragraph 5.6\", text \"Page 48 Paragraph 5.7, insert the following as new sub-paragraph (e).\" then \"ii. shopping centres/malls or retail parks\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The amendment instruction for page 59 is joined to the end of the note text instead of standing as its own instruction before the British Standard entry.",
+     "evidence": "source: \"Page 59 Insert the following British Standard.\" / tree: \"community facilities in 2021. Page 59 Insert the following British Standard.\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "96fdee9a14b301f1": {
+   "version_id": "july-2020-amendments-to-approved-document-m-access-to-and-us@2024-10-01-01b210b3",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "9085501b5f2088fd": {
+   "version_id": "may-2024-amendments-to-approved-document-m-access-to-and-use@2024-10-01-1bbe02bb",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "19860eada311beb5": {
+   "version_id": "may-2024-amendments-to-approved-document-m-access-to-and-use@2024-10-01-1bbe02bb",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The two separate amendments (Page 9 insert and Page 10 replace) are run together in one text line, with the margin labels and instructions mixed into the inserted wording.",
+     "evidence": "source: \"Page 10 Replace sub-paragraph (a) of paragraph (1) with the following.\" / tree: \"...single-sex and universal toilets. Page 10 Replace sub-paragraph (a) of paragraph (1) with the following.\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "06f1c66e3c43d0e9": {
+   "version_id": "may-2024-amendments-to-approved-document-m-access-to-and-use@2024-10-01-1bbe02bb",
+   "unit": "p8",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  }
+ }
+}

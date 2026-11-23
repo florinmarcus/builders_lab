@@ -1,0 +1,1459 @@
+{
+ "source_id": "adb-amendments",
+ "about": "Model verdicts on source against tree for adb-amendments (system/rag/semcheck.py).",
+ "verdicts": {
+  "27a4eb4cbd6c308a": {
+   "version_id": "2025-amendments-to-approved-document-b-volume-1-and-volume-2@2026-09-16-95a0650a",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "d67029231f6ce378": {
+   "version_id": "2025-amendments-to-approved-document-b-volume-1-and-volume-2@2026-09-16-95a0650a",
+   "unit": "p12",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The title block that starts the Volume 2 list of amendments is placed under 'Section 17: Fire safety information', so paragraphs 2.43 and 2.46 and the rest of the page have no Volume 2 heading in their path and look like part of Section 17.",
+     "evidence": "source: \"Approved Document B: Fire safety Volume 2 – Buildings other than dwellings\" / tree: \"Section 17: Fire safety information > Taking effect on 2 March 2025 > Bedrooms > Paragraph 2.43\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The one title block is split into six separate headings, with one title line cut in two.",
+     "evidence": "source: \"2019 edition incorporating the 2020 and 2022 amendments\" / tree: heading \"2019 edition incorporating the 2020 and 2022\" and heading \"amendments\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "'Residential care homes', 'Bedrooms' and 'Sprinkler systems' are not placed under 'Section 2: Design for horizontal escape', and Regulation 38 is not separated from the Section 12 level.",
+     "evidence": "tree: \"Taking effect on 2 March 2025 > Bedrooms\" / source: \"Section 2: Design for horizontal escape\", \"Residential care homes\", \"Bedrooms\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The regulation 38 text box is running legal text but was read as a one-column table with its heading as the column name.",
+     "evidence": "tree: columns [\"Fire safety information\"], grid row \"38. (1) This regulation applies where building work—\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "e3743418542302f0": {
+   "version_id": "2025-amendments-to-approved-document-b-volume-1-and-volume-2@2026-09-16-95a0650a",
+   "unit": "p13",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The regulation 38 box and the amendment instruction for Section 19 (Volume 2 list) are filed under the replaced chapter 'Section 17: Fire safety information' of Volume 1, so the parent in heading_path is wrong.",
+     "evidence": "source: \"Section 19: Fire safety information Page 127 Replace the whole of Section 19\" / tree: \"Section 17: Fire safety information > Taking effect on 2 March 2025 > Section 19: Fire safety information\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The table column name is the amendment heading, which is not printed in the box on this page; the box here is a continuation with no heading.",
+     "evidence": "tree: \"Regulation 38: Fire safety information\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "55cf1dc489f5e1b9": {
+   "version_id": "2025-amendments-to-approved-document-b-volume-1-and-volume-2@2026-09-16-95a0650a",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Separate body paragraphs that follow the lettered lists are joined onto the last list item, so list items and the paragraphs after them are merged.",
+     "evidence": "source: \"b. is started and is sufficiently progressed within the period of six months beginning on that day.\" [new paragraph] \"Please note that\" / tree: \"beginning on that day. Please note that ‘building notice’\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The last items of the other two lists also carry the next paragraph.",
+     "evidence": "tree: \"that change of use has stated. The changes focus on the following fire safety provisions:\" and \"sprinklers in care homes. Full details of the changes are provided below.\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "32ce9d76b4a902aa": {
+   "version_id": "2025-amendments-to-approved-document-b-volume-1-and-volume-2@2026-09-16-95a0650a",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The Volume 1 title block is read as flat sibling headings under 'Introduction', so the list of amendments and its entries sit under Introduction and not under 'Volume 1 – Dwellings'; the volume the amendments apply to is lost from the path.",
+     "evidence": "source: \"Approved Document B: Fire safety Volume 1 – Dwellings ... List of amendments Taking effect on 2 March 2025\" / tree: \"Introduction > Taking effect on 2 March 2025 > Section 10: Resisting fire spread over external walls\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "One subtitle line is split into two headings.",
+     "evidence": "source: \"2019 edition incorporating the 2020 and 2022 amendments\" / tree: \"2019 edition incorporating the 2020 and 2022\" and \"amendments\""
+    },
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The first line of the title block is not in the tree.",
+     "evidence": "source: \"The Building Regulations 2010\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "ab102ed38a55b7c8": {
+   "version_id": "2025-amendments-to-approved-document-b-volume-1-and-volume-2@2026-09-16-95a0650a",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The regulation 38 box and the Section 17 amendment instruction are parented under 'Introduction' and not under the Volume 1 list of amendments, so the path does not say which volume they amend.",
+     "evidence": "source: \"Section 17: Fire safety information Page 112 Replace the whole of Section 17\" / tree: \"Introduction > Taking effect on 2 March 2025 > Section 17: Fire safety information\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "16370d7bc3abe2ec": {
+   "version_id": "2025-amendments-to-approved-document-b-volume-1-and-volume-2@2026-09-16-95a0650a",
+   "unit": "p9",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The second line of the margin page references is read as a heading, and paragraph B12 is then filed under the heading 'and 124'.",
+     "evidence": "source: \"Page 123 and 124 Replace paragraph B13 with the following.\" / tree: heading \"and 124\"; path \"... > and 124 > Paragraph B12\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The same split leaves the delete instruction with an incomplete page reference and a stray heading 'and 123'.",
+     "evidence": "source: \"Pages 122 and 123 Delete the section National classifications for reaction to fire.\" / tree: \"Pages 122 Delete the section\" then heading \"and 123\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The Appendix B amendments (Reaction to fire, B8, thermoplastic materials, B12) are parented under 'Section 17: Fire safety information > Additional information for complex buildings', which is a different provision.",
+     "evidence": "tree: \"Section 17: Fire safety information > Additional information for complex buildings > Reaction to fire > Paragraph B8\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "41267b3766ebf643": {
+   "version_id": "2026-amendments-to-approved-document-b-volume-1-and-volume-2@2026-09-16-852d8b8a",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "00f0efe95d1281cc": {
+   "version_id": "2026-amendments-to-approved-document-b-volume-1-and-volume-2@2026-09-16-852d8b8a",
+   "unit": "p10",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "13237e011df5c9ae": {
+   "version_id": "2026-amendments-to-approved-document-b-volume-1-and-volume-2@2026-09-16-852d8b8a",
+   "unit": "p11",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The end of the amendment instruction, 'passageway.', was read as a heading, so the instruction is cut in two and the new definitions sit under a heading 'passageway.' instead of under Appendix A: Key terms.",
+     "evidence": "source: \"between the definitions of Evacuation lift and Exit passageway.\" / tree: heading \"passageway.\" and text ending \"Evacuation lift and Exit\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Three separate definitions, the storey exit replacement and the amendment instructions for pages 133 and 134 are merged into one running text block.",
+     "evidence": "tree: \"...and evacuation lift lobbies. Page 133 Insert the following entry between the definitions of Inner room and Live/work unit. Interlocked stair Two interlocking...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "5417505348a83ef0": {
+   "version_id": "2026-amendments-to-approved-document-b-volume-1-and-volume-2@2026-09-16-852d8b8a",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The header row that spans both columns of Table 3.1 is not in the columns or grid, so the grid does not say what the distances measure and note 1 has no anchor.",
+     "evidence": "source: \"Maximum travel distance from flat entrance door to storey exit or stair lobby(1)\" / tree columns: \"Escape in one direction\", \"Escape in more than one direction\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The amendment instruction printed after paragraph 3.27 is merged into item b of the paragraph instead of being a separate instruction.",
+     "evidence": "tree: \"...is not exceeded (Diagram 3.8). Replace Table 3.1 with the following. Page 27 Replace Diagram 3.7 with the following.\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading 'Means of escape in the common parts of flats' and 'Design for horizontal escape' are not placed under 'Section 3: Means of escape – flats' in the heading path.",
+     "evidence": "tree: \"...Taking effect on 30 September 2026 > Design for horizontal escape\" / source: \"Section 3: Means of escape – flats\" printed above both"
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "ca802ada966cc69e": {
+   "version_id": "2026-amendments-to-approved-document-b-volume-1-and-volume-2@2026-09-16-852d8b8a",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The instruction printed on this page is kept only as part of item b of paragraph 3.27, not as a separate instruction before the diagram.",
+     "evidence": "source: \"Page 28 Replace Diagram 3.8 with the following.\" / tree: \"...(Diagram 3.8). Replace Table 3.1 with the following. Page 27 Replace Diagram 3.7 with the following. Page 28 Replace Diagram 3.8...\""
+    },
+    {
+     "kind": "figure",
+     "severity": "low",
+     "problem": "The labels hold the cross-reference twice, and the second wording is not printed in the picture.",
+     "evidence": "source: \"See para 3.27 and 3.40\" / tree: \"See para 3.27 and 3.40\", \"See paras 3.27 and 3.40\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "d758c86619176651": {
+   "version_id": "2026-amendments-to-approved-document-b-volume-1-and-volume-2@2026-09-16-852d8b8a",
+   "unit": "p9",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The second line of the margin page reference, 'and 139', was read as a heading, which cuts the instruction in two and puts Table C1 under a heading 'and 139'.",
+     "evidence": "source: \"Pages 138 and 139 Replace Table C1 with the following table.\" / tree: text \"Pages 138 Replace Table C1 with the following table.\" and heading \"and 139\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Appendix C: Fire doorsets is placed under the heading 'Design and construction of common stairs' instead of standing as its own appendix heading.",
+     "evidence": "tree: \"Design and construction of common stairs > Appendix C: Fire doorsets\" / source: \"Appendix C: Fire doorsets\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "2ffc1ed7579c955e": {
+   "version_id": "2029-amendments-to-approved-document-b-volume-1-and-volume-2@2026-09-16-c78e3b76",
+   "unit": "p10",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The group header over the three value columns is shortened in the columns and loses the 'classified' and 'or assessed' wording and the note (2) marker.",
+     "evidence": "source: \"Minimum provisions when tested and classified to the relevant European standard (minutes)(1) or assessed following the recommendations of paragraphs B1 to B5 (minutes)(2)\" / tree: \"Minimum provisions when tested to the relevant European standard (minutes)(1)\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The group header is kept as a separate, always empty column instead of sitting over Loadbearing capacity, Integrity and Insulation.",
+     "evidence": "tree row: \"17. Cavity barrier\", \"\", \"\", \"Not applicable\", \"30 min\", \"15 min\", \"Each side separately\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "95e72e4fab31d172": {
+   "version_id": "2029-amendments-to-approved-document-b-volume-1-and-volume-2@2026-09-16-c78e3b76",
+   "unit": "p11",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The group header over the three value columns is shortened in the columns and loses the 'classified' and 'or assessed' wording and the note (2) marker.",
+     "evidence": "source: \"Minimum provisions when tested and classified to the relevant European standard (minutes)(1) or assessed following the recommendations of paragraphs B1 to B5 (minutes)(2)\" / tree: \"Minimum provisions when tested to the relevant European standard (minutes)(1)\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The group header is kept as a separate, always empty column instead of sitting over Loadbearing capacity, Integrity and Insulation.",
+     "evidence": "tree row: \"23. Fire doorsets\", \"\", \"\", \"See Table C1\", \"\", \"\", \"See Appendix C\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "b5e4467e96c1c2aa": {
+   "version_id": "2029-amendments-to-approved-document-b-volume-1-and-volume-2@2026-09-16-c78e3b76",
+   "unit": "p12",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The joined column names drop the footnote markers printed in the header, so the grid no longer shows that note * applies to the basement storey columns and note 1 to the periods.",
+     "evidence": "source: \"Minimum periods of fire resistance(1) (minutes) in a: Basement storey* including floor over\" / tree: \"Basement storey including floor over, depth (m) of the lowest basement: More than 10\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "e589503ccbd4e4d0": {
+   "version_id": "2029-amendments-to-approved-document-b-volume-1-and-volume-2@2026-09-16-c78e3b76",
+   "unit": "p13",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The joined column names drop the footnote markers printed in the header, so the grid no longer shows that note * applies to the basement storey columns and note 1 to the periods.",
+     "evidence": "source: \"Minimum periods of fire resistance(1) (minutes) in a: Basement storey* including floor over\" / tree: \"Basement storey including floor over, depth (m) of the lowest basement: More than 10\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The superscript in the unit of the section factor in note 8 is flattened, so the unit m to the power minus 1 reads as m-1.",
+     "evidence": "source: \"maximum Hp/A=230m⁻¹ operating under full design load\" / tree: \"maximum Hp/A=230m-1 operating under full design load\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "0baa28ad72494efc": {
+   "version_id": "2029-amendments-to-approved-document-b-volume-1-and-volume-2@2026-09-16-c78e3b76",
+   "unit": "p14",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "db243e8b1c3f1e62": {
+   "version_id": "2029-amendments-to-approved-document-b-volume-1-and-volume-2@2026-09-16-c78e3b76",
+   "unit": "p15",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "In row 8 the grid gives 1100mm for walls with access to more than one stair, but the page prints 100mm in that cell.",
+     "evidence": "source: \"8. Between either: ... More than one stair, Walls: Unlimited above 100mm from floor\" / tree: \"Unlimited above 1100mm from floor\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "9555fc35bb65443f": {
+   "version_id": "2029-amendments-to-approved-document-b-volume-1-and-volume-2@2026-09-16-c78e3b76",
+   "unit": "p16",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The end of paragraph C1 item c, the name of the harmonised standard, is split off and read as a heading, so item c ends without the standard.",
+     "evidence": "source: \"and calling upon the harmonised standard BS EN 81-58.\" / tree: heading with title \"BS EN 81-58.\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The margin note 'Pages 136 to 139' is split: 'Pages 136' is joined to the instruction text and 'to 139' is read as a heading, which becomes the parent of paragraph C1 instead of Appendix C: Fire doorsets.",
+     "evidence": "source: \"Pages 136 to 139\" (margin) \"Replace the whole of Appendix C: Fire doorsets with the following.\" / tree: \"Pages 136 Replace the whole of Appendix C\" and heading \"to 139\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "3af3d05032ad8c05": {
+   "version_id": "2029-amendments-to-approved-document-b-volume-1-and-volume-2@2026-09-16-c78e3b76",
+   "unit": "p19",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The grid has an invented, empty fourth column for tests to BS 476-22; the printed table has only one value column.",
+     "evidence": "tree: \"Minimum fire resistance of door in terms of integrity (minutes) when tested to BS 476-22\""
+    },
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The value column heading is not the printed one: it drops 'and classified' and the alternative of assessment under paragraphs B1 to B5 and C1 with note 2, and says door where the page says doorset.",
+     "evidence": "source: \"of doorset ... when tested and classified to the relevant European standard(1) or assessed following the recommendations of paragraph B1 to B5 and C1(2)\" / tree: \"of door ... when tested to the relevant European standard(1)\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The table sits under a heading 'BS 8214.' in the heading path, which looks like the end of a paragraph read as a heading, not a real heading above Table C1.",
+     "evidence": "tree: \"Application of the fire resistance standards in Table B2 > BS 8214. > Provisions for fire doorsets\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "0554fd60559b86f0": {
+   "version_id": "2029-amendments-to-approved-document-b-volume-1-and-volume-2@2026-09-16-c78e3b76",
+   "unit": "p20",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The grid has an invented, empty column for BS 476-22 that the printed table does not have.",
+     "evidence": "source: two columns only, \"Position of doorset\" and \"Minimum fire resistance of doorset ...\" / tree: \"Minimum fire resistance of door in terms of integrity (minutes) when tested to BS 476-22\""
+    },
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The value column heading drops the 'classified' and 'or assessed' route and note (2), and says door instead of doorset.",
+     "evidence": "source: \"when tested and classified to the relevant European standard(1) or assessed following the recommendations of paragraph B1 to B5 and C1(2)\" / tree: \"when tested to the relevant European standard(1)\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The Volume 1 amendment headings for Appendix F, Appendix G and Index are placed under a heading from the replaced Appendix B text, and their sub-headings are siblings not children.",
+     "evidence": "tree: \"Application of the fire resistance standards in Table B2 > Appendix F: Standards referred to\" and \"Application of the fire resistance standards in Table B2 > British standards\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "70d1dd17f24315f3": {
+   "version_id": "2029-amendments-to-approved-document-b-volume-1-and-volume-2@2026-09-16-c78e3b76",
+   "unit": "p21",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The margin label 'Pages 136 to 150' is mixed into the instruction sentence.",
+     "evidence": "source: \"Pages 136 to 150\" / \"Replace the whole of Appendix B: Performance of materials, products and structures with the following.\" / tree: \"products and to 150 structures with the following.\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "cda4d07d09366912": {
+   "version_id": "2029-amendments-to-approved-document-b-volume-1-and-volume-2@2026-09-16-c78e3b76",
+   "unit": "p26",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The group heading over the three value columns is kept as an empty column of its own and drops the 'classified' and 'or assessed' route with note (2).",
+     "evidence": "source: \"Minimum provisions when tested and classified to the relevant European standard (minutes)(1) or assessed following the recommendations of paragraphs B1 to B5 (minutes)(2)\" / tree: \"Minimum provisions when tested to the relevant European standard (minutes)(1)\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "b570a6e9cc599bf5": {
+   "version_id": "2029-amendments-to-approved-document-b-volume-1-and-volume-2@2026-09-16-c78e3b76",
+   "unit": "p27",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The group heading over the three value columns is kept as an empty column of its own and drops the 'classified' and 'or assessed' route with note (2).",
+     "evidence": "source: \"Minimum provisions when tested and classified to the relevant European standard (minutes)(1) or assessed following the recommendations of paragraphs B1 to B5 (minutes)(2)\" / tree: \"Minimum provisions when tested to the relevant European standard (minutes)(1)\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "a8d8705df0ca5fae": {
+   "version_id": "2029-amendments-to-approved-document-b-volume-1-and-volume-2@2026-09-16-c78e3b76",
+   "unit": "p28",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The group heading over the three value columns is kept as an empty column of its own and drops the 'classified' and 'or assessed' route with note (2).",
+     "evidence": "source: \"Minimum provisions when tested and classified to the relevant European standard (minutes)(1) or assessed following the recommendations of paragraphs B1 to B5 (minutes)(2)\" / tree: \"Minimum provisions when tested to the relevant European standard (minutes)(1)\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "ee65d6fe6640641d": {
+   "version_id": "2029-amendments-to-approved-document-b-volume-1-and-volume-2@2026-09-16-c78e3b76",
+   "unit": "p29",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The group heading over the three value columns is kept as an empty column of its own and drops the 'classified' and 'or assessed' route with note (2).",
+     "evidence": "source: \"Minimum provisions when tested and classified to the relevant European standard (minutes)(1) or assessed following the recommendations of paragraphs B1 to B5 (minutes)(2)\" / tree: \"Minimum provisions when tested to the relevant European standard (minutes)(1)\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "e57330af66e20501": {
+   "version_id": "2029-amendments-to-approved-document-b-volume-1-and-volume-2@2026-09-16-c78e3b76",
+   "unit": "p30",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The column names drop the note markers and words of the printed header (the basement asterisk, 'including floor over' and note 1), so the link to the floor-over-basement note is only in the raw text.",
+     "evidence": "source: \"Minimum periods of fire resistance(1) (minutes) in a: Basement storey* including floor over\" / tree: \"Basement storey, depth (m): More than 10\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "3f1a46139f14e0cb": {
+   "version_id": "2029-amendments-to-approved-document-b-volume-1-and-volume-2@2026-09-16-c78e3b76",
+   "unit": "p31",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The column names drop the note markers and words of the printed header (the basement asterisk, 'including floor over' and note 1), so the link to the floor-over-basement note is only in the raw text.",
+     "evidence": "source: \"Minimum periods of fire resistance(1) (minutes) in a: Basement storey* including floor over\" / tree: \"Basement storey, depth (m): More than 10\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The superscript in the unit of note 8 is flattened into the number.",
+     "evidence": "source: \"Hp/A=230m⁻¹\" / tree: \"Hp/A=230m-1\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "20363ecebbb7b2b8": {
+   "version_id": "2029-amendments-to-approved-document-b-volume-1-and-volume-2@2026-09-16-c78e3b76",
+   "unit": "p33",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The top header that says what the values are is left out of the column names; it is only in the raw text.",
+     "evidence": "source: \"Maximum total glazed area in parts of a building with access to:\" / tree: \"A single stair: Walls\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "3098fd0a9f745402": {
+   "version_id": "2029-amendments-to-approved-document-b-volume-1-and-volume-2@2026-09-16-c78e3b76",
+   "unit": "p34",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The end of paragraph C1 item c is cut off and read as a separate heading, so the paragraph no longer names the harmonised standard and later content hangs under that false heading.",
+     "evidence": "source: \"and calling upon the harmonised standard BS EN 81-58.\" / tree: heading \"BS EN 81-58.\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The amendment instruction is read as a heading, with the margin page reference mixed into it out of order.",
+     "evidence": "source: \"Pages 151 to 154 Replace the whole of Appendix C: Fire doorsets with the following.\" / tree: \"Pages 151 Replace the whole of Appendix C: Fire doorsets with the following. to 154\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Appendix C and paragraph C1 are placed under an Appendix B heading instead of being their own appendix.",
+     "evidence": "tree: \"Application of the fire resistance standards in Table B2 > Appendix C: Fire doorsets\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The top header of Table B3 that says what the values are is left out of the column names.",
+     "evidence": "source: \"Maximum total glazed area in parts of a building with access to:\" / tree: \"A single stair: Walls\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "c792d1d6c80fa79c": {
+   "version_id": "2029-amendments-to-approved-document-b-volume-1-and-volume-2@2026-09-16-c78e3b76",
+   "unit": "p37",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The grid has an invented, empty second value column for BS 476-22 that the printed table does not have.",
+     "evidence": "tree: \"Minimum fire resistance of door in terms of integrity (minutes) when tested to BS 476-22\""
+    },
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The column headings do not match the printed ones: 'doorset' became 'door' and the words on classification and assessment with note 2 are lost.",
+     "evidence": "source: \"when tested and classified to the relevant European standard(1) or assessed following the recommendations of paragraph B1 to B5 and C1(2)\" / tree: \"when tested to the relevant European standard(1)\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The table hangs under a standard name that was wrongly read as a heading.",
+     "evidence": "tree: \"Application of the fire resistance standards in Table B2 > BS 8214. > Provisions for fire doorsets\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "d37430ee52841669": {
+   "version_id": "2029-amendments-to-approved-document-b-volume-1-and-volume-2@2026-09-16-c78e3b76",
+   "unit": "p38",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The grid has an invented, empty second value column for BS 476-22 that the printed table does not have.",
+     "evidence": "tree: \"Minimum fire resistance of door in terms of integrity (minutes) when tested to BS 476-22\""
+    },
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The column headings do not match the printed ones: 'doorset' became 'door' and the words on classification and assessment with note 2 are lost.",
+     "evidence": "source: \"when tested and classified to the relevant European standard(1) or assessed following the recommendations of paragraph B1 to B5 and C1(2)\" / tree: \"when tested to the relevant European standard(1)\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Appendix F, Appendix G and Index headings and their sub-headings are all placed flat under an Appendix B heading, and the table hangs under a standard name read as a heading.",
+     "evidence": "tree: \"Application of the fire resistance standards in Table B2 > British standards\" and \"... > BS 8214. > Provisions for fire doorsets\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "bbca29d40ed50409": {
+   "version_id": "2029-amendments-to-approved-document-b-volume-1-and-volume-2@2026-09-16-c78e3b76",
+   "unit": "p40",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "a45e2905e25c98d7": {
+   "version_id": "2029-amendments-to-approved-document-b-volume-1-and-volume-2@2026-09-16-c78e3b76",
+   "unit": "p8",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The group column heading is shortened and reworded, so the grid loses that the values also apply to products assessed under paragraphs B1 to B5, and it stands as an empty column of its own.",
+     "evidence": "source: \"Minimum provisions when tested and classified to the relevant European standard (minutes)(1) or assessed following the recommendations of paragraphs B1 to B5 (minutes)(2)\" / tree: \"Minimum provisions when tested to the relevant European standard (minutes)(1)\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "affbeea586d8d434": {
+   "version_id": "2029-amendments-to-approved-document-b-volume-1-and-volume-2@2026-09-16-c78e3b76",
+   "unit": "p9",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "Item 12a is split in two: the 120 min values from the side remote from the shaft sit on a row of their own with no sub-item, so 12a seems to need only 60 min.",
+     "evidence": "source: \"12. Firefighting shafts 120 min 120 min 120 min From side remote from shaft a. construction that separates firefighting shaft from rest of building 60 min\" / tree: \"12. Firefighting shafts\", \"\", \"120 min\""
+    },
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The group column heading is shortened and reworded, so the grid loses that the values also apply to products assessed under paragraphs B1 to B5, and it stands as an empty column of its own.",
+     "evidence": "source: \"Minimum provisions when tested and classified to the relevant European standard (minutes)(1) or assessed following the recommendations of paragraphs B1 to B5 (minutes)(2)\" / tree: \"Minimum provisions when tested to the relevant European standard (minutes)(1)\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "bfacaf43b920b78f": {
+   "version_id": "june-2022-amendments-to-approved-document-b-volume-1-and-vol@2026-09-16-4353b3aa",
+   "unit": "p11",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The replacement sub-paragraph (b) of paragraph 3.66 and its amendment instruction are merged into the text of paragraph 3.62, so a rule sits under the wrong provision.",
+     "evidence": "source: \"Page 34 Paragraph 3.66, replace sub-paragraph (b) with the following. b. The stair meets the provisions in paragraph 3.68.\" / tree: inside Paragraph 3.62"
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The amendment instruction for paragraph 3.62 is attached to the end of the earlier paragraph 3.41 instead of standing on its own.",
+     "evidence": "tree: \"with a maximum of 4m at a maximum inclined angle of 30 degrees. Page 33 Replace paragraph 3.62 with the following.\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The amendment instruction for Diagram 3.11 is merged into the text of paragraph 3.62.",
+     "evidence": "tree: \"b. The stair meets the provisions in paragraph 3.68. Page 35 Replace Diagram 3.11 with the following.\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "849836ab094b7ffd": {
+   "version_id": "june-2022-amendments-to-approved-document-b-volume-1-and-vol@2026-09-16-4353b3aa",
+   "unit": "p15",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Three amendment instructions for Diagram 9.2, Table 9.1 and paragraph 9.12 are merged into the body text of paragraph 9.1.",
+     "evidence": "tree: \"spread of smoke as well. Page 70 Replace Diagram 9.2 with the following. Page 71 In Table 9.1 Maximum nominal internal diameter\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "Diagram 9.2 is printed between paragraph 9.1 and the Table 9.1 title but the tree puts it last, after paragraph 9.12.",
+     "evidence": "source: \"Page 70 Replace Diagram 9.2 with the following.\" then the diagram / tree: diagram after \"Method 4\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The new Table 9.1 title has a stray space after the hyphen in the tree's title.",
+     "evidence": "source: \"passing through a fire-separating element\" / tree: \"passing through a fire‑ separating element\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "97bf124b24830508": {
+   "version_id": "june-2022-amendments-to-approved-document-b-volume-1-and-vol@2026-09-16-4353b3aa",
+   "unit": "p19",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "8362d335457c4396": {
+   "version_id": "june-2022-amendments-to-approved-document-b-volume-1-and-vol@2026-09-16-4353b3aa",
+   "unit": "p21",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading \"Regulation 7(2) and requirement B4\" is read as a chapter with number 7, though it is an unnumbered heading inside Section 10.",
+     "evidence": "source: \"Regulation 7(2) and requirement B4\" / tree: type \"chapter\", number \"7\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The closing sentence of paragraph 10.10 applies to the whole paragraph but is merged into sub-item b.ii.",
+     "evidence": "tree: \"centred on that boundary line. Where regulation 7(2) applies, that regulation prevails over all the provisions in this paragraph.\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "37c4de21bf58a344": {
+   "version_id": "june-2022-amendments-to-approved-document-b-volume-1-and-vol@2026-09-16-4353b3aa",
+   "unit": "p24",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The amendment to paragraph 13.5 sub-paragraph (b) on page 98 is merged into paragraph 13.2, so the fire main inlet rule sits under the wrong provision.",
+     "evidence": "source: \"Page 98 Paragraph 13.5, replace sub-paragraph (b) with the following. b. The fire main inlet connection point\" / tree: inside Paragraph 13.2 text"
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The instruction line for paragraph 13.2 is joined to the end of the text of paragraph 13.1.",
+     "evidence": "tree: \"giving access to the interior of the building. Replace paragraph 13.2 with the following.\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "657093fcfd8d263d": {
+   "version_id": "june-2022-amendments-to-approved-document-b-volume-1-and-vol@2026-09-16-4353b3aa",
+   "unit": "p27",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The Table B3 instructions, including all five 'Replace row' lines, are merged into the text of paragraph B25, so the replacement rows in the tables are no longer tied to their row numbers (row 2, row 3b).",
+     "evidence": "source: \"1. Replace row 2 with the following.\" above the first table, \"2. Replace row 3b with the following.\" above the second / tree: \"can be used. In Table B3 Specific provisions ... 1. Replace row 2 with the following. 2. Replace row 3b with the following. 3. Replace row 5b\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The margin page reference 'Pages 125 to 128' is split: 'to 128' became a heading and the title of the tables, and 'Pages 125' with the B25 instruction is joined to the NOTE of paragraph B4.",
+     "evidence": "source: \"Pages 125 to 128 Replace paragraph B25 with the following.\" / tree: heading \"to 128\"; \"compliance with this requirement. Pages 125 Replace paragraph B25 with the following.\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "03fc7bf2f7ca3175": {
+   "version_id": "june-2022-amendments-to-approved-document-b-volume-1-and-vol@2026-09-16-4353b3aa",
+   "unit": "p28",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The replacement row 17 (Cavity barrier) is a table row but is kept as running text, so its values are not under any column.",
+     "evidence": "source: table row \"17. Cavity barrier | E 30 and I 15 | Not applicable | 30 min | 15 min | Each side separately\" / tree: text \"17. Cavity barrier E 30 and I 15 Not applicable 30 min 15 min Each side separately\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The instruction lines printed above each table on this page are held only inside paragraph B25, so the tables are not tied to the rows they replace (5b, 8, 17).",
+     "evidence": "source: \"3. Replace row 5b with the following.\" above the first table / tree: in Paragraph B25 text \"3. Replace row 5b with the following. 4. Replace row 8 with the following. 5. Replace row 17\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The two labels of Diagram D1 are interleaved line by line in the labels.",
+     "evidence": "source: \"Effective clear width (door stop to projecting ironmongery)\" and \"Effective clear width (door stop to door leaf)\" / tree: \"width (door stop width (door stop to\", \"to projecting door leaf)\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "999ce9f12a0a5cd9": {
+   "version_id": "june-2022-amendments-to-approved-document-b-volume-1-and-vol@2026-09-16-4353b3aa",
+   "unit": "p29",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "9d236b1f86e9a261": {
+   "version_id": "june-2022-amendments-to-approved-document-b-volume-1-and-vol@2026-09-16-4353b3aa",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "113324755b3f267d": {
+   "version_id": "june-2022-amendments-to-approved-document-b-volume-1-and-vol@2026-09-16-4353b3aa",
+   "unit": "p33",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "a5309890708dd63a": {
+   "version_id": "june-2022-amendments-to-approved-document-b-volume-1-and-vol@2026-09-16-4353b3aa",
+   "unit": "p40",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The amendment instructions for Diagram 10.1, Table 10.1 and paragraph 10.12 are merged into the text of paragraph 10.1 instead of standing before the items they introduce.",
+     "evidence": "tree: \"...the spread of smoke as well. Page 83 Replace Diagram 10.1 with the following. In Table 10.1 ... Page 84 Replace paragraph 10.12 with the following.\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The figure sits after paragraph 10.12 in the tree, but on the page it comes first, before the Table 10.1 title and paragraph 10.12.",
+     "evidence": "source: \"Page 83 Replace Diagram 10.1 with the following.\" then diagram, then \"In Table 10.1\" / tree: diagram last"
+    },
+    {
+     "kind": "figure",
+     "severity": "low",
+     "problem": "The figure labels mix the dimension labels with note 1 and run labels together out of order.",
+     "evidence": "tree: \"≥ 1000mm ≥ 1000mm 1. Make the opening in the structure as small\" and \"Fire-stopping with pipe\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "ee86ef416875dd35": {
+   "version_id": "june-2022-amendments-to-approved-document-b-volume-1-and-vol@2026-09-16-4353b3aa",
+   "unit": "p44",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "1f76f6bc27b834af": {
+   "version_id": "june-2022-amendments-to-approved-document-b-volume-1-and-vol@2026-09-16-4353b3aa",
+   "unit": "p52",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The instructions that say which Table B3 row each replacement table stands for are merged into paragraph B25, so the three tables carry no row number and no table name.",
+     "evidence": "tree B25: \"...can be used. In Table B3 Specific provisions ... 1. Replace row 2 with the following. 2. Replace row 3b with the following. 3. Replace row 5b with the following.\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The margin label 'Pages 140 to 143' is split: 'to 143' became a heading that parents B25 and titles the three tables, and 'Pages 140 Replace paragraph B25 with the following.' is merged into the NOTE of paragraph B4.",
+     "evidence": "source: \"Pages 140 to 143 Replace paragraph B25 with the following.\" / tree: \"...compliance with this requirement. Pages 140 Replace paragraph B25 with the following.\" and heading \"to 143\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The three row tables have column headings that are not printed on this page.",
+     "evidence": "tree: \"Part of building\", \"Minimum provisions when tested to the relevant European standard (minutes)\", \"Loadbearing capacity\", \"Integrity\", \"Insulation\", \"Method of exposure\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "11ac0752893ec59b": {
+   "version_id": "march-2024-amendments-to-approved-document-b-volume-1-and-vo@2026-09-16-a6d51398",
+   "unit": "p10",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Table C1 is parented under a heading 'and 139', which is a fragment of a margin page reference and not a real heading.",
+     "evidence": "tree: \"Design and construction of common stairs > and 139 > Provisions for fire doorsets\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The superscript in the unit of note 2a is flattened.",
+     "evidence": "source: \"3m³/m/hour\" / tree: \"3m3/m/hour\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "01705d39454d4ebd": {
+   "version_id": "march-2024-amendments-to-approved-document-b-volume-1-and-vo@2026-09-16-a6d51398",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The amendment instruction for Table 3.1 is merged into the end of paragraph 3.27 item b instead of standing as its own instruction before the table.",
+     "evidence": "source: \"Replace Table 3.1 with the following.\" (own line) / tree: \"...is not exceeded (Diagram 3.8). Replace Table 3.1 with the following. Page 27 Replace Diagram 3.7...\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The spanning header row of Table 3.1 is not in the columns or grid, only in the table text.",
+     "evidence": "source: \"Maximum travel distance from flat entrance door to storey exit or stair lobby(1)\" / tree columns: \"Escape in one direction\", \"Escape in more than one direction\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "010c83ac48c2467c": {
+   "version_id": "march-2024-amendments-to-approved-document-b-volume-1-and-vo@2026-09-16-a6d51398",
+   "unit": "p6",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Each 'Replace paragraph ...' instruction is attached to the end of the paragraph before it, not to the replacement paragraph it introduces, so the tree does not show which old paragraph each new one replaces.",
+     "evidence": "source: \"Page 30 Replace paragraph 3.33 with the following.\" then \"3.37 An escape route...\" / tree 3.31: \"...alternative means of escape. Page 30 Replace paragraph 3.33 with the following.\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The same happens for the instructions before 3.39 and 3.53, which sit at the end of paragraphs 3.37 and 3.39.",
+     "evidence": "tree 3.37: \"...more than one stair. Replace paragraph 3.35 with the following.\" / tree 3.39: \"...more than one stair. Page 31 Replace paragraph 3.49 with the following.\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Paragraphs 3.37, 3.39 and 3.53 are placed under the subheading 'Number of common stairs', but they replace paragraphs elsewhere and do not belong to that subheading.",
+     "evidence": "tree heading_path: \"Design for vertical escape > Number of common stairs > Paragraph 3.37\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The subscript classification has a stray space before the closing bracket.",
+     "evidence": "source: \"(minimum E 30 Sa).\" / tree: \"(minimum E 30 Sa ).\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "3a8d8f2665db55df": {
+   "version_id": "march-2024-amendments-to-approved-document-b-volume-1-and-vo@2026-09-16-a6d51398",
+   "unit": "p7",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The replacement sub-paragraph 3.56(b) is merged into paragraph 3.54, where it reads as a further rule of 3.54.",
+     "evidence": "source: \"Page 33 Replace sub-paragraph 3.56 (b) with the following. b. Not be situated within a protected stairway, evacuation shaft or protected lobby.\" / tree: inside Paragraph 3.54"
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The replacement sub-paragraph 3.99(a) is merged into paragraph 3.63, where it reads as part of the stair width rule.",
+     "evidence": "source: \"Page 40 Replace sub-paragraph 3.99 (a) with the following. a. Be sited within the enclosures of a protected stairway or evacuation shaft.\" / tree: inside Paragraph 3.63"
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The 'Replace paragraph ...' instructions are attached to the end of the paragraph before them, not to the replacement paragraph they introduce.",
+     "evidence": "tree 3.63: \"...Replace paragraph 3.101 with the following.\" / tree 3.104: \"...(minimum REI 30). Replace paragraph 3.102 with the following.\" / tree 3.54: \"Replace heading ‘Common stairs’ with the following.\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The replacement heading 'Design and construction of common stairs' is made a top-level chapter, so the paragraphs after it lose the Volume 1 parent.",
+     "evidence": "tree heading_path: \"Design and construction of common stairs > Paragraph 3.63\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Paragraph 3.54 is placed under the subheading 'Number of common stairs', which it does not belong to.",
+     "evidence": "tree heading_path: \"Design for vertical escape > Number of common stairs > Paragraph 3.54\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "6dfa9c1b81ab8fb4": {
+   "version_id": "march-2024-amendments-to-approved-document-b-volume-1-and-vo@2026-09-16-a6d51398",
+   "unit": "p9",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The margin page reference 'Pages 138 and 139' is split, and its second line is read as a heading that becomes the parent of Table C1.",
+     "evidence": "source: \"Pages 138 and 139 Replace Table C1 with the following table.\" / tree: heading \"and 139\"; text \"Pages 138 Replace Table C1 with the following table.\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Appendix C is placed under 'Design and construction of common stairs', which is a Section 3 heading and not its parent.",
+     "evidence": "tree heading_path: \"Design and construction of common stairs > Appendix C: Fire doorsets\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "fd827e52c6c82d94": {
+   "version_id": "may-2020-amendments-to-approved-document-b-volume-1-and-volu@2026-09-16-848cc1d3",
+   "unit": "p10",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "high",
+     "problem": "All the notes of Table B4 printed on this page are absent from the tree, including the symbol notes and numbered notes 1 to 8.",
+     "evidence": "source: \"For single storey buildings, the periods under the heading 'Up to 5' apply.\" ... \"† For compartment walls that separate buildings, the period is increased to a minimum of 60 minutes.\""
+    },
+    {
+     "kind": "missing",
+     "severity": "high",
+     "problem": "Note 2 on sprinklers in blocks of flats over 11m and its NOTE are missing.",
+     "evidence": "source: \"2. Blocks of flats with a top storey more than 11m above ground level (see Diagram D6) should be fitted with a sprinkler system in accordance with Appendix E.\""
+    },
+    {
+     "kind": "missing",
+     "severity": "high",
+     "problem": "Note 6 on when sprinklers are required for non-residential purpose groups is missing.",
+     "evidence": "source: \"purpose groups 3 to 7(a)) require sprinklers where there is a top storey more than 30m above ground level.\""
+    },
+    {
+     "kind": "missing",
+     "severity": "high",
+     "problem": "Note 8 on steel elements deemed to satisfy 15 minutes, with its Hp/A limits and the BS EN 1993-1-2 reference, is missing.",
+     "evidence": "source: \"i. Beams supporting concrete floors, maximum Hp/A=230m-1 operating under full design load.\" ... \"Guidance is also available in BS EN 1993-1-2.\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "6f4a487256353a2c": {
+   "version_id": "may-2020-amendments-to-approved-document-b-volume-1-and-volu@2026-09-16-848cc1d3",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Every body paragraph and list item of the Introduction is typed as a heading instead of body text; the words themselves are complete.",
+     "evidence": "tree heading title: \"The changes highlighted in this amendment booklet take effect on 26 November 2020 for use in England.\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "20451ac132eac7c9": {
+   "version_id": "may-2020-amendments-to-approved-document-b-volume-1-and-volu@2026-09-16-848cc1d3",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "Items d and e and the NOTE are cut into fragments, typed as headings and scattered before and after the tables, so the sentences no longer read correctly.",
+     "evidence": "source: \"The text and arrows should be on a contrasting background, easily legible and readable in low level lighting conditions\" / tree: \"e. The text and arrows should readable in low level lighting\""
+    },
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "The NOTE is split: its start is a text block and its two line ends are joined into one heading far below, losing the sentence.",
+     "evidence": "source: \"flats with two or more entrances, the flat number should only be indicated on the normal access storey.\" / tree: \"flats with two or more entrances, the flat on the normal access storey.\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Table B4 is split into six pieces: the table numbered B4 holds only header rows, while the full grid sits in an unnumbered table titled 'products and structures'.",
+     "evidence": "tree: table \"B4\" grid has only heading rows; full rows under title \"products and structures\""
+    },
+    {
+     "kind": "extra",
+     "severity": "high",
+     "problem": "Four fragment tables and a text block repeat rows of Table B4 without their purpose group, two of them identical.",
+     "evidence": "tree: \"– without sprinkler system\", \"90 min\", \"60 min\" / \"– with sprinkler system(3)\", \"60 min\", \"60 min\" (twice); \"a. Institutional 90 min 60 min\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading 'Appendix B: Performance of materials, products and structures' is split in two and placed under the wayfinding list item 'one direction.'.",
+     "evidence": "source: \"Appendix B: Performance of materials, products and structures\" / tree: \"one direction. > Appendix B: Performance of materials,\" and \"products and structures\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The margin label and instruction are joined in the wrong order into one heading.",
+     "evidence": "source: \"Pages 129 to 130 Replace Table B4 with the following.\" / tree: \"Pages 129 Replace Table B4 with the following. to 130\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The basement column names drop the asterisk note marker and the words 'including floor over'.",
+     "evidence": "source: \"Basement storey* including floor over\" / tree: \"Basement storey, depth (m) of the lowest basement: More than 10\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "884ca15371b9ef60": {
+   "version_id": "may-2020-amendments-to-approved-document-b-volume-1-and-volu@2026-09-16-848cc1d3",
+   "unit": "p6",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "The notes under the table (single storey note, §, ‡ and #) are cut in half and their ends are listed out of order across several blocks, so they cannot be read as printed.",
+     "evidence": "source: \"‡ For elements that do not form part of the structural frame, the period is reduced to 90 minutes.\" / tree: \"acceptability of 30 minutes.\", \"period is reduced to 90 minutes.\", \"to 30 minutes.\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Row labels and stray cell words of the table are kept as running text mixed with the notes.",
+     "evidence": "tree: \"including floor over 6. Industrial: 7. Storage and other non-residential:\" ... \"b. car park for light vehicles: applicable applicable\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The rows for 6 Industrial and 7a are given three times (two small tables and the main table), and the car park rows are also repeated as loose text.",
+     "evidence": "tree: \"i. open sided car park(7) Not Not 15 min†#\" and \"ii. any other car park 90 min 60 min 30 min†\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The table is Table B4 continued but the tree gives it no number and a title cut from the appendix heading, under a wayfinding signage parent.",
+     "evidence": "source: \"Table B4 Continued\" / tree: title \"products and structures\", path \"Wayfinding signage for the fire service > Pages 129 Replace Table B4 with the following. to 130\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "949cbc4f62a98cf9": {
+   "version_id": "may-2020-amendments-to-approved-document-b-volume-1-and-volu@2026-09-16-848cc1d3",
+   "unit": "p7",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "8c5d0dc355781cbc": {
+   "version_id": "may-2020-amendments-to-approved-document-b-volume-1-and-volu@2026-09-16-848cc1d3",
+   "unit": "p8",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Paragraph 13.5 and its list items a, b, c, i and ii are body text but are each kept as a heading directly under the chapter, so the nesting under Section 13 and under item c is lost.",
+     "evidence": "source: \"13.5 The boundary that a wall faces is the relevant boundary (Diagram 13.2). It may be one of the following.\" / tree: type \"heading\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The table header and rows are repeated as running text in a text block after the table.",
+     "evidence": "tree: \"Purpose group of building Minimum periods of fire resistance(1) (minutes) in a: Basement storey* Ground or upper storey including floor over\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The margin page reference is split around the instruction in the heading.",
+     "evidence": "source: \"Pages 145 to 146 Replace Table B4 with the following.\" / tree: \"Pages 145 Replace Table B4 with the following. to 146\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "30fdce4cd6869538": {
+   "version_id": "may-2020-amendments-to-approved-document-b-volume-1-and-volu@2026-09-16-848cc1d3",
+   "unit": "p9",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The basement columns are missing from the grid for rows 2a, 2b and both car park rows; these values survive only as loose text, and the open sided car park \"Not applicable\" values are broken up.",
+     "evidence": "source: \"i. open sided car park(7) Not applicable Not applicable 15 min†#\" / tree: \"i. open sided car park(7) Not Not\" and grid columns start at \"Up to 5\""
+    },
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "One printed table is split into six tables, with basement and above ground values for the same row in different tables, and row 7a in one table has only the two basement columns.",
+     "evidence": "tree: columns \"Purpose group of building\", \"More than 10\", \"Up to 10\" with row \"any building or part not described elsewhere: – without sprinkler system\", \"120 min\", \"90 min\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Rows 2a and 2b with their basement values are kept as plain text, not as table rows.",
+     "evidence": "tree: \"a. Institutional 90 min 60 min\", \"b. Other residential 90 min 60 min\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Rows 3 to 6 are given twice, once in small full-width tables and again in the last table.",
+     "evidence": "tree: \"3. Office: – without sprinkler system\" and \"Office: – without sprinkler system\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Row labels in the last table lose their item numbers and letters.",
+     "evidence": "source: \"2. Residential a. Institutional\" / tree: \"Residential: Institutional\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  }
+ }
+}

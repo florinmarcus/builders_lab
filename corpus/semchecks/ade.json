@@ -1,0 +1,366 @@
+{
+ "source_id": "ade",
+ "about": "Model verdicts on source against tree for ade (system/rag/semcheck.py).",
+ "verdicts": {
+  "39380ab448db7efb": {
+   "version_id": "approved-document-e-resistance-to-the-passage-of-sound@2015-03-04-e6a8feb6",
+   "unit": "p14",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Both tables have the wrong number: Table 0.1a and Table 0.1b are each numbered \"0\", with the rest of the number left at the start of the title.",
+     "evidence": "source: \"Table 0.1a Dwelling-houses and flats\" and \"Table 0.1b Rooms for residential purposes\" / tree: number \"0\", title \".1a Dwelling-houses and flats\" and \".1b Rooms for residential purposes\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "3c2ed024c7057ca0": {
+   "version_id": "approved-document-e-resistance-to-the-passage-of-sound@2015-03-04-e6a8feb6",
+   "unit": "p15",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Footnote 1 is attached to paragraph 0.8, but its marker is in paragraph 0.7 (historic buildings).",
+     "evidence": "source: \"such historic buildings needs to be recognised1\" in 0.7 / tree: footnote \"1 BS 7913 The principles of the conservation of historic buildings\" under para-0.8"
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "71c7b121b3736e05": {
+   "version_id": "approved-document-e-resistance-to-the-passage-of-sound@2015-03-04-e6a8feb6",
+   "unit": "p18",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "315a4fff046284fe": {
+   "version_id": "approved-document-e-resistance-to-the-passage-of-sound@2015-03-04-e6a8feb6",
+   "unit": "p20",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "771afd48e5b4cc0b": {
+   "version_id": "approved-document-e-resistance-to-the-passage-of-sound@2015-03-04-e6a8feb6",
+   "unit": "p23",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "In paragraph 2.19 the subscript Xmm on the stiffness symbol k is lost in both places, so the formula reads as plain k.",
+     "evidence": "source: \"dynamic stiffness, kXmm in MN/m ... is n.kXmm<4.8MN/m³\" / tree: \"dynamic stiffness, k in MN/m ... is n.k <4.8MN/m³\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The two subscripts taken out of paragraph 2.19 are kept as two separate text sections that hold only \"Xmm\".",
+     "evidence": "tree: \"Xmm\" (section-2-walls-ties-in-separating-and-box-1 and box-2)"
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "2ba6508ee064b4b7": {
+   "version_id": "approved-document-e-resistance-to-the-passage-of-sound@2015-03-04-e6a8feb6",
+   "unit": "p31",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "One bold heading that gives a condition for wall type 2.3 is split into two headings, and paragraph 2.71 sits only under the second half.",
+     "evidence": "source: \"Additional construction: wall type 2.3 should only be used where there is a step and/or stagger of at least 300mm.\" / tree: \"stagger of at least 300mm.\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Paragraph 2.70, which defines wall type 2.2, has the example box for wall type 2.1 as its parent heading.",
+     "evidence": "tree: \"Wall type 2: cavity masonry > Example of wall type 2.1 > Paragraph 2.70\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The note printed below the example box for wall type 2.3 is joined to the text of the box.",
+     "evidence": "source: \"Note: Increasing the size of the step or stagger in the separating wall tends to increase the airborne sound insulation.\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "f06a310a78b6bb49": {
+   "version_id": "approved-document-e-resistance-to-the-passage-of-sound@2015-03-04-e6a8feb6",
+   "unit": "p33",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "0de7bc01e501ed49": {
+   "version_id": "approved-document-e-resistance-to-the-passage-of-sound@2015-03-04-e6a8feb6",
+   "unit": "p38",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "071fedc5a62251d4": {
+   "version_id": "approved-document-e-resistance-to-the-passage-of-sound@2015-03-04-e6a8feb6",
+   "unit": "p45",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The spanning header over the three type columns is not in the column names, so the columns do not say they are separating floor types.",
+     "evidence": "source: \"Separating floor type\" over \"Type 1 Type 2 Type 3\" / tree: columns \"Type 1\", \"Type 2\", \"Type 3\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "ae6118cfacdee884": {
+   "version_id": "approved-document-e-resistance-to-the-passage-of-sound@2015-03-04-e6a8feb6",
+   "unit": "p58",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Diagram 3.23 shows wall type 2 but the tree puts it under the wall type 4 heading, after paragraph 3.130, although it is printed at the top of the page.",
+     "evidence": "source: \"Diagram 3.23 Floor type 3 – wall type 2\" / tree: \"Junctions with a separating wall type 4 – timber frames with absorbent material > Floor type 3 – wall type 2\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "0bfdf8e744583949": {
+   "version_id": "approved-document-e-resistance-to-the-passage-of-sound@2015-03-04-e6a8feb6",
+   "unit": "p72",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The title of Table 7.1 is cut short and its last word is kept as a separate heading.",
+     "evidence": "source: \"Table 7.1 Absorption coefficient data for common materials in buildings\" / tree: title \"Absorption coefficient data for common materials in\", heading \"buildings\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The whole of Table 7.1 is repeated as running text in a text block under the false heading \"buildings\".",
+     "evidence": "tree: \"Material Sound absorption coefficient, α in octave frequency bands (Hz) 250 500 1000 2000 4000 Fair-faced concrete 0.01 0.01 0.02 0.02 0.03\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The header saying the values are sound absorption coefficients in octave bands is not in the table's column names.",
+     "evidence": "source: \"Sound absorption coefficient, α in octave frequency bands (Hz)\" / tree: columns \"250 Hz\", \"500 Hz\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The subscript \"ceiling\" in paragraph 7.24 is split off into a separate text block.",
+     "evidence": "source: \"absorption coefficient, αceiling, needed for the entire ceiling\" / tree: \"absorption coefficient, α , needed for the entire ceiling\" and a block \"ceiling\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "44c751cce6dde429": {
+   "version_id": "approved-document-e-resistance-to-the-passage-of-sound@2015-03-04-e6a8feb6",
+   "unit": "p73",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The grid joins the sub-tables of all steps under one set of columns, so the headings that tell coefficients from absorption areas are lost from the grid.",
+     "evidence": "source: \"Absorption coefficient (α) in octave frequency bands\" and \"Absorption area (m2)\" / tree: columns \"250Hz\", \"500Hz\" for both"
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The subscript T of A_T is split from its symbol and left on separate lines in the table text.",
+     "evidence": "source: \"(Additional absorption = AT – total absorption area (from Step 5)).\" / tree: \"(Additional absorption = A – total absorption area (from Step 5)).\" then \"T\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "e06e0d72d246fc15": {
+   "version_id": "approved-document-e-resistance-to-the-passage-of-sound@2015-03-04-e6a8feb6",
+   "unit": "p75",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "high",
+     "problem": "The formula in A2.1 and the whole list that defines its symbols are not in the tree.",
+     "evidence": "source: \"= MB + ρm(Td(L + H – d) + V) / LH kg/m2 where MB is brick/block mass (kg) at appropriate moisture content\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Diagram A.1 is not kept as a figure: its caption is joined to the end of A2.4 and to a false heading, and its labels are lost.",
+     "evidence": "source: \"Diagram A.1 Block and mortar dimensions\", \"Co-ordinating area (shaded)\" / tree: \"added to the mass per unit area of the wall Diagram A.1 Block and mortar\", heading \"dimensions\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Table A.1 is read as running text, not a table, and its caption is joined to the end of A3.1.",
+     "evidence": "source: \"Table A.1 Blocks laid flat\" / tree: \"simplified equation is obtained for that type of construction. Table A.1 Blocks laid flat Table A.2 Blocks laid on edge\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The Greek letter rho for mortar density is read as the letter r.",
+     "evidence": "source: \"ρm = 1800kg/m3\" / tree: \"rm = 1800kg/m3\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The subscript B of M_B is split from its symbol and left on its own line.",
+     "evidence": "source: \"Substituting for MB in this formula gives the following values:\" / tree: \"Substituting for M in this formula gives the following values:\" then \"B\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "b79ce3cb389c641a": {
+   "version_id": "approved-document-e-resistance-to-the-passage-of-sound@2015-03-04-e6a8feb6",
+   "unit": "p78",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The Greek delta in the performance value symbol in B3.6 is read as the letter D.",
+     "evidence": "source: \"the performance value (ΔLw) should be achieved\" / tree: \"the performance value (DLw ) should be achieved\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "9edc8c5307b730eb": {
+   "version_id": "approved-document-e-resistance-to-the-passage-of-sound@2015-03-04-e6a8feb6",
+   "unit": "p79",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "In B3.13 the subscripts of the first sound insulation quantity are lost, so the tree names the wrong quantity.",
+     "evidence": "source: \"at least 49dB DnT,w + Ctr when measured in a flanking laboratory\" / tree: \"at least 49dB D + C when measured in a flanking laboratory\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The lost subscripts are kept as a separate text block of their own, with the heading repeated as its title, instead of inside B3.13.",
+     "evidence": "tree: \"nT,w tr\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "6f5ce60665071b0b": {
+   "version_id": "frequently-asked-questions@2015-03-04-da0e95e9",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "a800f4f7a8e89d49": {
+   "version_id": "frequently-asked-questions@2015-03-04-da0e95e9",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "d2ff31ce5e95fefe": {
+   "version_id": "frequently-asked-questions@2015-03-04-da0e95e9",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The section heading \"Noise from neighbours\" is not in the tree, so the first question sits directly under \"Frequently Asked Questions\" instead of under its own section like the other two.",
+     "evidence": "source: \"Noise from neighbours\" / tree: \"Frequently Asked Questions > I am disturbed by noise from neighbours coming through the separating wall or floor...\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The printed page number 4 is kept inside the answer text, between the end of this page and the text that runs on from the next page.",
+     "evidence": "source: \"to carry out pre-completion testing\".\" / tree: \"to carry out pre-completion testing\". 4 test organisations to undertake the work.\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  }
+ }
+}

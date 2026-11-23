@@ -1,0 +1,437 @@
+{
+ "source_id": "adj",
+ "about": "Model verdicts on source against tree for adj (system/rag/semcheck.py).",
+ "verdicts": {
+  "428878ef5a107fd6": {
+   "version_id": "approved-document-j-combustion-appliances-and-fuel-storage-s@2022-09-30-ac8f5915",
+   "unit": "p15",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "The two columns are mixed: the first line of item 21 is inserted inside item 19, and the rest of item 21 follows item 20.",
+     "evidence": "source: \"19. A fire wall is a means of shielding a fuel tank from the thermal radiation from a fire\" / tree: \"shielding a fuel tank 21. Flueblock chimney systems consist of a set from the thermal radiation from a fire\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "8f53512d3cf63d56": {
+   "version_id": "approved-document-j-combustion-appliances-and-fuel-storage-s@2022-09-30-ac8f5915",
+   "unit": "p30",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Diagram 16, the notice plate referred to by paragraphs 1.57 and 1.59, is placed under the heading on access for maintenance instead of the notice plates heading.",
+     "evidence": "tree heading_path: \"Access to combustion appliances for maintenance > Example notice plate for hearths and flues\" / source: \"Notice plates for hearths and flues (Requirement J5)\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "6d1f32b18e98ddf8": {
+   "version_id": "approved-document-j-combustion-appliances-and-fuel-storage-s@2022-09-30-ac8f5915",
+   "unit": "p31",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Two words are run together in note 4 of Table 1.",
+     "evidence": "source: \"It is unlikely that a dwelling constructed prior to 2008\" / tree: \"It isunlikely that a dwelling constructed prior to 2008\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "78c21522c168acc5": {
+   "version_id": "approved-document-j-combustion-appliances-and-fuel-storage-s@2022-09-30-ac8f5915",
+   "unit": "p32",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "a93ffd2041f8ea10": {
+   "version_id": "approved-document-j-combustion-appliances-and-fuel-storage-s@2022-09-30-ac8f5915",
+   "unit": "p33",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The words of the datum detail drawing are not in the labels; the vertical datum rule is kept only in the model description and the horizontal datum label is lost.",
+     "evidence": "source: \"Datum for horizontal measurements\", \"150mm max.\", \"Datum for vertical measurements\", \"The datum for vertical measurements is the point of discharge of the flue, or 150mm above the insulation, whichever is the lower\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The two columns of the clearances table inside the diagram are mixed line by line in the labels.",
+     "evidence": "tree: \"A At or within 600mm of the At least 600mm above the\" / \"ridge ridge\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "6de17314b1b4374c": {
+   "version_id": "approved-document-j-combustion-appliances-and-fuel-storage-s@2022-09-30-ac8f5915",
+   "unit": "p37",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Diagram 21 is printed at the top of the page before the heading 'Formation of gathers', but the tree puts it after paragraph 2.21 and under that heading.",
+     "evidence": "tree: \"Formation of gathers > Minimum separation distances from combustible material in or near a chimney\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "d0a73fdaee936847": {
+   "version_id": "approved-document-j-combustion-appliances-and-fuel-storage-s@2022-09-30-ac8f5915",
+   "unit": "p38",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "a85315e34dcee16e": {
+   "version_id": "approved-document-j-combustion-appliances-and-fuel-storage-s@2022-09-30-ac8f5915",
+   "unit": "p42",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Diagram 28 is printed at the top of the page with the fireplace recesses guidance, but the tree puts it last and under the heading 'Alternative approach'.",
+     "evidence": "tree: \"Alternative approach > Fireplace recesses\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "f3138dd99bcb6c5f": {
+   "version_id": "approved-document-j-combustion-appliances-and-fuel-storage-s@2022-09-30-ac8f5915",
+   "unit": "p50",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "A bold body sentence at the end of paragraph 3.23 is read as two separate headings instead of body text, so the guidance is lost from the paragraph and later text may sit under a false heading.",
+     "evidence": "source: \"Care may also need to be taken to locate flue outlets away from parts of the building that may be damaged by frequent wetting.\" / tree: heading \"may be damaged by frequent wetting.\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The separate 'Note:' paragraph under 3.23 is joined into the paragraph text as one run.",
+     "evidence": "tree: \"Diagram 34 and Diagram 35. Note: The plume of wet flue products from condensing boilers\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "7c4b372bc2a52649": {
+   "version_id": "approved-document-j-combustion-appliances-and-fuel-storage-s@2022-09-30-ac8f5915",
+   "unit": "p52",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The table's heading path has a piece of body text as a heading level.",
+     "evidence": "tree: \"Outlets from flues > may be damaged by frequent wetting. > Location of outlets from flues serving gas appliances\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "33d7fa0647c1b010": {
+   "version_id": "approved-document-j-combustion-appliances-and-fuel-storage-s@2022-09-30-ac8f5915",
+   "unit": "p53",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "In paragraph 3.27 item b is merged into item a and its \"b.\" label is lost.",
+     "evidence": "source: \"b. i) using factory-made components\" / tree: \"a. following the guidance ... known type): i) using factory-made components\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "A stray \"b.\" from the other column is inside the sentence of paragraph 3.24.",
+     "evidence": "source: \"should be protected where flues are at significant risk\" / tree: \"should be protected where b. flues are at significant risk\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "Table 6 has an invented empty third column \"Fuel type\" that is not printed.",
+     "evidence": "source: \"Appliance type | Minimum designation (see notes)\" / tree columns: \"Appliance type\", \"Minimum designation\", \"Fuel type\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The title of Table 6 is cut short and loses its last words.",
+     "evidence": "source: \"fluepipe components for use with new gas appliances\" / tree: \"fluepipe components for use\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading path of paragraphs 3.24 to 3.26 has a piece of body text as a heading level.",
+     "evidence": "tree: \"Outlets from flues > may be damaged by frequent wetting. > Paragraph 3.24\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "762149d3f69cfe2c": {
+   "version_id": "approved-document-j-combustion-appliances-and-fuel-storage-s@2022-09-30-ac8f5915",
+   "unit": "p54",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "de1cb2bafce92e3b": {
+   "version_id": "approved-document-j-combustion-appliances-and-fuel-storage-s@2022-09-30-ac8f5915",
+   "unit": "p60",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading path of the table and the diagram has a piece of body text as a heading level.",
+     "evidence": "tree: \"Outlets from flues and flue heights > may be damaged by frequent wetting. > Location of outlets from flues serving oil-fired appliances\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "7bf21d5ab266edb4": {
+   "version_id": "approved-document-j-combustion-appliances-and-fuel-storage-s@2022-09-30-ac8f5915",
+   "unit": "p61",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "b26f3be5a94f1812": {
+   "version_id": "approved-document-j-combustion-appliances-and-fuel-storage-s@2022-09-30-ac8f5915",
+   "unit": "p62",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The heading has \"50mm\" from a Table 9 cell stuck to its end, and this carries into the heading paths of 4.18 to 4.20 and Table 9.",
+     "evidence": "source: \"Location and shielding of flues\" / tree: \"Location and shielding of flues50mm\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The last line of Table 9 is scrambled in the table text and has lost \"50mm\", though the grid cell is right.",
+     "evidence": "source: \"50mm from the edge of the flue outlet to any combustible wall cladding\" / tree: \"outlet tofrom anythe combustibleedgeofthe wallflue cladding.\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "c3cb373a2a8c87f9": {
+   "version_id": "approved-document-j-combustion-appliances-and-fuel-storage-s@2022-09-30-ac8f5915",
+   "unit": "p65",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "Note 2 under Table 10 is scrambled, so the standards it names (BS EN 1363 or BS EN 1364) can no longer be read.",
+     "evidence": "source: \"determined by testing to the relevant parts of BS 476 or BS EN 1363 or BS EN 1364.\" / tree: \"determinedEN1363 byor testingBSEN to1364. the relevant parts of BS 476 or\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Paragraph 5.2 has a stray word \"within\" joined to \"exclusively\".",
+     "evidence": "source: \"used exclusively for heating oil\" / tree: \"used exclusivelywithin for heating oil\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Paragraph 5.3 has stray letters \"BS\" joined to \"may\".",
+     "evidence": "source: \"fire precautions legislation may be sought from the Fire Authority\" / tree: \"fire precautions legislation mayBS be sought from the Fire Authority\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "8f0986c4d9f24d0c": {
+   "version_id": "approved-document-j-combustion-appliances-and-fuel-storage-s@2022-09-30-ac8f5915",
+   "unit": "p67",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "Table 11 has column names that are not printed on it (they belong to Table 10), and columns B and C are merged into one cell; the values themselves are still right.",
+     "evidence": "source: \"(A) Capacity of tank not exceeding (tonnes): (B) To a tank with no fire wall or to a tank around a fire wall (C) To a tank shielded by a fire wall\" / tree: \"Location of tank\", \"Protection usually satisfactory\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Table 11 on LPG tank separation is filed under the heading for cylinders, not under tank location and protective measures where paragraph 5.15 refers to it.",
+     "evidence": "tree: \"Location and support of cylinders > Fire protection for LPG storage tanks (see Diagram 43)\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "e68a9379733493e7": {
+   "version_id": "approved-document-j-combustion-appliances-and-fuel-storage-s@2022-09-30-ac8f5915",
+   "unit": "p73",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "high",
+     "problem": "The calculation under C2 for the area of vent D is not in the tree.",
+     "evidence": "source: \"15kW x 500 mm²/kW = 7500mm²\" / tree: \"The cooling air is exhausted via vent D, which has an area:\""
+    },
+    {
+     "kind": "missing",
+     "severity": "high",
+     "problem": "The calculation under C3 for the area of vent E is not in the tree.",
+     "evidence": "source: \"15kW x 1000 mm²/kW = 15,000mm²\" / tree: \"It has an area:\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "b645259d97e69fca": {
+   "version_id": "approved-document-j-combustion-appliances-and-fuel-storage-s@2022-09-30-ac8f5915",
+   "unit": "p77",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "ff5f6a081f185828": {
+   "version_id": "approved-document-j-combustion-appliances-and-fuel-storage-s@2022-09-30-ac8f5915",
+   "unit": "p79",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The designation diagram under G2, which links each part of the code to its meaning, is run together as plain paragraph text; all the words are kept in order.",
+     "evidence": "tree: \"Chimney EN 1234 – T 450 N2 D 1 G50 Number of corresponding chimney standard Temperature class Pressure class N or P or H\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "0363fcae8d861c0b": {
+   "version_id": "approved-document-j-combustion-appliances-and-fuel-storage-s@2022-09-30-ac8f5915",
+   "unit": "p80",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Table G3 on corrosion resistance classes is filed under the heading \"Distance to combustible material\" and not under \"Corrosion resistance classes\", where G10 refers to it.",
+     "evidence": "tree: \"Distance to combustible material > Corrosion resistance classes (from BS EN 1443-2003)\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "03c51868b2171c0c": {
+   "version_id": "approved-document-j-combustion-appliances-and-fuel-storage-s@2022-09-30-ac8f5915",
+   "unit": "p87",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "c00862e91e76b846": {
+   "version_id": "approved-document-j-combustion-appliances-and-fuel-storage-s@2022-09-30-ac8f5915",
+   "unit": "p89",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  }
+ }
+}

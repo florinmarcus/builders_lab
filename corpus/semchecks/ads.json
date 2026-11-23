@@ -1,0 +1,85 @@
+{
+ "source_id": "ads",
+ "about": "Model verdicts on source against tree for ads (system/rag/semcheck.py).",
+ "verdicts": {
+  "e6b54d9f703fb875": {
+   "version_id": "approved-document-s-infrastructure-for-charging-electric-veh@2023-04-17-71f78926",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The term 'full plans application' is changed to 'fulfil plans application', which is not the name of the application type.",
+     "evidence": "source: \"a building notice, full plans application or initial notice\" / tree: \"a building notice, fulfil plans application or initial notice\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The word 'Full' is changed to 'Fulfil' at the start of the last sentence.",
+     "evidence": "source: \"Full detail of the transitional arrangements\" / tree: \"Fulfil detail of the transitional arrangements\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "3ab71849ba264b83": {
+   "version_id": "approved-document-s-infrastructure-for-charging-electric-veh@2023-04-17-71f78926",
+   "unit": "p20",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "cd57cbeae42f6dff": {
+   "version_id": "approved-document-s-infrastructure-for-charging-electric-veh@2023-04-17-71f78926",
+   "unit": "p35",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "365342797e78efdd": {
+   "version_id": "approved-document-s-infrastructure-for-charging-electric-veh@2023-04-17-71f78926",
+   "unit": "p37",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "acf0f96e5e5ec894": {
+   "version_id": "approved-document-s-infrastructure-for-charging-electric-veh@2023-04-17-71f78926",
+   "unit": "p8",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "5584ba71aa736c47": {
+   "version_id": "approved-document-s-infrastructure-for-charging-electric-veh@2023-04-17-71f78926",
+   "unit": "p9",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  }
+ }
+}

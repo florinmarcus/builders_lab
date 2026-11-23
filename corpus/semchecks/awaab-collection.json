@@ -1,0 +1,1689 @@
+{
+ "source_id": "awaab-collection",
+ "about": "Model verdicts on source against tree for awaab-collection (system/rag/semcheck.py).",
+ "verdicts": {
+  "c8b0d0f543bdfe73": {
+   "version_id": "awaabs-law-consultation-on-timescales-for-repairs--awaab-s-law-consultation-stage-impact-assessment@2025-06-25-763b5a3a",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The problem statement box is read as a table row, and its paragraph is split across the first two value columns.",
+     "evidence": "tree cell 1 ends: \"as an amendment to the Act. The government\" / tree cell 2: \"agrees that action is needed to set timescales\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The header over the four cost columns, which gives the price basis, is not in the columns, only in the table text.",
+     "evidence": "source: \"Cost of Preferred (or more likely) Option (in 2019 prices, 2020 present value)\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The title block at the top of the page comes last in the tree, after the summary text and the cost table.",
+     "evidence": "source starts: \"Title: Awaab’s Law consultation stage impact assessment\" / tree starts: \"Impact Assessment (IA) Summary: Intervention and Options RPC Opinion: N/A\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The section heading and the RPC opinion box are run together as body text.",
+     "evidence": "tree: \"Impact Assessment (IA) Summary: Intervention and Options RPC Opinion: N/A RPC Opinion Status What are the policy objectives\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "349beb33aa386f7e": {
+   "version_id": "awaabs-law-consultation-on-timescales-for-repairs--awaab-s-law-consultation-stage-impact-assessment@2025-06-25-763b5a3a",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The bold box heading is read as body text, run on from page 1 labels.",
+     "evidence": "source: \"What are the policy objectives of the action or intervention and the intended effects?\" / tree: \"RPC Opinion Status What are the policy objectives of the action\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "4584da7cfde00758": {
+   "version_id": "awaabs-law-consultation-on-timescales-for-repairs--awaab-s-law-consultation-stage-impact-assessment@2025-06-25-763b5a3a",
+   "unit": "p24",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The bold heading is read as body text, so the risks text sits under the direct costs heading with no break.",
+     "evidence": "source: \"Risks and assumptions\" (own line) / tree: \"in the business impact test. Risks and assumptions The impacts of Awaab’s Law\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Table 1 is split in two: the part on this page is a separate table with the section heading as its title, not Table 1.",
+     "evidence": "source caption (next page): \"Table 1 - Summary of survey responses\" / tree title: \"Direct costs and benefits to business calculations\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The underlined sub-heading is read as body text.",
+     "evidence": "source: \"Economic\" (own line) / tree: \"in the switching value analysis. Economic New requirements\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "9bca49741937087f": {
+   "version_id": "awaabs-law-consultation-on-timescales-for-repairs--awaab-s-law-consultation-stage-impact-assessment@2025-06-25-763b5a3a",
+   "unit": "p25",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The bold heading and its italic questions are read as body text.",
+     "evidence": "source: \"Impact on small and micro businesses\" (bold heading) / tree: \"Impact on small and micro businesses Will the measure impact small or micro businesses (SMBs)? Could SMBs\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Table 1 holds only the two rows on this page; its first two rows on the page before are kept as a separate table.",
+     "evidence": "tree: \"Table 1 Summary of survey responses\" with rows \"8.5 days - 30.0 days\" and \"8.5 days 26.1 days 47.3 days\" only"
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "1efc3fc443fae864": {
+   "version_id": "awaabs-law-consultation-on-timescales-for-repairs--awaab-s-law-consultation-stage-impact-assessment@2025-06-25-763b5a3a",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The policy options answer is one printed cell but the grid splits it into two cells in the middle of a sentence, so the row has more cells than the table has columns.",
+     "evidence": "source: \"held to account directly by tenants if they fail to take repair action\" / tree: \"...if they fail to\" | \"take repair action to keep tenants safe...\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The same page table is kept twice, once as a one-column table and once as a Question/Answer table.",
+     "evidence": "tree: \"document-table-p3\" and \"document-table-4\" both hold \"What policy options have been considered, including any alternatives to regulation?\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The signature line is placed before the second table and the declaration printed above it is kept only as a note of that table, so the two are in reverse order.",
+     "evidence": "source: \"I have read the Impact Assessment and I am satisfied that...\" then \"Signed by the responsible:SELECT SIGNATORY\" / tree: \"Signed by the responsible:SELECT SIGNATORY Date:\" first"
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "6f55cfc2d42f9b51": {
+   "version_id": "awaabs-law-consultation-on-timescales-for-repairs--awaab-s-law-consultation-stage-impact-assessment@2025-06-25-763b5a3a",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The description line printed under the heading and above the tables is placed after both tables in the tree.",
+     "evidence": "source: \"Description: Legislate for timescales for landlords to respond to hazards (Recommended option) FULL ECONOMIC ASSESSMENT\" before \"Price Base\" / tree: after \"Best Estimate 0 0 0\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "cbaf4af7540a6eb4": {
+   "version_id": "awaabs-law-consultation-on-timescales-for-repairs--awaab-s-law-consultation-stage-impact-assessment@2025-06-25-763b5a3a",
+   "unit": "p6",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "e72d1a774416d8b8": {
+   "version_id": "awaabs-law-consultation-on-timescales-for-repairs--awaab-s-law-consultation-stage-impact-assessment@2025-06-25-763b5a3a",
+   "unit": "p9",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The bold heading at the top of the page is read as the first words of the body text and is not in the heading path, which stays \"Case study\".",
+     "evidence": "source (heading): \"Why is government best placed to resolve the issue? Could the issue be resolved without intervention\" / tree: text under \"Case study > Text\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "2f6324deb96bde0c": {
+   "version_id": "awaabs-law-consultation-on-timescales-for-repairs--awaab-s-law-final-stage-impact-assessment@2025-06-25-6bb2585a",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The question heading and its four answer paragraphs are kept only as loose text of the cost table, not as a heading with body text or as a grid row.",
+     "evidence": "source: \"What is the problem under consideration? Why is government action or intervention necessary?\" / tree: only in `text` of table \"document-table-p1\", grid has one row \"£-180.6m, £-92.7m, £10.8m, N/A\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The reading order is wrong: the header box comes last, and text from the next page is placed before this page's problem section.",
+     "evidence": "tree: \"Summary: Intervention and Options RPC Opinion: N/A What are the policy objectives of the action\" comes before \"What is the problem under consideration?\" and before \"Date: 23 June 2025\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The headings \"Impact Assessment (IA)\" and \"Summary: Intervention and Options\" are read as body text run into the next page's paragraph.",
+     "evidence": "tree: \"Impact Assessment (IA) Summary: Intervention and Options RPC Opinion: N/A What are the policy objectives\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The cost table's heading row with the price base is not in the columns or grid, only in the loose text.",
+     "evidence": "source: \"Cost of Preferred (or more likely) Option (in 2025 prices, 2025 present value)\" / tree columns: \"Total Net Present Social Value\", \"Business Net Present Value\", ..."
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The header box grid joins the Title and Lead department cells into one and adds the RPC Opinion box as a row, which is also repeated in the body text.",
+     "evidence": "tree: \"Title: The Hazards in Social Housing ... impact assessment Lead department or agency: Ministry of Housing, Communities and Local Government\"; row \"RPC Opinion: N/A\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "b50a52bfbda5e476": {
+   "version_id": "awaabs-law-consultation-on-timescales-for-repairs--awaab-s-law-final-stage-impact-assessment@2025-06-25-6bb2585a",
+   "unit": "p12",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The tree has a Table 1 with four survey rows on this page, but the page has no table, only footnotes 7 to 10; the table was built from the footnote words.",
+     "evidence": "source: \"A summary of responses can be found in Table 1 in the Risks and Assumptions section.\" / tree: table title \"in the Risks and Assumptions section.\" with rows \"1.7\", \"4.2\", \"6.6\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "Footnote 9 is broken up: its second line is printed before footnote 7 and its end became the table title, so footnote 9 runs straight into footnote 10.",
+     "evidence": "source: \"assumptions on the volume and current speed of non-emergency responsive repairs carried out by the sector\" / tree: \"assumptions on the volume\" then \"10 This survey was conducted\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The underlined sub-headings are read as body text inside the paragraph.",
+     "evidence": "tree: \"significant or emergency hazard. Using EHS data as a proxy As a proxy, we have used\" and \"wall structure and windows. Further limitations Robust data\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "aaacaa3a4ab6514b": {
+   "version_id": "awaabs-law-consultation-on-timescales-for-repairs--awaab-s-law-final-stage-impact-assessment@2025-06-25-6bb2585a",
+   "unit": "p18",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The bold headings \"Non-monetised costs\" and \"Monetised benefits\" are read as body text, so their sections sit under \"Monetised Costs\".",
+     "evidence": "tree: \"automated to a significant degree. Non-monetised costs There may be additional costs\" and \"would have otherwise occurred. Monetised benefits It has not been possible\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "a4c81787e8bd4153": {
+   "version_id": "awaabs-law-consultation-on-timescales-for-repairs--awaab-s-law-final-stage-impact-assessment@2025-06-25-6bb2585a",
+   "unit": "p20",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The headings \"Qualitative summary\", \"Tenants\", \"Health and wellbeing\" and \"Mental wellbeing\" are read as body text inside the paragraph.",
+     "evidence": "tree: \"during the appraisal period27. Qualitative summary Tenants Health and wellbeing The new requirements\" and \"mental health issues (38%). Mental wellbeing Tenant’s mental health\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "352c448c14678fff": {
+   "version_id": "awaabs-law-consultation-on-timescales-for-repairs--awaab-s-law-final-stage-impact-assessment@2025-06-25-6bb2585a",
+   "unit": "p24",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Pieces of the table's header row are mixed into the running text, and \"Survey Question\" is kept as a separate note.",
+     "evidence": "tree: \"as part of the consultation. Lower Bound of Average (when Upper Bound of Impact on small and micro businesses\" and note \"Survey Question\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The underlined sub-headings \"Implementation timeline\" and \"NHF survey\" are read as body text.",
+     "evidence": "tree: \"by increasing supply. Implementation timeline As described under\" and \"additional to Awaab’s Law. NHF survey We have used a survey\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "4a72259abc6c289b": {
+   "version_id": "awaabs-law-consultation-on-timescales-for-repairs--awaab-s-law-final-stage-impact-assessment@2025-06-25-6bb2585a",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "Each bullet is split: the first lines sit in a separate block after the table and the second lines are run together in the paragraph, so the duties are cut off from their time limits.",
+     "evidence": "source: \"within 5 working days of the investigation concluding.*\" / tree: \"within 5 working days of\" and, elsewhere, \"of the investigation concluding. the investigation concluding.* (excluding hazard remediation work)\""
+    },
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "The list of duties is placed after the review table and no longer follows the words that introduce it.",
+     "evidence": "source: \"Awaab’s Law requires social landlords to: Investigate any potential hazards within 10 working days\" / tree: \"Awaab’s Law requires social landlords to: of the investigation concluding.\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "7dcd3d8f5965218f": {
+   "version_id": "awaabs-law-consultation-on-timescales-for-repairs--awaab-s-law-final-stage-impact-assessment@2025-06-25-6bb2585a",
+   "unit": "p6",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "A word in the heading inside the costs box is split.",
+     "evidence": "source: \"Description and scale of key monetised costs\" / tree: \"Descriptio n and scale of key monetised costs\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The description line and \"FULL ECONOMIC ASSESSMENT\" are printed above the tables but come after them in the tree.",
+     "evidence": "source: \"Description: Legislate for timescales for landlords to respond to hazards (Recommended option) FULL ECONOMIC ASSESSMENT\" before \"Price Base Year: 2025\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "e27c53b6ed3dc6b4": {
+   "version_id": "awaabs-law-consultation-on-timescales-for-repairs--awaab-s-law-final-stage-impact-assessment@2025-06-25-6bb2585a",
+   "unit": "p7",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The box labels that separate monetised from non-monetised benefits are taken out of the running text and put at the end of the table's text, so the two boxes run together as one text.",
+     "evidence": "source: \"(PV, -£34.3m). Other key non-monetised benefits by ‘main affected groups’ An expected outcome\" / tree: \"(PV, -£34.3m). An expected outcome of Awaab’s Law\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The table's header row is read as a section heading, and the benefits text that is printed below the table sits before it in the tree.",
+     "evidence": "tree heading: \"BENEFITS (£m) Total Transition Average Annual Total Benefit\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The underlined sub-heading is read as body text.",
+     "evidence": "source: \"Health benefits\" (own line) / tree: \"take years to address. Health benefits Hazards in the home\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The table text has a split word and a broken fragment of the column header.",
+     "evidence": "source: \"Description and scale of key monetised benefits\" / tree: \"Descriptio n and scale\"; tree: \"Pi )\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "ee2ccc7018012f4d": {
+   "version_id": "awaabs-law-consultation-on-timescales-for-repairs--awaab-s-law-final-stage-impact-assessment@2025-06-25-6bb2585a",
+   "unit": "p8",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The business assessment table is titled and filed under the benefits table heading, and its own caption sits in the other table's text.",
+     "evidence": "source: \"BUSINESS ASSESSMENT (Option 1)\" / tree title: \"BENEFITS (£m) Total Transition Average Annual Total Benefit\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The header that gives the measure and price basis for Costs, Benefits and Net is not in the columns, only in the table text.",
+     "evidence": "source: \"Direct impact on business (Equivalent Annual) £m (2025 Prices, 2025 present value):\" / tree columns: \"Costs\", \"Benefits\", \"Net\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The key assumptions box label and the discount rate are moved to the benefits table's text, so the assumptions paragraph runs on from the faster repairs text.",
+     "evidence": "source: \"Key assumptions/sensitivities/risks Discount rate 3.5 The scale of impacts\" / tree: \"act swiftly in these cases. The scale of impacts\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The underlined sub-headings are read as body text.",
+     "evidence": "source: \"Societal benefits\", \"Inherent benefits of faster repairs\" / tree: \"medical attention. Societal benefits There are also likely\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "02e93a9bcfc55c63": {
+   "version_id": "awaabs-law-guidance-for-tenants-in-social-housing--awaab-s-law-guidance-for-tenants-in-social-housing-bangla@2025-12-04-2939d952",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The Bangla text has wrong characters all through: many letters are replaced by a broken character and vowel signs are misplaced.",
+     "evidence": "source: \"ভূমিকা, প্রেক্ষাপট এবং সংক্ষিপ্তসার\" / tree: \"ভূিমকা, ে��াপট এবং সংি��সার\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The eleven contents lines are kept as numbered paragraphs 1 to 11, with dot leaders and page numbers, as if they were provisions.",
+     "evidence": "tree: Paragraph 5 \"'িবপদ' বলেত কী েবাঝায়? .................................................................................... 9\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The note about translated versions is joined onto contents line 11 as part of paragraph 11.",
+     "evidence": "tree: \"...তাহেল কী হেব ........................... 24 আমরা এই িনেদর্িশকার পা�ািব, উদর্ু, আরিব\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Two sub-headings are read as body text inside the paragraph.",
+     "evidence": "source headings: \"প্রেক্ষাপট\" and \"এই নির্দেশিকার উদ্দেশ্য কী?\" / tree: \"ে��াপট আওয়ােবর আইেনর নামকরণ করা হেয়েছ\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is kept inside the body text.",
+     "evidence": "tree: \"আপিন কী পদে�প িনেত পােরন। 1 সুরি�ত বাসা�িল\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "5e562e955d0a7167": {
+   "version_id": "awaabs-law-guidance-for-tenants-in-social-housing--awaab-s-law-guidance-for-tenants-in-social-housing-bangla@2025-12-04-2939d952",
+   "unit": "p10",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "This page continues the three-column hazard table from page 9, but the tree makes it a separate table with made-up column names, so the values no longer sit under the emergency and significant hazard headings.",
+     "evidence": "source (page 9 header): \"জরুরি বিপদ\" and \"উল্লেখযোগ্য স্যাঁতসেঁতে অবস্থা এবং ছত্রাকের বিপদ\" / tree: \"Topic\", \"Column 2\", \"Column 3\""
+    },
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The first row is only the tail of a cell that started on page 9, and it stands as a row of its own with no row label and no start of the sentence.",
+     "evidence": "tree: [\"\", \"\", \"আপনার বাসাকে নিরাপদ করতে হবে।\"]"
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The table title and heading path have Bangla vowel signs out of place.",
+     "evidence": "source: \"'বিপদ' বলতে কী বোঝায়?\" / tree: \"'িবপদ' বলেত কী েবাঝায়?\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "9c6c0c3d7d8f6463": {
+   "version_id": "awaabs-law-guidance-for-tenants-in-social-housing--awaab-s-law-guidance-for-tenants-in-social-housing-bangla@2025-12-04-2939d952",
+   "unit": "p15",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The heading and body text of section 7 are kept in a broken font encoding: letters are lost (replacement characters) and vowel signs are out of place, so the Bangla words are not readable; only the table grid is clean.",
+     "evidence": "source: \"তদন্তসমূহ\" / tree: \"তদ�সমূহ\"; source: \"সম্পর্কে জানতে পারলেও, তদন্তের জন্য\" / tree: \"স�েক র্জানেত পারেলও, তদে�র জন্য\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-heading \"What does an investigation mean?\" is read as body text inside the paragraph.",
+     "evidence": "source: \"তদন্ত মানে কী?\" (sub-heading) / tree: \"... অবগত হয়। তদ� মােন কী? তদ� হেলা যখন ...\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is kept inside the running text, straight after the sentence that introduces the table.",
+     "evidence": "tree: \"চার ধরেনর তদ� রেয়েছ। 15 আপনােক সুরি�ত রাখার জন্য\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "6ab0e74f80acb701": {
+   "version_id": "awaabs-law-guidance-for-tenants-in-social-housing--awaab-s-law-guidance-for-tenants-in-social-housing-bangla@2025-12-04-2939d952",
+   "unit": "p16",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The top of the page is the end of the last table row (further investigations), but the tree keeps it as running text, so the table cell stops in the middle of the rule that the landlord must still act to keep the tenant safe.",
+     "evidence": "source (table cell): \"আপনাকে সুরক্ষিত রাখার জন্য পদক্ষেপ নিতে হবে, যেমন দৃশ্যমান ছত্রাকের সংস্কার করা\" / tree (text): \"রেয়েছ। 15 আপনােক সুরি�ত রাখার জন্য পদে�প িনেত হেব\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The body text is kept in a broken font encoding: letters are lost (replacement characters) and vowel signs are out of place, so the Bangla words are not readable.",
+     "evidence": "source: \"বিভিন্ন সময় স্লট জানানো\" / tree: \"িবিভ� সময় �ট জানােনা\"; source: \"প্রবেশাধিকার প্রয়োজন\" / tree: \"�েবশািধকার �েয়াজন\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Two sub-headings (who investigates; why giving access matters) are read as body text inside the paragraph.",
+     "evidence": "source: \"কে বা কারা তদন্ত করবেন?\" / tree: \"সরবরাহ করা। েক বা কারা তদ� করেবন? িকছ� ে�ে�\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The paragraph after the bullet list (if you do not give access) is joined to the last bullet, and the page number 16 is kept at the end of the text.",
+     "evidence": "tree: \"এক�ট নত�ন সময় িনধারর্ ণ করেত পােরন যিদ আপিন �েবশািধকার না েদন\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "0ea452537bd7b78b": {
+   "version_id": "awaabs-law-guidance-for-tenants-in-social-housing--awaab-s-law-guidance-for-tenants-in-social-housing-bangla@2025-12-04-2939d952",
+   "unit": "p19",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The heading and body text of section 9 are kept in a broken font encoding: letters are lost (replacement characters) and vowel signs are out of place, so the Bangla words are not readable.",
+     "evidence": "source: \"উপযুক্ত বিকল্প বাসস্থান প্রদান\" / tree: \"উপযু� িবক� বাস�ান �দান\"; source: \"5 কর্মদিবস\" / tree: \"5 কমিদর্ বস\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-heading on how long landlords must provide alternative accommodation is read as body text and joined to the third bullet.",
+     "evidence": "source: \"বাড়িওয়ালাদের কতদিন পর্যন্ত উপযুক্ত বিকল্প বাসস্থান প্রদান করতে হবে\" (sub-heading) / tree: \"রা��বাসকারী িশ�রাসহ বািড়ওয়ালােদর কতিদন পয�র্ উপয�ু িবক� বাস�ান �দান করেত হেব আপনার বািড়ওয়ালােক\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Paragraphs that follow bullet lists are joined to the last bullet, and the page number 19 is kept in the text.",
+     "evidence": "tree: \"তা তােদর িলিখতভােব জািনেয়েছন বািড়ওয়ালােদর যা করা উিচত:\"; tree: \"�িতপূরণ িদেত চাওয়া 19 িবক� বাস�ান\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "0eb3ac2844ba9575": {
+   "version_id": "awaabs-law-guidance-for-tenants-in-social-housing--awaab-s-law-guidance-for-tenants-in-social-housing-bangla@2025-12-04-2939d952",
+   "unit": "p8",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The running text has many Bangla letters replaced by a broken character and vowel signs out of place, so many words cannot be read; numbers are intact and the table grid is clean.",
+     "evidence": "source: \"আওয়াবের আইন ভাড়াটে চুক্তিনামা থাকা সামাজিক আবাসনে\" / tree: \"আওয়ােবর আইন ভাড়ােট চ���নামা থাকা সামা�জক আবাসেন\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The section heading has vowel signs out of place.",
+     "evidence": "source: \"আওয়াবের আইনের আওতায় থাকা আবাসন\" / tree: \"আওয়ােবর আইেনর আওতায় থাকা আবাসন\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-heading under the section title is kept as body text at the start of the paragraph.",
+     "evidence": "source: sub-heading \"আমার বাসা কি আওয়াবের আইনের আওতায় আসে?\" / tree: \"আমার বাসা িক আওয়ােবর আইেনর আওতায় আেস? আওয়ােবর আইন ভাড়ােট...\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "49ceb3dd7ff2e216": {
+   "version_id": "awaabs-law-guidance-for-tenants-in-social-housing--awaab-s-law-guidance-for-tenants-in-social-housing-bangla@2025-12-04-2939d952",
+   "unit": "p9",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The intro sentence has Bangla letters replaced by a broken character and vowel signs out of place, so the names of the two hazard levels cannot be read; the table grid is clean.",
+     "evidence": "source: \"দুটি স্তরের বিপদকে বোঝায়, এগুলি হল 'উল্লেখযোগ্য বিপদ' এবং 'জরুরি বিপদ'\" / tree: \"দু�ট �েরর িবপদেক েবাঝায়, এ�িল হল 'উে�খেযাগ্য িবপদ' এবং 'জ�ির িবপদ'\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The section heading has vowel signs out of place.",
+     "evidence": "source: \"'বিপদ' বলতে কী বোঝায়?\" / tree: \"'িবপদ' বলেত কী েবাঝায়?\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The table runs on to the next page but the tree ends it here, so the last cell stops in the middle of its sentence, as it does on the printed page.",
+     "evidence": "tree: \"তদন্ত শেষ হওয়ার 5 কর্মদিবসের মধ্যে বাড়িওয়ালাদের অবশ্যই\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "e9470cb25e32c88a": {
+   "version_id": "awaabs-law-guidance-for-tenants-in-social-housing--awaab-s-law-guidance-for-tenants-in-social-housing-polish-p@2025-12-04-ab01dc19",
+   "unit": "p11",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The last cell of the table that continues onto this page (third column, damp and mould) is kept as a bullet in running text, outside any table and joined to the gas box text.",
+     "evidence": "source (table cell): \"Więcej informacji na temat zagrożeń związanych z wilgocią i pleśnią można znaleźć tutaj\" / tree: text bullet followed by \"Czujesz gaz lub podejrzewasz nieszczelność?\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The bold heading of the gas box is read as body text and run into the table cell text before it.",
+     "evidence": "tree: \"eliminowania - GOV.UK Czujesz gaz lub podejrzewasz nieszczelność? Zadzwoń pod numer 0800 111 999 *\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Page numbers are kept inside the body text.",
+     "evidence": "tree: \"wyjaśniono poniżej. 9\" and \"Relay UK | Relay UK 11\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "317fd231759b31e8": {
+   "version_id": "awaabs-law-guidance-for-tenants-in-social-housing--awaab-s-law-guidance-for-tenants-in-social-housing-polish-p@2025-12-04-ab01dc19",
+   "unit": "p19",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-heading and the paragraphs after it are read as body text and joined to the end of the third bullet.",
+     "evidence": "tree: \"przynajmniej raz w tygodniu. Na jak długo właściciel mieszkania ma obowiązek zapewnić odpowiedni lokal zastępczy? Nie ma ustalonego okresu\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The lead-in line of the next list is joined to the last bullet of the list before it.",
+     "evidence": "tree: \"pisemnie powiadomiłeś o tym właściciela mieszkania. Właściciel mieszkania powinien:\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is kept inside a bullet in the middle of a list.",
+     "evidence": "tree: \"podać planowany termin powrotu do mieszkania; 19\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "2e8cd329215465fc": {
+   "version_id": "awaabs-law-guidance-for-tenants-in-social-housing--awaab-s-law-guidance-for-tenants-in-social-housing-polish-p@2025-12-04-ab01dc19",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-heading is read as body text inside the paragraph.",
+     "evidence": "tree: \"wdrażania przepisów Prawa Awaaba. Skrócony przewodnik po Prawie Awaaba Nagłe zagrożenia oraz poważne zagrożenia\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Page numbers are kept inside the body text.",
+     "evidence": "tree: \"nie wywiązuje się ze swoich obowiązków. 1 Bezpieczne mieszkania\" and \"trybie reklamacyjnym. 2\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "3a45d6217c1f1955": {
+   "version_id": "awaabs-law-guidance-for-tenants-in-social-housing--awaab-s-law-guidance-for-tenants-in-social-housing-punjabi@2025-12-04-25baa43e",
+   "unit": "p10",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The column names are in English and are not printed on this page, which shows only two Punjabi rows with no header row.",
+     "evidence": "tree: \"Topic\", \"Emergency hazard\", \"Significant hazard linked to damp and mould\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "52d5e8b1a539c49d": {
+   "version_id": "awaabs-law-guidance-for-tenants-in-social-housing--awaab-s-law-guidance-for-tenants-in-social-housing-punjabi@2025-12-04-25baa43e",
+   "unit": "p12",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The Punjabi body text has replacement characters and vowel signs out of place or split from their letters throughout.",
+     "evidence": "source: \"ਉਨ੍ਹਾਂਨੂੰ ਇਹ ਫੈਸਲਾ ਕਰਨਾ ਪਵੇਗਾ ਕਿ\" / tree: \"ਉਨ�ਾਂਨੰੂ ਇਹ ਫੈਸਲਾ ਕਰਨਾ ਪਵੇਗਾ ਿਕ\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The printed page number is kept inside the body text at the end of the last bullet on this page.",
+     "evidence": "source: \"ਖ਼ਾਸ ਤੌਰ 'ਤੇ ਜ਼ਰੂਰੀ ਸਥਿਤੀਆਂ ਵਿੱਚ\" / tree: \"ਖ਼ਾਸ ਤੌਰ 'ਤੇ ਜ਼ਰਰੂ ੀ ਸਿਥਤੀਆਂ ਿਵੱਚ 12\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "19f60bb62953a387": {
+   "version_id": "awaabs-law-guidance-for-tenants-in-social-housing--awaab-s-law-guidance-for-tenants-in-social-housing-punjabi@2025-12-04-25baa43e",
+   "unit": "p15",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The running text and heading path have Punjabi vowel signs out of place, stray spaces inside words and some letters replaced by a broken character; numbers are intact.",
+     "evidence": "source: \"ਪੜਚੋਲ ਕੀ ਹੁੰਦੀ ਹੈ?\" / tree: \"ਪੜਚੋਲ ਕੀ ਹੰਦੁ ੀ ਹੈ?\"; source: \"ਉਨ੍ਹਾਂ 'ਤੇ ਕਾਇਮ\" / tree: \"ਉਨ�ਾਂ 'ਤੇ ਕਾਇਮ\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-heading printed above the second paragraph is kept as body text inside the paragraph.",
+     "evidence": "source: sub-heading \"ਪੜਚੋਲ ਕੀ ਹੁੰਦੀ ਹੈ?\" / tree: \"...ਸ਼ੁਰ ੂਹੋ ਜਾਂਦੀ ਹੈ। ਪੜਚੋਲ ਕੀ ਹੰਦੁ ੀ ਹੈ? ਪੜਚੋਲ ਉਦੋਂ...\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is kept inside the running text.",
+     "evidence": "tree: \"ਚਾਰ ਿਕਸਮਾ ਂਦੀ ਪੜਚੋਲ ਹੰਦੁ ੀ ਹੈ। 15 ਪੜਚੋਲ ਕੌਣ ਕਰੇਗਾ?\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "3cf08da2dc5327a4": {
+   "version_id": "awaabs-law-guidance-for-tenants-in-social-housing--awaab-s-law-guidance-for-tenants-in-social-housing-punjabi@2025-12-04-25baa43e",
+   "unit": "p16",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The Punjabi text has wrong characters all through: vowel signs sit before or apart from their letters and some letters are replaced by a broken character.",
+     "evidence": "source: \"ਉਨ੍ਹਾਂ 'ਤੇ ਕਾਇਮ ਰਹਿਣਾ ਚਾਹੀਦਾ ਹੈ\" / tree: \"ਉਨ�ਾਂ 'ਤੇ ਕਾਇਮ ਰਿਹਣਾ ਚਾਹੀਦਾ ਹੈ\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Two sub-headings on the page are read as body text inside one long paragraph.",
+     "evidence": "source headings: \"ਪੜਚੋਲ ਕੌਣ ਕਰੇਗਾ?\" and \"ਤੁਹਾਡੇ ਘਰ ਤੱਕ ਪਹੁੰਚ ਦੀ ਇਜਾਜ਼ਤ ਦੇਣਾ ਕਿਉਂ ਮਹੱਤਵਪੂਰਨ ਹੈ?\" / tree: inside the text line"
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The two paragraphs after the bullet list are joined onto the last bullet.",
+     "evidence": "tree: \"• ... ਤਾਂ ਜੋ ਤੁਸੀ ਂਇੱਕ ਨਵਾਂ ਸਮਾਂ ਿਨਰਧਾਿਰਤ ਕਰ ਸਕੋ ਜੇਕਰ ਤੁਸੀ ਂਪਹੰਚੁ ਦੀ ਇਜਾਜ਼ਤ ਨਹੀ ਂਿਦੰਦੇ\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Page numbers are kept inside the body text.",
+     "evidence": "tree: \"ਚਾਰ ਿਕਸਮਾ ਂਦੀ ਪੜਚੋਲ ਹੰਦੁ ੀ ਹੈ। 15 ਪੜਚੋਲ ਕੌਣ ਕਰੇਗਾ?\" and \"ਸਿਹਮਤੀ ਿਦੱਤੀ ਜਾ ਸਕਦੀ ਹੈ। 16\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "e48360a79039243a": {
+   "version_id": "awaabs-law-guidance-for-tenants-in-social-housing--awaab-s-law-guidance-for-tenants-in-social-housing-punjabi@2025-12-04-25baa43e",
+   "unit": "p27",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The Punjabi text has wrong characters all through: vowel signs are misplaced and some letters are replaced by a broken character.",
+     "evidence": "source: \"ਦਾਅਵਾ ਪ੍ਰਬੰਧਨ ਕੰਪਨੀਆਂ ਸੰਬੰਧੀ FCA\" / tree: \"ਦਾਅਵਾ ਪ�ਬੰਧਨ ਕੰਪਨੀਆਂ ਸਬੰ ੰਧੀ FCA\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-heading for legal aid and all the text under it are joined onto the third link bullet as body text.",
+     "evidence": "source heading: \"ਕਨੂੰਨੀ ਸਹਾਇਤਾ\" / tree: \"• ਹਾਊਿਸੰਗ ਓਮਬਡਸਮੈਨ ਕਨੰੂਨੀ ਸਹਾਇਤਾ ਕਨੰੂਨੀ ਸਹਾਇਤਾ ਉਨ�ਾਂ ਲੋਕਾਂ ਲਈ\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The line that introduces the list of links is joined onto the bullet before it.",
+     "evidence": "tree: \"ਮੁਫ਼ਤ ਿਵੱਚ ਦਾਅਵਾ ਪੇਸ਼ ਕਰ ਸਕਦੇ ਹੋ। ਹੋਰ ਜਾਣਕਾਰੀ ਇੱਥੇ ਉਪਲਬਧ ਹੈ:\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is kept at the end of the body text.",
+     "evidence": "tree: \"ਿਸਵਲ ਲੀਗਲ ਐਡਵਾਇਸ (CLA) - GOV.UK. 27\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "729c226851093b2e": {
+   "version_id": "awaabs-law-guidance-for-tenants-in-social-housing--awaab-s-law-guidance-for-tenants-in-social-housing-punjabi@2025-12-04-25baa43e",
+   "unit": "p8",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The heading and running text have Punjabi vowel signs out of place, stray spaces inside words and some letters replaced by a broken character; the table grid is clean.",
+     "evidence": "source: \"ਅਵਾਬਜ਼ ਲਾਅ ਦੁਆਰਾ ਕਵਰ ਕੀਤੀ ਗਈ ਰਿਹਾਇਸ਼\" / tree: \"ਅਵਾਬਜ਼ ਲਾਅ ਦਆੁ ਰਾ ਕਵਰ ਕੀਤੀ ਗਈ ਿਰਹਾਇਸ਼\"; source: \"ਸਹਾਇਤਾ-ਪ੍ਰਾਪਤ\" / tree: \"ਸਹਾਇਤਾ-ਪ�ਾਪਤ\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-heading under the section title is kept as body text at the start of the paragraph.",
+     "evidence": "source: sub-heading \"ਕੀ ਮੇਰਾ ਘਰ ਅਵਾਬਜ਼ ਲਾਅ ਦੇ ਅਧੀਨ ਹੈ?\" / tree: \"ਕੀ ਮੇਰਾ ਘਰ ਅਵਾਬਜ਼ ਲਾਅ ਦੇ ਅਧੀਨ ਹੈ? ਅਵਾਬਜ਼ ਲਾਅ ਿਕਰਾਏਦਾਰੀ ਸਮਝੌਤੇ ਨਾਲ...\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "2c6649ae5e5115fc": {
+   "version_id": "awaabs-law-guidance-for-tenants-in-social-housing--awaab-s-law-guidance-for-tenants-in-social-housing-punjabi@2025-12-04-25baa43e",
+   "unit": "p9",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The heading and the intro sentence have Punjabi vowel signs out of place and stray spaces inside words; the table grid is clean and matches the page.",
+     "evidence": "source: \"‘ਖਤਰਾ’ ਕੀ ਹੁੰਦਾ ਹੈ?\" / tree: \"‘ਖਤਰਾ’ ਕੀ ਹੰਦੁ ਾ ਹੈ?\"; source: \"ਪੱਧਰਾਂ ਨੂੰ ਦਰਸਾਉਂਦਾ ਹੈ\" / tree: \"ਪੱਧਰਾਂ ਨੰੂ ਦਰਸਾਉਦਂ ਾ ਹੈ\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "f90a1c5146b71cb7": {
+   "version_id": "awaabs-law-guidance-for-tenants-in-social-housing--awaab-s-law-guidance-for-tenants-in-social-housing-romanian@2025-12-04-a3e708a8",
+   "unit": "p11",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The end of the last table cell, a link title that runs on from page 10, is read as running text in the middle of the section instead of staying in the table.",
+     "evidence": "source: table cell \"pentru furnizorii de locuințe cu chirie - GOV.UK\" / tree: \"Acestea sunt prezentate mai jos. 9 pentru furnizorii de locuințe cu chirie - GOV.UK Simțiți miros de gaze\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The gas emergency box, with its own bold heading and footnote, is merged into one text block with the sentence printed before the table.",
+     "evidence": "source: \"Simțiți miros de gaze sau suspectați o scurgere?\" / tree: same words inside one text under \"5 Ce este un „pericol”? > Text\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Page numbers are kept inside the running text.",
+     "evidence": "tree: \"mai jos. 9 pentru furnizorii\" and \"pot ﬁ monitorizate. 11\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "461f0df587b67070": {
+   "version_id": "awaabs-law-guidance-for-tenants-in-social-housing--awaab-s-law-guidance-for-tenants-in-social-housing-romanian@2025-12-04-a3e708a8",
+   "unit": "p15",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The last table row is cut mid-sentence at the page break and its continuation is kept in the running text, glued after the intro sentence, instead of in the table cell.",
+     "evidence": "source: \"totuși să ia măsuri pentru a proteja siguranța dumneavoastră,\" / tree: \"există patru tipuri de investigații. 15 cum ar fi aplicarea unui tratament pentru mucegaiul vizibil\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-heading is read as body text inside the paragraph.",
+     "evidence": "source: \"Ce este o investigație?\" / tree: \"acesta ia cunoștință. Ce este o investigație? O investigație constă\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The table is placed after text that follows it in print, so the sentence that introduces the table is separated from it.",
+     "evidence": "source: \"În conformitate cu Legea Awaab, există patru tipuri de investigații.\" then the table / tree: text of the next page, then the table"
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "f8cc946d910a3ec8": {
+   "version_id": "awaabs-law-guidance-for-tenants-in-social-housing--awaab-s-law-guidance-for-tenants-in-social-housing-romanian@2025-12-04-a3e708a8",
+   "unit": "p22",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Two sub-headings on this page are read as body text inside the running paragraph.",
+     "evidence": "source: \"Placări\", \"Ce se întâmplă dacă problema nu poate fi rezolvată?\" / tree: \"încălcări ale contractului. Placări Legea Awaab este concepută\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "A page number is left inside the bullet list, between two bullets of the same list.",
+     "evidence": "tree: \"ați cauzat intenționat daune locuinței dumneavoastră; 21 • ați îndepărtat sau ați schimbat\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The bold lead-in of each bullet is run into the sentence that follows it with no break.",
+     "evidence": "source: \"se aplică deja legile privind protecția împotriva incendiilor\" (bold line) / tree: \"protecția împotriva incendiilor Proprietarii sau persoana responsabilă\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "76f0ba168f48b036": {
+   "version_id": "awaabs-law-guidance-for-tenants-in-social-housing--awaab-s-law-guidance-for-tenants-in-social-housing-romanian@2025-12-04-a3e708a8",
+   "unit": "p6",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "high",
+     "problem": "Diagram 2, the step-by-step flowchart for a significant hazard, is not in the tree at all; only its caption is kept, so all its steps and time limits are lost.",
+     "evidence": "source: \"Proprietarul dumneavoastră investighează pericolul semnificativ în termen de 10 zile lucrătoare\"; \"sigură în termen de 5 zile lucrătoare după efectuarea investigației\""
+    },
+    {
+     "kind": "missing",
+     "severity": "high",
+     "problem": "The flowchart boxes on the written summary, the further works and the offer of another place to stay are missing.",
+     "evidence": "source: \"prezinte un rezumat scris în termen de 3 zile lucrătoare după efectuarea investigației\"; \"Dacă proprietarul nu poate face locuința sigură în termen de 5 zile lucrătoare\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The step labels, the sub-heading and the diagram caption are read as body text in one running paragraph.",
+     "evidence": "source: \"Cum să procedați dacă observați un pericol semnificativ asociat igrasiei și mucegaiului\" (heading) / tree: \"în timpul efectuării reparațiilor. Cum să procedați dacă observați\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "9ff84d2e67a10649": {
+   "version_id": "awaabs-law-guidance-for-tenants-in-social-housing--awaab-s-law-guidance-for-tenants-in-social-housing-urdu@2025-12-04-76b0ee14",
+   "unit": "p12",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "All the Urdu text of this page outside the table is kept with its letters in reverse order and in presentation forms, so it cannot be read or searched.",
+     "evidence": "source: \"تفتیش کیا ہوتی ہے؟\" / tree: \"؟ﮯﮨ ﯽﺗﻮﮨ ﺎﯿﮐ ﺶﯿﺘﻔﺗ\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The section heading 7, its sub-headings and its paragraphs are all merged into one running paragraph numbered 8 that holds the whole document from page 1, with no headings.",
+     "evidence": "source: \"7 تفتیشات\", \"تفتیش کیا ہوتی ہے؟\", \"تفتیش کون کرے گا؟\" / tree: one block \"Paragraph 8\", \"11 ت ﺎﺸﯿﺘﻔﺗ 7 عورﺷ ﮯﺳ تﻗو ﯽﺳا\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "Inside the merged paragraph the lines run in the wrong order and page numbers are mixed into the sentences.",
+     "evidence": "tree: \"ﮯﮨ ﯽﺗﮑﺳ ڑﭘ ترورﺿ ﯽﮐ ﮯﻧﻼﺑ وﮐ رﮨﺎﻣ ﯽﺳﮐ ﮯﯾﻟ ﮯﮐ شﯾﺗﻔﺗ 12 ؟ﮯﮨ ﻢﮨا ںﻮﯿﮐ\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "52f0ff24f0fae025": {
+   "version_id": "awaabs-law-guidance-for-tenants-in-social-housing--awaab-s-law-guidance-for-tenants-in-social-housing-urdu@2025-12-04-76b0ee14",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The Urdu text of the page is kept in visual order with presentation-form letters, so every line reads backwards and the words cannot be read or searched.",
+     "evidence": "source: \"ہنگامی مرمت 24 گھنٹوں کے اندر کی جانی چاہیے\" / tree: \"ﮯﯾﮨﺎﭼ ﯽﻧﺎﺟ ﯽﮐ ردﻧا ﮯﮐ ںوﮢﻧﮭﮔ 24 تﻣرﻣ ﯽﻣﺎﮕﻧﮨ\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The whole document, with this page's heading, summary bullets and the help box, is merged into one section called \"Paragraph 8\", so the headings are body text and no provision stands on its own.",
+     "evidence": "source: \"اوابز لاء کا فوری رہنما\" / tree: \"1 ﺎ ﻤﻨﮨر یرﻮﻓ ﺎﮐ ءﻻ ﺰﺑاوا\" inside heading_path \"Paragraph 8\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is kept inside the running text, before the next section heading.",
+     "evidence": "tree: \"• 2 ２ ؟ ﮯﮨ ﻞﻣﺎﺷ ﺎﯿﮐ ﮟﯿﻣ ءﻻ ﺰﺑاوا\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "4f0ef2862a6560e1": {
+   "version_id": "awaabs-law-guidance-for-tenants-in-social-housing--awaab-s-law-guidance-for-tenants-in-social-housing-urdu@2025-12-04-76b0ee14",
+   "unit": "p23",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The Urdu text of the page is kept in visual order with presentation-form letters, so every line reads backwards and the words cannot be read or searched.",
+     "evidence": "source: \"معاوضے کا ایک مقررہ فیصد لیتا ہے\" / tree: \"ﮯﮨ ﺎﺗﯾﻟ دﺻﯾﻓ هررﻘﻣ ﮏﯾا ﺎﮐ ﮯﺿوﺎﻌﻣ\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The whole document is merged into one section called \"Paragraph 8\", so this page's heading on legal aid, its bullets and the helpline box are not separate sections.",
+     "evidence": "source: \"قانونی امداد\" / tree: one section, heading_path \"Paragraph 8\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "A page number is kept inside the running text.",
+     "evidence": "tree: \"ﺎ ﮔ ےرﮐ ادا نوﮐ تﺎﺟارﺧا ﮯﮐ ﮏﻟﺎﻣ نﺎﮑﻣ 22\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "54ff5d85c20cdd8e": {
+   "version_id": "awaabs-law-guidance-for-tenants-in-social-housing--awaab-s-law-guidance-for-tenants-in-social-housing-urdu@2025-12-04-76b0ee14",
+   "unit": "p7",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The Urdu running text is kept in visual order with presentation-form letters, so every line reads backwards and cannot be read or searched; only the table grid is in readable Urdu.",
+     "evidence": "source: \"اوابز لاء کرایہ داری کے معاہدے کے ساتھ سماجی ہاؤسنگ میں رہنے والے زیادہ تر لوگوں پر لاگو ہوتا ہے\" / tree: reversed glyph forms, like the table text \"؟ﮯﮨ ﺎﺗوﮨ وﮔﻻ ءﻻ زﺑاوا ﺎﯾﮐ\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The section heading, the sub-heading and the paragraphs of this page are merged into one whole-document section called \"Paragraph 8\" instead of standing under section 4.",
+     "evidence": "source: \"4 اوابز لاء کے تحت آنے والے ہاؤسنگ\" / tree: heading_path \"Paragraph 8\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The table hangs under the collection title and not under its section heading.",
+     "evidence": "tree: \"Table (Awaab's Law in the social rented sector (collection))\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "d47d21dc9a66a344": {
+   "version_id": "awaabs-law-guidance-for-tenants-in-social-housing--awaab-s-law-guidance-for-tenants-in-social-housing-urdu@2025-12-04-76b0ee14",
+   "unit": "p8",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The Urdu running text is kept in visual order with presentation-form letters, so every line reads backwards and cannot be read or searched; only the table grid is in readable Urdu.",
+     "evidence": "source: \"اوابز لاء خطرے کی دو سطحوں سے مراد ہے 'نمایاں خطرہ' اور 'ہنگامی خطرہ'\" / tree: reversed glyph forms, like the table text \"هرطﺧ ﺎﮐ یدﻧوﮭﭘﮭﭘ روا ﯽﻣﻧ ںﺎﯾﺎﻣﻧ هرطﺧ ﯽﻣﺎﮕﻧﮨ\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The section heading and the opening sentence of this page are merged into one whole-document section called \"Paragraph 8\" instead of standing as section 5.",
+     "evidence": "source: \"5 'خطرہ' سے کیا مراد ہے؟\" / tree: heading_path \"Paragraph 8\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The table hangs under the collection title and not under the section 5 heading.",
+     "evidence": "tree: \"Table (Awaab's Law in the social rented sector (collection))\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "b2533c776954a6dc": {
+   "version_id": "awaabs-law-phase-1-test-and-learn-research-report--awaab-s-law-test-and-learn-research-report-executive-summar@2026-07-13-5d4411c7",
+   "unit": "p11",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "One two-line heading is split into two separate headings, and the text sits under the second half only.",
+     "evidence": "source: \"Case-management has emerged as a best-practice approach for dealing with complex hazards but is resource dependent\" / tree: heading \"Case-management has emerged as a best-practice approach for dealing with\" and heading \"complex hazards but is resource dependent\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "9b887c7e29000976": {
+   "version_id": "awaabs-law-phase-1-test-and-learn-research-report--awaab-s-law-test-and-learn-research-report-executive-summar@2026-07-13-5d4411c7",
+   "unit": "p12",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "99edbe413223feec": {
+   "version_id": "awaabs-law-phase-1-test-and-learn-research-report--awaab-s-law-test-and-learn-research-report-executive-summar@2026-07-13-5d4411c7",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "bab3f95a8981c7c5": {
+   "version_id": "awaabs-law-phase-2-final-stage-impact-assessment--awaab-s-law-phase-2-final-stage-impact-assessment@2026-07-13-5c1854f4",
+   "unit": "p13",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The three table rows at the top of the page (Monetised impacts, Non-monetised impacts, Any significant or adverse distributional impacts?) are read as running paragraph text and loose notes, so the row labels are split and the ratings are cut off from their rows.",
+     "evidence": "source: row \"Non-monetised impacts | There are significant positive non-monetised impacts to households... | Positive\" / tree: \"Non-monetised There are significant positive non-monetised impacts\" plus notes \"impacts\", \"Positive\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The table band heading \"(3) Expected impacts on households\" is read as body text inside the paragraph, with the page number 13 after it.",
+     "evidence": "tree: \"on below median household income. (3) Expected impacts on households 13 Households will benefit\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading path and table title are a contents-page line with dot leaders and page numbers, not a heading printed above this content.",
+     "evidence": "tree: \"Part A: Overall and stakeholder impacts ...... 12 Part B: Impacts on wider government priorities ...... 14\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "f3eea742afe5dde8": {
+   "version_id": "awaabs-law-phase-2-final-stage-impact-assessment--awaab-s-law-phase-2-final-stage-impact-assessment@2026-07-13-5c1854f4",
+   "unit": "p15",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The headings \"Analysis\" and \"Monetised costs\" are read as body text inside one long paragraph numbered 7, although the source has no such paragraph number.",
+     "evidence": "source: heading \"Monetised costs\" / tree: \"timeframes for investigations and repairs. Monetised costs As an indication of the potential range of costs\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading path and table title are a contents-page line with dot leaders and page numbers, so the Part B table and the Analysis text sit under a wrong heading.",
+     "evidence": "tree: \"Part A: Overall and stakeholder impacts ...... 12 Part B: Impacts on wider government priorities ...... 14\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The printed page number 15 is kept inside the running text.",
+     "evidence": "source: \"physical costs of sending written\" / tree: \"physical costs of sending written 15 summaries\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "70b137e6a7fb3e35": {
+   "version_id": "awaabs-law-phase-2-final-stage-impact-assessment--awaab-s-law-phase-2-final-stage-impact-assessment@2026-07-13-5c1854f4",
+   "unit": "p18",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The captions of the three tables are run together in the paragraph text and not attached to the tables, which all carry the same contents-line title, so the tree does not say which table is PRP, LA or total sector costs, or that the values are in £m.",
+     "evidence": "source: \"PRP costs (undiscounted 2026 prices), £m:\" above the first table / tree: \"PRP costs (undiscounted 2026 prices), £m: LA costs (undiscounted 2026 prices), £m: Total sector costs (undiscounted 2026 prices), £m: 18\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading \"Summary of monetised costs:\" is read as body text inside one long paragraph numbered 7.",
+     "evidence": "tree: \"£189.3m in present value terms. Summary of monetised costs: The total costs (2026 prices)\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The printed page number 18 is kept inside the running text.",
+     "evidence": "tree: \"Total sector costs (undiscounted 2026 prices), £m: 18 Non-monetised costs\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "c92f0b0b8db234d1": {
+   "version_id": "awaabs-law-phase-2-final-stage-impact-assessment--awaab-s-law-phase-2-final-stage-impact-assessment@2026-07-13-5c1854f4",
+   "unit": "p19",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The headings \"Non-monetised costs\", \"Benefits\", \"Qualitative summary\", \"Tenants\" and \"Health and wellbeing\" are read as body text inside one long paragraph numbered 7.",
+     "evidence": "source: heading \"Benefits\" / tree: \"or the scale of associated costs. Benefits It is likely that, although this policy\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The two rows at the top of the page continue the total sector costs table from the page before, but the tree holds them as a separate table under a contents-line title, without its caption or first row.",
+     "evidence": "tree: title \"Overall and stakeholder impacts ...... 12 Part B: Impacts on wider government priorities ...... 14\", grid starts \"Triage, prep and postage £43.7\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The printed page number 19 is kept inside the running text.",
+     "evidence": "source: \"prevent the hazard from reoccurring.\" / tree: \"prevent the hazard from reoccurring. 19 Hazardous housing conditions\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "42434c540928db96": {
+   "version_id": "awaabs-law-phase-2-final-stage-impact-assessment--awaab-s-law-phase-2-final-stage-impact-assessment@2026-07-13-5c1854f4",
+   "unit": "p20",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading path is a contents-page line with dot leaders and page numbers, not the real heading of section 7, and the sub-headings on the page are run into the body text.",
+     "evidence": "source: \"Mental wellbeing\" (underlined heading) / tree: \"per individual. Mental wellbeing Tenant’s mental health and wellbeing is likely\"; heading_path: \"Part A: Overall and stakeholder impacts ...... 12 Part B\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Footnote 5 is kept as a table with invented columns and a contents-line title, not as a footnote tied to its marker.",
+     "evidence": "source: \"5 For example; https://pubmed.ncbi.nlm.nih.gov/28963007/\" / tree: columns \"Footnote number\", \"Footnote text\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "A page number from the previous page sits inside the running text.",
+     "evidence": "tree: \"Works will have to prevent the hazard from reoccurring. 19 Hazardous housing conditions\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "c581be4296e005e7": {
+   "version_id": "awaabs-law-phase-2-final-stage-impact-assessment--awaab-s-law-phase-2-final-stage-impact-assessment@2026-07-13-5c1854f4",
+   "unit": "p21",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading path is a contents-page line with dot leaders and page numbers, and the headings on the page are run into the body text.",
+     "evidence": "source: \"Government and the taxpayer\" (bold heading), \"Savings to the NHS\" / tree: \"comfort for tenants6. Government and the taxpayer Savings to the NHS The BRE report\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Footnote 6 is kept as a table with invented columns and a contents-line title, not as a footnote tied to its marker.",
+     "evidence": "source: \"6 There is a wealth of evidence in support of remedying cold homes\" / tree: columns \"Footnote number\", \"Footnote text\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The footnote link has a broken character in the table text, though the grid cell is right.",
+     "evidence": "source: \"https://www.instituteofhealthequity.org\" / tree: \"https://www.instituteo�healthequity.org\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "2ffbe4e1cc6ddb86": {
+   "version_id": "awaabs-law-phase-2-final-stage-impact-assessment--awaab-s-law-phase-2-final-stage-impact-assessment@2026-07-13-5c1854f4",
+   "unit": "p24",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The section 8 heading and its sub-heading are kept as body text, and the heading path is a contents-page line with dot leaders.",
+     "evidence": "source: \"8. Monitoring and evaluation of preferred option\" (bold heading) / tree: \"Monitoring and evaluation of preferred option What will be evaluated and monitored? Government are committed\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Two ordinary paragraphs after the bullet list are joined onto the last bullet.",
+     "evidence": "tree: \"• Value for Money evaluation will be conducted ... across the sector. The evaluation will look at Awaab’s Law in the context\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number sits inside the running text of paragraph 8.",
+     "evidence": "tree: \"at the end of the four year evaluation project. 24 The monitoring and evaluation framework\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "e8fceeda1e0dc69a": {
+   "version_id": "awaabs-law-phase-2-final-stage-impact-assessment--awaab-s-law-phase-2-final-stage-impact-assessment@2026-07-13-5c1854f4",
+   "unit": "p30",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Annex C is not a section of its own: its heading and text are merged into paragraph 9 as body text, under a contents-page line as heading path.",
+     "evidence": "source: \"Annex C: Longlist Options and Critical Success Factors\" (bold heading) / tree: \"Paragraph 9 ... 28 Annex B: Theory of Change 29 Annex C: Longlist Options and Critical Success Factors This annex\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The table is cut at the page end and not joined to its continuation, so the Affordability row stops mid-sentence and lacks the rest of its label.",
+     "evidence": "tree: \"Affordability:\" / \"Regulations will have financial implications on landlords; however, landlords should have already\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Page numbers sit inside the running text.",
+     "evidence": "tree: \"The different options are discussed in the matrices below. 30 Annex D\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "adcd33a425edfd35": {
+   "version_id": "awaabs-law-phase-2-final-stage-impact-assessment--awaab-s-law-phase-2-final-stage-impact-assessment@2026-07-13-5c1854f4",
+   "unit": "p31",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "This is the continuation of the Annex C table, but it is kept as a separate table with invented column names, so the cells are no longer under \"Business As Usual\" and \"Regulations – Extend Awaab’s Law to a wider set of hazards\".",
+     "evidence": "tree: columns \"Topic\", \"Column 2\", \"Column 3\" / \"No additional burdens on landlords or wider sector.\""
+    },
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The first row is the rest of the Affordability row from the page before, but it has lost its label and starts mid-sentence.",
+     "evidence": "tree: \"Demonstration by IA modelling that the longlisted options\" / \"accounted for Phase 2 of Awaab’s Law to come into force in 2026.\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The table's title and heading path are a contents-page line, not Annex C.",
+     "evidence": "tree: \"Overall and stakeholder impacts ...... 12 Part B: Impacts on wider government priorities ...... 14\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "48e2e50046770829": {
+   "version_id": "awaabs-law-phase-2-final-stage-impact-assessment--awaab-s-law-phase-2-final-stage-impact-assessment@2026-07-13-5c1854f4",
+   "unit": "p32",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Annex D is not a section of its own: its heading, its text and the sub-heading A are merged into paragraph 9 as body text, under a contents-page line as heading path.",
+     "evidence": "source: \"Annex D: Longlist Options Decision Matrices\" (bold heading) / tree: \"Paragraph 9 ... 30 Annex D: Longlist Options Decision Matrices This annex provides a summary\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The table's title and heading path are a contents-page line, not \"A. Implementation timeline for Phase 2 regulations\".",
+     "evidence": "tree: \"Table (Overall and stakeholder impacts ...... 12 Part B: Impacts on wider government priorities ...... 14)\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number sits inside the running text.",
+     "evidence": "tree: \"A. Implementation timeline for Phase 2 regulations 32 • Achievability:\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "43a98158756fdb79": {
+   "version_id": "awaabs-law-phase-2-final-stage-impact-assessment--awaab-s-law-phase-2-final-stage-impact-assessment@2026-07-13-5c1854f4",
+   "unit": "p33",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The page holds the end of a table row, but the tree keeps the cell as running text at the end of paragraph 9, so the option and column it belongs to are lost.",
+     "evidence": "source: table cell \"Achievability: Landlords will have more time to prepare for implementation.\" / tree: paragraph 9 text \"... 32 • Achievability: Landlords will have more time to prepare for implementation. 33\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading path is two contents-page lines with dot leaders and page numbers, not a real heading above this text.",
+     "evidence": "tree: \"Part A: Overall and stakeholder impacts ...... 12 Part B: Impacts on wider government priorities ...... 14 > Paragraph 9\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Page numbers are run into the body text.",
+     "evidence": "tree: \"Phase 2 regulations 32 • Achievability\" and \"implementation. 33\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "5b94666b8bb6a587": {
+   "version_id": "awaabs-law-phase-2-final-stage-impact-assessment--awaab-s-law-phase-2-final-stage-impact-assessment@2026-07-13-5c1854f4",
+   "unit": "p6",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The headings on the page are read as body text inside one long paragraph 2, whose heading path is two contents-page lines.",
+     "evidence": "source: headings \"Current position on quality and repairs in the social rented sector\", \"Quality\", \"Repairs\" / tree: \"explained in Annex A. Current position on quality and repairs in the social rented sector Quality The English Housing Survey\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The two footnotes are kept as a table titled with contents-page lines, not as notes tied to their markers.",
+     "evidence": "tree: table title \"Overall and stakeholder impacts ...... 12 Part B: Impacts on wider government priorities ...... 14\", columns \"Footnote number\", \"Footnote text\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Footnote markers are run into the words, and the footnote text lines have broken characters and a page number.",
+     "evidence": "source: \"ten years¹\", \"hazard²\", \"headline findings ... energy efficiency - GOV.UK\" / tree: \"ten years1\", \"hazard2\", \"headline �indings ... energy ef�iciency - GOV.UK 6\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "A page number from the earlier page is run into the paragraph text.",
+     "evidence": "tree: \"rather than a case-by-case basis. 5 While the DHS aims\""
+    },
+    {
+     "kind": "figure",
+     "severity": "low",
+     "problem": "The figure labels leave out the axis title, axis values and the legend.",
+     "evidence": "source: \"Percentage of dwellings\", \"PRP\", \"LA\", \"2015 ... 2024\" / tree labels: \"Source: EHS\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "43f66963ac55757c": {
+   "version_id": "awaabs-law-regulations--awaab-s-law-regulations-as-they-apply-from-30-november-2026@2026-07-13-546a4539",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The footnote on this page belongs to the definition of \"work\" in regulation 4, but the tree attaches it to regulation 5, and regulation 4 carries only the earlier page's footnotes, so its marker (a) points to the wrong note.",
+     "evidence": "source: \"(England) Regulations 2025(a).\" with \"(a) S.I. 2025/797.\" / tree: para-5 footnotes \"(a) S.I. 2025/797.\"; para-4 footnotes \"(a) See section 10A(7) of the Landlord and Tenant Act 1985\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Page numbers are kept inside the running text of regulations 4 and 5.",
+     "evidence": "tree: \"(b) that the lessor— 4 (i) can lawfully undertake\"; tree: \"to obtain such consent, 5 (b) a subsequent associated investigation\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "18963f282b061691": {
+   "version_id": "awaabs-law-regulations--awaab-s-law-regulations-as-they-apply-from-30-november-2026@2026-07-13-546a4539",
+   "unit": "p6",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The printed page number 6 is kept inside the text of regulation 6(4), between the two definitions.",
+     "evidence": "source: \"becomes aware of the issue of concern;\" / tree: \"becomes aware of the issue of concern; 6 “extended investigation period” means\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number 5 of the previous page is kept inside the text of regulation 5(6), just before sub-paragraph (b) at the top of this page.",
+     "evidence": "tree: \"all reasonable endeavours to obtain such consent, 5 (b) a subsequent associated investigation concludes\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "89f3b1d12c74419c": {
+   "version_id": "awaabs-law-regulations--awaab-s-law-regulations-as-they-apply-from-30-november-2026@2026-07-13-546a4539",
+   "unit": "p8",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The printed page number 8 is kept inside the text of regulation 11, between paragraphs (2) and (3).",
+     "evidence": "source: \"as soon as reasonably practicable thereafter.\" / tree: \"as soon as reasonably practicable thereafter. 8 (3) The requirement in paragraph (2) ceases\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  }
+ }
+}

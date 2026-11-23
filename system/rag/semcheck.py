@@ -33,6 +33,7 @@ import random
 import re
 import subprocess
 import sys
+import threading
 from collections import Counter, defaultdict
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
@@ -710,14 +711,16 @@ def batches(files: list[Path], size: int = BATCH) -> list[list[Path]]:
 
 
 def run(source_ids: list[str] | None = None, parallel: int = 4, model: str = MODEL, out_dir: Path | None = None,
-        timeout: int = 1500) -> int:
+        timeout: int = 1500, by: str | None = None) -> int:
     """Run the open packets through headless Claude Code, `parallel` batches at a time. Answers go to out_dir
-    (one .jsonl per batch). A batch that fails or times out leaves no file: `save`, `export` and run again."""
+    (one .jsonl per batch). With `by`, each batch's answers are saved as soon as it ends, so a run that is cut
+    off loses nothing. A batch that fails or times out leaves no file: `export` and run again."""
     out_dir = out_dir or CORPUS_DIR / "parsed" / "_semcheck" / datetime.datetime.now().strftime("run-%Y%m%d-%H%M%S")
     out_dir = (out_dir if out_dir.is_absolute() else ROOT / out_dir).resolve()
     out_dir.mkdir(parents=True, exist_ok=True)
     todo = batches(packet_files(source_ids))
 
+    lock = threading.Lock()
     failed = [0]  # batches in a row that left no answers: after 8 the run stops (the plan's usage limit is spent)
 
     def one(arg):
@@ -733,6 +736,9 @@ def run(source_ids: list[str] | None = None, parallel: int = 4, model: str = MOD
         except subprocess.TimeoutExpired:
             pass
         failed[0] = 0 if ans.exists() else failed[0] + 1
+        if ans.exists() and by:
+            with lock:
+                save(ans, by, quiet=True)
         return ans.exists()
 
     with ThreadPoolExecutor(max_workers=parallel) as ex:
@@ -768,7 +774,8 @@ def check_answer(a: dict) -> str | None:
     return None
 
 
-def save(answers: Path, by: str, source_ids: list[str] | None = None, today: str | None = None) -> int:
+def save(answers: Path, by: str, source_ids: list[str] | None = None, today: str | None = None,
+         quiet: bool = False) -> int:
     """Check each answer against its packet and the rules; save the good ones per source, report the rest."""
     packets = {}
     for f in packet_files(source_ids):
@@ -808,7 +815,8 @@ def save(answers: Path, by: str, source_ids: list[str] | None = None, today: str
         p.parent.mkdir(parents=True, exist_ok=True)
         doc["verdicts"] = dict(sorted(doc["verdicts"].items(), key=lambda kv: (kv[1]["version_id"], kv[1]["unit"], kv[0])))
         p.write_text(json.dumps(doc, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
-    print(f"saved {saved}, rejected {rejected} -> corpus/semchecks/ ({len(docs)} sources)")
+    if not quiet:
+        print(f"saved {saved}, rejected {rejected} -> corpus/semchecks/ ({len(docs)} sources)")
     return 1 if rejected else 0
 
 
@@ -929,6 +937,7 @@ def main(argv: list[str] | None = None) -> int:
     r.add_argument("--source", nargs="*")
     r.add_argument("--parallel", type=int, default=4)
     r.add_argument("--out", type=Path)
+    r.add_argument("--by", help="save each batch's answers as it ends, under this name")
     s = sub.add_parser("save")
     s.add_argument("--answers", required=True, type=Path, help="a .jsonl file or a folder of them")
     s.add_argument("--by", required=True)
@@ -954,7 +963,7 @@ def main(argv: list[str] | None = None) -> int:
     if a.cmd == "export":
         return export(a.source, all_=a.all)
     if a.cmd == "run":
-        return run(a.source, parallel=a.parallel, out_dir=a.out)
+        return run(a.source, parallel=a.parallel, out_dir=a.out, by=a.by)
     if a.cmd == "save":
         return save(a.answers, a.by, a.source)
     if a.cmd == "accept":

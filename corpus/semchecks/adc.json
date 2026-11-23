@@ -1,0 +1,335 @@
+{
+ "source_id": "adc",
+ "about": "Model verdicts on source against tree for adc (system/rag/semcheck.py).",
+ "verdicts": {
+  "d2b18d038204f84c": {
+   "version_id": "approved-document-c-site-preparation-and-resistance-to-conta@2013-09-03-70e17ada",
+   "unit": "p15",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "Footnote markers 27 and 28 in paragraph 1.8 are run into the document numbers, so the cited BRE numbers read wrong.",
+     "evidence": "source: \"BRE Digest 427(27) and BRE Report BR 424(28)\" / tree: \"BRE Digest 42727 and BRE Report BR 42428\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Page footnotes 27 and 28, which belong to paragraph 1.8, are attached to Table 1 as if they were table notes.",
+     "evidence": "tree (table-1 text): \"27 BRE Digest 427 Low-rise buildings on fill. 28 BRE Report BR 424 Building on fill: Geotechnical aspects, 2001.\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "0a900a03baae4ff5": {
+   "version_id": "approved-document-c-site-preparation-and-resistance-to-conta@2013-09-03-70e17ada",
+   "unit": "p16",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "Footnote marker 33 in paragraph 2.5 is run into the document name, so the cited BRE digest number reads wrong.",
+     "evidence": "source: \"BRE Special Digest SD1(33) provides guidance\" / tree: \"BRE Special Digest SD133 provides guidance\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Paragraph 2.5 ends on this page at 'sulphate attack.' but the tree adds a later heading and a stray list letter to its body text.",
+     "evidence": "source: \"to mitigate the effects of sulphate attack.\" / tree: \"the effects of sulphate attack. SOLID AND LIQUID CONTAMINANTS b.\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Page footnotes 29, 31, 32 and 33, which belong to paragraphs 2.2, 2.3 and 2.5, are attached to Table 2 as if they were table notes.",
+     "evidence": "tree (table-2 text): \"29 Department of the Environment Industry Profiles, 1996. 31 Environment Agency R & D Technical Report P291\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Footnote markers in paragraphs 2.2 and 2.3 are run into the words before them.",
+     "evidence": "source: \"contamination(29)\", \"documents(31,32)\" / tree: \"contamination29\", \"documents31,32\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "c2833f849746c23c": {
+   "version_id": "approved-document-c-site-preparation-and-resistance-to-conta@2013-09-03-70e17ada",
+   "unit": "p19",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Footnotes 46 and 47 are cited in paragraph 2.14 but the tree attaches them to paragraph 2.15.",
+     "evidence": "source: \"the public and workers should be considered46,47\" (2.14) / tree: footnotes \"46 HSE Report HSG 66\", \"47 CIRIA Report 132\" under para-2.15"
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "478eaec7a8c05339": {
+   "version_id": "approved-document-c-site-preparation-and-resistance-to-conta@2013-09-03-70e17ada",
+   "unit": "p21",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The headings Introduction and Risk assessment (and paragraphs 2.25 to 2.29) are not placed under the heading METHANE AND OTHER GASES FROM THE GROUND; they sit directly under Section 2.",
+     "evidence": "source: \"METHANE AND OTHER GASES FROM THE GROUND\" then \"Introduction\", \"Risk assessment\" / tree: \"Section 2: Resistance to contaminants > Risk assessment > Paragraph 2.28\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "One two-line heading is split into two separate headings.",
+     "evidence": "source: \"METHANE AND OTHER GASES FROM THE GROUND\" / tree: \"METHANE AND OTHER GASES\" and \"FROM THE GROUND\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "A footnote marker is run into the document number, so the paper number reads wrong.",
+     "evidence": "source: \"Waste Management Paper No. 27\" with footnote 60 / tree: \"Waste Management Paper No. 2760 gives guidance\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Footnotes 8, 58 and 59 are cited in paragraphs 2.23 and 2.24 but the tree attaches them to paragraph 2.29.",
+     "evidence": "source: \"Flood resilient construction8\" (2.23 d), \"Water Research Centre report58\" (2.24) / tree: footnotes 8, 58, 59 under para-2.29"
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "7c351fbe3b9fdedc": {
+   "version_id": "approved-document-c-site-preparation-and-resistance-to-conta@2013-09-03-70e17ada",
+   "unit": "p24",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Footnote 79 is cited in paragraph 3.6 but the tree attaches it to paragraph 3.7.",
+     "evidence": "source: \"is given in a CIRIA publication79\" (3.6) / tree: footnote \"79 CIRIA Publication C506\" under para-3.7"
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "cf22510a557c2558": {
+   "version_id": "approved-document-c-site-preparation-and-resistance-to-conta@2013-09-03-70e17ada",
+   "unit": "p29",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading Technical solution and paragraphs 4.18 to 4.20 are not placed under the heading SUSPENDED CONCRETE GROUND FLOORS; they share the same path as the suspended timber floor paragraphs.",
+     "evidence": "source: \"SUSPENDED CONCRETE GROUND FLOORS (MOISTURE FROM THE GROUND)\" then \"Technical solution\" / tree: \"Section 4: Floors > Technical solution > Paragraph 4.18\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Footnotes 90 to 94 are cited in paragraphs 4.14, 4.15 and 4.16 but the tree attaches them to paragraph 4.20.",
+     "evidence": "source: \"BS 5628:Part 3:2001 90\" (4.14 c), \"BS 7331:1990 91\" (4.15), \"BS CP 102:1973 94\" (4.16) / tree: footnotes 90-94 under para-4.20"
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Footnote markers and superscript units are run into the numbers before them.",
+     "evidence": "source: \"BS 5628:Part 3:2001\" + marker 90, \"1500mm²/m\" / tree: \"BS 5628:Part 3:200190\", \"BS CP 102:197394\", \"1500mm2/m\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "0c0be7c8a75145f6": {
+   "version_id": "approved-document-c-site-preparation-and-resistance-to-conta@2013-09-03-70e17ada",
+   "unit": "p34",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "In paragraph 5.15 the list items c, d and e lost their letters and are merged into item b; the letters d. and e. landed in paragraph 5.13.",
+     "evidence": "source: \"c. Other insulating materials inserted into the cavity\", \"d. Urea-formaldehyde foam\", \"e. When the cavity of an existing house\" / tree: \"that document; or Other insulating materials inserted\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "Paragraph 5.13 has stray list letters from the other column, so plain text reads as a list item e.",
+     "evidence": "source: \"could include:\" ... \"Masonry units should be laid on a full bed\" / tree: \"could include: d.\" ... \"frame with lining. e. Masonry units should be laid\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The heading Alternative approach above paragraph 5.11 is missing, so 5.11 sits under Technical solution.",
+     "evidence": "source: \"Alternative approach 5.11 The requirement can also be met by\" / tree: \"Section 5: Walls > Technical solution > Paragraph 5.11\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The headings Technical solution, Alternative approach and their paragraphs 5.13 and 5.14 are not placed under CAVITY EXTERNAL WALLS.",
+     "evidence": "source: \"CAVITY EXTERNAL WALLS\" then \"Technical solution\" / tree: \"Section 5: Walls > Technical solution > Paragraph 5.13\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "A heading has a lower-case letter in a word printed in capitals.",
+     "evidence": "source: \"CAVITY EXTERNAL WALLS\" / tree: \"CAVITY ExTERNAL WALLS\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Footnote markers are run into the years of the standards.",
+     "evidence": "source: \"BS 5628-3:2001\" + marker 107, \"BS 5617:1985\" + marker 109 / tree: \"BS 5628-3:2001107\", \"BS 5617:1985109\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "3a768426f69d1291": {
+   "version_id": "approved-document-c-site-preparation-and-resistance-to-conta@2013-09-03-70e17ada",
+   "unit": "p37",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The separate bracketed paragraph in the right column is merged into list item ii of paragraph 5.16.",
+     "evidence": "source: \"zone value.\" then new paragraph \"(The national exposure zone value can be more accurately calculated\" / tree: \"ii. where walls do not face ... zone value. (The national exposure zone value\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "A footnote marker is run into the year of the standard.",
+     "evidence": "source: \"BS 8104:1992\" + marker 112 / tree: \"BS 8104:1992112.)\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "a20a73eed3f05e29": {
+   "version_id": "approved-document-c-site-preparation-and-resistance-to-conta@2013-09-03-70e17ada",
+   "unit": "p7",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The words of C1(3)(b) are run together with no spaces.",
+     "evidence": "source: \"(b) damage to the building, including damage through\" / tree: \"(b) damagetothebuilding,includingdamagethrough\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "6973cb16943cdacd": {
+   "version_id": "frequently-asked-questions@2013-09-03-788ce406",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "a7b632b428176658": {
+   "version_id": "frequently-asked-questions@2013-09-03-788ce406",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The radon question is split into two headings and the answer sits under a fragment that does not carry the question.",
+     "evidence": "source: \"Where can I find details of which geographical locations are likely to require radon protection?\" / tree: \"require radon protection?\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The extension question is split into two headings in mid-sentence and the answer sits under the second half only.",
+     "evidence": "source: \"Can you provide me with any existing documentation on the extension\" / tree: \"Can you provide\" + \"me with any existing documentation on the extension\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The damp proof course question is split into two headings in mid-sentence.",
+     "evidence": "source: \"I am intending building an extension to the house.\" / tree: \"I am intending building\" + \"an extension to the house. Can I use\""
+    },
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The section heading above the first question is not in the tree, so the question sits directly under the document title.",
+     "evidence": "source: \"Information on extensions\" / tree: \"Frequently Asked Questions > I'm currently looking at purchasing a property\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is kept at the end of the radon answer text.",
+     "evidence": "tree: \"extensions that have an existing postal address. 4\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "ae976a93c8b7a399": {
+   "version_id": "frequently-asked-questions@2013-09-03-788ce406",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The flood question is split into two headings in mid-sentence and the answer sits under the second half only.",
+     "evidence": "source: \"Can I take any measures to mitigate the effects of flood risk\" / tree: \"Can I take\" + \"any measures to mitigate the effects of flood risk\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is kept at the end of the answer text.",
+     "evidence": "tree: \"A core standard can be downloaded from www.shop.bsigroup.com 5\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  }
+ }
+}

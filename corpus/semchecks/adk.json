@@ -1,0 +1,141 @@
+{
+ "source_id": "adk",
+ "about": "Model verdicts on source against tree for adk (system/rag/semcheck.py).",
+ "verdicts": {
+  "0d0c273dbce09027": {
+   "version_id": "approved-document-k-protection-from-falling-collision-and-im@2013-01-03-134e7b07",
+   "unit": "p10",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "98c29fb0e32e2674": {
+   "version_id": "approved-document-k-protection-from-falling-collision-and-im@2013-01-03-134e7b07",
+   "unit": "p12",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "d97ff26fa4eb3934": {
+   "version_id": "approved-document-k-protection-from-falling-collision-and-im@2013-01-03-134e7b07",
+   "unit": "p15",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "In paragraph 1.4, the closing sentence of item e and the whole of list item f are joined onto sub-item (ii) instead of standing as their own lines.",
+     "evidence": "source: \"(ii) maximum height: 190mm\" then \"If there are two or more rises...\" then \"f In a tier that is uninterrupted\" / tree: \"(ii) maximum height: 190mm If there are two or more rises to each row of seats, make each step an equal height. f In a tier\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "f447a6318d0fa9db": {
+   "version_id": "approved-document-k-protection-from-falling-collision-and-im@2013-01-03-134e7b07",
+   "unit": "p29",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "70586648aaa7a99e": {
+   "version_id": "approved-document-k-protection-from-falling-collision-and-im@2013-01-03-134e7b07",
+   "unit": "p35",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Diagram 3.2 is printed above the heading 'Guarding of areas used for maintenance' and belongs to the guarding text before it, but the tree puts it under that heading, after paragraph 3.5.",
+     "evidence": "source: \"Diagram 3.2 Typical locations for guarding\" then \"Guarding of areas used for maintenance\" / tree: \"Guarding of areas used for maintenance > For all buildings > Typical locations for guarding\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "684f0acd60865297": {
+   "version_id": "approved-document-k-protection-from-falling-collision-and-im@2013-01-03-134e7b07",
+   "unit": "p38",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Diagram 4.2 is printed at the top of the page, before the 'Loading bays' heading, and belongs to paragraph 4.2 on vehicle barriers, but the tree puts it under 'Guarding for loading bays'.",
+     "evidence": "source: \"See para 4.2 ... Diagram 4.2 Barrier design\" / tree: \"Guarding for loading bays > For all buildings > Barrier design\""
+    },
+    {
+     "kind": "figure",
+     "severity": "low",
+     "problem": "The labels of the two barrier drawings are mixed together, so the heights and the level names of (a) and (b) run into each other.",
+     "evidence": "source: \"At least 610mm\" and \"At least 375mm\" / tree: \"National At least\", \"Annex 610mm\", \"Annex Barrier 375mm Barrier\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "43dc141a06f9d60f": {
+   "version_id": "approved-document-k-protection-from-falling-collision-and-im@2013-01-03-134e7b07",
+   "unit": "p54",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Diagram 9.1 is kept as a plain text block titled 'Safe access methods', not as a figure with its number and caption, and its caption is put inside item a of paragraph 9.1.",
+     "evidence": "source: \"Diagram 9.1 Safe reaches for cleaning\" / tree: \"For additional guidance, see BS 8213-1. See para 9.1 Diagram 9.1 Safe reaches for cleaning\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Item b(ii) of paragraph 9.1 ends with stray words and a caption from another diagram that are not printed in this paragraph.",
+     "evidence": "source: \"with safety features, as shown in Diagram 9.3.\" / tree: \"as shown in Diagram 9.3. See para 9.1b(i) m mro Diagram 9.2 Ladders a maximum of 6m long\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "1874b9e1f1d69838": {
+   "version_id": "approved-document-k-protection-from-falling-collision-and-im@2013-01-03-134e7b07",
+   "unit": "p67",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The page listing the Approved Documents is not in the tree at all; it is end matter that names the other documents and gives no rule.",
+     "evidence": "source: \"List of Approved Documents The following documents have been published to give guidance on how to meet the Building Regulations.\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  }
+ }
+}

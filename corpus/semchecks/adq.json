@@ -1,0 +1,113 @@
+{
+ "source_id": "adq",
+ "about": "Model verdicts on source against tree for adq (system/rag/semcheck.py).",
+ "verdicts": {
+  "1035461f7f411687": {
+   "version_id": "approved-document-q-security-dwellings@2024-11-22-481635d8",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "c616cd2cc41be907": {
+   "version_id": "approved-document-q-security-dwellings@2024-11-22-481635d8",
+   "unit": "p18",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading path puts Appendix D under Appendix C, though the page belongs to Appendix D as its own appendix.",
+     "evidence": "source: page tab \"D\" / tree: \"Appendix C: Documents referred to > Appendix D: Standards referred to > Publicly available specifications > PAS 10621\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "9ae6c58cba6e0a2b": {
+   "version_id": "approved-document-q-security-dwellings@2024-11-22-481635d8",
+   "unit": "p19",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "The opening paragraph is mixed line by line with text from another page, so it no longer reads as the printed sentence.",
+     "evidence": "source: \"The following documents have been published to give guidance on how to meet the Building Regulations.\" / tree: \"have been published to give It takes effect on 1 October 2015 for use in England*.\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The heading Approved Document L2B is read as body text inside the Approved Document L2A entry, so L2B has no entry of its own and its title is merged into L2A.",
+     "evidence": "source: \"Approved Document L2B Conservation of fuel and power in existing buildings other than dwellings\" / tree (under L2A): \"excepted energy Approved Document L2B buildings in Wales\""
+    },
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "The end of the opening paragraph is moved into the Approved Document L2A entry.",
+     "evidence": "source: \"guidance on how to meet the Building Regulations. You can find the date of the edition approved by the Secretary of State at www.gov.uk.\" / tree (under L2A): \"guidance on how to meet the Building by the Secretary of State at\""
+    },
+    {
+     "kind": "extra",
+     "severity": "high",
+     "problem": "The opening paragraph holds text about when the document takes effect that is not printed on this page.",
+     "evidence": "tree: \"This approved document supports requirement Q1 of Schedule 1 to the Building Regulations 2010.\" and \"It does not apply to work started before\""
+    },
+    {
+     "kind": "extra",
+     "severity": "high",
+     "problem": "The Approved Document L2A entry holds a footnote about England and Wales that is not printed on this page.",
+     "evidence": "tree: \"* This approved document gives guidance for compliance with the Building Regulations for building work carried out in England.\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The chapter title has words added that are not in the printed heading.",
+     "evidence": "source: \"List of approved documents\" / tree: \"The 2015 Edition List of approved documents\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "08d9ce44c16194c5": {
+   "version_id": "approved-document-q-security-dwellings@2024-11-22-481635d8",
+   "unit": "p20",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The tree holds front cover words that are not printed on this back cover page, some as headings above the ISBN and stock code.",
+     "evidence": "tree: \"The Building Regulations 2010\", \"Q\", \"Security – Dwellings\", \"APPROVED DOCUMENT\", \"2015 edition – for use in England*\", \"Q1 Unauthorised access\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The copyright notice is plain running text on the page but the tree holds it as a table with an invented column name.",
+     "evidence": "source: \"© Crown copyright, 2015 You may re-use this information (excluding logos) free of charge\" / tree: table with column \"Copyright notice\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The web address that ends the ordering details is read as a heading, and the ISBN and stock code are split under two headings that are not on the page.",
+     "evidence": "source: \"Or order online at: www.ribabookshops.com\" and \"ISBN 978 1 85946 601 8 Stock code 84831\" / tree: heading \"www.ribabookshops.com\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  }
+ }
+}

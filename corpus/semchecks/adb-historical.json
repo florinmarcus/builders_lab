@@ -1,0 +1,3925 @@
+{
+ "source_id": "adb-historical",
+ "about": "Model verdicts on source against tree for adb-historical (system/rag/semcheck.py).",
+ "verdicts": {
+  "604ad9f9ab9516d3": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "aac4d290beb11eca": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p100",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The flooring class names in 10.21h lost the letter l, so the tree names classes that do not exist.",
+     "evidence": "source: \"Any material achieving class A1fl or A2fl-s1\" / tree: \"Any material achieving class A1f or A2f-s1\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The word infill in 10.21d lost a letter.",
+     "evidence": "source: \"Window spandrel panels and infill panels\" / tree: \"Window spandrel panels and infll panels\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "409d7b59c4304b07": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p108",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "c6ce16ba00dabad9": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p111",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The heading that spans the four distance columns is not in the column names, so the grid does not say what the distances are measured from.",
+     "evidence": "source: \"Distance from any point on relevant boundary\" / tree: \"Less than 6m\", \"At least 6m\", \"At least 12m\", \"At least 20m\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "7e23de7f75858214": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p112",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The heading that spans the two distance columns, with its note marker (2), is not in the column names, so the grid does not say what the 6m and 20m values are.",
+     "evidence": "source: \"Minimum distance from any point on relevant boundary to rooflight with an external designation(2) of:\" / tree: \"EROOF(t4) or DROOF(t4)\", \"FROOF(t4)\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "4d6274a4494fd318": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p113",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "c8253e51b46a8fab": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p115",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "e301a4c02c31f846": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p116",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "5bc29e074262144e": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p121",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "figure",
+   "findings": [
+    {
+     "kind": "figure",
+     "severity": "low",
+     "problem": "In the key, the hose reach arrow symbol is given as the letter F and the 45m and 60m dimension labels are mixed into the key lines.",
+     "evidence": "source: \"Hose reach\" (arrow symbol) / tree: \"F Hose reach\", \"m Floor plan within 60m hose laying distance of fire main outlet\", \"45\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "ecc3eff938e76296": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p129",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "high",
+     "problem": "The banner that says this text of regulation 38 is the 2025 amendment and when it takes effect is not in the tree, neither as a heading nor in the heading path.",
+     "evidence": "source: \"2025 amendment – effective from 2 March 2025\" / tree: \"Regulation 38: Fire safety information > Regulation 38: Fire safety information\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "a5caf2946251721f": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p136",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "List items e to j continue the lettered list of paragraph 17.7 but are held in a separate unnumbered text block under the amendment heading, so paragraph 17.7 ends at item d.",
+     "evidence": "source: \"e. All of the following. i. Fire detector heads\" / tree: type \"text\", heading_path \"... > 2025 amendment – effective from 2 March 2025 > Text\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "d371aecb9894184d": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p144",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The boxed 'effective until' banner encloses B5 to B10 on the page, but the tree puts only B5 under it, so B6 to B10 lose the marking that they apply only until 1 March 2025.",
+     "evidence": "source: \"Effective until 1 March 2025 – see 2025 amendment, page 146\" (box runs to B10) / tree: \"Appendix B: Performance of materials, products and structures > Reaction to fire > Paragraph B6\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "db7b573a2ccc4186": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p145",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "d1122b0c861d79ed": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p147",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The NOTE printed under Table B2 is placed inside paragraph B18 before the table instead of after the table.",
+     "evidence": "source (after Table B2): \"NOTE: The national classifications do not automatically equate with the transposed classifications in the European column\" / tree: second line of B18 text, before the table"
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "ca2a04b75c4c17d0": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p148",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The group heading over the three columns Loadbearing capacity, Integrity and Insulation is missing from the column names, so the grid does not say these are the alternative BS 476 provisions.",
+     "evidence": "source: \"Alternative minimum provisions when tested to the relevant part of BS 476(2) (minutes)\" / tree columns: \"Loadbearing capacity(3)\", \"Integrity\", \"Insulation\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "1e0652829c4a6271": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p149",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The group heading over the three columns Loadbearing capacity, Integrity and Insulation is missing from the column names, so the grid does not say these are the alternative BS 476 provisions.",
+     "evidence": "source: \"Alternative minimum provisions when tested to the relevant part of BS 476(2) (minutes)\" / tree columns: \"Loadbearing capacity(3)\", \"Integrity\", \"Insulation\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "bbca63586c6b538b": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p150",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The group heading over the three columns Loadbearing capacity, Integrity and Insulation is missing from the column names, so the grid does not say these are the alternative BS 476 provisions.",
+     "evidence": "source: \"Alternative minimum provisions when tested to the relevant part of BS 476(2) (minutes)\" / tree columns: \"Loadbearing capacity(3)\", \"Integrity\", \"Insulation\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "99928b37098a24a7": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p151",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The group heading over the three columns Loadbearing capacity, Integrity and Insulation is missing from the column names, so the grid does not say these are the alternative BS 476 provisions.",
+     "evidence": "source: \"Alternative minimum provisions when tested to the relevant part of BS 476(2) (minutes)\" / tree columns: \"Loadbearing capacity(3)\", \"Integrity\", \"Insulation\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "cda30b9e46a31b91": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p152",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The group heading over the three BS 476 columns is dropped from the column names, so the grid does not say that Loadbearing capacity, Integrity and Insulation are the alternative BS 476 test values.",
+     "evidence": "source: \"Alternative minimum provisions when tested to the relevant part of BS 476(2) (minutes)\" / tree: \"Loadbearing capacity(3)\", \"Integrity\", \"Insulation\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "4a00a743a8310011": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p153",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The column names drop the group headings, so the grid does not say which columns are basement depth and which are height of top floor above ground.",
+     "evidence": "source: \"Basement storey* including floor over Depth (m) of the lowest basement\" and \"Ground or upper storey Height (m) of top floor above ground\" / tree: \"More than 10\", \"Up to 10\", \"Up to 5\", \"Up to 11\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "151c361d805eb259": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p154",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The column names drop the group headings, so the grid does not say which columns are basement depth and which are height of top floor above ground.",
+     "evidence": "source: \"Basement storey* including floor over Depth (m) of the lowest basement\" and \"Ground or upper storey Height (m) of top floor above ground\" / tree: \"More than 10\", \"Up to 10\", \"Up to 5\", \"Up to 11\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "8e2aa3dea2cab7e4": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p156",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The column names drop the group headings, so the two pairs of Walls and Door leaf columns cannot be told apart as single stair or more than one stair.",
+     "evidence": "source: \"Maximum total glazed area in parts of a building with access to: A single stair ... More than one stair\" / tree: \"Walls\", \"Door leaf\", \"Walls\", \"Door leaf\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "089bbb6aae46d90a": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p157",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The column names drop the group headings, so the two pairs of Walls and Door leaf columns cannot be told apart as single stair or more than one stair.",
+     "evidence": "source: \"Maximum total glazed area in parts of a building with access to: A single stair ... More than one stair\" / tree: \"Walls\", \"Door leaf\", \"Walls\", \"Door leaf\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "4d21a7985336fb51": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p16",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "0a34c1b26037c1af": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p162",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The group heading over the three alternative columns is not in the column names, so the grid does not say that Loadbearing capacity, Integrity and Insulation are BS 476 values.",
+     "evidence": "source: \"Alternative minimum provisions when tested to the relevant part of BS 476(2) (minutes)\" / tree: \"Loadbearing capacity(3)\", \"Integrity\", \"Insulation\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "4ee51401b4b12796": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p163",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The group heading over the three alternative columns is not in the column names, so the grid does not say that Loadbearing capacity, Integrity and Insulation are BS 476 values.",
+     "evidence": "source: \"Alternative minimum provisions when tested to the relevant part of BS 476(2) (minutes)\" / tree: \"Loadbearing capacity(3)\", \"Integrity\", \"Insulation\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "650764c2cb307893": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p164",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The group heading over the three alternative columns is not in the column names, so the grid does not say that Loadbearing capacity, Integrity and Insulation are BS 476 values.",
+     "evidence": "source: \"Alternative minimum provisions when tested to the relevant part of BS 476(2) (minutes)\" / tree: \"Loadbearing capacity(3)\", \"Integrity\", \"Insulation\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "9c06d43d0ff606db": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p165",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The group heading over the three alternative columns is not in the column names, so the grid does not say that Loadbearing capacity, Integrity and Insulation are BS 476 values.",
+     "evidence": "source: \"Alternative minimum provisions when tested to the relevant part of BS 476(2) (minutes)\" / tree: \"Loadbearing capacity(3)\", \"Integrity\", \"Insulation\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "768a3350ef62e231": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p166",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The group heading printed over the three alternative columns is not in the column names, so the grid does not say that Loadbearing capacity, Integrity and Insulation are BS 476 values; the notes on this page match.",
+     "evidence": "source: \"Alternative minimum provisions when tested to the relevant part of BS 476(2) (minutes)\" / tree: \"Loadbearing capacity(3)\", \"Integrity\", \"Insulation\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "0cb67b7bb5fefec5": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p167",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The group headings are not in the column names, so the grid does not say which columns are basement depth and which are height of top floor above ground.",
+     "evidence": "source: \"Basement storey* including floor over Depth (m) of the lowest basement\", \"Ground or upper storey Height (m) of top floor above ground\" / tree: \"More than 10\", \"Up to 10\", \"Up to 5\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "f8568f19384d3478": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p168",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The grid column names drop the group headings that say which columns are basement depth and which are height of top floor, so the first two columns cannot be told apart from the height columns.",
+     "evidence": "source: \"Basement storey* including floor over / Depth (m) of the lowest basement / More than 10 / Up to 10\" / tree: \"More than 10\", \"Up to 10\", \"Up to 5\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "a13cd4b0d9adae5e": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p17",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "b5b47a5df57447e9": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p170",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "8fa1e8b2612338b0": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p171",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "9f1b99b56c8c50c4": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p176",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "44cf1d7406e3a304": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p177",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "ed334135fba72043": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p178",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The header that spans the three middle columns is not in the column names, so the grid does not say the values are minimum provisions in minutes under the European standard or assessment.",
+     "evidence": "source: \"Minimum provisions when tested and classified to the relevant European standard (minutes)(1) or assessed following the recommendations of paragraphs B1 to B5 (minutes)(2)\" / tree: \"Loadbearing capacity(3)\", \"Integrity\", \"Insulation\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "36b8ba1efa24b9d7": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p179",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The header that spans the three middle columns is not in the column names, so the grid does not say the values are minimum provisions in minutes under the European standard or assessment.",
+     "evidence": "source: \"Minimum provisions when tested and classified to the relevant European standard (minutes)(1) or assessed following the recommendations of paragraphs B1 to B5 (minutes)(2)\" / tree: \"Loadbearing capacity(3)\", \"Integrity\", \"Insulation\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "cbdbbb2b6087e0d0": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p18",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "4ceaa7aaf7bd2ca1": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p180",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The group headers above the columns are dropped from the column names, so the grid does not say that the first two columns are basement depths and the other five are heights of the top floor above ground.",
+     "evidence": "source: \"Basement storey* including floor over / Depth (m) of the lowest basement\" and \"Ground or upper storey / Height (m) of top floor above ground\" / tree: \"More than 10\", \"Up to 10\", \"Up to 5\", \"Up to 11\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The row heading for group 2 has a colon added that is not printed.",
+     "evidence": "source: \"2. Residential\" / tree: \"2. Residential: a. Institutional\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "56f74a51e2425fad": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p181",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The group headers above the columns are dropped from the column names, so the grid does not say that the first two columns are basement depths and the other five are heights of the top floor above ground.",
+     "evidence": "source: \"Basement storey* including floor over / Depth (m) of the lowest basement\" and \"Ground or upper storey / Height (m) of top floor above ground\" / tree: \"More than 10\", \"Up to 10\", \"Up to 5\", \"Up to 11\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "a248e3f2e9cbf35b": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p183",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The top header that spans the four value columns is not in the column names, so the grid does not say the values are maximum total glazed areas by stair access.",
+     "evidence": "source: \"Maximum total glazed area in parts of a building with access to:\" / tree: \"A single stair Walls\", \"A single stair Door leaf\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "33e0730a34839b2b": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p184",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The spanning header above the four value columns is not in the column names, so the columns do not say they give a maximum total glazed area.",
+     "evidence": "source: \"Maximum total glazed area in parts of a building with access to:\" / tree: \"A single stair Walls\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "166463dd743e0c07": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p187",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Table C1 on this page is printed as effective until 29 September 2026, but the tree gives it a valid_to of 2029-09-01.",
+     "evidence": "source: \"Effective until 29 September 2026 – see 2026 amendment, page 177\" / tree: \"valid_to\": \"2029-09-01\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The banner above the table is kept as a heading and its title has words added that are not printed on this page.",
+     "evidence": "source: \"Effective until 29 September 2026 – see 2026 amendment, page 177\" / tree: \"... page 177 see 2029 amendments, page 179 see 2029 amendments, page 179\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Paragraphs C13 to C15 sit under a parent heading that is a standard number, not a heading printed in the document.",
+     "evidence": "tree: \"Appendix C: Fire doorsets > BS EN 81-58. > Paragraph C13\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "61a6133f3985b2d4": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p188",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Table C1 on this page is printed as effective until 29 September 2026, but the tree gives it a valid_to of 2029-09-01.",
+     "evidence": "source: \"Effective until 29 September 2026 – see 2026 amendment, page 177\" / tree: \"valid_to\": \"2029-09-01\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "2e4441d39f294fa2": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p189",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The table is the 2026 amendment version, in force from 30 September 2026, but the tree puts it under the heading for the text that ends on 29 September 2026 and gives it no start date.",
+     "evidence": "source: \"2026 amendment – effective from 30 September 2026 until 1 September 2029 – see 2029 amendments, page 179\" / tree: \"Effective until 29 September 2026 – see 2026 amendment, page 177 see 2029 amendments, page 179\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The heading_rows indexes do not point at the group heading rows of the grid, so value rows are marked as headings and some group headings are not.",
+     "evidence": "tree: \"heading_rows\": [1, 7, 10, 14, 18, 21] / grid group headings are rows 1, 8, 11, 16, 21, 24 (\"4. Forming part of the enclosures of:\" is row 8)"
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "70a1b5e12721c8eb": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p190",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The table is the 2026 amendment version, in force from 30 September 2026, but the tree puts it under the heading for the text that ends on 29 September 2026 and gives it no start date.",
+     "evidence": "source: \"2026 amendment – effective from 30 September 2026 until 1 September 2029 – see 2029 amendments, page 179\" / tree: \"Effective until 29 September 2026 – see 2026 amendment, page 177 see 2029 amendments, page 179\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The heading_rows indexes do not point at the group heading rows of the grid, so value rows are marked as headings and some group headings are not.",
+     "evidence": "tree: \"heading_rows\": [1, 7, 10, 14, 18, 21] / grid group headings are rows 1, 8, 11, 16, 21, 24 (\"7. Sub-dividing:\" is row 16)"
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "7f5053e2b39b2d44": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p193",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Paragraphs C12 to C15 and Table C1 sit under a parent heading that is a standard number, not a heading printed in the document.",
+     "evidence": "tree: \"Appendix C: Fire doorsets > BS EN 81-58. > Paragraph C12\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The last three heading_rows indexes point at value rows, not at the group heading rows of the grid.",
+     "evidence": "tree: \"heading_rows\": [1, 8, 11, 15, 19, 22] / grid group headings are rows 1, 8, 11, 16, 21, 24 (row 15 is \"6. Giving access to an external escape route\")"
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "578020543cc8ba59": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p194",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The table's heading path has a standard reference from body text as its parent heading; the table sits under Appendix C and the 2029 amendment box, not under a heading of that name.",
+     "evidence": "source: \"2029 amendment – effective from 2 September 2029\" \"Table C1 Continued\" / tree: \"Appendix C: Fire doorsets > BS EN 81-58. > Provisions for fire doorsets\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "b3bdff7a5876b242": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p196",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "b3ef11525d5d3c81": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p202",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "d25d91e018067843": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p207",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Four standards printed after and outside the blue 2025 amendment box are merged into the amendment text, so they read as effective only from 2 March 2025; only the BS 9251 [2021] entry is inside the box.",
+     "evidence": "source: box holds only \"BS 9251 Fire sprinkler systems for domestic and residential occupancies. Code of practice [2021].\" / tree: \"...[2021]. BS 9252 Components for residential sprinkler systems...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "9e2c305aea7a0765": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p216",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "5235a9061d7e4c0d": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p220",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "8a3a21d9ba4586d4": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p228",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "91fafcc1c1e397f8": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p34",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The labels of Diagram 3.3 are broken into letter fragments where the picture prints words at an angle, and the second \"Kitchen\" label is run into other words.",
+     "evidence": "source: \"Kitchen area\", \"9m max.\" / tree: \"Ki\", \"tc\", \"h\", \"en Bath Kitchen 9\", \"a\", \"re\", \"a\", \"9m x.\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "b7608f163a271306": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p37",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The closing sentence of paragraph 3.22, which applies to the whole paragraph, is joined onto sub-item v.",
+     "evidence": "source: \"v. A door to an escape route over a flat roof.\" then a separate paragraph \"Any access route leading to a final exit or common stair should comply\" / tree: \"v. A door to an escape route over a flat roof. Any access route leading to a final exit\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sentence that closes item a of paragraph 3.24 is joined onto sub-item ii.",
+     "evidence": "source: \"ii. An alternative means of escape that is not a window.\" then a separate line \"If the travel distance is over 18m\" / tree: \"ii. An alternative means of escape that is not a window. If the travel distance is over 18m\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "5f00f3ca88080675": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p38",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The header row that spans both columns of Table 3.1, with its note mark (1), is not in the columns or the grid; it is kept only in the table text.",
+     "evidence": "source: \"Maximum travel distance from flat entrance door to common stair or stair lobby(1)\" / tree columns: \"Escape in one direction\", \"Escape in more than one direction\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The black banner that marks the boxed text as time-limited is kept as a heading beside \"Number of escape routes\" instead of above it, so the paragraphs and table in the box are not under it.",
+     "evidence": "source: \"Effective until 29 September 2026 – see 2026 amendment, page 29\" printed above \"Number of escape routes\" / tree: heading_path \"Means of escape in the common parts of flats > Number of escape routes > Paragraph 3.26\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "4bf16b93ef05a13e": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p41",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "high",
+     "problem": "The banner that says this boxed version of paragraphs 3.26, 3.27 and Table 3.1 applies only from 30 September 2026 is not in the content or in any heading path for this page.",
+     "evidence": "source: \"2026 amendment – effective from 30 September 2026\" / tree: \"Means of escape in the common parts of flats > Design for horizontal escape > Paragraph 3.26\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The header row that spans both columns of Table 3.1, with its note mark (1), is not in the columns or the grid; it is kept only in the table text.",
+     "evidence": "source: \"Maximum travel distance from flat entrance door to storey exit or stair lobby(1)\" / tree columns: \"Escape in one direction\", \"Escape in more than one direction\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "aec1b0b91b0288ce": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p43",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "figure",
+   "findings": [
+    {
+     "kind": "figure",
+     "severity": "low",
+     "problem": "The key label for fire resisting construction has picked up a stray \"Fd\", so it reads as if Fd meant fire resisting construction.",
+     "evidence": "source: \"Fire resisting construction\" (green line symbol) / tree: \"Fd Fire resisting construction\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The labels hold the cross-reference twice, once in a wording that is not printed on the page.",
+     "evidence": "source: \"See para 3.27 and 3.40\" / tree: \"See para 3.27 and 3.40\", \"See paras 3.27 and 3.40\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The amendment banner is written twice in the heading path.",
+     "evidence": "source: \"2026 amendment – effective from 30 September 2026\" / tree: \"2026 amendment – effective from 30 September 2026 2026 amendment – effective from 30 September 2026\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "ce579964b6f7702f": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p46",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Paragraphs 3.36 and 3.37 (ancillary accommodation) are printed after the 2026 amendment box closes, but the tree puts them under the '2026 amendment – effective from 30 September 2026' heading, so they read as applying only from that date.",
+     "evidence": "source: \"3.36 A fire doorset (minimum E 30 Sa) fitted with a self-closing device\" (outside the box) / tree: \"Common escape routes > 2026 amendment – effective from 30 September 2026 > Paragraph 3.36\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "275e3da855ad1391": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p57",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Paragraph 3.100 is not a provision of its own; it is merged into the end of item b of paragraph 3.99, with its number run into the text.",
+     "evidence": "source: \"3.100 A lift well connecting different compartments should form a protected shaft (see Section 7).\" / tree: \"...prejudice the means of escape. 3.100A lift well connecting different compartments\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "31b796ee90b927cf": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p60",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "ad2bb415299b50f8": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p62",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "52b1a079992d1c11": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p64",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "447461db2ae2c0d6": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p65",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "One figure label has its two words run together, and the repeated 'y min.' labels are kept only once.",
+     "evidence": "source: \"x min.\" / tree: \"xmin.\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "fef18b88dc8b80eb": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p75",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "9106cc0cd674b0e8": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p77",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The two closing paragraphs of 7.14, which apply to the whole paragraph, are joined onto list item b.",
+     "evidence": "source: \"above.\" then new paragraph \"Where compartment walls are located within the middle half\" / tree: \"b. Design the wall ... from the floor above. Where compartment walls are located\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "b15802544075a574": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p79",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "d48a119712faab6f": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p88",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The column names of Table 9.1 drop the group heading with the unit and the column letters (a), (b), (c) that paragraph 9.4 refers to; they are kept only in the table text.",
+     "evidence": "source: \"Pipe material and maximum nominal internal diameter (mm)\" \"(a)\" \"(b)\" \"(c)\" / tree: \"High melting point metal(1)\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "In 9.9 the unlettered sentence that introduces items i and ii is joined onto item b, so i and ii read as sub-items of b.",
+     "evidence": "source: \"b. Any filters or other air cleaning equipment.\" then \"When smoke is detected, detectors should do one of the following.\" / tree: \"b. Any filters or other air cleaning equipment. When smoke is detected\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "447af37326711c50": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p97",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "146a1c62bcdb90a5": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen@2025-01-14-5ec1573c",
+   "unit": "p101",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "94aeae03daf27868": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen@2025-01-14-5ec1573c",
+   "unit": "p104",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The header that spans the four distance columns is not in the grid column names; it is only in the raw text.",
+     "evidence": "source: \"Distance from any point on relevant boundary\" / tree: \"Less than 6m\", \"At least 6m\", \"At least 12m\", \"At least 20m\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "c7e392fe0da8b599": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen@2025-01-14-5ec1573c",
+   "unit": "p105",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The header printed above the two distance columns is not in the grid column names, so the columns do not say that the values are minimum distances from the relevant boundary.",
+     "evidence": "source: \"Minimum distance from any point on relevant boundary to rooflight with an external designation(2) of: EROOF(t4) or DROOF(t4)\" / tree: \"EROOF(t4) or DROOF(t4)\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "27c5eaf73baa0753": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen@2025-01-14-5ec1573c",
+   "unit": "p106",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The header printed above the two distance columns is not in the grid column names, so the columns do not say that the values are minimum distances from the relevant boundary.",
+     "evidence": "source: \"Minimum distance from any point on relevant boundary to rooflight with an external designation(1) of: TP(a)\" / tree: \"TP(a)\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "29354e443ed27c83": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen@2025-01-14-5ec1573c",
+   "unit": "p109",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "d9bc2ad4ce440462": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen@2025-01-14-5ec1573c",
+   "unit": "p115",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "In paragraph 15.8 three closing paragraphs that apply to the whole paragraph are joined onto list item ii.",
+     "evidence": "source: \"ii. Compartmentation (Section 7).\" then a new paragraph \"Both the stair and lobby of the firefighting shaft should be provided\" / tree: \"ii. Compartmentation (Section 7). Both the stair and lobby of the firefighting shaft\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "In paragraph 15.3 the closing sentence that applies to the whole paragraph is joined onto list item b.",
+     "evidence": "source: new paragraph \"The building's height and size determine whether firefighting shafts also serve upper storeys.\" / tree: \"do not need to include firefighting lifts. The building's height and size determine\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "b06a2a585e3b980d": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen@2025-01-14-5ec1573c",
+   "unit": "p125",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The asterisk that marks the term Building as coming from the Building Regulations 2010 is dropped, so the first note's marker has nothing to point to.",
+     "evidence": "source: \"*Building Any permanent or temporary building\" / tree: \"Building\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "276d5917cb68f35b": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen@2025-01-14-5ec1573c",
+   "unit": "p126",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The asterisks that mark the terms Dwelling, Dwellinghouse and External wall as coming from the Building Regulations 2010 are dropped.",
+     "evidence": "source: \"*Dwelling\", \"*Dwellinghouse\", \"*External wall\" / tree: \"Dwelling\", \"Dwellinghouse\", \"External wall\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "ab43fb1866cb14af": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen@2025-01-14-5ec1573c",
+   "unit": "p130",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "f6349382c097cf2b": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen@2025-01-14-5ec1573c",
+   "unit": "p132",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "8461b33fd158c7d6": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen@2025-01-14-5ec1573c",
+   "unit": "p133",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "f656ad386cd5a4b8": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen@2025-01-14-5ec1573c",
+   "unit": "p134",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "119059307423b5c3": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen@2025-01-14-5ec1573c",
+   "unit": "p135",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "3dbb6d58d35f52f2": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen@2025-01-14-5ec1573c",
+   "unit": "p136",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The group heading over the three BS 476 columns is dropped from the column names, so the grid does not say that Loadbearing capacity, Integrity and Insulation are the alternative BS 476 provisions.",
+     "evidence": "source: \"Alternative minimum provisions when tested to the relevant part of BS 476(2) (minutes)\" / tree: \"Loadbearing capacity(3)\", \"Integrity\", \"Insulation\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "d1a9a531da6b9188": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen@2025-01-14-5ec1573c",
+   "unit": "p137",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The grid columns drop the group heading over Loadbearing capacity, Integrity and Insulation, so the grid no longer says these three columns are the BS 476 alternative provisions.",
+     "evidence": "source: \"Alternative minimum provisions when tested to the relevant part of BS 476(2) (minutes)\" / tree: \"Loadbearing capacity(3)\", \"Integrity\", \"Insulation\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "9cdd081bd62ade39": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen@2025-01-14-5ec1573c",
+   "unit": "p138",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The grid columns drop the group heading over Loadbearing capacity, Integrity and Insulation, so the grid no longer says these three columns are the BS 476 alternative provisions.",
+     "evidence": "source: \"Alternative minimum provisions when tested to the relevant part of BS 476(2) (minutes)\" / tree: \"Loadbearing capacity(3)\", \"Integrity\", \"Insulation\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "8d2fa406ff016ec9": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen@2025-01-14-5ec1573c",
+   "unit": "p139",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The grid columns drop the group heading over Loadbearing capacity, Integrity and Insulation, so the grid no longer says these three columns are the BS 476 alternative provisions.",
+     "evidence": "source: \"Alternative minimum provisions when tested to the relevant part of BS 476(2) (minutes)\" / tree: \"Loadbearing capacity(3)\", \"Integrity\", \"Insulation\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "22977fca2c3c433a": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen@2025-01-14-5ec1573c",
+   "unit": "p140",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The grid columns drop the group heading over Loadbearing capacity, Integrity and Insulation, so the grid no longer says these three columns are the BS 476 alternative provisions.",
+     "evidence": "source: \"Alternative minimum provisions when tested to the relevant part of BS 476(2) (minutes)\" / tree: \"Loadbearing capacity(3)\", \"Integrity\", \"Insulation\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "In row 23 the second \"See Table C1\" appears to span the three BS 476 columns in the source, but the grid puts it under Loadbearing capacity only and leaves Integrity and Insulation empty.",
+     "evidence": "source: \"23. Fire doorsets See Table C1 See Table C1 See Appendix C\" / tree: \"See Table C1\", \"See Table C1\", \"\", \"\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "3ceffa980a6331fc": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen@2025-01-14-5ec1573c",
+   "unit": "p141",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The grid columns drop the group headings, so nothing says that \"More than 10\" and \"Up to 10\" are basement depths and the other five columns are heights of the top floor above ground.",
+     "evidence": "source: \"Basement storey* including floor over\", \"Depth (m) of the lowest basement\", \"Height (m) of top floor above ground\" / tree: \"More than 10\", \"Up to 10\", \"Up to 5\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "3ebbc03be1eab524": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen@2025-01-14-5ec1573c",
+   "unit": "p142",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The grid columns drop the group headings, so nothing says that \"More than 10\" and \"Up to 10\" are basement depths and the other five columns are heights of the top floor above ground.",
+     "evidence": "source: \"Basement storey* including floor over\", \"Depth (m) of the lowest basement\", \"Height (m) of top floor above ground\" / tree: \"More than 10\", \"Up to 10\", \"Up to 5\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "d87ee9dc3906cbe9": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen@2025-01-14-5ec1573c",
+   "unit": "p143",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "9b4c321bcd981739": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen@2025-01-14-5ec1573c",
+   "unit": "p144",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The column names drop the group headings, so the two 'Walls' and two 'Door leaf' columns cannot be told apart as single stair or more than one stair, though the values differ (item 7).",
+     "evidence": "source: \"Maximum total glazed area in parts of a building with access to: A single stair ... More than one stair\" / tree: \"Walls\", \"Door leaf\", \"Walls\", \"Door leaf\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "fe0d51909f820f95": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen@2025-01-14-5ec1573c",
+   "unit": "p145",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The column names drop the group headings, so the two 'Walls' and two 'Door leaf' columns cannot be told apart as single stair or more than one stair.",
+     "evidence": "source: \"Maximum total glazed area in parts of a building with access to: A single stair ... More than one stair\" / tree: \"Walls\", \"Door leaf\", \"Walls\", \"Door leaf\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "2a9ef463153c8610": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen@2025-01-14-5ec1573c",
+   "unit": "p148",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading path puts paragraphs C13 to C15 and Table C1 under a heading 'BS EN 81-58.', which is not a heading on the page but looks like a fragment of body text.",
+     "evidence": "tree: \"Appendix C: Fire doorsets > BS EN 81-58. > Paragraph C13\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "06235e5f6b95b70b": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen@2025-01-14-5ec1573c",
+   "unit": "p149",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading path puts Table C1 under a heading 'BS EN 81-58.', which is not a heading in the source but looks like a fragment of body text.",
+     "evidence": "tree: \"Appendix C: Fire doorsets > BS EN 81-58. > Provisions for fire doorsets\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "aec9ff9fee933871": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen@2025-01-14-5ec1573c",
+   "unit": "p15",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "fe8bc968931e1f51": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen@2025-01-14-5ec1573c",
+   "unit": "p151",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "75e66dd1cdbc524e": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen@2025-01-14-5ec1573c",
+   "unit": "p157",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "63fb40f2bf9c616a": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen@2025-01-14-5ec1573c",
+   "unit": "p16",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "2ec962d30d66bd7b": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen@2025-01-14-5ec1573c",
+   "unit": "p166",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "cdd96e5378e5cb45": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen@2025-01-14-5ec1573c",
+   "unit": "p171",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "f29a8c6d4d071be8": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen@2025-01-14-5ec1573c",
+   "unit": "p179",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The back-matter page listing all Approved Documents is not in the tree at all; it is not a cover, contents, index or imprint page, but it holds no rule or number.",
+     "evidence": "source: \"List of Approved Documents The following documents have been published to give guidance on how to meet the Building Regulations.\" / tree: (empty)"
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "adda7d1967278453": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen@2025-01-14-5ec1573c",
+   "unit": "p36",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The header that spans both columns of Table 3.1 is not in the columns or grid, so the grid does not say what the distances are measured to or carry note 1.",
+     "evidence": "source: \"Maximum travel distance from flat entrance door to common stair or stair lobby(1)\" / tree: columns \"Escape in one direction\", \"Escape in more than one direction\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "2261d8613e41d6bd": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen@2025-01-14-5ec1573c",
+   "unit": "p40",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The headings \"Ramps and sloping floors\" and \"Lighting of common escape routes\" are printed at the same level as \"Flooring of common escape routes\" but the tree puts them under it.",
+     "evidence": "tree: \"Flooring of common escape routes > Lighting of common escape routes > Paragraph 3.41\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "fc65ad5a779fa0b9": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen@2025-01-14-5ec1573c",
+   "unit": "p43",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "9edd87822945b1d4": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen@2025-01-14-5ec1573c",
+   "unit": "p53",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "551404296c2ae865": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen@2025-01-14-5ec1573c",
+   "unit": "p57",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "882d4cad011b6dfc": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen@2025-01-14-5ec1573c",
+   "unit": "p59",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "The two columns of the requirement box are mixed line by line, so the limit on application is cut into the middle of the words of B3(3).",
+     "evidence": "tree: \"Where reasonably necessary to inhibit the spread Requirement B3(3) does not apply to material alterations of fire within the building, measures shall be to any prison\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The closing sentence that applies to the whole list is joined to item e.",
+     "evidence": "tree: \"e. Inhibition of the unseen spread ... in and around the building. The extent to which any of these measures are necessary\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "babb16ed814b9f15": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen@2025-01-14-5ec1573c",
+   "unit": "p60",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "0bf21cbcf75c7d63": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen@2025-01-14-5ec1573c",
+   "unit": "p64",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "In the labels of Diagram 5.3 the multiplication sign in the two size limits is replaced by junk characters.",
+     "evidence": "source: \"800×500mm for each cupboard\" / tree: \"800(cid:31)(cid:31)(cid:31)(cid:31)(cid:31)(cid:31)(cid:31)(cid:31)500mm for each cupboard\"; source: \"80×80mm\" / tree: \"80(cid:31)...80mm\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The labels of Diagram 5.3 mix the drawing labels into the lines of the notes printed beside them.",
+     "evidence": "tree: \"Close cavity at top of wall NOTES:\" and \"Opening that the following conditions are met:\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "a1b31a43de906657": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen@2025-01-14-5ec1573c",
+   "unit": "p71",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "dcd59ea7f97614b5": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen@2025-01-14-5ec1573c",
+   "unit": "p78",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Diagram 8.4 is printed above the heading 'Construction and fixings for cavity barriers' and belongs to paragraph 8.7, but the tree puts it under that heading, after paragraph 8.9.",
+     "evidence": "source: \"See para 8.7\" printed before \"Construction and fixings for cavity barriers\" / tree: heading_path \"Section 8: Cavities – flats > Construction and fixings for cavity barriers > Provisions for cavity barriers...\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "349f6b9c6649f919": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen@2025-01-14-5ec1573c",
+   "unit": "p81",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The column names of Table 9.1 drop the group heading with the unit and the column letters (a), (b), (c) that paragraph 9.4 refers to; they are kept only in the table text.",
+     "evidence": "source: \"Pipe material and maximum nominal internal diameter (mm)\" \"(a)\" \"(b)\" \"(c)\" / tree columns: \"High melting point metal(1)\", \"Lead, aluminium, aluminium alloy, uPVC,(2) fibre cement\", \"Any other material\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "5da69df017741653": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen@2025-01-14-5ec1573c",
+   "unit": "p90",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "45211097f01ebbda": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p101",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "dd9c010ca8eb83bf": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p107",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "1edb9041201fabaf": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p118",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The columns of Table 13.1 drop the spanning header that says the first two columns are boundary distances in metres, and the column numbers (1), (2), (3) that notes 3 refers to.",
+     "evidence": "source: \"Minimum distance between side of building and relevant boundary (m)\" \"Purpose groups\" \"(1) (2) (3)\" / tree: \"Residential, office, assembly and recreation\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "7fc8bfb56b3db77f": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p120",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The columns of Table 14.1 drop the spanning header that says the four distance columns are distances from the relevant boundary.",
+     "evidence": "source: \"Distance from any point on relevant boundary\" / tree: \"Less than 6m\", \"At least 6m\", \"At least 12m\", \"At least 20m\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Table 14.1 and Diagram 14.1 are placed under the heading 'Thatch and wood shingles', which is not their subject; the diagram belongs to plastic rooflights (paras 14.5 and 14.6).",
+     "evidence": "tree: \"Separation distances > Thatch and wood shingles > Limitations on spacing and size of plastic rooflights\""
+    },
+    {
+     "kind": "figure",
+     "severity": "low",
+     "problem": "The figure labels mix the arrow label with the side note, so the lines are out of order.",
+     "evidence": "source: \"3m† minimum between any two rooflights in any direction\" / tree: \"3m† minimum non-residential purpose groups may be spaced 1800mm\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "1bddf55ca6e5c911": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p121",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The columns of Tables 14.2 and 14.3 drop the spanning header that says the last two columns are minimum boundary distances by external designation or classification.",
+     "evidence": "source: \"Minimum distance from any point on relevant boundary to rooflight with an external designation(2) of:\" / tree: \"EROOF(t4) or DROOF(t4)\", \"FROOF(t4)\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Tables 14.2 and 14.3 on plastic rooflights are placed under the heading 'Thatch and wood shingles'.",
+     "evidence": "tree: \"Separation distances > Thatch and wood shingles > Class D-s3, d2 plastic rooflights: limitations on use and boundary distance\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "c64217a1e1511ed3": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p123",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "6e0446cd58d15bd4": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p125",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "7daed3a13108e884": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p130",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The figure's notes are printed in two columns and the labels mix them line by line, so notes 1 and 2 are interleaved with note 3 and note 4.",
+     "evidence": "source: \"1. Outlets from a fire main should be located in the firefighting lobby.\" / tree: \"1. Outlets from a fire main should be located in the firefighting 3. This diagram is only to illustrate the basic components and is\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "70a50f5bd97e429b": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p131",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The closing sentence of paragraph 17.3, printed at paragraph level after the list, is joined to item b, so it reads as part of the second case only.",
+     "evidence": "source: \"The building's height and size determine whether firefighting shafts also serve upper storeys.\" (own line after b) / tree: \"b. ... do not need to include firefighting lifts. The building’s height and size determine\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "19a25a2bc55e721e": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p146",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The rest of paragraph 19.7 (items d.v to d.vii and e to h) is split off into an unnumbered text block under a heading made from the repeated amendment box banner, so it is no longer part of paragraph 19.7.",
+     "evidence": "source: \"v. Fire doorsets, including fire doorsets fitted with a self-closing device\" (continues list d of 19.7) / tree: type \"text\" under heading \"2025 amendment – effective from 2 March 2025\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "6699692030d1c55b": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p15",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The two closing sub-paragraphs of 0.10 about Firecode, printed at paragraph level after the list, are joined to item b.",
+     "evidence": "source: \"b. The needs of the patients.\" then new paragraph \"The Department of Health (DoH) guidance documents\" / tree: \"b. The needs of the patients. The Department of Health (DoH) guidance documents\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "040c4efd8c1c00aa": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p156",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "377016089cf1ea96": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p158",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "3b5f133a5446be07": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p159",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The group heading over the three BS 476 columns is missing from the column names, so the grid does not say these values are the alternative provisions when tested to BS 476.",
+     "evidence": "source: \"Alternative minimum provisions when tested to the relevant part of BS 476(2) (minutes)\" / tree: \"Loadbearing capacity(3)\", \"Integrity\", \"Insulation\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "c19703938acafaf8": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p160",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The group heading over the three BS 476 columns is missing from the column names, so the grid does not say these values are the alternative provisions when tested to BS 476.",
+     "evidence": "source: \"Alternative minimum provisions when tested to the relevant part of BS 476(2) (minutes)\" / tree: \"Loadbearing capacity(3)\", \"Integrity\", \"Insulation\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "762feffdf101cc2f": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p161",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The group heading over the three BS 476 columns is missing from the column names, so the grid does not say these values are the alternative provisions when tested to BS 476.",
+     "evidence": "source: \"Alternative minimum provisions when tested to the relevant part of BS 476(2) (minutes)\" / tree: \"Loadbearing capacity(3)\", \"Integrity\", \"Insulation\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "fcf82d2aa83e4712": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p162",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The group heading over the three BS 476 columns is missing from the column names, so the grid does not say these values are the alternative provisions when tested to BS 476.",
+     "evidence": "source: \"Alternative minimum provisions when tested to the relevant part of BS 476(2) (minutes)\" / tree: \"Loadbearing capacity(3)\", \"Integrity\", \"Insulation\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "61b6ba2889d1a7c3": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p163",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The group heading over the three BS 476 columns is missing from the column names, so the grid does not say these values are the alternative provisions when tested to BS 476.",
+     "evidence": "source: \"Alternative minimum provisions when tested to the relevant part of BS 476(2) (minutes)\" / tree: \"Loadbearing capacity(3)\", \"Integrity\", \"Insulation\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "In row 23 the second \"See Table C1\" spans all three BS 476 columns in the source, but the grid puts it only under Loadbearing capacity and leaves Integrity and Insulation empty.",
+     "evidence": "source: \"23. Fire doorsets See Table C1 See Table C1 See Appendix C\" / tree: \"See Table C1\", \"See Table C1\", \"\", \"\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "3df5aa4e31c3aafb": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p164",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The column names drop the group headings, so the grid does not say that the first two columns are basement depth and the other five are height of top floor.",
+     "evidence": "source: \"Basement storey* including floor over / Depth (m) of the lowest basement / More than 10 / Up to 10\" / tree: \"More than 10\", \"Up to 10\", \"Up to 5\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "08f8441965b87499": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p165",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The column names drop the group headings, so the grid does not say that the first two columns are basement depth and the other five are height of top floor.",
+     "evidence": "source: \"Depth (m) of the lowest basement / More than 10 / Up to 10 ... Height (m) of top floor above ground\" / tree: \"More than 10\", \"Up to 10\", \"Up to 5\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "39e43b17b94098bd": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p167",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "632edf2446768b24": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p168",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "4e9ea1ef1c003852": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p17",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "1d90dd72fbf814ed": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p172",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The banner gives an end date for this amended text, but the sections carry only a start date and no end date.",
+     "evidence": "source: \"2025 amendment – effective from 2 March 2025 until 1 September 2029 – see 2029 amendment, page 171\" / tree: \"valid_from\": \"2025-03-02\" only"
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "fa107735c2ea3d4a": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p173",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The group heading over the three middle columns is not in the column names, so the grid does not say that these values are the alternative BS 476 provisions.",
+     "evidence": "source: \"Alternative minimum provisions when tested to the relevant part of BS 476(2) (minutes)\" / tree: \"Loadbearing capacity(3)\", \"Integrity\", \"Insulation\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "10d73c2b96c88f9a": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p174",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The group heading over the three middle columns is not in the column names, so the grid does not say that these values are the alternative BS 476 provisions.",
+     "evidence": "source: \"Alternative minimum provisions when tested to the relevant part of BS 476(2) (minutes)\" / tree: \"Loadbearing capacity(3)\", \"Integrity\", \"Insulation\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "26ba24241b0eac57": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p175",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The group heading over the three middle columns is not in the column names, so the grid does not say that these values are the alternative BS 476 provisions.",
+     "evidence": "source: \"Alternative minimum provisions when tested to the relevant part of BS 476(2) (minutes)\" / tree: \"Loadbearing capacity(3)\", \"Integrity\", \"Insulation\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "e4c036af27ca8c18": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p176",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The group heading over the three middle columns is not in the column names, so the grid does not say that these values are the alternative BS 476 provisions.",
+     "evidence": "source: \"Alternative minimum provisions when tested to the relevant part of BS 476(2) (minutes)\" / tree: \"Loadbearing capacity(3)\", \"Integrity\", \"Insulation\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "539aa7b89e559cf0": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p177",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The group heading over the three middle columns is not in the column names, so the grid does not say that these values are the alternative BS 476 provisions.",
+     "evidence": "source: \"Alternative minimum provisions when tested to the relevant part of BS 476(2) (minutes)\" / tree: \"Loadbearing capacity(3)\", \"Integrity\", \"Insulation\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "In row 23 the second \"See Table C1\" spans the three BS 476 columns in the source, but the grid puts it only under Loadbearing capacity and leaves Integrity and Insulation empty.",
+     "evidence": "source: \"23. Fire doorsets See Table C1 See Table C1 See Appendix C\" / tree: \"See Table C1\", \"See Table C1\", \"\", \"\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "215d94078014db90": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p178",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The group headings over the columns are not in the column names, so the grid does not say which columns are basement depth and which are height of top floor above ground.",
+     "evidence": "source: \"Basement storey* including floor over Depth (m) of the lowest basement\" and \"Ground or upper storey Height (m) of top floor above ground\" / tree: \"More than 10\", \"Up to 10\", \"Up to 5\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "445f9e2ca15f0852": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p179",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The grid's column names drop the group headings, so nothing says which columns are basement depth and which are height of top floor above ground.",
+     "evidence": "source: \"Basement storey* including floor over Depth (m) of the lowest basement ... Ground or upper storey Height (m) of top floor above ground\" / tree: \"More than 10\", \"Up to 10\", \"Up to 5\", \"Up to 11\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "cb2134ef235c36e7": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p18",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "633ff8ab9767e22a": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p180",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "63fff55452602332": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p181",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "3a58a06d488d2e88": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p182",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "951a2fe56aeae3a1": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p184",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "58afedb94b054859": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p187",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The header that spans the three middle columns is not in the column names, it is kept only in the table text.",
+     "evidence": "source: \"Minimum provisions when tested and classified to the relevant European standard (minutes)(1) or assessed following the recommendations of paragraphs B1 to B5 (minutes)(2)\" / tree: \"Loadbearing capacity(3)\", \"Integrity\", \"Insulation\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "317285fa910cd4eb": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p188",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The header that spans the three middle columns is not in the column names, it is kept only in the table text.",
+     "evidence": "source: \"Minimum provisions when tested and classified to the relevant European standard (minutes)(1) or assessed following the recommendations of paragraphs B1 to B5 (minutes)(2)\" / tree: \"Loadbearing capacity(3)\", \"Integrity\", \"Insulation\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "c4981fd0db584829": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p189",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The header that spans the three middle columns is not in the column names, it is kept only in the table text.",
+     "evidence": "source: \"Minimum provisions when tested and classified to the relevant European standard (minutes)(1) or assessed following the recommendations of paragraphs B1 to B5 (minutes)(2)\" / tree: \"Loadbearing capacity(3)\", \"Integrity\", \"Insulation\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "f73c34bc5bfafdc3": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p19",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "bc0f9f8cf22a65ba": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p190",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The header that spans the three middle columns is not in the column names, it is kept only in the table text.",
+     "evidence": "source: \"Minimum provisions when tested and classified to the relevant European standard (minutes)(1) or assessed following the recommendations of paragraphs B1 to B5 (minutes)(2)\" / tree: \"Loadbearing capacity(3)\", \"Integrity\", \"Insulation\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "7d53763021f663b6": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p191",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The column names drop the group headers, so the grid does not say which columns are basement depth and which are height of top floor above ground.",
+     "evidence": "source: \"Basement storey* including floor over / Depth (m) of the lowest basement\" and \"Ground or upper storey / Height (m) of top floor above ground\" / tree: \"More than 10\", \"Up to 10\", \"Up to 5\", \"Up to 11\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "a627335509e672c9": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p192",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The grid column names drop the group headings, so a reader cannot tell the basement depth columns from the height of top floor columns.",
+     "evidence": "source: \"Basement storey* including floor over Depth (m) of the lowest basement More than 10 Up to 10\" / tree: \"More than 10\", \"Up to 10\", \"Up to 5\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "2b6c80db2067d733": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p194",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "0c2a00a5b6879a6b": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p195",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "7e2ac59e3b5cc3a0": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p198",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Table C1 sits under a banner that ends it on 29 September 2026, but the tree gives it a validity end of 1 September 2029.",
+     "evidence": "source: \"Effective until 29 September 2026 – see 2026 amendment, page 188\" / tree: \"valid_to\": \"2029-09-01\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Paragraphs C14 and C15 have a standard reference from the end of an earlier paragraph as their parent heading.",
+     "evidence": "tree: \"Appendix C: Fire doorsets > BS EN 81-58. > Paragraph C14\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "f16d69837d6cfbbd": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p199",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Table C1 sits under a banner that ends it on 29 September 2026, but the tree gives it a validity end of 1 September 2029.",
+     "evidence": "source: \"Effective until 29 September 2026 – see 2026 amendment, page 188\" / tree: \"valid_to\": \"2029-09-01\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "67de826ec187df12": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p200",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The 2026 amendment version of Table C1 is placed under the banner of the older version, and its start date of 30 September 2026 is lost.",
+     "evidence": "source: \"2026 amendment – effective from 30 September 2026 until 1 September 2029 – see 2029 amendment, page 190\" / tree: \"Effective until 29 September 2026 – see 2026 amendment, page 188\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "8c060a7cba0ecca3": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p201",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The table's heading path puts it under the banner of the earlier version (effective until 29 September 2026), but the page prints it under the 2026 amendment banner, in force from 30 September 2026 until 1 September 2029.",
+     "evidence": "source: \"2026 amendment – effective from 30 September 2026 until 1 September 2029 – see 2029 amendment, page 190\" / tree: \"Effective until 29 September 2026 – see 2026 amendment, page 188\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "0d7a2168c0bd69ef": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p204",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading path of paragraphs C11 to C15 and Table C1 has a parent heading \"BS EN 81-58.\" that is not a heading on the page; it looks like the end of an earlier paragraph, and the printed banner is the 2029 amendment.",
+     "evidence": "source: \"2029 amendment – effective from 2 September 2029\" / tree: \"Appendix C: Fire doorsets > BS EN 81-58. > Paragraph C11\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "c36cf865607fd7d1": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p205",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The table's heading path has a parent heading \"BS EN 81-58.\" that is not a heading on the page; the printed banner is the 2029 amendment.",
+     "evidence": "source: \"2029 amendment – effective from 2 September 2029\" / tree: \"Appendix C: Fire doorsets > BS EN 81-58. > Provisions for fire doorsets\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "54ef1c4154ab9e87": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p207",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "ef643eedbb2742f9": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p213",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "7b1b980fc96a7b07": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p221",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "63d155c8a6fb43db": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p224",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "332854b9adccd5eb": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p225",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "ef080b616a1d62b3": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p227",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "5982f4761b674cc8": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p231",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "b457fa8cc51e43c7": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p26",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The spanning header over the two distance columns, with its note marker (1), is not in the column names; it is kept only in the table text.",
+     "evidence": "source: \"Maximum travel distance(1) where travel is possible in: One direction only (m)\" / tree: \"One direction only (m)\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "c71999565a0b5490": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p27",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Diagram 2.2 is printed under 'Alternative escape routes' after paragraph 2.10, but the tree puts it under 'Inner rooms' after paragraph 2.11.",
+     "evidence": "source: \"See para 2.10 ... Diagram 2.2 Alternative escape routes\" / tree: \"Escape route design > Inner rooms > Alternative escape routes\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "23cd983edd93c20a": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p31",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "81f86c7c7bcf3368": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p32",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Diagram 2.6 belongs to paragraph 2.23 under 'Calculating exit capacity' but the tree puts it after paragraph 2.24 under the 'Protected corridors' heading.",
+     "evidence": "source: \"See para 2.23 ... Diagram 2.6 Merging flows at final exit\" / tree: \"Escape route design > Protected corridors > Merging flows at final exit\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "f7bd5a69bb3911bb": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p38",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Diagram 2.11 is printed between paragraphs 2.40 and 2.41 and belongs to paragraph 2.38, but the tree puts it under the 'Effective until 1 March 2025' box in Bedrooms, so it reads as time-limited.",
+     "evidence": "source: \"See para 2.38 ... Diagram 2.11 Progressive horizontal evacuation in care homes\" / tree: \"Bedrooms > Effective until 1 March 2025 – see 2025 amendment, below > Progressive horizontal evacuation in care homes\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "3a77ccfbb93eaab4": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p43",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "af63e72fad7770aa": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p44",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The spanning header over the nine width columns is not in the column names, so the columns are only the bare widths.",
+     "evidence": "source: \"Maximum number of people served by a stair of width:\" / tree: \"1000mm\", \"1100mm\", \"1200mm\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "673f51c4e11ad07c": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p47",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "72fa089260ab6429": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p49",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The closing sentence of paragraph 3.24, which applies to the whole paragraph, is joined onto list item e.",
+     "evidence": "source: \"e. If the escape stair is a firefighting stair.\" then a separate paragraph \"Materials achieving class B-s3, d2 or worse may be added\" / tree: \"e. If the escape stair is a firefighting stair. Materials achieving class B-s3, d2 or worse may be added\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "b71de6d11fbb2aa9": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p55",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "figure",
+   "findings": [
+    {
+     "kind": "figure",
+     "severity": "low",
+     "problem": "The slanted distance labels in Diagram 4.1 are broken into fragments in the labels list, though the description gives them correctly.",
+     "evidence": "source: \"18m max.\" (twice), \"27m max.\" / tree: \"ax.\", \"18m\", \"m\", \"max.\", \"m\", \"8\", \"1\", \"27m\", \"m\", \"ax.\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "6c87e52a5ef36d57": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p62",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "2b3a49227d4f5ba9": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p67",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "610e585cefb5126e": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p68",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "1a8135621b1d2c2e": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p7",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Body paragraphs that follow a list are joined onto the last list item instead of standing as their own paragraphs.",
+     "evidence": "source: separate paragraph \"They may not provide appropriate guidance if the case is unusual\" / tree: \"• practical examples and solutions ... building situations. They may not provide appropriate guidance\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The paragraph starting \"Anyone using the approved documents\" and the ones after it are joined onto the last bullet of the non-standard conditions list.",
+     "evidence": "tree: \"• some buildings that incorporate modern construction methods. Anyone using the approved documents should have sufficient knowledge\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The paragraphs about competent person schemes and third party certification are joined onto list item b about approved inspectors.",
+     "evidence": "tree: \"b. an approved inspector (for further information see Chapter E in Volume 2 of the Manual to the Building Regulations). If building work consists only\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "d0be7bb839aa1f87": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p71",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "c7949cdb4e4ac28d": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p80",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "e9ce3bf01e44a871": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p91",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Diagram 9.4 is printed at the top of the page before the 'Extensive cavities' heading and belongs to paragraph 9.8, but the tree puts it last and under 'Extensive cavities > Maximum dimensions of cavities'.",
+     "evidence": "source: \"See para 9.8 ... Diagram 9.4 Provisions for cavity barriers in double-skinned insulated roof sheeting\" / tree: \"Section 9: Cavities > Extensive cavities > Maximum dimensions of cavities > Provisions for cavity barriers...\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "A figure label has a broken ligature in 'fire-stopping'.",
+     "evidence": "source: \"regarding the need for fire-stopping\" / tree: \"regarding the need for fre-stopping\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "ec47dd9df849d8bc": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p95",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The header that spans columns (a) to (c) is not in the grid column names, so the unit (mm) of the values is only in the raw text.",
+     "evidence": "source: \"Pipe material and maximum nominal internal diameter (mm)\" / tree: \"(a) High melting point metal(1)\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "In the figure labels the 'at least' sign before 1000mm is a wrong character; the description gives it correctly.",
+     "evidence": "source: \"≥ 1000mm\" / tree: \"˜ 1000mm ˜ 1000mm 1. Make the opening in the fre-separating element\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The figure's paragraph reference label is scrambled.",
+     "evidence": "source: \"See para 10.5\" / tree: \"See paraS10e.e5par\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Figure note labels have broken ligatures in 'fire'.",
+     "evidence": "source: \"provide fire-stopping between pipe and fire-separating element\" / tree: \"provide fre-stopping\" \"between pipe and fre-separating element\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Diagram 10.1 is printed at the top of the page with the pipe sleeving text (para 10.5), but the tree puts it last and under 'Mechanical ventilation and air-conditioning systems > General provisions'.",
+     "evidence": "source: \"See para 10.5 ... Diagram 10.1 Pipes penetrating fire-separating elements\" / tree: \"Mechanical ventilation and air‑conditioning systems > General provisions > Pipes penetrating fire-separating elements\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "f3ae89e75f8a06ea": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2@2025-01-14-bb70d2c9",
+   "unit": "p100",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The closing paragraph of 11.5, which stands apart from the list, is joined onto list item d.",
+     "evidence": "source: \"BS EN 1366-8.\" then new paragraph \"For further information on equipment for removing hot smoke\" / tree: \"d. The system should use E, I and S ductwork in accordance with BS EN 1366-8. For further information\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "e7fb25f1edef1052": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2@2025-01-14-bb70d2c9",
+   "unit": "p105",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "6cc774c7af692d9b": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2@2025-01-14-bb70d2c9",
+   "unit": "p116",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The header that spans the first two columns of Table 13.1 is not in the column names, so the grid does not say the values are minimum boundary distances in metres.",
+     "evidence": "source: \"Minimum distance between side of building and relevant boundary (m)\" / tree: \"Residential, office, assembly and recreation\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The column numbers (1), (2) and (3) that notes 3 refers to are not kept in the column names.",
+     "evidence": "source: \"(1) (2) (3)\" / tree: \"Maximum total percentage of unprotected area (%)\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "c683ef2cbf7f52d4": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2@2025-01-14-bb70d2c9",
+   "unit": "p118",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The first label of Diagram 14.1 is doubled and run together.",
+     "evidence": "source: \"See paras 14.5 and 14.6\" / tree: \"See paras 14.5 and 14S.6ee paras 14.5 and 14.6\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The labels of Diagram 14.1 mix the arrow label and the rooflight label into the footnote and note lines.",
+     "evidence": "tree: \"3m† minimum non-residential purpose groups may be spaced 1800mm\" and \"Rooflight* 2. Surrounding roof covering to be class B-s3, d2\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The header that spans the four distance columns of Table 14.1 is not in the column names.",
+     "evidence": "source: \"Distance from any point on relevant boundary\" / tree: \"Less than 6m\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "a0d7819dd5e56b5e": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2@2025-01-14-bb70d2c9",
+   "unit": "p119",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The header that spans the two distance columns of Table 14.2 is not in the column names.",
+     "evidence": "source: \"Minimum distance from any point on relevant boundary to rooflight with an external designation(2) of:\" / tree: \"EROOF(t4) or DROOF(t4)\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The header that spans the two distance columns of Table 14.3 is not in the column names.",
+     "evidence": "source: \"Minimum distance from any point on relevant boundary to rooflight with an external surface classification(1) of:\" / tree: \"TP(a)\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "cb1d801cbe61f76d": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2@2025-01-14-bb70d2c9",
+   "unit": "p121",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "11926c15dea6c6c2": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2@2025-01-14-bb70d2c9",
+   "unit": "p123",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "c087f76f09f02e93": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2@2025-01-14-bb70d2c9",
+   "unit": "p125",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The figure's cross-reference label is garbled, with letters doubled and run together.",
+     "evidence": "source: \"See para 15.10\" / tree: \"SeeSepearpaa1r5a.1015.10\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "9a1c4dc8785ca493": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2@2025-01-14-bb70d2c9",
+   "unit": "p135",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "93154206ae0d8b4f": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2@2025-01-14-bb70d2c9",
+   "unit": "p148",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "c50e6e76c03d95dc": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2@2025-01-14-bb70d2c9",
+   "unit": "p15",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "04a5d293bba1556e": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2@2025-01-14-bb70d2c9",
+   "unit": "p150",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "f6f27a9c945b446b": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2@2025-01-14-bb70d2c9",
+   "unit": "p151",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The first two rows of Table B3 (items 1 and 2) are missing from the grid, which starts at item 3.",
+     "evidence": "source: \"1. Structural frame, beam or column. R see Table B4 See Table B4 Not applicable Not applicable Exposed faces\" / tree: first row \"3. Floors(4)\""
+    },
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The group heading over the Loadbearing capacity, Integrity and Insulation columns is missing from the columns, so they no longer read as BS 476 alternatives.",
+     "evidence": "source: \"Alternative minimum provisions when tested to the relevant part of BS 476(2) (minutes)\" / tree: \"Loadbearing capacity(3)\", \"Integrity\", \"Insulation\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "212d637c6ede6c86": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2@2025-01-14-bb70d2c9",
+   "unit": "p152",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The spanning header that says the three middle columns are the alternative BS 476 provisions is dropped from the column names, so they read as unlabelled parts of the European column.",
+     "evidence": "source: \"Alternative minimum provisions when tested to the relevant part of BS 476(2) (minutes)\" / tree: \"Loadbearing capacity(3)\", \"Integrity\", \"Insulation\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "0cb0c65e93466a1f": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2@2025-01-14-bb70d2c9",
+   "unit": "p153",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The spanning header that says the three middle columns are the alternative BS 476 provisions is dropped from the column names, so they read as unlabelled parts of the European column.",
+     "evidence": "source: \"Alternative minimum provisions when tested to the relevant part of BS 476(2) (minutes)\" / tree: \"Loadbearing capacity(3)\", \"Integrity\", \"Insulation\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "99bbc750e54e74c4": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2@2025-01-14-bb70d2c9",
+   "unit": "p154",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The spanning header that says the three middle columns are the alternative BS 476 provisions is dropped from the column names, so they read as unlabelled parts of the European column.",
+     "evidence": "source: \"Alternative minimum provisions when tested to the relevant part of BS 476(2) (minutes)\" / tree: \"Loadbearing capacity(3)\", \"Integrity\", \"Insulation\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "6ae4bc5109563fde": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2@2025-01-14-bb70d2c9",
+   "unit": "p155",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The spanning header that says the three middle columns are the alternative BS 476 provisions is dropped from the column names, so they read as unlabelled parts of the European column.",
+     "evidence": "source: \"Alternative minimum provisions when tested to the relevant part of BS 476(2) (minutes)\" / tree: \"Loadbearing capacity(3)\", \"Integrity\", \"Insulation\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "1361cda45af33443": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2@2025-01-14-bb70d2c9",
+   "unit": "p156",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The column names drop the group headers, so the grid does not say which columns are basement depth and which are height of top floor above ground.",
+     "evidence": "source: \"Basement storey* including floor over Depth (m) of the lowest basement\" and \"Ground or upper storey Height (m) of top floor above ground\" / tree: \"More than 10\", \"Up to 10\", \"Up to 5\", \"Up to 11\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "c7f57bb11b679b84": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2@2025-01-14-bb70d2c9",
+   "unit": "p157",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The column names drop the group headers, so the grid does not say which columns are basement depth and which are height of top floor above ground.",
+     "evidence": "source: \"Basement storey* including floor over Depth (m) of the lowest basement\" and \"Ground or upper storey Height (m) of top floor above ground\" / tree: \"More than 10\", \"Up to 10\", \"Up to 5\", \"Up to 11\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "b5b0c022c18debbe": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2@2025-01-14-bb70d2c9",
+   "unit": "p159",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The column names drop the group headings, so the two pairs of Walls and Door leaf columns cannot be told apart as single stair or more than one stair, although rows 7 and 8 give different values for each.",
+     "evidence": "source: \"Maximum total glazed area in parts of a building with access to: A single stair ... More than one stair\" / tree: columns \"Walls\", \"Door leaf\", \"Walls\", \"Door leaf\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "ee9f7b48c3dc6afd": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2@2025-01-14-bb70d2c9",
+   "unit": "p16",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "7923cde56a96d601": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2@2025-01-14-bb70d2c9",
+   "unit": "p160",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The column names drop the group headings, so the two pairs of Walls and Door leaf columns cannot be told apart as single stair or more than one stair, although rows 9 and 10 give different values for each.",
+     "evidence": "source: \"Maximum total glazed area in parts of a building with access to: A single stair ... More than one stair\" / tree: columns \"Walls\", \"Door leaf\", \"Walls\", \"Door leaf\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "89f52703948981e8": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2@2025-01-14-bb70d2c9",
+   "unit": "p163",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading path of C14, C15 and Table C1 has a parent heading \"BS EN 81-58.\" that is not a heading on this page and looks like the end of a sentence from an earlier paragraph.",
+     "evidence": "tree: \"Appendix C: Fire doorsets > BS EN 81-58. > Paragraph C14\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "a37392852699219a": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2@2025-01-14-bb70d2c9",
+   "unit": "p164",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading path of Table C1 has a parent heading \"BS EN 81-58.\" that is not a heading on this page and looks like the end of a sentence from an earlier paragraph.",
+     "evidence": "tree: \"Appendix C: Fire doorsets > BS EN 81-58. > Provisions for fire doorsets\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "2891fef6cc7ed7b2": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2@2025-01-14-bb70d2c9",
+   "unit": "p166",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "826a734ed21d8956": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2@2025-01-14-bb70d2c9",
+   "unit": "p17",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "beb9c1ac41825b0d": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2@2025-01-14-bb70d2c9",
+   "unit": "p170",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "In Diagram D5 the labels mix the floor names of the drawing into the counting rule and the notes, so the note text is broken up by stray words.",
+     "evidence": "source: \"1. In assembly buildings (purpose group 5), a gallery is included as a storey\" / tree: \"Compartment NOTES:\", \"wall\", \"First\", \"1. In assembly buildings (purpose group 5), a gallery\", \"floor\", \"is included as a storey\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "9bad7b386dddc3f4": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2@2025-01-14-bb70d2c9",
+   "unit": "p172",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "76f8c3bc38acf5d1": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2@2025-01-14-bb70d2c9",
+   "unit": "p181",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "61ece36dc86a15e3": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2@2025-01-14-bb70d2c9",
+   "unit": "p188",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "7a82280239003fae": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2@2025-01-14-bb70d2c9",
+   "unit": "p192",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "9abf07fe4933726f": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2@2025-01-14-bb70d2c9",
+   "unit": "p200",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "5e1601a607ae75d7": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2@2025-01-14-bb70d2c9",
+   "unit": "p21",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "6d8f692280c0a603": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2@2025-01-14-bb70d2c9",
+   "unit": "p24",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The group heading above the two distance columns, with its note marker (1), is not in the column names; it is kept only in the table text.",
+     "evidence": "source: \"Maximum travel distance(1) where travel is possible in: One direction only (m)\" / tree: \"One direction only (m)\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "2648c6714f78f0e9": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2@2025-01-14-bb70d2c9",
+   "unit": "p25",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Diagram 2.2 belongs to paragraph 2.10 under 'Alternative escape routes' but the tree puts it under the 'Inner rooms' heading.",
+     "evidence": "source: \"See para 2.10 ... Diagram 2.2 Alternative escape routes\" / tree: \"Escape route design > Inner rooms > Alternative escape routes\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "eabbe5b841e72a75": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2@2025-01-14-bb70d2c9",
+   "unit": "p26",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "A label of Diagram 2.3 has stray characters run into the paragraph reference.",
+     "evidence": "source: \"See para 2.11\" / tree: \"See paraS2e.1e1 para 2.11\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Diagram 2.3 belongs to paragraph 2.11 under 'Inner rooms' but the tree puts it under 'Planning of exits in a central core'.",
+     "evidence": "source: \"See para 2.11 ... Diagram 2.3 Inner room and access room\" / tree: \"Escape route design > Planning of exits in a central core > Inner room and access room\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "ef2e9878bbb87847": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2@2025-01-14-bb70d2c9",
+   "unit": "p29",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "In paragraph 2.22 the multiplication sign is lost and the sum reads as a wrong number.",
+     "evidence": "source: \"three exits each 850mm wide accommodate 3×110 = 330 people\" / tree: \"accommodate 33110 = 330 people\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "7a544203110c5c82": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2@2025-01-14-bb70d2c9",
+   "unit": "p31",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "figure",
+   "findings": [
+    {
+     "kind": "figure",
+     "severity": "low",
+     "problem": "The labels of Diagram 2.8 leave out the printed \"2m max.\" dimension and hold \"Corridor\", which is not printed in that diagram; the limit is kept only in the description.",
+     "evidence": "source: \"2m max.\" (Example 1 and Example 2) / tree: \"Corridor\", \"See para 2.24\", \"Protected Protected\", \"stairway stairway\", \"Example 1 Example 2\""
+    },
+    {
+     "kind": "figure",
+     "severity": "low",
+     "problem": "The labels of Diagram 2.7 repeat words that are printed once, and seem to hold the labels of Diagram 2.8 as well.",
+     "evidence": "source: \"See para 2.24\" once / tree: \"See para 2.24\" three times, \"2m max. 2m max.\" twice"
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "6e19fd6877eff3ba": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2@2025-01-14-bb70d2c9",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "c45892d9e21ddc75": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2@2025-01-14-bb70d2c9",
+   "unit": "p41",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "f53c1d6c8279ff02": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2@2025-01-14-bb70d2c9",
+   "unit": "p42",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The header that spans the width columns of Table 3.2 is not in the column names, so the grid does not say what the values are.",
+     "evidence": "source: \"Maximum number of people served by a stair of width:\" / tree: \"1000mm\", \"1100mm\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "4fa18e5b492336ce": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2@2025-01-14-bb70d2c9",
+   "unit": "p45",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The multiplication sign is lost in the formula in note 3 of Table 3.3, so the formula no longer reads as P times 10.",
+     "evidence": "source: \"(P×10) – 100\" / tree: \"(P10) – 100\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "6e96f8d7ae6976e6": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2@2025-01-14-bb70d2c9",
+   "unit": "p47",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "a6153128c8d48b65": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2@2025-01-14-bb70d2c9",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "6d506810669e03ce": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2@2025-01-14-bb70d2c9",
+   "unit": "p53",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "figure",
+   "findings": [
+    {
+     "kind": "figure",
+     "severity": "low",
+     "problem": "The rotated distance labels in Diagram 4.1 are broken into loose fragments in `labels`, so the second \"18m max.\" and the \"27m max.\" do not read as whole labels.",
+     "evidence": "source: \"18m max.\" \"18m max.\" \"27m max.\" / tree: \"ax.\", \"18m\", \"m\", \"max.\", \"m\", \"8\", \"1\" ... \"27m\", \"m\", \"ax.\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "3d755c8e250fa331": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2@2025-01-14-bb70d2c9",
+   "unit": "p60",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "ba1dc7109600b03e": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2@2025-01-14-bb70d2c9",
+   "unit": "p64",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "4156b83aab403d85": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2@2025-01-14-bb70d2c9",
+   "unit": "p65",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "d71bd00d5d3204ac": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2@2025-01-14-bb70d2c9",
+   "unit": "p69",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "ee6a0ec87c5ded93": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2@2025-01-14-bb70d2c9",
+   "unit": "p78",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "544eeb0aa1bcc977": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2@2025-01-14-bb70d2c9",
+   "unit": "p83",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Diagram 8.3 is printed above the heading 'Uninsulated glazed screens to protected shafts' and belongs to paragraph 8.33, but its heading_path puts it under that later heading.",
+     "evidence": "source: \"See para 8.33 ... Diagram 8.3 Construction of protected shafts\" / tree: \"Protected shafts > Uninsulated glazed screens to protected shafts > Construction of protected shafts\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "d5632354f6f29ec6": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2@2025-01-14-bb70d2c9",
+   "unit": "p89",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Diagram 9.4 is printed above the heading 'Extensive cavities' and belongs to paragraph 9.8, but its heading_path puts it under 'Extensive cavities > Maximum dimensions of cavities'.",
+     "evidence": "source: \"See para 9.8 ... Diagram 9.4 Provisions for cavity barriers in double-skinned insulated roof sheeting\" / tree: \"Section 9: Cavities > Extensive cavities > Maximum dimensions of cavities > Provisions for cavity barriers\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "106ed98af3c82047": {
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2@2025-01-14-bb70d2c9",
+   "unit": "p93",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The spanning column heading of Table 10.1, which gives the unit (mm), is not in the columns, so the grid values have no unit.",
+     "evidence": "source: \"Pipe material and maximum nominal internal diameter (mm)\" / tree: \"(a) High melting point metal(1)\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Diagram 10.1 belongs to paragraph 10.5 (openings for pipes, sleeving) but its heading_path puts it under the later heading on mechanical ventilation.",
+     "evidence": "source: \"See para 10.5\" / tree: \"Mechanical ventilation and air‑conditioning systems > General provisions > Pipes penetrating fire-separating elements\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The first label of Diagram 10.1 has stray characters mixed into it.",
+     "evidence": "source: \"See para 10.5\" / tree: \"See paraS10e.e5para 10.5\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  }
+ }
+}

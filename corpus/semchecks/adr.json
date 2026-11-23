@@ -1,0 +1,218 @@
+{
+ "source_id": "adr",
+ "about": "Model verdicts on source against tree for adr (system/rag/semcheck.py).",
+ "verdicts": {
+  "28abfb36b185fb62": {
+   "version_id": "approved-document-r-volume-1-physical-infrastructure-and-net@2022-10-04-570cd3ef",
+   "unit": "p10",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The one printed row has three grid cells for two columns: the end of RA1(1)(d) is split off into the \"Limits on application\" column and the real limits text sits in a third column with no heading.",
+     "evidence": "source: \"capable public electronic communications networks.\" (Requirement column) / tree: cell 2 under Limits on application: \"communications networks.\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "82ed347d792b3d01": {
+   "version_id": "approved-document-r-volume-1-physical-infrastructure-and-net@2022-10-04-570cd3ef",
+   "unit": "p11",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "bb6003381ed5b5cf": {
+   "version_id": "approved-document-r-volume-1-physical-infrastructure-and-net@2022-10-04-570cd3ef",
+   "unit": "p21",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "fb1b0571c8ad12a0": {
+   "version_id": "approved-document-r-volume-1-physical-infrastructure-and-net@2022-10-04-570cd3ef",
+   "unit": "p22",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "b183dfff865fc239": {
+   "version_id": "approved-document-r-volume-1-physical-infrastructure-and-net@2022-10-04-570cd3ef",
+   "unit": "p24",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "6dc811acdb6047c7": {
+   "version_id": "approved-document-r-volume-1-physical-infrastructure-and-net@2022-10-04-570cd3ef",
+   "unit": "p29",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The asterisks that mark which key terms are defined in the regulations are dropped from the definition titles, so the NOTE about items marked * points at nothing.",
+     "evidence": "source: \"Access point*\", \"Distribution point*\", \"Network termination point*\" / tree: \"Access point\", \"Distribution point\", \"Network termination point\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "f64a2bf32df2c414": {
+   "version_id": "approved-document-r-volume-1-physical-infrastructure-and-net@2022-10-04-570cd3ef",
+   "unit": "p30",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "7cfe688c5e0074be": {
+   "version_id": "approved-document-r-volume-1-physical-infrastructure-and-net@2022-10-04-570cd3ef",
+   "unit": "p31",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The single evidence cell under section 6 of Part A is split into two cells in the middle of a sentence, in a table that has one column.",
+     "evidence": "source: \"relevant network distribution point is to be installed within the relevant 2-year period.\" / tree: \"...is to be\" | \"installed within the relevant 2-year period. ...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "ce33a3c18c1dcc0b": {
+   "version_id": "approved-document-r-volume-1-physical-infrastructure-and-net@2022-10-04-570cd3ef",
+   "unit": "p32",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "1a00ea2c348519f2": {
+   "version_id": "approved-document-r-volume-1-physical-infrastructure-and-net@2022-10-04-570cd3ef",
+   "unit": "p33",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Web addresses that break across lines have a space put inside them, so the links are broken in four entries.",
+     "evidence": "source: \"http://streetworks.org.uk/wp-content/uploads/2018/11/VOL-1-reviewed.pdf\" / tree: \"http:// streetworks.org.uk/wp-content/uploads/2018/11/ VOL-1-reviewed.pdf\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "a4fb9230d3ce589e": {
+   "version_id": "approved-document-r-volume-1-physical-infrastructure-and-net@2022-10-04-570cd3ef",
+   "unit": "p7",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "c888ed8455989f1a": {
+   "version_id": "approved-document-r-volume-2-physical-infrastructure-for-hig@2022-10-04-5fc888fe",
+   "unit": "p12",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The footnote marker 1 is joined to the diagram number, so paragraph 1.7 refers to Diagram 11 instead of Diagram 1.",
+     "evidence": "source: \"Diagram 1¹ shows a possible arrangement\" / tree: \"Diagram 11 shows a possible arrangement\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The footnote marker 2 is joined to the word duct in paragraph 1.7.",
+     "evidence": "source: \"through-wall duct² to a\" / tree: \"through-wall duct2 to a\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The two page footnotes are read as a table named after the section heading, not as footnotes to paragraph 1.7.",
+     "evidence": "tree: type \"table\", title \"Ductwork for copper and fibre-optic cables\", columns \"Note\", \"Text\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "1a8129b2c8143fdb": {
+   "version_id": "approved-document-r-volume-2-physical-infrastructure-for-hig@2022-10-04-5fc888fe",
+   "unit": "p19",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "c1ab1b86166e646c": {
+   "version_id": "approved-document-r-volume-2-physical-infrastructure-for-hig@2022-10-04-5fc888fe",
+   "unit": "p20",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "4ef168d81833f3d7": {
+   "version_id": "approved-document-r-volume-2-physical-infrastructure-for-hig@2022-10-04-5fc888fe",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  }
+ }
+}

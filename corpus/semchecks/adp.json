@@ -1,0 +1,59 @@
+{
+ "source_id": "adp",
+ "about": "Model verdicts on source against tree for adp (system/rag/semcheck.py).",
+ "verdicts": {
+  "5047cdb79ce7eaa8": {
+   "version_id": "approved-document-p-electrical-safety-dwellings@2013-01-01-c7128889",
+   "unit": "p14",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Diagram 1 is printed before the heading \"Notifiable work\" and refers to paragraphs 2.2 to 2.4, but the tree puts it after paragraph 2.5 and under \"Notifiable work\".",
+     "evidence": "source: \"See paragraphs 2.2 to 2.4\" / tree: \"Section 2: Application of Part P > Notifiable work > Scope of Part P\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Figure labels are split into letters or run together.",
+     "evidence": "source: \"Common access\", \"Reproduced with the permission of the Electrical Contractors' Association\" / tree: \"o\", \"m\", \"m\", \"on\", \"ac\", \"c\", \"es\"; \"ReproducedwiththepermissionoftheElectricalContractors’Association\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "0a11396115e4eb1d": {
+   "version_id": "approved-document-p-electrical-safety-dwellings@2013-01-01-c7128889",
+   "unit": "p20",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "a2ed313c04e8d87d": {
+   "version_id": "approved-document-p-electrical-safety-dwellings@2013-01-01-c7128889",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The new paragraph about Regulation 4 is joined onto list item c of the Regulation 3 list instead of standing as its own paragraph.",
+     "evidence": "source: \"c. the material alteration of a building or a controlled service or fitting.\" then new paragraph \"Regulation 4 states that building work should be carried out\" / tree: \"c. the material alteration of a building or a controlled service or fitting. Regulation 4 states that building work\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  }
+ }
+}

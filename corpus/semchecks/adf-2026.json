@@ -1,0 +1,344 @@
+{
+ "source_id": "adf-2026",
+ "about": "Model verdicts on source against tree for adf-2026 (system/rag/semcheck.py).",
+ "verdicts": {
+  "6ed381060cd17616": {
+   "version_id": "approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "c08e819801b8ba0c": {
+   "version_id": "approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96",
+   "unit": "p15",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "500cc9f66ea6fdde": {
+   "version_id": "approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96",
+   "unit": "p17",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "Table 1.2 has three printed columns (Room, High rate, Continuous rate) but the tree has two, with the second wrongly named after Table 1.1's intermittent rate and the high rate and continuous rate values joined in one cell.",
+     "evidence": "source: \"Room | High rate (l/s) | Continuous rate\" / tree: \"Room\", \"Intermittent extract rate (l/s)\" with cell \"High rate (l/s) 13; Continuous rate: The sum of all extract ventilation\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "63ef8673193b9622": {
+   "version_id": "approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96",
+   "unit": "p18",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "b2bc99973a85dd5f": {
+   "version_id": "approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96",
+   "unit": "p19",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "c4164f2dd75ef8a6": {
+   "version_id": "approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96",
+   "unit": "p21",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "In the footnote to paragraph 1.43 the subscript of the noise index was lost, so the tree names a bare \"L level\" instead of the 1 minute LAeq level.",
+     "evidence": "source: \"and the LAeq, 1 min level will be similar to the dB(A) level\" / tree: \"and the L level will be similar to the dB(A) level\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The asterisk footnote that applies to both items a and b is run into the end of list item b instead of standing as its own note.",
+     "evidence": "tree: \"or an intermittent operation system is running. * The noise index LAeq,T is used in BS 8233\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "a579c3299128d14c": {
+   "version_id": "approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96",
+   "unit": "p22",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "8714f0c48dc9893b": {
+   "version_id": "approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96",
+   "unit": "p23",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "9e54a4ce417028af": {
+   "version_id": "approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96",
+   "unit": "p25",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "ccdc477664883bb1": {
+   "version_id": "approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96",
+   "unit": "p26",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "68a28cc7546edc71": {
+   "version_id": "approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96",
+   "unit": "p27",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "c99a295874111742": {
+   "version_id": "approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96",
+   "unit": "p31",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "912079d3ce3c5af9": {
+   "version_id": "approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96",
+   "unit": "p36",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "The two columns of the requirement box (Requirement and Limits on application) are mixed line by line into one text, so the requirement and its limits cannot be read apart.",
+     "evidence": "source: \"Fixed systems for mechanical ventilation and any associated controls must be commissioned\" / tree: \"Fixed systems for mechanical ventilation and Requirement F1 does not apply to a building or\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "ec22c2ef8d6682b1": {
+   "version_id": "approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96",
+   "unit": "p47",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "40273e1565879b58": {
+   "version_id": "approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96",
+   "unit": "p52",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "8769d1b78b7d4a39": {
+   "version_id": "approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96",
+   "unit": "p53",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "2c4d32a6f0f44f6c": {
+   "version_id": "approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96",
+   "unit": "p56",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "12efdf76fee5de6b": {
+   "version_id": "approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96",
+   "unit": "p57",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "One printed row (the background ventilators question with its two options and one Yes/No answer) is split into three grid rows, and the two option rows have an empty answer cell.",
+     "evidence": "source: one row \"...satisfy either of the following? For natural ventilation, Table 1.7 or paragraph 1.57(1), as appropriate. For continuous mechanical extract ventilation, paragraph 1.64.\" Yes No / tree: three rows"
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "7f2fb5a576342b31": {
+   "version_id": "approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96",
+   "unit": "p58",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The header cells of section 3a.1 are mixed across columns, so the two headings 'Date of last UKAS calibration' and 'Certificate number' read as different headings.",
+     "evidence": "source: \"Date of last UKAS calibration\" | \"Certificate number\" / tree: \"... (model and serial number) Date of last Certificate\", \"UKAS calibration number\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The three columns of section 3a.2 are joined into one cell under invented headings 'Item' and 'Answer space', and 'Refer to Table 1.1' is split from the design extract rate column into a row of its own.",
+     "evidence": "source: \"Room reference (location of fans)\" | \"Measured extract rate (l/s)\" | \"Design extract rate (l/s) Refer to Table 1.1(1)\" / tree: one cell, then row \"Refer to Table 1.1(1)\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "ca5df322bb7d638a": {
+   "version_id": "approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96",
+   "unit": "p59",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The five column headings of section 3b.2 are run together line by line into one cell, so the high rate and continuous rate headings and their references are no longer tied to the right column, and '1.20' sits in a row of its own.",
+     "evidence": "source: \"Design air flow – continuous rate (l/s) Refer to paragraph 1.20\" / tree: \"Room reference Measured air flow – Design air flow – Measured air flow – Design air flow – (location of fans or high rate (l/s)\""
+    },
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The header cells of section 3b.1 are mixed across columns, so 'Date of last UKAS calibration' and 'Certificate number' read as different headings.",
+     "evidence": "source: \"Date of last UKAS calibration\" | \"Certificate number\" / tree: \"Date of last Certificate\", \"UKAS calibration number\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The table is given as one column under invented headings 'Item' and 'Answer space' instead of the printed columns.",
+     "evidence": "tree: columns \"Item\", \"Answer space\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "46425e60903b3f58": {
+   "version_id": "approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96",
+   "unit": "p60",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The five column headings of sections 3c.2 and 3c.3 are run together line by line into one cell, so the high rate and continuous rate headings and their references are no longer tied to the right column, and '1.20' sits in a row of its own.",
+     "evidence": "source: \"Design air flow – high rate (l/s) Refer to Table 1.2(1)\" | \"Design air flow – continuous rate (l/s) Refer to paragraph 1.20\" / tree: \"Refer to Table 1.2(1) Refer to paragraph\", \"1.20\""
+    },
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The header cells of section 3c.1 are mixed across columns, so 'Date of last UKAS calibration' and 'Certificate number' read as different headings.",
+     "evidence": "source: \"Date of last UKAS calibration\" | \"Certificate number\" / tree: \"Date of last Certificate\", \"UKAS calibration number\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The table is given as one column under invented headings 'Item' and 'Answer space' instead of the printed columns.",
+     "evidence": "tree: columns \"Item\", \"Answer space\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "8978b8e23dd27ca1": {
+   "version_id": "approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96",
+   "unit": "p62",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "67c4bfdf13b82cad": {
+   "version_id": "approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96",
+   "unit": "p9",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  }
+ }
+}

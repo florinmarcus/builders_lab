@@ -1,0 +1,78 @@
+{
+ "source_id": "awaab-consolidated",
+ "about": "Model verdicts on source against tree for awaab-consolidated (system/rag/semcheck.py).",
+ "verdicts": {
+  "024f232c7f9e074a": {
+   "version_id": "awaab-s-law-regulations-as-they-apply-from-30-november-2026@2026-07-13-546a4539",
+   "unit": "p10",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The printed page number 10 from the page foot is kept inside regulation 14, between paragraph (5)(b) and paragraph (6).",
+     "evidence": "source: \"(b) information about how the lessee may contact the lessor.\" / tree: \"may contact the lessor. 10 (6) Regulation 10 applies\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number 9 from the foot of the earlier page is kept inside regulation 13(2), just before sub-paragraph (b) at the top of this page.",
+     "evidence": "source: \"(b) where it is not reasonably practicable to begin\" / tree: \"preventative work, or 9 (b) where it is not reasonably practicable\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "b5057082b988c7c5": {
+   "version_id": "awaab-s-law-regulations-as-they-apply-from-30-november-2026@2026-07-13-546a4539",
+   "unit": "p11",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The printed page number 11 from the page foot is kept inside regulation 16(2), between sub-paragraphs (c) and (d).",
+     "evidence": "source: \"significant hazard or emergency hazard,\" / tree: \"significant hazard or emergency hazard, 11 (d) where regulation 15(b)(ii) applies\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number 10 from the foot of the earlier page is kept inside regulation 14, just before paragraph (6) at the top of this page.",
+     "evidence": "source: \"(6) Regulation 10 applies to the giving of a document\" / tree: \"contact the lessor. 10 (6) Regulation 10 applies\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "ca3e962c97e0ce1e": {
+   "version_id": "awaab-s-law-regulations-as-they-apply-from-30-november-2026@2026-07-13-546a4539",
+   "unit": "p9",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The printed page number 9 from the page foot is kept inside regulation 13(2), between sub-paragraphs (a) and (b).",
+     "evidence": "source: \"(a) begin the relevant supplementary preventative work, or\" / tree: \"preventative work, or 9 (b) where it is not reasonably practicable\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number 8 from the foot of the earlier page is kept inside regulation 11, just before paragraph (3) at the top of this page.",
+     "evidence": "source: \"(3) The requirement in paragraph (2) ceases to apply\" / tree: \"as soon as reasonably practicable thereafter. 8 (3) The requirement\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  }
+ }
+}

@@ -1,0 +1,295 @@
+{
+ "source_id": "ado",
+ "about": "Model verdicts on source against tree for ado (system/rag/semcheck.py).",
+ "verdicts": {
+  "fe1d9a9f4e819ce5": {
+   "version_id": "overheating-approved-document-o@2022-06-15-36abadd3",
+   "unit": "p14",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Paragraph 1.10 has cells of Table 1.3 run into its text as loose words, without the column headings and without the a. and b. values.",
+     "evidence": "source: \"should equal or exceed the minimum free areas in Table 1.3.\" / tree: \"...in Table 1.3. Total minimum free area(1) The greater of the following: The greater of the following: Bedroom minimum free area 13% of the floor area of the room(4) 4%...\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "4accb25fed3683b0": {
+   "version_id": "overheating-approved-document-o@2022-06-15-36abadd3",
+   "unit": "p15",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Paragraph 1.11 has cells of Table 1.4 run into its text as loose words, with no column headings and without the a. and b. values, so 13% and 4% read as part of the paragraph.",
+     "evidence": "source: \"should equal or exceed the minimum free areas in Table 1.4.\" / tree: \"...in Table 1.4. Total minimum free area(1) The greater of the following: The greater of the following: Bedroom minimum free area 13% of the floor area of the room(4) 4%...\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Paragraph 1.10 has cells of Table 1.3 run into its text in the same way.",
+     "evidence": "tree: \"...minimum free areas in Table 1.3. Total minimum free area(1) The greater of the following: The greater of the following: Bedroom minimum free area 13% of the floor area of the room(4)\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The notes of Table 1.3 are not kept with Table 1.3 but in a second, invented table titled \"Removing excess heat\" that repeats the same grid.",
+     "evidence": "source: \"NOTES: 1. The total minimum free area is the free area for the whole dwellinghouse\" under Table 1.3 / tree: table \"Removing excess heat\" (section-1-removing-excess-heat-table-2)"
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The notes of Table 1.4 are likewise kept in a second, invented table titled \"Removing excess heat\" that repeats the Table 1.4 grid.",
+     "evidence": "source: \"NOTES: 1. The total minimum free area is the free area for the whole dwellinghouse\" under Table 1.4 / tree: table \"Removing excess heat\" (section-1-removing-excess-heat-table-4)"
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "d9cc0e8ebbdd290a": {
+   "version_id": "overheating-approved-document-o@2022-06-15-36abadd3",
+   "unit": "p19",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "5b1f9d1d7df73873": {
+   "version_id": "overheating-approved-document-o@2022-06-15-36abadd3",
+   "unit": "p21",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The labels of the diagram inside Table 3.1 are mixed together in the table text, so the 100mm gap limit reads as \"Less than 1.1m\".",
+     "evidence": "source: \"Less than 100mm(2)\" and \"1.1m\" / tree: \"Less than 1.1m\", \"100mm(2)\""
+    },
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The diagram in the \"More than 600mm\" row, which shows the gap of less than 100mm below the guarding and the 1.1m height, is not kept as a figure or in the grid.",
+     "evidence": "source: diagram with \"Less than 100mm(2)\" and \"1.1m\" / tree: grid row \"More than 600mm\", \"1.1m\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "6a7e84a69640a104": {
+   "version_id": "overheating-approved-document-o@2022-06-15-36abadd3",
+   "unit": "p27",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "f6e32cfc001343ec": {
+   "version_id": "overheating-approved-document-o@2022-06-15-36abadd3",
+   "unit": "p28",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "becf93e979d8c885": {
+   "version_id": "overheating-approved-document-o@2022-06-15-36abadd3",
+   "unit": "p29",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "66fd45b7e67d8fc2": {
+   "version_id": "overheating-approved-document-o@2022-06-15-36abadd3",
+   "unit": "p30",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "All the cells of Table C1 are also run into the text of paragraph C3, straight after the Manchester NOTE, so the London postcodes read as part of that note.",
+     "evidence": "source: \"buildings in these postcodes.\" (note ends) / tree: \"buildings in these postcodes. CR4 E17 EC3R KT6 N22 SE8 SE27 SW11 TW10 W1F W12 CR7 E18\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The grid gives Table C1 eleven column headings that are not printed; the source table has no header row.",
+     "evidence": "tree: \"Postcode area\" (x11) / source: no column headings, first row \"CR4 E17 EC3R KT6\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "12c23a2ccfd42426": {
+   "version_id": "overheating-approved-document-o@2022-06-15-36abadd3",
+   "unit": "p33",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "Table D2's column names drop the printed spanning heading with its unit, which Table D1 keeps; the cell values are all correct.",
+     "evidence": "source: \"Opening width, w (m)\" above \"0.5 0.75 1 1.25 1.5\" / tree columns: \"0.5\", \"0.75\", \"1\", \"1.25\", \"1.5\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "ece8ff4ae1f183cf": {
+   "version_id": "overheating-approved-document-o@2022-06-15-36abadd3",
+   "unit": "p34",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The column names of Tables D3 and D4 drop the printed spanning heading with its unit; the cell values are all correct.",
+     "evidence": "source: \"Opening width, w (m)\" above \"0.5 0.75 1 1.25 1.5\" / tree columns: \"0.5\", \"0.75\", \"1\", \"1.25\", \"1.5\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "ff246c083a536981": {
+   "version_id": "overheating-approved-document-o@2022-06-15-36abadd3",
+   "unit": "p35",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The column names of Tables D5 and D6 drop the printed spanning heading with its unit; the cell values are all correct.",
+     "evidence": "source: \"Opening width, w (m)\" above \"0.5 0.75 1 1.25 1.5\" / tree columns: \"0.5\", \"0.75\", \"1\", \"1.25\", \"1.5\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "51e458344f99e294": {
+   "version_id": "overheating-approved-document-o@2022-06-15-36abadd3",
+   "unit": "p36",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The spanning column heading that says the five value columns are opening widths is not in the columns of Tables D7 and D8, only in the raw text; all values are right.",
+     "evidence": "source: \"Opening width, w (m)\" above \"0.5 0.75 1 1.25 1.5\" / tree: columns \"0.5\", \"0.75\", \"1\", \"1.25\", \"1.5\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "9273f15c89fd4973": {
+   "version_id": "overheating-approved-document-o@2022-06-15-36abadd3",
+   "unit": "p37",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The spanning column heading that says the five value columns are opening widths is not in the columns of Table D9, only in the raw text; all values are right.",
+     "evidence": "source: \"Opening width, w (m)\" above \"0.5 0.75 1 1.25 1.5\" / tree: columns \"0.5\", \"0.75\", \"1\", \"1.25\", \"1.5\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "fe402bd5ced232d7": {
+   "version_id": "overheating-approved-document-o@2022-06-15-36abadd3",
+   "unit": "p44",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "978a223a1268a27a": {
+   "version_id": "overheating-approved-document-o@2022-06-15-36abadd3",
+   "unit": "p6",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Diagram i is printed before the heading \"Where to get further help\" and belongs to \"How to use this approved document\", but the tree puts it after and under \"Where to get further help\".",
+     "evidence": "tree: \"Introduction > Where to get further help > The relationship between regulations and guidance in the approved documents\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "A figure label has its words run together.",
+     "evidence": "source: \"Internal fire spread (linings)\" / tree: \"Internalfirespread(linings)\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "ecc3025c8026e015": {
+   "version_id": "overheating-approved-document-o@2022-06-15-36abadd3",
+   "unit": "p9",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "In the summary table the requirement cell spans Section 1 and Section 2, but the grid leaves the Section 2 cell empty, so Section 2 seems to have no related requirement.",
+     "evidence": "source: \"Section 1: Simplified method\" and \"Section 2: Dynamic thermal modelling\" share \"Requirement O1(1) of Schedule 1\" / tree: [\"Section 2: Dynamic thermal modelling\", \"\"]"
+    }
+   ],
+   "confidence": "medium",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  }
+ }
+}

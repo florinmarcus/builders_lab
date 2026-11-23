@@ -1,0 +1,46 @@
+{
+ "source_id": "add",
+ "about": "Model verdicts on source against tree for add (system/rag/semcheck.py).",
+ "verdicts": {
+  "79f30ef0aedd1da1": {
+   "version_id": "approved-document-d-toxic-substances@2010-12-02-ccf8b30e",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "A bold body paragraph is read as two headings, split in mid-sentence, and the next paragraph and the 'Other requirements' heading hang under the second fragment.",
+     "evidence": "source: \"At the back of this document is a list of all the documents that have been approved and issued by the Secretary of State for this purpose.\" / tree: heading \"issued by the Secretary of State for this purpose.\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "71d41a785b80a2d6": {
+   "version_id": "approved-document-d-toxic-substances@2010-12-02-ccf8b30e",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "ecbe5b027db2d32f": {
+   "version_id": "approved-document-d-toxic-substances@2010-12-02-ccf8b30e",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  }
+ }
+}
