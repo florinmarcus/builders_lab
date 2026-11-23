@@ -1,0 +1,253 @@
+{
+ "source_id": "adr",
+ "model": "claude-opus-5-5",
+ "about": "Verdicts of claude-opus-5-5 on source against tree for adr (system/rag/semcheck.py).",
+ "verdicts": {
+  "28abfb36b185fb62": {
+   "version_id": "approved-document-r-volume-1-physical-infrastructure-and-net@2022-10-04-570cd3ef",
+   "unit": "p10",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The requirement row has three cells under two columns: the end of RA1(1)(d) is split into the Limits on application column, and the real limits text is in a third column with no heading.",
+     "evidence": "tree: cell 2 \"communications networks.\" / cell 3 \"Requirements RA1 and RA2 apply to the erection of a dwelling...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "82ed347d792b3d01": {
+   "version_id": "approved-document-r-volume-1-physical-infrastructure-and-net@2022-10-04-570cd3ef",
+   "unit": "p11",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "bb6003381ed5b5cf": {
+   "version_id": "approved-document-r-volume-1-physical-infrastructure-and-net@2022-10-04-570cd3ef",
+   "unit": "p21",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "fb1b0571c8ad12a0": {
+   "version_id": "approved-document-r-volume-1-physical-infrastructure-and-net@2022-10-04-570cd3ef",
+   "unit": "p22",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "b183dfff865fc239": {
+   "version_id": "approved-document-r-volume-1-physical-infrastructure-and-net@2022-10-04-570cd3ef",
+   "unit": "p24",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "6dc811acdb6047c7": {
+   "version_id": "approved-document-r-volume-1-physical-infrastructure-and-net@2022-10-04-570cd3ef",
+   "unit": "p29",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The asterisks that mark terms defined in the Building Regulations are dropped from the definition titles, so the NOTE about items marked * points to nothing.",
+     "evidence": "source: \"Access point* A physical point\" / tree: title \"Access point\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "f64a2bf32df2c414": {
+   "version_id": "approved-document-r-volume-1-physical-infrastructure-and-net@2022-10-04-570cd3ef",
+   "unit": "p30",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "7cfe688c5e0074be": {
+   "version_id": "approved-document-r-volume-1-physical-infrastructure-and-net@2022-10-04-570cd3ef",
+   "unit": "p31",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The section 6 evidence cell is split mid-sentence into two cells in one row, though the table has only one column.",
+     "evidence": "tree: \"...network distribution point is to be\" | \"installed within the relevant 2-year period.\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "ce33a3c18c1dcc0b": {
+   "version_id": "approved-document-r-volume-1-physical-infrastructure-and-net@2022-10-04-570cd3ef",
+   "unit": "p32",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "1a00ea2c348519f2": {
+   "version_id": "approved-document-r-volume-1-physical-infrastructure-and-net@2022-10-04-570cd3ef",
+   "unit": "p33",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "URLs that wrap across lines have a space inserted, which breaks them.",
+     "evidence": "source: \"https://www.gov.uk/government/publications/pas-2016-2010\" / tree: \"https://www.gov.uk/government/publications/ pas-2016-2010\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The three separate legislation entries are run together into one line with the note.",
+     "evidence": "tree: \"(available via www.legislation.gov.uk) Building Regulations 2010, SI 2010/2214 Communications Act 2003, c. 21\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "a4fb9230d3ce589e": {
+   "version_id": "approved-document-r-volume-1-physical-infrastructure-and-net@2022-10-04-570cd3ef",
+   "unit": "p7",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "c888ed8455989f1a": {
+   "version_id": "approved-document-r-volume-2-physical-infrastructure-for-hig@2022-10-04-5fc888fe",
+   "unit": "p12",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The footnote marker after 'Diagram 1' is joined to the number, so the tree points to Diagram 11 instead of Diagram 1.",
+     "evidence": "source: \"Diagram 1¹ shows a possible arrangement\" / tree: \"Diagram 11 shows a possible arrangement\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The two page footnotes are made into a table titled with the section heading instead of footnotes attached to paragraph 1.7.",
+     "evidence": "tree: table \"Ductwork for copper and fibre-optic cables\" columns \"Note\", \"Text\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The footnote marker 2 is joined to the word duct.",
+     "evidence": "source: \"through-wall duct² to a\" / tree: \"through-wall duct2 to a\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "1a8129b2c8143fdb": {
+   "version_id": "approved-document-r-volume-2-physical-infrastructure-for-hig@2022-10-04-5fc888fe",
+   "unit": "p19",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "c1ab1b86166e646c": {
+   "version_id": "approved-document-r-volume-2-physical-infrastructure-for-hig@2022-10-04-5fc888fe",
+   "unit": "p20",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "4ef168d81833f3d7": {
+   "version_id": "approved-document-r-volume-2-physical-infrastructure-for-hig@2022-10-04-5fc888fe",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Two separate paragraphs at the top of the page are merged into the second bullet point of the previous text.",
+     "evidence": "source: \"Those responsible for building work include agents...\" / tree: \"• There may be other ways... Those responsible for building work include agents\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The paragraph that follows the list of building control bodies is merged into list item b.",
+     "evidence": "tree: \"b. an approved inspector (...). If building work consists only of installing certain types of services\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  }
+ }
+}

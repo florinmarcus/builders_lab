@@ -1,0 +1,75 @@
+{
+ "source_id": "hse-indg411",
+ "model": "claude-opus-5-5",
+ "about": "Verdicts of claude-opus-5-5 on source against tree for hse-indg411 (system/rag/semcheck.py).",
+ "verdicts": {
+  "6d76cdc95f0d50ba": {
+   "version_id": "main@2024-12-06-0bfae518",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "high",
+     "problem": "Parts of the opening sentence are lost, including the statement that the reader is a client with legal duties under CDM 2015.",
+     "evidence": "source: \"as you will be a client with legal duties under the Construction (Design and Management) Regulations 2015\" / tree: \"as you will be a Regulations 2015\""
+    },
+    {
+     "kind": "missing",
+     "severity": "high",
+     "problem": "The words about managing agents and maintenance or small-scale work are dropped from the opening sentence.",
+     "evidence": "source: \"managing agent and are having maintenance, small-scale building work or other minor works\" / tree: \"managing minor works\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "A spurious table is built from the page title and banner, with scrambled header text and the lost sentence fragment in its text.",
+     "evidence": "tree: \"HExeeacltuht iavned Safety agent and are having maintenance, small-scale building work or other\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The subtitle is run into the first body paragraph as text.",
+     "evidence": "tree: \"A short guide for clients on the Construction (Design and Management) Regulations 2015 This leaflet is aimed at you\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "c80ea11c9687137a": {
+   "version_id": "main@2024-12-06-0bfae518",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "42e3ba211a636f0f": {
+   "version_id": "main@2024-12-06-0bfae518",
+   "unit": "p6",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page footer imprint is kept as a text block under Further information.",
+     "evidence": "tree: \"Published by the Health and Safety Executive 05/16 INDG411(rev1) Page 6 of 6\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  }
+ }
+}

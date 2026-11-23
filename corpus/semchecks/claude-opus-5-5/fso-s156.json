@@ -46,6 +46,56 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "4a4c0da92daf0b49": {
+   "version_id": "check-your-fire-safety-responsibilities-under-section-156-of-7617419@2023-10-25-68c61f73",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The next chapter's heading, not printed on this page, is run into the end of this chapter's body text.",
+     "evidence": "tree: \"...under the Fire Safety Order – GOV.UK1 To which buildings do these new fire safety requirements apply?\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "c05366fbc8b3dd95": {
+   "version_id": "check-your-fire-safety-responsibilities-under-section-156-of-7617419@2023-10-25-68c61f73",
+   "unit": "p8",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "The left-column intro and the right-column heading are interleaved line by line, which garbles both.",
+     "evidence": "source: \"The following duties apply to you if you are the Responsible Person\" / tree: \"The following duties apply to you Recording your fire if you are the Responsible Person risk assessment\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The subheading 'Recording your fire risk assessment and other information' is not kept as a heading; it is mixed into body text.",
+     "evidence": "source: \"Recording your fire risk assessment and other information\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The chapter title is also kept as a body text block under the previous chapter, and a stray 'Background...' heading text follows this chapter.",
+     "evidence": "tree: \"Duties for all Responsible Persons\" (type text, under Background to Section 156...)"
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
   }
  }
 }

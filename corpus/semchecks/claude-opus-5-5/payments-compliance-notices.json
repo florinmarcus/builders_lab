@@ -1,0 +1,50 @@
+{
+ "source_id": "payments-compliance-notices",
+ "model": "claude-opus-5-5",
+ "about": "Verdicts of claude-opus-5-5 on source against tree for payments-compliance-notices (system/rag/semcheck.py).",
+ "verdicts": {
+  "9e8670c33060dcb1": {
+   "version_id": "guidance-payments-compliance-notices-html@2026-07-20-9abddd55",
+   "unit": "part1",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "b62639fd4205dc32": {
+   "version_id": "guidance-payments-compliance-notices-html@2026-07-20-9abddd55",
+   "unit": "part2",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "cb4a582afd5dbaa6": {
+   "version_id": "guidance-payments-compliance-notices-html@2026-07-20-9abddd55",
+   "unit": "part3",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The two footnotes are kept as body text of the 'What other guidance' section, after the copyright lines, not attached to the places that cite them.",
+     "evidence": "tree: \"1. See regulation 8(10) of The Procurement Act 2023 (Consequential and Other Amendments) Regulations 2025 ↩\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  }
+ }
+}

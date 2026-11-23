@@ -1,0 +1,412 @@
+{
+ "source_id": "rra2025",
+ "model": "claude-opus-5-5",
+ "about": "Verdicts of claude-opus-5-5 on source against tree for rra2025 (system/rag/semcheck.py).",
+ "verdicts": {
+  "65ddf4a8b6f64e63": {
+   "version_id": "main@2026-06-22-0bbb78c0",
+   "unit": "schedule-1-paragraph-11",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The inserted list starts at (c) in the source, but the tree drops the labels (c) and (d) from the two inserted paragraphs.",
+     "evidence": "source: OrderedList Start=\"3\" ... \"if the tenancy arose by succession\" / tree: \"if the tenancy arose by succession as mentioned in section 39(5)\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "0e867d5122000d30": {
+   "version_id": "main@2026-06-22-0bbb78c0",
+   "unit": "schedule-1-paragraph-14",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "All list labels inside the inserted Ground 5C text, (a) to (d), (a)/(b) and (i)/(ii), are dropped, so cross-references like \"paragraph (d)\" and \"the second paragraph (b)\" point to labels the tree no longer shows.",
+     "evidence": "tree: \"in paragraph (d), “the employer” means\" / tree: \"by the landlord seeking possession,\" (no (a)) ... \"pursuant to an agreement between any of those landlords and the employer,\" (no (d))"
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Nested sub-lists lose their nesting: roman items (i), (ii) read as siblings of the lettered items.",
+     "evidence": "tree: \"in relation to a constable’s service ... (the “senior person”)—\", \"the senior person, or\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "f43f7b48025c66f1": {
+   "version_id": "main@2026-06-22-0bbb78c0",
+   "unit": "schedule-1-paragraph-5",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "4b588e15e462eeb4": {
+   "version_id": "main@2026-06-22-0bbb78c0",
+   "unit": "schedule-1-paragraph-9",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The inserted list starts at (c) (OrderedList Start=3, alpha, parens), but the tree drops the labels (c) and (d) from the two inserted paragraphs.",
+     "evidence": "source: OrderedList Start=\"3\" Type=\"alpha\" ... \"if the tenancy arose by succession\" / tree: \"if the tenancy arose by succession\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "a3cdb40220c77a73": {
+   "version_id": "main@2026-06-22-0bbb78c0",
+   "unit": "schedule-2-paragraph-12",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "59d65e2959352afa": {
+   "version_id": "main@2026-06-22-0bbb78c0",
+   "unit": "schedule-2-paragraph-24",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "23abdfd741bd762e": {
+   "version_id": "main@2026-06-22-0bbb78c0",
+   "unit": "schedule-2-paragraph-37",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "5dbc0989c485659b": {
+   "version_id": "main@2026-06-22-0bbb78c0",
+   "unit": "schedule-2-paragraph-44",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "de15b0fd94999b0b": {
+   "version_id": "main@2026-06-22-0bbb78c0",
+   "unit": "schedule-2-paragraph-53",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "3dc60b8176929615": {
+   "version_id": "main@2026-06-22-0bbb78c0",
+   "unit": "schedule-2-paragraph-54",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "65b5db0c945989e8": {
+   "version_id": "main@2026-06-22-0bbb78c0",
+   "unit": "schedule-2-paragraph-64",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "3925f43d1bae0c46": {
+   "version_id": "main@2026-06-22-0bbb78c0",
+   "unit": "schedule-2-paragraph-66",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "5a0c695ff04ff6b8": {
+   "version_id": "main@2026-06-22-0bbb78c0",
+   "unit": "schedule-4-paragraph-22",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "7b2445a8983e3258": {
+   "version_id": "main@2026-06-22-0bbb78c0",
+   "unit": "schedule-4-paragraph-26",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "0767c7c48620e8a9": {
+   "version_id": "main@2026-06-22-0bbb78c0",
+   "unit": "schedule-4-paragraph-33",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The closing full stop added after the inserted paragraph (za) (AppendText) is not in the tree.",
+     "evidence": "source: \"<AppendText>.</AppendText>\" / tree: \"(za) regulations under sections 2A and 2B(3),\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "5ac56ca18bd211e7": {
+   "version_id": "main@2026-06-22-0bbb78c0",
+   "unit": "schedule-4-paragraph-40",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "9bf5fc0f4b2fd934": {
+   "version_id": "main@2026-06-22-0bbb78c0",
+   "unit": "section-106",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "9ec9e98e0b662f3d": {
+   "version_id": "main@2026-06-22-0bbb78c0",
+   "unit": "section-111",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The alpha ordered list in the definition of relevant person loses its (a), (b), (c) labels in the tree.",
+     "evidence": "source: <OrderedList Type=\"alpha\" Decoration=\"parens\"> / tree: \"a combined authority established under section 103\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "aa7f8257b2c819fc": {
+   "version_id": "main@2026-06-22-0bbb78c0",
+   "unit": "section-127",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "ec6a4ebbd904f7af": {
+   "version_id": "main@2026-06-22-0bbb78c0",
+   "unit": "section-13",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The alpha ordered lists in the definitions of shared owner and shared ownership lease in inserted section 16F(5) lose their (a), (b) labels.",
+     "evidence": "source: <OrderedList Type=\"alpha\" Decoration=\"parens\"> / tree: \"who is the tenant of the dwelling-house under a shared ownership lease, and\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "3b9d26904db83e20": {
+   "version_id": "main@2026-06-22-0bbb78c0",
+   "unit": "section-24",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "9d58b8fde71d94e1": {
+   "version_id": "main@2026-06-22-0bbb78c0",
+   "unit": "section-37",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "1ff1bb0cad44f9a6": {
+   "version_id": "main@2026-06-22-0bbb78c0",
+   "unit": "section-5",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "6e004a897b9bcab2": {
+   "version_id": "main@2026-06-22-0bbb78c0",
+   "unit": "section-52",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "8b91e1667d661dda": {
+   "version_id": "main@2026-06-22-0bbb78c0",
+   "unit": "section-64",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The (a)/(b) labels of the ordered list inside the definition of voluntary mediation services in subsection (10) are dropped, so the two items lose their numbering.",
+     "evidence": "source: OrderedList Type=\"alpha\" Decoration=\"parens\" \"against the member, or\" / tree: \"against the member, or\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "ad9d9978bfc0ad3c": {
+   "version_id": "main@2026-06-22-0bbb78c0",
+   "unit": "section-68",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "061bbfc2ea438686": {
+   "version_id": "main@2026-06-22-0bbb78c0",
+   "unit": "section-83",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "In subsection (12) the (a)-(c) and (i)-(ii) labels of the nested ordered lists inside both definitions are dropped, so the nesting of the conditions is flattened.",
+     "evidence": "source: OrderedList Type=\"roman\" \"a residential landlord, or\" / tree: \"a residential landlord, or\" \"marketing a dwelling for the purpose of creating a residential tenancy.\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "6f079a5168ccd9c4": {
+   "version_id": "main@2026-06-22-0bbb78c0",
+   "unit": "section-87",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The two items of the 'restricted information' definition in subsection (8) lose their (a) and (b) labels from the ordered list.",
+     "evidence": "source: <OrderedList Type=\"alpha\" Decoration=\"parens\"> / tree: \"is not made available to the public by virtue of regulations under section 86, and\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  }
+ }
+}

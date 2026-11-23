@@ -1,0 +1,45 @@
+{
+ "source_id": "vibration2005",
+ "model": "claude-opus-5-5",
+ "about": "Verdicts of claude-opus-5-5 on source against tree for vibration2005 (system/rag/semcheck.py).",
+ "verdicts": {
+  "83168a67e1d755e0": {
+   "version_id": "main@2015-10-16-a051e606",
+   "unit": "schedule-1-paragraph-1n1",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The tree section holds this paragraph plus the text of the following Schedule 1 Part I paragraphs (the ahv formula, both-hands rule and combined-operations formula), which are not in this provision's source, so several provisions are merged into one.",
+     "evidence": "tree: \"To avoid confusion between vibration magnitude and daily exposure to vibration, it is conventional to express daily exposure to vibration in m/s2 A(8).\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "751852a6a3a9346d": {
+   "version_id": "main@2015-10-16-a051e606",
+   "unit": "schedule-2-paragraph-1n2",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The tree ends with a sentence that is not in this provision's source; it probably comes from the next paragraph of Part II.",
+     "evidence": "tree: \"The exposure to vibration averaged over one week is for use only for the purposes of Regulation 6(5).\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  }
+ }
+}

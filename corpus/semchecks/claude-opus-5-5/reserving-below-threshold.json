@@ -1,0 +1,38 @@
+{
+ "source_id": "reserving-below-threshold",
+ "model": "claude-opus-5-5",
+ "about": "Verdicts of claude-opus-5-5 on source against tree for reserving-below-threshold (system/rag/semcheck.py).",
+ "verdicts": {
+  "9b1fc1cf797cc982": {
+   "version_id": "guidance-on-reserving-competitions-for-below-threshold-contr@2026-02-16-f6fc9e72",
+   "unit": "part1",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "1e0c781d355f3ff4": {
+   "version_id": "guidance-on-reserving-competitions-for-below-threshold-contr@2026-02-16-f6fc9e72",
+   "unit": "part2",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The page footnotes are kept as body text under the Contact heading instead of being attached to the paragraphs that reference them.",
+     "evidence": "tree (Contact): \"1. Below-threshold contracts are contracts with an estimated value that is lower than the relevant threshold\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  }
+ }
+}

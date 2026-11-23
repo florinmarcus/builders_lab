@@ -76,6 +76,25 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "c9147b88bb5d64d4": {
+   "version_id": "main@2024-12-06-3078ecac",
+   "unit": "p9",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The enforcing authority table is read as running text, and its right column is cut off and placed under the next heading, so premises types are no longer paired with their authority.",
+     "evidence": "source: table rows 'Type of premises/activity | Enforcing authority' / tree: 'Enforcing authority Local authority (LA) Health and Safety Executive (HSE) Office of Rail Regulation (ORR) For NNLW'"
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
   }
  }
 }

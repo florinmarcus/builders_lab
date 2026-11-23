@@ -1,0 +1,38 @@
+{
+ "source_id": "noise2005",
+ "model": "claude-opus-5-5",
+ "about": "Verdicts of claude-opus-5-5 on source against tree for noise2005 (system/rag/semcheck.py).",
+ "verdicts": {
+  "8cc401d8b359843d": {
+   "version_id": "main@2020-12-31-7b97be8c",
+   "unit": "regulation-14",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "2e58328b85dcd5db": {
+   "version_id": "main@2020-12-31-7b97be8c",
+   "unit": "schedule-1-part-2-paragraph-wrapper2n2",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "high",
+     "problem": "The source starts with a figure (image r00005, the weekly exposure formula) that the tree drops entirely, so the 'where—' definitions refer to a formula that is not there.",
+     "evidence": "source: \"<Figure ...><Image ResourceRef=\\\"r00005\\\" .../></Figure>\" / tree: \"where—\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  }
+ }
+}

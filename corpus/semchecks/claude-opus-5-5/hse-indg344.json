@@ -1,0 +1,125 @@
+{
+ "source_id": "hse-indg344",
+ "model": "claude-opus-5-5",
+ "about": "Verdicts of claude-opus-5-5 on source against tree for hse-indg344 (system/rag/semcheck.py).",
+ "verdicts": {
+  "5ee506c4611b806c": {
+   "version_id": "main@2024-12-06-4d5c937a",
+   "unit": "p26",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "high",
+     "problem": "Text not on this page is appended to the health surveillance question, changing what it asks.",
+     "evidence": "tree: \"especially when exposed for long periods? visually examined on site and regularly inspected and tested by a competent person?’\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The two sub-bullets of the first HAV question are merged into the parent bullet.",
+     "evidence": "source: \"Have you chosen the lowest vibration tool...\" (sub-bullet) / tree: \"plant? Have you chosen the lowest vibration tool\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The picture caption about high-vibration tools is filed under the Noise heading instead of with Hand-arm vibration.",
+     "evidence": "tree: heading_path \"Noise > Text\": \"‘...have you limited the time that each worker uses high­vibration tools?’\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "8eb040ba870fea0d": {
+   "version_id": "main@2024-12-06-4d5c937a",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The Managing 'For more information' list is placed after the Reporting accidents text instead of before it.",
+     "evidence": "tree: \"For moreinformation, see: 1 Health and safety in construction HSG150\" after \"www.hse.gov.uk/riddor\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The lead-in line 'You can notify the Contact Centre:' is merged into the previous bullet about members of the public.",
+     "evidence": "tree: \"then you should notify that too. You can notify the Contact Centre:\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Two words are run together.",
+     "evidence": "source: \"For more information, see:\" / tree: \"For moreinformation, see:\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "37d7b104dcb02416": {
+   "version_id": "main@2024-12-06-4d5c937a",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The 'For more information, contact:' line and the contact text below it are read as a one-cell table.",
+     "evidence": "tree: table columns \"For more information, contact:\" grid \"Training organisations (eg the Construction Industry Training Board) or HSE Infoline on 0845 345 0055\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The Employing note and the 'Incident at work? MISC769' line come after the Subcontracting section, though printed before it.",
+     "evidence": "tree: \"Incident at work? MISC769\" and \"Note: If a person working under your control...\" after \"check their performance and remedy shortcomings?\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Two words are run together in the table text.",
+     "evidence": "source: \"For more information, contact:\" / tree: \"For moreinformation, contact:\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "6c216402ea538a32": {
+   "version_id": "main@2024-12-06-4d5c937a",
+   "unit": "p9",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "A picture caption from another page is inserted in the middle of the last scaffold question.",
+     "evidence": "tree: \"eg where working ‘...have the wheels of tower scaffolds been locked when in use and are the platforms empty when they are moved?’ platforms are not fully boarded?\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The figure caption is split in two: the first half is body text and the second half is the figure title.",
+     "evidence": "source: \"‘...are there effective barriers or warning notices in place to stop people using an incomplete scaffold?’\" / tree: text \"‘...are there effective barriers or warning notices in place\" + title \"to stop people using an incomplete scaffold?’\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  }
+ }
+}

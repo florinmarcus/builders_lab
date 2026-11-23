@@ -1,0 +1,69 @@
+{
+ "source_id": "hse-cis78",
+ "model": "claude-opus-5-5",
+ "about": "Verdicts of claude-opus-5-5 on source against tree for hse-cis78 (system/rag/semcheck.py).",
+ "verdicts": {
+  "1cb27404f69768be": {
+   "version_id": "main@2024-12-06-06e9e08e",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "high",
+     "problem": "The opening words of the Remember box are lost, so the text starts mid sentence.",
+     "evidence": "source: \"Construction workers have a high risk of developing lung diseases\" / tree: \"developing lung diseases because many common tasks\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The Remember box is placed between steps 2 and 3, splitting the numbered list.",
+     "evidence": "\"Stop the dust getting into the air...\" then \"Remember\" then \"Use the right mask.\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The separate line 'See overleaf for examples of good practice ...' is joined to step 3.",
+     "evidence": "tree: \"Use the right mask. See overleaf for examples of good practice ...\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The penny photo is given the document title as its caption.",
+     "evidence": "tree: \"title\": \"CIS78 Construction dust (busy builder sheet)\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "8077d8fca9fedda2": {
+   "version_id": "main@2024-12-06-06e9e08e",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "All the page's guidance text (the three numbered steps) is held only as figure labels, not as text sections.",
+     "evidence": "\"1. Plan your work – Don’t cut if you don’t need to. Put channels at the natural edges of flags.\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Stray numbers and symbols are mixed into the labels.",
+     "evidence": "tree: \"energy devices like block 8 4\", \"• 4\", \"On-tool 4\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  }
+ }
+}

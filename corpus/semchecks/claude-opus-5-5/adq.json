@@ -1,0 +1,100 @@
+{
+ "source_id": "adq",
+ "model": "claude-opus-5-5",
+ "about": "Verdicts of claude-opus-5-5 on source against tree for adq (system/rag/semcheck.py).",
+ "verdicts": {
+  "1035461f7f411687": {
+   "version_id": "approved-document-q-security-dwellings@2024-11-22-481635d8",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "c616cd2cc41be907": {
+   "version_id": "approved-document-q-security-dwellings@2024-11-22-481635d8",
+   "unit": "p18",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Appendix D is placed under Appendix C in the heading path, but they are separate appendices.",
+     "evidence": "tree: \"Appendix C: Documents referred to > Appendix D: Standards referred to > Loss Prevention Certification Board\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "9ae6c58cba6e0a2b": {
+   "version_id": "approved-document-q-security-dwellings@2024-11-22-481635d8",
+   "unit": "p19",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "high",
+     "problem": "The intro text is mixed with words that are not printed on this page, about requirement Q1 and the 1 October 2015 start date.",
+     "evidence": "source: \"The following documents have been published to give guidance on how to meet the Building Regulations.\" / tree: \"This approved document supports requirement Q1 ... It takes effect on 1 October 2015\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Approved Document L2B is not kept as a heading; its title is merged into the L2A text together with an unprinted footnote about Wales.",
+     "evidence": "tree: \"It also applies to building work carried out on excepted energy Approved Document L2B buildings in Wales\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The intro sentence is broken up and its pieces are scattered among the unprinted text.",
+     "evidence": "source: \"You can find the date of the edition approved by the Secretary of State at www.gov.uk.\" / tree: \"You can find the date of the edition approved 1 October 2015, or work subject to\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The chapter title adds words that are not printed on the page.",
+     "evidence": "source: \"List of approved documents\" / tree: \"The 2015 Edition List of approved documents\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "08d9ce44c16194c5": {
+   "version_id": "approved-document-q-security-dwellings@2024-11-22-481635d8",
+   "unit": "p20",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The tree has back-cover headings and text that are not printed on this imprint page.",
+     "evidence": "tree: \"The Building Regulations 2010\", \"Q\", \"APPROVED DOCUMENT\", \"2015 edition – for use in England*\", \"Q1 Unauthorised access\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The Crown copyright notice is read as a table with an invented column heading.",
+     "evidence": "tree: columns \"Copyright notice\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  }
+ }
+}

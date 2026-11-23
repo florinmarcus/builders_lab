@@ -3,6 +3,31 @@
  "model": "claude-opus-5-5",
  "about": "Verdicts of claude-opus-5-5 on source against tree for hse-cis62 (system/rag/semcheck.py).",
  "verdicts": {
+  "19cccdc0729c2882": {
+   "version_id": "main@2024-12-06-73ef3b50",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The paragraph after the list and the right-column text are run into the last bullet item.",
+     "evidence": "tree: \"a rest area to sit, make hot drinks and eat food. You must also keep your welfare facilities warm\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The box heading is split: half kept as the title, the rest put at the start of the body text.",
+     "evidence": "source: \"What can happen if health and safety is ignored?\" / tree: title \"What can happen if health and\", text \"safety is ignored? At an inspection\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
   "8ee8af009efe997f": {
    "version_id": "main@2024-12-06-73ef3b50",
    "unit": "p2",

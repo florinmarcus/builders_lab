@@ -3,6 +3,206 @@
  "model": "claude-opus-5-5",
  "about": "Verdicts of claude-opus-5-5 on source against tree for hse-l143 (system/rag/semcheck.py).",
  "verdicts": {
+  "19b0992f8d826e34": {
+   "version_id": "main@2024-12-06-96fe14d2",
+   "unit": "p106",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "42f8c6f075e36ac4": {
+   "version_id": "main@2024-12-06-96fe14d2",
+   "unit": "p112",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "b0c0166e572f1770": {
+   "version_id": "main@2024-12-06-96fe14d2",
+   "unit": "p113",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "27ca721a31e4b0d6": {
+   "version_id": "main@2024-12-06-96fe14d2",
+   "unit": "p16",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "1a2f0b2611b30243": {
+   "version_id": "main@2024-12-06-96fe14d2",
+   "unit": "p17",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The printed heading 'Ancillary work' above paragraph 36 is lost; paragraphs 36-38 sit under 'Deciding if work is licensable' instead.",
+     "evidence": "source: \"Ancillary work\" / tree: \"Regulation 2 Interpretation > Deciding if work is licensable > Paragraph 36\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The heading 'Ancillary work' leaked into the end of Table 1's text.",
+     "evidence": "tree: \"presence of asbestos\", \"Ancillary work\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "Table 1 is two independent lists under two column headings; the grid turns them into rows with invented columns 'Work' and 'Licence from HSE', though each item keeps its correct licence status.",
+     "evidence": "source: \"Work which requires a licence from HSE\" / tree: columns \"Work\", \"Licence from HSE\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "f9c55977ec759332": {
+   "version_id": "main@2024-12-06-96fe14d2",
+   "unit": "p21",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "39182fbd9df7e89e": {
+   "version_id": "main@2024-12-06-96fe14d2",
+   "unit": "p22",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "ae393703cecf524f": {
+   "version_id": "main@2024-12-06-96fe14d2",
+   "unit": "p25",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "5b45bd0c8f9f2f94": {
+   "version_id": "main@2024-12-06-96fe14d2",
+   "unit": "p27",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "56fb3c576b6c715d": {
+   "version_id": "main@2024-12-06-96fe14d2",
+   "unit": "p29",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "a1096e214f9d3baf": {
+   "version_id": "main@2024-12-06-96fe14d2",
+   "unit": "p30",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "a6fcbb4ccf3948e5": {
+   "version_id": "main@2024-12-06-96fe14d2",
+   "unit": "p32",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "b91b717e3396b86f": {
+   "version_id": "main@2024-12-06-96fe14d2",
+   "unit": "p35",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "9da46f1b0a5a46c1": {
+   "version_id": "main@2024-12-06-96fe14d2",
+   "unit": "p52",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "Footnote marker 11 is joined to the form name, so form FOD ASB5 reads as FOD ASB511.",
+     "evidence": "source: \"The notification form FOD ASB5¹¹ is available\" / tree: \"The notification form FOD ASB511 is available\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Footnote marker 12 is joined to the form name ASB NNLW1.",
+     "evidence": "source: \"online notification form ASB NNLW1.¹²\" / tree: \"online notification form ASB NNLW1.12\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
   "0c3b46e354931055": {
    "version_id": "main@2024-12-06-96fe14d2",
    "unit": "p54",
@@ -18,6 +218,42 @@
   "42573bb272a5d854": {
    "version_id": "main@2024-12-06-96fe14d2",
    "unit": "p54",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "3b5b9fd64bb5710d": {
+   "version_id": "main@2024-12-06-96fe14d2",
+   "unit": "p55",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "a8d305d04c556c2a": {
+   "version_id": "main@2024-12-06-96fe14d2",
+   "unit": "p6",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "a2c3cf661266d1e8": {
+   "version_id": "main@2024-12-06-96fe14d2",
+   "unit": "p66",
    "kind": "semcheck-pdf",
    "family": "guidance-pdf",
    "verdict": "ok",
@@ -67,6 +303,49 @@
     }
    ],
    "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "653fec4661d5225b": {
+   "version_id": "main@2024-12-06-96fe14d2",
+   "unit": "p72",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "7d509c701ac1ff54": {
+   "version_id": "main@2024-12-06-96fe14d2",
+   "unit": "p73",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "91c371364a8a6897": {
+   "version_id": "main@2024-12-06-96fe14d2",
+   "unit": "p81",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Superscript in cubic metre unit is flattened to a plain 3, which still reads as the right unit.",
+     "evidence": "source: \"120 m³ in size or an airflow of at least 1000 m³ per hour\" / tree: \"120 m3 in size or an airflow of at least 1000 m3 per hour\""
+    }
+   ],
+   "confidence": "high",
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"

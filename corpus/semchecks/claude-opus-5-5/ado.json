@@ -1,0 +1,258 @@
+{
+ "source_id": "ado",
+ "model": "claude-opus-5-5",
+ "about": "Verdicts of claude-opus-5-5 on source against tree for ado (system/rag/semcheck.py).",
+ "verdicts": {
+  "fe1d9a9f4e819ce5": {
+   "version_id": "overheating-approved-document-o@2022-06-15-36abadd3",
+   "unit": "p14",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "4accb25fed3683b0": {
+   "version_id": "overheating-approved-document-o@2022-06-15-36abadd3",
+   "unit": "p15",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "high",
+     "problem": "Paragraphs 1.10 and 1.11 carry loose fragments of Tables 1.3/1.4 in their text, without the a/b values, which is not in the paragraphs as printed.",
+     "evidence": "tree: \"Table 1.3. Total minimum free area(1) The greater of the following: The greater of the following: Bedroom minimum free area 13%...\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Table 1.3 is split in two: the table without its notes, and a duplicate table titled 'Removing excess heat' that holds the same grid plus the notes.",
+     "evidence": "tree: \"section-1-removing-excess-heat-table-2\" title \"Removing excess heat\" with \"NOTES: 1. The total minimum free area is...\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Table 1.4 is likewise split into a table without notes and a duplicate 'Removing excess heat' table holding the notes.",
+     "evidence": "tree: \"section-1-removing-excess-heat-table-4\" title \"Removing excess heat\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "d9cc0e8ebbdd290a": {
+   "version_id": "overheating-approved-document-o@2022-06-15-36abadd3",
+   "unit": "p19",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "5b1f9d1d7df73873": {
+   "version_id": "overheating-approved-document-o@2022-06-15-36abadd3",
+   "unit": "p21",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The diagram labels inside Table 3.1 are mixed up in the table text, so the gap label reads 'Less than 1.1m' instead of 'Less than 100mm' with a separate '1.1m' height.",
+     "evidence": "source: \"Less than 100mm(2)\" ... \"1.1m\" / tree: \"Less than 1.1m\", \"100mm(2)\""
+    },
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The guarding diagram printed inside Table 3.1 is not kept as a figure; only its labels survive in the table text.",
+     "evidence": "source: diagram with \"Less than 100mm(2)\" gap and \"1.1m\" guarding height"
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "6a7e84a69640a104": {
+   "version_id": "overheating-approved-document-o@2022-06-15-36abadd3",
+   "unit": "p27",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "f6e32cfc001343ec": {
+   "version_id": "overheating-approved-document-o@2022-06-15-36abadd3",
+   "unit": "p28",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "becf93e979d8c885": {
+   "version_id": "overheating-approved-document-o@2022-06-15-36abadd3",
+   "unit": "p29",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "9f094adf68973650": {
+   "version_id": "overheating-approved-document-o@2022-06-15-36abadd3",
+   "unit": "p30",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Paragraph C3 has the whole Table C1 postcode list appended to its note text, duplicating the table inside the paragraph.",
+     "evidence": "tree: \"...buildings in these postcodes. CR4 E17 EC3R KT6 N22 SE8 SE27 SW11 TW10 W1F W12 CR7 ...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "40a4601917c89413": {
+   "version_id": "overheating-approved-document-o@2022-06-15-36abadd3",
+   "unit": "p33",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "fa807eb3af9fb080": {
+   "version_id": "overheating-approved-document-o@2022-06-15-36abadd3",
+   "unit": "p34",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "b131c7fc3e48ef79": {
+   "version_id": "overheating-approved-document-o@2022-06-15-36abadd3",
+   "unit": "p35",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "d0c6637ee2113796": {
+   "version_id": "overheating-approved-document-o@2022-06-15-36abadd3",
+   "unit": "p36",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "f1c19d53d6dca4a9": {
+   "version_id": "overheating-approved-document-o@2022-06-15-36abadd3",
+   "unit": "p37",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "fe402bd5ced232d7": {
+   "version_id": "overheating-approved-document-o@2022-06-15-36abadd3",
+   "unit": "p44",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "978a223a1268a27a": {
+   "version_id": "overheating-approved-document-o@2022-06-15-36abadd3",
+   "unit": "p6",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Diagram i is printed before the 'Where to get further help' heading, under 'How to use this approved document', but the tree puts it after that section and under the wrong parent heading.",
+     "evidence": "tree heading_path: \"Introduction > Where to get further help > The relationship between regulations and guidance in the approved documents\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "A figure label has its words run together.",
+     "evidence": "source: \"Internal fire spread (linings)\" / tree: \"Internalfirespread(linings)\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "ecc3025c8026e015": {
+   "version_id": "overheating-approved-document-o@2022-06-15-36abadd3",
+   "unit": "p9",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The cell 'Requirement O1(1) of Schedule 1' spans the Section 1 and Section 2 rows in the source, but the grid leaves Section 2 empty.",
+     "evidence": "source: \"Section 2: Dynamic thermal modelling\" shares \"Requirement O1(1) of Schedule 1\" / tree: [\"Section 2: Dynamic thermal modelling\", \"\"]"
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  }
+ }
+}

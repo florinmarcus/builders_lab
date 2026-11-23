@@ -1,0 +1,88 @@
+{
+ "source_id": "awaab-consolidated",
+ "model": "claude-opus-5-5",
+ "about": "Verdicts of claude-opus-5-5 on source against tree for awaab-consolidated (system/rag/semcheck.py).",
+ "verdicts": {
+  "024f232c7f9e074a": {
+   "version_id": "awaab-s-law-regulations-as-they-apply-from-30-november-2026@2026-07-13-546a4539",
+   "unit": "p10",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The page number 10 from the footer is run into regulation 14 between (5)(b) and (6).",
+     "evidence": "tree: \"information about how the lessee may contact the lessor. 10 (6) Regulation 10 applies\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The page number 9 from the previous page footer is run into regulation 13(2) between (a) and (b).",
+     "evidence": "tree: \"begin the relevant supplementary preventative work, or 9 (b) where it is not reasonably practicable\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "b5057082b988c7c5": {
+   "version_id": "awaab-s-law-regulations-as-they-apply-from-30-november-2026@2026-07-13-546a4539",
+   "unit": "p11",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The page number 11 from the footer is run into regulation 16(2) between (c) and (d).",
+     "evidence": "tree: \"not affected by a significant hazard or emergency hazard, 11 (d) where regulation 15(b)(ii) applies\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The page number 10 from the previous page footer is run into regulation 14 between (5)(b) and (6).",
+     "evidence": "tree: \"how the lessee may contact the lessor. 10 (6) Regulation 10 applies\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "ca3e962c97e0ce1e": {
+   "version_id": "awaab-s-law-regulations-as-they-apply-from-30-november-2026@2026-07-13-546a4539",
+   "unit": "p9",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The page number 9 from this page's footer is run into regulation 13(2) between (a) and (b).",
+     "evidence": "tree: \"begin the relevant supplementary preventative work, or 9 (b) where it is not reasonably practicable\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The page number 8 from the previous page footer is run into regulation 11 between (2)(b) and (3).",
+     "evidence": "tree: \"as soon as reasonably practicable thereafter. 8 (3) The requirement in paragraph (2) ceases\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Regulation 9 is listed for this page although none of its text is printed on it; the page starts with regulation 11(3).",
+     "evidence": "tree: para-9 \"(1) This regulation applies following a relevant investigation unless—\" / source: page starts \"(3) The requirement in paragraph (2) ceases to apply\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  }
+ }
+}

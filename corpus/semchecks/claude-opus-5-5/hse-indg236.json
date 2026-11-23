@@ -1,0 +1,88 @@
+{
+ "source_id": "hse-indg236",
+ "model": "claude-opus-5-5",
+ "about": "Verdicts of claude-opus-5-5 on source against tree for hse-indg236 (system/rag/semcheck.py).",
+ "verdicts": {
+  "beb3311fbd099721": {
+   "version_id": "main@2024-12-06-cc2a26a2",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The two sub-bullets under 'either:' are split up: their first lines are moved to a separate section at the end, and the rest of the words are left run together inside the bullet.",
+     "evidence": "source: \"either: repaired by someone competent (ie with suitable training, skills and knowledge\" / tree: \"either: knowledge for the task to prevent injury to themselves or others); or arrangements for disposing\""
+    },
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "The first halves of the sub-bullets are put after the User checks section, under the wrong part of the page.",
+     "evidence": "tree: \"▬ repaired by someone competent (ie with suitable training, skills and ▬ disposed of to prevent its further use\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The subheadings 'User checks' and 'Visual inspections' are run into the body text.",
+     "evidence": "tree: \"cables trapped under furniture or in floor boxes. Visual inspections To carry out\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "7eaf9607e4e2606f": {
+   "version_id": "main@2024-12-06-cc2a26a2",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The subheading 'Portable appliance test (PAT)' is run into the body text.",
+     "evidence": "tree: \"only the fuse can be checked. Portable appliance test (PAT) A portable appliance test\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "Figure 1 comes after the PAT text in the tree, but it is printed before it.",
+     "evidence": "source: Figure 1 sits above \"Portable appliance test (PAT)\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "d89958918428e9f8": {
+   "version_id": "main@2024-12-06-cc2a26a2",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "high",
+     "problem": "The Class II (double square) symbol is dropped, so the sentence no longer says which mark to look for.",
+     "evidence": "source: \"Class II equipment is marked with a [double-square symbol].\" / tree: \"Class II equipment is marked with a .\""
+    },
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The Class II symbol is also dropped from the two 'Double insulated' row labels in the table.",
+     "evidence": "source: \"Double insulated [symbol] (Class II)\" / tree: \"Double insulated (Class II)\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  }
+ }
+}

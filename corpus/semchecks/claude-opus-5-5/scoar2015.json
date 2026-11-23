@@ -1,0 +1,38 @@
+{
+ "source_id": "scoar2015",
+ "model": "claude-opus-5-5",
+ "about": "Verdicts of claude-opus-5-5 on source against tree for scoar2015 (system/rag/semcheck.py).",
+ "verdicts": {
+  "66d489a09c8f9d0e": {
+   "version_id": "main@2026-05-01-67ee9cdd",
+   "unit": "regulation-2",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The (a), (b), (c) labels of the lettered lists under the definitions of premises, remedial action and specified tenancy are dropped, so the items read as plain lines.",
+     "evidence": "source: <OrderedList Decoration=\"parens\" Type=\"alpha\"> / tree: \"to install a prescribed alarm;\" (no \"(a)\")"
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "a45448cb40aeb4e8": {
+   "version_id": "main@2026-05-01-67ee9cdd",
+   "unit": "schedule-paragraph-7",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  }
+ }
+}

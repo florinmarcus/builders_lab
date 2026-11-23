@@ -1,0 +1,1283 @@
+{
+ "source_id": "adl-2026",
+ "model": "claude-opus-5-5",
+ "about": "Verdicts of claude-opus-5-5 on source against tree for adl-2026 (system/rag/semcheck.py).",
+ "verdicts": {
+  "b3b536d6dd32e32d": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p108",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The lead-in 'This should include the following as appropriate.' is printed at B9 level after both circumstances, but the tree attaches it to item b, so the evidence list seems to apply only to the exceptional case.",
+     "evidence": "source: \"This should include the following as appropriate.\" (own line under B9) / tree: \"b. ... paragraph 5.77. This should include the following as appropriate.\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "270040326350ff78": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p109",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "e9a2bdcc92f2602f": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p11",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "be847bb1cac9b5b9": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p111",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "a2f178d0a9713ba6": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p112",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "0991a2a6440c8668": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p113",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "65cf5bf51c1c4d65": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p118",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "high",
+     "problem": "The tree holds a long list of Approved Documents A to 7 and an intro sentence that are not printed on this page, which shows only the ODPM and RICS entries.",
+     "evidence": "tree: \"The following documents have been published to give guidance on how to meet the Building\" ... \"Approved Document B\" ... \"Materials and workmanship\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The RICS document title is placed under an invented heading 'Approved Document A Approved Document L' instead of under the RICS heading.",
+     "evidence": "source: \"Royal Institution of Chartered Surveyors (RICS) ... Code of Measuring Practice [2015]\" / tree: \"Approved Document A Approved Document L > Text: Code of Measuring Practice [2015] Structure\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The ODPM heading is merged with a 'List of Approved Documents' heading that is not on this page.",
+     "evidence": "source: \"Office of the Deputy Prime Minister (ODPM)\" / tree: \"Office of the Deputy Prime Minister (ODPM) List of Approved Documents\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The RICS web address is joined to unrelated text about approved editions from another column.",
+     "evidence": "source: \"(www.rics.org)\" / tree: \"Regulations. You can find the date of the edition approved by the Secretary of State at www.gov.uk. (www.rics.org)\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "a6d90d6c29afc4ea": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p17",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "6e114c1e474db884": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p18",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The one-column regulation box is split into two cells in one row, cutting regulation 27(3)(a)(i)(cc) mid-sentence into a second cell with no column.",
+     "evidence": "tree: \"(cc) whether the building has been constructed in\" | \"accordance with the list of specifications referred to in paragraph (2)\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "1cfc117f2afc8ade": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p19",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The single-column regulation box is split into two cells in one row, cut mid-sentence, though the table declares only one column.",
+     "evidence": "tree: \"...in accordance with the methodology approved pursuant to\" | \"regulation 24, and (cc) whether the dwelling...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "302ec1d24cb6ed32": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p20",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The single-column regulation box is split into two cells in one row, cut mid-sentence, though the table declares only one column.",
+     "evidence": "tree: \"...pursuant to regulation 24, and (cc)\" | \"whether the building has been constructed...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "3e2cf73cd747436d": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p23",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "b66ef40be0aebcf1": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p24",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The formula in 1.11 loses its division bar and subscripts, so numerator and denominator run together with no division shown.",
+     "evidence": "source: numerator over \"(floor area1 + floor area2 + floor area3 + ...)\" / tree: \"+ …] (floor area1 + floor area2 + floor area3 + …)\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "Table 1.2 has an invented column heading that is not printed in the source.",
+     "evidence": "tree: \"Low carbon heat source\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "96c6c297b3b8fc10": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p26",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The closing paragraph of 2.5 that applies to all items is merged into item d.",
+     "evidence": "tree: \"d. A list of specifications ... design stage calculations. Building control bodies can accept evidence of (a) to (d)\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The closing guidance sentence of 2.6 is merged into item b.iii, and \"OR\" is attached to the end of a.iii.",
+     "evidence": "tree: \"...for the whole building. Guidance on how to calculate an average target primary energy rate\"; \"target fabric energy efficiency rate. OR\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "114525f7e0986921": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p29",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "e5d79ab0df043a08": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p35",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "c48b572546ad68a6": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p36",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "863dda4f11bcdc0b": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p38",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "Table 3.3 grid column headings are copied from other tables; the source headings are 'Element' and 'U-value(1)', without 'type' or 'Maximum'.",
+     "evidence": "source: \"Element\" / \"U-value(1) W/(m2·K)\" / tree: \"Element type\" / \"Maximum U-value(1) W/(m2·K)\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "d963e57981e77431": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p39",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "66a8c6c3bd6e5b58": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p41",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "8c89926fcb664016": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p44",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "11b73d477d998a7d": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p45",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The exponent in the Table 3.5 note formula is flattened, so V to the power 0.4 reads as V0.4.",
+     "evidence": "source: \"(8.33 × V^0.4)\" (superscript) / tree: \"(8.33 × V0.4)\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "5d7a86fc60b3f919": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p54",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "a7c60b8c2c20df90": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p55",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "440ecedf22647f45": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p56",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "e07e2fe71bab2147": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p58",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "60639910055c2877": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p60",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "901e81c24ee861cf": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p65",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "c1b5de818552ffaf": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p66",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "5caa5ee6cafbe517": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p67",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Paragraph 5.74 is placed under the Equation 5.1 heading in heading_path, but on the page it is a sibling paragraph after the equation box, not part of it.",
+     "evidence": "tree: \"... > Equation 5.1 > Paragraph 5.74\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "42f12bf63c7d8606": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p68",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Paragraph 5.74 (whose end is on this page) sits under the Equation 5.1 heading in heading_path instead of directly under the systems heading.",
+     "evidence": "tree: \"... > Equation 5.1 > Paragraph 5.74\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "3f0c27a3c6a98966": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p72",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The one-column Regulations box has its first row split into two cells mid-sentence, so regulation 44(5) is broken across an invented second column.",
+     "evidence": "tree: \"...the building control authority by\" | \"virtue of section 91ZB of the Act...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "0d619f6982393987": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p73",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "d88fd18990eb230f": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p81",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The separate paragraphs starting 'In the Secretary of State's view, when a new dwelling is created' are joined onto the end of list item b instead of standing as their own paragraphs.",
+     "evidence": "tree: \"b. Relevant information for work on existing systems in accordance with paragraphs 9.7 to 9.10. In the Secretary of State’s view, when a new dwelling\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "53bc415291fdfe30": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p92",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The single regulation 6 cell is split mid-sentence into two cells in one row, although the table has only one column.",
+     "evidence": "tree: \"(e) in the case of a material change of use described in\" / \"regulation 5(a), C2 (resistance to moisture);\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "7e4c6339bb4c2564": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p93",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The regulation 6 continuation cell is split mid-sentence into two cells in one row, although the table has only one column.",
+     "evidence": "tree: \"to ensure that any external\" / \"wall, or specified attachment, of the building only contains materials\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "f0d43c6369c19bb5": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p94",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "f6872e3434df1578": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p95",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "a1d32a1d4ab2362d": {
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p99",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The asterisk marking 'Building envelope' as a definition from the Building Regulations 2010 is dropped, so the NOTE about starred items no longer applies to it.",
+     "evidence": "source: \"*Building envelope\" / tree: \"Building envelope\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "c2cbbfa0621ccecd": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "df6c0bb541fe03e0": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p100",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The definition 'Room for residential purposes' has no section of its own; its later text is joined onto the 'Roof window' definition, so Roof window carries a different definition.",
+     "evidence": "tree: \"in plane with, the surrounding roof. regulation 2(1) as a room, or a suite of rooms, sleep and includes a room in a hostel\""
+    },
+    {
+     "kind": "missing",
+     "severity": "high",
+     "problem": "The start of the 'Room for residential purposes' definition is missing from the definitions; it only appears mixed into the Table A2 text.",
+     "evidence": "source: \"*Room for residential purposes Defined in ... which is not a dwellinghouse or a flat and which is used by one or more persons to live and\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Table A2 text holds words from the next column's definition, which are not part of the table.",
+     "evidence": "tree: \"Air-cooled chiller’s ambient 20 25 30 35 *Room for residential purposes Defined in\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "4cc919bb249f3bec": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p104",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The night-time energy formula loses its subscripts and its divisor of 1000, so the formula is wrong.",
+     "evidence": "source: \"En = Pl× Fo× Fc× Tn / 1000\" / tree: \"P× F × F × T E = l o c n\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The LENI formula's subscripts are split off and the layout of the fraction is lost.",
+     "evidence": "source: \"LENI = (Ep+ Ed+ En) / A\" / tree: \"E + E + E LENI = p d n A\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "9b38f46cc5e7f6af": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p107",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "2705f56a54ced4b0": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p108",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "83e06e632ca650b6": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p11",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "d52cafff9edd1782": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p112",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "f1d9822f9a022d93": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p114",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "ace70da36a4fc04f": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p17",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "26efbf7d1c475faa": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p18",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The one-column regulations box is split into two cells in a single row, cut mid-sentence in 27(3)(a)(i)(cc), although the table has only one column.",
+     "evidence": "tree: \"(cc) whether the building has been constructed in\" | \"accordance with the list of specifications\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "163f2655d7ab560f": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p19",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The one-column regulations box is split into two cells in a single row, cut after the label (cc) in 27C(3)(a)(i), although the table has only one column.",
+     "evidence": "tree: \"...pursuant to regulation 24, and (cc)\" | \"whether the building has been constructed in accordance\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "317a6194d188e33c": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p22",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "ac45a525fba2700e": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p23",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "d9fcc2cf93b6426a": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p27",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "7a9328351bd0e837": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p28",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "917cd3f5902f60c1": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p29",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "e01894affcd3622a": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p32",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "e4722a721fb303aa": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p36",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "7820651f64d91f4f": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p38",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "Column headings are not as printed: 'Element' became 'Element type' and the heading gained the word 'Maximum'; values are still right.",
+     "evidence": "source: \"Element\" \"U-value(1) W/(m2·K)\" / tree: \"Element type\" \"Maximum U-value(1) W/(m2·K)\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "9311c4dd8ac33a8d": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p40",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "3eb2f0ad5f2b21fc": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p41",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "Column names of Tables 3.4 and 3.5 drop the printed qualifier and its note markers from the header.",
+     "evidence": "source: \"Minimum insulation thickness (mm) for low temperature hot water systems(1)(2)(3)\" / tree: \"Minimum insulation thickness (mm), thermal conductivity (λ) = 0.025W/(m·K)\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "754ff4297a75fc8e": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p42",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "f3af27a5874f92cf": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p43",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The exponent 2/3 in the heat loss formula in note 2 is flattened onto the line, so the formula can be misread.",
+     "evidence": "source: \"1.28 × (0.2 + 0.051V^(2/3))\" / tree: \"1.28 × (0.2 + 0.051V2/3)\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "39345f838db5d5ad": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p52",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Table 5.1's heading path contains a stray text fragment as a parent heading, which is not a heading on the page.",
+     "evidence": "tree: \"Heat pumps > BS EN 16147. > Ecodesign product regulations applicable...\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "9f29f54585d82ae7": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p53",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "ed281c914a3fa3aa": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p54",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "291d8efae8662b71": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p56",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "In paragraph 5.16 the lead-in sentence of the second list is joined onto item b of the first list.",
+     "evidence": "tree: \"b. BS EN 13842. The calculation of thermal efficiency should both:\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "d049f406ad488d7d": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p59",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "Equation 5.4 in paragraph 5.30 is printed as a stacked formula and the tree interleaves its words so the formula cannot be read.",
+     "evidence": "source: \"heater output = recovery rate of heater in litres/second × specific heat capacity of water × temperature rise of water\" / tree: \"recovery rate specific heat heater temperature rise = of heater in × capacity of ×\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "586cdb2a26f76d0d": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p61",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "100722a1fa7f39f6": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p63",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "31f6bd8bb0f1fbaf": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p64",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "In note 4 of Table 5.9 the formula subscripts are split onto a separate line, so the P terms lose their mains,1/2/3 labels.",
+     "evidence": "source: \"(Pmains,1 + Pmains,2 + Pmains,3 + ...)\" / tree: \"(P + P +P + ...)\" \"mains,1 mains,2 mains,3\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "d7c12712ca74a0b2": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p69",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "6db3815eb1d384dd": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p73",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The one-column Regulations table has a first row with two cells: regulation 44(5) is cut mid-sentence into a second cell, although the text is all kept.",
+     "evidence": "tree: \"...building control authority by\" | \"virtue of section 91ZB of the Act...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "0a7cf3da4ba36098": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p74",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "85eb618e7442ffcd": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p77",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "54b1ce57b699cffb": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p78",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The second intro sentence for existing buildings is joined onto item b of the new-building list, not kept as its own lead-in.",
+     "evidence": "tree: \"b. Other important documentation, in accordance with paragraphs 8.3 and 8.4. In the Secretary of State’s view, when work is carried out on an existing building\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "46d317efc6c15e8d": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p79",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "83a8ff088aa3ec90": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p83",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The NOTE printed under Table 9.1 is kept at the end of paragraph 9.10's text instead of with the table.",
+     "evidence": "NOTE: Vehicle access doors, display windows and similar glazing, and smoke vents can be as large an area of wall or roof as required"
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The closing sentences of 9.7 and 9.10, printed as separate lines after the list, are joined onto item b and item d.",
+     "evidence": "tree: \"b. greater than 25% of the total useful floor area of the existing building that extension should be regarded as a new building\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "74cc0b125035234a": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p86",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The one-column regulations box row is split into two cells mid-sentence, cutting sub-paragraph (e) in two.",
+     "evidence": "tree: \"(e) in the case of a material change of use described in\" | \"regulation 5(a), C2 (resistance to moisture);\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "cf80685b784069dc": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p87",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The first row of the one-column regulations box is split into two cells mid-sentence, cutting paragraph (3) in two.",
+     "evidence": "tree: \"ensure that any external\" | \"wall, or specified attachment, of the building only contains materials\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "3c784069da18a328": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p96",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The asterisk marking the term as defined in the Building Regulations 2010 is dropped from the title.",
+     "evidence": "source: \"*Controlled service or fitting\" / tree: \"Controlled service or fitting\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "6406043b1868c701": {
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p98",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The subscript 3 in the chemical formula is lost, leaving a broken formula.",
+     "evidence": "source: \"200ppm of CaCO3.\" / tree: \"200ppm of CaCO .\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The alternative term 'or heat generator' is part of the bold defined term but is put at the start of the definition text.",
+     "evidence": "source: \"Heating appliance or heat generator The part of\" / tree: title \"Heating appliance\", text \"or heat generator The part of\""
+    },
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The asterisk marking the term as from the Building Regulations 2010 is dropped from the title.",
+     "evidence": "source: \"*Fixed building services\" / tree: \"Fixed building services\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  }
+ }
+}

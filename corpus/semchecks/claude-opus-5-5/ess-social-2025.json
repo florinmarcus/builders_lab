@@ -1,0 +1,44 @@
+{
+ "source_id": "ess-social-2025",
+ "model": "claude-opus-5-5",
+ "about": "Verdicts of claude-opus-5-5 on source against tree for ess-social-2025 (system/rag/semcheck.py).",
+ "verdicts": {
+  "7eaed80c5b9e31c5": {
+   "version_id": "main@2025-09-23-c1e760ab",
+   "unit": "regulation-5",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "8571b7d48ce95eb4": {
+   "version_id": "main@2025-09-23-c1e760ab",
+   "unit": "regulation-6",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The alpha ordered list in the definition of safe for continued use lost its (a), (b), (c) labels, so the three conditions are unnumbered.",
+     "evidence": "source: <OrderedList Type=\"alpha\" Decoration=\"parens\"> / tree: \"it is maintained so as to prevent, so far as is reasonably practicable, such risk; and\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The non-breaking space in the inserted Part number was dropped, running the words together.",
+     "evidence": "source: \"PART<Character Name=\\\"NonBreakingSpace\\\"/>2A\" / tree: \"PART2A\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  }
+ }
+}

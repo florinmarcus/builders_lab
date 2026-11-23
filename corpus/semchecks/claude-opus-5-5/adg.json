@@ -1,0 +1,638 @@
+{
+ "source_id": "adg",
+ "model": "claude-opus-5-5",
+ "about": "Verdicts of claude-opus-5-5 on source against tree for adg (system/rag/semcheck.py).",
+ "verdicts": {
+  "13030e1f906783a1": {
+   "version_id": "approved-document-g-sanitation-hot-water-safety-and-water-ef@2024-10-01-cc02cbfc",
+   "unit": "p13",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Bold run-in names at the start of paragraphs are read as headings, so the paragraph text starts mid-sentence; the meaning still reads through the heading path.",
+     "evidence": "source: \"Food Hygiene (England) Regulations 2006 (SI 2006/14 as amended)\" / tree heading: \"Food Hygiene (England) Regulations 2006\", text: \"(SI 2006/14 as amended)\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "dea0b72593bbb914": {
+   "version_id": "approved-document-g-sanitation-hot-water-safety-and-water-ef@2024-10-01-cc02cbfc",
+   "unit": "p18",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The fl ligature is dropped, so \"flats\" becomes \"fats\".",
+     "evidence": "source: \"such as a block of flats\" / tree: \"such as a block of fats\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The fi ligature is dropped in several words.",
+     "evidence": "source: \"sufficient\", \"fittings approach\" / tree: \"suffcient\", \"fttings approach\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The fl ligature is dropped in \"reflected\".",
+     "evidence": "source: \"should be reflected\" / tree: \"should be refected\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The closing paragraph about buildings with more than one dwelling is joined to item e instead of standing on its own.",
+     "evidence": "\"Where a building consists of more than one dwelling (such as a block of fats)\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "ec340fa06bf22617": {
+   "version_id": "approved-document-g-sanitation-hot-water-safety-and-water-ef@2024-10-01-cc02cbfc",
+   "unit": "p19",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The 'fi' ligature is dropped throughout the paragraphs, leaving misspelt words that still read.",
+     "evidence": "source: \"fittings approach\", \"five days\", \"final certificate\" / tree: \"fttings approach\", \"fve days\", \"fnal certifcate\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "13a023ff91bb1b74": {
+   "version_id": "approved-document-g-sanitation-hot-water-safety-and-water-ef@2024-10-01-cc02cbfc",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The 'fi' and 'fl' ligatures are dropped, leaving misspelt words.",
+     "evidence": "source: \"fittings approach\", \"self-certification\", \"reflect\" / tree: \"fttings approach\", \"self-certifcation\", \"refect\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "ab9ba7dbe078fcc6": {
+   "version_id": "approved-document-g-sanitation-hot-water-safety-and-water-ef@2024-10-01-cc02cbfc",
+   "unit": "p27",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "The two columns of the worked example box are interleaved line by line, so the steps and figures of the calculation are mixed up.",
+     "evidence": "tree: \"Therefore the maximum permitted length equates to 5.8m which, is less than the actual length of 7m therefore calculate The example below is for a G½\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The last words of the worked example's conclusion are split off and put in a separate box under Notes.",
+     "evidence": "source: \"a 28mm (D2) copper pipe will be satisfactory.\" / tree: Notes box \"be satisfactory.\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "In the table text the footnote under the table sits in the middle of the G1 rows instead of after them.",
+     "evidence": "tree: \"G1 28mm 35mm Up to 9m 1.4m\", \"*see 3.51 and 3.58 and Diagram 1\", \"42mm Up to 18m 1.7m\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The 'fl' and 'fi' ligatures are dropped.",
+     "evidence": "source: \"flow resistance\", \"fittings appropriate\" / tree: \"fow resistance\", \"fttings appropriate\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "c3a847a5cf9b0d7a": {
+   "version_id": "approved-document-g-sanitation-hot-water-safety-and-water-ef@2024-10-01-cc02cbfc",
+   "unit": "p40",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The 'fl' and 'fi' ligatures are dropped in paragraphs A8 and A9.",
+     "evidence": "source: \"flow rates\", \"fitting\", \"figure\", \"benefit\" / tree: \"fow rates\", \"ftting\", \"fgure\", \"beneft\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "In rows (5) to (11) the row number and label, printed in the second and later columns, are joined into the first column; the values 0.91 and 5.0 still sit in column (4) beside the right label.",
+     "evidence": "source: \"(8) | Normalisation factor | 0.91\" / tree: [\"(8) Normalisation factor\", \"\", \"\", \"\", \"\", \"0.91\"]"
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading 'Consumption from multiple fittings' is merged with provision A8 into one title.",
+     "evidence": "tree: \"Consumption from multiple fittings A8\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "aa2d6ca88b98990c": {
+   "version_id": "approved-document-g-sanitation-hot-water-safety-and-water-ef@2024-10-01-cc02cbfc",
+   "unit": "p41",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "A stray text box repeats the last two rows of Table A2.1 outside any table.",
+     "evidence": "tree: \"(f) Maximum fow rate (litres/min) Proportionate fow rate (litres/min) = [(f) × 0.7]\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The table text of A2.1 and A2.2 mixes rows from other tables on the page (for example dishwasher rows in the bath table); the grids are right.",
+     "evidence": "tree (A2.2 text): \"Average litres per place setting = [(e)/(d)]\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The 'fi' and 'fl' ligatures are dropped in A10.",
+     "evidence": "source: \"The figure\", \"flow rate/volume\", \"significantly\" / tree: \"The fgure\", \"fow rate/volume\", \"signifcantly\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "665600084374d59b": {
+   "version_id": "approved-document-g-sanitation-hot-water-safety-and-water-ef@2024-10-01-cc02cbfc",
+   "unit": "p42",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The footnote under Table A2.7 that defines effective flushing volume for dual flush WCs is attached to Table A2.5, and Table A2.7 has no notes.",
+     "evidence": "source (under A2.7): \"* The effective flushing volume for dual flush WCs is: (full flushing volume (litres) × 0.33) + (part flushing volume (litres) × 0.67)\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The text of Table A2.5 mixes in the header and rows of Table A2.7 beside it; the grids are right.",
+     "evidence": "tree (A2.5 text): \"Type of Litres per Quantity Total per WC type Effective Quantity Total per\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The 'fl', 'fi' and 'ffi' ligatures are dropped in A11 to A13.",
+     "evidence": "source: \"flushing volume\", \"figure\", \"more efficient\" / tree: \"fushing volume\", \"fgure\", \"more effcient\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "87dcc3104c51f446": {
+   "version_id": "approved-document-g-sanitation-hot-water-safety-and-water-ef@2024-10-01-cc02cbfc",
+   "unit": "p43",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "high",
+     "problem": "Table A3's text ends with words from Tables A4.1/A4.2, including the washing-machine formula, which are not part of Table A3.",
+     "evidence": "tree (Table A3 text): \"(e) Total (f) Total fttings greywater demand = Sum of (b) = Sum of (d) Average greywater demand = [(f)/(e)] × 2.1 from washing machines\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "A14 footnote has stray table words inserted into the sentence.",
+     "evidence": "source: \"used in this calculation needs to reflect\" / tree: \"used in this calculation=Sumof(b)=Sum needs to refect\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "fi/fl ligatures are dropped throughout, so words like 'flats' and 'flows' read wrongly.",
+     "evidence": "source: \"Studio flats should assume\" / tree: \"Studio fats should assume\"; source: \"flows through\" / tree: \"fows through\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "A separate text block repeats rows (e) and (f) of Table A3 that are already in the grid.",
+     "evidence": "tree: \"(e) Water consumed beyond 4% (litres/day) = [1 - [4/(a)]] × [(b) × (c)]\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The subheadings 'Greywater collection calculations' and 'Greywater savings calculations' are run into the end of A17 and A18 text; the second is not on this page.",
+     "evidence": "tree: \"entering details into Tables A4.1 and A4.2. Greywater collection calculations\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "1cd5799b90ef7236": {
+   "version_id": "approved-document-g-sanitation-hot-water-safety-and-water-ef@2024-10-01-cc02cbfc",
+   "unit": "p44",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "Table A4.3's text mixes in Table A4.5 (baths) from the next column, including the bath coefficients.",
+     "evidence": "tree (Table A4.3 text): \"Average greywater supply = [(f)/(e)] × 0.11 ... from baths (bath only)\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "Table A4.5 (right column) is placed before Table A4.4 (left column, under A4.3).",
+     "evidence": "tree order: \"table-a4.3\", \"table-a4.5\", \"table-a4.4\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The subheading 'Greywater savings calculations' above A19 is kept at the end of A18's text instead of before A19.",
+     "evidence": "tree: \"results entered into Table A4.6. Greywater savings calculations\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "fi ligatures are dropped in A19.",
+     "evidence": "source: \"fittings\" / tree: \"fttings\"; source: \"specified\" / tree: \"specifed\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "3bc1b5b13f31b231": {
+   "version_id": "approved-document-g-sanitation-hot-water-safety-and-water-ef@2024-10-01-cc02cbfc",
+   "unit": "p45",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "fi/fl ligatures are dropped, so 'flat', 'filter' and 'first' read wrongly.",
+     "evidence": "source: \"A studio flat should assume two occupants\" / tree: \"A studio fat should assume two occupants\"; source: \"hydraulic filter\" / tree: \"hydraulic flter\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "Table A5.2 title is cut short; the rest of the title sits in the table text.",
+     "evidence": "source: \"Rainwater collection calculation – BS 8515 detailed approach\" / tree: \"Rainwater collection\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "Table A5.1 title lacks its last word, which is left in the table text.",
+     "evidence": "source: \"BS 8515 intermediate approach\" / tree: \"BS 8515 intermediate\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Subheadings 'Rainwater demand calculations' and 'Rainwater saving calculations' are run into the end of A24 and A26 text; the second is printed on the next page.",
+     "evidence": "tree: \"BS 8515 should be followed. Rainwater demand calculations\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "7295a6f650d8aa2b": {
+   "version_id": "approved-document-g-sanitation-hot-water-safety-and-water-ef@2024-10-01-cc02cbfc",
+   "unit": "p46",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The footnote of Table A5.5 is attached to Table A5.3's text, and Table A5.5 has no footnote.",
+     "evidence": "source (under A5.5): \"*where the amount collected (a) is greater than the demand (b), the rainwater savings (c) are equal to the demand (b)\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "Table A5.3's text mixes in the headings and rows of Table A5.5 from the right column.",
+     "evidence": "tree (A5.3 text): \"(d) Litres per person per day Effective Number Quantity Rainwater (a) Rainwater collected\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "Table A5.4 grid repeats the formula in two columns and drops the four empty entry rows.",
+     "evidence": "tree: [\"Average rainwater demand from washing machines\", \"= [(f)/(e)] × 2.1\", \"= [(f)/(e)] × 2.1\", \"\"]"
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "A separate text block repeats the totals and WC formula rows of Table A5.3.",
+     "evidence": "tree: \"Average rainwater demand = [(f)/(e)] × 4.42 from WCs\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The subheading 'Rainwater saving calculations' above A27 is kept at the end of A26's text.",
+     "evidence": "tree: \"to calculate the rainwater savings. Rainwater saving calculations\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "f287e59af99d745e": {
+   "version_id": "approved-document-g-sanitation-hot-water-safety-and-water-ef@2024-10-01-cc02cbfc",
+   "unit": "p53",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "9080df9048e43415": {
+   "version_id": "approved-document-g-sanitation-hot-water-safety-and-water-ef@2024-10-01-cc02cbfc",
+   "unit": "p54",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "10ab05e2dc30f58f": {
+   "version_id": "approved-document-g-sanitation-hot-water-safety-and-water-ef@2024-10-01-cc02cbfc",
+   "unit": "p6",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The 'fi' ligature is dropped in several words, but they still read right.",
+     "evidence": "source: \"defined\", \"specified\", \"self-certification\" / tree: \"defned\", \"specifed\", \"self-certifcation\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "9a3c1cec8c1e3732": {
+   "version_id": "corrections-to-approved-document-g@2024-10-01-49732fbd",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "205de4e144f65856": {
+   "version_id": "corrections-to-approved-document-g@2024-10-01-49732fbd",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The Crown copyright imprint is joined onto the paragraph 2.11 amendment text as if it were part of the provision.",
+     "evidence": "tree: \"...water efficiency calculator must be completed.” © Crown copyright, 2016 You may re-use this information...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "f6c766fef811a607": {
+   "version_id": "frequently-asked-questions@2024-10-01-7431cbaa",
+   "unit": "p12",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "high",
+     "problem": "The first line of the page heading is lost, so the chapter and table title keep only the second half of the question.",
+     "evidence": "source: \"Which version of the Approved Document applies to my project?\" / tree: \"applies to my project?\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The note printed under the table is joined to the intro text before the table instead of after it.",
+     "evidence": "\"Note: The 2016 changes are included on the amendment slip issued by RIBA Enterprises\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is kept at the end of the text.",
+     "evidence": "tree: \"for copies purchased after ??? 2015. 12\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "f64b5495cc357a3b": {
+   "version_id": "frequently-asked-questions@2024-10-01-7431cbaa",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "db48c3b4218a6dae": {
+   "version_id": "frequently-asked-questions@2024-10-01-7431cbaa",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Contents page entries are kept as real headings, and the document's introduction from the next page is filed under the contents entry for the version question.",
+     "evidence": "heading: \"Which version of the Approved Document applies to my project? 12\" / text: \"Revised Part G of Schedule 1 ... came into force on 6 April 2010\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The first contents entry on the page is cut, losing its opening words.",
+     "evidence": "source: \"Paragraph 3.60 of the Approved Document says that if a discharge pipe is connected to a soil stack\" / tree: \"3 soil stack the discharge pipe\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "e52493e2c76da24a": {
+   "version_id": "frequently-asked-questions@2024-10-01-7431cbaa",
+   "unit": "p8",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Each multi-line question heading is split into several sibling headings, and the answer sits under only the last fragment, losing the question.",
+     "evidence": "source: \"Is a combi boiler with a storage capacity of less than 15 litres therefore also not notifiable?\" / tree heading_path: \"litres therefore also not notifiable?\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The answer about small water heaters sits under a heading that is only the word \"exempt?\".",
+     "evidence": "tree heading_path: \"Requirement G3 – Hot Water Supply and Systems > exempt?\""
+    },
+    {
+     "kind": "missing",
+     "severity": "high",
+     "problem": "The end of the previous answer at the top of the page, with a temperature limit, is not in the content for this page.",
+     "evidence": "source: \"than 48°C. It's likely that this will normally be complied with by the fitting of a thermostatic mixing valve (TMV).\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is kept as a text section.",
+     "evidence": "tree: \"8\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "e964ad6441fb33f5": {
+   "version_id": "may-2024-amendments-to-approved-document-g-sanitation-hot-wa@2024-10-01-334ba3a9",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The separate paragraph about the meaning of terms and 'sufficiently progressed' is joined onto list item b.",
+     "evidence": "tree: \"b. is started and is sufficiently progressed within the period of six months beginning on that day. Please note that ‘building notice’...\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The closing sentence 'Full details of the changes are provided below.' is joined onto list item c.",
+     "evidence": "tree: \"when work to effect that change of use has stated. Full details of the changes are provided below.\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "c1a3050f856515b6": {
+   "version_id": "may-2024-amendments-to-approved-document-g-sanitation-hot-wa@2024-10-01-334ba3a9",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The end of paragraph 4.12 'BS 6465-2.' is read as a heading, so the paragraph loses the standard it refers to.",
+     "evidence": "source: \"is given in BS 6465-2.\" / tree: \"is given in\" + heading \"BS 6465-2.\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Paragraphs 4.15, 4.16, 4.19, 5.7 and 5.8 are placed under a false heading 'BS 6465-2.' instead of 'Scale of provision and layout in buildings other than dwellings'.",
+     "evidence": "tree heading_path: \"... > BS 6465-2. > Paragraph 4.15\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The same split happens in paragraphs 4.19 and 5.7, which end at 'is given in' with 'BS 6465-2.' made a heading.",
+     "evidence": "source: \"4.19 ... is given in BS 6465-2.\" / tree: \"is given in\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "67e75a3d299dc4f6": {
+   "version_id": "may-2024-amendments-to-approved-document-g-sanitation-hot-wa@2024-10-01-334ba3a9",
+   "unit": "p6",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  }
+ }
+}

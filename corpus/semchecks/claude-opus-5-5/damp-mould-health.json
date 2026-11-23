@@ -1,0 +1,135 @@
+{
+ "source_id": "damp-mould-health",
+ "model": "claude-opus-5-5",
+ "about": "Verdicts of claude-opus-5-5 on source against tree for damp-mould-health (system/rag/semcheck.py).",
+ "verdicts": {
+  "f4ec139c42bbb4bd": {
+   "version_id": "understanding-and-addressing-the-health-risks-of-damp-and-mo@2026-04-01-d870aed0",
+   "unit": "part1",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "429403fb2e40964e": {
+   "version_id": "understanding-and-addressing-the-health-risks-of-damp-and-mo@2026-04-01-d870aed0",
+   "unit": "part2",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "f39715c2787758b2": {
+   "version_id": "understanding-and-addressing-the-health-risks-of-damp-and-mo@2026-04-01-d870aed0",
+   "unit": "part3",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "15a08601b502e937": {
+   "version_id": "understanding-and-addressing-the-health-risks-of-damp-and-mo@2026-04-01-d870aed0",
+   "unit": "part4",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "3f34526e28bd057c": {
+   "version_id": "understanding-and-addressing-the-health-risks-of-damp-and-mo@2026-04-01-d870aed0",
+   "unit": "part5",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The h4 sections after the two checklists are placed under 'Ventilation checklist' and 'Heating checklist' in heading_path, though they are general 'Addressing damp and mould' topics; this follows the page's own heading levels.",
+     "evidence": "tree: \"Heating checklist > Working with professionals who can identify and tackle a damp and mould problem\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The damp surveyor certifications are sub-items of 'damp surveyors' but the tree flattens them into bullets at the same level as the professional types.",
+     "evidence": "source: \"<p> CSRT - Certificated Surveyor in Remedial Treatment\" / tree: \"• CSRT - Certificated Surveyor in Remedial Treatment\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "9ffd4208ff5ed729": {
+   "version_id": "understanding-and-addressing-the-health-risks-of-damp-and-mo@2026-04-01-d870aed0",
+   "unit": "part6",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "836fb042681ef11d": {
+   "version_id": "understanding-and-addressing-the-health-risks-of-damp-and-mo@2026-04-01-d870aed0",
+   "unit": "part7",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "e1a4b144d22869f8": {
+   "version_id": "understanding-and-addressing-the-health-risks-of-damp-and-mo@2026-04-01-d870aed0",
+   "unit": "part8",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "8b544de90f86cea2": {
+   "version_id": "understanding-and-addressing-the-health-risks-of-damp-and-mo@2026-04-01-d870aed0",
+   "unit": "part9",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The page's footnote list (references 1 to 54) is kept as body text of Annex E, as if it were part of the tenant guidance.",
+     "evidence": "tree (Annex E text): \"1. Department for Levelling Up, Housing and Communities. English Housing Survey 2021 to 2022: headline report.\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  }
+ }
+}

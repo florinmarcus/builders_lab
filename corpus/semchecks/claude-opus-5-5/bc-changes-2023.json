@@ -3,6 +3,75 @@
  "model": "claude-opus-5-5",
  "about": "Verdicts of claude-opus-5-5 on source against tree for bc-changes-2023 (system/rag/semcheck.py).",
  "verdicts": {
+  "a4f578ef34c6bf36": {
+   "version_id": "additional-q-a-changes-to-the-building-control-process-for-h@2024-03-28-c6890960",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The underlined title is split into two headings at a line break, so the body text sits under a fragment heading.",
+     "evidence": "source: \"...procedural building regulations applying to buildings in England.\" / tree: \"...procedural building\" + \"regulations applying to buildings in England.\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The letterhead's two columns (recipients and sender address) are mixed into one text.",
+     "evidence": "tree: \"To: (England only) Fry Building 2 Marsham Street Local Government Chief Executives and London SW1P 4DF Heads of Building Control\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "e77b5e4333e9f3a5": {
+   "version_id": "additional-q-a-changes-to-the-building-control-process-for-h@2024-03-28-c6890960",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The bold question headings 1.1, 1.2 and 1.3 are read as body text and merged into one text block with their answers.",
+     "evidence": "tree: \"1.1. I deposited full plans to the local authority for a higher-risk building, but the plans were rejected prior to 1 October 2023\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The bold numbered list of topics is read as three separate headings instead of a list under the intro line.",
+     "evidence": "tree: \"1) transitional provisions 2) statutory consultations\" / \"3) work in existing higher-risk buildings 4) enforcement\" / \"5) lapse of plans\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "4a5fca13f8eae3bf": {
+   "version_id": "additional-q-a-changes-to-the-building-control-process-for-h@2024-03-28-c6890960",
+   "unit": "p6",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The bold question headings 3.3, 3.4, 4.1 and 4.2 are run into the body text instead of being kept as headings, so separate questions are merged into one section.",
+     "evidence": "source: \"3.3. Will the Regulator notify a local authority...\" (bold heading) / tree: \"...other than the Regulator. 3.3. Will the Regulator notify...\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
   "9722b76c1e0853bf": {
    "version_id": "circular-letter-changes-to-the-building-control-process@2024-03-28-3ba48ed4",
    "unit": "p11",

@@ -1,0 +1,98 @@
+{
+ "source_id": "awaab-triage-phase2",
+ "model": "claude-opus-5-5",
+ "about": "Verdicts of claude-opus-5-5 on source against tree for awaab-triage-phase2 (system/rag/semcheck.py).",
+ "verdicts": {
+  "e8c8b90962420185": {
+   "version_id": "awaab-s-law-phase-2-guidance-to-support-triaging-of-hazards@2026-07-31-62194654",
+   "unit": "part1",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "ff407aeabce6334b": {
+   "version_id": "awaab-s-law-phase-2-guidance-to-support-triaging-of-hazards@2026-07-31-62194654",
+   "unit": "part2",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "2166bacc03017423": {
+   "version_id": "awaab-s-law-phase-2-guidance-to-support-triaging-of-hazards@2026-07-31-62194654",
+   "unit": "part3",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "9a43c88454d66b50": {
+   "version_id": "awaab-s-law-phase-2-guidance-to-support-triaging-of-hazards@2026-07-31-62194654",
+   "unit": "part4",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "149c9d34c43a33bd": {
+   "version_id": "awaab-s-law-phase-2-guidance-to-support-triaging-of-hazards@2026-07-31-62194654",
+   "unit": "part5",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "2e8cd5a8713781c6": {
+   "version_id": "awaab-s-law-phase-2-guidance-to-support-triaging-of-hazards@2026-07-31-62194654",
+   "unit": "part6",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The EICR classification code list is split across two text sections: C1 stays with the intro, while C2, C3 and FI go into a separate text block under the same heading.",
+     "evidence": "tree text-1 ends: \"• Code 1 (C1): Danger present...\" / text-2 starts: \"• Code 2 (C2): Potentially dangerous.\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "b167431e4146b83d": {
+   "version_id": "awaab-s-law-phase-2-guidance-to-support-triaging-of-hazards@2026-07-31-62194654",
+   "unit": "part7",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  }
+ }
+}

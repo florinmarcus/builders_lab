@@ -3,6 +3,31 @@
  "model": "claude-opus-5-5",
  "about": "Verdicts of claude-opus-5-5 on source against tree for fser-page (system/rag/semcheck.py).",
  "verdicts": {
+  "d4ca6f6273d0f028": {
+   "version_id": "impact-assessment@2023-07-24-cd8d7385",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The minister's statement printed under the review row on page 1 is kept only inside the text of a page 2 table about specific impacts.",
+     "evidence": "\"I have read the Impact Assessment and I am satisfied that, given the available evidence, it represents a reasonable view\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The signature line is joined with the page 2 heading 'Summary: Analysis & Evidence Policy Option 1' in one text block.",
+     "evidence": "tree: \"Signed by the responsible Minister : Date: May 2022 Summary: Analysis & Evidence Policy Option 1\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
   "a04f1f7947732f33": {
    "version_id": "impact-assessment@2023-07-24-cd8d7385",
    "unit": "p10",
@@ -279,6 +304,49 @@
     }
    ],
    "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "3d1213ae8f7fd0ca": {
+   "version_id": "impact-assessment@2023-07-24-cd8d7385",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The description line and the heading FULL ECONOMIC ASSESSMENT, printed at the top above the tables, come after all the tables in the tree.",
+     "evidence": "\"Description: Deliver the majority of the GTI P1 report’s recommendations in a practical way FULL ECONOMIC ASSESSMENT\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The heading BUSINESS ASSESSMENT (Option 1) comes after its table and after the specific impacts table, at the end of the page.",
+     "evidence": "\"BUSINESS ASSESSMENT (Option 1)\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The page heading 'Summary: Analysis & Evidence Policy Option 1' is kept as body text joined to the page 1 signature line.",
+     "evidence": "tree: \"Signed by the responsible Minister : Date: May 2022 Summary: Analysis & Evidence Policy Option 1\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The page 1 minister's statement and the PEOPLE AND SPECIFIC IMPACTS heading sit inside the specific impacts table's text.",
+     "evidence": "\"I have read the Impact Assessment and I am satisfied that...\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The benefits heading row carries a '4.' that is not printed on the page.",
+     "evidence": "source: \"BENEFITS, £m\" / tree: \"4. BENEFITS, £m\""
+    }
+   ],
+   "confidence": "medium",
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"

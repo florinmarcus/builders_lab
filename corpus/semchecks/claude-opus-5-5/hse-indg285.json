@@ -3,6 +3,62 @@
  "model": "claude-opus-5-5",
  "about": "Verdicts of claude-opus-5-5 on source against tree for hse-indg285 (system/rag/semcheck.py).",
  "verdicts": {
+  "87fdceefa182f9dd": {
+   "version_id": "main@2024-12-06-04449ab2",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "high",
+     "problem": "Part of the opening paragraph is lost from the text: it skips from 'as amended by the' to 'of interest to tenants'. Those words survive only in a made-up table.",
+     "evidence": "source: \"as amended by the Gas Safety (Installation and Use) (Amendment) Regulations 2018. It also gives guidance on how to comply\" / tree: \"as amended by the of interest to tenants\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "File junk and the sidebar caption are mixed into the middle of a sentence.",
+     "evidence": "tree: \"provided T124h2INDG2i85sLandlordsAi58spLeafletva1_0.ind 2web-friendly04/04/20181:40 for tenants’ use are safe. version of leaflet INDG285(rev3),\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The sidebar 'This is a web-friendly version of leaflet INDG285(rev3), revised 04/18' is mixed into the body text.",
+     "evidence": "tree: \"These duties to protect tenants’ safety are in addition to the more general revised 04/18 ones\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "A made-up table built from the cover thumbnail and broken text fragments is added to the tree. There is no table on the page.",
+     "evidence": "tree: \"(InstalationandUse)Regulations1998asamended guidance on how to comply with them\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "9277ffd64c40eb3b": {
+   "version_id": "main@2024-12-06-04449ab2",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The separate LPG paragraph after the list is merged into the third bullet of the gas escape steps.",
+     "evidence": "source: \"registered engineer.\" (bullet ends) / tree: \"Gas Safe registered engineer. If you provide liquefied petroleum gas (LPG) for use by a tenant\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
   "72012d2406036c0e": {
    "version_id": "main@2024-12-06-04449ab2",
    "unit": "p5",

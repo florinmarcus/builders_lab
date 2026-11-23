@@ -1,0 +1,374 @@
+{
+ "source_id": "adf-2026",
+ "model": "claude-opus-5-5",
+ "about": "Verdicts of claude-opus-5-5 on source against tree for adf-2026 (system/rag/semcheck.py).",
+ "verdicts": {
+  "6ed381060cd17616": {
+   "version_id": "approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "c08e819801b8ba0c": {
+   "version_id": "approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96",
+   "unit": "p15",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "500cc9f66ea6fdde": {
+   "version_id": "approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96",
+   "unit": "p17",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "Table 1.2 has the wrong second column heading and its two value columns, High rate and Continuous rate, are joined into one.",
+     "evidence": "source: \"Room | High rate (l/s) | Continuous rate\" / tree: columns \"Room\", \"Intermittent extract rate (l/s)\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "63ef8673193b9622": {
+   "version_id": "approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96",
+   "unit": "p18",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "b2bc99973a85dd5f": {
+   "version_id": "approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96",
+   "unit": "p19",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "c4164f2dd75ef8a6": {
+   "version_id": "approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96",
+   "unit": "p21",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The subscript of the index LAeq,1 min was lost, leaving a bare 'L'.",
+     "evidence": "source: \"the LAeq,1 min level will be similar to the dB(A) level\" / tree: \"the L level will be similar to the dB(A) level\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The asterisk footnote printed after the list is run into item b instead of standing as a separate note.",
+     "evidence": "tree: \"intermittent operation system is running. * The noise index LAeq,T is used in BS 8233\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "a579c3299128d14c": {
+   "version_id": "approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96",
+   "unit": "p22",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "8714f0c48dc9893b": {
+   "version_id": "approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96",
+   "unit": "p23",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "9e54a4ce417028af": {
+   "version_id": "approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96",
+   "unit": "p25",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "ccdc477664883bb1": {
+   "version_id": "approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96",
+   "unit": "p26",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "68a28cc7546edc71": {
+   "version_id": "approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96",
+   "unit": "p27",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "c99a295874111742": {
+   "version_id": "approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96",
+   "unit": "p31",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The first column has a heading that is not printed; the source leaves it blank.",
+     "evidence": "source: \"\" / tree: \"Energy efficiency measure\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "Paragraph 3.10 is placed before Diagram 3.1, but on the page the diagram comes first.",
+     "evidence": "Diagram 3.1 ... 3.10 If the method in Diagram 3.1 results"
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "912079d3ce3c5af9": {
+   "version_id": "approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96",
+   "unit": "p36",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "The requirement box's two columns, Requirement and Limits on application, are mixed line by line into one text.",
+     "evidence": "tree: \"F1. (2) Fixed systems for mechanical ventilation and Requirement F1 does not apply to a building or\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The chapter is given number F1, but the printed heading has no number.",
+     "evidence": "tree: \"number\": \"F1\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "ec22c2ef8d6682b1": {
+   "version_id": "approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96",
+   "unit": "p47",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "40273e1565879b58": {
+   "version_id": "approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96",
+   "unit": "p52",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "8769d1b78b7d4a39": {
+   "version_id": "approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96",
+   "unit": "p53",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "2c4d32a6f0f44f6c": {
+   "version_id": "approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96",
+   "unit": "p56",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "12efdf76fee5de6b": {
+   "version_id": "approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96",
+   "unit": "p57",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "7f2fb5a576342b31": {
+   "version_id": "approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96",
+   "unit": "p58",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The three column headings of the 3a.1 equipment schedule are run together across two rows, so the words of 'Date of last UKAS calibration' and 'Certificate number' are mixed up.",
+     "evidence": "source: \"Date of last UKAS calibration\" | \"Certificate number\" / tree: \"... Date of last Certificate\", \"UKAS calibration number\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The 3a.2 column headings (room, measured rate, design rate) are joined into one cell and the design-rate note is split off into its own row, so the form's three columns are lost.",
+     "evidence": "tree: \"Room reference (location of fans) Measured extract rate (l/s) Design extract rate (l/s)\", \"Refer to Table 1.1(1)\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "ca5df322bb7d638a": {
+   "version_id": "approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96",
+   "unit": "p59",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The five column headings of 3b.2 are interleaved line by line into one cell, so 'Refer to Table 1.2' and 'Refer to paragraph 1.20' no longer sit under their design air flow columns, and '1.20' is split into a row of its own.",
+     "evidence": "tree: \"Measured air flow – Design air flow – Measured air flow – Design air flow – (location of fans or high rate (l/s)...\", \"1.20\""
+    },
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The 3b.1 equipment schedule headings are run together across two rows, mixing up 'Date of last UKAS calibration' and 'Certificate number'.",
+     "evidence": "source: \"Date of last UKAS calibration\" | \"Certificate number\" / tree: \"Date of last Certificate\", \"UKAS calibration number\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "46425e60903b3f58": {
+   "version_id": "approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96",
+   "unit": "p60",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The five column headings of 3c.2 are interleaved into one cell, the 'Refer to' notes split into another row and '1.20' into a third, so the references no longer sit under the right design air flow column.",
+     "evidence": "tree: \"Room reference Measured air flow – Design air flow – ...\", \"Refer to Table 1.2(1) Refer to paragraph\", \"1.20\""
+    },
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The 3c.3 supply column headings are interleaved the same way, with 'Refer to Table 1.2' and 'Refer to paragraph 1.20' split from their columns.",
+     "evidence": "tree: \"Refer to Table 1.2 Refer to paragraph\", \"1.20\""
+    },
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The 3c.1 equipment schedule headings are run together across two rows, mixing up 'Date of last UKAS calibration' and 'Certificate number'.",
+     "evidence": "source: \"Date of last UKAS calibration\" | \"Certificate number\" / tree: \"Date of last Certificate\", \"UKAS calibration number\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "8978b8e23dd27ca1": {
+   "version_id": "approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96",
+   "unit": "p62",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "67c4bfdf13b82cad": {
+   "version_id": "approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96",
+   "unit": "p9",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  }
+ }
+}

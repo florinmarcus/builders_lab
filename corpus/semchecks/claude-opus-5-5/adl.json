@@ -1,0 +1,1180 @@
+{
+ "source_id": "adl",
+ "model": "claude-opus-5-5",
+ "about": "Verdicts of claude-opus-5-5 on source against tree for adl (system/rag/semcheck.py).",
+ "verdicts": {
+  "32199af7df6ab9b3": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-1@2023-02-02-1ab93e59",
+   "unit": "p11",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "c72e81d585d8773b": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-1@2023-02-02-1ab93e59",
+   "unit": "p16",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "89c5c74c52d201d1": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-1@2023-02-02-1ab93e59",
+   "unit": "p17",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The one-column regulations box has each row split into two cells mid-sentence, so the grid has a second column that is not in the source and paragraph (4) of each regulation is cut in two.",
+     "evidence": "tree: \"(4) A local authority are authorised to accept, as evidence that the requirements of\" | \"regulation 26 have been satisfied...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "53a63ea6ed609673": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-1@2023-02-02-1ab93e59",
+   "unit": "p18",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The one-column regulations box has its single row split into two cells mid-sentence, adding a second column that is not in the source.",
+     "evidence": "tree: \"(4) A local authority is authorised to\" | \"accept, as evidence that the requirements of regulation 26C...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "b169952f8cff03f6": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-1@2023-02-02-1ab93e59",
+   "unit": "p22",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The superscript exponent in the cylinder loss formula is flattened, so V to the power 2/3 reads as V2/3.",
+     "evidence": "source: \"0.051 V^(2/3)\" (superscript) / tree: \"0.051 V2/3\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "e36ea52b6897e5ac": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-1@2023-02-02-1ab93e59",
+   "unit": "p26",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "ddd25a97e0638869": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-1@2023-02-02-1ab93e59",
+   "unit": "p34",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "9db0edbdfef8d886": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-1@2023-02-02-1ab93e59",
+   "unit": "p35",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "bb97461ef89d2e2e": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-1@2023-02-02-1ab93e59",
+   "unit": "p36",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "In 4.13 the closing line of the first list and the general paragraph after the second list are joined into list items b, so the 0.7 limit reads as part of item b.",
+     "evidence": "source: \"then the element should be upgraded\" ... \"Generally, a thermal element once upgraded\" / tree: \"b. can achieve a simple payback not exceeding 15 years. Generally, a thermal element\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "56f89360645e1a3d": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-1@2023-02-02-1ab93e59",
+   "unit": "p38",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "45ea57e1d19174cc": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-1@2023-02-02-1ab93e59",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Two separate paragraphs printed after the bullet list are merged into the second bullet.",
+     "evidence": "source: \"Those responsible for building work include agents\" (own paragraph) / tree: \"...at an early stage. Those responsible for building work include agents\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "66c05c603d932f30": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-1@2023-02-02-1ab93e59",
+   "unit": "p41",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "dc774bd9a9abb864": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-1@2023-02-02-1ab93e59",
+   "unit": "p42",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "In the Table 4.5 note formula the multiplication sign became a replacement character and the exponent 0.4 was flattened, so the formula reads wrongly.",
+     "evidence": "source: \"(16.66 + 8.33 × V^0.4)/(1000 ÷ 24)\" / tree: \"(16.66 + 8.33 � V0.4)/(1000 ÷ 24)\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "5f84c172b86707cb": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-1@2023-02-02-1ab93e59",
+   "unit": "p46",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The closing sentence of 5.10, which sets the 55°C limit for both cases a and b, is merged into item b, so it seems to apply only to full replacement.",
+     "evidence": "tree: \"b. fully replaced in an existing building, including the heating appliance, emitters and associated pipework all parts of the system including pipework and emitters should be sized\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Paragraphs 5.5 to 5.7 sit under the heading path 'Worked example > Primary energy' instead of directly under 'Replacement building services in existing dwellings'.",
+     "evidence": "tree: \"Replacement building services in existing dwellings > Worked example > Primary energy > Paragraph 5.5\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The closing sentence of 5.8, which applies to the whole paragraph, is merged into item b.",
+     "evidence": "source: \"Systems should not be significantly oversized.\" (own line after item b) / tree: \"...Design Guide. Systems should not be significantly oversized.\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "104db858d92a5ff6": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-1@2023-02-02-1ab93e59",
+   "unit": "p49",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "d25084b7d021b383": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-1@2023-02-02-1ab93e59",
+   "unit": "p50",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The printed Notes column is missing from the columns; its contents are folded into the Minimum efficiency cells behind a 'Notes:' prefix.",
+     "evidence": "source: columns \"System type | Minimum efficiency | Notes\" / tree: columns [\"System type\", \"Minimum efficiency\"], \"75% (as defined in SEDBUK 2009). Notes: Follow paragraph 6.3\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "de972066deb73625": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-1@2023-02-02-1ab93e59",
+   "unit": "p52",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "Table 6.3's printed Notes column is missing from the columns; its contents are folded into the Minimum efficiency cells behind a 'Notes:' prefix.",
+     "evidence": "source: columns \"System type | Minimum efficiency | Notes\" / tree: \"80%. Notes: Follow paragraph 6.9\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "799a9f8913cac030": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-1@2023-02-02-1ab93e59",
+   "unit": "p54",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "a6b8188085b89477": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-1@2023-02-02-1ab93e59",
+   "unit": "p55",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "c88730b809aed7d5": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-1@2023-02-02-1ab93e59",
+   "unit": "p61",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The regulation box printed under the 'Regulation' heading is placed beside that heading in heading_path, not under it.",
+     "evidence": "tree: \"Regulation 43: Pressure testing > Regulation 43: Pressure testing\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "4fc9ea86a0260c62": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-1@2023-02-02-1ab93e59",
+   "unit": "p62",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The separate follow-on paragraph about calibration in 7.2 is joined into list item b.",
+     "evidence": "tree: \"b. A period in accordance with manufacturer’s guidance. Calibration should be carried out in accordance with CIBSE’s TM23.\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "f97244e400319aa5": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-1@2023-02-02-1ab93e59",
+   "unit": "p63",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "bce40a935285f4ff": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-1@2023-02-02-1ab93e59",
+   "unit": "p64",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "e6f9fdc75894e9d1": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-1@2023-02-02-1ab93e59",
+   "unit": "p67",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The second Intention paragraph, about existing dwellings, is joined into item b of the first list, so the two lists run together.",
+     "evidence": "tree: \"b. Other important documentation, as given in paragraphs 9.3 to 9.5. In the Secretary of State’s view, the requirements of regulations 40 and 40A are met when work...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "09734948e3c19d34": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-1@2023-02-02-1ab93e59",
+   "unit": "p75",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The one-column regulation box has a row with two cells, split in the middle of paragraph (f); the text is complete.",
+     "evidence": "tree: \"(f) in the case of a material\" | \"change of use described in regulation 5(a), (b), (c), (g), (h) or (i)\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "d3717db066c3fbaf": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-1@2023-02-02-1ab93e59",
+   "unit": "p76",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The one-column regulation box has a row with two cells, split in the middle of paragraph (3); the text is complete.",
+     "evidence": "tree: \"materials of European Classification\" | \"A2-s1, d0 or A1, classified in accordance with BS EN 13501-1\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "da51a0690a6a9ff9": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-1@2023-02-02-1ab93e59",
+   "unit": "p83",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The subscript PE is lost from the unit of the dwelling primary energy rate, so the unit reads as plain kWh.",
+     "evidence": "source: \"Expressed as kWhPE/(m2·year)\" / tree: \"Expressed as kWh / (m2·year)\""
+    },
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The asterisks that mark two terms as defined in the Building Regulations 2010 are dropped, although the note relies on them.",
+     "evidence": "source: \"*Controlled service or fitting\", \"*Energy efficiency requirements\" / tree: \"Controlled service or fitting\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "661b5432ab658b4f": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-1@2023-02-02-1ab93e59",
+   "unit": "p90",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "3872529c1b366d86": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-1@2023-02-02-1ab93e59",
+   "unit": "p91",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "c3a0e8ecbd1fdb06": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-1@2023-02-02-1ab93e59",
+   "unit": "p92",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "5e3779445ff7dfe2": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-1@2023-02-02-1ab93e59",
+   "unit": "p93",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "7fff6eca947d82d4": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-1@2023-02-02-1ab93e59",
+   "unit": "p94",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "3a76f2d11462f1c4": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-1@2023-02-02-1ab93e59",
+   "unit": "p95",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The superscript exponent 2/3 on V is flattened, so the cylinder loss formula reads as V times 2/3 rather than V to the power 2/3.",
+     "evidence": "source: \"0.051 V^(2/3)\" (superscript) / tree: \"0.051 V2/3\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "d4a0885943da3882": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-2@2023-02-02-951ba0b9",
+   "unit": "p102",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The LENI formula is broken apart: the subscripts p, d, n are separated from the E terms and the fraction is run into one line, so the formula cannot be read.",
+     "evidence": "source: \"LENI (%) = (Ep + Ed + En) / A\" / tree: \"E + E + E LENI (%) = p d n A\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "61de10086275fea6": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-2@2023-02-02-951ba0b9",
+   "unit": "p105",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "c0aa11e77a333a53": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-2@2023-02-02-951ba0b9",
+   "unit": "p106",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "705fee9ba6ed12bb": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-2@2023-02-02-951ba0b9",
+   "unit": "p11",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "a81d76ef6b09a72f": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-2@2023-02-02-951ba0b9",
+   "unit": "p16",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "2a353525a2861730": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-2@2023-02-02-951ba0b9",
+   "unit": "p17",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "Each regulation row in the one-column box is split into two cells in the middle of paragraph (4), so the grid has two cells under a single column.",
+     "evidence": "tree: \"(4) A local authority are authorised to accept, as evidence that the requirements of\" | \"regulation 26 have been satisfied, ...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "2fc5c90c0a0f6683": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-2@2023-02-02-951ba0b9",
+   "unit": "p23",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "362f0766f8a41f12": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-2@2023-02-02-951ba0b9",
+   "unit": "p24",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "39d12471c3514529": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-2@2023-02-02-951ba0b9",
+   "unit": "p25",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "56f97d7ec314f9aa": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-2@2023-02-02-951ba0b9",
+   "unit": "p35",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "915bff426d6d3175": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-2@2023-02-02-951ba0b9",
+   "unit": "p37",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "f577f071c5030551": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-2@2023-02-02-951ba0b9",
+   "unit": "p39",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "123016183da0224b": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-2@2023-02-02-951ba0b9",
+   "unit": "p40",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "26f1768dbdf2a423": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-2@2023-02-02-951ba0b9",
+   "unit": "p41",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "634add5ce469e677": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-2@2023-02-02-951ba0b9",
+   "unit": "p42",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The exponent 2/3 on V in the heat loss formulas is flattened to plain text, so it reads like V2/3 rather than V to the power 2/3.",
+     "evidence": "source: \"1.28 × (0.2 + 0.051V^(2/3))\" / tree: \"1.28 × (0.2 + 0.051V2/3)\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "6480a7ff7f83d4a7": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-2@2023-02-02-951ba0b9",
+   "unit": "p44",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The lead-in sentence for the existing-buildings list is merged into item c of the new-buildings list instead of standing as its own paragraph.",
+     "evidence": "tree: \"c. Any on-site electricity generation is both appropriately sized and has controls. In the Secretary of State’s view, requirements L1(b)(i), (ii) and L2 are met in existing buildings\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "3ec56ebf0bdee2fe": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-2@2023-02-02-951ba0b9",
+   "unit": "p49",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "0094bc2fd9cfeeec": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-2@2023-02-02-951ba0b9",
+   "unit": "p50",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "96dd490e3ddf6659": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-2@2023-02-02-951ba0b9",
+   "unit": "p52",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "Table 6.3 has the wrong column headings (copied from the boiler tables), and the efficiency and product standard are merged into one column while a 'System' column is empty.",
+     "evidence": "source: \"Warm air heater type | Heat generator seasonal efficiency (net calorific value/thermal efficiency) | Product standard\" / tree: \"Fuel type | System | Boiler seasonal efficiency (gross calorific value)\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "In 6.12 the sentence after the list of test standards is merged into item b.",
+     "evidence": "tree: \"b. BS EN 13842. The calculation of the thermal efficiency (net calorific value) should both:\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "2a0bac470b154fef": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-2@2023-02-02-951ba0b9",
+   "unit": "p53",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "In 6.12 the sentence that follows the list of test standards is merged into item b.",
+     "evidence": "source: \"b. BS EN 13842.\" then \"The calculation of the thermal efficiency...\" / tree: \"b. BS EN 13842. The calculation of the thermal efficiency (net calorific value) should both:\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "f40c3ff666e10bc5": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-2@2023-02-02-951ba0b9",
+   "unit": "p55",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "Equation 6.6 in paragraph 6.25 is scrambled, so the terms of the formula no longer read in order.",
+     "evidence": "source: \"heater output = recovery rate of heater in litres/second × specific heat capacity of water × temperature rise of water\" / tree: \"heater temperature rise = of heater in × capacity of × output of water litres/second water\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "36580c6b6b74c532": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-2@2023-02-02-951ba0b9",
+   "unit": "p56",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The closing sentence of 6.30, printed as its own line after items a and b, is joined into item b.",
+     "evidence": "source: \"Manual reset should be possible if there is an over-temperature trip.\" (own line) / tree: \"b. The system temperature gets too high. Manual reset should be possible...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "8745b34bb207b0b1": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-2@2023-02-02-951ba0b9",
+   "unit": "p57",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The source header 'Cooling unit SEER' sits over the value column only, but the tree splits it into a 'Cooling unit' column for the subtypes and a 'SEER' column; values are still right.",
+     "evidence": "source: \"Type\" / \"Cooling unit SEER\" / tree: columns \"Type\", \"Cooling unit\", \"SEER\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "2f20a7d282c8bf78": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-2@2023-02-02-951ba0b9",
+   "unit": "p58",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "600893d05b193679": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-2@2023-02-02-951ba0b9",
+   "unit": "p59",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "8ee46083a0318bd1": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-2@2023-02-02-951ba0b9",
+   "unit": "p60",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "e1b1a86f9355dea0": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-2@2023-02-02-951ba0b9",
+   "unit": "p61",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The rating weighted average formula in note 4 is garbled: multiplication signs became replacement characters and the subscripts are split off onto separate lines.",
+     "evidence": "source: \"[(Pmains,1 × SFP1) + (Pmains,2 × SFP2)+(Pmains,3 × SFP3) + ...]\" / tree: \"[(P �SFP ) + (P � SFP )+(P � SFP )+ ...] mains,1 1 mains,2 2\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "55f4204d6374b890": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-2@2023-02-02-951ba0b9",
+   "unit": "p69",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "3c91b409988fdd0f": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-2@2023-02-02-951ba0b9",
+   "unit": "p70",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "6d3f763a8b230e8c": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-2@2023-02-02-951ba0b9",
+   "unit": "p73",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The superscript exponent in the air leakage formulas and the unit is flattened, so the power 0.65 and m squared read as plain digits.",
+     "evidence": "source: \"0.027 Δp^0.65\", \"l/(s·m²)\" / tree: \"0.027 ∆p0.65\", \"l/(s·m2)\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "e8d1178098280b62": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-2@2023-02-02-951ba0b9",
+   "unit": "p74",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The second Intention paragraph for existing buildings is run into list item b of the new-building list instead of standing as its own paragraph.",
+     "evidence": "tree: \"b. Other important documentation, as given in paragraphs 9.4 to 9.6. In the Secretary of State’s view, the requirements of regulations 40 and 40A are met when work...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "ca86742fb9d29336": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-2@2023-02-02-951ba0b9",
+   "unit": "p77",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "cf416622922043a9": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-2@2023-02-02-951ba0b9",
+   "unit": "p79",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "128eaa22d8ee1f8a": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-2@2023-02-02-951ba0b9",
+   "unit": "p82",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "f8c6748217277e4e": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-2@2023-02-02-951ba0b9",
+   "unit": "p85",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The single regulation box is split into two grid cells in one row, breaking item (f) mid-sentence; all words are kept.",
+     "evidence": "tree: \"(f) in the case of a material\" | \"change of use described in regulation 5(a), (b), (c), (g), (h) or (i)\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "e510aefef1e93183": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-2@2023-02-02-951ba0b9",
+   "unit": "p86",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The regulation box text for paragraph (3) is split across two grid cells mid-sentence; all words are kept.",
+     "evidence": "tree: \"materials of European Classification\" | \"A2-s1, d0 or A1, classified in accordance with BS EN 13501-1\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "6a35f8ae985dbd75": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-2@2023-02-02-951ba0b9",
+   "unit": "p93",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "4c74bc249e2c5ae0": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-2@2023-02-02-951ba0b9",
+   "unit": "p97",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "Table A1 row label 'Red' is wrong in the grid.",
+     "evidence": "source: \"Red 610–670 95\" / tree: \"Fired\", \"610–670\", \"95\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The defined term 'Fixed building services' and its list (ending with item c on this page) are merged into the 'Fit-out work' definition instead of standing as their own definition.",
+     "evidence": "tree: \"at a later date, after the shell has been completed. *Fixed building services Defined in regulation 2(1) as\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The term 'Heating appliance or heat generator' is cut; 'or heat generator' is left at the start of the definition text.",
+     "evidence": "source: \"Heating appliance or heat generator The part of\" / tree: \"or heat generator The part of a heating system\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "5544a9462621d295": {
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-2@2023-02-02-951ba0b9",
+   "unit": "p98",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The definition 'Material change of use' and its list a-k are merged into the 'Major renovation' definition.",
+     "evidence": "tree: \"undergoes renovation. *Material change of use Defined in regulation 5 as:\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The multiplication sign in the Luminaire lumens formula is a replacement character.",
+     "evidence": "source: \"(light source lumens × light output ratio)\" / tree: \"(light source lumens � light output ratio)\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "1665ba9ba5f1255e": {
+   "version_id": "february-2023-amendments-to-approved-document-l-volume-1-and@2023-02-02-a5002d31",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The paragraphs printed after list item b (the note on meanings, the provision the changes focus on, and the closing line) are run into item b's text.",
+     "evidence": "tree: \"b. is started within the period of six months beginning on that day. Please note that ‘building notice’...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "a55bcfc1f41a116f": {
+   "version_id": "february-2023-amendments-to-approved-document-l-volume-1-and@2023-02-02-a5002d31",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "e29b92cfad78960b": {
+   "version_id": "february-2023-amendments-to-approved-document-l-volume-1-and@2023-02-02-a5002d31",
+   "unit": "p6",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  }
+ }
+}

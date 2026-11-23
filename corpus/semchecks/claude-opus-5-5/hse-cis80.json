@@ -1,0 +1,63 @@
+{
+ "source_id": "hse-cis80",
+ "model": "claude-opus-5-5",
+ "about": "Verdicts of claude-opus-5-5 on source against tree for hse-cis80 (system/rag/semcheck.py).",
+ "verdicts": {
+  "43abc8cdd15605c0": {
+   "version_id": "main@2024-12-06-a88d10b2",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The intro text ends with words from page 2: a fragment of the table header plus the guidance notice and copyright line.",
+     "evidence": "tree: \"to record your plan. present do you have? This guidance is issued by the Health and Safety Executive.\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is joined to the last sentence.",
+     "evidence": "tree: \"free smartphone app CDM wizard. 1\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "32c62ed587d232a1": {
+   "version_id": "main@2024-12-06-a88d10b2",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The hazards template table is read as running text, and each hazard heading is joined to the last bullet of the previous hazard, so controls sit under the wrong heading.",
+     "evidence": "tree: \"using guardrails, midrails and toeboards Collapse of excavations\""
+    },
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The column headings 'Hazard is present' and 'What controls do you have?' are split; half is in this text and half moved into page 1 text.",
+     "evidence": "source: \"Hazard is present\" \"What controls do you have?\" / tree: \"Hazard is What controls\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The Plan and Working together form is read as one run-on note, not as a form or table of fields.",
+     "evidence": "tree: \"Your name/company Name and address of client Contact details of architect\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  }
+ }
+}

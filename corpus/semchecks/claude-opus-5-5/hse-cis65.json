@@ -82,6 +82,37 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "2c5485bde277d1ce": {
+   "version_id": "main@2024-12-06-5bab86dd",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "The two columns of the Further information text are interleaved line by line into one text.",
+     "evidence": "tree: \"For information about health and safety, or This leaflet is available at: to report inconsistencies or inaccuracies in www.hse.gov.uk/pubns/cis65.pdf.\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The overhead power lines case text is placed after Further information instead of under its own box heading.",
+     "evidence": "tree: \"A new employee without proper training parked beneath three overhead 11KV cables\" after \"Further information > Text\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The box headings are kept as notes, not headings, so the case text is not under 'Overhead power lines'.",
+     "evidence": "tree: note \"Overhead power lines\"; note \"Good practice Bad practice\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
   }
  }
 }

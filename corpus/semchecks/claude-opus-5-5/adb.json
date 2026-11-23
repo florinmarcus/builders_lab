@@ -1,0 +1,774 @@
+{
+ "source_id": "adb",
+ "model": "claude-opus-5-5",
+ "about": "Verdicts of claude-opus-5-5 on source against tree for adb (system/rag/semcheck.py).",
+ "verdicts": {
+  "5da4cd0960627b4b": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings@2026-09-16-fabdc362",
+   "unit": "p104",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "db8fa292a0949287": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings@2026-09-16-fabdc362",
+   "unit": "p107",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The group heading over the four distance columns is dropped from the column names, so the columns read only as bare distances.",
+     "evidence": "source: \"Distance from any point on relevant boundary\" / tree columns: \"Less than 6m\", \"At least 6m\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "70b5175756a83def": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings@2026-09-16-fabdc362",
+   "unit": "p108",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "ffe19020ef68c546": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings@2026-09-16-fabdc362",
+   "unit": "p109",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "4dc6abfecd2c95e1": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings@2026-09-16-fabdc362",
+   "unit": "p112",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "ea629d31dfaaa500": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings@2026-09-16-fabdc362",
+   "unit": "p118",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Three closing paragraphs of 15.8 that apply to the whole firefighting shaft are merged into sub-item ii (Compartmentation), so the venting, services and 7.5m lift door rules sit under the wrong item.",
+     "evidence": "tree: \"ii. Compartmentation (Section 7). Both the stair and lobby of the firefighting shaft should be provided with a means of venting smoke\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The closing sentence of 15.3, which applies to the whole paragraph, is merged into item b.",
+     "evidence": "tree: \"...do not need to include firefighting lifts. The building’s height and size determine whether firefighting shafts also serve upper storeys.\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "852ff7869c857a0f": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings@2026-09-16-fabdc362",
+   "unit": "p130",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "80e423bc4fe620c3": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings@2026-09-16-fabdc362",
+   "unit": "p139",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "efa12da26691a6e8": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings@2026-09-16-fabdc362",
+   "unit": "p140",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "2eadb14b8d7aeeb2": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings@2026-09-16-fabdc362",
+   "unit": "p141",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "d5e794d36ad1d07b": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings@2026-09-16-fabdc362",
+   "unit": "p142",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "5860f4a9ac2b1ca1": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings@2026-09-16-fabdc362",
+   "unit": "p143",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "4f76a51da75d7c38": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings@2026-09-16-fabdc362",
+   "unit": "p144",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "0ab0c3891cd6495c": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings@2026-09-16-fabdc362",
+   "unit": "p145",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "468b19566003d16f": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings@2026-09-16-fabdc362",
+   "unit": "p147",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The column names drop the spanning header 'Maximum total glazed area in parts of a building with access to:', so the stair columns lose what they measure.",
+     "evidence": "source: \"Maximum total glazed area in parts of a building with access to: A single stair Walls\" / tree: \"A single stair: Walls\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "5928a3056557ac69": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings@2026-09-16-fabdc362",
+   "unit": "p148",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The column names drop the spanning header 'Maximum total glazed area in parts of a building with access to:', so the stair columns lose what they measure.",
+     "evidence": "source: \"Maximum total glazed area in parts of a building with access to: A single stair Walls\" / tree: \"A single stair: Walls\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "f2f65dd8d73cea66": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings@2026-09-16-fabdc362",
+   "unit": "p151",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "2b86c83245af2263": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings@2026-09-16-fabdc362",
+   "unit": "p153",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The column names drop the spanning header over Loadbearing capacity, Integrity and Insulation, losing the unit 'minutes' and the note references (1) and (2).",
+     "evidence": "source: \"Minimum provisions when tested and classified to the relevant European standard (minutes)(1) or assessed ... (minutes)(2)\" / tree: \"Integrity\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "d9b72295993ca93d": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings@2026-09-16-fabdc362",
+   "unit": "p154",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "726f16e40cd8705b": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings@2026-09-16-fabdc362",
+   "unit": "p155",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "637fe3bb465e1a40": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings@2026-09-16-fabdc362",
+   "unit": "p156",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "In row 23, 'See Table C1' looks printed across all three provision columns, but the grid puts it under Loadbearing capacity only and leaves Integrity and Insulation empty.",
+     "evidence": "source: \"23. Fire doorsets See Table C1\" / tree: [\"23. Fire doorsets\", \"\", \"See Table C1\", \"\", \"\", \"See Appendix C\"]"
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "3f3c8f5a90e69f1f": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings@2026-09-16-fabdc362",
+   "unit": "p157",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "40e0f4186fedebd1": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings@2026-09-16-fabdc362",
+   "unit": "p158",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "581cce7177105d19": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings@2026-09-16-fabdc362",
+   "unit": "p16",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "9f2cd1e1776bcb08": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings@2026-09-16-fabdc362",
+   "unit": "p160",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "fabb697297d432c1": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings@2026-09-16-fabdc362",
+   "unit": "p161",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "9511c854a3063463": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings@2026-09-16-fabdc362",
+   "unit": "p164",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading path puts paragraphs C13-C15 and Table C1 under a heading 'BS EN 81-58.', which is a standard reference, not a heading on the page.",
+     "evidence": "tree: \"Appendix C: Fire doorsets > BS EN 81-58. > Paragraph C13\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "65d2a20d8ca809e1": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings@2026-09-16-fabdc362",
+   "unit": "p165",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading path puts Table C1 under a heading 'BS EN 81-58.', which is a standard reference, not a heading.",
+     "evidence": "tree: \"Appendix C: Fire doorsets > BS EN 81-58. > Provisions for fire doorsets\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The superscript in the leakage rate unit is lost, so cubic metres reads as 3m3.",
+     "evidence": "source: \"3m³/m/hour\" / tree: \"3m3/m/hour\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "20303f0fa9fdc2fe": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings@2026-09-16-fabdc362",
+   "unit": "p168",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading path puts paragraphs C12-C15 and Table C1 under a heading 'BS EN 81-58.', which is a standard reference, not a heading.",
+     "evidence": "tree: \"Appendix C: Fire doorsets > BS EN 81-58. > Paragraph C12\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "6ee487229c75657f": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings@2026-09-16-fabdc362",
+   "unit": "p169",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading path puts Table C1 under a heading 'BS EN 81-58.', which is a standard reference, not a heading.",
+     "evidence": "tree: \"Appendix C: Fire doorsets > BS EN 81-58. > Provisions for fire doorsets\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "b61824d7e3017e3d": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings@2026-09-16-fabdc362",
+   "unit": "p17",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "381c14d7869ea38c": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings@2026-09-16-fabdc362",
+   "unit": "p171",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "055230bc97702005": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings@2026-09-16-fabdc362",
+   "unit": "p177",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "0045e99482195af0": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings@2026-09-16-fabdc362",
+   "unit": "p18",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "1cbf0c691604294e": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings@2026-09-16-fabdc362",
+   "unit": "p192",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "d09c229c1969373d": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings@2026-09-16-fabdc362",
+   "unit": "p196",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "bf98564f32835898": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings@2026-09-16-fabdc362",
+   "unit": "p197",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "992bd0500968a874": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings@2026-09-16-fabdc362",
+   "unit": "p21",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "02bbc5f7261bc758": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings@2026-09-16-fabdc362",
+   "unit": "p29",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Diagram 2.7 labels run separate labels together and duplicate the para reference; the description gives them correctly.",
+     "evidence": "source: \"See para 2.17\" / tree: \"See para 2.1S7ee par\", \"6m max. stair height without top landing side of stairway\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "a6f6a4bfc95e3b90": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings@2026-09-16-fabdc362",
+   "unit": "p36",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Diagram 3.5 labels split \"9m max.\" into pieces and run one into the note text.",
+     "evidence": "source: \"9m max.\" / tree: \"max.\", \"m\", \"9\", \"9m than 4.5m above ground level.\""
+    },
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "Diagram 3.6 labels lack the \"9m max.\" dimension, though the description keeps it.",
+     "evidence": "source: \"9m max.\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "e30d300126420f79": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings@2026-09-16-fabdc362",
+   "unit": "p38",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "Table 3.1's spanning header row, with note reference (1), is not in the column names; it is kept only in the table text.",
+     "evidence": "source: \"Maximum travel distance from flat entrance door to storey exit or stair lobby(1)\" / tree columns: \"Escape in one direction\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "3b14d1c208731070": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings@2026-09-16-fabdc362",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "fc7be5dbac61a1d7": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings@2026-09-16-fabdc362",
+   "unit": "p56",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "cc446622d37b5b4d": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings@2026-09-16-fabdc362",
+   "unit": "p60",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "24875d9b01d1c575": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings@2026-09-16-fabdc362",
+   "unit": "p63",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "23869ca8ae473124": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings@2026-09-16-fabdc362",
+   "unit": "p77",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "a6075ccc9fca17d6": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings@2026-09-16-fabdc362",
+   "unit": "p79",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Diagram 8.1 is printed above the heading 'Cavities affecting alternative escape routes' and refers to para 8.2, but the tree puts it after para 8.6 under that heading.",
+     "evidence": "source: \"See para 8.2\" / tree heading_path: \"... > Cavities affecting alternative escape routes > Provisions for cavity barriers\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "8d281378ad2e2c21": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings@2026-09-16-fabdc362",
+   "unit": "p84",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The group heading over columns (a)-(c), which gives the unit mm, is dropped from the column names, so the grid values carry no unit.",
+     "evidence": "source: \"Pipe material and maximum nominal internal diameter (mm)\" / tree columns: \"(a) High melting point metal(1)\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "In para 9.9 the sentence that introduces items i and ii is joined into item b instead of standing as its own lead-in.",
+     "evidence": "tree: \"b. Any filters or other air cleaning equipment. When smoke is detected, detectors should do one of the following.\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "65fd19955dc75d65": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings@2026-09-16-fabdc362",
+   "unit": "p86",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "figure",
+   "findings": [
+    {
+     "kind": "figure",
+     "severity": "low",
+     "problem": "In Diagram 9.3 the key text is interleaved with the plan's 'serving area' and 'Fd' labels, so the labels read out of order.",
+     "evidence": "tree: \"Ductwork classified EIS X in accordance with\", \"serving area BS EN 13501-3, where X is the fire\", \"Fd resistance rating\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "53655f657d09f794": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings@2026-09-16-fabdc362",
+   "unit": "p89",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The Regulation 7 box is not placed under the 'Regulation' heading; its heading path and title name Requirement B4 instead.",
+     "evidence": "tree: \"Requirement B4: External fire spread > Requirement B4: External fire spread\" for \"Regulation 7 – Materials and workmanship\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "a402c827d0380adc": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings@2026-09-16-fabdc362",
+   "unit": "p93",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "f1498898bed17a41": {
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings@2026-09-16-fabdc362",
+   "unit": "p96",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  }
+ }
+}

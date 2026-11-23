@@ -1,0 +1,56 @@
+{
+ "source_id": "fser-fire-doors",
+ "model": "claude-opus-5-5",
+ "about": "Verdicts of claude-opus-5-5 on source against tree for fser-fire-doors (system/rag/semcheck.py).",
+ "verdicts": {
+  "505f4c44b6330199": {
+   "version_id": "fire-doors-checklist-accessible@2025-08-08-d2ee24c0",
+   "unit": "part1",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "1d54e0656a87be4f": {
+   "version_id": "fire-safety-england-regulations-2022-fire-door-guidance-acce@2025-08-08-cc46c3f4",
+   "unit": "part1",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "0d0a5f128542617c": {
+   "version_id": "fire-safety-england-regulations-2022-fire-door-guidance-acce@2025-08-08-cc46c3f4",
+   "unit": "part2",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The subheading 'Flat entrance doors' is kept as the last line of paragraph 6.4 instead of as a heading over 6.5 to 6.7.",
+     "evidence": "source: \"<p> Flat entrance doors\" / tree: 6.4 text ends \"...as soon as reasonably practicable.\", \"Flat entrance doors\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The two closing paragraphs that sum up the whole guide are attached to paragraph 6.14 about plant room doors.",
+     "evidence": "\"Fire doors checks are vital in making sure your block of flats is safe for residents.\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  }
+ }
+}

@@ -1,0 +1,70 @@
+{
+ "source_id": "hse-indg401",
+ "model": "claude-opus-5-5",
+ "about": "Verdicts of claude-opus-5-5 on source against tree for hse-indg401 (system/rag/semcheck.py).",
+ "verdicts": {
+  "d5f6bacdba2c23d1": {
+   "version_id": "main@2024-12-06-c3f93e26",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The paragraph after the list is merged into the last bullet, and the 'mobile platform' exception is merged into the 'seven days' bullet.",
+     "evidence": "tree: \"at intervals not exceeding seven days. Where it is a mobile platform, a new inspection and report is not required\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The three sub-points under 'take account of factors such as' are flattened to the same level as the main bullets, and the WAIT paragraph is joined to the last one.",
+     "evidence": "tree: \"• the risks to the safety of everyone where the work equipment will be used. If you are still unsure which type of equipment to use\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "cef73260801a49fb": {
+   "version_id": "main@2024-12-06-c3f93e26",
+   "unit": "p6",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Paragraphs that follow a bullet list are joined onto the last bullet, so an employer duty reads as part of an employee bullet.",
+     "evidence": "tree: \"before continuing). You must consult your employees\" / \"the best ways of providing information and training. Employers can ask employees\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "ed661fcff860a77a": {
+   "version_id": "main@2024-12-06-c3f93e26",
+   "unit": "p7",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page footer imprint is kept as a text block under Further information.",
+     "evidence": "tree: \"Published by the Health and Safety Executive 01/14 INDG401(rev2) Page 7 of 7\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  }
+ }
+}

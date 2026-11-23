@@ -3,6 +3,62 @@
  "model": "claude-opus-5-5",
  "about": "Verdicts of claude-opus-5-5 on source against tree for awaab-collection (system/rag/semcheck.py).",
  "verdicts": {
+  "c8b0d0f543bdfe73": {
+   "version_id": "awaabs-law-consultation-on-timescales-for-repairs--awaab-s-law-consultation-stage-impact-assessment@2025-06-25-763b5a3a",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The cost table's grid drops its group heading, so the values lose their price basis.",
+     "evidence": "source: \"Cost of Preferred (or more likely) Option (in 2019 prices, 2020 present value)\" / tree columns: \"Total Net Present Social Value\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The 'What is the problem under consideration?' text box is put into the cost table as a grid row under the value columns.",
+     "evidence": "tree grid row: \"What is the problem under consideration? Why is government action or intervention necessary? Following the Grenfell Tower tragedy\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The title/date table printed at the top of the page comes last, after the cost table and after the running text block.",
+     "evidence": "\"Date: 9 January 2024\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading 'Summary: Intervention and Options' and the RPC opinion box are read as body text at the start of a text block.",
+     "evidence": "tree: \"Impact Assessment (IA) Summary: Intervention and Options RPC Opinion: N/A RPC Opinion Status What are the policy objectives\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "349beb33aa386f7e": {
+   "version_id": "awaabs-law-consultation-on-timescales-for-repairs--awaab-s-law-consultation-stage-impact-assessment@2025-06-25-763b5a3a",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The box heading is read as body text and run into the paragraph.",
+     "evidence": "source heading: \"What are the policy objectives of the action or intervention and the intended effects?\" / tree: \"RPC Opinion Status What are the policy objectives ... effects? The overall objective\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
   "14c683a7ab2bca23": {
    "version_id": "awaabs-law-consultation-on-timescales-for-repairs--awaab-s-law-consultation-stage-impact-assessment@2025-06-25-763b5a3a",
    "unit": "p24",
@@ -85,6 +141,62 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "1efc3fc443fae864": {
+   "version_id": "awaabs-law-consultation-on-timescales-for-repairs--awaab-s-law-consultation-stage-impact-assessment@2025-06-25-763b5a3a",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The whole policy-options box and the small table below it are given twice, once as a one-column table and again as a two-column Question/Answer table.",
+     "evidence": "tree: document-table-p3 and document-table-4 both hold \"What policy options have been considered, including any alternatives to regulation?...\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The signed-by line comes before the 'I have read the Impact Assessment' statement, which is kept as notes of the second table copy, although on the page the statement is printed above the signature.",
+     "evidence": "source: \"I have read the Impact Assessment ... Signed by the responsible:SELECT SIGNATORY\" / tree: \"Signed by the responsible...\" then \"I have read the Impact Assessment\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "6f55cfc2d42f9b51": {
+   "version_id": "awaabs-law-consultation-on-timescales-for-repairs--awaab-s-law-consultation-stage-impact-assessment@2025-06-25-763b5a3a",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The description line and 'FULL ECONOMIC ASSESSMENT', printed under the heading above the tables, are placed after both tables.",
+     "evidence": "source: \"Description: Legislate for timescales for landlords to respond to hazards (Recommended option) FULL ECONOMIC ASSESSMENT\" (printed before the Price Base table)"
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "cbaf4af7540a6eb4": {
+   "version_id": "awaabs-law-consultation-on-timescales-for-repairs--awaab-s-law-consultation-stage-impact-assessment@2025-06-25-763b5a3a",
+   "unit": "p6",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
   "204e8062aa097cad": {
    "version_id": "awaabs-law-consultation-on-timescales-for-repairs--awaab-s-law-consultation-stage-impact-assessment@2025-06-25-763b5a3a",
    "unit": "p9",
@@ -116,6 +228,62 @@
      "severity": "low",
      "problem": "The bold question heading is read as body text under 'Case study'.",
      "evidence": "source: \"Why is government best placed to resolve the issue? Could the issue be resolved without intervention...\" / tree: same words at start of text block"
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "7af8305efa6b4324": {
+   "version_id": "awaabs-law-consultation-on-timescales-for-repairs--awaab-s-law-final-stage-impact-assessment@2025-06-25-6bb2585a",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The whole 'What is the problem under consideration?' heading and its four paragraphs are kept only as notes in the cost table's text, not as their own heading and text.",
+     "evidence": "tree table text: \"N/A £-180.6m £-92.7m £10.8m What is the problem under consideration? Why is government action or intervention necessary?\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The title and date box printed at the top of the page comes after the cost table in the tree.",
+     "evidence": "tree: \"document-table-p1\" (cost) before \"document-table-3\" (\"Date: 23 June 2025\")"
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "b50a52bfbda5e476": {
+   "version_id": "awaabs-law-consultation-on-timescales-for-repairs--awaab-s-law-final-stage-impact-assessment@2025-06-25-6bb2585a",
+   "unit": "p12",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The footnote 9 words 'Table 1 in the Risks and Assumptions section.' were taken as a table caption, and a table not printed on this page was placed under Policy objective.",
+     "evidence": "source: \"A summary of responses can be found in Table 1 in the Risks and Assumptions section.\" / tree: \"Table 1 in the Risks and Assumptions section.\""
+    },
+    {
+     "kind": "extra",
+     "severity": "high",
+     "problem": "The table grid of survey questions and response bounds is not on this page.",
+     "evidence": "tree: \"How many non-emergency responsive repairs were carried out per property owned in the financial year 2022-23?\", \"1.7\", \"4.2\", \"6.6\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Footnote 9 is split: its middle is moved before footnote 7 and its end is lost into the table title, so the footnotes are kept as table notes in broken order.",
+     "evidence": "source: \"9 This survey was conducted in Summer 2023 ... on the volume and current speed\" / tree: \"and current speed of non-emergency ... can be found in\" first, then \"9 This survey ... the volume\""
     }
    ],
    "confidence": "high",
@@ -279,6 +447,136 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "4a72259abc6c289b": {
+   "version_id": "awaabs-law-consultation-on-timescales-for-repairs--awaab-s-law-final-stage-impact-assessment@2025-06-25-6bb2585a",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "The bullet list is split: the first line of each bullet sits in a separate block after the table, while the bullets' second lines are run into the earlier paragraph as fragments, so time limits lose their trigger and conditions.",
+     "evidence": "source: \"within 5 working days of the investigation concluding.*\" / tree: \"within 5 working days of\" ... \"Awaab’s Law requires social landlords to: of the investigation concluding. the investigation concluding.*\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The paragraph block holds orphan bullet endings run together, which read as nonsense.",
+     "evidence": "tree: \"(excluding hazard remediation work) as soon as possible and within 24 hours. the investigation has concluded. complete work to make the home safe within 5 working days\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The bullet list is placed after the table, though it is printed in the box above it, before the cladding note.",
+     "evidence": "\"Investigate any potential hazards within 10 working days of becoming aware of them.\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "7dcd3d8f5965218f": {
+   "version_id": "awaabs-law-consultation-on-timescales-for-repairs--awaab-s-law-final-stage-impact-assessment@2025-06-25-6bb2585a",
+   "unit": "p6",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The description line and FULL ECONOMIC ASSESSMENT, printed under the heading above the tables, are placed after both tables.",
+     "evidence": "\"Description: Legislate for timescales for landlords to respond to hazards (Recommended option) FULL ECONOMIC ASSESSMENT\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "A word is split in the notes heading.",
+     "evidence": "source: \"Description and scale\" / tree: \"Descriptio n and scale\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "e27c53b6ed3dc6b4": {
+   "version_id": "awaabs-law-consultation-on-timescales-for-repairs--awaab-s-law-final-stage-impact-assessment@2025-06-25-6bb2585a",
+   "unit": "p7",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The BENEFITS table header row is read as a section heading, and the benefits text is placed under it instead of under its own box headings.",
+     "evidence": "tree heading: \"BENEFITS (£m) Total Transition Average Annual Total Benefit\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The box headings for the monetised and non-monetised benefits are missing from the text, so the two boxes run together as one text; the headings appear only, empty, in the table's text.",
+     "evidence": "source: \"Other key non-monetised benefits by ‘main affected groups’\" / tree text: \"(PV, -£34.3m). An expected outcome of Awaab’s Law\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The BENEFITS table is placed after the description text that is printed below it.",
+     "evidence": "\"Best Estimate 0 -4.1 -34.3\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Table text has a garbled fragment for the cut-off header word.",
+     "evidence": "tree: \"Pi )\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "ee2ccc7018012f4d": {
+   "version_id": "awaabs-law-consultation-on-timescales-for-repairs--awaab-s-law-final-stage-impact-assessment@2025-06-25-6bb2585a",
+   "unit": "p8",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The business table's grid loses its group heading, so the values do not say they are equivalent annual direct impact on business in £m at 2025 prices.",
+     "evidence": "source: \"Direct impact on business (Equivalent Annual) £m (2025 Prices, 2025 present value):\" / tree columns: \"Costs\", \"Benefits\", \"Net\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The Key assumptions/sensitivities/risks heading and the discount rate 3.5 are not attached to the paragraph they head; the paragraph is run into the inherent benefits text and the rate sits only in the benefits table's text.",
+     "evidence": "source: \"Key assumptions/sensitivities/risks Discount rate 3.5\" / tree: \"swiftly in these cases. The scale of impacts from Awaab’s Law\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading BUSINESS ASSESSMENT (Option 1) is not kept as a heading; the business table sits under the BENEFITS heading.",
+     "evidence": "\"BUSINESS ASSESSMENT (Option 1)\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The subheadings Societal benefits and Inherent benefits of faster repairs are run into body text.",
+     "evidence": "tree: \"medical attention. Societal benefits There are also\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
   "1df2a2fff9094f6b": {
    "version_id": "awaabs-law-phase-1-test-and-learn-research-report--awaab-s-law-test-and-learn-research-report-executive-summar@2026-07-13-5d4411c7",
    "unit": "p11",
@@ -305,6 +603,30 @@
      "evidence": "source: \"Case-management has emerged as a best-practice approach for dealing with complex hazards but is resource dependent\" / tree: \"...for dealing with\" + \"complex hazards but is resource dependent\""
     }
    ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "9b887c7e29000976": {
+   "version_id": "awaabs-law-phase-1-test-and-learn-research-report--awaab-s-law-test-and-learn-research-report-executive-summar@2026-07-13-5d4411c7",
+   "unit": "p12",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "99edbe413223feec": {
+   "version_id": "awaabs-law-phase-1-test-and-learn-research-report--awaab-s-law-test-and-learn-research-report-executive-summar@2026-07-13-5d4411c7",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
    "confidence": "high",
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
@@ -982,6 +1304,69 @@
     }
    ],
    "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "43f66963ac55757c": {
+   "version_id": "awaabs-law-regulations--awaab-s-law-regulations-as-they-apply-from-30-november-2026@2026-07-13-546a4539",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The page footnote (a) S.I. 2025/797 belongs to the Residential Evacuation Plans Regulations 2025 reference in paragraph 4, but the tree attaches it to paragraph 5, while paragraph 4's (a) footnote is a different one from the earlier page.",
+     "evidence": "source: \"Regulations 2025(a)\" ... \"(a) S.I. 2025/797.\" / tree: para-5 footnotes \"(a) S.I. 2025/797.\"; para-4 \"(a) See section 10A(7)...\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Page numbers are run into the provision text.",
+     "evidence": "tree: \"(b) that the lessor— 4 (i) can lawfully undertake\" and \"obtain such consent, 5 (b) a subsequent\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "18963f282b061691": {
+   "version_id": "awaabs-law-regulations--awaab-s-law-regulations-as-they-apply-from-30-november-2026@2026-07-13-546a4539",
+   "unit": "p6",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The printed page number 6 is run into the text of regulation 6(4) between two definitions.",
+     "evidence": "source: \"issue of concern; “extended investigation period”\" / tree: \"issue of concern; 6 “extended investigation period”\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "89f3b1d12c74419c": {
+   "version_id": "awaabs-law-regulations--awaab-s-law-regulations-as-they-apply-from-30-november-2026@2026-07-13-546a4539",
+   "unit": "p8",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The printed page number 8 is run into the text of regulation 11 between paragraphs (2) and (3).",
+     "evidence": "source: \"practicable thereafter. (3) The requirement\" / tree: \"practicable thereafter. 8 (3) The requirement\""
+    }
+   ],
+   "confidence": "high",
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"

@@ -1,0 +1,70 @@
+{
+ "source_id": "hse-indg231",
+ "model": "claude-opus-5-5",
+ "about": "Verdicts of claude-opus-5-5 on source against tree for hse-indg231 (system/rag/semcheck.py).",
+ "verdicts": {
+  "f8936c163bc2e071": {
+   "version_id": "main@2024-12-06-4d30d7b7",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Subheadings are read as body text and run into the end of the preceding paragraph or bullet.",
+     "evidence": "tree: \"• you provide enough socket outlets because overloading socket outlets by using adaptors can cause fire. Provide safe and suitable equipment\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The subheading 'Reduce the voltage' is appended to the last bullet of the previous list.",
+     "evidence": "tree: \"You may need specialist advice. Reduce the voltage One of the best ways\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "2a3cbf781ca73a9e": {
+   "version_id": "main@2024-12-06-4d30d7b7",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The subheadings 'Provide a safety device' and 'Carry out preventative maintenance' are run into the body text instead of being kept as headings.",
+     "evidence": "tree: \"are readily available. Provide a safety device If equipment operating at 230 volts\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "4ff82c4d7fb747b9": {
+   "version_id": "main@2024-12-06-4d30d7b7",
+   "unit": "p6",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page footer is kept as a text section.",
+     "evidence": "tree: \"Published by the Health Safety Executive Reprinted 08/13 INDG231(rev1) Page 6 of 6\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  }
+ }
+}

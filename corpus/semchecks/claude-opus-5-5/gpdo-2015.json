@@ -1,0 +1,741 @@
+{
+ "source_id": "gpdo-2015",
+ "model": "claude-opus-5-5",
+ "about": "Verdicts of claude-opus-5-5 on source against tree for gpdo-2015 (system/rag/semcheck.py).",
+ "verdicts": {
+  "e16f8ee714d2e688": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "article-1",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "5d30dcdebd54c25e": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-paragraph-BB.4",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "c66322c75a72e7ec": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-paragraph-TA.3",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "f337e4ea8b94d5ea": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-1-crossheading-class-aa-enlargement-of-a-dwellinghouse-by-construction-of-additional-storeys_paragraph-AA.3",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "563fc124d17d7c1c": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-1-crossheading-class-aa-enlargement-of-a-dwellinghouse-by-construction-of-additional-storeys_paragraph-AA4",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The (a)/(b) labels of the ordered lists inside the definitions of \"detached\" and \"terrace house\" are dropped, so the later cross-reference to \"paragraph a\" has no visible target.",
+     "evidence": "source: OrderedList Type=\"alpha\" ... \"share a party wall with another building; or\" / tree: \"share a party wall with another building; or\" (no \"(a)\")"
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "4cee3e2393639c1a": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-1-crossheading-class-b-additions-etc-to-the-roof-of-a-dwellinghouse_paragraph-B.1",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The paragraph number is given as \"B\" instead of \"B.1\"; the \".1\" in PuncAfter is part of the number.",
+     "evidence": "source: <Pnumber PuncAfter=\".1\">B</Pnumber> / tree: \"number\": \"B\", \"Paragraph B Development not permitted\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "0d0adbed3aa68fdf": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-11-crossheading-class-a-development-by-historic-england_paragraph-A",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "04e67b333ec17fab": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-11-crossheading-class-a-development-by-historic-england_paragraph-A.3",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The paragraph number is given as \"A\" instead of \"A.3\"; the \".3\" in PuncAfter is part of the number.",
+     "evidence": "source: <Pnumber PuncAfter=\".3\">A</Pnumber> / tree: \"number\": \"A\", \"Paragraph A Interpretation of Class A\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "1374b0baac536df6": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-11-crossheading-class-b-demolition-of-buildings_paragraph-B.2",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The paragraph number is given as \"B\" instead of \"B.2\"; the \".2\" in PuncAfter is part of the number.",
+     "evidence": "source: <Pnumber PuncAfter=\".2\">B</Pnumber> / tree: \"number\": \"B\", \"Paragraph B Conditions\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "69deac33a2b48dbf": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-11-crossheading-class-c-demolition-of-gates-fences-walls-etc_paragraph-C",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "1bd460fb1b03a215": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-11-crossheading-class-c-demolition-of-gates-fences-walls-etc_paragraph-C.1",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The paragraph number C.1 is kept as C, the same number as the Class C permitted development paragraph.",
+     "evidence": "source: \"<Pnumber PuncAfter=\".1\">C</Pnumber>\" / tree: \"number\": \"C\", \"Paragraph C Development not permitted\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "2377f6c74b082d5d": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-12-crossheading-class-b_paragraph-B",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "916831bfac15f40d": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-12A-crossheading-class-a-emergency-development-by-a-local-authority-or-health-service-body_paragraph-A",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "62d1446a033e9b3c": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-14-crossheading-class-e-installation-or-alteration-etc-of-flue-for-biomass-heating-system-on-domestic-premises_paragraph-E",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "ed89a99ec3f2c62a": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-14-crossheading-class-f-installation-or-alteration-etc-of-flue-for-combined-heat-and-power-on-domestic-premises_paragraph-F",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "ad9e5625974a390f": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-14-crossheading-class-g-installation-or-alteration-etc-of-air-source-heat-pumps-on-domestic-premises_paragraph-G.1",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The paragraph number G.1 is given as G because the PuncAfter \".1\" was dropped.",
+     "evidence": "source: \"<Pnumber PuncAfter=\\\".1\\\">G</Pnumber>\" / tree: \"number\": \"G\", \"Paragraph G Development not permitted\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "8d2daffda2be8fb8": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-14-crossheading-class-h-installation-or-alteration-etc-of-wind-turbine-on-domestic-premises_paragraph-H.2",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The paragraph number H.2 is given as H because the PuncAfter \".2\" was dropped.",
+     "evidence": "source: \"<Pnumber PuncAfter=\\\".2\\\">H</Pnumber>\" / tree: \"number\": \"H\", \"Paragraph H\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "2fa4f9dab672dff4": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-14-crossheading-class-j-installation-or-alteration-etc-of-solar-equipment-on-nondomestic-premises_paragraph-wrapper14n2",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "720aebf00a3e2e43": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-16-crossheading-class-a-electronic-communications-code-operators_paragraph-A.1",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "565c1dbd31a685dd": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-16-crossheading-class-c-other-telecommunications-development-microwave-antenna_paragraph-C",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "9a1d564c72479765": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-17-crossheading-class-d-coal-mining-development-by-the-coal-authority-and-licensed-operators_paragraph-D.2",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The paragraph number D.2 is given as D because the PuncAfter \".2\" was dropped.",
+     "evidence": "source: \"<Pnumber PuncAfter=\\\".2\\\">D</Pnumber>\" / tree: \"number\": \"D\", \"Paragraph D Interpretation of Class D\""
+    },
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The labels (a) to (d) of the seam plan list are dropped, though the text refers to paragraph (a) of this definition.",
+     "evidence": "source: \"<ListItem NumberOverride=\\\"a\\\">\" / tree: \"land comprising the maximum extent of the coal seam\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "A stray space before the comma is left where a commentary reference was removed.",
+     "evidence": "tree: \"General Development Order 1988 , as originally enacted\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "8e62dd0f5d5c9af0": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-17-crossheading-class-i-waste-tipping-from-a-mine-on-sites-used-since-1948_paragraph-I.1",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The paragraph number I.1 (Pnumber I with PuncAfter \".1\") is kept only as \"I\", so the heading path reads \"Paragraph I\".",
+     "evidence": "source: \"<Pnumber PuncAfter=\\\".1\\\">I</Pnumber>\" / tree: \"number\": \"I\", \"Paragraph I Development not permitted\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "9e2c2ce19ec7821e": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-19-crossheading-class-a-general-development-by-the-crown_paragraph-A",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "7668ba6a2129d9d7": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-19-crossheading-class-q-development-by-the-crown-relating-to-an-emergency_paragraph-Q",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "ffa1b771790de871": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-19-crossheading-class-s-closed-circuit-television-cameras-for-national-security-purposes_paragraph-S.1",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The paragraph number S.1 (Pnumber S with PuncAfter \".1\") is kept only as \"S\", so the heading path reads \"Paragraph S\".",
+     "evidence": "source: \"<Pnumber PuncAfter=\\\".1\\\">S</Pnumber>\" / tree: \"number\": \"S\", \"Paragraph S Development not permitted\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "4135d2bf80ecd073": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-19-crossheading-class-t-electronic-communication-apparatus-etc-for-national-security-purposes_paragraph-T",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "ca31f6f4aa7417f1": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-19-crossheading-class-t-electronic-communication-apparatus-etc-for-national-security-purposes_paragraph-T.3",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The paragraph number T.3 is kept only as \"T\", so these limits sit under \"Paragraph T\", the same label as the permitted development paragraph T, and references to paragraph T.3 cannot be matched.",
+     "evidence": "source: \"<Pnumber PuncAfter=\\\".3\\\">T</Pnumber>\" / tree: \"number\": \"T\", \"Paragraph T > (1)\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "d400725c796ef5a7": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-2-crossheading-class-f-closed-circuit-television-cameras_paragraph-F.3",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The paragraph number drops the '.3' suffix, so F.3 is numbered and pathed as paragraph F.",
+     "evidence": "source: \"<Pnumber PuncAfter=\".3\">F</Pnumber>\" / tree: \"number\": \"F\", \"Paragraph F Interpretation of Class F\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "4020e1a67a4482fb": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-20-crossheading-class-a-new-dwellinghouses-on-detached-blocks-of-flats_paragraph-A.1",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "fb0e46f0982f4f98": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-20-crossheading-class-a-new-dwellinghouses-on-detached-blocks-of-flats_paragraph-A.2",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "b016f97f2fee8b57": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-20-crossheading-class-a-new-dwellinghouses-on-detached-blocks-of-flats_paragraph-B",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "595eca8972b50c2d": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-20-crossheading-class-a-new-dwellinghouses-on-detached-blocks-of-flats_paragraph-C",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The automatic (a)/(b) and (i)/(ii) labels of the ordered lists inside the definitions are dropped, though the 'row' definition refers to 'paragraph (a)'.",
+     "evidence": "source: OrderedList Decoration=\"parens\" Type=\"alpha\" / tree: \"shares a party wall with, or has a main wall adjoining\" (no \"(a)\")"
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "1940afd70bb562de": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-3-crossheading-class-ma-commercial-business-and-service-uses-to-dwellinghouses_paragraph-MA.3",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "cf8a5d6a50e03ae2": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-3-crossheading-class-p-storage-or-distribution-centre-to-dwellinghouses_paragraph-wrapper6n2",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "25e6ba8725b81833": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-4-crossheading-class-a-temporary-buildings-and-structures_paragraph-A.1",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The paragraph number drops the '.1' suffix given by PuncAfter, so A.1 is shown as plain 'A'.",
+     "evidence": "source: \"<Pnumber PuncAfter=\\\".1\\\">A</Pnumber>\" / tree: \"number\": \"A\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "a3f086cc685b78eb": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-4-crossheading-class-ca-provision-of-a-temporary-statefunded-school-on-previously-vacant-commercial-land_paragraph-CA.3",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The list labels (a), (b) and (i) to (iv) in the definitions are lost, so the tree shows the sub-items as flat lines with no numbering or nesting.",
+     "evidence": "source: \"<ListItem NumberOverride=\\\"i\\\">\" ... \"Class C1 (hotels) of Schedule 1;\" / tree: \"Class C1 (hotels) of Schedule 1;\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "6c2a3806fac86368": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-6-crossheading-class-c-mineral-working-for-agricultural-purposes_paragraph-C.1",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The paragraph number drops the '.1' suffix given by PuncAfter, so C.1 is shown as plain 'C'.",
+     "evidence": "source: \"<Pnumber PuncAfter=\\\".1\\\">C</Pnumber>\" / tree: \"number\": \"C\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "b0c41c5bd824b784": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-7-crossheading-class-a-extensions-etc-of-shops-or-financial-or-professional-premises_paragraph-A.1",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The paragraph number drops the '.1' suffix given by PuncAfter, so A.1 is shown as plain 'A'.",
+     "evidence": "source: \"<Pnumber PuncAfter=\\\".1\\\">A</Pnumber>\" / tree: \"number\": \"A\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "A stray space was left before the semicolon where the Substitution tag was removed.",
+     "evidence": "tree: \"the front of any existing building ;\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "5912453247beac58": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-7-crossheading-class-a-extensions-etc-of-shops-or-financial-or-professional-premises_paragraph-A.2",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The paragraph number drops the '.2' suffix given by PuncAfter, so A.2 is shown as plain 'A', the same as A.1.",
+     "evidence": "source: \"<Pnumber PuncAfter=\\\".2\\\">A</Pnumber>\" / tree: \"number\": \"A\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "1ad6b61e5221e04f": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-7-crossheading-class-b-construction-of-shop-trolley-stores_paragraph-B.2",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The paragraph number B.2 is kept as B, because the '.2' held in PuncAfter was dropped from the number and heading path.",
+     "evidence": "source: \"<Pnumber PuncAfter=\\\".2\\\">B</Pnumber>\" / tree: \"number\": \"B\", \"Paragraph B Condition\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "38e04465d83cbb21": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-7-crossheading-class-f-extensions-etc-of-office-buildings_paragraph-F",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "532e1438a11b0302": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-7-crossheading-class-g-hard-surfaces-for-office-buildings_paragraph-G",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "37caf6f69492b2fc": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-7-crossheading-class-k-waste-deposits-from-an-industrial-process_paragraph-K.1",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The paragraph number K.1 is kept as K, because the '.1' held in PuncAfter was dropped from the number and heading path.",
+     "evidence": "source: \"<Pnumber PuncAfter=\\\".1\\\">K</Pnumber>\" / tree: \"number\": \"K\", \"Paragraph K Development not permitted\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "68df70769641195d": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-7-crossheading-class-ma-alteration-etc-of-prison-fences_paragraph-MA.1",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "09b4e2b44f85c65d": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-8-crossheading-class-h-air-traffic-services-development-near-an-airport_paragraph-H",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "e21bd0f0095911d8": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-8-crossheading-class-l-development-by-an-air-traffic-services-licence-holder-involving-moveable-structures_paragraph-L",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "07a9d22b69777c10": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-4-paragraph-17",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "bdbd7fc04bdeaf87": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-4-paragraph-19",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  }
+ }
+}

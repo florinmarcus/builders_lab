@@ -1,0 +1,50 @@
+{
+ "source_id": "add",
+ "model": "claude-opus-5-5",
+ "about": "Verdicts of claude-opus-5-5 on source against tree for add (system/rag/semcheck.py).",
+ "verdicts": {
+  "79f30ef0aedd1da1": {
+   "version_id": "approved-document-d-toxic-substances@2010-12-02-ccf8b30e",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "A bold body sentence is read as two separate headings, split mid-sentence, and the following paragraph is placed under the second fragment.",
+     "evidence": "source: \"At the back of this document is a list of all the documents that have been approved and issued by the Secretary of State for this purpose.\" / tree: two headings"
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "71d41a785b80a2d6": {
+   "version_id": "approved-document-d-toxic-substances@2010-12-02-ccf8b30e",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "ecbe5b027db2d32f": {
+   "version_id": "approved-document-d-toxic-substances@2010-12-02-ccf8b30e",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  }
+ }
+}

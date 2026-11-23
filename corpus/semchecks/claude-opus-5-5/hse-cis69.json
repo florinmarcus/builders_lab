@@ -3,6 +3,74 @@
  "model": "claude-opus-5-5",
  "about": "Verdicts of claude-opus-5-5 on source against tree for hse-cis69 (system/rag/semcheck.py).",
  "verdicts": {
+  "0bd917e54a08da50": {
+   "version_id": "main@2024-12-06-428b6de2",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The 'Tools and accessories' heading and its body paragraph are stored as figure labels instead of a heading and text.",
+     "evidence": "tree labels: \"Tools and accessories\", \"Limit the amount of dust created by choosing\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The 'Captor hood' heading is read as body text and joined into the previous section.",
+     "evidence": "tree: \"Use the following guidelines: Captor hood The hood is the most important part\""
+    },
+    {
+     "kind": "figure",
+     "severity": "low",
+     "problem": "Figure 1 has two photos (a sanding pad and a grinder), but the description names only the grinder.",
+     "evidence": "tree: \"A photo of an angle grinder seen from below\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Footnote markers are joined to the words as plain digits.",
+     "evidence": "source: \"asbestos.¹\" \"employers²\" / tree: \"asbestos.1\" \"employers2\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "16fb3721f9196b94": {
+   "version_id": "main@2024-12-06-428b6de2",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The three checks for the captor hood are body text but the tree holds them only as labels of Figure 2, so the text stops at 'Check that the hood:'.",
+     "evidence": "source: \"Check that the hood: is designed for the tool and the work\" / tree: \"Check that the hood: Extraction unit\""
+    },
+    {
+     "kind": "figure",
+     "severity": "low",
+     "problem": "Figure 2 description covers only the breaker; the grinder with its blue captor hood is not mentioned.",
+     "evidence": "\"Examples of captor hoods on a grinder and breaker\""
+    },
+    {
+     "kind": "figure",
+     "severity": "low",
+     "problem": "Figure 3 description describes only the yellow unit; the blue drum unit is not mentioned.",
+     "evidence": "\"A photo of a yellow and black mobile extraction unit on wheels\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
   "128bacf125a4dd86": {
    "version_id": "main@2024-12-06-428b6de2",
    "unit": "p4",

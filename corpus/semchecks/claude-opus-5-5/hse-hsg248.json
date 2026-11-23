@@ -72,6 +72,68 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "72982335081ab490": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p107",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The y-axis title of Figure A1.11 is not in labels (it is only in the description).",
+     "evidence": "source: \"Upper and lower confidence limits In terms of number of fibres (log scale)\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "afb9c642d8ff6faa": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p108",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "72990b4096e12130": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p109",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "2072a68c76d83bfb": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p111",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The paragraph after the bullet list in A2.4 is merged into the second bullet, so 'In such cases...' reads as part of that bullet only.",
+     "evidence": "source: \"(see paragraph A2.54).\" [new paragraph] \"In such cases, electron microscopy...\" / tree: \"(see paragraph A2.54). In such cases, electron microscopy...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
   "2f9978e872614914": {
    "version_id": "main@2024-12-06-9ed204da",
    "unit": "p117",
@@ -105,6 +167,30 @@
      "evidence": "source: \"sedimentation⁷³\" / tree: \"sedimentation73\""
     }
    ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "18da8647f60044a3": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p119",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "bf892f3c4b7ae37b": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p121",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
    "confidence": "high",
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
@@ -241,6 +327,31 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "f3bd8c372c1e238a": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p125",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Table note 4 carries a footnote that is not printed on this page and belongs elsewhere, so the asterisk seems to mean something else.",
+     "evidence": "tree: \"* Additional QC will be required on sample numbers above 20 and 40 for Category B and A samples respectively.\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The numbered notes under Table A2.6 are kept as separate paragraphs 1 to 4 under Morphology, not as notes of the table.",
+     "evidence": "tree: \"Appendix 2 ... > Morphology > Paragraph 1\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
   "620be15566409312": {
    "version_id": "main@2024-12-06-9ed204da",
    "unit": "p127",
@@ -330,6 +441,37 @@
     }
    ],
    "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "8cf13db6290b219f": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p136",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "a1060426b0033805": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p138",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The slide numbers are column headings of the form, but the grid puts them together in one cell of a 'Slide' row, and 'Fibres found'/'No fibres found' lose their link to slides 1-2 and 3-4.",
+     "evidence": "source: \"Fibres found | No fibres found\" over \"1 2 3 4\" / tree: [\"Slide\", \"1 2 3 4\"]"
+    }
+   ],
+   "confidence": "medium",
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
@@ -434,6 +576,148 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "6e89f2c9b1ed7326": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p151",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The lead-in sentence for the report list is joined onto the last bullet of the record list instead of standing on its own.",
+     "evidence": "source: \"The analytical report should include the following information:\" / tree: \"• the date of analysis. The analytical report should include the following information:\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "8f8411cf201a082c": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p155",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The separate paragraph that opens this page is merged into the last bullet of paragraph A4.7 instead of standing as its own paragraph after the list.",
+     "evidence": "tree: \"• exclusion of para-aramid from a PCM/UV fibre count. Each technique (PCM/PLM, SEM/EDXA or TEM/EDX/SAED) has limitations\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "d9a6001f55463b96": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p157",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "0f8040f24deb91bd": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p169",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "c22dfb8ff5a26ee4": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p17",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The text of Table 2.2 also holds all the rows of Table 2.1 and the note printed under Table 2.1, so the note is attached to the wrong table too.",
+     "evidence": "tree (table 2.2 text): \"Handover form is received and is satisfactory. ... *Note: It will be impractical to reinspect all areas\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The first group heading 'General' is joined onto both table titles.",
+     "evidence": "source: \"Site auditing protocol for 4-stage clearances\" / tree: \"Site auditing protocol for 4-stage clearances General\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "7c011980968097ef": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p172",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "c76803e4b00caee0": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p173",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The form's header rows, printed above the column headings, are put in the grid as data rows under the count columns, so labels like 'Laboratory report' sit under '4. Characteristics used for discrimination'.",
+     "evidence": "tree: [\"Laboratory sample: 1054/20\", \"\", \"\", \"Laboratory report\", \"\"]"
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "f954fe99e9eac74c": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p174",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "bf04f4e466391785": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p175",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
   "65f0a51f9436ad73": {
    "version_id": "main@2024-12-06-9ed204da",
    "unit": "p176",
@@ -462,6 +746,18 @@
   "8f06f56d927abbcd": {
    "version_id": "main@2024-12-06-9ed204da",
    "unit": "p176",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "865b169f4b730c27": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p18",
    "kind": "semcheck-pdf",
    "family": "guidance-pdf",
    "verdict": "ok",
@@ -516,6 +812,18 @@
      "evidence": "source: \"Notes 1 The degree of 'sheeting out'...\" / tree: table text ends \"Notes\"; separate \"Paragraph 1\", \"Paragraph 2\""
     }
    ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "1bbdf01b8e09e9ff": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p182",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
    "confidence": "high",
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
@@ -658,6 +966,18 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "8ba074acdc84ab5b": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p195",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
   "ee0faaff8e52066f": {
    "version_id": "main@2024-12-06-9ed204da",
    "unit": "p196",
@@ -701,6 +1021,25 @@
      "severity": "low",
      "problem": "Name and Signature of the assessor are placed under the Yes and Comments columns.",
      "evidence": "tree: [\"Details of assessor\", \"\", \"Name\", \"\", \"Signature\"]"
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "a8f6cab408dfbe74": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p197",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The rows on this page continue Table A6.1 (the Certificate for Reoccupation template) but the tree keeps them as a separate unnumbered table.",
+     "evidence": "source: \"Table continues\" (from Table A6.1) / tree: \"Appendix 6 Templates > Table (Templates)\""
     }
    ],
    "confidence": "medium",
@@ -782,6 +1121,49 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "8c1e7503daf7fc8a": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p199",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "d59a70ddece0e860": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "60231f3ab106a55a": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p20",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Footnote reference numbers are run into the provider names as plain digits.",
+     "evidence": "source: \"BOHS(sup 33) and RSPH.(sup 26)\" / tree: \"BOHS33 and RSPH.26\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
   "815b14a144682afd": {
    "version_id": "main@2024-12-06-9ed204da",
    "unit": "p200",
@@ -834,6 +1216,49 @@
     }
    ],
    "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "0ad6c759ed0330a1": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p201",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The Start and Finish sub-cells are joined into the row label instead of sitting in their own cells.",
+     "evidence": "tree: \"Sampling start/finish time / Start / Finish\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "1d2651a759734bcf": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p202",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "8f7b5442d1c9622e": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p21",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
@@ -977,6 +1402,167 @@
      "evidence": "tree: \"...described further in Appendices 1, 2 and 4. Preparation of filters for fibre number and possible asbestos fibre concentration\""
     }
    ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "10b50d5331eef749": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p218",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "17ac5387839d1f64": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p22",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "47faa130bcd0c6e1": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p222",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "ce910605f568c549": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p223",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "Table A9.3 has two columns, but its one grid row has four cells: the detail text is cut mid-sentence into two extra unnamed cells.",
+     "evidence": "tree cells end \"factors such as seating and\" / next cell \"looking into long distance from time to time\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "414624f2c03ae102": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p224",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The rest of Table A9.3 on this page sits in extra unnamed cells beyond the two columns, split mid-sentence.",
+     "evidence": "tree cells end \"a range of common non-asbestos fibres\" / next cell \"(eg machine-made, organic and other mineral fibres).\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "1e81fe6adb1f6a63": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p225",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The second row of Table A9.4 has five cells in a two-column table: the detail text is cut mid-sentence into extra unnamed cells.",
+     "evidence": "tree cells end \"minimising exposure below the control limit,\" / next \"clearance levels and STEL\"; \"clearance and certification\" / next \"for reoccupation protocols\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "8fc0c7968dffc727": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p226",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The Table A9.4 detail text on this page sits in extra headerless cells beyond the two columns, split mid-sentence across cells.",
+     "evidence": "tree cells: \"...apply the different stages of clearance and certification\" | \"for reoccupation protocols ... Be aware of the non-licensed work certificate of\" | \"cleanliness (ACOP L143 paragraphs 464–467)...\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The Table A9.5 row has two extra headerless cells, with the detail column split mid-sentence.",
+     "evidence": "tree cells: \"...The above will include knowledge of\" | \"building services and plant and equipment...\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "7be66d6913e6dcbe": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p227",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The Table A9.5 detail text on this page is split into extra headerless cells beyond the two columns, breaking sentences across cells.",
+     "evidence": "tree cells: \"...be able to create a report for a\" | \"management survey in accordance with HSG264...\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "c68e874e74623948": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p228",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "6361272aa0ba8a95": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p23",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
    "confidence": "high",
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
@@ -1178,6 +1764,31 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "d380737172455522": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p36",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The end of the Figure 5.1 caption was merged into paragraph 5.7, changing the STEL sentence.",
+     "evidence": "source: \"A minimum sample time of 10 minutes is required to assess the STEL\" / tree: \"required to assess the personal pump STEL\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The Figure 5.1 caption is cut short in the tree.",
+     "evidence": "source: \"Removal worker wearing a personal pump\" / tree: \"Removal worker wearing a\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
   "8fb5655c9630c847": {
    "version_id": "main@2024-12-06-9ed204da",
    "unit": "p38",
@@ -1284,6 +1895,18 @@
      "evidence": "tree: \"Any fibres counted are assumed to be asbestos. Leak testing\""
     }
    ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "87605f46e877afc9": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p53",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
    "confidence": "high",
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
@@ -1567,6 +2190,75 @@
      "severity": "low",
      "problem": "The subheading above 8.32 is read as body text at the end of 8.31.",
      "evidence": "source: heading \"Entry into 'live' enclosures (see definition in paragraph 1.6 and associated footnote)\" / tree: 8.31 text ends \"...suitable RPE. Entry into 'live' enclosures (see definition in paragraph 1.6 and associated footnote)\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "c8af0fffd7d68ba1": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p81",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "A superscript unit was flattened, so square millimetres read as mm2.",
+     "evidence": "source: \"0.3 f/mm²\" / tree: \"0.3 f/mm2\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "5576eac6f4633427": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p90",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The volume formula lost its subscripts and fraction layout, so the formula cannot be read.",
+     "evidence": "source: \"V = (f1 + f0) / 2.(t1 – t0) + ...\" / tree: \"V =(f + f )+(f + f)+... 2.(t – t ) 2.(t – t)\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "A superscript unit was flattened, so square millimetres read as mm2.",
+     "evidence": "source: \"3 fibres per mm²\" / tree: \"3 fibres per mm2\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "5cff799e8320a63d": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p96",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "high",
+     "problem": "Paragraph A1.41 ends with labels from figure panels g, h, i and m, which are not on this page, including fibre counts.",
+     "evidence": "tree: \"c g 2 fibres 3 fibres h i m\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The labels of figure panels a and b were put into the text of paragraph A1.41 instead of the figure's labels.",
+     "evidence": "tree A1.41: \"a 1 fibre; meets length, width and aspect ratio criteria 1 fibre; the width being measured at the ‘average’ point b 1 fibre\""
     }
    ],
    "confidence": "high",

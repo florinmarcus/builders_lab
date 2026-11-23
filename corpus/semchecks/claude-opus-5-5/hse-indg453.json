@@ -1,0 +1,82 @@
+{
+ "source_id": "hse-indg453",
+ "model": "claude-opus-5-5",
+ "about": "Verdicts of claude-opus-5-5 on source against tree for hse-indg453 (system/rag/semcheck.py).",
+ "verdicts": {
+  "8f17900c1f87707f": {
+   "version_id": "main@2024-12-06-3b5e1c58",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The Over-seven-day injuries subheading and its rule are joined onto the last specified-injury bullet.",
+     "evidence": "tree: \"admittance to hospital for more than 24 hours. Over-seven-day injuries to workers This is where an employee\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Subheadings are read as body text instead of headings.",
+     "evidence": "source: \"Work-related accidents\", \"Deaths\", \"Specified injuries to workers\" / tree: \"Work-related accidents For the purposes of RIDDOR\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Paragraphs after bullet lists are joined onto the last bullet.",
+     "evidence": "tree: \"(as listed under ‘Types of reportable injuries’). When deciding if the accident\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "d5d120974c7c832e": {
+   "version_id": "main@2024-12-06-3b5e1c58",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "The four sub-items of the road traffic exemption are moved out of the Exemptions list to the end of the page, after Recording requirements and How to report, so the 'unless' conditions are cut off from their bullet.",
+     "evidence": "source: \"road traffic accidents, unless the accident involved: the loading or unloading of a vehicle;\" / tree: \"road traffic accidents, unless the accident involved:\" (sub-items in separate block after 'How to report')"
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-headings 'Online' and 'Telephone' are run into the body text of How to report.",
+     "evidence": "tree: \"Online Go to www.hse.gov.uk/riddor ... Telephone All incidents can be reported online\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "744bf530b4627ea3": {
+   "version_id": "main@2024-12-06-3b5e1c58",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The running footer is kept as a text block under Further information.",
+     "evidence": "tree: \"Published by the Health and Safety Executive 10/13 INDG453(rev1) Page 5 of 5\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  }
+ }
+}

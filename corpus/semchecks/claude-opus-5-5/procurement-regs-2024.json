@@ -1,0 +1,81 @@
+{
+ "source_id": "procurement-regs-2024",
+ "model": "claude-opus-5-5",
+ "about": "Verdicts of claude-opus-5-5 on source against tree for procurement-regs-2024 (system/rag/semcheck.py).",
+ "verdicts": {
+  "74cc27c1b17b8e2c": {
+   "version_id": "main@2026-04-01-3fbf5f3d",
+   "unit": "regulation-40",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "b6759095d9bf88b9": {
+   "version_id": "main@2026-04-01-3fbf5f3d",
+   "unit": "regulation-42B",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The (a)/(b) labels of the ordered lists inside the definitions of \"relevant period\" and \"reorganisation\" are dropped, so the cross-reference \"sub-paragraph (a)\" has no visible target.",
+     "evidence": "source: <OrderedList Type=\"alpha\" Decoration=\"parens\"> ... \"the period of three years ending with the date of contract award, or\" / tree: \"the period of three years ending with the date of contract award, or\" (no \"(a)\")"
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "f6f067e73ecad9ca": {
+   "version_id": "main@2026-04-01-3fbf5f3d",
+   "unit": "regulation-42E",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The (a) and (b) labels of the ordered list in the definition of 'relevant period' are lost, though item (b) refers to 'sub-paragraph (a)'.",
+     "evidence": "source: <OrderedList Type=\"alpha\" Decoration=\"parens\"> / tree: \"the period of three years ending with the date of contract award, or\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "21375b4fbc879803": {
+   "version_id": "main@2026-04-01-3fbf5f3d",
+   "unit": "regulation-45",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "ec32bd8f3e118012": {
+   "version_id": "main@2026-04-01-3fbf5f3d",
+   "unit": "regulation-48",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  }
+ }
+}

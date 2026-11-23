@@ -1,0 +1,38 @@
+{
+ "source_id": "car-amd-2026",
+ "model": "claude-opus-5-5",
+ "about": "Verdicts of claude-opus-5-5 on source against tree for car-amd-2026 (system/rag/semcheck.py).",
+ "verdicts": {
+  "4a2f329bb26d62a7": {
+   "version_id": "main@2026-11-02-445e60a4",
+   "unit": "regulation-1",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The empty Superior tag was dropped with no space, so the ordinal and month run together.",
+     "evidence": "source: \"25th<Superior/>November 2027\" / tree: \"25thNovember 2027\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "167ea5ac35eb0726": {
+   "version_id": "main@2026-11-02-445e60a4",
+   "unit": "regulation-2",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  }
+ }
+}

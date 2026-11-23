@@ -1,0 +1,393 @@
+{
+ "source_id": "ade",
+ "model": "claude-opus-5-5",
+ "about": "Verdicts of claude-opus-5-5 on source against tree for ade (system/rag/semcheck.py).",
+ "verdicts": {
+  "39380ab448db7efb": {
+   "version_id": "approved-document-e-resistance-to-the-passage-of-sound@2015-03-04-e6a8feb6",
+   "unit": "p14",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Both tables get the number \"0\" and the rest of their number is pushed into the title, so Table 0.1a and Table 0.1b cannot be told apart by number.",
+     "evidence": "source: \"Table 0.1a\" / \"Table 0.1b\" / tree: number \"0\", title \".1a Dwelling-houses...\" and number \"0\", title \".1b Rooms...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "3c2ed024c7057ca0": {
+   "version_id": "approved-document-e-resistance-to-the-passage-of-sound@2015-03-04-e6a8feb6",
+   "unit": "p15",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The footnote on BS 7913 is referenced in paragraph 0.7 but the tree attaches it to paragraph 0.8.",
+     "evidence": "source: \"needs to be recognised1\" (0.7) / tree: footnotes \"1 BS 7913 The principles of the conservation of historic buildings\" under para-0.8"
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "71c7b121b3736e05": {
+   "version_id": "approved-document-e-resistance-to-the-passage-of-sound@2015-03-04-e6a8feb6",
+   "unit": "p18",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "315a4fff046284fe": {
+   "version_id": "approved-document-e-resistance-to-the-passage-of-sound@2015-03-04-e6a8feb6",
+   "unit": "p20",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The numbered list items 1 to 4 of paragraph 1.41 are run into the intro sentence instead of kept as separate list items; the words are all there.",
+     "evidence": "tree: \"in the order below: 1. Address of building. 2. Type(s) of property. ... 3. Date(s) of testing. 4. Organisation carrying out testing, including:\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "771afd48e5b4cc0b": {
+   "version_id": "approved-document-e-resistance-to-the-passage-of-sound@2015-03-04-e6a8feb6",
+   "unit": "p23",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The subscript Xmm on the dynamic stiffness k is dropped in paragraph 2.19, so k is no longer tied to the cavity width.",
+     "evidence": "source: \"dynamic stiffness, kXmm in MN/m ... is n.kXmm<4.8MN/m³\" / tree: \"dynamic stiffness, k in MN/m ... is n.k <4.8MN/m³\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The dropped subscripts appear as two stray text blocks holding only \"Xmm\", with a repeated heading as title.",
+     "evidence": "tree: section-2-walls-ties-in-separating-and-box-1 text \"Xmm\"; box-2 text \"Xmm\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "2ba6508ee064b4b7": {
+   "version_id": "approved-document-e-resistance-to-the-passage-of-sound@2015-03-04-e6a8feb6",
+   "unit": "p31",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The bold condition sentence for wall type 2.3 is split into two headings, so paragraph 2.71 sits under a heading reading only \"stagger of at least 300mm.\" and the rule is broken apart.",
+     "evidence": "source: \"Additional construction: wall type 2.3 should only be used where there is a step and/or stagger of at least 300mm.\" / tree: two headings \"...step and/or\" and \"stagger of at least 300mm.\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Paragraph 2.70 is placed under the heading of the example box for wall type 2.1 instead of directly under Wall type 2.",
+     "evidence": "tree: \"Wall type 2: cavity masonry > Example of wall type 2.1 > Paragraph 2.70\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The note after the Example of wall type 2.3 box is printed outside the box but the tree puts it inside the example text.",
+     "evidence": "source: \"Note: Increasing the size of the step or stagger in the separating wall tends to increase the airborne sound insulation.\" (below box) / tree: inside example-of-wall-type-2-3-text-1"
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Diagram 2.16 (wall type 2.2) is placed under the heading Example of wall type 2.3.",
+     "evidence": "tree: \"Example of wall type 2.3 > Wall type 2.2\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "f06a310a78b6bb49": {
+   "version_id": "approved-document-e-resistance-to-the-passage-of-sound@2015-03-04-e6a8feb6",
+   "unit": "p33",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Diagrams 2.20 and 2.22 (external cavity wall junctions) are placed under the heading 'Junctions with internal masonry walls' instead of the external wall junction headings they belong to.",
+     "evidence": "tree: \"Junctions with internal masonry walls > Wall type 2 – external cavity wall with timber frame inner leaf\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "0de7bc01e501ed49": {
+   "version_id": "approved-document-e-resistance-to-the-passage-of-sound@2015-03-04-e6a8feb6",
+   "unit": "p38",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Diagrams 2.31 and 2.32 are placed under 'Junctions with internal timber floors' although they illustrate external cavity wall and internal framed wall junctions.",
+     "evidence": "tree: \"Junctions with internal timber floors > Wall type 3 – external cavity wall with masonry inner leaf\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "d3449290944c9c42": {
+   "version_id": "approved-document-e-resistance-to-the-passage-of-sound@2015-03-04-e6a8feb6",
+   "unit": "p45",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "ae6118cfacdee884": {
+   "version_id": "approved-document-e-resistance-to-the-passage-of-sound@2015-03-04-e6a8feb6",
+   "unit": "p58",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Diagram 3.23 (floor type 3 with wall type 2) is placed under the heading for separating wall type 4 instead of wall type 2.",
+     "evidence": "tree: \"Junctions with a separating wall type 4 – timber frames with absorbent material > Floor type 3 – wall type 2\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "0bfdf8e744583949": {
+   "version_id": "approved-document-e-resistance-to-the-passage-of-sound@2015-03-04-e6a8feb6",
+   "unit": "p72",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The last word of the Table 7.1 caption was split off into a separate heading 'buildings', truncating the table title.",
+     "evidence": "source: \"Absorption coefficient data for common materials in buildings\" / tree: \"Absorption coefficient data for common materials in\" + heading \"buildings\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The whole Table 7.1 is repeated as a running text block after the table under the spurious 'buildings' heading.",
+     "evidence": "tree: \"Material Sound absorption coefficient, α in octave frequency bands (Hz) 250 500 1000 2000 4000 Fair-faced concrete 0.01...\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The subscript 'ceiling' of α in paragraph 7.24 was cut out into a separate text block.",
+     "evidence": "source: \"coefficient, αceiling, needed\" / tree: \"coefficient, α , needed\" + text \"ceiling\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The column group heading 'Sound absorption coefficient, α in octave frequency bands' is missing from the grid column names.",
+     "evidence": "source: \"Sound absorption coefficient, α in octave frequency bands (Hz)\" / tree: \"250 Hz\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "44c751cce6dde429": {
+   "version_id": "approved-document-e-resistance-to-the-passage-of-sound@2015-03-04-e6a8feb6",
+   "unit": "p73",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The subscript T of A_T is split onto its own line in the step text, so the formula reads 'A – total absorption area'.",
+     "evidence": "source: \"Additional absorption = AT – total absorption area\" / tree: \"(Additional absorption = A – total absorption area (from Step 5)). T\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "e06e0d72d246fc15": {
+   "version_id": "approved-document-e-resistance-to-the-passage-of-sound@2015-03-04-e6a8feb6",
+   "unit": "p75",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "high",
+     "problem": "The A2.1 formula and the 'where' list defining each symbol are not in the tree.",
+     "evidence": "source: \"= MB + ρm (Td (L + H – d) + V) / LH kg/m2 ... MB is brick/block mass (kg) at appropriate moisture content\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Table A.1 is kept as a text box titled 'A3 Simplified equations' instead of a table titled Table A.1, with its block mass / mass per unit area rows as running lines.",
+     "evidence": "tree: \"title: A3 Simplified equations ... Block mass, MB (kg) Mass per unit area (kg/m2) 6 164\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Subscripts split off or mangled: 'MB' becomes 'M ... B' and 'ρm' becomes 'rm'.",
+     "evidence": "source: \"Substituting for MB in this formula\" / tree: \"Substituting for M in this formula gives the following values: B\"; source: \"ρm = 1800kg/m3\" / tree: \"rm = 1800kg/m3\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The Diagram A.1 caption is split: the first part is run into A2.4 text and 'dimensions' becomes a heading.",
+     "evidence": "tree: \"...mass per unit area of the wall Diagram A.1 Block and mortar\" + heading \"dimensions\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Table A.2 caption appears in A3.1 text though Table A.2 is not on this page.",
+     "evidence": "tree: \"Table A.1 Blocks laid flat Table A.2 Blocks laid on edge\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "b79ce3cb389c641a": {
+   "version_id": "approved-document-e-resistance-to-the-passage-of-sound@2015-03-04-e6a8feb6",
+   "unit": "p78",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "In B3.6 the symbol ΔLw is turned into 'DLw', a different-looking quantity.",
+     "evidence": "source: \"performance value (ΔLw)\" / tree: \"performance value (DLw )\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "9edc8c5307b730eb": {
+   "version_id": "approved-document-e-resistance-to-the-passage-of-sound@2015-03-04-e6a8feb6",
+   "unit": "p79",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "In B3.13 the subscripts of the first DnT,w + Ctr are split off into a separate stray box, so the 49dB limit loses which quantity it is in.",
+     "evidence": "source: \"at least 49dB DnT,w + Ctr\" / tree: \"at least 49dB D + C\" and box \"nT,w tr\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "6f5ce60665071b0b": {
+   "version_id": "frequently-asked-questions@2015-03-04-da0e95e9",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "a800f4f7a8e89d49": {
+   "version_id": "frequently-asked-questions@2015-03-04-da0e95e9",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "d2ff31ce5e95fefe": {
+   "version_id": "frequently-asked-questions@2015-03-04-da0e95e9",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The section heading 'Noise from neighbours' is missing, so the first question sits under 'Frequently Asked Questions' instead of its own chapter.",
+     "evidence": "source: \"Noise from neighbours\" / tree: \"Frequently Asked Questions > I am disturbed by noise from neighbours...\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number 4 is run into the body text where it joins the next page's text.",
+     "evidence": "tree: \"pre-completion testing\\\". 4 test organisations to undertake the work.\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  }
+ }
+}

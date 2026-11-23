@@ -1,0 +1,437 @@
+{
+ "source_id": "adf",
+ "model": "claude-opus-5-5",
+ "about": "Verdicts of claude-opus-5-5 on source against tree for adf (system/rag/semcheck.py).",
+ "verdicts": {
+  "15ce7640f9fd4e98": {
+   "version_id": "approved-document-f-volume-1-applies-to-dwellings@2022-06-15-5d3ebc08",
+   "unit": "p11",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "f6ee074fc6450d73": {
+   "version_id": "approved-document-f-volume-1-applies-to-dwellings@2022-06-15-5d3ebc08",
+   "unit": "p16",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "b3407e7ffb80e20f": {
+   "version_id": "approved-document-f-volume-1-applies-to-dwellings@2022-06-15-5d3ebc08",
+   "unit": "p18",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "Table 1.2 has the wrong column headings: the second column is called 'Intermittent extract rate (l/s)' and the separate 'High rate (l/s)' and 'Continuous rate' columns are merged into it.",
+     "evidence": "source: \"Room | High rate (l/s) | Continuous rate\" / tree: columns \"Room\", \"Intermittent extract rate (l/s)\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "5d53e6400167854c": {
+   "version_id": "approved-document-f-volume-1-applies-to-dwellings@2022-06-15-5d3ebc08",
+   "unit": "p19",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "97425ddcdb63ff16": {
+   "version_id": "approved-document-f-volume-1-applies-to-dwellings@2022-06-15-5d3ebc08",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "8e0ce81719132732": {
+   "version_id": "approved-document-f-volume-1-applies-to-dwellings@2022-06-15-5d3ebc08",
+   "unit": "p20",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "c9b7fdffcd195b56": {
+   "version_id": "approved-document-f-volume-1-applies-to-dwellings@2022-06-15-5d3ebc08",
+   "unit": "p22",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "Table 1.6 is printed straight after the first sentence of 1.45 and before its two NOTEs, but the tree puts the table after the NOTEs.",
+     "evidence": "source: \"listed in Table 1.6. [Table 1.6] NOTE: For situations outside the scope of Table 1.6\" / tree: table follows the 1.45 notes"
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "caa43c4a82c1fc76": {
+   "version_id": "approved-document-f-volume-1-applies-to-dwellings@2022-06-15-5d3ebc08",
+   "unit": "p23",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "88553ab26c6dcc8f": {
+   "version_id": "approved-document-f-volume-1-applies-to-dwellings@2022-06-15-5d3ebc08",
+   "unit": "p26",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "07e7a7b24b80a6df": {
+   "version_id": "approved-document-f-volume-1-applies-to-dwellings@2022-06-15-5d3ebc08",
+   "unit": "p27",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "List items vii and viii are run together in one line with no space after the numeral.",
+     "evidence": "source: \"viii. Other significant sources\" / tree: \"vaporous discharges. viii.Other significant sources\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "a58a9ae59ab7deaf": {
+   "version_id": "approved-document-f-volume-1-applies-to-dwellings@2022-06-15-5d3ebc08",
+   "unit": "p29",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The closing clauses after the lists in 3.1 and 3.2 are joined onto the last list item instead of standing as the paragraph's own words.",
+     "evidence": "source: \"including extract fans\" then \"the work should meet...\" / tree: \"including extract fans the work should meet the relevant standards\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "7364115cfcd80a51": {
+   "version_id": "approved-document-f-volume-1-applies-to-dwellings@2022-06-15-5d3ebc08",
+   "unit": "p31",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "Paragraph 3.10 is placed before Diagram 3.1, but on the page the diagram comes first.",
+     "evidence": "Diagram 3.1 printed above \"3.10 If the method in Diagram 3.1 results...\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The first column has a heading in the tree that the printed table does not have.",
+     "evidence": "source: blank first header / tree: \"Energy efficiency measure\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "81fef10afe05600e": {
+   "version_id": "approved-document-f-volume-1-applies-to-dwellings@2022-06-15-5d3ebc08",
+   "unit": "p48",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "8ba7fc9ffc14c013": {
+   "version_id": "approved-document-f-volume-1-applies-to-dwellings@2022-06-15-5d3ebc08",
+   "unit": "p49",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "3329cb63d2f4f6c8": {
+   "version_id": "approved-document-f-volume-1-applies-to-dwellings@2022-06-15-5d3ebc08",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Paragraphs that follow a list are joined onto the last bullet or list item instead of standing as separate paragraphs.",
+     "evidence": "source: \"building situations.\" then \"They may not provide appropriate guidance\" / tree: \"common building situations. They may not provide appropriate guidance\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "6fedb00a7763a3ea": {
+   "version_id": "approved-document-f-volume-1-applies-to-dwellings@2022-06-15-5d3ebc08",
+   "unit": "p52",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "0df0c41248d3c0db": {
+   "version_id": "approved-document-f-volume-1-applies-to-dwellings@2022-06-15-5d3ebc08",
+   "unit": "p53",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "ffe66aa9ef3c3897": {
+   "version_id": "approved-document-f-volume-1-applies-to-dwellings@2022-06-15-5d3ebc08",
+   "unit": "p56",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "062c8b417e361782": {
+   "version_id": "approved-document-f-volume-1-applies-to-dwellings@2022-06-15-5d3ebc08",
+   "unit": "p9",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "c0cc2e84da9dd9db": {
+   "version_id": "approved-document-f-volume-2-applies-to-buildings-other-than@2022-06-15-e039b3b0",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "4d722522de989b0f": {
+   "version_id": "approved-document-f-volume-2-applies-to-buildings-other-than@2022-06-15-e039b3b0",
+   "unit": "p10",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "73b993f81ebff11c": {
+   "version_id": "approved-document-f-volume-2-applies-to-buildings-other-than@2022-06-15-e039b3b0",
+   "unit": "p21",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "51abf0008b5867d2": {
+   "version_id": "approved-document-f-volume-2-applies-to-buildings-other-than@2022-06-15-e039b3b0",
+   "unit": "p22",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "63622dd1e1f6fe49": {
+   "version_id": "approved-document-f-volume-2-applies-to-buildings-other-than@2022-06-15-e039b3b0",
+   "unit": "p24",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The closing sentence of paragraph 2.3, printed after the list, is merged into list item b.",
+     "evidence": "tree: \"b. Located on the less polluted side of the building. Mechanical ventilation may be the most practical way of achieving this requirement.\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "9730b69463e4811c": {
+   "version_id": "approved-document-f-volume-2-applies-to-buildings-other-than@2022-06-15-e039b3b0",
+   "unit": "p30",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "3b839b8a9038cc59": {
+   "version_id": "approved-document-f-volume-2-applies-to-buildings-other-than@2022-06-15-e039b3b0",
+   "unit": "p36",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The words '(occupational exposure)' are printed under the 35mg/m3 value in the Exposure limit column but the grid puts them in the Guidance column.",
+     "evidence": "source: \"35mg/m3 (occupational exposure)\" / tree: \"35mg/m3\", \"HSE, 2020 (occupational exposure)\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "327b641c6411f2ad": {
+   "version_id": "approved-document-f-volume-2-applies-to-buildings-other-than@2022-06-15-e039b3b0",
+   "unit": "p37",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The closing sentence of paragraph B5, printed after the list, is merged into list item b.",
+     "evidence": "tree: \"b. 3mg/h for ozone. To meet the performance criteria for these pollutants requires an extract rate of 20 litres per second per machine during use.\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "058ec212918d8ccf": {
+   "version_id": "approved-document-f-volume-2-applies-to-buildings-other-than@2022-06-15-e039b3b0",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Two ordinary paragraphs printed after the bullet list are merged into the second bullet of the previous list.",
+     "evidence": "source: separate paragraph \"Those responsible for building work include agents, designers...\" / tree: inside bullet \"• There may be other ways to comply... Those responsible for building work include\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The paragraph that follows the list on the next page is merged into list item b.",
+     "evidence": "tree: \"b. an approved inspector (...Building Regulations). If building work consists only of installing certain types of services\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "790c646dad105b94": {
+   "version_id": "approved-document-f-volume-2-applies-to-buildings-other-than@2022-06-15-e039b3b0",
+   "unit": "p9",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  }
+ }
+}

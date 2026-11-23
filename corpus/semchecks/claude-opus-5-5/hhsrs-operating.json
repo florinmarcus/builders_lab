@@ -3,6 +3,129 @@
  "model": "claude-opus-5-5",
  "about": "Verdicts of claude-opus-5-5 on source against tree for hhsrs-operating (system/rag/semcheck.py).",
  "verdicts": {
+  "e05b3e78b03cc40c": {
+   "version_id": "hhsrs-operating-guidance-part-1-an-introductory-guide@2026-06-23-f3ec2529",
+   "unit": "p13",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The boxed worked example Box 2 and its title are run into the body text instead of kept as a separate box.",
+     "evidence": "tree: \"Scoring bar for likelihood Box 2 (example continued from Box 1) – Assessing the likelihood score for Falling on Stairs etc. In the example dwelling\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The caption of the scoring bar is kept as body text, not as the table's title.",
+     "evidence": "source: \"Scoring bar for likelihood\" / tree title: \"How to conduct an HHSRS assessment\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number 11 is inserted into the running text before the next page's note.",
+     "evidence": "tree: \"giving the dwelling a likelihood score of 1 in 100. 11 Note - In the example\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The second scoring bar figure is reduced to a two-cell table and loses its scale points and band labels.",
+     "evidence": "tree: \"Scores eliminated because the dwelling is worse than the average (1 in 200)\" | \"Scores eliminated because the dwelling is better than the worked example (1 in 30)\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "f007e91a4f3e6e4d": {
+   "version_id": "hhsrs-operating-guidance-part-1-an-introductory-guide@2026-06-23-f3ec2529",
+   "unit": "p14",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading 'Judging the spread of harm outcomes' is run into the body text.",
+     "evidence": "tree: \"which could require medical attention. Judging the spread of harm outcomes The assessor now knows\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Box 3 and its title are run into the body text instead of kept as a separate box.",
+     "evidence": "tree: \"over the next 12 months. Box 3 – Examples of the different classes of harm outcomes • Extreme harms\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Page numbers 11 and 12 are mixed into the text.",
+     "evidence": "tree: \"1 in 100. 11 Note - In the example\" ; \"removed from this updated version of 12\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "cff3fe8f4164dd78": {
+   "version_id": "hhsrs-operating-guidance-part-1-an-introductory-guide@2026-06-23-f3ec2529",
+   "unit": "p15",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "e530b174d9c01ace": {
+   "version_id": "hhsrs-operating-guidance-part-1-an-introductory-guide@2026-06-23-f3ec2529",
+   "unit": "p17",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The Box 6 calculation table is read as running text with columns scrambled, and its row labels (class of harm) are split off into a separate note, so values no longer sit beside their class.",
+     "evidence": "source: \"Extreme 10,000 X 1/20 X 5 = 2,500\" / tree: \"Weighting 10,000 X 1,000 X 300 X 10 X Likelihood Spread of harm (%) 1/20 X 5 1/20 X 10\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The class-of-harm column heading and labels are kept as a separate note block after the text instead of in the Box 6 table.",
+     "evidence": "tree: note \"Class of harm outcome\": \"Extreme Severe Serious Moderate\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The headings 'Hazard scores and banding' and 'Banding of the overall hazard score' are run into body text.",
+     "evidence": "tree: \"3,333 Note - ... Hazard scores and banding The size of the final hazard score\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "1d326c6de959332b": {
+   "version_id": "hhsrs-operating-guidance-part-1-an-introductory-guide@2026-06-23-f3ec2529",
+   "unit": "p23",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
   "5594b44c4727095e": {
    "version_id": "hhsrs-operating-guidance-part-1-an-introductory-guide@2026-06-23-f3ec2529",
    "unit": "p5",
@@ -46,6 +169,668 @@
      "severity": "low",
      "problem": "The page number is kept inside the body text.",
      "evidence": "tree: \"Sanitation o and Drainage were combined. 3\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "5e3abc4f4e10082a": {
+   "version_id": "hhsrs-operating-guidance-part-1-an-introductory-guide@2026-06-23-f3ec2529",
+   "unit": "p6",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Sub-bullet markers 'o' are placed mid-sentence instead of at the start of the sub-bullets, breaking the sentences.",
+     "evidence": "source: \"in Part 2 of this Guidance\" / tree: \"in Part 2 of this o Guidance\"; tree: \"risk assessment aspect of o the HHSRS\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "8668b27137f69f13": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p10",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "312535b85efe8ebe": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p104",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "7a3a13676982f435": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p109",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "e1617180082e716a": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p119",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "39bc629d27d7b2a7": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p125",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "c3ac67b7aacba2f4": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p131",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "e1ea06501724d096": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p132",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "9bf5c5a891d1d8ec": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p137",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The subheadings are kept as body text inside the running text section instead of as headings.",
+     "evidence": "tree: \"Description of the hazard This hazard covers threats ... Vulnerable group and the national average scores Note –\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The note printed under the table sits in the running text section, not in the table's text.",
+     "evidence": "source: \"Note – Scale point values are shown, with the national average values for likelihoods\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "2fd9e043bdadc341": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p143",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The subheadings and the boxed summary are run into the body text instead of kept as headings and a separate box.",
+     "evidence": "tree: \"Figures were restricted to dwellings with basements. Summary box – Lighting Vulnerable group – All ages ... Health effects Exposure\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The note printed under the table sits in the running text section, not in the table's text.",
+     "evidence": "source: \"Note – Scale point values are shown, with the national average values for likelihoods\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "07e44c87cf5fd1c3": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p144",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The previous page's page number has been inserted into the middle of a sentence.",
+     "evidence": "source: \"stable sleep patterns and can improve the quality of sleep\" / tree: \"sleep patterns and 141 can improve the quality of sleep\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading 'Causes' is run into the body text instead of kept as a heading.",
+     "evidence": "tree: \"evidence for this effect remained inconclusive. Causes The size, shape and position of windows\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "8f5ce17886492679": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p147",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "f491a814f4c1b87a": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p148",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "A text section repeats the rows 2.2 to 2.5 with the two table columns mixed line by line, which gives false rules.",
+     "evidence": "tree: \"No WC waste pipe shall be connected to a private sewage disposal system or the greywater system.\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The same cell text appears twice on the page: once correctly in the table grid and again as jumbled running text.",
+     "evidence": "tree: \"dwelling. All drains and gullies shall be Drains and gullies should be covered by suitable grilles\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "6185da56a6f7bfbf": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p149",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "4aef22563c426dc7": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p15",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The note printed under the table is kept in the preceding text section, before the table, rather than with the table.",
+     "evidence": "source: table then \"Note – Scale point values are shown\" / tree: note inside text section before table; table text has no note"
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-headings 'Description of the hazard' and 'Vulnerable group and the national average scores' are read as body text.",
+     "evidence": "tree: \"Description of the hazard This hazard covers falls\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The section heading 'PROTECTION AGAINST ACCIDENTS' and hazard heading '1. Falls on the Level' are merged into one chapter title.",
+     "evidence": "tree: \"PROTECTION AGAINST ACCIDENTS 1. Falls on the Level\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "25547795d9016e62": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p150",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "A text section repeats row 3.3 with its two table columns interleaved line by line, producing garbled sentences.",
+     "evidence": "tree: \"discharge externally unless designed by the requirements of the standard. If it seen to discharge internally, the manufacturer to discharge the system\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Row 3.3 (WC section) is placed in one table with rows 4.4-4.8, while rows 4.1-4.3 of the Bathroom section sit in a separate table, so section 4 is split and mixed with section 3.",
+     "evidence": "tree: table-21 rows \"3.3\", \"4.4\" ... \"4.8\"; table-p150 rows \"4.1\"-\"4.3\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "d11fb906b575d68d": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p151",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "A text section repeats rows 4.4-4.8 with the Baseline Indicators and Guidance Notes columns interleaved, producing garbled sentences.",
+     "evidence": "tree: \"condition which does not leak and is working order by running both the heated and unheated water taps properly connected to the\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Rows 4.4-4.8 are in a table joined with row 3.3 of the WC section and separated from rows 4.1-4.3, with no 'Sanitary Facilities: Bathroom' heading.",
+     "evidence": "tree: table-21 columns \"Item\", \"Baseline Indicators\", \"Guidance Notes\"; rows \"3.3\", \"4.4\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "29bd4ea8e3152f11": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p152",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "4a1c7322d291e6e8": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p153",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "A text section repeats rows 5.3-5.5 with the two table columns interleaved, producing garbled sentences.",
+     "evidence": "tree: \"provided for food preparation. safe storage, preparation and cooking of food. In kitchens for Sufficient cabinets and/or shelves exclusive use\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Rows 5.3 onward are in a separate table from rows 5.1-5.2 with no 'Sanitary Facilities: Kitchen' heading.",
+     "evidence": "tree: table-22 columns \"Number\", \"Baseline Indicators\", \"Guidance Notes\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "4c28e5abec102604": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p154",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "A text section repeats rows 5.6-5.9 with the two table columns interleaved, producing garbled sentences.",
+     "evidence": "tree: \"safe removal of fumes and moisture- outside to remove any odour or moisture from the kitchen. It should laden air\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "c1cee2f0c153692d": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p155",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "f08624bab0e650dd": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p156",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "The 7.3 table is also given as a running text section in which the indicator and guidance columns are mixed line by line, so rules run into guidance sentences.",
+     "evidence": "tree: \"by one person aged 10 heights of less than 1500mm. years or over must not be less than The room sizes indicated\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The 7.3 guidance note is split across two cells, giving the row a fourth cell with no column heading.",
+     "evidence": "tree: \"whether they are expected to be\" / \"part of the same household. Open-plan arrangements...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "db0e424467683c45": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p157",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "Row 7.4 is also given as a running text section in which the indicator and guidance columns are mixed, so sentences from the two columns interleave.",
+     "evidence": "tree: \"In a habitable least 2100mm. In a habitable room with a sloping ceiling, at least one-room with a sloping ceiling\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "1e5a9cb47eb69d7d": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p158",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "629e81be9193f757": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p159",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "Row 10.2 is also given as a running text section in which the noise limits and the guidance column are mixed, splitting the limit values among guidance sentences.",
+     "evidence": "tree: \"07:00 to 23:00 – 40 dBLAeq,T16 frequency content, duration, intermittence, predictability and source. in the living room and bedroom\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The 10.2 guidance note is split across two cells, giving the row a fourth cell with no column heading.",
+     "evidence": "tree: \"integrating sound-level meter. It has\" / \"been decided to include sound pressure levels...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "0112c7b0801f6c21": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p160",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The hazards line that ends row 10.2 at the top of this page is not in the 10.2 table row; it survives only at the end of a loose text section.",
+     "evidence": "source: \"Relevant hazards: Excess Heat; Noise.\" / tree: \"157 Relevant hazards: Excess Heat; Noise. 158\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "116aceb8dfedd98e": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p161",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "A stray text block repeats rows 11.4 and 11.5 with the two table columns interleaved line by line, so its sentences mix the indicator and guidance columns.",
+     "evidence": "tree: \"door shall have a door entry system ensure that it allows a visitor to ring any selected dwelling within the allowing a visitor to contact\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "Rows 11.4 and 11.5, printed at the top of the page, come after the section 12 rows in the tree, and they are not linked to the section 11 group.",
+     "evidence": "source: \"11.4 ... 11.5\" above \"12 Walking Surfaces\" / tree: table-p161 (12.1, 12.2) before table-25 (11.4, 11.5)"
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "bbf148be44604772": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p162",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "A stray text block repeats rows 12.3 to 12.6 with the two table columns interleaved, so its sentences mix the indicator and guidance columns.",
+     "evidence": "tree: \"at least one structurally sound continuous handrail installed, between one structurally sound continuous 900mm 1000mm high\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Rows 12.3 to 12.6 sit in a separate table without the '12 Walking Surfaces' group, and the '13 Guards' heading is a table of its own with no rows.",
+     "evidence": "tree: table-p162 grid [\"13\", \"Guards\", \"\"] only"
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "2b5252bfa094b2b3": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p163",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "A stray text block repeats rows 13.1 and 13.2 with the two table columns interleaved, so its sentences mix the indicator and guidance columns.",
+     "evidence": "tree: \"greater than 100mm, through which a a single storey or more, particularly where floor-to-sill height is less person may fall\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "ed24ea1ef8ce101a": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p164",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "A stray text block repeats row 13.3 with the indicator and guidance columns interleaved line by line.",
+     "evidence": "tree: \"heat must be adequately guarded to strong to remain in place in the event of a trip or fall by any resident ensure any accidental falls\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "8d144898b9aa6bd6": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p165",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "4e7b671439f54860": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p166",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "A stray text block repeats row 14.6 with the indicator and guidance columns interleaved line by line.",
+     "evidence": "tree: \"2 separate and remote double electric double electric sockets, that are located on opposite and or adjacent sockets that are suitably located\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "Row 14.6, printed at the top of the page, comes after the section 15 table in the tree, and it is separate from the section 14 group.",
+     "evidence": "source: \"14.6\" above \"15 Heating and Insulation\" / tree: table-p166 before table-26"
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "11641b5dc324a29e": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p167",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "8cb92952bf1536b5": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p168",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "7261d14e0fb85967": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p169",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "f6ceada239a56e7a": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p170",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "Row 17.5, printed first on the page as the end of table 17, is placed after tables 18 and 19 in a separate table with no group heading.",
+     "evidence": "source: \"17.5 Only biocidal products approved...\" at top of page / tree: table appendix-1-table-27 comes after \"19.1\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "A text block repeats row 17.5 with its two columns run together line by line, so the sentences are mixed.",
+     "evidence": "tree: \"Biocidal Products Regulations may be goods, stop pests like insects or rodents and control viruses, bacteria used within the dwelling\""
     }
    ],
    "confidence": "high",
@@ -98,6 +883,529 @@
      "evidence": "tree: \"System Grades Grade A mains + standby battery Grade A systems incorporate equipment\""
     }
    ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "05cb02cb25eec577": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p22",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The subheadings are run into the body text instead of being kept as headings.",
+     "evidence": "tree: \"Description of the hazard This hazard covers...\"; \"Vulnerable group and the national average scores Note – Scale point values\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The note printed under the table is kept in the running text, not with the table.",
+     "evidence": "source: \"Note – Scale point values are shown, with the national average values for likelihoods\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "02fc9e099134806c": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p26",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The subheadings for likelihood and severity matters are run into the text instead of being kept as headings.",
+     "evidence": "tree: \"...minus 1°C ... heating season. Other matters affecting the likelihood of a harmful occurrence include:\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "54a6dda3dadf9cb0": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p29",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The note printed under the table sits in the running text section, before the table, and the table's own text has no note.",
+     "evidence": "source: \"Note – Scale point values are shown\" (under the table) / tree: note in text section, not in table text"
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Subheadings are kept as body text inside the running text.",
+     "evidence": "tree: \"Description of the hazard This hazard covers falls\"; \"Vulnerable group and the national average scores Note –\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "9f14ff93b5fd745f": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p31",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Subheadings are run into the body text, and the numbered baseline indicators are merged into one text block.",
+     "evidence": "tree: \"Behavioural factors Occupiers may remove\"; \"Relevant baseline indicators (accompanying notes are in Appendix 1) 1.1 Externally\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The page number is left inside a sentence.",
+     "evidence": "source: \"present a falls risk. This\" / tree: \"This 29 includes consideration\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "241108433510c6fc": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p34",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The note printed under the table sits in the running text section, before the table, and the table's own text has no note.",
+     "evidence": "source: \"Note – Scale point values are shown\" (under the table) / tree: note in text section, not in table text"
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Subheadings are kept as body text inside the running text.",
+     "evidence": "tree: \"Description of the hazard This hazard covers threat\"; \"Vulnerable group and the national average scores Note –\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "Column names drop the group heading 'Spread of harm outcomes' over Extreme to Moderate.",
+     "evidence": "source: \"Spread of harm outcomes\" / tree: \"Extreme %\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "d1ac02cf9a65c5d9": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p40",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Two italic group headings are glued to the end of the bullet before them, so they no longer head the bullets that follow.",
+     "evidence": "tree: \"Artificial lighting – including emergency escape lighting Measures to limit fire spread\"; \"a fire blanket is sufficient) Adequate control/elimination of explosion hazards\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading 'Preventative measures' is run into the last bullet and the body text.",
+     "evidence": "tree: \"temperature relief valve to unvented system. Preventative measures The dwelling design\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The page number is left inside the running text.",
+     "evidence": "tree: \"close to flammable items. 38 Where internal doors\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "7d9f26bdcdf3b7fb": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p41",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading 'Other considerations for assessment of this hazard' is kept as body text inside the running text.",
+     "evidence": "tree: \"Safety devices should be regularly tested. Other considerations for assessment of this hazard Hazard assessment should\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "58251725affd3453": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p43",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The note printed under the table sits in the running text section, before the table, and the table's own text has no note.",
+     "evidence": "source: \"Note – Scale point values are shown\" (under the table) / tree: note in text section, not in table text"
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Subheadings are kept as body text, and the paragraph after the bullets is joined to the last bullet.",
+     "evidence": "tree: \"scalds from contact with hot liquids and vapours. It does not include burns\"; \"Vulnerable group and the national average scores Note –\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "Column names drop the group heading 'Spread of harm outcomes' over Extreme to Moderate.",
+     "evidence": "source: \"Spread of harm outcomes\" / tree: \"Extreme %\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "dd64ea60fd029680": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p48",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The subheadings are run into the body text instead of being kept as headings.",
+     "evidence": "tree: \"Description of the hazard This hazard covers risks...\" / \"Vulnerable group and the national average scores Note – Scale point values\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is embedded in the body text before the summary box.",
+     "evidence": "tree: \"to domestic situations. 46 Summary box\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "36937bbe9523ddb6": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "ccb402eea520dd00": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p55",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The subheadings are run into the body text instead of being kept as headings.",
+     "evidence": "tree: \"Description of the hazard This hazard covers the threat\" / \"Vulnerable group and the national average scores Note –\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is embedded in the body text.",
+     "evidence": "tree: \"cause of the hospital episode. 53 Summary box\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "4b8b82a1ad0c56de": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p60",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The subheadings and the summary box title are run into the body text instead of being kept as headings or a box.",
+     "evidence": "tree: \"Description of the hazard This hazard covers\" / \"general practice data. Summary box – Electrical Hazards Vulnerable group\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is embedded in the middle of a sentence.",
+     "evidence": "tree: \"involving burns 58 and/or falls\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "890b04239a47bdf2": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p65",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The part heading and the chapter heading are merged into one chapter title.",
+     "evidence": "source: \"PHYSIOLOGICAL REQUIREMENTS\" / \"9. Excess Cold\" / tree: \"PHYSIOLOGICAL REQUIREMENTS 9. Excess Cold\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The subheadings are run into the body text instead of being kept as headings.",
+     "evidence": "tree: \"Description of the hazard This hazard covers threats\" / \"Vulnerable group and the national average scores Note –\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "A hyphenated row label keeps a stray space.",
+     "evidence": "source: \"Non-HMOs\" / tree: \"Non- HMOs\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is embedded in the body text.",
+     "evidence": "tree: \"were Severe harms. 63 Summary box\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "aa075b74f29542c2": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p71",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The subheadings are run into the body text instead of being kept as headings.",
+     "evidence": "tree: \"Description of the hazard This hazard covers threat\" / \"Vulnerable group and the national average scores Note –\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The superscript in the unit is flattened, though it still reads right.",
+     "evidence": "source: \"Bq.m⁻³\" / tree: \"Bq.m-3\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is embedded in the body text.",
+     "evidence": "tree: \"retained in the update. 69 Summary box\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "f30735c0ba5faead": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p76",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Subheadings and the summary box title are run into the body text instead of being kept as headings or a separate box.",
+     "evidence": "tree: \"Description of the hazard This hazard covers threats ... Vulnerable group and the national average scores Note – Scale point values\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The printed page number is kept inside the running text.",
+     "evidence": "tree: \"attributable to damp and mould. 74 Summary box – Damp and Mould Growth\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "c76de545bf9d6bf2": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p80",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Subheadings are run into the body text instead of being kept as headings.",
+     "evidence": "tree: \"flooding of basements and under-floor cavities. Behavioural factors Occupiers produce up to a kilo\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The printed page number is kept inside the running text between baseline indicators.",
+     "evidence": "tree: \"through the cistern or pan. 78 4.3 A dedicated wash-hand basin\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "5b95498f7882204e": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p85",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Subheadings and the summary box are run into the body text instead of being kept as headings or a separate box.",
+     "evidence": "tree: \"Description of the hazard This covers threats to health from the ingestion of lead. Vulnerable group and the national average scores Note\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The printed page number is kept inside the running text.",
+     "evidence": "tree: \"aged 3 or under to be estimated. 83 Summary box – Lead\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "997e54f4043562c3": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p89",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Subheadings are run into the body text instead of being kept as headings.",
+     "evidence": "tree: \"mechanisms of injury. Vulnerable group and the national average scores Note – Scale point values\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The printed page number is inserted mid-sentence in the table note.",
+     "evidence": "source: \"exposure to air pollution\" / tree: \"exposure to air 87 pollution\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "74ca900007cb256f": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p92",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The subheading Causes is run into the body text instead of being kept as a heading.",
+     "evidence": "tree: \"lower socio-economic groups. Causes Leaks of uncombusted fuel gas\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The previous page's number is inserted mid-sentence.",
+     "evidence": "source: \"The risk of harm from biocides\" / tree: \"The 89 risk of harm from biocides\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "f4eca5e8308da663": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p98",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Subheadings and the boxed summary are run into the body text instead of being kept as headings or a separate box.",
+     "evidence": "tree: \"in 2019-20. Summary box – Excess Heat Vulnerable group – Those aged 65 years and over\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The printed page number is kept inside the running text.",
+     "evidence": "tree: \"to reflect solar radiation. 96 Health effects\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "8a1fd68f8773ab70": {
+   "version_id": "hhsrs-operating-guidance-part-3-a-supplementary-guide-to-the@2026-06-23-cf2bee09",
+   "unit": "p10",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
    "confidence": "high",
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
@@ -309,6 +1617,56 @@
      "severity": "high",
      "problem": "The headings Specialised Housing, Sheltered housing and Supported housing are read as body text, so their grade and category rules sit under Houses in multiple occupation.",
      "evidence": "tree: \"Category L2 system Specialised Housing Sheltered housing\" ; heading_path: \"Houses in multiple occupation > Text\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "3ec1b6481efb1e2d": {
+   "version_id": "hhsrs-operating-guidance-part-3-a-supplementary-guide-to-the@2026-06-23-cf2bee09",
+   "unit": "p61",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "ec4f22a01d63ea33": {
+   "version_id": "hhsrs-operating-guidance-part-3-a-supplementary-guide-to-the@2026-06-23-cf2bee09",
+   "unit": "p7",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The footnote marker after 1960 is moved into the middle of the sentence.",
+     "evidence": "source: \"one of the lowest annual death rates since official records began in 1960¹\" / tree: \"one of 1 the lowest annual death rates since official records began in 1960 .\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "d7333554fa6da148": {
+   "version_id": "hhsrs-operating-guidance-part-3-a-supplementary-guide-to-the@2026-06-23-cf2bee09",
+   "unit": "p9",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number 6 is mixed into the table's text between rows.",
+     "evidence": "tree: \"(4-9 storeys)\", \"6\", \"Purpose-built block of flats 5.1 180.3\""
     }
    ],
    "confidence": "high",

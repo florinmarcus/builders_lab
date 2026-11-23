@@ -1,0 +1,330 @@
+{
+ "source_id": "adc",
+ "model": "claude-opus-5-5",
+ "about": "Verdicts of claude-opus-5-5 on source against tree for adc (system/rag/semcheck.py).",
+ "verdicts": {
+  "d2b18d038204f84c": {
+   "version_id": "approved-document-c-site-preparation-and-resistance-to-conta@2013-09-03-70e17ada",
+   "unit": "p15",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Footnote markers are run into the document numbers in paragraph 1.8, so the digest and report numbers read wrong.",
+     "evidence": "source: \"BRE Digest 427²⁷ and BRE Report BR 424²⁸\" / tree: \"BRE Digest 42727 and BRE Report BR 42428\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Footnotes 27 and 28, cited in paragraph 1.8, are kept as notes of Table 1 instead of with paragraph 1.8.",
+     "evidence": "tree table-1 text: \"27 BRE Digest 427 Low-rise buildings on fill.\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "0a900a03baae4ff5": {
+   "version_id": "approved-document-c-site-preparation-and-resistance-to-conta@2013-09-03-70e17ada",
+   "unit": "p16",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Paragraph 2.5 ends with a heading and a list letter that are not printed in it on this page (they belong to the next page).",
+     "evidence": "tree: \"to mitigate the effects of sulphate attack. SOLID AND LIQUID CONTAMINANTS b.\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Footnote marker run into the digest number.",
+     "evidence": "source: \"BRE Special Digest SD1³³\" / tree: \"BRE Special Digest SD133\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Footnotes 29, 31, 32 and 33, cited in paragraphs 2.2, 2.3 and 2.5, are kept as notes of Table 2 instead of with those paragraphs.",
+     "evidence": "tree table-2 text: \"29 Department of the Environment Industry Profiles, 1996.\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "c2833f849746c23c": {
+   "version_id": "approved-document-c-site-preparation-and-resistance-to-conta@2013-09-03-70e17ada",
+   "unit": "p19",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Footnotes 46 and 47 are cited in paragraph 2.14 but attached to paragraph 2.15.",
+     "evidence": "source: \"should be considered⁴⁶,⁴⁷\" / tree para-2.15 footnotes: \"46 HSE Report HSG 66 ...\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Footnote markers run into the last word of paragraph 2.14.",
+     "evidence": "tree: \"should be considered46,47.\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "c99b45248f12b865": {
+   "version_id": "approved-document-c-site-preparation-and-resistance-to-conta@2013-09-03-70e17ada",
+   "unit": "p21",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The headings Introduction and Risk assessment (2.25 to 2.29) are placed beside, not under, METHANE AND OTHER GASES FROM THE GROUND, so these paragraphs lose their parent heading.",
+     "evidence": "tree: \"Section 2: Resistance to contaminants > Risk assessment > Paragraph 2.28\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Footnotes 8, 58 and 59, cited in 2.23d and 2.24, are attached to paragraph 2.29.",
+     "evidence": "tree para-2.29 footnotes: \"58 Foundation for Water Research Report FR0448 ...\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Footnote marker run into the paper number.",
+     "evidence": "source: \"Waste Management Paper No. 27⁶⁰\" / tree: \"Waste Management Paper No. 2760\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "7c351fbe3b9fdedc": {
+   "version_id": "approved-document-c-site-preparation-and-resistance-to-conta@2013-09-03-70e17ada",
+   "unit": "p24",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Footnote 79 is cited in paragraph 3.6 but attached to paragraph 3.7.",
+     "evidence": "source: \"a CIRIA publication⁷⁹\" / tree para-3.7 footnotes: \"79 CIRIA Publication C506 ...\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Footnote marker run into the last word of paragraph 3.6.",
+     "evidence": "tree: \"a CIRIA publication79.\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "cf22510a557c2558": {
+   "version_id": "approved-document-c-site-preparation-and-resistance-to-conta@2013-09-03-70e17ada",
+   "unit": "p29",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The Technical solution heading for 4.18 to 4.20 is placed beside, not under, SUSPENDED CONCRETE GROUND FLOORS, so these paragraphs share a path with the timber floor technical solution.",
+     "evidence": "tree: \"Section 4: Floors > Technical solution > Paragraph 4.18\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Footnote markers are run into standard years, so the standard references read wrong.",
+     "evidence": "source: \"BS 7331:1990⁹¹ or BS EN 312 Part 5:1997⁹²\" / tree: \"BS 7331:199091 or BS EN 312 Part 5:199792\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Same run-in footnote markers in 4.14c and 4.16.",
+     "evidence": "tree: \"BS 5628:Part 3:200190\" and \"BS CP 102:197394\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Footnotes 90 to 94, cited in 4.14, 4.15 and 4.16, are all attached to paragraph 4.20.",
+     "evidence": "tree para-4.20 footnotes: \"91 BS 7331:1990 Specification for direct surfaced wood chipboard ...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "0c0be7c8a75145f6": {
+   "version_id": "approved-document-c-site-preparation-and-resistance-to-conta@2013-09-03-70e17ada",
+   "unit": "p34",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "In 5.15 the list items c, d and e lose their letters and are merged into item b, so the separate alternatives and the existing-house condition read as part of item b.",
+     "evidence": "source: \"c. Other insulating materials...\" \"d. Urea-formaldehyde foam...\" \"e. When the cavity of an existing house\" / tree: \"...that document; or Other insulating materials...\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "In 5.13 stray item letters were added: a 'd.' after the lead-in and an 'e.' before the masonry units paragraph, which is joined into item c.",
+     "evidence": "tree: \"could include: d.\" / \"c. inner leaf masonry or frame with lining. e. Masonry units should be laid\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Paragraph 5.11 sits under the printed 'Alternative approach' heading, but the tree puts it under 'Technical solution'.",
+     "evidence": "source: \"Alternative approach 5.11\" / tree: \"Section 5: Walls > Technical solution > Paragraph 5.11\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Footnotes 107 and 108 belong to paragraphs 5.11 and 5.14 but are attached to paragraph 5.15.",
+     "evidence": "tree: 5.15 footnotes \"107 BS 5628-3:2001...\", \"108 BS 5628-3:2001...\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Heading capital letters were read wrongly.",
+     "evidence": "source: \"CAVITY EXTERNAL WALLS\" / tree: \"CAVITY ExTERNAL WALLS\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "3a768426f69d1291": {
+   "version_id": "approved-document-c-site-preparation-and-resistance-to-conta@2013-09-03-70e17ada",
+   "unit": "p37",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The separate paragraph in brackets about BS 8104 (and the text after it) is joined onto list item ii of 5.16.",
+     "evidence": "tree: \"subtract one from this exposure zone value. (The national exposure zone value can be more accurately calculated...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "a20a73eed3f05e29": {
+   "version_id": "approved-document-c-site-preparation-and-resistance-to-conta@2013-09-03-70e17ada",
+   "unit": "p7",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Words in C1(3)(b) are run together without spaces.",
+     "evidence": "source: \"damage to the building, including damage through\" / tree: \"damagetothebuilding,includingdamagethrough\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "6973cb16943cdacd": {
+   "version_id": "frequently-asked-questions@2013-09-03-788ce406",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "a7b632b428176658": {
+   "version_id": "frequently-asked-questions@2013-09-03-788ce406",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Each bold question is split into two sibling headings, so the answer sits only under the second half of its question.",
+     "evidence": "tree: \"...Can you provide\" + \"me with any existing documentation...\"; \"...I am intending building\" + \"an extension to the house...\"; \"...likely to\" + \"require radon protection?\""
+    },
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The section heading 'Information on extensions' is missing; the first question sits under 'Frequently Asked Questions'.",
+     "evidence": "source: \"Information on extensions\" / tree: \"Frequently Asked Questions > I'm currently looking at...\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is kept at the end of the radon answer.",
+     "evidence": "tree: \"...that have an existing postal address. 4\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "ae976a93c8b7a399": {
+   "version_id": "frequently-asked-questions@2013-09-03-788ce406",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The bold question is split into two sibling headings, so the answer sits only under the second half of the question.",
+     "evidence": "tree: \"...Can I take\" + \"any measures to mitigate the effects of flood risk in designing my new house?\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is kept at the end of the answer text.",
+     "evidence": "tree: \"www.shop.bsigroup.com 5\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  }
+ }
+}

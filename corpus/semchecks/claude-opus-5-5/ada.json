@@ -1,0 +1,324 @@
+{
+ "source_id": "ada",
+ "model": "claude-opus-5-5",
+ "about": "Verdicts of claude-opus-5-5 on source against tree for ada (system/rag/semcheck.py).",
+ "verdicts": {
+  "1c36254a348e3802": {
+   "version_id": "approved-document-a-structure@2013-09-01-96a5a374",
+   "unit": "p12",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Paragraph 2.2 is a general paragraph under 'General' but the tree places it under the 'Section 2E' subheading.",
+     "evidence": "tree: \"General > Section 2E > Paragraph 2.2\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "2101f2c7a6135639": {
+   "version_id": "approved-document-a-structure@2013-09-01-96a5a374",
+   "unit": "p14",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "6113394029cff8f7": {
+   "version_id": "approved-document-a-structure@2013-09-01-96a5a374",
+   "unit": "p15",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The separate unindented paragraph after list item e of 2C3 is joined into item e.",
+     "evidence": "source: \"BS EN 1996-1-1:2005 with its UK National Annex gives design strengths\" (own paragraph) / tree: appended to \"e. the guidance given is based upon...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "d24ac092deb1dd2d": {
+   "version_id": "approved-document-a-structure@2013-09-01-96a5a374",
+   "unit": "p18",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "Diagram 3 is printed above Table 3 on the page but the tree puts it after the table.",
+     "evidence": "source: \"Diagram 3 Determination of wall thickness\" first, then \"Table 3\" / tree: table-3 before diagram-3"
+    },
+    {
+     "kind": "figure",
+     "severity": "low",
+     "problem": "The flow chart's box texts and condition lists are not in labels; only the description summarises them.",
+     "evidence": "source: \"Wall thickness given in paragraphs 2C6 to 2C13 may be used\" / tree labels: \"See para 2C5\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "beb3928a56e8a6a4": {
+   "version_id": "approved-document-a-structure@2013-09-01-96a5a374",
+   "unit": "p20",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Diagram 5 (floor areas, para 2C14) is placed last under the heading 'Construction materials and workmanship', which is not its parent.",
+     "evidence": "tree: \"Construction materials and workmanship > Maximum floor area enclosed by structural walls\""
+    },
+    {
+     "kind": "figure",
+     "severity": "low",
+     "problem": "The area limits printed in Diagram 5 are not in labels, though the description gives them correctly.",
+     "evidence": "source: \"Area not exceeding 70m2\", \"Area not exceeding 36m2\" / tree labels: \"See para 2C14\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "57f94fa8f9d6eab9": {
+   "version_id": "approved-document-a-structure@2013-09-01-96a5a374",
+   "unit": "p25",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "b3921e54b4a6b796": {
+   "version_id": "approved-document-a-structure@2013-09-01-96a5a374",
+   "unit": "p26",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "high",
+     "problem": "The four numbered Notes printed in Diagram 9 are kept neither as text nor labels; the description only paraphrases them and drops Note 1 and the 'whichever is the greater' condition.",
+     "evidence": "source: \"If Hs is greater than 2.7m, the compressive strength ... should be at least Condition B, or as indicated by the key, whichever is the greater.\""
+    },
+    {
+     "kind": "figure",
+     "severity": "low",
+     "problem": "Labels giving wall thickness limits and the key are missing from labels; the description covers them.",
+     "evidence": "source: \"This wall to be at least 140mm thick blockwork or 215mm thick brickwork\" / tree labels: \"See para 2C21\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "5c69b1e5a9d7726c": {
+   "version_id": "approved-document-a-structure@2013-09-01-96a5a374",
+   "unit": "p27",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Diagram 10 (span of floors, para 2C23) is placed under 'End restraint' after 2C26 instead of with Loading on walls.",
+     "evidence": "tree: \"End restraint > Maximum span of floors\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "a50ce8da7b4140b9": {
+   "version_id": "approved-document-a-structure@2013-09-01-96a5a374",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "72ac4a6fd3749158": {
+   "version_id": "approved-document-a-structure@2013-09-01-96a5a374",
+   "unit": "p31",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "high",
+     "problem": "Diagram 14 labels keep only note 8; notes 1 to 7 and the height limit, which give rules and limits, are not in the labels (the model description does summarise them).",
+     "evidence": "source: \"2 W1, W2 or W3 should not exceed 3m\" / \"but should not be less than 665mm\" / \"H should not be greater than 2.1 m\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "Diagram 14 is printed at the top of the page, above Tables 8 and 9, but the tree puts it after them.",
+     "evidence": "source: \"Diagram 14 Sizes of openings and recesses\" printed first / tree: table-8, table-9, diagram-14"
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "a7457807f8e0ea76": {
+   "version_id": "approved-document-a-structure@2013-09-01-96a5a374",
+   "unit": "p39",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "757e5ad5fdc2b16e": {
+   "version_id": "approved-document-a-structure@2013-09-01-96a5a374",
+   "unit": "p40",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "3b34de61db0548fb": {
+   "version_id": "approved-document-a-structure@2013-09-01-96a5a374",
+   "unit": "p44",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "54075c6297ab1bd9": {
+   "version_id": "approved-document-a-structure@2013-09-01-96a5a374",
+   "unit": "p46",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The definitions under 5.3 (Nominal length of load-bearing wall, Key elements) are siblings of paragraph 5.3, which keeps only the word 'Definitions', and Table 11 is placed under the 'Nominal length of load-bearing wall' heading.",
+     "evidence": "source: \"5.3 Definitions\" / tree: para-5.3 text \"Definitions\"; table-11 heading_path \"... > Nominal length of load-bearing wall > Building consequence classes\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "e263ae8d12600a76": {
+   "version_id": "frequently-asked-questions@2013-09-01-224c5c74",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The text section that starts on the cover runs the imprint, the contents list and the first FAQ answer together, so the 'Timber sizes for floor joists' question loses its own heading and sits under a generic text block.",
+     "evidence": "tree: \"ISBN: 978-1-4098-4803-5 Timber sizes for floor joists 4 How do I go about ... 3 Where can I obtain the timber sizes\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "a964013e8ce9d45d": {
+   "version_id": "frequently-asked-questions@2013-09-01-224c5c74",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The heading 'Timber sizes for floor joists' is not kept as a heading; its question and answer are merged into one text block with the imprint and contents list under 'Frequently Asked Questions > Text'.",
+     "evidence": "source: \"Timber sizes for floor joists\" / tree: \"March 2016 Department for Communities ... 3 Where can I obtain the timber sizes for floor joists\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The page number is run into the basement answer, and the text continues straight into a fragment from the next page.",
+     "evidence": "source: \"Planning and Building Control offices\" / tree: \"Planning and Building Control offices 4 dwellings’ on basement design\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "aecfa45a4d2326bc": {
+   "version_id": "frequently-asked-questions@2013-09-01-224c5c74",
+   "unit": "p6",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "high",
+     "problem": "The second condition for a first-floor conservatory is lost; the tree jumps from condition 1 to the end of condition 2.",
+     "evidence": "source: \"2. Local Authority Building Control are content with respect to all the relevant parts of the Building Regulations.\" / tree: \"has been granted 5 Building Regulations.\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Page numbers are run into the text.",
+     "evidence": "tree: \"has been granted 5 Building Regulations\" ... \"Building Regulations. 6\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  }
+ }
+}

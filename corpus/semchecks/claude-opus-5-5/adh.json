@@ -1,0 +1,328 @@
+{
+ "source_id": "adh",
+ "model": "claude-opus-5-5",
+ "about": "Verdicts of claude-opus-5-5 on source against tree for adh (system/rag/semcheck.py).",
+ "verdicts": {
+  "7dede113498dcb53": {
+   "version_id": "approved-document-h-drainage-and-waste-disposal@2010-12-04-46d6a268",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "1d79ee7a5347c169": {
+   "version_id": "approved-document-h-drainage-and-waste-disposal@2010-12-04-46d6a268",
+   "unit": "p11",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "e390c8af63a7393d": {
+   "version_id": "approved-document-h-drainage-and-waste-disposal@2010-12-04-46d6a268",
+   "unit": "p12",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Diagram 4 is printed beside paragraph 1.22 under Branch discharge pipes, but the tree puts it after 1.30 under Discharge stacks.",
+     "evidence": "tree: \"Section 1: Sanitary pipework > Discharge stacks > Branch ventilation pipes\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "5d2ef49ab15843e1": {
+   "version_id": "approved-document-h-drainage-and-waste-disposal@2010-12-04-46d6a268",
+   "unit": "p13",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Diagrams 5 and 6 belong to paragraphs 1.30 and 1.31 under Discharge stacks, but the tree puts them under Materials for pipes, fittings and joints.",
+     "evidence": "tree: \"Materials for pipes, fittings and joints > Stub stack\" / \"... > Termination of ventilation stacks or ventilation part of discharge\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "1b0efc901a8bad53": {
+   "version_id": "approved-document-h-drainage-and-waste-disposal@2010-12-04-46d6a268",
+   "unit": "p18",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The notes of Table 7 are attached to Table 6's text and are missing from Table 7, so the meaning of the '+' marks and the trade effluent warning are lost there.",
+     "evidence": "source (Table 7): \"+ Application area code UD should normally be specified\" \"Note: Some of these materials may not be suitable for conveying trade effluent\" / tree Table 7 text: \"Material British Standard Rigid pipes\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "Table 6's text mixes in rows of Table 7 from the other column.",
+     "evidence": "tree: \"(litres/sec) (mm) gradient capacity Concrete BS 5911\", \"100 1:40 9.2 Ductile iron BS EN 598\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "b40f61f2781eb2f0": {
+   "version_id": "approved-document-h-drainage-and-waste-disposal@2010-12-04-46d6a268",
+   "unit": "p20",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "6486d0f0d71aa468": {
+   "version_id": "approved-document-h-drainage-and-waste-disposal@2010-12-04-46d6a268",
+   "unit": "p21",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Diagrams 11 and 12 are printed above the 'Clearance of blockages' heading (they belong to bedding and backfilling, paras 2.44-2.45) but the tree puts them under 'Clearance of blockages' and after Table 11.",
+     "evidence": "tree: \"Section 2: Foul drainage > Clearance of blockages > Protection for pipes laid at shallow depths (minimum sizes)\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "bc48e5743ed47d4c": {
+   "version_id": "approved-document-h-drainage-and-waste-disposal@2010-12-04-46d6a268",
+   "unit": "p22",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "Footnote markers printed on Table 12 cells are dropped from the grid, so cells lose their link to notes 2, 3, 5, 6 and 7 (notes themselves are kept in text).",
+     "evidence": "source: \"750 x 675 7 ... 1000 7 ... 750 x 675 2 ... na 3\" / tree: \"750 x 675\", \"1000\", \"750 x 675\", \"na\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "49e1b33c71c514f1": {
+   "version_id": "approved-document-h-drainage-and-waste-disposal@2010-12-04-46d6a268",
+   "unit": "p23",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "02f485a2ce01e16f": {
+   "version_id": "approved-document-h-drainage-and-waste-disposal@2010-12-04-46d6a268",
+   "unit": "p24",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "2659ef90bf1e893c": {
+   "version_id": "approved-document-h-drainage-and-waste-disposal@2010-12-04-46d6a268",
+   "unit": "p25",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "A.3 (left column, under Capacity of pipes) is merged into the Traps text after A.4, so it sits under the wrong heading and in the wrong order.",
+     "evidence": "tree: \"(see paragraph 1.4) A.4 Minimum trap sizes ... A.3 Flow rates for other commonly used appliances\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Table A2 belongs to the left column under Capacity of pipes but is placed under the Traps heading.",
+     "evidence": "tree: \"Appendix H1-A: Additional guidance for larger buildings > Traps > Flow rates from appliances\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "A stray text block under Traps repeats rows of Table A1 with no context.",
+     "evidence": "tree: \"10 4.1\", \"15 4.6\", \"20 5.1\", \"25 5.4\", \"30 5.8\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Table A3 title is cut short, losing the words that limit its scope.",
+     "evidence": "source: \"Minimum trap sizes and seal depths additional to Table 2\" / tree: \"Minimum trap sizes and seal\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Table A1 text mixes in Table A3 rows and lacks most of its own rows; Table A3 text is truncated (grids are correct).",
+     "evidence": "tree: \"(industrial type) 50 75\", \"Number of Flow rate Urinal stall\", \"dwellings (litres/sec) (1 to 6 person position) 65 50\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "773c2036d0672ae8": {
+   "version_id": "approved-document-h-drainage-and-waste-disposal@2010-12-04-46d6a268",
+   "unit": "p30",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "cb81cd8d2a5cdf1f": {
+   "version_id": "approved-document-h-drainage-and-waste-disposal@2010-12-04-46d6a268",
+   "unit": "p34",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Paragraph 1.17 on septic tank siting is given as ending on this page, but none of its text is printed here.",
+     "evidence": "tree: \"Where they are to be emptied using a tanker, the septic tank should be sited within 30m of a vehicle access\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The superscript in the trial hole area unit is lost.",
+     "evidence": "source: \"1m² in area\" / tree: \"1m2 in area\""
+    },
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "Diagram 1 has no labels; the printed words appear only in the description.",
+     "evidence": "source: \"Minimum 2m separation\", \"Graded 30–50mm granular material\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "31f2907b565ad164": {
+   "version_id": "approved-document-h-drainage-and-waste-disposal@2010-12-04-46d6a268",
+   "unit": "p37",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "6c30e02dd88da4ba": {
+   "version_id": "approved-document-h-drainage-and-waste-disposal@2010-12-04-46d6a268",
+   "unit": "p42",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The note printed under Table 2 is attached to Table 1's text, and Table 2's text has no note.",
+     "evidence": "source (under Table 2): \"Note: Refers to nominal half round eaves gutters laid level with outlets at one end sharp edged\" / tree: in Table 1 text"
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Table 1's text includes Table 2's data rows mixed in with its own rows.",
+     "evidence": "tree: \"1 Flat roof plan area of relevant portion 53.0 115 63 1.11\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The closing sentence of 0.1, printed after the list, is joined into item b.",
+     "evidence": "tree: \"b. which are yards ... by more than one building. The provisions of H3 only apply if these surfaces are paved.\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The superscript in the Table 2 unit is lost.",
+     "evidence": "source: \"(m²)\" / tree: \"(m2)\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "2df81f47dc0fd69d": {
+   "version_id": "approved-document-h-drainage-and-waste-disposal@2010-12-04-46d6a268",
+   "unit": "p9",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "A word from the table ('Food') is run into the text of paragraph 1.2.",
+     "evidence": "source: \"major flush volumes as low as 4 litres\" / tree: \"major flush volumesFood as low as 4 litres\""
+    },
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "Diagram 1 has no labels; the printed words appear only in the description.",
+     "evidence": "source: \"Floor level\", \"1.3m max.\", \"Invert of drain\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  }
+ }
+}

@@ -1,0 +1,38 @@
+{
+ "source_id": "fser2022",
+ "model": "claude-opus-5-5",
+ "about": "Verdicts of claude-opus-5-5 on source against tree for fser2022 (system/rag/semcheck.py).",
+ "verdicts": {
+  "f03afc2f6581b38b": {
+   "version_id": "main@2026-04-06-9826f8e6",
+   "unit": "regulation-2",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The lettered list under 'military premises' (an alpha ordered list in the source) loses its (a), (b), (c) labels in the tree.",
+     "evidence": "tree: \"military barracks,\", \"a building occupied solely for the purposes of the armed forces, or\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "a06afa95f7d14897": {
+   "version_id": "main@2026-04-06-9826f8e6",
+   "unit": "regulation-4",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  }
+ }
+}

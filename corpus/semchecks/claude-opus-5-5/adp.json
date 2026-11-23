@@ -1,0 +1,56 @@
+{
+ "source_id": "adp",
+ "model": "claude-opus-5-5",
+ "about": "Verdicts of claude-opus-5-5 on source against tree for adp (system/rag/semcheck.py).",
+ "verdicts": {
+  "5047cdb79ce7eaa8": {
+   "version_id": "approved-document-p-electrical-safety-dwellings@2013-01-01-c7128889",
+   "unit": "p14",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Diagram 1 is printed above the 'Notifiable work' heading (it belongs to paragraphs 2.2 to 2.4) but the tree puts it after paragraph 2.5 under 'Notifiable work'.",
+     "evidence": "tree heading_path: \"Section 2: Application of Part P > Notifiable work > Scope of Part P\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Figure labels split 'Common access' into single letters and run the credit line together without spaces.",
+     "evidence": "source: \"Reproduced with the permission of the Electrical Contractors' Association\" / tree: \"ReproducedwiththepermissionoftheElectricalContractors’Association\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "0a11396115e4eb1d": {
+   "version_id": "approved-document-p-electrical-safety-dwellings@2013-01-01-c7128889",
+   "unit": "p20",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "a2ed313c04e8d87d": {
+   "version_id": "approved-document-p-electrical-safety-dwellings@2013-01-01-c7128889",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "approved-document-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  }
+ }
+}

@@ -287,6 +287,24 @@ header rows read as headings; fixed before the final run.
 verdicts of the fix-1 trees this alone moves guidance PDFs from 22.9% to 20.1% (random pages) and 21.6% to 20.1%
 (table pages). This is a change of scope, not a fix.
 
+### Rates after round 2 (judge: Opus 5.5, 23 Nov 2026)
+
+The whole sample judged again by Opus on the trees after fixes 1-4, S132 and S133 (2,938 of 2,940 units; two
+br-circulars pages left no answer). High rate with 95% Wilson interval:
+
+| Family | Random pages | Table pages | All |
+|---|---|---|---|
+| Approved Documents | 11.3% (8.3 to 15.2), n 319 | 12.8% (10.1 to 16.2), n 467 | 12.2% |
+| Guidance PDFs | 13.6% (11.3 to 16.4), n 682 | 11.5% (9.1 to 14.5), n 538 | 12.7% |
+| Fire risk guides | 1.1% (0.3 to 3.8), n 188 | 6.8% (3.9 to 11.8), n 161 | 3.7% |
+| Legislation | | | 0.9% (0.3 to 2.7), n 326 |
+| Web pages | | | 0.0% (0.0 to 1.7), n 220 |
+| Whole sample | | | 9.1% (8.1 to 10.2), n 2,938 |
+
+These are Opus rates. They are not comparable with the Fable rates above (Opus flags fewer units high on the same
+content), so the fix effects are the paired tables, not the difference between these rates and Fable's. The
+remaining causes are parked in S128 for after chunking.
+
 ## Limits
 
 - One model judges, with the noise measured above; a finding is a claim until checked. The hand check covers 50

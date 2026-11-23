@@ -1,0 +1,153 @@
+{
+ "source_id": "hswa1974",
+ "model": "claude-opus-5-5",
+ "about": "Verdicts of claude-opus-5-5 on source against tree for hswa1974 (system/rag/semcheck.py).",
+ "verdicts": {
+  "f10447b60ff59389": {
+   "version_id": "main@2026-07-16-51da3781",
+   "unit": "schedule-2-paragraph-1",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "de875f2639498cad": {
+   "version_id": "main@2026-07-16-51da3781",
+   "unit": "schedule-2-paragraph-3",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "43c905aadfd9edf5": {
+   "version_id": "main@2026-07-16-51da3781",
+   "unit": "schedule-3-paragraph-1",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "fd88f0c0e8a36c3c": {
+   "version_id": "main@2026-07-16-51da3781",
+   "unit": "schedule-8-paragraph-1",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "105194d524909616": {
+   "version_id": "main@2026-07-16-51da3781",
+   "unit": "section-14",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "37ab59afb3728e4e": {
+   "version_id": "main@2026-07-16-51da3781",
+   "unit": "section-18",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The repealed name and its replacement are run together with no space in (1B), (2)(b)(iii) and (5)(b).",
+     "evidence": "source: \"Office of Rail Regulation\" (repealed) + \"Office of Rail and Road\" / tree: \"Office of Rail RegulationOffice of Rail and Road\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "57dd7b58dbad88f2": {
+   "version_id": "main@2026-07-16-51da3781",
+   "unit": "section-29",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "af26ab83b9739ead": {
+   "version_id": "main@2026-07-16-51da3781",
+   "unit": "section-31",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The source number covers sections 31 and 32 together (PuncAfter \", 32.\"), but the tree gives only section 31.",
+     "evidence": "source: \"31\" with PuncAfter=\", 32.\" / tree: \"number\": \"31\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "7a9aa618a5fd2107": {
+   "version_id": "main@2026-07-16-51da3781",
+   "unit": "section-35",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "f95527bdf43e8702": {
+   "version_id": "main@2026-07-16-51da3781",
+   "unit": "section-43A",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "6fca4f775c5587d4": {
+   "version_id": "main@2026-07-16-51da3781",
+   "unit": "section-48",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  }
+ }
+}

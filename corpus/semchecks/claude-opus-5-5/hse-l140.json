@@ -3,6 +3,222 @@
  "model": "claude-opus-5-5",
  "about": "Verdicts of claude-opus-5-5 on source against tree for hse-l140 (system/rag/semcheck.py).",
  "verdicts": {
+  "fa4e9262cf9380b1": {
+   "version_id": "main@2024-12-06-0a314fd6",
+   "unit": "p14",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Each quoted subheading is read as body text appended to the end of the previous paragraph, so it sits under the wrong paragraph instead of heading the next one.",
+     "evidence": "tree: \"keep exposures below the ELV. ‘Magnitude, type and duration of exposure’\"; \"uninterrupted exposure. ‘Employees whose health is at particular risk’\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The 'Guidance 5(3)(a)' to '5(3)(g)' margin labels are grouped together as separate notes before paragraph 36 instead of being attached to their own paragraphs (36, 37-38, 39, 40, 41, 42).",
+     "evidence": "tree: notes \"5(3)(a)\" \"5(3)(b)\" \"5(3)(c)\" \"5(3)(d)\" \"5(3)(e)\" \"5(3)(g)\" all before Paragraph 36"
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "a69d79650c7e67a4": {
+   "version_id": "main@2024-12-06-0a314fd6",
+   "unit": "p32",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The bold subheading is read as body text at the end of paragraph 101 instead of a heading over paragraphs 102 onwards.",
+     "evidence": "tree: \"given in Appendix 2. The relationship between vibration magnitude, duration of exposure and daily vibration exposure (A(8) value)\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Superscript 2 in the unit is flattened to a plain 2.",
+     "evidence": "source: \"5 m/s² A(8)\" / tree: \"5 m/s2 A(8)\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "370a8d478979eacd": {
+   "version_id": "main@2024-12-06-0a314fd6",
+   "unit": "p33",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "635b904a5f1da3a3": {
+   "version_id": "main@2024-12-06-0a314fd6",
+   "unit": "p34",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "fda51af2ae196612": {
+   "version_id": "main@2024-12-06-0a314fd6",
+   "unit": "p37",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Table 3 is given twice: a second table with the same grid is added under the wrong title taken from a heading.",
+     "evidence": "tree: \"Table (Reduce exposure by good process control)\" duplicating Table 3 rows"
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Table 3 is placed under the heading 'Reduce exposure by good process control', while it follows paragraph 123 under 'Eliminate vibration exposure by changing the work processes'.",
+     "evidence": "tree: \"Reduce exposure by good process control > Table 3 Examples of alternative work processes\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "6939c362dc4879a7": {
+   "version_id": "main@2024-12-06-0a314fd6",
+   "unit": "p49",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "b53c6b3c2e02eb8d": {
+   "version_id": "main@2024-12-06-0a314fd6",
+   "unit": "p55",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The colour band of each cell (above ELV, likely above ELV, above EAV, likely at or above EAV, below EAV) is lost from the grid; only the key words survive in the text.",
+     "evidence": "source: Key \"Above ELV / Likely to be above ELV / Above EAV / Likely to be at or above EAV / Below EAV\" cell colours"
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "979f73207120505d": {
+   "version_id": "main@2024-12-06-0a314fd6",
+   "unit": "p56",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The colour band of each cell in Table 5 is lost from the grid; only the key words survive in the text.",
+     "evidence": "source: Key \"Above ELV / Likely to be above ELV / Above EAV / Likely to be at or above EAV / Below EAV\" cell colours"
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "6d7463f5a639500c": {
+   "version_id": "main@2024-12-06-0a314fd6",
+   "unit": "p63",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The footnote marker 21 is run into the standard number, so it reads like a different standard number.",
+     "evidence": "source: \"BS EN ISO 8041.²¹\" / tree: \"BS EN ISO 8041.21\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "12e4fcc9013e5292": {
+   "version_id": "main@2024-12-06-0a314fd6",
+   "unit": "p65",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "9ebe361671d540ca": {
+   "version_id": "main@2024-12-06-0a314fd6",
+   "unit": "p66",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "dee8cbc275a19298": {
+   "version_id": "main@2024-12-06-0a314fd6",
+   "unit": "p67",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "3f34cca0b4341bd3": {
+   "version_id": "main@2024-12-06-0a314fd6",
+   "unit": "p68",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
   "71fc717272fc7894": {
    "version_id": "main@2024-12-06-0a314fd6",
    "unit": "p69",
@@ -49,6 +265,180 @@
     }
    ],
    "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "4470b0520b0ad15b": {
+   "version_id": "main@2024-12-06-0a314fd6",
+   "unit": "p74",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The footnote marker 25 is run into the standard number.",
+     "evidence": "source: \"BS EN ISO 20643.²⁵\" / tree: \"BS EN ISO 20643.25\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The superscript in the unit is flattened, so m/s² reads as m/s2.",
+     "evidence": "source: \"7 and 17 m/s²\" / tree: \"7 and 17 m/s2\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "ca605850483a4d64": {
+   "version_id": "main@2024-12-06-0a314fd6",
+   "unit": "p80",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "58083968dd3cfaff": {
+   "version_id": "main@2024-12-06-0a314fd6",
+   "unit": "p81",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The two addresses printed side by side in paragraph 7 are mixed line by line into one text, so each organisation's address and phone number are interleaved.",
+     "evidence": "source: \"The Institute of Acoustics Silbury Court 406 Silbury Boulevard\" / tree: \"The Institute of Acoustics British Occupational Hygiene Society Silbury Court 5/6 Melbourne Business Court\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The note printed under Table 7 (on page 83) is attached to the end of paragraph 7 instead of to the table.",
+     "evidence": "tree para 7: \"www.bohs.org Note: This topic list is suggested as the basis for general courses.\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "90bd7bc6f8cb8b2c": {
+   "version_id": "main@2024-12-06-0a314fd6",
+   "unit": "p82",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "429ee8a08d6995f1": {
+   "version_id": "main@2024-12-06-0a314fd6",
+   "unit": "p83",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The note printed under Table 7 is kept at the end of paragraph 7 rather than with the table it qualifies.",
+     "evidence": "source: \"Note: This topic list is suggested as the basis for general courses.\" (under Table 7) / tree: in paragraph 7 after \"www.bohs.org\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "9b3e159a18b1f319": {
+   "version_id": "main@2024-12-06-0a314fd6",
+   "unit": "p90",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "2457db828a7c319c": {
+   "version_id": "main@2024-12-06-0a314fd6",
+   "unit": "p91",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Footnote marker 31 is run into the text after 'stage 2.', so it reads like the number 2.31.",
+     "evidence": "source: \"to divide stage 2.³¹ They have used\" / tree: \"to divide stage 2.31 They have used\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "189fdd05bef4c22b": {
+   "version_id": "main@2024-12-06-0a314fd6",
+   "unit": "p94",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "First letters of several questions are split from the rest of the word.",
+     "evidence": "source: \"Are you experiencing\" / tree: \"A re you experiencing\"; also \"D o you\", \"H ave you\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The occupational history heading, certification, signature and return lines are merged into question 13.",
+     "evidence": "tree: \"Are you on any long-term medication? Y/N If so, give details: ... OCCUPATIONAL HISTORY Dates Job title I certify\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The Y/N answer boxes of questions 6 to 11 are bunched together inside question 11 instead of beside each question.",
+     "evidence": "tree: \"injury or operation? Y/N Y/N Y/N Y/N Y/N Y/N If so, give details\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "b7604b70c25ae50f": {
+   "version_id": "main@2024-12-06-0a314fd6",
+   "unit": "p96",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The Y/N answer boxes of questions 5 to 8 are moved after the certification sentence instead of beside each question.",
+     "evidence": "tree: \"knowledge and belief. Y/N Y/N Y/N Y/N Signed:\""
+    }
+   ],
+   "confidence": "medium",
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
