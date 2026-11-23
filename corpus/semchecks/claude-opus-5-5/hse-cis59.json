@@ -1,0 +1,112 @@
+{
+ "source_id": "hse-cis59",
+ "model": "claude-opus-5-5",
+ "about": "Verdicts of claude-opus-5-5 on source against tree for hse-cis59 (system/rag/semcheck.py).",
+ "verdicts": {
+  "1941740403fffe00": {
+   "version_id": "main@2024-12-06-665c4e9c",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "The left and right columns are mixed: the end of the Planning paragraph is spliced into the Toilets text, and the toilet-number text is placed after the Installing and removing paragraph.",
+     "evidence": "tree: \"every construction Positioning on site\" / \"Portable toilets have project, before construction work (including demolition) a limited capacity and will need emptying. The number starts.\""
+    },
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "The BS6465 ratio sentence is cut off from its paragraph and attached after the last planning bullet and the Installing and removing text.",
+     "evidence": "tree: \"from falls from vehicles or portable units. of portable toilets needed depends on the number of persons\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The headings Positioning on site, Toilets, Installing and removing from site and Washing facilities are run into body text, and the CDM coordinators, Principal contractors and Contractors headings likewise.",
+     "evidence": "tree: \"Toilets So far as is reasonably practicable\" / \"Washing facilities Provide washing facilities\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "727a86f6d9335497": {
+   "version_id": "main@2024-12-06-665c4e9c",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "The two columns are interleaved line by line, so the drinking water text is mixed with the smoking web links and the LPG bullets.",
+     "evidence": "tree: \"it should be supplied www.smokefreeengland.co.uk\" / \"direct from the mains. If water is stored, protect it from n using and storing the cylinders in safe, well-possible contamination\""
+    },
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "The changing rooms text is spliced with the LPG bullet about competent installation.",
+     "evidence": "tree: \"Where there is a risk of protective site installed, checked and maintained by a competent person;\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The heading is cut short and placed so that the left-column text on clothing, rest facilities and smoking falls under the transient sites heading.",
+     "evidence": "source: \"Use of alternative facilities for transient construction sites\" / tree: \"Use of alternative facilities for transient\" > \"clothing contaminating everyday clothing ... Rest facilities ... Smoking\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Two LPG bullets are kept as running text with the bullet symbol read as the letter n.",
+     "evidence": "tree: \"n using and storing the cylinders\" / \"n ensuring that the appliances have been properly\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Headings Drinking water, Changing rooms and lockers, Rest facilities, Smoking and Heating are run into body text.",
+     "evidence": "tree: \"Drinking water A supply of wholesome\" / \"Heating Rest facilities will normally require heating\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "8f29b4f25643a29b": {
+   "version_id": "main@2024-12-06-665c4e9c",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Table 1 appears twice in the tree, once as Table 1 and again as an unnumbered table with the same grid.",
+     "evidence": "tree: \"Table (Use of alternative facilities for transient)\" with the same rows as \"Table 1 Welfare facilities: the options\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The introductory paragraph above the table is kept as the table's text instead of as body text, and the table's parent heading is cut short.",
+     "evidence": "tree: table text \"Table 1 gives an indication of the options available\" / heading_path \"Use of alternative facilities for transient\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The Further reading heading is run into the References body text.",
+     "evidence": "tree: \"cannot be guaranteed. Further reading Health and safety in construction HSG150\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  }
+ }
+}

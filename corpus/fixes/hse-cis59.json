@@ -1,0 +1,119 @@
+{
+ "source_id": "hse-cis59",
+ "about": "Saved model fixes for hse-cis59 (ADR 0010).",
+ "fixes": [
+  {
+   "key": "213b7e417d4564f2",
+   "kind": "table",
+   "target": "table-1: Welfare facilities: the options",
+   "value": {
+    "columns": [
+     "Type of installation",
+     "Additional notes"
+    ],
+    "rows": [
+     [
+      "1a Fixed installation: connected to mains drainage and water.",
+      "Order of preference: on site; at a base location; at a satellite compound. NB This may include the pre-arranged use of private facilities. Permission, preferably in writing, should be obtained from the proprietor in advance of the work starting. The use of public toilets is acceptable only where it is impractical to provide or make available other facilities."
+     ],
+     [
+      "1b Portable water flushing units with water bowser supplies and waste storage tanks.",
+      "Order of preference: on site; at a base location; at a satellite compound. NB This may include the pre-arranged use of private facilities. Permission, preferably in writing, should be obtained from the proprietor in advance of the work starting. The use of public toilets is acceptable only where it is impractical to provide or make available other facilities."
+     ],
+     [
+      "2 Portable installation on site.",
+      "Consisting of chemical toilet(s), washing facilities and sufficient tables and seating."
+     ],
+     [
+      "3 Suitably designed vehicle.",
+      "Consisting of chemical toilet(s), washing facilities and sufficient tables and seating."
+     ],
+     [
+      "4 Facilities which are conveniently accessible to the worksite (includes public toilets).",
+      "Use of public toilets is acceptable only where it is impractical to provide or make available other facilities."
+     ],
+     [
+      "5 Portable installation near site.",
+      "Incorporating a chemical toilet, washing facilities and sufficient tables and seating."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Welfare facilities option 1a is a fixed installation connected to mains drainage and water, in order of preference on site, at a base location or at a satellite compound, which may include the pre-arranged use of private facilities with permission, preferably in writing, obtained from the proprietor in advance of the work starting, and the use of public toilets is acceptable only where it is impractical to provide or make available other facilities.",
+     "Welfare facilities option 1b is portable water flushing units with water bowser supplies and waste storage tanks, in order of preference on site, at a base location or at a satellite compound, which may include the pre-arranged use of private facilities with permission, preferably in writing, obtained from the proprietor in advance of the work starting, and the use of public toilets is acceptable only where it is impractical to provide or make available other facilities.",
+     "Welfare facilities option 2 is a portable installation on site, consisting of chemical toilet(s), washing facilities and sufficient tables and seating.",
+     "Welfare facilities option 3 is a suitably designed vehicle, consisting of chemical toilet(s), washing facilities and sufficient tables and seating.",
+     "Welfare facilities option 4 is facilities which are conveniently accessible to the worksite (includes public toilets), and use of public toilets is acceptable only where it is impractical to provide or make available other facilities.",
+     "Welfare facilities option 5 is a portable installation near site, incorporating a chemical toilet, washing facilities and sufficient tables and seating."
+    ]
+   },
+   "reason": "The page shows a two-column table with six data rows; the Additional notes cell for rows 1a and 1b is one merged cell, so it is repeated on both rows, and the square bullets are dropped.",
+   "evidence": "Page 4, Table 1 Welfare facilities: the options, headings Type of installation and Additional notes, rows 1a, 1b, 2, 3, 4 and 5.",
+   "by": "model check, Opus 5.5, Claude Code headless (packet)",
+   "confidence": "high",
+   "date": "2026-11-23"
+  },
+  {
+   "key": "2bb666ab90cb28d1",
+   "kind": "table",
+   "target": "document-use-of-alternative-facilities-for-transient-table-p4: Use of alternative facilities for transient",
+   "value": {
+    "columns": [
+     "Type of installation",
+     "Additional notes"
+    ],
+    "rows": [
+     [
+      "1a Fixed installation: connected to mains drainage and water.",
+      "Order of preference: on site; at a base location; at a satellite compound. NB This may include the pre-arranged use of private facilities. Permission, preferably in writing, should be obtained from the proprietor in advance of the work starting. The use of public toilets is acceptable only where it is impractical to provide or make available other facilities."
+     ],
+     [
+      "1b Portable water flushing units with water bowser supplies and waste storage tanks.",
+      "Order of preference: on site; at a base location; at a satellite compound. NB This may include the pre-arranged use of private facilities. Permission, preferably in writing, should be obtained from the proprietor in advance of the work starting. The use of public toilets is acceptable only where it is impractical to provide or make available other facilities."
+     ],
+     [
+      "2 Portable installation on site.",
+      "Consisting of chemical toilet(s), washing facilities and sufficient tables and seating."
+     ],
+     [
+      "3 Suitably designed vehicle.",
+      "Consisting of chemical toilet(s), washing facilities and sufficient tables and seating."
+     ],
+     [
+      "4 Facilities which are conveniently accessible to the worksite (includes public toilets).",
+      "Use of public toilets is acceptable only where it is impractical to provide or make available other facilities."
+     ],
+     [
+      "5 Portable installation near site.",
+      "Incorporating a chemical toilet, washing facilities and sufficient tables and seating."
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Welfare facilities option 1a is a fixed installation connected to mains drainage and water, in order of preference on site, at a base location or at a satellite compound, which may include the pre-arranged use of private facilities with permission, preferably in writing, obtained from the proprietor in advance of the work starting, and the use of public toilets is acceptable only where it is impractical to provide or make available other facilities.",
+     "Welfare facilities option 1b is portable water flushing units with water bowser supplies and waste storage tanks, in order of preference on site, at a base location or at a satellite compound, which may include the pre-arranged use of private facilities with permission, preferably in writing, obtained from the proprietor in advance of the work starting, and the use of public toilets is acceptable only where it is impractical to provide or make available other facilities.",
+     "Welfare facilities option 2 is a portable installation on site, consisting of chemical toilet(s), washing facilities and sufficient tables and seating.",
+     "Welfare facilities option 3 is a suitably designed vehicle, consisting of chemical toilet(s), washing facilities and sufficient tables and seating.",
+     "Welfare facilities option 4 is facilities which are conveniently accessible to the worksite (includes public toilets), and use of public toilets is acceptable only where it is impractical to provide or make available other facilities.",
+     "Welfare facilities option 5 is a portable installation near site, incorporating a chemical toilet, washing facilities and sufficient tables and seating."
+    ]
+   },
+   "reason": "This is the same printed Table 1 on page 4 (the title in the packet comes from nearby text); it has two columns and six data rows, and the merged notes cell for 1a and 1b is repeated on both rows.",
+   "evidence": "Page 4, Table 1 Welfare facilities: the options, headings Type of installation and Additional notes, rows 1a, 1b, 2, 3, 4 and 5.",
+   "by": "model check, Opus 5.5, Claude Code headless (packet)",
+   "confidence": "high",
+   "date": "2026-11-23"
+  },
+  {
+   "key": "fb43758b057c4a4b",
+   "kind": "figure_description",
+   "target": "photo-p1-108-219: CIS59 Provision of welfare facilities during construction work",
+   "value": "A black and white line drawing of a construction worker in a hard hat and jumper washing his hands and forearms in a wall-mounted wash basin filled with water. Next to the basin on the wall are a water heater with a spout over the basin, a pipe, a soap dispenser and an electric hand dryer plugged into a wall socket. The drawing has no printed labels or numbers.",
+   "reason": "The image is a single illustration of hand washing facilities on the cover page of CIS59.",
+   "evidence": "Figure photo-p1-108-219 on page 1 shows the worker, basin, tap, water heater, soap dispenser and hand dryer, with no text.",
+   "by": "model check, Opus 5.5, Claude Code headless (packet)",
+   "confidence": "high",
+   "date": "2026-11-23"
+  }
+ ]
+}

@@ -2191,6 +2191,70 @@ sources:
   parser: {module: parse_pdf}
   fetch: {method: url, url: https://www.hse.gov.uk/pubns/romanian/cis59.pdf}
 
+- id: hse-indg410
+  title: INDG410 Working in Great Britain from overseas
+  publisher: HSE
+  url: https://www.hse.gov.uk/pubns/indg410.htm
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [health-safety, migrant-workers]
+  why: Rights and duties for workers new to Great Britain; the English original of the Romanian leaflet (S133).
+  status: current
+  checked: 2026-11-23
+  parser: {module: parse_pdf}
+  fetch: {method: url, url: https://www.hse.gov.uk/pubns/indg410.pdf}
+
+- id: hse-indg450
+  title: "INDG450 Your health, your safety: a brief guide for workers"
+  publisher: HSE
+  url: https://www.hse.gov.uk/pubns/indg450.htm
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 2
+  topics: [health-safety, workers]
+  why: Basic worker guide; the English original of the Romanian leaflet (S133).
+  status: current
+  checked: 2026-11-23
+  parser: {module: parse_pdf}
+  fetch: {method: url, url: https://www.hse.gov.uk/pubns/indg450.pdf}
+
+- id: hse-cis26
+  title: CIS26 Cement
+  publisher: HSE
+  url: https://www.hse.gov.uk/pubns/cis26.pdf
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 3
+  topics: [health-safety, cement, coshh]
+  why: Cement burns and dermatitis on site; the English original of the Romanian sheet (S133).
+  status: current
+  checked: 2026-11-23
+  parser: {module: parse_pdf}
+  fetch: {method: url, url: https://www.hse.gov.uk/pubns/cis26.pdf}
+
+- id: hse-cis59
+  title: CIS59 Provision of welfare facilities during construction work
+  publisher: HSE
+  url: https://www.hse.gov.uk/pubns/cis59.htm
+  kind: hse-guidance
+  nation: gb
+  licence: OGL-3.0
+  mode: ingest
+  priority: 3
+  topics: [health-safety, welfare, cdm]
+  why: Site welfare (toilets, washing, rest areas); the English original of the Romanian sheet (S133).
+  status: current
+  checked: 2026-11-23
+  parser: {module: parse_pdf}
+  fetch: {method: url, url: https://www.hse.gov.uk/pubns/cis59.pdf}
+
 - id: hse-ro-migrant-workers
   language: ro  # not ingested: the corpus stores English text only (ADR 0012, S130)
   title: HSE migrant workers pages (Romanian, worker)

@@ -1,0 +1,81 @@
+{
+ "source_id": "hse-indg410",
+ "model": "claude-opus-5-5",
+ "about": "Verdicts of claude-opus-5-5 on source against tree for hse-indg410 (system/rag/semcheck.py).",
+ "verdicts": {
+  "038436c10ce02183": {
+   "version_id": "main@2024-12-06-1cf5b094",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The subheadings General, Information and training, Equipment and clothing and Your welfare lose their parent 'What your employer must do', so duties like 'Not allow you to drive' lose who must do them.",
+     "evidence": "source: \"What your employer must do > General\" / tree: heading_path \"General\", \"Equipment and clothing\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The cover-image caption is merged into the end of the Employers' Liability insurance bullet.",
+     "evidence": "tree: \"Compulsory Insurance. Thisis a web­friendly version of pocket card INDG410\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Two words are run together in the merged caption.",
+     "evidence": "source: \"This is\" / tree: \"Thisis\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page footer is kept as body text.",
+     "evidence": "tree: \"1 of 2 pages\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "57d268e6e920e1da": {
+   "version_id": "main@2024-12-06-1cf5b094",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "'Women and young people' is an employer-duty subheading but has no parent 'What your employer must do' in heading_path.",
+     "evidence": "tree: heading_path \"Women and young people\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The paragraph after the bullets is merged into the last bullet about the safety representative.",
+     "evidence": "tree: \"Talk to your safety representative if there is one. If you still think you or other workers are at risk, contact HSE.\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "A bold statement is made a heading, and the pocket card and copyright text are filed under it.",
+     "evidence": "tree: heading \"This leaflet contains notes on good practice which are not compulsory...\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The imprint and page footer are kept as body text.",
+     "evidence": "tree: \"Published by the Health and Safety Executive INDG410 08/08 2 of 2 pages\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  }
+ }
+}

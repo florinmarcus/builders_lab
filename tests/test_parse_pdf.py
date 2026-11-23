@@ -1076,7 +1076,7 @@ def test_labels_beside_a_drawing_join_it_but_text_in_the_next_column_does_not():
 # file takes over half an hour (supplier-information), so this reads the parsed trees; it skips where none exist.
 SETTLED_SOURCES = """awaab-collection awaab-tenants bc-changes-2023 br-circulars circ-adb-2024 fser-page fso-s156 hhsrs-operating
 hse-cis36 hse-cis54 hse-cis62 hse-cis65 hse-cis78 hse-cis79 hse-hsg141 hse-hsg247 hse-hsg248 hse-hsg33 hse-hsg47 hse-hsg85
-hse-hsr25 hse-indg136 hse-indg231 hse-indg236 hse-indg344 hse-indg411 hse-indg463 hse-l108 hse-l140 hse-l5
+hse-hsr25 hse-indg136 hse-indg231 hse-indg236 hse-indg344 hse-indg410 hse-indg411 hse-indg450 hse-cis26 hse-cis59 hse-indg463 hse-l108 hse-l140 hse-l5
 manual-br pd-householder-guide supplier-information""".split()
 
 
