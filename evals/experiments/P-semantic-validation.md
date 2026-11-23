@@ -220,6 +220,26 @@ The hand check (94% of high units real) and the noise above apply to these numbe
   not changed here).
 - Open findings are left open; none was accepted to make the report pass (one tool fault settled as model-wrong).
 
+## Round 2 (S128, 23 Nov 2026): guidance PDF causes
+
+Counted first on the 316 guidance units with a high finding (keyword classes, a unit can have several): headings
+read as body text 63, tables over pages 46, non-Latin scripts 40 (S130), table rows also kept as running text 33,
+two columns mixed 33, paragraphs merged 27, text after a table 24, formulas 16, footnote numbers joined 2.
+
+| Fix | Units changed | High before / after | Fixed | Broken | McNemar p | Noise would give (fixed / broken) |
+|---|---|---|---|---|---|---|
+| 1. Tables over pages joined (S118) | 246 | 67 / 42 | 28 | 3 | 4.6e-6 | 8.7 / 4.5 |
+
+Fix 1: 36 trees changed, 388 byte-identical; 107 model checks (Fable), 0 open; crops 0 bad; coverage 0 open. The
+three broken units were looked at: all three faults were in the tree before (Awaab phase 2 IA annex titles in
+paragraph 10, a one-row table read as a note in the learning manual). A fourth break, found on the way (an annex
+title printed inside the next ruled table let Annex B's table join Annex A's), was fixed before the final run.
+Guidance PDFs over all sampled units: 24.2% high before, 22.3% after.
+
+Fix 2 (HSE headings over a column and medium-weight sub-headings; body text after a ruled table) is built, with
+tests, and its model checks are done except three L108 tables; its semantic check waits for the Fable limit
+(reset 25 Nov 2026, 01:00 UTC).
+
 ## Limits
 
 - One model judges, with the noise measured above; a finding is a claim until checked. The hand check covers 50
