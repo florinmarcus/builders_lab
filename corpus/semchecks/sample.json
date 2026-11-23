@@ -1,0 +1,5114 @@
+{
+ "about": "The sample for the semantic check (system/rag/semcheck.py). Drawn once; do not edit by hand.",
+ "seed": 20261122,
+ "date": "2026-11-22",
+ "rule": {
+  "pdf": "Per document: a random 10% of its pages, at least 3 (all when shorter) = base. Then every other page with a table section (table) and a random half of the other pages with figures only (figure), but the figure pages only when the total stays within 1500 pages. Base and table pages always stay.",
+  "web": "Every web page in scope, every part.",
+  "legislation": "About 300 provisions over all laws in scope, in proportion to each law's provisions, at least 2 per law. A provision is a section directly under a Part, Chapter, cross-heading or Schedule (or at the top) whose id is an element id in the XML.",
+  "all_pages": []
+ },
+ "population": {
+  "pdf_pages": 9336,
+  "pdf_table_pages": 1397,
+  "pdf_figure_only_pages": 1539,
+  "leg_provisions": 3876,
+  "leg_provisions_without_xml_id": 140
+ },
+ "drawn": {
+  "pdf_before_cap": {
+   "base": 1266,
+   "table": 1212,
+   "figure": 668
+  },
+  "pdf": {
+   "base": 1266,
+   "table": 1212
+  },
+  "pdf_documents": 244,
+  "web_pages": 111,
+  "provisions": 326,
+  "laws": 47
+ },
+ "units": {
+  "ad7": {
+   "2018-amendment-to-approved-document-7-material-and-workmansh@2018-11-29-94100392": {
+    "family": "approved-document-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "2": "base",
+     "3": "table",
+     "4": "base"
+    }
+   },
+   "approved-document-7-material-and-workmanship@2018-11-29-ed10d1c5": {
+    "family": "approved-document-pdf",
+    "pdf_pages": {
+     "17": "base",
+     "21": "base",
+     "24": "base"
+    }
+   }
+  },
+  "ada": {
+   "approved-document-a-structure@2013-09-01-96a5a374": {
+    "family": "approved-document-pdf",
+    "pdf_pages": {
+     "3": "base",
+     "12": "base",
+     "14": "table",
+     "15": "table",
+     "18": "table",
+     "20": "table",
+     "25": "table",
+     "26": "base",
+     "27": "table",
+     "31": "table",
+     "39": "table",
+     "40": "base",
+     "44": "base",
+     "46": "table"
+    }
+   },
+   "frequently-asked-questions@2013-09-01-224c5c74": {
+    "family": "approved-document-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "4": "base",
+     "6": "base"
+    }
+   }
+  },
+  "adb": {
+   "approved-document-b-fire-safety-volume-1-dwellings@2026-09-16-fabdc362": {
+    "family": "approved-document-pdf",
+    "pdf_pages": {
+     "4": "base",
+     "16": "base",
+     "17": "base",
+     "18": "table",
+     "21": "base",
+     "29": "base",
+     "36": "base",
+     "38": "table",
+     "56": "table",
+     "60": "table",
+     "63": "base",
+     "77": "base",
+     "79": "base",
+     "84": "table",
+     "86": "base",
+     "89": "base",
+     "93": "base",
+     "96": "base",
+     "104": "table",
+     "107": "table",
+     "108": "table",
+     "109": "table",
+     "112": "table",
+     "118": "base",
+     "130": "base",
+     "139": "table",
+     "140": "table",
+     "141": "table",
+     "142": "table",
+     "143": "table",
+     "144": "table",
+     "145": "table",
+     "147": "table",
+     "148": "table",
+     "151": "base",
+     "153": "table",
+     "154": "table",
+     "155": "table",
+     "156": "table",
+     "157": "table",
+     "158": "table",
+     "160": "table",
+     "161": "table",
+     "164": "table",
+     "165": "table",
+     "168": "table",
+     "169": "base",
+     "171": "table",
+     "177": "table",
+     "192": "base",
+     "196": "base",
+     "197": "base"
+    }
+   }
+  },
+  "adb-amendments": {
+   "2025-amendments-to-approved-document-b-volume-1-and-volume-2@2026-09-16-95a0650a": {
+    "family": "approved-document-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "2": "base",
+     "3": "table",
+     "4": "table",
+     "9": "base",
+     "12": "table",
+     "13": "table"
+    }
+   },
+   "2026-amendments-to-approved-document-b-volume-1-and-volume-2@2026-09-16-852d8b8a": {
+    "family": "approved-document-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "3": "table",
+     "5": "base",
+     "9": "table",
+     "10": "table",
+     "11": "base"
+    }
+   },
+   "2029-amendments-to-approved-document-b-volume-1-and-volume-2@2026-09-16-c78e3b76": {
+    "family": "approved-document-pdf",
+    "pdf_pages": {
+     "8": "table",
+     "9": "table",
+     "10": "table",
+     "11": "table",
+     "12": "table",
+     "13": "table",
+     "14": "base",
+     "15": "table",
+     "16": "table",
+     "19": "table",
+     "20": "table",
+     "21": "base",
+     "26": "table",
+     "27": "table",
+     "28": "table",
+     "29": "table",
+     "30": "table",
+     "31": "table",
+     "33": "table",
+     "34": "table",
+     "37": "table",
+     "38": "base",
+     "40": "base"
+    }
+   },
+   "june-2022-amendments-to-approved-document-b-volume-1-and-vol@2026-09-16-4353b3aa": {
+    "family": "approved-document-pdf",
+    "pdf_pages": {
+     "3": "table",
+     "11": "base",
+     "15": "table",
+     "19": "table",
+     "21": "base",
+     "24": "base",
+     "27": "base",
+     "28": "table",
+     "29": "table",
+     "33": "base",
+     "40": "table",
+     "44": "table",
+     "52": "table"
+    }
+   },
+   "march-2024-amendments-to-approved-document-b-volume-1-and-vo@2026-09-16-a6d51398": {
+    "family": "approved-document-pdf",
+    "pdf_pages": {
+     "3": "base",
+     "6": "base",
+     "7": "base",
+     "9": "table",
+     "10": "table"
+    }
+   },
+   "may-2020-amendments-to-approved-document-b-volume-1-and-volu@2026-09-16-848cc1d3": {
+    "family": "approved-document-pdf",
+    "pdf_pages": {
+     "2": "base",
+     "5": "table",
+     "6": "table",
+     "7": "base",
+     "8": "table",
+     "9": "base",
+     "10": "table"
+    }
+   }
+  },
+  "adb-historical": {
+   "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7": {
+    "family": "approved-document-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "16": "base",
+     "17": "table",
+     "18": "table",
+     "34": "base",
+     "37": "base",
+     "38": "table",
+     "41": "table",
+     "43": "base",
+     "46": "base",
+     "57": "base",
+     "60": "table",
+     "62": "base",
+     "64": "table",
+     "65": "base",
+     "75": "base",
+     "77": "base",
+     "79": "base",
+     "88": "table",
+     "97": "table",
+     "100": "base",
+     "108": "table",
+     "111": "table",
+     "112": "table",
+     "113": "table",
+     "115": "base",
+     "116": "table",
+     "121": "base",
+     "129": "base",
+     "136": "base",
+     "144": "base",
+     "145": "table",
+     "147": "table",
+     "148": "table",
+     "149": "table",
+     "150": "table",
+     "151": "table",
+     "152": "table",
+     "153": "table",
+     "154": "table",
+     "156": "table",
+     "157": "table",
+     "162": "table",
+     "163": "table",
+     "164": "table",
+     "165": "table",
+     "166": "table",
+     "167": "table",
+     "168": "table",
+     "170": "base",
+     "171": "table",
+     "176": "table",
+     "177": "table",
+     "178": "table",
+     "179": "table",
+     "180": "table",
+     "181": "table",
+     "183": "table",
+     "184": "table",
+     "187": "table",
+     "188": "table",
+     "189": "table",
+     "190": "table",
+     "193": "table",
+     "194": "table",
+     "196": "table",
+     "202": "table",
+     "207": "base",
+     "216": "base",
+     "220": "base",
+     "228": "base"
+    }
+   },
+   "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen@2025-01-14-5ec1573c": {
+    "family": "approved-document-pdf",
+    "pdf_pages": {
+     "15": "table",
+     "16": "table",
+     "36": "table",
+     "40": "base",
+     "43": "base",
+     "53": "table",
+     "57": "table",
+     "59": "base",
+     "60": "base",
+     "64": "base",
+     "71": "base",
+     "78": "base",
+     "81": "table",
+     "90": "table",
+     "101": "table",
+     "104": "table",
+     "105": "table",
+     "106": "table",
+     "109": "table",
+     "115": "base",
+     "125": "base",
+     "126": "base",
+     "130": "base",
+     "132": "base",
+     "133": "table",
+     "134": "base",
+     "135": "table",
+     "136": "table",
+     "137": "table",
+     "138": "table",
+     "139": "table",
+     "140": "base",
+     "141": "table",
+     "142": "table",
+     "143": "base",
+     "144": "table",
+     "145": "table",
+     "148": "table",
+     "149": "table",
+     "151": "table",
+     "157": "table",
+     "166": "base",
+     "171": "base",
+     "179": "base"
+    }
+   },
+   "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901": {
+    "family": "approved-document-pdf",
+    "pdf_pages": {
+     "7": "base",
+     "15": "base",
+     "17": "table",
+     "18": "base",
+     "19": "table",
+     "26": "base",
+     "27": "table",
+     "31": "table",
+     "32": "base",
+     "38": "base",
+     "43": "table",
+     "44": "table",
+     "47": "table",
+     "49": "base",
+     "55": "table",
+     "62": "table",
+     "67": "table",
+     "68": "base",
+     "71": "table",
+     "80": "table",
+     "91": "table",
+     "95": "table",
+     "101": "base",
+     "107": "table",
+     "118": "base",
+     "120": "table",
+     "121": "table",
+     "123": "table",
+     "125": "table",
+     "130": "base",
+     "131": "base",
+     "146": "base",
+     "156": "table",
+     "158": "table",
+     "159": "base",
+     "160": "base",
+     "161": "table",
+     "162": "table",
+     "163": "base",
+     "164": "table",
+     "165": "table",
+     "167": "base",
+     "168": "table",
+     "172": "base",
+     "173": "table",
+     "174": "table",
+     "175": "table",
+     "176": "table",
+     "177": "table",
+     "178": "table",
+     "179": "table",
+     "180": "base",
+     "181": "table",
+     "182": "table",
+     "184": "base",
+     "187": "table",
+     "188": "table",
+     "189": "table",
+     "190": "table",
+     "191": "table",
+     "192": "table",
+     "194": "table",
+     "195": "table",
+     "198": "table",
+     "199": "table",
+     "200": "table",
+     "201": "table",
+     "204": "table",
+     "205": "table",
+     "207": "table",
+     "213": "table",
+     "221": "base",
+     "224": "base",
+     "225": "base",
+     "227": "base",
+     "231": "base"
+    }
+   },
+   "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2@2025-01-14-bb70d2c9": {
+    "family": "approved-document-pdf",
+    "pdf_pages": {
+     "4": "base",
+     "5": "base",
+     "15": "table",
+     "16": "base",
+     "17": "table",
+     "21": "base",
+     "24": "table",
+     "25": "table",
+     "26": "base",
+     "29": "table",
+     "31": "base",
+     "41": "base",
+     "42": "table",
+     "45": "table",
+     "47": "base",
+     "53": "table",
+     "60": "table",
+     "64": "base",
+     "65": "table",
+     "69": "table",
+     "78": "table",
+     "83": "base",
+     "89": "table",
+     "93": "table",
+     "100": "base",
+     "105": "table",
+     "116": "table",
+     "118": "table",
+     "119": "table",
+     "121": "table",
+     "123": "table",
+     "125": "base",
+     "135": "base",
+     "148": "table",
+     "150": "table",
+     "151": "table",
+     "152": "table",
+     "153": "table",
+     "154": "base",
+     "155": "table",
+     "156": "table",
+     "157": "table",
+     "159": "table",
+     "160": "table",
+     "163": "table",
+     "164": "base",
+     "166": "table",
+     "170": "base",
+     "172": "table",
+     "181": "base",
+     "188": "base",
+     "192": "base",
+     "200": "base"
+    }
+   }
+  },
+  "adc": {
+   "approved-document-c-site-preparation-and-resistance-to-conta@2013-09-03-70e17ada": {
+    "family": "approved-document-pdf",
+    "pdf_pages": {
+     "7": "base",
+     "15": "table",
+     "16": "table",
+     "19": "table",
+     "21": "base",
+     "24": "base",
+     "29": "base",
+     "34": "base",
+     "37": "table"
+    }
+   },
+   "frequently-asked-questions@2013-09-03-788ce406": {
+    "family": "approved-document-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "4": "base",
+     "5": "base"
+    }
+   }
+  },
+  "add": {
+   "approved-document-d-toxic-substances@2010-12-02-ccf8b30e": {
+    "family": "approved-document-pdf",
+    "pdf_pages": {
+     "3": "base",
+     "4": "base",
+     "5": "base"
+    }
+   }
+  },
+  "ade": {
+   "approved-document-e-resistance-to-the-passage-of-sound@2015-03-04-e6a8feb6": {
+    "family": "approved-document-pdf",
+    "pdf_pages": {
+     "14": "table",
+     "15": "table",
+     "18": "base",
+     "20": "base",
+     "23": "table",
+     "31": "base",
+     "33": "base",
+     "38": "base",
+     "45": "table",
+     "58": "base",
+     "72": "table",
+     "73": "table",
+     "75": "base",
+     "78": "base",
+     "79": "base"
+    }
+   },
+   "frequently-asked-questions@2015-03-04-da0e95e9": {
+    "family": "approved-document-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "2": "base",
+     "4": "base"
+    }
+   }
+  },
+  "adf": {
+   "approved-document-f-volume-1-applies-to-dwellings@2022-06-15-5d3ebc08": {
+    "family": "approved-document-pdf",
+    "pdf_pages": {
+     "2": "base",
+     "5": "base",
+     "9": "table",
+     "11": "base",
+     "16": "table",
+     "18": "table",
+     "19": "table",
+     "20": "table",
+     "22": "table",
+     "23": "table",
+     "26": "base",
+     "27": "table",
+     "29": "base",
+     "31": "table",
+     "48": "table",
+     "49": "base",
+     "52": "table",
+     "53": "table",
+     "56": "table"
+    }
+   },
+   "approved-document-f-volume-2-applies-to-buildings-other-than@2022-06-15-e039b3b0": {
+    "family": "approved-document-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "4": "base",
+     "9": "base",
+     "10": "base",
+     "21": "table",
+     "22": "table",
+     "24": "table",
+     "30": "base",
+     "36": "table",
+     "37": "table"
+    }
+   }
+  },
+  "adf-2026": {
+   "approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96": {
+    "family": "approved-document-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "9": "table",
+     "15": "table",
+     "17": "table",
+     "18": "base",
+     "19": "table",
+     "21": "base",
+     "22": "table",
+     "23": "table",
+     "25": "base",
+     "26": "table",
+     "27": "table",
+     "31": "table",
+     "36": "base",
+     "47": "base",
+     "52": "table",
+     "53": "table",
+     "56": "table",
+     "57": "table",
+     "58": "table",
+     "59": "base",
+     "60": "table",
+     "62": "table"
+    }
+   }
+  },
+  "adg": {
+   "approved-document-g-sanitation-hot-water-safety-and-water-ef@2024-10-01-cc02cbfc": {
+    "family": "approved-document-pdf",
+    "pdf_pages": {
+     "2": "base",
+     "6": "base",
+     "13": "base",
+     "18": "table",
+     "19": "table",
+     "27": "table",
+     "40": "table",
+     "41": "base",
+     "42": "table",
+     "43": "table",
+     "44": "table",
+     "45": "table",
+     "46": "table",
+     "53": "base",
+     "54": "base"
+    }
+   },
+   "corrections-to-approved-document-g@2024-10-01-49732fbd": {
+    "family": "approved-document-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "2": "base"
+    }
+   },
+   "frequently-asked-questions@2024-10-01-7431cbaa": {
+    "family": "approved-document-pdf",
+    "pdf_pages": {
+     "2": "base",
+     "4": "base",
+     "8": "base",
+     "12": "table"
+    }
+   },
+   "may-2024-amendments-to-approved-document-g-sanitation-hot-wa@2024-10-01-334ba3a9": {
+    "family": "approved-document-pdf",
+    "pdf_pages": {
+     "2": "base",
+     "4": "base",
+     "6": "base"
+    }
+   }
+  },
+  "adh": {
+   "approved-document-h-drainage-and-waste-disposal@2010-12-04-46d6a268": {
+    "family": "approved-document-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "9": "base",
+     "11": "table",
+     "12": "table",
+     "13": "table",
+     "18": "table",
+     "20": "table",
+     "21": "table",
+     "22": "table",
+     "23": "table",
+     "24": "base",
+     "25": "table",
+     "30": "base",
+     "34": "base",
+     "37": "base",
+     "42": "table"
+    }
+   }
+  },
+  "adj": {
+   "approved-document-j-combustion-appliances-and-fuel-storage-s@2022-09-30-ac8f5915": {
+    "family": "approved-document-pdf",
+    "pdf_pages": {
+     "15": "base",
+     "30": "base",
+     "31": "table",
+     "32": "table",
+     "33": "base",
+     "37": "table",
+     "38": "base",
+     "42": "table",
+     "50": "table",
+     "52": "table",
+     "53": "table",
+     "54": "table",
+     "60": "table",
+     "61": "table",
+     "62": "table",
+     "65": "table",
+     "67": "table",
+     "73": "base",
+     "77": "base",
+     "79": "table",
+     "80": "base",
+     "87": "base",
+     "89": "base"
+    }
+   }
+  },
+  "adk": {
+   "approved-document-k-protection-from-falling-collision-and-im@2013-01-03-134e7b07": {
+    "family": "approved-document-pdf",
+    "pdf_pages": {
+     "10": "base",
+     "12": "base",
+     "15": "table",
+     "29": "base",
+     "35": "base",
+     "38": "base",
+     "54": "base",
+     "67": "base"
+    }
+   }
+  },
+  "adl": {
+   "approved-document-l-conservation-of-fuel-and-power-volume-1@2023-02-02-1ab93e59": {
+    "family": "approved-document-pdf",
+    "pdf_pages": {
+     "4": "base",
+     "11": "table",
+     "16": "table",
+     "17": "table",
+     "18": "table",
+     "22": "table",
+     "26": "table",
+     "34": "base",
+     "35": "table",
+     "36": "table",
+     "38": "base",
+     "41": "table",
+     "42": "table",
+     "46": "base",
+     "49": "base",
+     "50": "table",
+     "52": "table",
+     "54": "table",
+     "55": "base",
+     "61": "base",
+     "62": "base",
+     "63": "base",
+     "64": "table",
+     "67": "table",
+     "75": "table",
+     "76": "table",
+     "83": "base",
+     "90": "table",
+     "91": "table",
+     "92": "table",
+     "93": "table",
+     "94": "table",
+     "95": "table"
+    }
+   },
+   "approved-document-l-conservation-of-fuel-and-power-volume-2@2023-02-02-951ba0b9": {
+    "family": "approved-document-pdf",
+    "pdf_pages": {
+     "11": "table",
+     "16": "table",
+     "17": "table",
+     "23": "table",
+     "24": "table",
+     "25": "table",
+     "35": "base",
+     "37": "table",
+     "39": "base",
+     "40": "table",
+     "41": "table",
+     "42": "table",
+     "44": "base",
+     "49": "table",
+     "50": "table",
+     "52": "table",
+     "53": "table",
+     "55": "table",
+     "56": "base",
+     "57": "base",
+     "58": "table",
+     "59": "base",
+     "60": "table",
+     "61": "table",
+     "69": "table",
+     "70": "table",
+     "73": "table",
+     "74": "table",
+     "77": "base",
+     "79": "base",
+     "82": "table",
+     "85": "table",
+     "86": "table",
+     "93": "base",
+     "97": "table",
+     "98": "base",
+     "102": "table",
+     "105": "base",
+     "106": "base"
+    }
+   },
+   "february-2023-amendments-to-approved-document-l-volume-1-and@2023-02-02-a5002d31": {
+    "family": "approved-document-pdf",
+    "pdf_pages": {
+     "2": "base",
+     "3": "base",
+     "6": "base"
+    }
+   }
+  },
+  "adl-2026": {
+   "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19": {
+    "family": "approved-document-pdf",
+    "pdf_pages": {
+     "11": "table",
+     "17": "table",
+     "18": "table",
+     "19": "base",
+     "20": "table",
+     "23": "table",
+     "24": "table",
+     "26": "base",
+     "29": "table",
+     "35": "table",
+     "36": "table",
+     "38": "base",
+     "39": "base",
+     "41": "base",
+     "44": "table",
+     "45": "table",
+     "54": "table",
+     "55": "table",
+     "56": "table",
+     "58": "base",
+     "60": "table",
+     "65": "table",
+     "66": "table",
+     "67": "table",
+     "68": "base",
+     "72": "table",
+     "73": "table",
+     "81": "table",
+     "92": "table",
+     "93": "table",
+     "94": "base",
+     "95": "base",
+     "99": "base",
+     "108": "base",
+     "109": "table",
+     "111": "table",
+     "112": "table",
+     "113": "table",
+     "118": "base"
+    }
+   },
+   "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb": {
+    "family": "approved-document-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "11": "table",
+     "17": "table",
+     "18": "table",
+     "19": "table",
+     "22": "table",
+     "23": "table",
+     "27": "base",
+     "28": "base",
+     "29": "table",
+     "32": "base",
+     "36": "table",
+     "38": "table",
+     "40": "table",
+     "41": "table",
+     "42": "table",
+     "43": "table",
+     "52": "base",
+     "53": "table",
+     "54": "table",
+     "56": "table",
+     "59": "table",
+     "61": "base",
+     "63": "base",
+     "64": "base",
+     "69": "table",
+     "73": "table",
+     "74": "table",
+     "77": "table",
+     "78": "table",
+     "79": "base",
+     "83": "table",
+     "86": "table",
+     "87": "table",
+     "96": "base",
+     "98": "table",
+     "100": "table",
+     "104": "table",
+     "107": "table",
+     "108": "table",
+     "112": "base",
+     "114": "base"
+    }
+   }
+  },
+  "adm": {
+   "approved-document-m-access-to-and-use-of-buildings-volume-1@2024-10-01-fb66dd25": {
+    "family": "approved-document-pdf",
+    "pdf_pages": {
+     "16": "table",
+     "18": "table",
+     "25": "base",
+     "26": "base",
+     "31": "table",
+     "33": "base",
+     "34": "base",
+     "38": "base",
+     "42": "table",
+     "44": "table",
+     "45": "table",
+     "46": "table",
+     "49": "table",
+     "61": "base",
+     "63": "base",
+     "64": "table"
+    }
+   },
+   "approved-document-m-access-to-and-use-of-buildings-volume-2@2024-10-01-0e5d4dee": {
+    "family": "approved-document-pdf",
+    "pdf_pages": {
+     "15": "base",
+     "19": "base",
+     "21": "table",
+     "27": "table",
+     "34": "base",
+     "38": "base",
+     "41": "table",
+     "48": "base",
+     "59": "base",
+     "68": "base"
+    }
+   },
+   "corrections-to-approved-document-m@2024-10-01-b11dd2b3": {
+    "family": "approved-document-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "7": "base",
+     "9": "base"
+    }
+   },
+   "frequently-asked-questions@2024-10-01-4f6523fc": {
+    "family": "approved-document-pdf",
+    "pdf_pages": {
+     "2": "base",
+     "4": "base",
+     "23": "base",
+     "28": "table"
+    }
+   },
+   "july-2020-amendments-to-approved-document-m-access-to-and-us@2024-10-01-01b210b3": {
+    "family": "approved-document-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "3": "base",
+     "4": "base"
+    }
+   },
+   "may-2024-amendments-to-approved-document-m-access-to-and-use@2024-10-01-1bbe02bb": {
+    "family": "approved-document-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "3": "base",
+     "8": "base"
+    }
+   }
+  },
+  "ado": {
+   "overheating-approved-document-o@2022-06-15-36abadd3": {
+    "family": "approved-document-pdf",
+    "pdf_pages": {
+     "6": "base",
+     "9": "table",
+     "14": "table",
+     "15": "table",
+     "19": "base",
+     "21": "table",
+     "27": "table",
+     "28": "table",
+     "29": "table",
+     "30": "table",
+     "33": "table",
+     "34": "base",
+     "35": "table",
+     "36": "table",
+     "37": "table",
+     "44": "base"
+    }
+   }
+  },
+  "adp": {
+   "approved-document-p-electrical-safety-dwellings@2013-01-01-c7128889": {
+    "family": "approved-document-pdf",
+    "pdf_pages": {
+     "5": "base",
+     "14": "base",
+     "20": "base"
+    }
+   }
+  },
+  "adq": {
+   "approved-document-q-security-dwellings@2024-11-22-481635d8": {
+    "family": "approved-document-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "18": "base",
+     "19": "base",
+     "20": "table"
+    }
+   }
+  },
+  "adr": {
+   "approved-document-r-volume-1-physical-infrastructure-and-net@2022-10-04-570cd3ef": {
+    "family": "approved-document-pdf",
+    "pdf_pages": {
+     "7": "base",
+     "10": "table",
+     "11": "table",
+     "21": "table",
+     "22": "table",
+     "24": "base",
+     "29": "base",
+     "30": "table",
+     "31": "table",
+     "32": "table",
+     "33": "base"
+    }
+   },
+   "approved-document-r-volume-2-physical-infrastructure-for-hig@2022-10-04-5fc888fe": {
+    "family": "approved-document-pdf",
+    "pdf_pages": {
+     "4": "base",
+     "12": "table",
+     "19": "base",
+     "20": "base"
+    }
+   }
+  },
+  "ads": {
+   "approved-document-s-infrastructure-for-charging-electric-veh@2023-04-17-71f78926": {
+    "family": "approved-document-pdf",
+    "pdf_pages": {
+     "2": "base",
+     "8": "base",
+     "9": "table",
+     "20": "base",
+     "35": "base",
+     "37": "base"
+    }
+   }
+  },
+  "adt": {
+   "toilet-accommodation-approved-document-t@2025-11-03-c8303bc7": {
+    "family": "approved-document-pdf",
+    "pdf_pages": {
+     "2": "base",
+     "11": "table",
+     "13": "base",
+     "21": "table",
+     "23": "table",
+     "25": "table",
+     "27": "table",
+     "32": "base",
+     "33": "table",
+     "36": "base"
+    }
+   }
+  },
+  "awaab-collection": {
+   "awaabs-law-consultation-on-timescales-for-repairs--awaab-s-law-consultation-stage-impact-assessment@2025-06-25-763b5a3a": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "table",
+     "2": "base",
+     "3": "table",
+     "4": "table",
+     "6": "base",
+     "9": "base",
+     "24": "table",
+     "25": "table"
+    }
+   },
+   "awaabs-law-consultation-on-timescales-for-repairs--awaab-s-law-final-stage-impact-assessment@2025-06-25-6bb2585a": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "table",
+     "4": "base",
+     "6": "table",
+     "7": "table",
+     "8": "table",
+     "12": "table",
+     "18": "base",
+     "20": "base",
+     "24": "table"
+    }
+   },
+   "awaabs-law-guidance-for-tenants-in-social-housing--awaab-s-law-guidance-for-tenants-in-social-housing-arabic@2025-12-04-c98c5900": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "7": "table",
+     "8": "table",
+     "12": "table",
+     "15": "base",
+     "19": "base",
+     "20": "base"
+    }
+   },
+   "awaabs-law-guidance-for-tenants-in-social-housing--awaab-s-law-guidance-for-tenants-in-social-housing-bangla@2025-12-04-2939d952": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "8": "table",
+     "9": "table",
+     "10": "table",
+     "15": "table",
+     "16": "base",
+     "19": "base"
+    }
+   },
+   "awaabs-law-guidance-for-tenants-in-social-housing--awaab-s-law-guidance-for-tenants-in-social-housing-polish-p@2025-12-04-ab01dc19": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "2": "base",
+     "8": "table",
+     "9": "table",
+     "10": "table",
+     "11": "base",
+     "15": "table",
+     "19": "base"
+    }
+   },
+   "awaabs-law-guidance-for-tenants-in-social-housing--awaab-s-law-guidance-for-tenants-in-social-housing-punjabi@2025-12-04-25baa43e": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "8": "table",
+     "9": "table",
+     "10": "table",
+     "12": "base",
+     "15": "table",
+     "16": "base",
+     "27": "base"
+    }
+   },
+   "awaabs-law-guidance-for-tenants-in-social-housing--awaab-s-law-guidance-for-tenants-in-social-housing-romanian@2025-12-04-a3e708a8": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "6": "base",
+     "8": "table",
+     "9": "table",
+     "10": "table",
+     "11": "base",
+     "15": "table",
+     "22": "base"
+    }
+   },
+   "awaabs-law-guidance-for-tenants-in-social-housing--awaab-s-law-guidance-for-tenants-in-social-housing-urdu@2025-12-04-76b0ee14": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "2": "base",
+     "7": "table",
+     "8": "table",
+     "12": "table",
+     "15": "base",
+     "23": "base"
+    }
+   },
+   "awaabs-law-phase-1-test-and-learn-research-report--awaab-s-law-test-and-learn-research-report-executive-summar@2026-07-13-5d4411c7": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "2": "base",
+     "11": "base",
+     "12": "base"
+    }
+   },
+   "awaabs-law-phase-2-final-stage-impact-assessment--awaab-s-law-phase-2-final-stage-impact-assessment@2026-07-13-5c1854f4": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "6": "table",
+     "13": "table",
+     "15": "table",
+     "18": "table",
+     "19": "table",
+     "20": "table",
+     "21": "table",
+     "24": "table",
+     "30": "table",
+     "31": "base",
+     "32": "base",
+     "33": "base"
+    }
+   },
+   "awaabs-law-regulations--awaab-s-law-regulations-as-they-apply-from-30-november-2026@2026-07-13-546a4539": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "5": "base",
+     "6": "base",
+     "8": "base"
+    }
+   }
+  },
+  "awaab-consolidated": {
+   "awaab-s-law-regulations-as-they-apply-from-30-november-2026@2026-07-13-546a4539": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "9": "base",
+     "10": "base",
+     "11": "base"
+    }
+   }
+  },
+  "awaab-tenants": {
+   "awaab-s-law-guidance-for-tenants-in-social-housing-arabic@2025-12-04-c98c5900": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "7": "table",
+     "8": "table",
+     "12": "table",
+     "15": "base",
+     "16": "base",
+     "19": "base"
+    }
+   },
+   "awaab-s-law-guidance-for-tenants-in-social-housing-bangla@2025-12-04-2939d952": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "2": "base",
+     "8": "table",
+     "9": "table",
+     "10": "table",
+     "15": "base",
+     "20": "base"
+    }
+   },
+   "awaab-s-law-guidance-for-tenants-in-social-housing-polish-po@2025-12-04-ab01dc19": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "5": "base",
+     "8": "table",
+     "9": "table",
+     "10": "table",
+     "15": "table",
+     "24": "base",
+     "25": "base"
+    }
+   },
+   "awaab-s-law-guidance-for-tenants-in-social-housing-punjabi@2025-12-04-25baa43e": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "4": "base",
+     "8": "base",
+     "9": "table",
+     "10": "table",
+     "15": "table",
+     "26": "base"
+    }
+   },
+   "awaab-s-law-guidance-for-tenants-in-social-housing-romanian@2025-12-04-a3e708a8": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "3": "base",
+     "5": "base",
+     "8": "table",
+     "9": "table",
+     "10": "table",
+     "15": "table",
+     "26": "base"
+    }
+   },
+   "awaab-s-law-guidance-for-tenants-in-social-housing-urdu@2025-12-04-76b0ee14": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "3": "base",
+     "5": "base",
+     "7": "table",
+     "8": "table",
+     "12": "table",
+     "15": "base"
+    }
+   }
+  },
+  "bc-changes-2023": {
+   "additional-q-a-changes-to-the-building-control-process-for-h@2024-03-28-c6890960": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "2": "base",
+     "6": "base"
+    }
+   },
+   "circular-letter-changes-to-the-building-control-process@2024-03-28-3ba48ed4": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "5": "base",
+     "11": "base",
+     "18": "base"
+    }
+   }
+  },
+  "br-circulars": {
+   "amended-approved-document-l1b-and-domestic-buildin--new-editions-of-approved-document-l1b-and-the-domestic-ser@2018-04-05-6810084a": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "2": "base",
+     "3": "base"
+    }
+   },
+   "amendments-relating-to-approved-documents-b-and-l--circular-02-2010-the-building-act-1984-the-building-regulat@2010-03-16-85e78575": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "2": "base",
+     "3": "base",
+     "4": "base"
+    }
+   },
+   "amendments-relating-to-energy-efficiency-and-compe--circular-03-2010-the-building-act-1984-the-building-regula@2010-03-16-39da5298": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "3": "base",
+     "6": "base",
+     "7": "table",
+     "8": "table",
+     "9": "table",
+     "10": "base",
+     "11": "table"
+    }
+   },
+   "amendments-to-approved-document-b-fire-safety-circ--amendments-to-approved-document-b-fire-safety-circular-01-@2025-03-02-fe657c2f": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "2": "base",
+     "3": "base",
+     "4": "table"
+    }
+   },
+   "amendments-to-approved-document-b-fire-safety-circ--circular-03-2024@2024-09-02-bd6fb9a1": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "3": "base",
+     "4": "base",
+     "5": "table"
+    }
+   },
+   "amendments-to-approved-document-b-fire-safety-circ--circular-04-2024@2024-09-02-defaee66": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "3": "base",
+     "4": "base",
+     "5": "base"
+    }
+   },
+   "amendments-to-approved-document-b-fire-safety-circ--circular-05-2024@2024-09-02-e7109817": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "2": "base",
+     "3": "base",
+     "4": "base"
+    }
+   },
+   "amendments-to-approved-document-l1-on-conservation--circular-04-2005-amendments-to-approved-document-l1@2012-11-14-ec2e728a": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "2": "base",
+     "4": "base",
+     "8": "base"
+    }
+   },
+   "amendments-to-approved-document-t-toilets-circular--amendments-to-approved-document-t-toilets-circular-02-2025@2025-11-03-5e03629f": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "2": "base",
+     "3": "base"
+    }
+   },
+   "amendments-to-approved-documents-a-and-c-circular--circular-01-2013-the-building-act-1984-building-regulations@2013-07-30-1a449989": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "3": "base",
+     "4": "table",
+     "5": "base",
+     "7": "base"
+    }
+   },
+   "amendments-to-approved-documents-l-energy-and-gree--amendments-to-approved-documents-l-energy-and-greenhouse-g@2026-09-08-38cc19ba": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "3": "base",
+     "4": "base"
+    }
+   },
+   "approved-document-b-2022-amendments-circular-02202--approved-document-b-2022-amendments-circular-02-2022@2022-06-01-8802c568": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "3": "base",
+     "4": "base",
+     "5": "table"
+    }
+   },
+   "approved-document-b-2022-amendments-circular-02202--circular-letter-the-building-amendment-regulations-2022@2022-06-01-7e9ec3c0": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "3": "base",
+     "5": "base"
+    }
+   },
+   "approved-document-b-2022-amendments-circular-02202--direction-under-the-building-act-1984-dispensation-for-cav@2022-06-01-a660dd8a": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base"
+    }
+   },
+   "approved-document-b-2024-amendments-circular-01202--approved-document-b-2024-amendments-circular-01-2024@2024-03-29-81c5b5a6": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "2": "base",
+     "4": "table",
+     "5": "base"
+    }
+   },
+   "approved-document-b-2024-amendments-circular-01202--approved-document-b-2024-amendments-circular-letter@2024-03-29-986f53d4": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "2": "base",
+     "3": "base"
+    }
+   },
+   "approved-document-b-april-2019-edition-circular-01--approved-document-b-april@2019-04-16-fdcc340b": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "4": "base",
+     "7": "base",
+     "8": "base"
+    }
+   },
+   "approved-document-b-april-2019-edition-circular-01--circular-letter-on-approved-document-b-april@2019-04-16-b1ddf02c": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "2": "base"
+    }
+   },
+   "approved-document-b-july-2019-edition-circular-022--approved-document-b@2019-07-05-38c1bccc": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "2": "base",
+     "3": "base",
+     "4": "table",
+     "5": "table"
+    }
+   },
+   "approved-document-b-july-2019-edition-circular-022--circular-letter-on-approved-document-b@2019-07-05-d266d4dd": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "2": "base",
+     "3": "base"
+    }
+   },
+   "approved-document-b-volume-1-and-2-circular-012020--approved-document-b-volume-1-and-2-circular-01-2020@2020-05-26-b6056ce0": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "2": "base",
+     "3": "base",
+     "4": "table",
+     "5": "base"
+    }
+   },
+   "approved-document-b-volume-1-and-2-circular-012020--circular-letter-on-approved-document-b-volume-1-and-2@2020-05-26-d344799c": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "2": "base",
+     "3": "base"
+    }
+   },
+   "approved-document-b-volume-1-and-volume-2-circular--approved-document-b-volume-1-and-volume-2-circular-03-2018@2018-12-18-a4b2255d": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "2": "base",
+     "4": "base",
+     "5": "base"
+    }
+   },
+   "approved-document-b-volume-1-and-volume-2-circular--circular-letter-on-approved-document-b-volume-1-and-volume@2018-12-18-c7449a20": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "2": "base",
+     "3": "base"
+    }
+   },
+   "approved-document-j-2022-amendments-circular-03202--approved-document-j-2022-amendments-circular-03-2022@2022-09-30-fcb1b6a9": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "2": "base",
+     "3": "base",
+     "4": "table",
+     "5": "table"
+    }
+   },
+   "approved-document-j-2022-amendments-circular-03202--new-edition-of-approved-document-j-circular-letter-29-july@2022-09-30-29ba2163": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "2": "base",
+     "3": "base",
+     "4": "base"
+    }
+   },
+   "approved-document-j-2022-amendments-circular-03202--new-edition-of-approved-document-j-circular-letter-update-@2022-09-30-83b7db21": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "2": "base",
+     "4": "base"
+    }
+   },
+   "approved-document-m-volume-2-amendments-circular-0--approved-document-m-volume-2-amendments-circular-02-2020@2020-07-19-8c7f70eb": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "2": "base",
+     "3": "base",
+     "4": "table"
+    }
+   },
+   "approved-document-m-volume-2-amendments-circular-0--circular-letter-on-approved-document-m-volume-2-amendments@2020-07-19-29f0acd0": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "2": "base",
+     "3": "base"
+    }
+   },
+   "building-amendment-regulations-2014-circular-02201--circular-02-2014-the-building-act-building-regulations-201@2014-09-08-4c74af37": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "2": "base",
+     "3": "base",
+     "4": "table",
+     "7": "base"
+    }
+   },
+   "building-amendment-regulations-2016-circular-04201--circular-04-2016-building-regulations-amendment-regulation@2016-04-20-ca98656b": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "4": "base",
+     "5": "base",
+     "6": "base"
+    }
+   },
+   "building-amendment-regulations-2017-circular-01201--circular-01-2017-building-amendment-regulations-2017@2017-10-19-1f5347b5": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "2": "base",
+     "4": "table",
+     "8": "base"
+    }
+   },
+   "building-amendment-regulations-2018-circular-02201--building-amendment-regulations-2018-circular-02-2018@2018-11-29-29419d26": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "2": "base",
+     "5": "table",
+     "6": "base",
+     "7": "table",
+     "8": "base"
+    }
+   },
+   "building-amendment-regulations-2018-circular-02201--circular-letter-on-building-amendment-regulations-2018@2018-11-29-9b60a19c": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "2": "base",
+     "3": "base"
+    }
+   },
+   "building-amendment-regulations-2021-circular-01202--building-amendment-regulations-2021-circular-01-2021@2021-12-15-6158a13e": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "5": "base",
+     "8": "table",
+     "9": "base"
+    }
+   },
+   "building-amendment-regulations-2021-circular-01202--letter-on-building-amendment-regulations-2021-circular-01-@2021-12-15-7707b544": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "3": "base",
+     "4": "base"
+    }
+   },
+   "building-regulation-amendment-regulations-2015-cir--building-regulations-c-amendment-regulations-2015-circular@2015-03-27-8e622593": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "5": "base",
+     "6": "table",
+     "7": "table",
+     "8": "table",
+     "9": "base",
+     "10": "table",
+     "11": "table",
+     "12": "table",
+     "13": "table"
+    }
+   },
+   "building-regulations-2010-amended-approved-documen--circular-01-2016-amended-approved-documents-to-support-par@2016-03-01-cf5475c2": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "2": "base",
+     "3": "base",
+     "4": "table"
+    }
+   },
+   "building-regulations-2010-amended-approved-documen--circular-01-2018-amended-approved-document-l1b-and-domesti@2018-04-05-a4baf69a": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "3": "base",
+     "4": "base",
+     "5": "table",
+     "6": "base"
+    }
+   },
+   "building-regulations-and-amendment-regulations-201--circular-03-2016-building-regulations-c-amendment-regulati@2016-03-22-cf64cf0b": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "4": "table",
+     "5": "table",
+     "6": "base",
+     "7": "table",
+     "8": "table",
+     "9": "base",
+     "12": "base"
+    }
+   },
+   "building-regulations-and-longer-time-limits-for-pr--circular-03-2008-designation-of-certain-provisions-of-the-@2008-03-13-725186df": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "3": "base",
+     "4": "base"
+    }
+   },
+   "building-regulations-and-new-minimum-water-efficie--circular-05-2009-new-part-g-in-schedule-1-to-the-building-@2009-05-13-299d20a4": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "4": "base",
+     "6": "base",
+     "7": "table",
+     "8": "table",
+     "14": "base"
+    }
+   },
+   "building-regulations-etc-amendment-england-no-2-re--building-regulations-etc-amendment-england-no-2-regulation@2021-12-15-16620421": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "3": "base",
+     "5": "base",
+     "6": "base"
+    }
+   },
+   "building-regulations-etc-amendment-england-no-2-re--circular-letter-on-building-regulations-etc-amendment-engl@2021-12-15-9c5268b7": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "2": "base",
+     "3": "base",
+     "4": "base"
+    }
+   },
+   "building-regulations-in-england-circular-012022--building-regulations-in-england-circular-01-2022@2022-02-25-88183880": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "3": "base",
+     "5": "base"
+    }
+   },
+   "building-regulations-in-england-circular-012022--circular-letter-notice-of-revision-to-approved-documents-f2@2022-02-25-67bb2480": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "2": "table",
+     "3": "table",
+     "5": "table",
+     "6": "base",
+     "7": "table",
+     "8": "base"
+    }
+   },
+   "building-regulations-self-certification-schemes-an--circular-01-2009-minor-changes-to-schedule-2a-to-the-build@2009-03-09-dd3ffeff": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "3": "base",
+     "4": "base"
+    }
+   },
+   "changes-to-part-b-fire-safety-of-the-building-regu--circular-05-2006-the-building-regulations-2000-and-the-bui@2006-12-18-4cc3c4bb": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "5": "table",
+     "6": "table",
+     "8": "base",
+     "10": "base",
+     "14": "base"
+    }
+   },
+   "electronic-communication-of-specified-building-con--circular-05-2008-the-building-act-1984-the-building-regula@2012-11-14-9676603d": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "3": "base",
+     "8": "base"
+    }
+   },
+   "electronic-transmission-of-documents-under-the-par--circular-02-2016-electronic-transmission-of-documents-unde@2016-03-22-a256bf55": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "2": "base",
+     "3": "base",
+     "4": "base"
+    }
+   },
+   "energy-performance-of-buildings-regulations-2008-c--circular-06-2008-provisions-relating-to-energy-performance@2008-09-09-3a574f87": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "2": "base",
+     "4": "base"
+    }
+   },
+   "introduction-of-target-fabric-energy-efficiency-ra--circular-03-2013-the-building-act-1984-building-regulation@2013-08-08-d8aed573": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "2": "base",
+     "4": "table",
+     "5": "base",
+     "7": "base"
+    }
+   },
+   "introduction-of-third-party-certification-schemes--circular-01-2014-the-building-act-1984-building-regulations@2014-03-14-5ef5a17d": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "4": "base",
+     "5": "table",
+     "7": "base"
+    }
+   },
+   "multi-foil-insulation-circular-06-2009--circular-06-2009-building-regulations-2000-schedule-1-part-l@2009-06-18-a391587a": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "3": "base",
+     "4": "base",
+     "5": "base"
+    }
+   },
+   "new-approved-document-on-electrical-safety-circula--circular-05-2004-new-approved-document-giving-guidance-on-@2012-11-14-2e9f7139": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "2": "base",
+     "4": "base",
+     "6": "table",
+     "7": "table",
+     "8": "base"
+    }
+   },
+   "new-approved-documents-and-guidance-circular-06-20--circular-06-2010-the-building-act-1984-the-building-regula@2010-04-30-64833aed": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "2": "base",
+     "5": "table",
+     "6": "table",
+     "7": "table",
+     "8": "table",
+     "9": "table",
+     "10": "base",
+     "11": "table"
+    }
+   },
+   "new-approved-documents-and-new-compliance-guides-s--circular-04-2013-the-building-act-1984-the-building-regula@2013-11-29-d0eb9192": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "4": "table",
+     "5": "base",
+     "7": "base",
+     "8": "base"
+    }
+   },
+   "new-approved-documents-circular-odpm-04-2004--circular-4-2004-new-approved-documents-on-parts-a-c-and-e@2012-11-14-1afc5f49": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "3": "table",
+     "5": "base",
+     "6": "base",
+     "9": "table",
+     "10": "table",
+     "16": "base"
+    }
+   },
+   "new-competent-person-schemes-water-efficiency-calc--circular-09-2009-the-building-regulations-2000-authorisati@2009-09-08-0487c7c1": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "2": "base",
+     "3": "base",
+     "4": "table",
+     "6": "base"
+    }
+   },
+   "new-provision-for-local-authority-building-control--circular-01-2010-the-building-act-1984-the-building-local-@2010-02-25-e3c8cf7f": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "4": "base",
+     "5": "table",
+     "6": "table",
+     "7": "table",
+     "8": "base",
+     "9": "table",
+     "10": "base",
+     "11": "table",
+     "12": "table"
+    }
+   },
+   "postponement-of-amendments-to-the-building-regulat--circular-10-2009-postponement-of-the-coming-into-force-of-@2009-09-14-d45052cc": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "2": "base",
+     "3": "base",
+     "4": "base"
+    }
+   },
+   "sound-insulation-testing-circular-odpm-03-2002--circular-03-2002-amendment-of-approved-document-giving-guida@2012-11-14-272b0adb": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "7": "base",
+     "8": "table",
+     "9": "table",
+     "18": "base"
+    }
+   },
+   "the-building-act-1984-and-building-regulations-201--circular-07-2010-the-building-act-1984-building-regulation@2010-09-24-fa1eea59": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "2": "base",
+     "5": "table",
+     "6": "table",
+     "7": "base",
+     "8": "table",
+     "9": "table",
+     "10": "table",
+     "11": "table",
+     "12": "table",
+     "13": "table",
+     "14": "table",
+     "15": "table",
+     "16": "table",
+     "17": "table",
+     "18": "base"
+    }
+   },
+   "the-building-act-1984-building-amendment-regulatio--circular-01-2012-the-building-act-1984-building-amendment-@2012-03-13-abeb722e": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "3": "base",
+     "4": "table",
+     "5": "base",
+     "6": "base"
+    }
+   },
+   "the-building-act-1984-building-amendment-regulatio--circular-01-2013-the-building-act-1984-building-amendment-@2013-05-13-c4ec4d3e": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "3": "base",
+     "4": "table",
+     "5": "base",
+     "7": "base"
+    }
+   },
+   "the-building-act-1984-building-amendment-regulatio--circular-02-2011-the-building-act-1984-building-amendment-@2011-06-22-d08d62c5": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "3": "base",
+     "4": "table",
+     "5": "base",
+     "7": "base"
+    }
+   },
+   "the-building-act-1984-building-amendment-regulatio--the-building-act-1984-building-amendment-regulations-2012-@2012-12-19-da25fded": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "8": "table",
+     "9": "table",
+     "10": "table",
+     "11": "table",
+     "12": "base",
+     "13": "table",
+     "14": "base",
+     "16": "table",
+     "17": "base"
+    }
+   },
+   "the-building-act-1994-the-building-regulations-200--circular-07-2000-the-building-regulations-2000-and-the-bui@2012-11-14-beea9961": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "6": "table",
+     "7": "table",
+     "8": "table",
+     "11": "base",
+     "18": "table",
+     "19": "table",
+     "20": "table",
+     "21": "table",
+     "22": "table",
+     "23": "table",
+     "28": "base"
+    }
+   },
+   "the-building-amendment-england-regulations-2024-pa--the-building-amendment-england-regulations-2024-part-t-cir-7993824@2024-05-15-4487f0b2": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "2": "base",
+     "4": "base"
+    }
+   },
+   "the-building-amendment-england-regulations-2024-pa--the-building-amendment-england-regulations-2024-part-t-cir@2024-05-15-ac04149a": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "3": "base",
+     "5": "base",
+     "6": "table",
+     "7": "table",
+     "8": "table"
+    }
+   },
+   "the-building-amendment-no-3-regulations-2004-circu--circular-08-2004-the-building-amendment-no-3-regulations-2@2012-11-14-f0c8ac6c": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "3": "base",
+     "5": "table",
+     "6": "table",
+     "7": "table",
+     "8": "base",
+     "9": "table",
+     "10": "table",
+     "11": "base"
+    }
+   },
+   "the-building-amendment-regulation-2003-circular-od--odpm-circular-11-2003-the-building-amendment-regulation-20@2003-11-05-ba14a335": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "2": "base",
+     "11": "table",
+     "12": "base",
+     "21": "base"
+    }
+   },
+   "the-building-amendment-regulations-2001-and-the-bu--circular-03-2001-new-parts-h-j-and-l-in-schedule-1-to-the-@2012-11-14-4cf3bffc": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "13": "table",
+     "14": "table",
+     "15": "table",
+     "16": "table",
+     "19": "base",
+     "21": "base",
+     "23": "base",
+     "30": "table"
+    }
+   },
+   "the-building-etc-amendment-england-no-2-regulation--the-building-etc-amendment-england-no-2-regulations-2022-c-6935274@2022-10-04-d10e3de2": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "2": "base",
+     "3": "base",
+     "5": "base"
+    }
+   },
+   "the-building-etc-amendment-england-no-2-regulation--the-building-etc-amendment-england-no-2-regulations-2022-c@2022-10-04-5b4f2640": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "3": "base",
+     "6": "base",
+     "7": "table",
+     "8": "base"
+    }
+   },
+   "the-building-etc-amendment-regulations-2023-circul--the-building-etc-amendment-regulations-2023-circular-01-20@2023-05-12-83531d58": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "2": "base",
+     "3": "base",
+     "4": "base"
+    }
+   },
+   "the-building-etc-amendment-regulations-2023-circul--the-building-etc-amendment-regulations-2023-circular-lette@2023-05-12-52e525f5": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "2": "base",
+     "3": "base"
+    }
+   },
+   "the-building-local-authority-charges-and-amendment--the-building-local-authority-charges-and-amendments-relati-9560426@2026-10-16-c2e393f6": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "3": "base",
+     "4": "base"
+    }
+   },
+   "the-building-regulations-and-the-building-approved--circular-062007-the-building-regulations-and-the-building-@2007-12-07-f5b155f7": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "4": "base",
+     "5": "base"
+    }
+   },
+   "the-builiding-regulations-2000-and-the-building-ap--circular-05-2007-the-building-regulations-2000-and-the-bui@2007-12-05-2e591312": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "4": "table",
+     "5": "table",
+     "6": "base",
+     "7": "base",
+     "8": "base"
+    }
+   },
+   "the-future-homes-and-buildings-standards-building--the-future-homes-and-buildings-standards-building-circular--9205088@2026-03-24-d7925e3e": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "3": "base",
+     "7": "base",
+     "8": "table",
+     "9": "base"
+    }
+   }
+  },
+  "circ-adb-2024": {
+   "circular-03-2024@2024-09-02-bd6fb9a1": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "3": "base",
+     "4": "base",
+     "5": "base"
+    }
+   },
+   "circular-04-2024@2024-09-02-defaee66": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "2": "base",
+     "4": "base",
+     "5": "table"
+    }
+   },
+   "circular-05-2024@2024-09-02-e7109817": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "2": "base",
+     "4": "base"
+    }
+   }
+  },
+  "decent-home-2006": {
+   "a-decent-home-definition-and-guidance-for-implementation-jun@2006-06-07-fd1d0009": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "12": "base",
+     "16": "base",
+     "21": "base",
+     "28": "base",
+     "34": "table",
+     "35": "table"
+    }
+   }
+  },
+  "fser-page": {
+   "impact-assessment@2023-07-24-cd8d7385": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "table",
+     "2": "table",
+     "9": "base",
+     "10": "table",
+     "13": "table",
+     "16": "base",
+     "18": "table",
+     "19": "base",
+     "21": "table",
+     "23": "table",
+     "24": "base",
+     "26": "table",
+     "29": "table",
+     "33": "table",
+     "34": "table",
+     "37": "table"
+    }
+   }
+  },
+  "fso-guidance-collection": {
+   "check-your-fire-safety-responsibilities-under-sect--check-your-fire-safety-responsibilities-under-section-156--7617419@2023-10-25-68c61f73": {
+    "family": "home-office-booklet-pdf",
+    "pdf_pages": {
+     "7": "base",
+     "9": "base",
+     "13": "base"
+    }
+   },
+   "check-your-fire-safety-responsibilities-under-the--check-your-fire-safety-responsibilities-under-the-fire-safe-9459888@2023-10-25-bf8188bc": {
+    "family": "home-office-booklet-pdf",
+    "pdf_pages": {
+     "10": "base",
+     "17": "base",
+     "19": "base"
+    }
+   },
+   "fire-safety-in-purpose-built-blocks-of-flats--fire-safety-in-purpose-built-blocks-of-flats@2024-12-02-5c6ae503": {
+    "family": "flats-guide-pdf",
+    "pdf_pages": {
+     "2": "base",
+     "11": "table",
+     "23": "base",
+     "25": "base",
+     "31": "base",
+     "44": "base",
+     "53": "base",
+     "65": "base",
+     "73": "base",
+     "108": "base",
+     "112": "base",
+     "140": "base",
+     "144": "base",
+     "151": "table",
+     "152": "base",
+     "163": "base",
+     "176": "base",
+     "177": "base",
+     "178": "base",
+     "184": "base",
+     "186": "base"
+    }
+   },
+   "fire-safety-risk-assessment-5-step-checklist--fire-safety-risk-assessment-5-step-checklist@2025-01-20-2ae5e597": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "5": "base",
+     "9": "base"
+    }
+   },
+   "fire-safety-risk-assessment-animal-premises-and-st--fire-safety-risk-assessment-animal-premises-and-stables@2023-09-12-697807b1": {
+    "family": "fire-risk-guide-pdf",
+    "pdf_pages": {
+     "17": "base",
+     "20": "base",
+     "21": "base",
+     "36": "base",
+     "45": "base",
+     "54": "base",
+     "59": "base",
+     "61": "base",
+     "63": "table",
+     "67": "base",
+     "74": "table",
+     "77": "base",
+     "85": "base",
+     "91": "base",
+     "93": "table",
+     "103": "base",
+     "121": "table",
+     "122": "table",
+     "123": "table",
+     "124": "table",
+     "129": "base",
+     "135": "table",
+     "136": "table",
+     "137": "base",
+     "138": "table",
+     "139": "table",
+     "140": "table",
+     "141": "table"
+    }
+   },
+   "fire-safety-risk-assessment-educational-premises--fire-safety-risk-assessment-educational-premises@2023-09-12-148e02df": {
+    "family": "fire-risk-guide-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "20": "base",
+     "30": "base",
+     "42": "base",
+     "54": "base",
+     "59": "table",
+     "72": "table",
+     "85": "base",
+     "86": "base",
+     "87": "base",
+     "88": "base",
+     "90": "table",
+     "96": "base",
+     "100": "base",
+     "107": "base",
+     "117": "table",
+     "118": "table",
+     "119": "table",
+     "120": "table",
+     "131": "table",
+     "132": "table",
+     "133": "table",
+     "134": "table",
+     "135": "base",
+     "140": "table",
+     "141": "base",
+     "143": "base"
+    }
+   },
+   "fire-safety-risk-assessment-factories-and-warehous--fire-safety-risk-assessment-factories-and-warehouses@2023-09-12-ca8d9634": {
+    "family": "fire-risk-guide-pdf",
+    "pdf_pages": {
+     "4": "base",
+     "7": "base",
+     "10": "base",
+     "14": "base",
+     "21": "base",
+     "28": "base",
+     "32": "base",
+     "42": "base",
+     "55": "base",
+     "61": "table",
+     "73": "table",
+     "91": "table",
+     "96": "base",
+     "99": "base",
+     "108": "base",
+     "118": "base",
+     "121": "table",
+     "122": "table",
+     "123": "table",
+     "124": "base",
+     "134": "table",
+     "135": "table",
+     "136": "table",
+     "137": "base",
+     "138": "table",
+     "142": "table",
+     "143": "table"
+    }
+   },
+   "fire-safety-risk-assessment-healthcare-premises--fire-safety-risk-assessment-healthcare-premises@2023-09-12-9afdb9f7": {
+    "family": "fire-risk-guide-pdf",
+    "pdf_pages": {
+     "8": "base",
+     "27": "base",
+     "35": "base",
+     "44": "base",
+     "45": "base",
+     "50": "base",
+     "57": "base",
+     "65": "table",
+     "79": "base",
+     "80": "table",
+     "82": "base",
+     "85": "base",
+     "95": "base",
+     "102": "table",
+     "111": "base",
+     "121": "base",
+     "123": "base",
+     "130": "table",
+     "131": "table",
+     "132": "table",
+     "133": "table",
+     "134": "table",
+     "136": "table",
+     "144": "table",
+     "145": "table",
+     "146": "table",
+     "147": "table",
+     "148": "table",
+     "149": "table",
+     "155": "table",
+     "156": "table",
+     "158": "base",
+     "161": "base"
+    }
+   },
+   "fire-safety-risk-assessment-large-places-of-assemb--fire-safety-risk-assessment-large-places-of-assembly@2023-09-12-a078a988": {
+    "family": "fire-risk-guide-pdf",
+    "pdf_pages": {
+     "5": "base",
+     "10": "base",
+     "12": "base",
+     "27": "base",
+     "28": "base",
+     "34": "base",
+     "39": "base",
+     "41": "base",
+     "43": "base",
+     "61": "table",
+     "68": "base",
+     "75": "table",
+     "78": "base",
+     "83": "base",
+     "94": "table",
+     "120": "base",
+     "121": "base",
+     "125": "table",
+     "126": "base",
+     "127": "table",
+     "128": "table",
+     "136": "base",
+     "139": "table",
+     "140": "table",
+     "141": "table",
+     "142": "table",
+     "143": "table",
+     "149": "table",
+     "150": "table"
+    }
+   },
+   "fire-safety-risk-assessment-means-of-escape-for-di--fire-safety-risk-assessment-means-of-escape-for-disabled-p-9117398@2023-09-12-6e9a3e0f": {
+    "family": "fire-risk-guide-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "6": "base",
+     "8": "base",
+     "21": "base",
+     "41": "table",
+     "42": "table",
+     "46": "base",
+     "51": "base"
+    }
+   },
+   "fire-safety-risk-assessment-offices-and-shops--fire-safety-risk-assessment-offices-and-shops@2023-09-12-33a009ce": {
+    "family": "fire-risk-guide-pdf",
+    "pdf_pages": {
+     "3": "base",
+     "10": "base",
+     "20": "base",
+     "24": "base",
+     "50": "base",
+     "59": "table",
+     "70": "table",
+     "75": "base",
+     "88": "base",
+     "96": "base",
+     "106": "base",
+     "108": "base",
+     "116": "table",
+     "117": "table",
+     "118": "table",
+     "119": "table",
+     "126": "base",
+     "129": "base",
+     "130": "table",
+     "131": "table",
+     "132": "table",
+     "133": "table",
+     "134": "table",
+     "139": "base",
+     "140": "table",
+     "142": "base",
+     "145": "base"
+    }
+   },
+   "fire-safety-risk-assessment-open-air-events-and-ve--fire-safety-risk-assessment-open-air-events-and-venues@2023-09-12-08e6885e": {
+    "family": "fire-risk-guide-pdf",
+    "pdf_pages": {
+     "13": "table",
+     "23": "base",
+     "25": "base",
+     "26": "base",
+     "34": "base",
+     "42": "base",
+     "48": "base",
+     "50": "base",
+     "60": "table",
+     "68": "table",
+     "70": "table",
+     "72": "table",
+     "81": "base",
+     "96": "table",
+     "97": "table",
+     "98": "table",
+     "105": "table",
+     "106": "table",
+     "107": "table",
+     "108": "table",
+     "110": "base",
+     "111": "base",
+     "113": "table",
+     "114": "table",
+     "116": "base",
+     "119": "base"
+    }
+   },
+   "fire-safety-risk-assessment-residential-care-premi--fire-safety-risk-assessment-residential-care-premises@2023-09-12-1b600793": {
+    "family": "fire-risk-guide-pdf",
+    "pdf_pages": {
+     "5": "base",
+     "6": "base",
+     "8": "base",
+     "16": "base",
+     "22": "base",
+     "51": "base",
+     "65": "table",
+     "78": "table",
+     "82": "base",
+     "89": "base",
+     "97": "table",
+     "99": "base",
+     "108": "base",
+     "120": "table",
+     "121": "base",
+     "122": "table",
+     "123": "base",
+     "125": "base",
+     "126": "base",
+     "130": "base",
+     "134": "table",
+     "135": "table",
+     "136": "table",
+     "137": "table",
+     "138": "table",
+     "141": "base",
+     "143": "table",
+     "144": "table",
+     "145": "table"
+    }
+   },
+   "fire-safety-risk-assessment-sleeping-accommodation--fire-safety-risk-assessment-sleeping-accommodation@2023-09-12-ff019659": {
+    "family": "fire-risk-guide-pdf",
+    "pdf_pages": {
+     "3": "base",
+     "21": "base",
+     "22": "base",
+     "25": "base",
+     "44": "base",
+     "48": "base",
+     "49": "base",
+     "50": "base",
+     "55": "base",
+     "57": "table",
+     "58": "base",
+     "60": "table",
+     "71": "base",
+     "72": "base",
+     "76": "base",
+     "85": "base",
+     "91": "table",
+     "105": "base",
+     "119": "table",
+     "120": "table",
+     "121": "table",
+     "122": "table",
+     "133": "table",
+     "134": "table",
+     "135": "table",
+     "136": "table",
+     "137": "table",
+     "142": "table",
+     "143": "table"
+    }
+   },
+   "fire-safety-risk-assessment-small-and-medium-place--fire-safety-risk-assessment-small-and-medium-places-of-ass-8089035@2024-08-28-3384dda7": {
+    "family": "fire-risk-guide-pdf",
+    "pdf_pages": {
+     "3": "base",
+     "40": "base",
+     "49": "base",
+     "57": "base",
+     "59": "base",
+     "62": "base",
+     "67": "table",
+     "70": "base",
+     "83": "base",
+     "84": "base",
+     "85": "table",
+     "93": "base",
+     "103": "base",
+     "110": "base",
+     "115": "table",
+     "116": "table",
+     "117": "table",
+     "118": "table",
+     "128": "base",
+     "129": "table",
+     "130": "table",
+     "131": "table",
+     "132": "table",
+     "133": "table",
+     "136": "base",
+     "138": "base",
+     "139": "table",
+     "140": "table"
+    }
+   },
+   "fire-safety-risk-assessment-theatres-cinemas-and-s--fire-safety-risk-assessment-theatres-cinemas-and-similar-p@2023-09-12-ede06ce4": {
+    "family": "fire-risk-guide-pdf",
+    "pdf_pages": {
+     "3": "base",
+     "10": "base",
+     "14": "base",
+     "16": "base",
+     "22": "base",
+     "26": "base",
+     "30": "base",
+     "36": "base",
+     "42": "base",
+     "59": "base",
+     "66": "table",
+     "79": "table",
+     "81": "base",
+     "100": "table",
+     "104": "base",
+     "118": "base",
+     "124": "base",
+     "132": "table",
+     "133": "table",
+     "134": "table",
+     "135": "table",
+     "142": "base",
+     "145": "table",
+     "146": "table",
+     "147": "table",
+     "148": "table",
+     "149": "base",
+     "154": "table",
+     "155": "table"
+    }
+   },
+   "fire-safety-risk-assessment-transport-premises-and--fire-safety-risk-assessment-transport-premises-and-facilit@2023-09-12-249a59ff": {
+    "family": "fire-risk-guide-pdf",
+    "pdf_pages": {
+     "4": "base",
+     "15": "base",
+     "17": "base",
+     "24": "base",
+     "31": "base",
+     "45": "base",
+     "46": "base",
+     "47": "base",
+     "65": "base",
+     "66": "base",
+     "71": "base",
+     "80": "table",
+     "82": "base",
+     "99": "table",
+     "103": "base",
+     "113": "base",
+     "116": "base",
+     "120": "table",
+     "122": "table",
+     "134": "table",
+     "135": "table",
+     "136": "table",
+     "137": "table",
+     "145": "base",
+     "147": "table",
+     "148": "table",
+     "149": "table",
+     "150": "table",
+     "151": "table"
+    }
+   },
+   "making-your-small-block-of-flats-safe-from-fire--a-guide-to-making-your-small-block-of-flats-safe-from-fire@2025-01-20-cb50e244": {
+    "family": "home-office-booklet-pdf",
+    "pdf_pages": {
+     "6": "base",
+     "30": "base",
+     "32": "base",
+     "34": "base",
+     "39": "table"
+    }
+   },
+   "making-your-small-paying-guest-accommodation-safe--making-your-small-paying-guest-accommodation-safe-from-fire-8403143@2025-01-20-ab917022": {
+    "family": "home-office-booklet-pdf",
+    "pdf_pages": {
+     "2": "base",
+     "9": "base",
+     "11": "base",
+     "19": "base",
+     "38": "table"
+    }
+   }
+  },
+  "fso-s156": {
+   "check-your-fire-safety-responsibilities-under-section-156-of-7617419@2023-10-25-68c61f73": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "4": "base",
+     "8": "base",
+     "13": "base"
+    }
+   }
+  },
+  "hhsrs-enforcement": {
+   "housing-health-and-safety-rating-system-hhsrs-enforcement-gu@2026-06-23-3e7f8d38": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "4": "base",
+     "9": "base",
+     "29": "base",
+     "35": "base"
+    }
+   }
+  },
+  "hhsrs-operating": {
+   "hhsrs-operating-guidance-part-1-an-introductory-guide@2026-06-23-f3ec2529": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "5": "base",
+     "6": "base",
+     "13": "table",
+     "14": "base",
+     "15": "table",
+     "17": "table",
+     "23": "table"
+    }
+   },
+   "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "5": "base",
+     "10": "base",
+     "15": "table",
+     "22": "table",
+     "26": "base",
+     "29": "table",
+     "31": "base",
+     "34": "table",
+     "40": "base",
+     "41": "base",
+     "43": "table",
+     "48": "table",
+     "55": "table",
+     "60": "base",
+     "65": "table",
+     "71": "table",
+     "76": "table",
+     "80": "base",
+     "85": "table",
+     "89": "table",
+     "92": "base",
+     "98": "base",
+     "104": "table",
+     "109": "table",
+     "119": "base",
+     "125": "table",
+     "131": "table",
+     "132": "base",
+     "137": "table",
+     "143": "table",
+     "144": "base",
+     "147": "table",
+     "148": "table",
+     "149": "base",
+     "150": "base",
+     "151": "table",
+     "152": "table",
+     "153": "table",
+     "154": "table",
+     "155": "table",
+     "156": "table",
+     "157": "table",
+     "158": "table",
+     "159": "table",
+     "160": "table",
+     "161": "base",
+     "162": "table",
+     "163": "table",
+     "164": "table",
+     "165": "base",
+     "166": "table",
+     "167": "table",
+     "168": "table",
+     "169": "table",
+     "170": "table",
+     "171": "table"
+    }
+   },
+   "hhsrs-operating-guidance-part-3-a-supplementary-guide-to-the@2026-06-23-cf2bee09": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "7": "base",
+     "9": "table",
+     "10": "base",
+     "14": "base",
+     "36": "base",
+     "45": "base",
+     "56": "table",
+     "60": "base",
+     "61": "base"
+    }
+   }
+  },
+  "hse-asbestos-a0": {
+   "main@2024-12-06-3078ecac": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "5": "base",
+     "8": "base",
+     "9": "base"
+    }
+   }
+  },
+  "hse-asbestos-em1": {
+   "main@2024-12-06-f647f368": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "2": "base",
+     "4": "base"
+    }
+   }
+  },
+  "hse-cis36": {
+   "main@2024-12-06-e18715cd": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "2": "base",
+     "4": "table",
+     "5": "base",
+     "6": "base"
+    }
+   }
+  },
+  "hse-cis54": {
+   "main@2024-12-06-877cb096": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "2": "base",
+     "4": "base"
+    }
+   }
+  },
+  "hse-cis62": {
+   "main@2024-12-06-73ef3b50": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "2": "base"
+    }
+   }
+  },
+  "hse-cis63": {
+   "main@2024-12-06-1569ba38": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "2": "base"
+    }
+   }
+  },
+  "hse-cis65": {
+   "main@2024-12-06-5bab86dd": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "2": "base"
+    }
+   }
+  },
+  "hse-cis69": {
+   "main@2024-12-06-428b6de2": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "2": "base",
+     "4": "base"
+    }
+   }
+  },
+  "hse-cis78": {
+   "main@2024-12-06-06e9e08e": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "2": "base"
+    }
+   }
+  },
+  "hse-cis79": {
+   "main@2024-12-06-72577d1a": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "2": "base"
+    }
+   }
+  },
+  "hse-cis80": {
+   "main@2024-12-06-a88d10b2": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "2": "base"
+    }
+   }
+  },
+  "hse-eh40": {
+   "main@2024-12-06-736c6fc0": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "4": "base",
+     "9": "table",
+     "10": "table",
+     "11": "table",
+     "12": "table",
+     "13": "table",
+     "14": "table",
+     "15": "table",
+     "16": "base",
+     "17": "table",
+     "18": "table",
+     "19": "table",
+     "20": "table",
+     "21": "table",
+     "28": "base",
+     "29": "table",
+     "36": "base",
+     "38": "base",
+     "40": "table",
+     "43": "table",
+     "44": "table",
+     "45": "table",
+     "46": "table",
+     "47": "table",
+     "48": "table",
+     "49": "table",
+     "50": "table",
+     "51": "table",
+     "52": "table",
+     "53": "table",
+     "54": "table",
+     "55": "base",
+     "56": "table",
+     "57": "table",
+     "58": "table",
+     "59": "table"
+    }
+   }
+  },
+  "hse-hsg141": {
+   "main@2024-12-06-e39e04f6": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "4": "base",
+     "5": "base"
+    }
+   }
+  },
+  "hse-hsg150": {
+   "main@2024-12-06-0d0c380b": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "20": "table",
+     "31": "base",
+     "33": "base",
+     "36": "base",
+     "59": "base",
+     "74": "base",
+     "75": "base",
+     "87": "base",
+     "99": "base",
+     "101": "base",
+     "105": "base",
+     "108": "base",
+     "112": "base",
+     "114": "base",
+     "129": "table"
+    }
+   }
+  },
+  "hse-hsg227": {
+   "main@2024-12-06-ef0a75ce": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "12": "base",
+     "22": "base",
+     "27": "base",
+     "32": "base",
+     "33": "table",
+     "35": "base",
+     "50": "table",
+     "54": "table",
+     "56": "table",
+     "57": "table",
+     "58": "table",
+     "60": "table",
+     "61": "base",
+     "62": "table",
+     "63": "table",
+     "65": "table",
+     "66": "table",
+     "67": "table",
+     "68": "table",
+     "78": "base",
+     "79": "base",
+     "81": "table"
+    }
+   }
+  },
+  "hse-hsg247": {
+   "main@2026-07-21-56258caf": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "3": "base",
+     "5": "table",
+     "6": "base",
+     "15": "table",
+     "18": "table",
+     "22": "table",
+     "23": "table",
+     "24": "base",
+     "25": "table",
+     "36": "base",
+     "53": "base",
+     "69": "base",
+     "71": "base",
+     "73": "base",
+     "75": "base",
+     "81": "table",
+     "82": "table",
+     "88": "base",
+     "111": "table",
+     "113": "base",
+     "118": "base",
+     "124": "base",
+     "125": "base",
+     "141": "table",
+     "155": "base",
+     "156": "base",
+     "168": "table",
+     "175": "base",
+     "181": "base"
+    }
+   }
+  },
+  "hse-hsg248": {
+   "main@2024-12-06-9ed204da": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "2": "base",
+     "17": "table",
+     "18": "base",
+     "19": "base",
+     "20": "base",
+     "21": "table",
+     "22": "table",
+     "23": "base",
+     "28": "base",
+     "29": "table",
+     "32": "base",
+     "33": "table",
+     "34": "base",
+     "36": "base",
+     "38": "table",
+     "42": "table",
+     "44": "base",
+     "53": "base",
+     "55": "base",
+     "56": "table",
+     "62": "base",
+     "67": "table",
+     "68": "table",
+     "72": "table",
+     "81": "base",
+     "90": "table",
+     "96": "base",
+     "104": "table",
+     "105": "table",
+     "107": "table",
+     "108": "table",
+     "109": "table",
+     "111": "table",
+     "117": "table",
+     "119": "table",
+     "121": "base",
+     "123": "base",
+     "124": "table",
+     "125": "table",
+     "127": "table",
+     "131": "table",
+     "136": "table",
+     "138": "table",
+     "141": "table",
+     "142": "table",
+     "151": "table",
+     "155": "table",
+     "157": "table",
+     "169": "table",
+     "172": "table",
+     "173": "table",
+     "174": "base",
+     "175": "table",
+     "176": "table",
+     "180": "table",
+     "182": "base",
+     "186": "table",
+     "187": "base",
+     "195": "table",
+     "196": "table",
+     "197": "table",
+     "198": "table",
+     "199": "base",
+     "200": "table",
+     "201": "table",
+     "202": "table",
+     "210": "table",
+     "212": "table",
+     "217": "base",
+     "218": "base",
+     "222": "table",
+     "223": "table",
+     "224": "table",
+     "225": "table",
+     "226": "table",
+     "227": "table",
+     "228": "base"
+    }
+   }
+  },
+  "hse-hsg264": {
+   "main@2024-12-06-179c858c": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "13": "base",
+     "26": "base",
+     "32": "base",
+     "33": "base",
+     "42": "base",
+     "43": "table",
+     "44": "base",
+     "49": "base",
+     "52": "table",
+     "53": "table",
+     "54": "table",
+     "55": "table",
+     "56": "table",
+     "67": "table"
+    }
+   }
+  },
+  "hse-hsg33": {
+   "main@2024-12-06-d32a754c": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "15": "table",
+     "19": "base",
+     "29": "base",
+     "34": "base",
+     "40": "base",
+     "52": "base",
+     "58": "base",
+     "61": "base",
+     "66": "base",
+     "73": "table",
+     "74": "table",
+     "76": "table",
+     "79": "table",
+     "80": "base",
+     "90": "base"
+    }
+   }
+  },
+  "hse-hsg47": {
+   "main@2024-12-06-6d2515ba": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "4": "base",
+     "25": "base",
+     "39": "base",
+     "40": "base"
+    }
+   }
+  },
+  "hse-hsg85": {
+   "main@2024-12-06-dbdc937e": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "5": "base",
+     "17": "base",
+     "23": "base"
+    }
+   }
+  },
+  "hse-hsr25": {
+   "main@2024-12-06-e9901ecb": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "3": "base",
+     "5": "base",
+     "19": "base",
+     "35": "base",
+     "51": "base"
+    }
+   }
+  },
+  "hse-indg136": {
+   "main@2024-12-06-25069a38": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "2": "base",
+     "3": "table",
+     "5": "base",
+     "8": "base",
+     "9": "table"
+    }
+   }
+  },
+  "hse-indg231": {
+   "main@2024-12-06-4d30d7b7": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "2": "base",
+     "3": "base",
+     "6": "base"
+    }
+   }
+  },
+  "hse-indg236": {
+   "main@2024-12-06-cc2a26a2": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "2": "base",
+     "3": "base",
+     "5": "base"
+    }
+   }
+  },
+  "hse-indg285": {
+   "main@2024-12-06-04449ab2": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "4": "base",
+     "5": "base"
+    }
+   }
+  },
+  "hse-indg344": {
+   "main@2024-12-06-4d5c937a": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "3": "base",
+     "4": "table",
+     "9": "base",
+     "26": "base"
+    }
+   }
+  },
+  "hse-indg344-ro": {
+   "main@2024-12-06-92c0ac41": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "2": "base",
+     "12": "base",
+     "19": "base"
+    }
+   }
+  },
+  "hse-indg401": {
+   "main@2024-12-06-c3f93e26": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "5": "base",
+     "6": "base",
+     "7": "base"
+    }
+   }
+  },
+  "hse-indg411": {
+   "main@2024-12-06-0bfae518": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "4": "base",
+     "6": "base"
+    }
+   }
+  },
+  "hse-indg453": {
+   "main@2024-12-06-3b5e1c58": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "2": "base",
+     "4": "base",
+     "5": "base"
+    }
+   }
+  },
+  "hse-indg463": {
+   "main@2024-12-06-53aea9a8": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "2": "base",
+     "3": "base"
+    }
+   }
+  },
+  "hse-l108": {
+   "main@2024-12-06-93ed15e0": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "3": "base",
+     "12": "table",
+     "22": "base",
+     "31": "base",
+     "40": "base",
+     "46": "base",
+     "54": "table",
+     "55": "base",
+     "59": "base",
+     "64": "base",
+     "65": "base",
+     "69": "table",
+     "70": "table",
+     "72": "table",
+     "73": "table",
+     "75": "table",
+     "76": "table",
+     "78": "base",
+     "84": "table",
+     "85": "table",
+     "93": "table",
+     "94": "table"
+    }
+   }
+  },
+  "hse-l140": {
+   "main@2024-12-06-0a314fd6": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "14": "base",
+     "32": "table",
+     "33": "base",
+     "34": "base",
+     "37": "table",
+     "49": "base",
+     "55": "table",
+     "56": "table",
+     "63": "base",
+     "65": "table",
+     "66": "table",
+     "67": "base",
+     "68": "table",
+     "69": "base",
+     "74": "base",
+     "80": "base",
+     "81": "table",
+     "82": "table",
+     "83": "table",
+     "90": "table",
+     "91": "table",
+     "94": "base",
+     "96": "base"
+    }
+   }
+  },
+  "hse-l143": {
+   "main@2024-12-06-96fe14d2": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "6": "base",
+     "16": "base",
+     "17": "table",
+     "21": "table",
+     "22": "table",
+     "25": "table",
+     "27": "base",
+     "29": "table",
+     "30": "table",
+     "32": "table",
+     "35": "base",
+     "52": "table",
+     "54": "base",
+     "55": "base",
+     "66": "base",
+     "67": "base",
+     "72": "base",
+     "73": "base",
+     "81": "base",
+     "106": "base",
+     "112": "table",
+     "113": "table"
+    }
+   }
+  },
+  "hse-l153": {
+   "main@2024-12-06-b89e9812": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "6": "table",
+     "7": "table",
+     "11": "base",
+     "27": "base",
+     "49": "base",
+     "51": "base",
+     "56": "base",
+     "71": "table",
+     "72": "table",
+     "77": "base",
+     "78": "base",
+     "90": "base"
+    }
+   }
+  },
+  "hse-l5": {
+   "main@2024-12-06-95519090": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "7": "base",
+     "15": "table",
+     "24": "base",
+     "32": "base",
+     "38": "base",
+     "41": "base",
+     "70": "base",
+     "74": "base",
+     "76": "table",
+     "77": "table",
+     "78": "base",
+     "80": "base",
+     "83": "base",
+     "85": "table",
+     "86": "table",
+     "87": "table",
+     "88": "table",
+     "90": "table",
+     "91": "table",
+     "92": "table",
+     "94": "table",
+     "95": "table"
+    }
+   }
+  },
+  "hse-l56": {
+   "main@2024-12-06-769c6338": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "9": "base",
+     "19": "base",
+     "46": "base",
+     "56": "base",
+     "72": "base",
+     "80": "base",
+     "83": "base",
+     "84": "base",
+     "86": "base"
+    }
+   }
+  },
+  "hse-ms34": {
+   "main@2024-12-06-9957e7d7": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "3": "base",
+     "5": "base"
+    }
+   }
+  },
+  "hse-ro-cis26": {
+   "main@2024-12-06-89348522": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "2": "base",
+     "3": "base"
+    }
+   }
+  },
+  "hse-ro-cis59": {
+   "main@2024-12-06-a6a047ab": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "2": "base",
+     "3": "base",
+     "4": "base"
+    }
+   }
+  },
+  "hse-ro-indg410": {
+   "main@2024-12-06-b4092d16": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "2": "base"
+    }
+   }
+  },
+  "hse-ro-indg450": {
+   "main@2024-12-06-3b4cb54f": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "2": "base",
+     "3": "base"
+    }
+   }
+  },
+  "hse-ro-watch-your-step": {
+   "main@2024-12-06-d1dcfbdf": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "5": "base",
+     "7": "base"
+    }
+   }
+  },
+  "manual-br": {
+   "manual-to-the-building-regulations@2020-07-20-f04e1e10": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "10": "table",
+     "12": "table",
+     "15": "table",
+     "19": "table",
+     "20": "table",
+     "21": "table",
+     "28": "table",
+     "30": "base",
+     "31": "base",
+     "41": "base",
+     "56": "base",
+     "57": "base",
+     "61": "base"
+    }
+   }
+  },
+  "pd-householder-guide": {
+   "permitted-development-rights-for-householders-technical-guid@2019-09-10-c034f050": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "10": "table",
+     "13": "table",
+     "15": "table",
+     "20": "base",
+     "23": "base",
+     "26": "base",
+     "27": "table",
+     "28": "table",
+     "35": "base",
+     "38": "table",
+     "49": "base"
+    }
+   }
+  },
+  "rsh-code-of-practice": {
+   "consumer-standards-code-of-practice-pdf@2026-10-01-bc555748": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "5": "base",
+     "7": "base",
+     "15": "base"
+    }
+   }
+  },
+  "rsh-competence-conduct": {
+   "competence-and-conduct-standard-pdf@2026-10-01-3c16914c": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "2": "base",
+     "3": "base"
+    }
+   }
+  },
+  "rsh-safety-quality": {
+   "safety-and-quality-standard-pdf@2024-04-02-6a7df074": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "3": "base",
+     "4": "base",
+     "5": "base"
+    }
+   }
+  },
+  "supplier-information": {
+   "procurement-act-2023-short-guides--buyers-and-suppliers-how-to-use-the-central-digital-platform-9569467@2026-10-21-357f4484": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "2": "base",
+     "9": "base"
+    }
+   },
+   "procurement-act-2023-short-guides--central-digital-platform-factsheet-pdf@2026-10-21-fbb686fe": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "2": "table",
+     "4": "base",
+     "5": "base"
+    }
+   },
+   "procurement-act-2023-short-guides--contracting-authorities-an-overview-of-the-central-digital-p-9569469@2026-10-21-e56433f8": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "2": "base",
+     "3": "base",
+     "6": "base"
+    }
+   },
+   "procurement-act-2023-short-guides--how-to-register-your-organisation-and-find-your-unique-ident@2026-10-21-377b46d8": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "2": "base",
+     "4": "base"
+    }
+   },
+   "procurement-act-2023-short-guides--new-legislative-requirements-under-the-procurement-act-2023@2026-10-21-ce3353d0": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "5": "base",
+     "14": "base",
+     "18": "table",
+     "19": "table"
+    }
+   },
+   "procurement-act-2023-short-guides--supplementary-information-small-and-medium-sized-enterprises@2026-10-21-bbec1ac5": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "4": "base",
+     "6": "base"
+    }
+   },
+   "procurement-act-2023-short-guides--suppliers-detailed-walkthrough-how-an-administrator-complete-9569465@2026-10-21-77c50526": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "3": "base",
+     "12": "base",
+     "23": "table",
+     "28": "base"
+    }
+   },
+   "procurement-act-2023-short-guides--suppliers-how-to-register-your-organisation-and-first-admini-9569463@2026-10-21-55f3cada": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "7": "base",
+     "8": "base",
+     "10": "base"
+    }
+   },
+   "procurement-act-2023-short-guides--the-procurement-act-2023-a-short-guide-for-senior-leaders-pd@2026-10-21-71936448": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "2": "base",
+     "3": "base"
+    }
+   },
+   "procurement-act-2023-short-guides--the-procurement-act-2023-a-short-guide-for-suppliers-pdf@2026-10-21-7a2130d7": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "2": "base",
+     "4": "base"
+    }
+   },
+   "procurement-act-2023-short-guides--the-procurement-act-2023-abnormally-low-tenders-pdf@2026-10-21-ee5d0ede": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "3": "base",
+     "7": "base",
+     "9": "base"
+    }
+   },
+   "procurement-act-2023-short-guides--the-procurement-act-2023-permitted-contract-modifications-an@2026-10-21-abf5a443": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "2": "base",
+     "3": "base",
+     "4": "base"
+    }
+   },
+   "procurement-act-2023-short-guides--the-procurement-act-2023-the-competitive-flexible-procedure@2026-10-21-53ea109b": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "2": "base",
+     "3": "base",
+     "4": "base"
+    }
+   },
+   "procurement-act-2023-short-guides--the-procurement-act-2023-using-your-procurement-as-an-enable@2026-10-21-8bac0a41": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "4": "base",
+     "6": "base"
+    }
+   },
+   "procurement-act-2023-short-guides--transforming-public-procurement-get-ready-for-go-live-slide@2026-10-21-fb08df22": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "3": "table",
+     "4": "table",
+     "6": "base",
+     "7": "base",
+     "10": "base",
+     "20": "table",
+     "23": "table"
+    }
+   },
+   "procurement-act-2023-short-guides--uk1-the-new-pipeline-notice-pdf@2026-10-21-3dc87997": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "1": "base",
+     "2": "base",
+     "3": "base"
+    }
+   },
+   "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8": {
+    "family": "guidance-pdf",
+    "pdf_pages": {
+     "5": "base",
+     "7": "table",
+     "13": "table",
+     "14": "base",
+     "17": "table",
+     "18": "table",
+     "19": "base",
+     "24": "base",
+     "28": "base",
+     "29": "table",
+     "30": "table",
+     "31": "table",
+     "32": "table",
+     "33": "table",
+     "36": "table",
+     "37": "table",
+     "38": "table",
+     "39": "table",
+     "49": "base",
+     "50": "table",
+     "52": "table",
+     "54": "table",
+     "55": "table",
+     "57": "table",
+     "58": "table",
+     "60": "table",
+     "62": "table",
+     "66": "base",
+     "67": "table",
+     "68": "table",
+     "69": "table",
+     "78": "table",
+     "79": "table",
+     "81": "table",
+     "82": "table",
+     "83": "table",
+     "84": "table",
+     "85": "table",
+     "86": "table",
+     "87": "table",
+     "88": "table",
+     "89": "base",
+     "90": "table",
+     "92": "table",
+     "93": "table",
+     "108": "base",
+     "110": "table",
+     "111": "table",
+     "123": "table",
+     "124": "table",
+     "125": "base",
+     "127": "table",
+     "138": "base",
+     "139": "table",
+     "140": "table",
+     "141": "table",
+     "142": "table",
+     "143": "table",
+     "144": "table",
+     "146": "table",
+     "148": "table",
+     "150": "table",
+     "152": "table",
+     "154": "table",
+     "157": "base",
+     "166": "base",
+     "179": "table",
+     "183": "table",
+     "184": "table",
+     "189": "base",
+     "204": "base",
+     "229": "base",
+     "231": "table",
+     "232": "base",
+     "233": "table",
+     "234": "base",
+     "238": "table",
+     "241": "table",
+     "243": "base",
+     "246": "base",
+     "247": "table",
+     "249": "table",
+     "262": "base",
+     "265": "base",
+     "269": "base",
+     "271": "table",
+     "274": "table",
+     "284": "table",
+     "288": "table",
+     "290": "table",
+     "296": "base",
+     "300": "base",
+     "304": "base",
+     "306": "base",
+     "314": "base",
+     "320": "base",
+     "330": "table",
+     "332": "base",
+     "333": "table",
+     "342": "base",
+     "343": "table",
+     "345": "base",
+     "351": "table",
+     "352": "table",
+     "355": "table",
+     "357": "table",
+     "358": "table",
+     "359": "table",
+     "360": "table",
+     "363": "base",
+     "374": "base",
+     "377": "table",
+     "378": "table",
+     "393": "table",
+     "398": "table",
+     "400": "base",
+     "403": "table",
+     "404": "table",
+     "418": "table",
+     "420": "table",
+     "439": "base",
+     "440": "table",
+     "442": "base",
+     "446": "base",
+     "447": "table",
+     "457": "table",
+     "460": "base",
+     "465": "base",
+     "471": "table",
+     "472": "table",
+     "476": "table",
+     "478": "table",
+     "479": "base",
+     "484": "base",
+     "486": "table",
+     "487": "base",
+     "488": "table",
+     "491": "base",
+     "495": "base",
+     "499": "table",
+     "500": "base",
+     "503": "base",
+     "508": "table",
+     "512": "table",
+     "515": "base",
+     "519": "table",
+     "520": "table",
+     "521": "table",
+     "522": "table",
+     "523": "table",
+     "524": "base",
+     "529": "base",
+     "537": "table",
+     "555": "table",
+     "556": "base",
+     "557": "table",
+     "558": "table",
+     "559": "table",
+     "561": "table",
+     "562": "table",
+     "563": "base",
+     "567": "table",
+     "574": "table",
+     "575": "table",
+     "576": "table",
+     "577": "table",
+     "578": "table",
+     "583": "base",
+     "595": "table",
+     "597": "base",
+     "598": "table",
+     "599": "table",
+     "600": "table",
+     "601": "base",
+     "602": "base",
+     "603": "table",
+     "604": "base",
+     "607": "table",
+     "608": "table",
+     "609": "table",
+     "610": "table",
+     "611": "table",
+     "612": "table",
+     "613": "base",
+     "614": "table",
+     "616": "table",
+     "620": "table",
+     "621": "base",
+     "622": "base",
+     "631": "table",
+     "632": "table",
+     "633": "base",
+     "634": "table",
+     "635": "base",
+     "636": "table",
+     "637": "base",
+     "638": "table",
+     "639": "table",
+     "641": "table",
+     "642": "table",
+     "643": "table",
+     "644": "table",
+     "645": "table",
+     "646": "base",
+     "647": "table",
+     "648": "table",
+     "649": "table",
+     "651": "table",
+     "652": "table",
+     "653": "table",
+     "654": "table",
+     "655": "table",
+     "656": "table",
+     "659": "base",
+     "662": "base",
+     "663": "base"
+    }
+   }
+  },
+  "adb-faq": {
+   "page@2025-02-21-00f8f4a4": {
+    "family": "html",
+    "web": "all parts"
+   }
+  },
+  "awaab-guidance-phase1": {
+   "awaab-s-law-guidance-for-social-landlords-timeframes-for-rep@2026-07-16-77d92c22": {
+    "family": "html",
+    "web": "all parts"
+   }
+  },
+  "awaab-guidance-phase2": {
+   "awaab-s-law-phase-2-guidance-for-social-landlords@2026-07-31-e4ba2191": {
+    "family": "html",
+    "web": "all parts"
+   }
+  },
+  "awaab-triage-phase2": {
+   "awaab-s-law-phase-2-guidance-to-support-triaging-of-hazards@2026-07-31-62194654": {
+    "family": "html",
+    "web": "all parts"
+   }
+  },
+  "below-threshold-guidance": {
+   "guidance-below-threshold-contracts-html@2026-07-13-7b08df35": {
+    "family": "html",
+    "web": "all parts"
+   }
+  },
+  "br-approval": {
+   "page@2025-01-24-d5542110": {
+    "family": "html",
+    "web": "all parts"
+   }
+  },
+  "bsa-secondary": {
+   "page@2022-07-25-db46397e": {
+    "family": "html",
+    "web": "all parts"
+   }
+  },
+  "bsr-dutyholder": {
+   "page@2024-03-04-866e2308": {
+    "family": "html",
+    "web": "all parts"
+   }
+  },
+  "bsr-hrb-approval": {
+   "page@2026-10-01-06c4fe4f": {
+    "family": "html",
+    "web": "all parts"
+   }
+  },
+  "circ-01-2024": {
+   "approved-document-b-2024-amendments-circular-letter@2024-03-29-904d2abe": {
+    "family": "html",
+    "web": "all parts"
+   }
+  },
+  "circ-01-2026": {
+   "the-future-homes-and-buildings-standards-building-circular-0@2026-03-24-ab0e58de": {
+    "family": "html",
+    "web": "all parts"
+   }
+  },
+  "cps-schemes": {
+   "page@2026-09-17-c3b06d65": {
+    "family": "html",
+    "web": "all parts"
+   }
+  },
+  "damp-mould-health": {
+   "understanding-and-addressing-the-health-risks-of-damp-and-mo@2026-04-01-d870aed0": {
+    "family": "html",
+    "web": "all parts"
+   }
+  },
+  "decent-homes-new": {
+   "the-new-decent-homes-standard-policy-statement@2026-01-28-cc7a08fb": {
+    "family": "html",
+    "web": "all parts"
+   }
+  },
+  "ess-guidance": {
+   "electrical-safety-standards-in-the-private-and-social-rented@2025-11-01-c3ca73e7": {
+    "family": "html",
+    "web": "all parts"
+   }
+  },
+  "fire-flats-residents": {
+   "page@2026-07-31-15ce8c75": {
+    "family": "html",
+    "web": "all parts"
+   }
+  },
+  "fser-fire-doors": {
+   "fire-doors-checklist-accessible@2025-08-08-d2ee24c0": {
+    "family": "html",
+    "web": "all parts"
+   },
+   "fire-safety-england-regulations-2022-fire-door-guidance-acce@2025-08-08-cc46c3f4": {
+    "family": "html",
+    "web": "all parts"
+   }
+  },
+  "govuk-cis-contractor": {
+   "page@2015-06-22-40b23ea2": {
+    "family": "html",
+    "web": "all parts"
+   }
+  },
+  "govuk-cis-subcontractor": {
+   "page@2015-08-27-0f48b81d": {
+    "family": "html",
+    "web": "all parts"
+   }
+  },
+  "hfhh-guides": {
+   "guide-for-landlords-homes-fitness-for-human-habitation-act-2@2019-03-06-aa52a2b4": {
+    "family": "html",
+    "web": "all parts"
+   },
+   "guide-for-local-authorities-homes-fitness-for-human-habitati@2019-03-06-674d68a2": {
+    "family": "html",
+    "web": "all parts"
+   },
+   "guide-for-tenants-homes-fitness-for-human-habitation-act-201@2019-03-06-b1d5b6b7": {
+    "family": "html",
+    "web": "all parts"
+   }
+  },
+  "hhsrs-landlords": {
+   "landlord-and-agent-guide-to-the-housing-health-and-safety-ra@2026-09-16-49811e5d": {
+    "family": "html",
+    "web": "all parts"
+   }
+  },
+  "hmrc-cis-340": {
+   "construction-industry-scheme-a-guide-for-contractors-and-sub@2026-08-27-945a8f08": {
+    "family": "html",
+    "web": "all parts"
+   }
+  },
+  "hmrc-cis-consult-2026": {
+   "draft-the-income-tax-construction-industry-scheme-amendment@2026-01-06-752cf507": {
+    "family": "html",
+    "web": "all parts"
+   },
+   "explanatory-note@2026-01-06-2390d59f": {
+    "family": "html",
+    "web": "all parts"
+   }
+  },
+  "hmrc-cis-fraud-2026": {
+   "tackling-construction-industry-scheme-fraud@2025-11-26-c6163878": {
+    "family": "html",
+    "web": "all parts"
+   }
+  },
+  "hmrc-cis-simplify-2026": {
+   "simplification-and-administrative-improvements-to-the-constr@2026-03-13-9790741a": {
+    "family": "html",
+    "web": "all parts"
+   }
+  },
+  "hmrc-vatrevcon": {
+   "vatrevcon05000@2025-04-02-db3b8995": {
+    "family": "html",
+    "web": "all parts"
+   },
+   "vatrevcon11000@2025-04-02-6f2550fc": {
+    "family": "html",
+    "web": "all parts"
+   },
+   "vatrevcon12000@2025-04-02-65581d8a": {
+    "family": "html",
+    "web": "all parts"
+   },
+   "vatrevcon13000@2025-04-02-95039a84": {
+    "family": "html",
+    "web": "all parts"
+   },
+   "vatrevcon14000@2025-04-02-0438c729": {
+    "family": "html",
+    "web": "all parts"
+   },
+   "vatrevcon15000@2025-04-02-9b086fee": {
+    "family": "html",
+    "web": "all parts"
+   },
+   "vatrevcon16000@2025-04-02-f6e306bd": {
+    "family": "html",
+    "web": "all parts"
+   },
+   "vatrevcon21000@2025-04-02-bb20df3e": {
+    "family": "html",
+    "web": "all parts"
+   },
+   "vatrevcon22000@2025-04-02-dcaa8e31": {
+    "family": "html",
+    "web": "all parts"
+   },
+   "vatrevcon23000@2025-04-02-46d12c92": {
+    "family": "html",
+    "web": "all parts"
+   },
+   "vatrevcon24000@2025-04-02-9fa4f19f": {
+    "family": "html",
+    "web": "all parts"
+   },
+   "vatrevcon25000@2025-04-02-4c0fa757": {
+    "family": "html",
+    "web": "all parts"
+   },
+   "vatrevcon26000@2025-04-02-6520a96f": {
+    "family": "html",
+    "web": "all parts"
+   },
+   "vatrevcon27000@2025-04-02-cd3f5c63": {
+    "family": "html",
+    "web": "all parts"
+   },
+   "vatrevcon28000@2025-04-02-16122e27": {
+    "family": "html",
+    "web": "all parts"
+   },
+   "vatrevcon31000@2025-04-02-4d777f61": {
+    "family": "html",
+    "web": "all parts"
+   },
+   "vatrevcon32100@2025-04-02-af08a7f9": {
+    "family": "html",
+    "web": "all parts"
+   },
+   "vatrevcon32200@2025-04-02-d1dd46ff": {
+    "family": "html",
+    "web": "all parts"
+   },
+   "vatrevcon32300@2025-04-02-7c3e77ab": {
+    "family": "html",
+    "web": "all parts"
+   },
+   "vatrevcon32400@2025-04-02-849a5eb2": {
+    "family": "html",
+    "web": "all parts"
+   },
+   "vatrevcon32500@2025-04-02-4d592551": {
+    "family": "html",
+    "web": "all parts"
+   },
+   "vatrevcon33100@2025-04-02-46cf2844": {
+    "family": "html",
+    "web": "all parts"
+   },
+   "vatrevcon33200@2025-04-02-0b1b1487": {
+    "family": "html",
+    "web": "all parts"
+   },
+   "vatrevcon33300@2025-04-02-90ac5c6d": {
+    "family": "html",
+    "web": "all parts"
+   },
+   "vatrevcon33400@2025-04-02-13752ab2": {
+    "family": "html",
+    "web": "all parts"
+   },
+   "vatrevcon33500@2025-04-02-6cde0be5": {
+    "family": "html",
+    "web": "all parts"
+   },
+   "vatrevcon33600@2025-04-02-b050da7f": {
+    "family": "html",
+    "web": "all parts"
+   },
+   "vatrevcon33700@2025-04-02-82c2091a": {
+    "family": "html",
+    "web": "all parts"
+   },
+   "vatrevcon33800@2025-04-02-46710f0e": {
+    "family": "html",
+    "web": "all parts"
+   },
+   "vatrevcon33900@2025-04-02-5310d17a": {
+    "family": "html",
+    "web": "all parts"
+   },
+   "vatrevcon34000@2025-04-02-40a80fc2": {
+    "family": "html",
+    "web": "all parts"
+   },
+   "vatrevcon35100@2025-04-02-833bb070": {
+    "family": "html",
+    "web": "all parts"
+   },
+   "vatrevcon35200@2025-04-02-6e29768c": {
+    "family": "html",
+    "web": "all parts"
+   },
+   "vatrevcon35300@2025-04-02-8a0b9167": {
+    "family": "html",
+    "web": "all parts"
+   },
+   "vatrevcon36100@2025-04-02-a805d016": {
+    "family": "html",
+    "web": "all parts"
+   },
+   "vatrevcon36200@2025-04-02-7f254f9e": {
+    "family": "html",
+    "web": "all parts"
+   },
+   "vatrevcon37100@2025-04-02-c8fc6233": {
+    "family": "html",
+    "web": "all parts"
+   },
+   "vatrevcon37200@2025-04-02-d8d248e0": {
+    "family": "html",
+    "web": "all parts"
+   },
+   "vatrevcon38000@2025-04-02-a0ad6fce": {
+    "family": "html",
+    "web": "all parts"
+   },
+   "vatrevcon39100@2025-04-02-57e975be": {
+    "family": "html",
+    "web": "all parts"
+   },
+   "vatrevcon39200@2025-04-02-e142076b": {
+    "family": "html",
+    "web": "all parts"
+   },
+   "vatrevcon39300@2025-04-02-6ac048c7": {
+    "family": "html",
+    "web": "all parts"
+   },
+   "vatrevcon41000@2025-04-02-6c341c30": {
+    "family": "html",
+    "web": "all parts"
+   },
+   "vatrevcon42000@2025-04-02-95e57363": {
+    "family": "html",
+    "web": "all parts"
+   },
+   "vatrevcon43000@2025-04-02-861b26db": {
+    "family": "html",
+    "web": "all parts"
+   },
+   "vatrevcon44000@2025-04-02-b5f9f201": {
+    "family": "html",
+    "web": "all parts"
+   },
+   "vatrevcon45000@2025-04-02-f1485b78": {
+    "family": "html",
+    "web": "all parts"
+   },
+   "vatrevcon46000@2025-04-02-d58a61a9": {
+    "family": "html",
+    "web": "all parts"
+   }
+  },
+  "hrb-existing": {
+   "page@2025-05-28-308fd214": {
+    "family": "html",
+    "web": "all parts"
+   }
+  },
+  "hse-asbestos-duty": {
+   "main@2026-10-29-fb621f6d": {
+    "family": "html",
+    "web": "all parts"
+   }
+  },
+  "hse-asbestos-essentials": {
+   "main@2026-10-29-b7613dbe": {
+    "family": "html",
+    "web": "all parts"
+   }
+  },
+  "hse-asbestos-information": {
+   "main@2026-10-29-6d58136a": {
+    "family": "html",
+    "web": "all parts"
+   }
+  },
+  "hse-asbestos-licensing": {
+   "main@2026-10-29-6613a018": {
+    "family": "html",
+    "web": "all parts"
+   }
+  },
+  "hse-asbestos-locations": {
+   "main@2026-10-29-4e496f31": {
+    "family": "html",
+    "web": "all parts"
+   }
+  },
+  "hse-asbestos-pubns-index": {
+   "main@2026-10-29-29247ebd": {
+    "family": "html",
+    "web": "all parts"
+   }
+  },
+  "hse-asbestos-training": {
+   "main@2026-10-29-6ca2beea": {
+    "family": "html",
+    "web": "all parts"
+   }
+  },
+  "hse-asbestos-workers": {
+   "main@2026-10-29-82ab47cd": {
+    "family": "html",
+    "web": "all parts"
+   }
+  },
+  "hse-cdm-domestic-clients": {
+   "main@2026-10-29-6cded968": {
+    "family": "html",
+    "web": "all parts"
+   }
+  },
+  "hse-cdm-pages": {
+   "main@2026-10-29-5fce56d1": {
+    "family": "html",
+    "web": "all parts"
+   }
+  },
+  "hse-cis-index": {
+   "main@2026-10-29-1788789c": {
+    "family": "html",
+    "web": "all parts"
+   }
+  },
+  "hse-gas-domestic": {
+   "main@2026-10-29-4414286c": {
+    "family": "html",
+    "web": "all parts"
+   }
+  },
+  "hse-gas-landlords": {
+   "main@2026-10-29-03032ecb": {
+    "family": "html",
+    "web": "all parts"
+   }
+  },
+  "hse-hsg210": {
+   "main@2026-10-29-0f6091e1": {
+    "family": "html",
+    "web": "all parts"
+   }
+  },
+  "hse-l74": {
+   "main@2026-10-29-2c8e704c": {
+    "family": "html",
+    "web": "all parts"
+   }
+  },
+  "hse-nnlw": {
+   "main@2026-10-29-7997ecc3": {
+    "family": "html",
+    "web": "all parts"
+   }
+  },
+  "hse-ro-migrant-workers": {
+   "main@2026-10-29-06f06e33": {
+    "family": "html",
+    "web": "all parts"
+   }
+  },
+  "hse-romanian": {
+   "main@2026-10-29-d72282a7": {
+    "family": "html",
+    "web": "all parts"
+   }
+  },
+  "hse-wood-dust": {
+   "main@2026-10-29-78ac376a": {
+    "family": "html",
+    "web": "all parts"
+   }
+  },
+  "party-wall-booklet": {
+   "the-party-wall-etc-act-1996-explanatory-booklet@2016-05-12-28fa7e30": {
+    "family": "html",
+    "web": "all parts"
+   }
+  },
+  "party-wall-guidance": {
+   "page@2016-05-12-5796d7bf": {
+    "family": "html",
+    "web": "all parts"
+   }
+  },
+  "payments-compliance-notices": {
+   "guidance-payments-compliance-notices-html@2026-07-20-9abddd55": {
+    "family": "html",
+    "web": "all parts"
+   }
+  },
+  "ppn-023-2026": {
+   "ppn-023-2026-threshold-amounts-html@2025-11-27-412db866": {
+    "family": "html",
+    "web": "all parts"
+   }
+  },
+  "procurement-supplier-guide": {
+   "buyers-and-suppliers-how-to-use-the-central-digital-platform@2026-10-21-0daa21f7": {
+    "family": "html",
+    "web": "all parts"
+   },
+   "how-to-register-your-organisation-and-find-your-unique-ident@2026-10-21-4d625a25": {
+    "family": "html",
+    "web": "all parts"
+   },
+   "suppliers-detailed-walkthrough-how-an-administrator-complete@2026-10-21-7ed7604f": {
+    "family": "html",
+    "web": "all parts"
+   },
+   "suppliers-how-to-register-your-organisation-and-first-admini@2026-10-21-59023762": {
+    "family": "html",
+    "web": "all parts"
+   },
+   "the-procurement-act-2023-a-short-guide-for-suppliers-html@2026-10-21-3eb842b8": {
+    "family": "html",
+    "web": "all parts"
+   }
+  },
+  "reserving-below-threshold": {
+   "guidance-on-reserving-competitions-for-below-threshold-contr@2026-02-16-f6fc9e72": {
+    "family": "html",
+    "web": "all parts"
+   }
+  },
+  "scoar-guidance": {
+   "smoke-and-carbon-monoxide-alarm-amendment-regulations-2022-g@2022-07-29-5a4dc581": {
+    "family": "html",
+    "web": "all parts"
+   }
+  },
+  "sme-hub": {
+   "page@2026-07-21-fb114488": {
+    "family": "html",
+    "web": "all parts"
+   }
+  },
+  "vat-drc-guide": {
+   "page@2020-09-24-1a72fd30": {
+    "family": "html",
+    "web": "all parts"
+   }
+  },
+  "vat-notice-708": {
+   "page@2026-08-26-5b62fe10": {
+    "family": "html",
+    "web": "all parts"
+   }
+  },
+  "awaab-amd-2026": {
+   "main@2026-11-13-7c53c94f": {
+    "family": "legislation-xml",
+    "provisions": [
+     "regulation-4",
+     "regulation-5"
+    ]
+   }
+  },
+  "ba1984": {
+   "main@2026-07-01-c5f82d05": {
+    "family": "legislation-xml",
+    "provisions": [
+     "schedule-1-paragraph-1F",
+     "schedule-1-paragraph-1H",
+     "schedule-2-paragraph-5",
+     "schedule-4-paragraph-2",
+     "schedule-4-paragraph-3",
+     "schedule-4-paragraph-4A",
+     "schedule-6-paragraph-5",
+     "schedule-6-paragraph-8",
+     "schedule-6-paragraph-9",
+     "section-102",
+     "section-11",
+     "section-112",
+     "section-123",
+     "section-128",
+     "section-15",
+     "section-17",
+     "section-43",
+     "section-51",
+     "section-52",
+     "section-58Q",
+     "section-58S",
+     "section-58Z1",
+     "section-58Z10",
+     "section-58Z4"
+    ]
+   }
+  },
+  "bamd2018": {
+   "main@2018-11-28-047454ee": {
+    "family": "legislation-xml",
+    "provisions": [
+     "regulation-1",
+     "regulation-3"
+    ]
+   }
+  },
+  "br-amd-2023-dutyholders": {
+   "main@2026-11-06-9468bc0a": {
+    "family": "legislation-xml",
+    "provisions": [
+     "regulation-17",
+     "regulation-2"
+    ]
+   }
+  },
+  "br-amd-2026-fhs": {
+   "main@2026-03-23-07124566": {
+    "family": "legislation-xml",
+    "provisions": [
+     "regulation-11",
+     "regulation-9"
+    ]
+   }
+  },
+  "br-charges-2026": {
+   "main@2026-10-14-086b1787": {
+    "family": "legislation-xml",
+    "provisions": [
+     "regulation-2",
+     "regulation-4"
+    ]
+   }
+  },
+  "br2010": {
+   "main@2026-11-06-9e455f6e": {
+    "family": "legislation-xml",
+    "provisions": [
+     "regulation-11D",
+     "regulation-11Z3",
+     "regulation-2",
+     "regulation-24",
+     "regulation-25B",
+     "regulation-44ZB",
+     "regulation-47I",
+     "regulation-47N",
+     "regulation-50",
+     "regulation-9",
+     "schedule-2-part-2-paragraph-2",
+     "schedule-2-part-6-paragraph-1",
+     "schedule-2-part-6-paragraph-3",
+     "schedule-4-paragraph-2",
+     "schedule-4-paragraph-4",
+     "schedule-4A-paragraph-15",
+     "schedule-4A-paragraph-5",
+     "schedule-6-paragraph-2"
+    ]
+   }
+  },
+  "bsa2022": {
+   "main@2026-07-01-f38fae86": {
+    "family": "legislation-xml",
+    "provisions": [
+     "schedule-2-paragraph-2",
+     "schedule-3-paragraph-1",
+     "schedule-3-paragraph-4",
+     "schedule-3-paragraph-5",
+     "schedule-5-paragraph-32",
+     "schedule-5-paragraph-48",
+     "schedule-5-paragraph-49",
+     "schedule-5-paragraph-75",
+     "schedule-5-paragraph-88",
+     "schedule-6-paragraph-17",
+     "schedule-6-paragraph-30",
+     "schedule-8-paragraph-12",
+     "schedule-8-paragraph-8",
+     "schedule-9-paragraph-10",
+     "schedule-9-paragraph-14",
+     "schedule-9-paragraph-15",
+     "schedule-9-paragraph-9",
+     "section-115",
+     "section-118",
+     "section-140",
+     "section-143",
+     "section-151",
+     "section-161",
+     "section-171",
+     "section-27",
+     "section-33",
+     "section-39",
+     "section-45",
+     "section-65",
+     "section-8",
+     "section-84",
+     "section-90",
+     "section-93"
+    ]
+   }
+  },
+  "car-amd-2026": {
+   "main@2026-11-02-445e60a4": {
+    "family": "legislation-xml",
+    "provisions": [
+     "regulation-1",
+     "regulation-2"
+    ]
+   }
+  },
+  "cdm2015": {
+   "main@2018-01-01-d6380775": {
+    "family": "legislation-xml",
+    "provisions": [
+     "regulation-3",
+     "regulation-33",
+     "regulation-4",
+     "schedule-2-paragraph-2",
+     "schedule-3-paragraph-3",
+     "schedule-4-paragraph-8"
+    ]
+   }
+  },
+  "cis-amd-2026": {
+   "main@2026-03-12-1b3dd9aa": {
+    "family": "legislation-xml",
+    "provisions": [
+     "regulation-1",
+     "regulation-2"
+    ]
+   }
+  },
+  "cis-regs-2005": {
+   "main@2026-04-06-3cfd2e03": {
+    "family": "legislation-xml",
+    "provisions": [
+     "regulation-17I",
+     "regulation-24F",
+     "regulation-25",
+     "regulation-26",
+     "regulation-34",
+     "regulation-41",
+     "schedule-1-paragraph-4",
+     "schedule-1-part-2-paragraph-1"
+    ]
+   }
+  },
+  "coshh2002": {
+   "main@2020-12-31-d75962c8": {
+    "family": "legislation-xml",
+    "provisions": [
+     "regulation-9",
+     "schedule-1-paragraph-wrapper11n2",
+     "schedule-1-paragraph-wrapper4n2",
+     "schedule-3-paragraph-6"
+    ]
+   }
+  },
+  "eawr1989": {
+   "main@2015-04-06-64b017cd": {
+    "family": "legislation-xml",
+    "provisions": [
+     "regulation-13",
+     "regulation-3",
+     "schedule-2-paragraph-2"
+    ]
+   }
+  },
+  "ess-amd-2026": {
+   "main@2026-11-13-c55bf259": {
+    "family": "legislation-xml",
+    "provisions": [
+     "regulation-4",
+     "regulation-7"
+    ]
+   }
+  },
+  "ess-social-2025": {
+   "main@2025-09-23-c1e760ab": {
+    "family": "legislation-xml",
+    "provisions": [
+     "regulation-5",
+     "regulation-6"
+    ]
+   }
+  },
+  "fa2004-cis": {
+   "main@2026-03-18-8a1c2881": {
+    "family": "legislation-xml",
+    "provisions": [
+     "section-62C",
+     "section-72A"
+    ]
+   }
+  },
+  "fsa2021": {
+   "main@2022-05-16-e785f0b0": {
+    "family": "legislation-xml",
+    "provisions": [
+     "section-2",
+     "section-3"
+    ]
+   }
+  },
+  "fser2022": {
+   "main@2026-04-06-9826f8e6": {
+    "family": "legislation-xml",
+    "provisions": [
+     "regulation-2",
+     "regulation-4"
+    ]
+   }
+  },
+  "gpdo-2015": {
+   "main@2026-10-21-e0719d67": {
+    "family": "legislation-xml",
+    "provisions": [
+     "article-1",
+     "schedule-2-paragraph-BB.4",
+     "schedule-2-paragraph-TA.3",
+     "schedule-2-part-1-crossheading-class-aa-enlargement-of-a-dwellinghouse-by-construction-of-additional-storeys_paragraph-AA.3",
+     "schedule-2-part-1-crossheading-class-aa-enlargement-of-a-dwellinghouse-by-construction-of-additional-storeys_paragraph-AA4",
+     "schedule-2-part-1-crossheading-class-b-additions-etc-to-the-roof-of-a-dwellinghouse_paragraph-B.1",
+     "schedule-2-part-11-crossheading-class-a-development-by-historic-england_paragraph-A",
+     "schedule-2-part-11-crossheading-class-a-development-by-historic-england_paragraph-A.3",
+     "schedule-2-part-11-crossheading-class-b-demolition-of-buildings_paragraph-B.2",
+     "schedule-2-part-11-crossheading-class-c-demolition-of-gates-fences-walls-etc_paragraph-C",
+     "schedule-2-part-11-crossheading-class-c-demolition-of-gates-fences-walls-etc_paragraph-C.1",
+     "schedule-2-part-12-crossheading-class-b_paragraph-B",
+     "schedule-2-part-12A-crossheading-class-a-emergency-development-by-a-local-authority-or-health-service-body_paragraph-A",
+     "schedule-2-part-14-crossheading-class-e-installation-or-alteration-etc-of-flue-for-biomass-heating-system-on-domestic-premises_paragraph-E",
+     "schedule-2-part-14-crossheading-class-f-installation-or-alteration-etc-of-flue-for-combined-heat-and-power-on-domestic-premises_paragraph-F",
+     "schedule-2-part-14-crossheading-class-g-installation-or-alteration-etc-of-air-source-heat-pumps-on-domestic-premises_paragraph-G.1",
+     "schedule-2-part-14-crossheading-class-h-installation-or-alteration-etc-of-wind-turbine-on-domestic-premises_paragraph-H.2",
+     "schedule-2-part-14-crossheading-class-j-installation-or-alteration-etc-of-solar-equipment-on-nondomestic-premises_paragraph-wrapper14n2",
+     "schedule-2-part-16-crossheading-class-a-electronic-communications-code-operators_paragraph-A.1",
+     "schedule-2-part-16-crossheading-class-c-other-telecommunications-development-microwave-antenna_paragraph-C",
+     "schedule-2-part-17-crossheading-class-d-coal-mining-development-by-the-coal-authority-and-licensed-operators_paragraph-D.2",
+     "schedule-2-part-17-crossheading-class-i-waste-tipping-from-a-mine-on-sites-used-since-1948_paragraph-I.1",
+     "schedule-2-part-19-crossheading-class-a-general-development-by-the-crown_paragraph-A",
+     "schedule-2-part-19-crossheading-class-q-development-by-the-crown-relating-to-an-emergency_paragraph-Q",
+     "schedule-2-part-19-crossheading-class-s-closed-circuit-television-cameras-for-national-security-purposes_paragraph-S.1",
+     "schedule-2-part-19-crossheading-class-t-electronic-communication-apparatus-etc-for-national-security-purposes_paragraph-T",
+     "schedule-2-part-19-crossheading-class-t-electronic-communication-apparatus-etc-for-national-security-purposes_paragraph-T.3",
+     "schedule-2-part-2-crossheading-class-f-closed-circuit-television-cameras_paragraph-F.3",
+     "schedule-2-part-20-crossheading-class-a-new-dwellinghouses-on-detached-blocks-of-flats_paragraph-A.1",
+     "schedule-2-part-20-crossheading-class-a-new-dwellinghouses-on-detached-blocks-of-flats_paragraph-A.2",
+     "schedule-2-part-20-crossheading-class-a-new-dwellinghouses-on-detached-blocks-of-flats_paragraph-B",
+     "schedule-2-part-20-crossheading-class-a-new-dwellinghouses-on-detached-blocks-of-flats_paragraph-C",
+     "schedule-2-part-3-crossheading-class-ma-commercial-business-and-service-uses-to-dwellinghouses_paragraph-MA.3",
+     "schedule-2-part-3-crossheading-class-p-storage-or-distribution-centre-to-dwellinghouses_paragraph-wrapper6n2",
+     "schedule-2-part-4-crossheading-class-a-temporary-buildings-and-structures_paragraph-A.1",
+     "schedule-2-part-4-crossheading-class-ca-provision-of-a-temporary-statefunded-school-on-previously-vacant-commercial-land_paragraph-CA.3",
+     "schedule-2-part-6-crossheading-class-c-mineral-working-for-agricultural-purposes_paragraph-C.1",
+     "schedule-2-part-7-crossheading-class-a-extensions-etc-of-shops-or-financial-or-professional-premises_paragraph-A.1",
+     "schedule-2-part-7-crossheading-class-a-extensions-etc-of-shops-or-financial-or-professional-premises_paragraph-A.2",
+     "schedule-2-part-7-crossheading-class-b-construction-of-shop-trolley-stores_paragraph-B.2",
+     "schedule-2-part-7-crossheading-class-f-extensions-etc-of-office-buildings_paragraph-F",
+     "schedule-2-part-7-crossheading-class-g-hard-surfaces-for-office-buildings_paragraph-G",
+     "schedule-2-part-7-crossheading-class-k-waste-deposits-from-an-industrial-process_paragraph-K.1",
+     "schedule-2-part-7-crossheading-class-ma-alteration-etc-of-prison-fences_paragraph-MA.1",
+     "schedule-2-part-8-crossheading-class-h-air-traffic-services-development-near-an-airport_paragraph-H",
+     "schedule-2-part-8-crossheading-class-l-development-by-an-air-traffic-services-licence-holder-involving-moveable-structures_paragraph-L",
+     "schedule-4-paragraph-17",
+     "schedule-4-paragraph-19"
+    ]
+   }
+  },
+  "gsiur1998": {
+   "main@2018-04-06-65715c0a": {
+    "family": "legislation-xml",
+    "provisions": [
+     "regulation-1",
+     "regulation-34",
+     "regulation-6"
+    ]
+   }
+  },
+  "hfhh-act-2018": {
+   "main@2019-03-20-de89a812": {
+    "family": "legislation-xml",
+    "provisions": [
+     "section-1",
+     "section-2"
+    ]
+   }
+  },
+  "hgcra1996-p2": {
+   "main@2023-05-05-30c867c5": {
+    "family": "legislation-xml",
+    "provisions": [
+     "section-109",
+     "section-116"
+    ]
+   }
+  },
+  "hhsrs-amd-2026": {
+   "main@2026-06-01-4b5f8cc0": {
+    "family": "legislation-xml",
+    "provisions": [
+     "regulation-2",
+     "regulation-4"
+    ]
+   }
+  },
+  "hhsrs-regs-2005": {
+   "main@2026-06-23-58cb4af9": {
+    "family": "legislation-xml",
+    "provisions": [
+     "schedule-1-paragraph-26",
+     "schedule-1-paragraph-3",
+     "schedule-1-paragraph-4A",
+     "schedule-1-paragraph-8"
+    ]
+   }
+  },
+  "hrb-descriptions-2023": {
+   "main@2024-01-16-37907f7d": {
+    "family": "legislation-xml",
+    "provisions": [
+     "regulation-3",
+     "regulation-7"
+    ]
+   }
+  },
+  "hrb-management-2023": {
+   "main@2024-01-16-df25ae9f": {
+    "family": "legislation-xml",
+    "provisions": [
+     "regulation-2",
+     "regulation-7"
+    ]
+   }
+  },
+  "hrb-procedures-2023": {
+   "main@2026-10-01-2c5017f2": {
+    "family": "legislation-xml",
+    "provisions": [
+     "regulation-17B",
+     "regulation-45",
+     "regulation-5",
+     "regulation-56",
+     "regulation-8",
+     "schedule-3-paragraph-2",
+     "schedule-3-paragraph-4"
+    ]
+   }
+  },
+  "hswa1974": {
+   "main@2026-07-16-51da3781": {
+    "family": "legislation-xml",
+    "provisions": [
+     "schedule-2-paragraph-1",
+     "schedule-2-paragraph-3",
+     "schedule-3-paragraph-1",
+     "schedule-8-paragraph-1",
+     "section-14",
+     "section-18",
+     "section-29",
+     "section-31",
+     "section-35",
+     "section-43A",
+     "section-48"
+    ]
+   }
+  },
+  "lg-exclusion-order-2026": {
+   "main@2026-02-03-47fe71f4": {
+    "family": "legislation-xml",
+    "provisions": [
+     "article-1",
+     "article-3"
+    ]
+   }
+  },
+  "lta1985-s11": {
+   "main@2026-11-06-760a2202": {
+    "family": "legislation-xml",
+    "provisions": [
+     "section-11"
+    ]
+   }
+  },
+  "mhswr1999": {
+   "main@2021-11-25-847f2ec4": {
+    "family": "legislation-xml",
+    "provisions": [
+     "regulation-11",
+     "regulation-25",
+     "regulation-30"
+    ]
+   }
+  },
+  "noise2005": {
+   "main@2020-12-31-7b97be8c": {
+    "family": "legislation-xml",
+    "provisions": [
+     "regulation-14",
+     "schedule-1-part-2-paragraph-wrapper2n2"
+    ]
+   }
+  },
+  "party-wall-act-1996": {
+   "main@2025-04-23-78830555": {
+    "family": "legislation-xml",
+    "provisions": [
+     "section-4",
+     "section-5"
+    ]
+   }
+  },
+  "procurement-act-2023": {
+   "main@2026-07-16-41607668": {
+    "family": "legislation-xml",
+    "provisions": [
+     "schedule-10-paragraph-19",
+     "schedule-11-paragraph-2",
+     "schedule-2-paragraph-11",
+     "schedule-2-paragraph-20",
+     "schedule-5-paragraph-4",
+     "schedule-6-paragraph-3",
+     "schedule-7-paragraph-11",
+     "schedule-8-paragraph-1",
+     "schedule-8-paragraph-11",
+     "schedule-8-paragraph-2",
+     "schedule-8-paragraph-5",
+     "schedule-9-paragraph-2",
+     "schedule-9-paragraph-22",
+     "schedule-9-paragraph-25",
+     "schedule-9-paragraph-27",
+     "schedule-9-paragraph-9",
+     "section-12",
+     "section-13",
+     "section-17",
+     "section-31",
+     "section-54",
+     "section-58",
+     "section-59",
+     "section-62",
+     "section-88",
+     "section-92",
+     "section-96",
+     "section-99"
+    ]
+   }
+  },
+  "procurement-regs-2024": {
+   "main@2026-04-01-3fbf5f3d": {
+    "family": "legislation-xml",
+    "provisions": [
+     "regulation-40",
+     "regulation-42B",
+     "regulation-42E",
+     "regulation-45",
+     "regulation-48"
+    ]
+   }
+  },
+  "procurement-thresholds-2025": {
+   "main@2025-11-18-c5642a5b": {
+    "family": "legislation-xml",
+    "provisions": [
+     "regulation-1",
+     "regulation-3"
+    ]
+   }
+  },
+  "rbca-2024": {
+   "main@2026-11-06-a9c073cb": {
+    "family": "legislation-xml",
+    "provisions": [
+     "regulation-13",
+     "regulation-15A",
+     "regulation-34",
+     "regulation-4",
+     "regulation-43",
+     "schedule-3-paragraph-1A",
+     "schedule-3-paragraph-3",
+     "schedule-4-paragraph-8"
+    ]
+   }
+  },
+  "riddor2013": {
+   "main@2026-04-06-ab53f81c": {
+    "family": "legislation-xml",
+    "provisions": [
+     "regulation-14",
+     "schedule-1-paragraph-2",
+     "schedule-2-paragraph-13",
+     "schedule-2-paragraph-14",
+     "schedule-2-paragraph-20",
+     "schedule-2-paragraph-21",
+     "schedule-2-paragraph-26",
+     "schedule-2-paragraph-39",
+     "schedule-2-paragraph-5",
+     "schedule-2-paragraph-75",
+     "schedule-2-paragraph-83",
+     "schedule-3-paragraph-8"
+    ]
+   }
+  },
+  "rra2025": {
+   "main@2026-06-22-0bbb78c0": {
+    "family": "legislation-xml",
+    "provisions": [
+     "schedule-1-paragraph-11",
+     "schedule-1-paragraph-14",
+     "schedule-1-paragraph-5",
+     "schedule-1-paragraph-9",
+     "schedule-2-paragraph-12",
+     "schedule-2-paragraph-24",
+     "schedule-2-paragraph-37",
+     "schedule-2-paragraph-44",
+     "schedule-2-paragraph-53",
+     "schedule-2-paragraph-54",
+     "schedule-2-paragraph-64",
+     "schedule-2-paragraph-66",
+     "schedule-4-paragraph-22",
+     "schedule-4-paragraph-26",
+     "schedule-4-paragraph-33",
+     "schedule-4-paragraph-40",
+     "section-106",
+     "section-111",
+     "section-127",
+     "section-13",
+     "section-24",
+     "section-37",
+     "section-5",
+     "section-52",
+     "section-64",
+     "section-68",
+     "section-83",
+     "section-87"
+    ]
+   }
+  },
+  "scheme-cc-1998": {
+   "main@2011-10-01-1d85d315": {
+    "family": "legislation-xml",
+    "provisions": [
+     "schedule-part-I-paragraph-22",
+     "schedule-part-I-paragraph-24",
+     "schedule-part-II-paragraph-1"
+    ]
+   }
+  },
+  "scoar-amd-2022": {
+   "main@2022-06-27-51643b2e": {
+    "family": "legislation-xml",
+    "provisions": [
+     "regulation-13",
+     "regulation-14"
+    ]
+   }
+  },
+  "scoar2015": {
+   "main@2026-05-01-67ee9cdd": {
+    "family": "legislation-xml",
+    "provisions": [
+     "regulation-2",
+     "schedule-paragraph-7"
+    ]
+   }
+  },
+  "shra2023": {
+   "main@2024-04-01-01885967": {
+    "family": "legislation-xml",
+    "provisions": [
+     "schedule-1-paragraph-19",
+     "schedule-1-paragraph-3",
+     "schedule-1-paragraph-5",
+     "schedule-1-paragraph-9",
+     "schedule-4-paragraph-9",
+     "schedule-5-paragraph-22",
+     "schedule-5-paragraph-25",
+     "schedule-5-paragraph-36",
+     "schedule-5-paragraph-46",
+     "section-34",
+     "section-39",
+     "section-43",
+     "section-7"
+    ]
+   }
+  },
+  "vat-s55a-order-2019": {
+   "main@2021-03-01-63306ee5": {
+    "family": "legislation-xml",
+    "provisions": [
+     "article-1",
+     "article-10"
+    ]
+   }
+  },
+  "vibration2005": {
+   "main@2015-10-16-a051e606": {
+    "family": "legislation-xml",
+    "provisions": [
+     "schedule-1-paragraph-1n1",
+     "schedule-2-paragraph-1n2"
+    ]
+   }
+  },
+  "wah2005": {
+   "main@2015-10-01-eca52d23": {
+    "family": "legislation-xml",
+    "provisions": [
+     "regulation-7",
+     "schedule-2-paragraph-2",
+     "schedule-2-paragraph-5",
+     "schedule-6-paragraph-1",
+     "schedule-6-paragraph-5",
+     "schedule-6-paragraph-9"
+    ]
+   }
+  }
+ }
+}

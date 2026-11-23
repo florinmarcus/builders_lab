@@ -104,6 +104,22 @@ parser, parse again, report again. Keep an item only when the source itself expl
 `python -m system.rag.coverage accept --source <source_id> --item <key> --reason "..." --by "..."`
 (saved in `corpus/coverage/<source_id>.json`; commit it). Never accept items just to make the report pass.
 
+Then the semantic check (Fable 5.2; a model reads the source next to the tree). It works on a sample drawn once
+(`corpus/semchecks/sample.json`, fixed seed); only units whose source or tree content changed come back.
+
+```
+python -m system.rag.semcheck export --source <source_id>      # packets for sampled units not judged yet
+python -m system.rag.semcheck run --source <source_id>         # headless: claude -p "<prompt>" --model claude-fable-5-2 --allowedTools "Read,Write"
+python -m system.rag.semcheck save --answers corpus/parsed/_semcheck/<run folder> --by "Fable 5.2, Claude Code headless (packet)"
+python -m system.rag.semcheck report --source <source_id> --verbose
+```
+
+Look at each finding against the source. A parser bug: fix the parser with a test, parse again, export again. The
+model is wrong: `semcheck accept --source <id> --key <key> --finding <n> --as model-wrong --reason "..." --by "..."`.
+Real and kept on purpose: `--as kept` with the reason, and a parking-lot item. Real and not fixed: leave it open.
+Never accept a finding only to make the report pass. A new document is not in the sample: `semcheck sample` draws
+it again (each document has its own random stream, so other documents keep their pages).
+
 ## 5. Tests
 
 ```
