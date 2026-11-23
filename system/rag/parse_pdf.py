@@ -27,6 +27,7 @@ Step B (next): real table grids, figure images cut from the page, model descript
 from __future__ import annotations
 
 import argparse
+import contextlib
 import json
 import re
 import sys
@@ -351,6 +352,37 @@ def _graphic(n: int, o: dict, kind: str) -> dict:
             "stroke": bool(o.get("stroke")), "colour": col(o.get("non_stroking_color"))}
 
 
+LIGATURE_GLYPHS = {"ﬀ": "ff", "ﬁ": "fi", "ﬂ": "fl", "ﬃ": "ffi", "ﬄ": "ffl"}
+
+
+def ligature_text(named: str | None, mapped: str) -> str:
+    """The text of one glyph. `named` is the character the font's own encoding names for it (the glyph name "fi"
+    gives "ﬁ"); `mapped` is what the PDF's ToUnicode table says. Some PDFs (HSG33, AD G 2015, AD B) map the fi and
+    fl ligatures to a bare "f", so "first" reads "frst" and "floor" reads "foor". When the glyph is a named ligature
+    and the table gives only the start of its letters, the letters of the name win. Anything else stays as mapped."""
+    full = LIGATURE_GLYPHS.get(named or "")
+    if full and mapped != full and mapped != named and full.startswith(mapped):
+        return full
+    return mapped
+
+
+@contextlib.contextmanager
+def ligature_glyphs():
+    """While open, pdfminer (under pdfplumber) reads ligature glyphs by their glyph name (ligature_text)."""
+    from pdfminer import pdffont
+
+    plain = pdffont.PDFSimpleFont.to_unichr
+
+    def to_unichr(self, cid):
+        return ligature_text(self.cid2unicode.get(cid), plain(self, cid))
+
+    pdffont.PDFSimpleFont.to_unichr = to_unichr
+    try:
+        yield
+    finally:
+        pdffont.PDFSimpleFont.to_unichr = plain
+
+
 def read_pdf(path, *, graphics: bool = False, superscripts: bool = False, common_size: bool = False,
              split_backwards: bool = False) -> dict:
     """The PDF as plain data. The options are off by default (the HSE trees depend on the default output):
@@ -361,7 +393,7 @@ def read_pdf(path, *, graphics: bool = False, superscripts: bool = False, common
     import pdfplumber
 
     lines, rects, images, tables, drawn, boxes = [], [], [], [], [], {}
-    with pdfplumber.open(str(path)) as pdf:
+    with ligature_glyphs(), pdfplumber.open(str(path)) as pdf:
         for n, page in enumerate(pdf.pages, start=1):
             if graphics:
                 boxes[n] = {"width": round(float(page.width), 1), "height": round(float(page.height), 1)}

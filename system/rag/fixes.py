@@ -18,6 +18,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 
 from system.rag.corpus import CORPUS_DIR
 
@@ -33,6 +34,14 @@ def fixes_path(source_id: str):
     return CORPUS_DIR / "fixes" / f"{source_id}.json"
 
 
+def redo_keys() -> set[str]:
+    """Keys of saved fixes to do again, from the environment (CORPUS_REDO="key1,key2"). While it is set, the parsers
+    and the model-check step read the fix file as if those fixes were not saved: the checks come back, a new answer
+    is saved over the old one with `checks save`, and the next parse without CORPUS_REDO uses it. The file itself is
+    never edited by hand."""
+    return {k for k in os.environ.get("CORPUS_REDO", "").replace(" ", "").split(",") if k}
+
+
 def load_fixes(source_id: str) -> list[dict]:
     p = fixes_path(source_id)
     if not p.exists():
@@ -42,7 +51,8 @@ def load_fixes(source_id: str) -> list[dict]:
     for f in fixes:
         if f.get("kind") not in FIX_KINDS or not f.get("key") or "value" not in f:
             raise ValueError(f"bad fix in {p}: {f}")
-    return fixes
+    redo = redo_keys()
+    return [f for f in fixes if f["key"] not in redo]
 
 
 def index(fixes: list[dict] | None) -> dict[tuple[str, str], dict]:

@@ -145,3 +145,39 @@ def test_checks_are_worked_only_for_versions_in_scope(tmp_path, monkeypatch):
             {"source_id": "x", "part": "a", "version_id": vid, "valid_from": "2006-01-01", "valid_to": vt}))
     monkeypatch.setattr(checks, "CORPUS_DIR", corpus)
     assert [t["version_id"] for t in checks.current_trees("x")] == ["a@2022", "a@2026"]
+
+
+def test_redo_reads_the_fix_file_without_the_named_fixes_and_save_replaces_them(tmp_path, monkeypatch):
+    """CORPUS_REDO: a saved fix is done again without a hand edit. The old fix of the same family does not bind the
+    new answer's columns while it is itself being redone."""
+    from system.rag import fixes as F
+
+    corpus = tmp_path / "corpus"
+    (corpus / "parsed" / "x" / "checks").mkdir(parents=True)
+    (corpus / "fixes").mkdir()
+    for mod in (checks, F):
+        monkeypatch.setattr(mod, "CORPUS_DIR", corpus)
+    monkeypatch.setattr(checks, "ROOT", tmp_path)
+    monkeypatch.setattr(checks, "fixes_path", lambda sid: corpus / "fixes" / f"{sid}.json")
+    old4 = table_fix("table-4: Algorithm for the boiler room", ["Factor", "Score"], [["N", "1"]], ["S."], key="a" * 16)
+    old5 = table_fix("table-5: Algorithm for the classroom", ["Factor", "Score"], [["N", "1"]], ["S."], key="b" * 16)
+    (corpus / "fixes" / "x.json").write_text(json.dumps({"source_id": "x", "fixes": [old4, old5]}))
+    assert len(F.load_fixes("x")) == 2
+    monkeypatch.setenv("CORPUS_REDO", "aaaaaaaaaaaaaaaa, bbbbbbbbbbbbbbbb")
+    assert F.redo_keys() == {"a" * 16, "b" * 16} and F.load_fixes("x") == []
+    ps, held = packets("x", [TREE], F.load_fixes("x"))  # both tables come back; the first of the family goes alone
+    assert "template" not in ps[0] and held == ["table-5: Algorithm for the classroom"]
+    (corpus / "parsed" / "x" / "checks" / "0.json").write_text(json.dumps(ps[0]))
+    answers = tmp_path / "a.jsonl"
+    answers.write_text(json.dumps({"key": "a" * 16, "kind": "table", "reason": "r", "evidence": "e", "value": {
+        "columns": ["Factor", "Group: Score"], "rows": [["N", "1"]], "sentences": ["S."]}}))
+    assert checks.save("x", answers, by="redo", today="2026-11-23") == 0  # not refused for differing from old table-5
+    saved = {f["key"]: f for f in json.loads((corpus / "fixes" / "x.json").read_text())["fixes"]}
+    assert saved["a" * 16]["value"]["columns"] == ["Factor", "Group: Score"] and saved["a" * 16]["by"] == "redo"
+    assert saved["b" * 16]["by"] == "test"  # still there until its own new answer is saved
+    monkeypatch.delenv("CORPUS_REDO")
+    assert len(F.load_fixes("x")) == 2
+
+
+def test_table_instructions_ask_for_group_headings_in_the_column_names():
+    assert "join them from the top down" in checks.INSTRUCTIONS["table"] and "lowest header row" not in checks.INSTRUCTIONS["table"]

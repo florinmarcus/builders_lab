@@ -29,7 +29,7 @@ import sys
 from pathlib import Path
 
 from system.rag.corpus import CORPUS_DIR
-from system.rag.fixes import FIX_KINDS, fixes_path, load_fixes
+from system.rag.fixes import FIX_KINDS, fixes_path, load_fixes, redo_keys
 
 ROOT = CORPUS_DIR.parent
 KEY_RE = re.compile(r"^[0-9a-f]{16}$")
@@ -38,8 +38,11 @@ CONFIDENCE = {"high", "medium", "low"}
 
 INSTRUCTIONS = {
     "table": """Rebuild this table from the page image(s). The library grid is a hint only; it can split or merge cells.
-- columns: the column headings as printed (the lowest header row). If the first column holds a heading
-  and a sub-heading on separate lines (a factor and its sub-factors), use two columns for them.
+- columns: the column headings as printed. When the headings are printed in two or more rows (a group
+  heading over several columns), join them from the top down with ": " ("Alternative minimum provisions
+  when tested to BS 476 (minutes): Integrity"), so each column name says all the page says about that
+  column. Keep note marks such as (1). If the first column holds a heading and a sub-heading on separate
+  lines (a factor and its sub-factors), use two columns for them.
 - rows: one list per printed data row, as many cells as columns. Copy the words exactly; keep units,
   symbols and spelling as printed (even typos). A cell that spans several rows (a row heading, or a value
   printed once beside two rows) is repeated on every row it covers, so each row stands alone. Only a
@@ -294,6 +297,7 @@ def save(source_id: str, answers_path: Path, by: str, today: str | None = None) 
     fixes = doc["fixes"]
     today = today or datetime.date.today().isoformat()
     saved, rejected = 0, 0
+    redo, replaced = redo_keys(), set()
     for n, line in enumerate(answers_path.read_text(encoding="utf-8").splitlines(), start=1):
         if not line.strip():
             continue
@@ -311,12 +315,15 @@ def save(source_id: str, answers_path: Path, by: str, today: str | None = None) 
             rejected += 1
             continue
         others = [f for f in fixes if (f["key"], f["kind"]) != (fix["key"], fix["kind"])]
-        problems = [p for p in lint_fixes(source_id, others + [fix]) if pk["target"] in p or fix["key"] in p]
+        # fixes being done again (CORPUS_REDO) and not yet replaced do not bind the new answer (a family's layout)
+        live = [f for f in others if f["key"] not in redo or f["key"] in replaced]
+        problems = [p for p in lint_fixes(source_id, live + [fix]) if pk["target"] in p or fix["key"] in p]
         if problems:
             print(f"line {n}: " + "; ".join(problems))
             rejected += 1
             continue
         doc["fixes"] = fixes = others + [fix]
+        replaced.add(fix["key"])
         saved += 1
     path.write_text(json.dumps(doc, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     print(f"saved {saved}, rejected {rejected} -> {path.relative_to(ROOT)}")

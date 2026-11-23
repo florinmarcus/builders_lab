@@ -1402,3 +1402,29 @@ def test_a_signature_beside_signed_by_on_the_left_is_not_a_photo():
     images = [{"page": 1, "top": 640.0, "bottom": 690.0, "x0": 280.0, "x1": 400.0}]
     t = build_tree(drawn_doc(lines, images=images), META)
     assert not [s for s in t["sections"] if s["type"] == "figure"]
+
+
+# ---------------------------------------------------------------- ligature glyphs mapped to a bare "f" (semantic check)
+
+def test_ligature_glyph_mapped_to_a_bare_f_is_read_by_its_glyph_name():
+    """HSG33, AD G: the font names the glyph "fi" but the PDF's ToUnicode table says "f" ("frst-aid", "foor")."""
+    from pdfminer import pdffont
+
+    from system.rag.parse_pdf import ligature_glyphs, ligature_text
+
+    assert ligature_text("ﬁ", "f") == "fi" and ligature_text("ﬂ", "f") == "fl" and ligature_text("ﬃ", "ff") == "ffi"
+    assert ligature_text("ﬁ", "fi") == "fi" and ligature_text("ﬁ", "ﬁ") == "ﬁ"  # a right table is left alone
+    assert ligature_text("ﬁ", "x") == "x" and ligature_text(None, "f") == "f" and ligature_text("f", "f") == "f"
+
+    class Table:
+        def get_unichr(self, cid):
+            return {31: "f", 102: "f", 65: "A"}[cid]
+
+    font = object.__new__(pdffont.PDFSimpleFont)
+    font.cid2unicode = {31: "ﬁ", 30: "ﬂ", 102: "f", 65: "A"}
+    font.unicode_map = Table()
+    plain = pdffont.PDFSimpleFont.to_unichr
+    assert [font.to_unichr(c) for c in (31, 102, 65)] == ["f", "f", "A"]  # the fault: "first" would read "frst"
+    with ligature_glyphs():
+        assert [font.to_unichr(c) for c in (31, 102, 65)] == ["fi", "f", "A"]
+    assert pdffont.PDFSimpleFont.to_unichr is plain  # the reader is put back

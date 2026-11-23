@@ -38,7 +38,7 @@ from collections import Counter, defaultdict
 
 from system.rag.corpus import CORPUS_DIR, slugify
 from system.rag.fixes import content_key, index, load_fixes
-from system.rag.parse_pdf import render_images
+from system.rag.parse_pdf import ligature_glyphs, render_images
 
 PARSER = "approved-document-pdf/0.1"
 BODY = 12.0
@@ -1306,7 +1306,7 @@ def read_adoc_pdf(path) -> dict:
         return words
 
     lines, rects, images, tables, shapes = [], [], [], [], []
-    with pdfplumber.open(str(path)) as pdf:
+    with ligature_glyphs(), pdfplumber.open(str(path)) as pdf:
         for n, page in enumerate(pdf.pages, start=1):
             for l in page.extract_text_lines(return_chars=True):
                 first = l["chars"][0]
