@@ -1984,6 +1984,9 @@ class Builder:
                 rows = [self.lines[j] for j in (rest[1:] if titled else rest)]
                 sec = self.new(f"table-p{l['page']}", "table", parent, None, title, [*parent["heading_path"], title],
                                l["page"], "\n".join(x["text"] for x in rows))
+                g = next((t for t in self.doc_tables if t["page"] == l["page"] and id(t) in self.run_on), None)
+                if g is not None:
+                    self._mark_part(sec, g)
                 sec["caption_box"] = {"page": l["page"], "top": l["top"], "x0": l["x0"], "x1": self.page_width - 36}
                 self.span(sec, l["page"], l["top"], max(x["top"] + x["size"] + 2 for x in [l, *rows]))
                 diagram_lines.update(rest)
@@ -2036,6 +2039,7 @@ class Builder:
                     sid += "-2"
                 sec = self.new(sid, "table", parent, None, title, [*parent["heading_path"], f"Table ({title})"],
                                l["page"], "\n".join(x["text"] for x in rows))
+                self._mark_part(sec, g)
                 self.span(sec, l["page"], g["top"], g["bottom"])
                 grid_lines.update(rest)
                 continue
@@ -2288,6 +2292,7 @@ class Builder:
                                  "sentence per row." if s["type"] == "table" else
                                  "Describe this figure in two or three plain sentences for search."),
                 })
+        self._part_columns()
         return {
             **{k: self.meta.get(k) for k in ("source_id", "version_id", "valid_from", "valid_to", "sha256")},
             "title": self.title, "parser": PARSER, "page_width": self.page_width,
@@ -2534,8 +2539,9 @@ class Builder:
             return None
         return p
 
-    def _run_on_owner(self, t: dict | None) -> dict | None:
-        """The table section that holds the grid this ruled table continues, if any."""
+    def _run_on_owner(self, t: dict | None, cap: bool = True) -> dict | None:
+        """The table section that holds the grid this ruled table continues, if any (cap=False: also one that
+        already has JOIN_PAGES pages)."""
         src = self.run_on.get(id(t)) if t is not None else None
         if src is None:
             return None
@@ -2545,7 +2551,7 @@ class Builder:
                 return None  # a new chapter or heading began after it (an annex title set inside the next grid)
             if s["type"] != "table":
                 continue
-            if len(s.get("spans") or {}) >= JOIN_PAGES:
+            if cap and len(s.get("spans") or {}) >= JOIN_PAGES:
                 return None  # long tables are cut into parts of JOIN_PAGES pages (one model check each)
             sp = (s.get("spans") or {}).get(pg)
             if sp and sp[0] <= src["bottom"] + 15 and sp[1] >= src["top"] - 15:
@@ -2554,6 +2560,33 @@ class Builder:
                     and s["caption_box"]["top"] <= src["bottom"]:
                 return s  # a captioned table whose rows are placed later (small print)
         return None
+
+    def _mark_part(self, sec: dict, t: dict) -> None:
+        """A table section that starts a new part of a long table (S132): it says which table it continues, keeps
+        that table's number and title with "(continued)", and its text starts with the first part's header line,
+        so the model check and search have the column headings."""
+        owner = self._run_on_owner(t, cap=False)
+        if owner is None or len(owner.get("spans") or {}) < JOIN_PAGES:
+            return
+        first = owner.get("continues") and self.by_id.get(owner["continues"]) or owner
+        title = re.sub(r"\s*\(continued\)$", "", first.get("title") or "")
+        sec["title"], sec["number"], sec["continues"] = f"{title} (continued)", first.get("number"), first["id"]
+        sec["heading_path"] = [*sec["heading_path"][:-1], (f"Table {first['number']} " if first.get("number") else "")
+                               + sec["title"]]
+        head = (first.get("text") or "").split("\n")[0]
+        if head and not (sec.get("text") or "").startswith(head):
+            sec["text"] = "\n".join(x for x in [head, sec.get("text") or ""] if x)
+
+    def _part_columns(self) -> None:
+        """A later part of a long table takes the first part's column names when the model check had none to read
+        on its page (it named them "Column 2", "Topic") and the count is the same (S132)."""
+        for s in self.sections:
+            first = self.by_id.get(s.get("continues") or "")
+            if not first or not s.get("columns") or not first.get("columns"):
+                continue
+            if len(s["columns"]) == len(first["columns"]) and s["columns"] != first["columns"] and \
+                    any(re.fullmatch(r"(Column \d+|Topic|Item|)", c or "") for c in s["columns"]):
+                s["columns"] = list(first["columns"])
 
     def _extend_table(self, owner: dict, t: dict, rows: list[dict]) -> None:
         labels = [l["text"] for l in self.cont_labels.get(id(t), [])]

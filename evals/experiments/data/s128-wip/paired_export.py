@@ -41,5 +41,5 @@ for k, a in after.items():
                   "before": b["key"], "after": a["key"]})
     for pk in (b, a):
         (CORPUS_DIR / "parsed" / k[0] / "semcheck" / f"{pk['key']}.json").write_text(S.dump_packet(pk), encoding="utf-8")
-Path(sys.argv[0]).with_name("pairs-last.json")  # copy it to pairs-fixN.json.write_text(json.dumps(pairs, indent=1))
+Path(sys.argv[0]).with_name("pairs-last.json").write_text(json.dumps(pairs, indent=1))  # copy it to pairs-<fix>.json
 print(f"{len(pairs)} changed units, {2 * len(pairs)} packets")

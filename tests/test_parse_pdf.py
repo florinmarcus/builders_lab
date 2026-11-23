@@ -1607,3 +1607,33 @@ def test_body_text_after_a_ruled_table_is_not_kept_in_the_table():
     assert "Working at heights" in tab["text"] and "Note: Field staff" in tab["text"]
     assert "3.6" not in tab["text"] and "decontamination" not in tab["text"]
     assert "decontamination" in sec(t, "para-3-6")["text"]
+
+
+def test_a_table_longer_than_four_pages_is_cut_into_parts_that_keep_its_title_and_headings():
+    """S132 (Florin, 23 Nov 2026): a table over pages is joined into parts of at most four pages. A later part says
+    which table it continues ("Table 3.2 ... (continued)", same number), starts its text with the first part's
+    header row, and takes the first part's column names when its model check had none to read."""
+    B, L = "HelveticaNeueLTStd-MdCn", "HelveticaNeueLTStd-LtCn"
+    lines = [ln(2, 98, "3 Competence", 28.0, "HelveticaNeue-Medium", x0=57),
+             *[ln(2, 140 + 12 * k, "3.1 Analysts need training in the topics listed in the tables of this chapter here." if k == 0 else
+                  "and the employer should plan the training of each analyst against these lists.", 10.0, L, x0=57)
+               for k in range(14)],
+             ln(2, 400, "Table 3.2 Core competences", 10.0, B, x0=57), ln(2, 425, "Module Core competences", 8.0, B, x0=61)]
+    tables = [_grid(2, 420, 790, [["Module", "Core competences"], ["Module 1", "Know the risk"]], 57, 419)]
+    for p in range(3, 8):
+        lines += [ln(p, 105, "Module Core competences", 8.0, B, x0=61), ln(p, 120, f"Module {p} Know the risk on page {p}", 8.0, L, x0=61)]
+        tables.append(_grid(p, 100, 790, [["Module", "Core competences"], [f"Module {p}", f"Know the risk on page {p}"]], 57, 419))
+    t = build_tree({"lines": lines, "rects": [], "images": [], "page_count": 7, "tables": tables}, META)
+    tabs = [s for s in t["sections"] if s["type"] == "table"]
+    assert [sorted(s["spans"], key=int) for s in tabs] == [["2", "3", "4", "5"], ["6", "7"]]
+    part = tabs[1]
+    assert part["continues"] == "table-3-2" and part["number"] == "3.2" and part["title"] == "Core competences (continued)"
+    assert part["text"].startswith("Module Core competences")
+    key = next(c["key"] for c in t["checks"] if c["section_id"] == part["id"])
+    fix = {"key": key, "kind": "table", "reason": "test",
+           "value": {"columns": ["Topic", "Column 2"], "rows": [["Module 6", "Know the risk on page 6"]], "sentences": ["x."]}}
+    key1 = next(c["key"] for c in t["checks"] if c["section_id"] == "table-3-2")
+    fix1 = {"key": key1, "kind": "table", "reason": "test",
+            "value": {"columns": ["Module", "Core competences"], "rows": [["Module 1", "Know the risk"]], "sentences": ["x."]}}
+    t2 = build_tree({"lines": lines, "rects": [], "images": [], "page_count": 7, "tables": tables}, META, fixes=[fix, fix1])
+    assert sec(t2, part["id"])["columns"] == ["Module", "Core competences"]
