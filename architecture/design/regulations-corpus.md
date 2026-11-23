@@ -313,7 +313,7 @@ flowchart TD
         l5["Formula: one line of text (math_text)"]
         l6["table: title, caption text, cell paragraphs parted"]
         l7["Schedule 1: all paragraphs of a header cell (RA1);<br/>limits beside an uncoded requirement (Part T)"]
-        l8["a Figure beside the paragraphs: named in an issue"]
+        l8["a Figure beside the paragraphs or inside a<br/>numbered paragraph (car2012 label): named in an issue"]
     end
 ```
 

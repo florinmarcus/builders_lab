@@ -356,6 +356,9 @@ class Parser:
                     "text": "\n".join(text), "amendments": self.amendments(p2), "references": self.references(p2),
                     "url": p2.get("DocumentURI") or reg["url"],
                 })
+                for fig in p2.iter(f"{L}Figure"):  # car2012's asbestos label diagram sits in a P2 (S126)
+                    unit = next((a.get("id") for a in fig.iterancestors() if a.get("id")), sid)
+                    self.issues.append(f"Figure inside {unit}: not parsed yet")
             for odd in para_block:
                 if tag(odd) == "Tabular":  # its rows are already in the text; also a table section
                     self.table(odd, reg, hp)

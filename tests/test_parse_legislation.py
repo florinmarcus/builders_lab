@@ -444,6 +444,16 @@ def test_a_picture_beside_the_paragraphs_is_named_in_an_issue():
     assert "Figure inside regulation-1: not parsed yet" in tree["issues"]
 
 
+def test_a_picture_inside_a_numbered_paragraph_is_named_in_an_issue():
+    """car2012 Schedule 2 paragraph 1(1): the asbestos label diagram is a Figure inside the P2. It was dropped
+    without an issue (S126)."""
+    tree = leg('<P1group><Title>Labels</Title><P1 id="schedule-2-paragraph-1"><Pnumber>1</Pnumber><P1para>'
+               '<P2 id="schedule-2-paragraph-1-1"><Pnumber>1</Pnumber><P2para><Text>Labels must be in the form of '
+               'the following diagram.</Text></P2para><Figure><Image ResourceRef="r00001"/></Figure></P2>'
+               '</P1para></P1></P1group>')
+    assert tree["issues"] == ["Figure inside schedule-2-paragraph-1-1: not parsed yet"]
+
+
 REQ_TABLE = ('<Schedule id="schedule-1"><Number>SCHEDULE 1</Number><TitleBlock><Title>Requirements</Title></TitleBlock>'
              '<ScheduleBody>{}</ScheduleBody></Schedule>')
 
