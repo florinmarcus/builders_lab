@@ -1,0 +1,218 @@
+{
+ "source_id": "br2010",
+ "about": "Model verdicts on source against tree for br2010 (system/rag/semcheck.py).",
+ "verdicts": {
+  "dcb3073fb3e61d35": {
+   "version_id": "main@2026-11-06-9e455f6e",
+   "unit": "regulation-11D",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "383fa246ede700a5": {
+   "version_id": "main@2026-11-06-9e455f6e",
+   "unit": "regulation-11Z3",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "b4af5a628c56a468": {
+   "version_id": "main@2026-11-06-9e455f6e",
+   "unit": "regulation-2",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The (a), (b), (c) labels of the lettered lists inside the definitions are dropped, so a reference such as \"paragraph (a) or (b)\" in \"fixed building services\" points at items that carry no letter.",
+     "evidence": "source: \"<ListItem NumberOverride=\\\"a\\\"> ... in relation to alternating current, 50 volts between conductors and earth; or\" / tree: \"in relation to alternating current, 50 volts between conductors and earth; or\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "dd1b5dfc44557066": {
+   "version_id": "main@2026-11-06-9e455f6e",
+   "unit": "regulation-24",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "05f7336c4f8cd2f3": {
+   "version_id": "main@2026-11-06-9e455f6e",
+   "unit": "regulation-25B",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "91d6e849d7d9de6c": {
+   "version_id": "main@2026-11-06-9e455f6e",
+   "unit": "regulation-44ZB",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "be2dfbcbd663fa57": {
+   "version_id": "main@2026-11-06-9e455f6e",
+   "unit": "regulation-47I",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "e55f7f018657ee8a": {
+   "version_id": "main@2026-11-06-9e455f6e",
+   "unit": "regulation-47N",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "c287a480550f2202": {
+   "version_id": "main@2026-11-06-9e455f6e",
+   "unit": "regulation-50",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The closing words of paragraph (1) sit only in the regulation's text and are not in the paragraph (1) section, so that section ends without its operative words (the source XML also places them after the closing P2 tag).",
+     "evidence": "source: \"the Building Regulations 2000 as last amended by the 2009 Regulations shall continue to apply to that building work.\" / tree (1) ends: \"of the Act,\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "f07da14292b59e06": {
+   "version_id": "main@2026-11-06-9e455f6e",
+   "unit": "regulation-9",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "73849d4ab9178130": {
+   "version_id": "main@2026-11-06-9e455f6e",
+   "unit": "schedule-2-part-2-paragraph-2",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "486ddaa56ff8b631": {
+   "version_id": "main@2026-11-06-9e455f6e",
+   "unit": "schedule-2-part-6-paragraph-1",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "7be32e26512f9e24": {
+   "version_id": "main@2026-11-06-9e455f6e",
+   "unit": "schedule-2-part-6-paragraph-3",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "bdb42a9b79e82388": {
+   "version_id": "main@2026-11-06-9e455f6e",
+   "unit": "schedule-4-paragraph-2",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "b18268cc7dba9532": {
+   "version_id": "main@2026-11-06-9e455f6e",
+   "unit": "schedule-4-paragraph-4",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "bc533ae908b6a744": {
+   "version_id": "main@2026-11-06-9e455f6e",
+   "unit": "schedule-4A-paragraph-15",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "a93e41ff87e959ae": {
+   "version_id": "main@2026-11-06-9e455f6e",
+   "unit": "schedule-4A-paragraph-5",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "f14419584c0a7a5c": {
+   "version_id": "main@2026-11-06-9e455f6e",
+   "unit": "schedule-6-paragraph-2",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

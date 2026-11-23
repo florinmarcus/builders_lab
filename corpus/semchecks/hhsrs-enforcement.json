@@ -1,0 +1,83 @@
+{
+ "source_id": "hhsrs-enforcement",
+ "about": "Model verdicts on source against tree for hhsrs-enforcement (system/rag/semcheck.py).",
+ "verdicts": {
+  "bd343a669d03d607": {
+   "version_id": "housing-health-and-safety-rating-system-hhsrs-enforcement-gu@2026-06-23-3e7f8d38",
+   "unit": "p29",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The printed page number is kept at the end of the body text.",
+     "evidence": "source: \"rogue landlord register.\" / tree: \"rogue landlord register. 27\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "c5ce6ae19a2cf4de": {
+   "version_id": "housing-health-and-safety-rating-system-hhsrs-enforcement-gu@2026-06-23-3e7f8d38",
+   "unit": "p35",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The headings Final notice, Appeals, Right of appeal, The appeals process and Mediation are read as body text, so their sections are merged into one long text block under the chapter heading.",
+     "evidence": "tree: \"notice was given. 32 Final notice If the authority decides\" and \"comply with the notice. Appeals Right of appeal Once the person receives\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Printed page numbers are kept inside the body text.",
+     "evidence": "source: \"being reached.\" / tree: \"being reached. 33\"; tree: \"notice was given. 32 Final notice\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "6bbe95e02b5a3bac": {
+   "version_id": "housing-health-and-safety-rating-system-hhsrs-enforcement-gu@2026-06-23-3e7f8d38",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "29d59bd9f327a0ba": {
+   "version_id": "housing-health-and-safety-rating-system-hhsrs-enforcement-gu@2026-06-23-3e7f8d38",
+   "unit": "p9",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The closing paragraph after the bullet list is joined onto the last bullet instead of standing as its own paragraph.",
+     "evidence": "tree: \"• How to educate the sector on private landlord rights and responsibilities. The guidance aims at providing local authority enforcement officers\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number from the footer is kept at the end of the body text.",
+     "evidence": "source: \"following HHSRS inspections.\" / tree: \"following HHSRS inspections. 7\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

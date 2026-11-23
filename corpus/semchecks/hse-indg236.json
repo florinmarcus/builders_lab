@@ -1,0 +1,84 @@
+{
+ "source_id": "hse-indg236",
+ "about": "Model verdicts on source against tree for hse-indg236 (system/rag/semcheck.py).",
+ "verdicts": {
+  "beb3311fbd099721": {
+   "version_id": "main@2024-12-06-cc2a26a2",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "The two sub-bullets under the damaged equipment bullet are broken up: their first lines are moved to a separate section at the end of the page and their second lines are left in the bullet, so the rule no longer reads.",
+     "evidence": "source: \"either: repaired by someone competent (ie with suitable training, skills and knowledge for the task\" / tree: \"either: knowledge for the task to prevent injury to themselves or others); or arrangements for disposing\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The moved sub-bullet lines sit as a separate text section after the 'User checks, visual inspection and portable appliance tests' section, away from their parent bullet.",
+     "evidence": "tree: \"▬ repaired by someone competent (ie with suitable training, skills and ▬ disposed of to prevent its further use – consult your local authority about\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The italic sub-headings and the closing paragraph are run into bullets as body text.",
+     "evidence": "source: \"Visual inspections\" (sub-heading) / tree: \"cables trapped under furniture or in floor boxes. Visual inspections To carry out a visual inspection\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "7eaf9607e4e2606f": {
+   "version_id": "main@2024-12-06-cc2a26a2",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-heading \"Portable appliance test (PAT)\" and its paragraph are read as body text joined to the end of the last bullet.",
+     "evidence": "source: heading \"Portable appliance test (PAT)\" / tree: \"• no bare wire is visible other than at the terminals. For equipment/cables fitted with moulded plugs only the fuse can be checked. Portable appliance test (PAT) A portable appliance test\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Paragraphs that follow a bullet list are joined to the last bullet of the list.",
+     "evidence": "tree: \"• the user has reported any issues. The visual inspection should include the checks carried out by the user\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "d89958918428e9f8": {
+   "version_id": "main@2024-12-06-cc2a26a2",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "high",
+     "problem": "The Class II symbol (a square inside a square) is dropped, so the sentence no longer says what mark to look for.",
+     "evidence": "source: \"Class II equipment is marked with a [double square symbol]. If you cannot see this symbol\" / tree: \"Class II equipment is marked with a . If you cannot see this symbol\""
+    },
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The same Class II symbol is dropped from two row labels of Table 1.",
+     "evidence": "source: \"Double insulated [double square symbol] (Class II) equipment\" / tree: \"Double insulated (Class II) equipment\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

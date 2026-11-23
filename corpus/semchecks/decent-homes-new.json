@@ -1,0 +1,57 @@
+{
+ "source_id": "decent-homes-new",
+ "about": "Model verdicts on source against tree for decent-homes-new (system/rag/semcheck.py).",
+ "verdicts": {
+  "8369d6d8ddf836f6": {
+   "version_id": "the-new-decent-homes-standard-policy-statement@2026-01-28-cc7a08fb",
+   "unit": "part1",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "a584511e94c5c616": {
+   "version_id": "the-new-decent-homes-standard-policy-statement@2026-01-28-cc7a08fb",
+   "unit": "part2",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "c331c2e98d4bc412": {
+   "version_id": "the-new-decent-homes-standard-policy-statement@2026-01-28-cc7a08fb",
+   "unit": "part3",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "9f4a7cfceaf44244": {
+   "version_id": "the-new-decent-homes-standard-policy-statement@2026-01-28-cc7a08fb",
+   "unit": "part4",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The two page footnotes at the end of the page are kept as body text under the Annex A heading 'Other building components', as if they were part of that section.",
+     "evidence": "source: \"Building Regulations Approved Document K https://www.gov.uk/government/publications/protection-from-falling-collision-and-impact-approved-document-k\" / tree: heading_path \"Annex A: List of building components > Other building components\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

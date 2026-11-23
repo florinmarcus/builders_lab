@@ -2,6 +2,168 @@
  "source_id": "awaab-tenants",
  "about": "Model verdicts on source against tree for awaab-tenants (system/rag/semcheck.py).",
  "verdicts": {
+  "973d3b64b4b08e5d": {
+   "version_id": "awaab-s-law-guidance-for-tenants-in-social-housing-arabic@2025-12-04-c98c5900",
+   "unit": "p12",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The Arabic body text is kept as presentation-form glyphs with the letters of every line in reverse order, so no word reads or searches right.",
+     "evidence": "source: \"بموجب قانون \"أواب\"، هناك أربعة أنواع من التحقيقات:\" / tree: \"تﺎﻘﯾﻘﺣﺗﻟا نﻣ عاوﻧأ ﺔﻌﺑرأ كﺎﻧھ ،\"باوأ\" نوﻧﺎﻗ بﺟوﻣﺑ\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The whole document is merged into one paragraph numbered 16; the section heading 7 and the sub-headings on this page are read as body text, with the page number mixed in.",
+     "evidence": "source: heading \"7 التحقيقات\", \"ما هو التحقيق؟\" / tree: heading_path \"Paragraph 16\", text \"11 ت ﺎﻘﯾﻘﺣﺗﻟا 7\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "24199213fc28fda3": {
+   "version_id": "awaab-s-law-guidance-for-tenants-in-social-housing-arabic@2025-12-04-c98c5900",
+   "unit": "p15",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "All Arabic text of the page is stored line by line in reversed (visual) letter order with presentation-form glyphs, so it cannot be read or searched as Arabic and wrapped sentences are out of order.",
+     "evidence": "source: \"عند توفير السكن البديل، يجب على المالك مراعاة ما يلي\" / tree: \"ﻲﻠﯾ ﺎﻣ ةﺎﻋارﻣ كﻟﺎﻣﻟا ﻰﻠﻋ بﺟﯾ ،لﯾدﺑﻟا نﻛﺳﻟا رﯾﻓوﺗ دﻧﻋ\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The section heading 9, its sub-headings and all bullets are merged as body text into one block called \"Paragraph 16\" that runs from page 1, so the number and heading path are wrong.",
+     "evidence": "source: heading \".9 توفير سكن بديل مناسب\" / tree: heading_path \"Paragraph 16\", text \"ب ﺳﺎﻧﻣ لﯾدﺑ نﻛﺳ رﯾﻓوﺗ .9\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Page numbers are kept inside the body text.",
+     "evidence": "tree: \"نﺎﻣأ 15\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "054c2f213a1c9600": {
+   "version_id": "awaab-s-law-guidance-for-tenants-in-social-housing-arabic@2025-12-04-c98c5900",
+   "unit": "p16",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The Arabic body text is kept as presentation-form glyphs with the letters of every line in reverse order, so no word reads or searches right.",
+     "evidence": "source: \"قبول مكان الإقامة البديل لا يؤثر في عقد الإيجار الخاص بك.\" / tree: \".كﺑ صﺎﺧﻟا رﺎﺟﯾﻹا دﻘﻋ ﻲﻓ رﺛؤﯾ ﻻ لﯾدﺑﻟا ﺔﻣﺎﻗﻹا نﺎﻛﻣ لوﺑﻗ\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The text of this page, which belongs to section 9, sits in one document-wide paragraph numbered 16 with no section heading above it and with page numbers mixed into the text.",
+     "evidence": "tree: heading_path \"Paragraph 16\", text \"نﺎﻣأ 15 فﯾﻟﺎﻛﺗﻟا ﺔﯾطﻐﺗ لﺛﻣ\" ... \"16 باوأ نوﻧﺎﻘﻟ ﺔﻌﺿﺎﺧﻟا رﯾﻏ رطﺎﺧﻣﻟا .10\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "46ba2829aa2f33a8": {
+   "version_id": "awaab-s-law-guidance-for-tenants-in-social-housing-arabic@2025-12-04-c98c5900",
+   "unit": "p19",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "All Arabic text of the page is stored line by line in reversed (visual) letter order with presentation-form glyphs, so it cannot be read or searched as Arabic and wrapped sentences are out of order.",
+     "evidence": "source: \"يجب على المالك أن يوضح ما يلي:\" / tree: \":ﻲﻠﯾ ﺎﻣ ﺢﺿوﯾ نأ كﻟﺎﻣﻟا ﻰﻠﻋ بﺟﯾ\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The section heading 11, its sub-headings and all bullets are merged as body text into one block called \"Paragraph 16\" that runs from page 1, so the number and heading path are wrong.",
+     "evidence": "source: heading \".11 ماذا تفعل إذا لم يتصرف المالك؟\" / tree: heading_path \"Paragraph 16\", text \"؟ كﻟﺎﻣﻟا فرﺻﺗﯾ مﻟ اذإ لﻌﻔﺗ اذﺎﻣ .11\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Page numbers are kept inside the body text.",
+     "evidence": "tree: \".تارﯾﺧﺄﺗﻟا بﻧﺟﺗو كاوﻛﺷ لﺎﺳرﻹ عرﺳﻷا ﺔﻘﯾرطﻟا ﻲﻧورﺗﻛﻟﻹا ىوﻛﺷﻟا جذوﻣﻧ مادﺧﺗﺳا دﻌﯾ 19\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "858b5567a1c028e2": {
+   "version_id": "awaab-s-law-guidance-for-tenants-in-social-housing-arabic@2025-12-04-c98c5900",
+   "unit": "p7",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The Arabic body text is kept as presentation-form glyphs with the letters of every line in reverse order, so no word reads or searches right; only the table grid is in readable Arabic.",
+     "evidence": "source: \"هل ينطبق قانون أواب على مسكني؟\" / tree: \"؟ ﻲﻧﻛﺳﻣ ﻰﻠﻋ باوأ نوﻧﺎﻗ ﻖﺑطﻧﯾ لھ\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The whole document is merged into one paragraph numbered 16; the section heading 4 and the question heading on this page are read as body text, with page numbers mixed in.",
+     "evidence": "source: heading \"4. المساكن الخاضعة لقانون أواب\" / tree: heading_path \"Paragraph 16\", text \"6 ب اوأ نوﻧﺎﻘﻟ ﺔﻌﺿﺎﺧﻟا نﻛﺎﺳﻣﻟا .4\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "f336fb99be9c4af0": {
+   "version_id": "awaab-s-law-guidance-for-tenants-in-social-housing-arabic@2025-12-04-c98c5900",
+   "unit": "p8",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The Arabic body text is kept as presentation-form glyphs with the letters of every line in reverse order, so no word reads or searches right; only the table grid is in readable Arabic.",
+     "evidence": "source: \"يشير قانون أواب إلى مستويين من المخاطر\" / tree: \"رطﺎﺧﻣﻟا نﻣ نﯾﯾوﺗﺳﻣ ﻰﻟإ باوأ نوﻧﺎﻗ رﯾﺷﯾ\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The whole document is merged into one paragraph numbered 16; the section heading 5 on this page is read as body text, with page numbers mixed in.",
+     "evidence": "source: heading \"5. ما المقصود بمصطلح \"الخطر\"؟\" / tree: heading_path \"Paragraph 16\", text \"7 ؟ \"رطﺧﻟا\" ﺢﻠطﺻﻣﺑ دوﺻﻘﻣﻟا ﺎﻣ .5\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "In the examples row, the significant-hazard cell says damp and mould where the page says damp or mould.",
+     "evidence": "source: \"أي حالة من الرطوبة أو العفن قد تشكّل خطرًا\" / tree: \"أي حالة من الرطوبة والعفن قد تشكّل خطرًا\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "5e562e955d0a7167": {
    "version_id": "awaab-s-law-guidance-for-tenants-in-social-housing-bangla@2025-12-04-2939d952",
    "unit": "p10",
@@ -24,6 +186,114 @@
    ],
    "confidence": "medium",
    "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "898d3f6a6a15ec11": {
+   "version_id": "awaab-s-law-guidance-for-tenants-in-social-housing-bangla@2025-12-04-2939d952",
+   "unit": "p15",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The Bangla running text and the heading are corrupted through the whole page: conjunct letters are replaced by a replacement character and vowel signs are out of place, so whole words are lost; only the table grid is clean.",
+     "evidence": "source: \"তদন্তের জন্য সময়-গনণা তখন থেকে শুরু হয়\" / tree: \"তদে�র জন্য সময়-গনণা তখন েথেক �� হয়\"; source: \"৭ তদন্তসমূহ\" as \"7 তদন্তসমূহ\" / tree: \"7 তদ�সমূহ\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The last table cell stops in mid sentence, and its continuation (from the next page, after the page number) sits in the running text instead of in the table row.",
+     "evidence": "table cell ends: \"যখন তারা তদন্ত করছে, তখনও তাদের\" / text block has: \"15 আপনােক সুরি�ত রাখার জন্য পদে�প িনেত হেব, েযমন দৃশ্যমান ছ�ােকর সং�ার করা\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-heading \"What does an investigation mean?\" is read as body text.",
+     "evidence": "source heading: \"তদন্ত মানে কী?\" / tree: body text \"তদ� মােন কী? তদ� হেলা যখন\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is kept inside the running text.",
+     "evidence": "tree: \"চার ধরেনর তদ� রেয়েছ। 15 আপনােক\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "d5563d45ec1055e1": {
+   "version_id": "awaab-s-law-guidance-for-tenants-in-social-housing-bangla@2025-12-04-2939d952",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The Bangla text is corrupted through the whole page: conjunct letters are replaced by a replacement character and vowel signs are out of place, so whole words are lost.",
+     "evidence": "source: \"উল্লেখযোগ্য স্যাঁতসেঁতে অবস্থা এবং ছত্রাকের বিপদ 10 কর্মদিবসের মধ্যে\" / tree: \"উে�খেযাগ্য স্যাতঁ েসঁেত অব�া এবং ছ�ােকর িবপদ 10 কমিদর্ বেসর মেধ্য\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-heading for the quick guide to Awaab's Law is read as body text.",
+     "evidence": "source heading: \"আওয়াবের আইন বিষয়ক দ্রুত নির্দেশিকা\" / tree: body text \"আওয়ােবর আইন িবষয়ক �ত িনেদর্িশকা জ�ির িবপদ�িল\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Contents lines from the page before, with dot leaders and page numbers, are kept as numbered paragraphs, and one is joined to a body sentence (not printed on this page).",
+     "evidence": "tree \"Paragraph 11\": \"পদে�প না েনন তাহেল কী হেব ........................... 24 আমরা এই িনেদর্িশকার পা�ািব\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Page numbers are kept inside the running text.",
+     "evidence": "tree: \"কী পদে�প িনেত পােরন। 1 সুরি�ত বাসা�িল\" and \"আপনার বািড়ওয়ালা যিদ 2\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "faf4ba3c21c40e59": {
+   "version_id": "awaab-s-law-guidance-for-tenants-in-social-housing-bangla@2025-12-04-2939d952",
+   "unit": "p20",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The Bangla text is corrupted through the whole page: conjunct letters are replaced by a replacement character and vowel signs are out of place, so whole words are lost.",
+     "evidence": "source: \"আপনি বিকল্প বাসস্থান গ্রহণ করতে বা প্রত্যাখ্যান করতে পারেন\" / tree: \"আপিন িবক� বাস�ান �হণ করেত বা �ত্যাখ্যান করেত পােরন\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-heading about accepting or refusing alternative accommodation is read as body text, joined to the last bullet of the page before.",
+     "evidence": "source heading: \"বিকল্প বাসস্থান গ্রহণ করা বা প্রত্যাখ্যান করা\" / tree: \"�িতপূরণ িদেত চাওয়া 19 িবক� বাস�ান �হণ করা বা �ত্যাখ্যান করা আপিন\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The two closing paragraphs after the list are joined onto the last bullet.",
+     "evidence": "tree: \"আপনার বািড়ওয়ালার দািয়� েশষ হেয় যােব। আপিন যিদ আপনার বাসােত থাকার িস�া� েনন\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Page numbers are kept inside the running text.",
+     "evidence": "tree: \"�িতপূরণ িদেত চাওয়া 19 িবক�\" and \"�ভাব েফলেব না। 20\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
   "0eb3ac2844ba9575": {
@@ -134,6 +404,96 @@
    "by": "Fable 5.2, Claude Code headless (packet)",
    "date": "2026-11-23"
   },
+  "d158fd47649b678a": {
+   "version_id": "awaab-s-law-guidance-for-tenants-in-social-housing-polish-po@2025-12-04-ab01dc19",
+   "unit": "p24",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading path holds only the tail of a chapter heading that wraps over two lines, so the chapter number and most of the title are lost.",
+     "evidence": "tree heading_path: \"żadnych działań? > Text\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Page numbers are left inside the body text, one in the middle of the section and one at the end.",
+     "evidence": "tree: \"porady przy składaniu reklamacji. 23 Z Rzecznikiem możesz się skontaktować\" and \"problemy lub szkody; 24\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "b5bf75896eb060eb": {
+   "version_id": "awaab-s-law-guidance-for-tenants-in-social-housing-polish-po@2025-12-04-ab01dc19",
+   "unit": "p25",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-heading on the page is kept as running body text, joined to the paragraph before it.",
+     "evidence": "source heading: \"Protokół przedsądowy\" / tree: \"Rzecznik ds. mieszkaniowych – tryb prowadzenia dochodzeń. Protokół przedsądowy Jeżeli Twoje mieszkanie jest w złym stanie\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading path holds only the tail of a chapter heading that wraps over two lines, so the chapter number and most of the title are lost.",
+     "evidence": "tree heading_path: \"żadnych działań? > Text\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is left in the middle of the body text.",
+     "evidence": "tree: \"bez takiej pomocy procedura może być trudniejsza. 25 Skierowanie sprawy do sądu\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "A word with fi is stored with the single ligature character instead of the letters f and i.",
+     "evidence": "source: \"oficjalne pisemne przeprosiny\" / tree: \"oﬁcjalne pisemne przeprosiny\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "0d6fc3b35f8c2df7": {
+   "version_id": "awaab-s-law-guidance-for-tenants-in-social-housing-polish-po@2025-12-04-ab01dc19",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "Diagram 1, the flow chart, has no figure block in the tree; only its caption is kept, as body text, and its box wording survives only through the steps written out below it.",
+     "evidence": "source diagram boxes: \"Właściciel mieszkania bada sprawę i podejmuje działania służące przywróceniu bezpiecznych warunków w Twoim mieszkaniu w ciągu 24 godzin\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-heading, the diagram caption and the step labels are all run together as body text in one section.",
+     "evidence": "tree: \"Co zrobić w razie zauważenia nagłego zagrożenia? Diagram 1: Szczegółowa instrukcja postępowania w przypadku nagłego zagrożenia Diagram 1 przedstawia\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is left in the middle of the body text, between the 24 hour step and step 3.",
+     "evidence": "tree: \"do czasu przywrócenia takich bezpiecznych warunków. 5 Krok 3: Jeżeli wymagane są dalsze prace\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "22110c3dbdb31a2c": {
    "version_id": "awaab-s-law-guidance-for-tenants-in-social-housing-polish-po@2025-12-04-ab01dc19",
    "unit": "p8",
@@ -182,6 +542,24 @@
    "by": "Fable 5.2, Claude Code headless (packet)",
    "date": "2026-11-23"
   },
+  "c582c626708a59b1": {
+   "version_id": "awaab-s-law-guidance-for-tenants-in-social-housing-punjabi@2025-12-04-25baa43e",
+   "unit": "p10",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The table's title and heading path carry the section heading with a vowel sign out of place and a word split in two; the grid cells themselves match the page.",
+     "evidence": "source: \"ਕੀ ਹੁੰਦਾ ਹੈ?\" / tree: \"ਕੀ ਹੰਦੁ ਾ ਹੈ?\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "19f60bb62953a387": {
    "version_id": "awaab-s-law-guidance-for-tenants-in-social-housing-punjabi@2025-12-04-25baa43e",
    "unit": "p15",
@@ -210,6 +588,72 @@
    ],
    "confidence": "medium",
    "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "bbe9c98f28df2c96": {
+   "version_id": "awaab-s-law-guidance-for-tenants-in-social-housing-punjabi@2025-12-04-25baa43e",
+   "unit": "p26",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The Punjabi text is corrupted through the whole page: conjunct letters are replaced by a replacement character, vowel signs sit before or after the wrong letter, and words are split.",
+     "evidence": "source: \"ਪ੍ਰਕਿਰਿਆ ਰਾਹੀਂ ਮੁਆਵਜ਼ਾ ਪ੍ਰਾਪਤ ਹੋਇਆ ਹੈ\" / tree: \"ਪ�ਿਕਿਰਆ ਰਾਹੀ ਂਮੁਆਵਜ਼ਾ ਪ�ਾਪਤ ਹੋਇਆ ਹੈ\"; source: \"ਦੁਆਰਾ\" / tree: \"ਦਆੁ ਰਾ\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-heading about no-win-no-fee lawyers is read as body text inside one long run of text.",
+     "evidence": "source heading: \"ਨੋ-ਵਿਨ-ਨੋ-ਫੀਸ (ਭਾਵ ਜਿੱਤ ਨਹੀਂ ਤਾਂ ਕੋਈ ਫ਼ੀਸ ਨਹੀਂ) ਵਾਲੇ ਵਕੀਲਾਂ ਬਾਰੇ ਮਾਰਗਦਰਸ਼ਨ\" / tree: body text \"ਨੋ-ਿਵਨ-ਨੋ-ਫੀਸ (ਭਾਵ ਿਜਤੱ ਨਹੀ ਂਤਾਂ ਕਈੋ ਫ਼ੀਸ ਨਹੀ)ਂ ਵਾਲੇ ਵਕੀਲਾਂ ਬਾਰੇ ਮਾਰਗਦਰਸ਼ਨ\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Page numbers are kept inside the running text, one of them between two sentences.",
+     "evidence": "tree: \"ਬਹਤੁ ਿਜ਼ਆਦਾ ਹੋ ਸਕਦੇ ਹਨ। 25 ਅਦਾਲਤ ਜਾਣਾ\" and \"ਿਨਯੰਿਤ�ਤ ਹੈ 26\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "7b7188be3ef2aed3": {
+   "version_id": "awaab-s-law-guidance-for-tenants-in-social-housing-punjabi@2025-12-04-25baa43e",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The Punjabi text is corrupted through the whole page: conjunct letters are replaced by a replacement character, vowel signs are out of place, and words are split.",
+     "evidence": "source: \"ਉਨ੍ਹਾਂ ਨੂੰ ਸੁਰੱਖਿਅਤ ਬਣਾਉਣਾ ਪਵੇਗਾ\" / tree: \"ਉਨ�ਾਂਨੰੂ ਸੁਰੱਿਖਅਤ ਬਣਾਉਣਾ ਪਵੇਗਾ\"; source: \"ਉੱਲੀ\" / tree: \"ਉਲੱ ੀ\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The section heading has its last vowel sign moved after the question mark.",
+     "evidence": "source: \"ਅਵਾਬਜ਼ ਲਾਅ ਵਿੱਚ ਕੀ ਸ਼ਾਮਲ ਹੈ?\" / tree: \"ਅਵਾਬਜ਼ ਲਾਅ ਿਵੱਚ ਕੀ ਸ਼ਾਮਲ ਹ?ੈ\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The closing paragraph after the list is joined onto the last bullet.",
+     "evidence": "tree: \"ਕੋਈ ਹੋਰ ਥਾਂ ਲੱਭਣੀ ਪਵੇਗੀ ਤੁਹਾਡੇ ਮਕਾਨ ਮਾਲਕ ਨੰੂ ਪੂਰੀ ਪ�ਿਕਿਰਆ ਦੇ ਦੌਰਾਨ\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is kept at the end of the text.",
+     "evidence": "tree: \"ਸਲਾਹ ਦੇਣੀ ਪਵੇਗੀ। 4\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   },
   "729c226851093b2e": {
@@ -290,6 +734,138 @@
    "by": "Fable 5.2, Claude Code headless (packet)",
    "date": "2026-11-23"
   },
+  "f4245055706d1eff": {
+   "version_id": "awaab-s-law-guidance-for-tenants-in-social-housing-romanian@2025-12-04-a3e708a8",
+   "unit": "p15",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The end of the last table cell (it runs on to the next page) is kept in the running text, straight after the sentence above the table, so the 'Investigații suplimentare' cell stops mid-sentence in the grid.",
+     "evidence": "source: \"totuși să ia măsuri pentru a proteja siguranța dumneavoastră,\" (cell goes on) / tree text: \"există patru tipuri de investigații. 15 cum ar ﬁ aplicarea unui tratament pentru mucegaiul vizibil\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-heading 'Ce este o investigație?' is read as body text inside one long text block.",
+     "evidence": "tree: \"acesta ia cunoștință. Ce este o investigație? O investigație constă în\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is kept inside the running text.",
+     "evidence": "tree: \"există patru tipuri de investigații. 15 cum ar ﬁ\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The running text keeps ligature glyphs instead of plain letters (the table grid is clean).",
+     "evidence": "source: \"află\", \"fi\" / tree: \"aﬂă\", \"ﬁ\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "889085a10012ae62": {
+   "version_id": "awaab-s-law-guidance-for-tenants-in-social-housing-romanian@2025-12-04-a3e708a8",
+   "unit": "p26",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Two sub-headings on the page are kept as running body text inside one long text section, not as headings.",
+     "evidence": "source headings: \"Introducerea unei acțiuni în instanță\" and \"Ghid privind avocații care nu percep onorariu dacă nu câștigă litigiul\" / tree: \"pe cont propriu. 25 Introducerea unei acțiuni în instanță În cazul în care\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Page numbers are left inside the body text, one in the middle of the section and one at the end.",
+     "evidence": "tree: \"diﬁcil de urmărit pe cont propriu. 25 Introducerea unei acțiuni\" and \"nu are câștig de cauză; 26\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Words with fi are stored with the single ligature character instead of the letters f and i.",
+     "evidence": "source: \"poate fi foarte mari\", \"firmă de avocatură\" / tree: \"pot ﬁ foarte mari\", \"ﬁrmă de avocatură\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "ad0783f0d66d669c": {
+   "version_id": "awaab-s-law-guidance-for-tenants-in-social-housing-romanian@2025-12-04-a3e708a8",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The bold heading of the grey help box is kept as running body text, joined to the end of the bullet above it.",
+     "evidence": "source heading: \"Ajutor și sprijin suplimentar\" / tree: \"pot ﬁ găsite în secțiunea 11. Ajutor și sprijin suplimentar Dacă doriți sprijin suplimentar\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is left at the end of the last bullet.",
+     "evidence": "tree: \"Găsiți consiliul dumneavoastră local-GOV.UK 3\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Words with fi are stored with the single ligature character instead of the letters f and i.",
+     "evidence": "source: \"pot fi găsite\", \"confidențială\" / tree: \"pot ﬁ găsite\", \"conﬁdențială\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "fc2731bde4e1f06f": {
+   "version_id": "awaab-s-law-guidance-for-tenants-in-social-housing-romanian@2025-12-04-a3e708a8",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "Diagram 1, the flow chart, has no figure block in the tree; only its caption is kept, as body text, and its box wording survives only through the steps written out below it.",
+     "evidence": "source diagram boxes: \"Proprietarul dumneavoastră investighează și ia măsuri pentru ca locuința să devină sigură în termen de 24 de ore de la aflarea problemei\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-heading, the diagram caption and the step labels are all run together as body text in one section.",
+     "evidence": "tree: \"Cum să procedați dacă observați un pericol iminent Diagrama 1: Ghid pas cu pas în cazul unui pericol iminent Diagrama 1 oferă\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is left in the middle of the body text, between the 24 hour step and step 3.",
+     "evidence": "tree: \"până când locuința este sigură. 5 Pasul 3: În cazul în care sunt necesare lucrări suplimentare\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Words with fi or fl are stored with single ligature characters instead of separate letters.",
+     "evidence": "source: \"de la aflarea problemei\", \"simplificată\" / tree: \"de la aﬂarea problemei\", \"simpliﬁcată\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "c52de65ae935efd4": {
    "version_id": "awaab-s-law-guidance-for-tenants-in-social-housing-romanian@2025-12-04-a3e708a8",
    "unit": "p8",
@@ -325,6 +901,36 @@
    "by": "Fable 5.2, Claude Code headless (packet)",
    "date": "2026-11-23"
   },
+  "acf49c5772c5fef3": {
+   "version_id": "awaab-s-law-guidance-for-tenants-in-social-housing-urdu@2025-12-04-76b0ee14",
+   "unit": "p12",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The running text of the page is kept with every line's letters in reverse (visual) order and as Arabic presentation-form glyphs, so the Urdu words cannot be read or searched.",
+     "evidence": "source: \"تفتیشات\" / tree: \"تﺎﺷﯾﺗﻔﺗ\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The whole document is merged into one section called 'Paragraph 8' with number 8; the heading '7 تفتیشات', the sub-headings, contents-page lines and page numbers are all body text inside it, and the table has no heading above it.",
+     "evidence": "tree: heading_path \"Paragraph 8\", text \"تﺎﺷﯾﺗﻔﺗ 14 ......\" / source: heading \"7 تفتیشات\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "In the last table row the first words of the description are changed.",
+     "evidence": "source: \"کبھی کبھار آپ کا مکان مالک\" / tree: \"کبھار کبھار آپ کا مکان مالک\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
   "f8e31f9a581dd3e7": {
    "version_id": "awaab-s-law-guidance-for-tenants-in-social-housing-urdu@2025-12-04-76b0ee14",
    "unit": "p15",
@@ -347,6 +953,126 @@
    ],
    "confidence": "medium",
    "by": "Fable 5.2, Claude Code headless (packet)",
+   "date": "2026-11-23"
+  },
+  "4b795360a1f61767": {
+   "version_id": "awaab-s-law-guidance-for-tenants-in-social-housing-urdu@2025-12-04-76b0ee14",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "All text of the page is kept with every line's letters in reverse (visual) order and as Arabic presentation-form glyphs, so the Urdu words cannot be read or searched.",
+     "evidence": "source: \"اوابز لاء کا مطلب ہے:\" / tree: \":ﮯﮨ بﻠطﻣ ﺎﮐ ءﻻ زﺑاوا\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The whole document is merged into one section called 'Paragraph 8' with number 8; the heading '2 اوابز لاء میں کیا شامل ہے؟' is body text and the five bullets with the 24 hours, 10, 5 and 3 working days and 12 weeks limits are not separate items under it.",
+     "evidence": "tree: heading_path \"Paragraph 8\", \"2 ２ ؟ ﮯﮨ ﻞﻣﺎﺷ ﺎﯿﮐ ﮟﯿﻣ ءﻻ ﺰﺑاوا\" / source: heading \"2 اوابز لاء میں کیا شامل ہے؟\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is kept inside the running text.",
+     "evidence": "tree: \"ﺎﮔ ےد هروﺷﻣ وﮐ پآ ںﯾﻣ ےرﺎﺑ ﮯﮐ 3 ﯽﺋﺎﻤﻨﮨر راو ہﻠﺣﺮﻣ 3\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "5be8f67fd5cb061a": {
+   "version_id": "awaab-s-law-guidance-for-tenants-in-social-housing-urdu@2025-12-04-76b0ee14",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "All text of the page is kept with every line's letters in reverse (visual) order and as Arabic presentation-form glyphs, so the Urdu words cannot be read or searched.",
+     "evidence": "source: \"خاکہ 2: نمایاں نمی اور پھپھوندی کے خطرے کے لیے مرحلہ وار رہنمائی\" / tree: \"ﯽﺋﺎﻣﻧﮨر راو ہﻠﺣرﻣ ﮯﯾﻟ ﮯﮐ ےرطﺧ ﮯﮐ یدﻧوﮭﭘﮭﭘ روا ﯽﻣﻧ ںﺎﯾﺎﻣﻧ :2 ہﮐﺎﺧ\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The whole document is merged into one section called 'Paragraph 8' with number 8; the heading 'اگر آپ کو کوئی نمایاں نمی اور پھپھوندی کا خطرہ نظر آئے تو کیا کرنا چاہیے', the figure caption and the stage labels (مرحلہ 4, مرحلہ 1) are body text, and the page number 5 sits inside the text.",
+     "evidence": "tree: heading_path \"Paragraph 8\", \"5 :2 ہﻠﺣرﻣ\" / source: \"مرحلہ 4:\" ... \"مرحلہ 1:\""
+    },
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The flow chart (خاکہ 2) is not kept as a figure and the words in its boxes are not in the tree; only its caption is in the running text (the same limits are repeated in the stage text).",
+     "evidence": "source: \"آپ کا مکان مالک 10 کاروباری دنوں کے اندر اس نمایاں خطرے کی تفتیش کرتا ہے\" (box in the chart)"
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "bb4289b79bc4de10": {
+   "version_id": "awaab-s-law-guidance-for-tenants-in-social-housing-urdu@2025-12-04-76b0ee14",
+   "unit": "p7",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The running text of the page is kept with every line's letters in reverse (visual) order and as Arabic presentation-form glyphs, so the Urdu words cannot be read or searched.",
+     "evidence": "source: \"سماجی ہاؤسنگ میں رہنے والے زیادہ تر لوگوں پر لاگو ہوتا ہے۔\" / tree: \"۔ﮯﮨ ﺎﺗوﮨ وﮔﻻ رﭘ ںوﮔوﻟ رﺗ هدﺎﯾز ﮯﻟاو ﮯﻧﮨر ںﯾﻣ ﮓﻧﺳؤﺎﮨ ﯽﺟﺎﻣﺳ\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The whole document is merged into one section called 'Paragraph 8' with number 8; the heading '4 اوابز لاء کے تحت آنے والے ہاؤسنگ' and the sub-heading are body text, the page number 7 sits inside the text, and the table has no heading above it.",
+     "evidence": "tree: heading_path \"Paragraph 8\", \"6 ４ ﮓ ﻨﺳؤﺎﮨ ﮯﻟاو ﮯﻧآ ﺖﺤﺗ ﮯﮐ ءﻻ ﺰﺑاوا\" / source: heading \"4 اوابز لاء کے تحت آنے والے ہاؤسنگ\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The two column headings are in Arabic, not the Urdu words printed on the page (the meaning is the same).",
+     "evidence": "source: \"آپ کہاں رہتے ہیں؟\", \"کیا اوابز لاء لاگو ہوتا ہے؟\" / tree: \"أين تسكن؟\", \"وهل ينطبق عليك قانون أواب؟\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "0c03a2f4ef692d09": {
+   "version_id": "awaab-s-law-guidance-for-tenants-in-social-housing-urdu@2025-12-04-76b0ee14",
+   "unit": "p8",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The running text of the page is kept with every line's letters in reverse (visual) order and as Arabic presentation-form glyphs, so the Urdu words cannot be read or searched.",
+     "evidence": "source: \"'خطرہ' سے کیا مراد ہے؟\" / tree: \"؟ ﮯﮨ داﺮﻣ ﺎﯿﮐ ﮯﺳ 'هﺮﻄﺧ'\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The whole document is merged into one section called 'Paragraph 8' with number 8; the heading '5 'خطرہ' سے کیا مراد ہے؟' is body text with page numbers around it, and the table has no heading above it.",
+     "evidence": "tree: heading_path \"Paragraph 8\", \"7 ５ ؟ ﮯﮨ داﺮﻣ ﺎﯿﮐ ﮯﺳ 'هﺮﻄﺧ'\" / source: heading \"5 'خطرہ' سے کیا مراد ہے؟\""
+    },
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "In the 'تفصیلی وضاحت' row, emergency hazard column, the first bullet has 'and' where the page has 'or', which changes the condition.",
+     "evidence": "source: \"یہ آپ کی صحت اور حفاظت یا آپ کے ساتھ رہنے والے\" / tree: \"یہ آپ کی صحت اور حفاظت اور آپ کے ساتھ رہنے والے\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
    "date": "2026-11-23"
   }
  }

@@ -1,0 +1,631 @@
+{
+ "source_id": "hse-hsg247",
+ "about": "Model verdicts on source against tree for hse-hsg247 (system/rag/semcheck.py).",
+ "verdicts": {
+  "4ec3e9554ebbb623": {
+   "version_id": "main@2026-07-21-56258caf",
+   "unit": "p111",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Four group headings of the summary list (Spraying, Dry stripping with control at source, Waste disposal, Final clearance) were pulled out of the list, so their points now read as points under Injection.",
+     "evidence": "source: \"Spraying – Only wets the outer surface\" / tree: \"• Injection – Needles should be sufficient ... – New equipment should comply with PAS 60. – Only wets the outer surface\""
+    },
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The four pulled-out list headings are given as a one-column table named Summary, but the page has no table.",
+     "evidence": "tree: columns \"Summary\", grid \"Spraying\", \"Dry stripping with control at source\", \"Waste disposal\", \"Final clearance\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "235e799d07046c1a": {
+   "version_id": "main@2026-07-21-56258caf",
+   "unit": "p113",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "The bold lead-ins of Part 1, Part 2 and Part 3 in Box 7.1 are cut out of their paragraphs and placed after the body text, so the paragraphs start mid-sentence and no longer say which part they describe.",
+     "evidence": "source: \"Part 2 (PAS 60/2): 'Negative pressure units - Specification'. This is similar to Part 1 in that it includes\" / tree: \"wettability. 1 in that it includes sections on design\""
+    },
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "The bold sentence about new equipment and the words after it are moved to the end, so the box paragraph starts mid-sentence.",
+     "evidence": "source: \"Equipment that conforms to PAS 60/1 and 60/2 will be clearly labelled\" / tree: \"to those in PAS 60/2. 60/1 and 60/2 will be clearly labelled\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Box 7.1 is not kept as a box of its own; its title and text run on inside the last bullet of paragraph 7.1.",
+     "evidence": "tree: \"• cleaning and disposal of asbestos waste. Box 7.1 The publicly available specifications (PASs) for equipment used in work with ACMs Equipment used\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "a0a21d1c31487bb2": {
+   "version_id": "main@2026-07-21-56258caf",
+   "unit": "p118",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The headings Controlled wet stripping, Wetting agents and Principles for controlled wetting are read as body text, so paragraphs 7.17 to 7.19 stay under the earlier heading.",
+     "evidence": "tree: \"removal of metal cladding from lagging. Controlled wet stripping Wetting agents 7.17 Asbestos fibres can be effectively suppressed\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The highlighted note printed between paragraphs 7.17 and 7.18 is placed after paragraph 7.19.",
+     "evidence": "source: \"Water on its own will not adequately wet asbestos fibres\" before \"7.18 Wetting agents can be applied\" / tree: note after \"need to be understood.\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "db506d7074f9d1c9": {
+   "version_id": "main@2026-07-21-56258caf",
+   "unit": "p124",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "The caption of Figure 7.15 is mixed line by line with the highlighted note beside it, so the caption is wrong and the note is cut after its first line.",
+     "evidence": "source: \"Figure 7.15 Spraying thin coating\" / tree: \"Spraying thin that the lagging is as uniformly wetted as possible before stripping. coating The size of the job\""
+    },
+    {
+     "kind": "figure",
+     "severity": "low",
+     "problem": "The last line of the highlighted note is given as a label inside the photo, which has no printed words.",
+     "evidence": "tree labels: \"the level of control\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading Some problems associated with wet stripping techniques is read as body text at the end of a bullet.",
+     "evidence": "tree: \"This system should maximise the speed of the work. Some problems associated with wet stripping techniques 7.40 Wet stripping is not appropriate\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The highlighted note on close supervision, printed before paragraph 7.40, is placed after paragraph 7.41.",
+     "evidence": "source: \"Close supervision is required to ensure the correct use of controlled stripping techniques\" before \"Some problems associated with wet stripping techniques\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "26c2604f9311b359": {
+   "version_id": "main@2026-07-21-56258caf",
+   "unit": "p125",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The slip hazard bullet of paragraph 7.41 is taken out of the list and read as the caption and labels of Figure 7.16.",
+     "evidence": "source: \"where a slip hazard may be introduced by spillage of the wetting solution. This can be reduced by placing drip trays\" / tree title: \"Wrap-and-cut n where a slip hazard may be introduced by spillage of the wetting solution.\""
+    },
+    {
+     "kind": "figure",
+     "severity": "low",
+     "problem": "The figure labels hold body text about drip trays and non-slip flooring, but the photo has no printed words.",
+     "evidence": "tree labels: \"This can be reduced by placing drip trays or troughs under the area being\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The headings Dry stripping with control at source and Wrap-and-cut are read as body text.",
+     "evidence": "tree: \"although hot work should be avoided. Dry stripping with control at source 7.42 There may be some situations\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The degree sign is read as the letter o.",
+     "evidence": "source: \"240°C\" / tree: \"240oC\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "c23b4c9fe7a1a930": {
+   "version_id": "main@2026-07-21-56258caf",
+   "unit": "p141",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The key and title block of drawing (b) in Figure 7.22 are read as a table, but the page has no table.",
+     "evidence": "tree: columns \"Layout of asbestos removal site\", grid \"Work areas\", \"For inspection\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The words inside drawing (b) are read as a separate note instead of labels of Figure 7.22.",
+     "evidence": "tree note: \"Tent Airlocks Work areas For inspection Plant room Canteen NPU Main car park Skip DCU Drawing V01 removal site\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "eaeb49542907dd33": {
+   "version_id": "main@2026-07-21-56258caf",
+   "unit": "p15",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The `text` of Table 1.2 (poorly controlled work) holds the words of Table 1.1 (well-controlled work), though its grid is right.",
+     "evidence": "source: \"Stripping pipe or vessel lagging – partially wetted or dry areas present up to 100\" / tree: \"Controlled wet stripping using up to 1 (unless a dry patch is hit or\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Table 1.2 is kept a second time as an unnumbered table titled \"Health effects and exposure\"; the page prints only two tables.",
+     "evidence": "tree: \"Table (Health effects and exposure)\" with rows \"Stripping pipe or vessel lagging – partially wetted or dry areas present\", \"up to 100\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "968ef0f2ca812411": {
+   "version_id": "main@2026-07-21-56258caf",
+   "unit": "p155",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The Appendix 7.3 heading is read as body text and the appendix is filed under the section \"Site assessment for reoccupation (Four-stage clearance procedure)\" instead of under its own heading.",
+     "evidence": "source: \"APPENDIX 7.3: ASBESTOS WASTE ‘INSTRUCTIONS IN WAITING’ (TREMCARD) INFORMATION\" / tree: heading_path \"Site assessment for reoccupation (Four-stage clearance procedure) > Text\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "3fac30f87cfc7564": {
+   "version_id": "main@2026-07-21-56258caf",
+   "unit": "p156",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "e2f67fcf092e56d0": {
+   "version_id": "main@2026-07-21-56258caf",
+   "unit": "p168",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "high",
+     "problem": "The Box 8.1 text block drops the sub-headings \"Pre-use checks\", \"Daily checks\" and \"Weekly checks\", so the weekly check reads as the last daily check; only the separate table keeps them.",
+     "evidence": "source: \"Weekly checks Visual check of electrical equipment for damage, wear, overheating etc.\" / tree: \"• testing of RCDs. Visual check of electrical equipment for damage, wear, overheating etc.\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Box 8.1 is kept twice, once as text and once as a table, and the table is placed after the \"Showering and laundering\" text instead of before it.",
+     "evidence": "tree: table \"Maintenance and cleaning of hygiene facilities\" with rows \"Pre-use checks\", \"Daily checks\", \"Weekly checks\" after paragraph 8.47"
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-heading \"Laundering of coveralls and towels\" is read as a note, and the minor headings \"Coveralls\", \"Towels\" are run into the body text.",
+     "evidence": "source: \"Laundering of coveralls and towels\" (heading) / tree: type \"note\", text \"Laundering of coveralls and towels\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "aa8f9f8d00234e57": {
+   "version_id": "main@2026-07-21-56258caf",
+   "unit": "p175",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "c39c89580ebd9edb": {
+   "version_id": "main@2026-07-21-56258caf",
+   "unit": "p18",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-heading above paragraph 1.40 is swept into the notes of Table 1.3 and is not kept as a heading for paragraphs 1.40-1.41.",
+     "evidence": "source: \"The Asbestos (Licensing) Regulations 1983 (as amended) 1.40 In Great Britain\" / tree: table text ends \"over any continuous 12-week period.\", \"The Asbestos (Licensing) Regulations 1983 (as amended)\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "64658e1fb0d3024b": {
+   "version_id": "main@2026-07-21-56258caf",
+   "unit": "p181",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The page footer (publisher's imprint, date and page number) is kept as a body text section under Further information.",
+     "evidence": "tree: \"Published by the Health and Safety Executive 07/12 Page 181 of 181\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "3e578c3b50635bca": {
+   "version_id": "main@2026-07-21-56258caf",
+   "unit": "p22",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The Appendix 1.1 flow chart is filed under an unrelated heading and given that heading as its table title, and the appendix title is read as body text instead of a heading.",
+     "evidence": "source: \"Appendix 1.1 Materials identified as containing asbestos\" / tree: \"Medical examination of asbestos removal workers under CAWR 2002 > Table (Medical examination of asbestos removal workers under CAWR 2002)\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "A piece of the flow chart is kept as a separate body text with the branch label mixed into the question.",
+     "evidence": "source: \"Does the material contain asbestos?\" with \"No\" beside it / tree: \"Does the material No contain asbestos?\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "fc88d4a8722275f2": {
+   "version_id": "main@2026-07-21-56258caf",
+   "unit": "p23",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The Appendix 1.2 flow chart is filed under an unrelated heading and given that heading as its table title, and the appendix title is read as body text placed after the chart.",
+     "evidence": "source: \"Appendix 1.2 Sprayed asbestos coatings and pipe and vessel insulation in poor condition\" / tree: \"Medical examination of asbestos removal workers under CAWR 2002 > Table (Medical examination of asbestos removal workers under CAWR 2002)\""
+    },
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The chart's arrows from Carry out repair work, Seal or encapsulate and Enclose on to Record, manage and monitor are lost, so these outcomes read as end points.",
+     "evidence": "source: arrows from \"Carry out repair work\", \"Seal or encapsulate\", \"Enclose\" to \"Record, manage and monitor\" / tree: \"Yes: Carry out repair work. No: Is the material accessible?\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "421bce2ff7e54295": {
+   "version_id": "main@2026-07-21-56258caf",
+   "unit": "p24",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The Appendix 1.3 flow chart is filed under an unrelated heading and given that heading as its table title, and the appendix title is read as body text placed after the chart.",
+     "evidence": "source: \"Appendix 1.3 AIB and insulating blocks in poor condition\" / tree: \"Medical examination of asbestos removal workers under CAWR 2002 > Table (Medical examination of asbestos removal workers under CAWR 2002)\""
+    },
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The chart's line from Carry out repair work on to Record, manage and monitor is lost, so repair reads as an end point.",
+     "evidence": "source: line from \"Carry out repair work\" to \"Record, manage and monitor\" / tree: \"Yes: Carry out repair work. No: Is the material readily accessible?\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "d111d4e79d7e521c": {
+   "version_id": "main@2026-07-21-56258caf",
+   "unit": "p25",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The Appendix 1.4 flow chart is filed under an unrelated heading and given that heading as its table title, and the appendix title is read as body text placed after the chart.",
+     "evidence": "source: \"Appendix 1.4 Other asbestos materials in poor condition (read Notes 1 and 2 first)\" / tree: \"Medical examination of asbestos removal workers under CAWR 2002 > Table (Medical examination of asbestos removal workers under CAWR 2002)\""
+    },
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The chart's lines from Carry out repair work and Seal or enclose on to Record, manage and monitor are lost, so these outcomes read as end points.",
+     "evidence": "source: lines from \"Carry out repair work\" and \"Seal or enclose\" to \"Record, manage and monitor\" / tree: \"Yes: Seal or enclose. No: Remove\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "2ad0a4d4f5a96b73": {
+   "version_id": "main@2026-07-21-56258caf",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "36543623f50116eb": {
+   "version_id": "main@2026-07-21-56258caf",
+   "unit": "p36",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Box 2.2, a separate boxed panel with its own title, is merged into the running text of paragraph 2.32.",
+     "evidence": "source: \"Box 2.2 Licence holders who supply labour (main points)\" / tree: \"They must retain the records for 40 years. Box 2.2 Licence holders who supply labour (main points) All licence holders\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The italic sub-heading before paragraph 2.30 is read as body text inside the paragraph run.",
+     "evidence": "tree: \"no gaps in the documentation. Licence holders (‘recruitment agencies’) who supply labour but undertake no work in their own right 2.30 Organisations\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "1245fc014f9b58df": {
+   "version_id": "main@2026-07-21-56258caf",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading printed above the table is read as body text at the end of the introduction paragraph.",
+     "evidence": "source: heading \"Planning for asbestos removal work\" / tree: \"The items are identified by paragraph numbers. Planning for asbestos removal work\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "2ae5f05c214c1a66": {
+   "version_id": "main@2026-07-21-56258caf",
+   "unit": "p53",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The caption paragraph beside diagram (b) is held in the labels and is mixed line by line with the labels of diagram (b).",
+     "evidence": "tree: \"as a diagram, (a) shows the (b) Tent\", \"example of how the site could be Airlocks Work areas\", \"Dark areas show work areas and For inspection\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "13e4170fcd8b54d9": {
+   "version_id": "main@2026-07-21-56258caf",
+   "unit": "p6",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "f504299dc306948d": {
+   "version_id": "main@2026-07-21-56258caf",
+   "unit": "p69",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The module table (module number, title, audience and content rows) is read as one run of body text, though all words are kept in order.",
+     "evidence": "tree: \"Module 22 Scaffolders: Roles and responsibilities All levels Legal responsibilities of individuals, employer and management\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "53fd46698c35662b": {
+   "version_id": "main@2026-07-21-56258caf",
+   "unit": "p71",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-headings of Appendix 4.3 are placed directly under Chapter 4 as siblings of the appendix, not under the appendix heading.",
+     "evidence": "tree: \"Chapter 4: Training for employees, supervisors and others working with ACMs > Course content\" (also \"Duration of courses\", \"Tutor to delegate ratios\")"
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "69f5343cc8f94832": {
+   "version_id": "main@2026-07-21-56258caf",
+   "unit": "p73",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The Step 1, Step 2 and Step 3 headings are sub-headings of Appendix 4.4 but the tree puts them directly under Chapter 4, beside the appendix.",
+     "evidence": "source: \"APPENDIX 4.4: CARRYING OUT A TNA ... Step 1 Perform a gap analysis\" / tree: \"Chapter 4: Training for employees, supervisors and others working with ACMs > Step 1 Perform a gap analysis\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "55e0d3aab047ce78": {
+   "version_id": "main@2026-07-21-56258caf",
+   "unit": "p75",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "3fa4c16609f7c04a": {
+   "version_id": "main@2026-07-21-56258caf",
+   "unit": "p81",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The first six rows of Table 5.3 are also kept as running text, with labels and values mixed, joined to the front of paragraph 5.18 which is not on this page.",
+     "evidence": "tree: \"Propsed type of Well-conducted, controlled wet stripping using manual tools. Representative core removal: samples taken ... last month 5.18 To obtain adequate performance\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The `text` of Table 5.2 holds the words of Table 5.1, and the `text` of Table 5.3 starts with the words of Table 5.2 and lacks its own first six rows.",
+     "evidence": "source: \"PF Fresh-air hose BA BS EN 138/269\" / tree (Table 5.2 text): \"PF Filtering Valved Filtering Half-mask Full-face Powered Power-\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "Table 5.3 has two printed columns (label and details) but the grid joins them into one column named after the caption.",
+     "evidence": "source: \"Work:\" | \"Removal of asbestos insulation from a boiler house\" / tree: \"Work: Removal of asbestos insulation from a boiler house\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "03f0699e06681bde": {
+   "version_id": "main@2026-07-21-56258caf",
+   "unit": "p82",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The last row (Selection of suitable RPE) is one cell in the source but the grid splits it into two cells in the middle of a sentence.",
+     "evidence": "tree: \"So a TM3 power-assisted respirator with full-face\" | \"mask and P3 filter(s) would be the choice for those without beards\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "Table 5.3 has two printed columns (label and details) but the grid joins them into one column named after the caption.",
+     "evidence": "source: \"RPE wearers:\" | \"Clean shaven except for one person who has beard\" / tree: \"RPE wearers: Clean shaven except for one person who has beard\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The `text` of Table 5.3 starts with the header and rows of Table 5.2, which is a different table.",
+     "evidence": "tree: \"PF Fresh-air Light-duty Light-duty Constant Demand Self- ... 2000 Positive Positive ... 200 Suit\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "57ac40dd09ab18a4": {
+   "version_id": "main@2026-07-21-56258caf",
+   "unit": "p88",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "This is the chapter's contents list, but the tree reads its entries as real section headings, with the page numbers inside the titles, and the sub-entries as body text.",
+     "evidence": "source: \"Contents Introduction 89 Definition and use 89\" / tree: heading \"Introduction 89\", heading \"Definition and use 89\", text \"When is an enclosure required? 89 Preliminary planning 91\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

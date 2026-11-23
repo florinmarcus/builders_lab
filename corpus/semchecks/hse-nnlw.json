@@ -1,0 +1,24 @@
+{
+ "source_id": "hse-nnlw",
+ "about": "Model verdicts on source against tree for hse-nnlw (system/rag/semcheck.py).",
+ "verdicts": {
+  "118e26b4f9725da2": {
+   "version_id": "main@2026-10-29-7997ecc3",
+   "unit": "part1",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "A space was added before the full stop at the end of the sentence.",
+     "evidence": "source: \"consumed in designated areas.\" / tree: \"consumed in designated areas .\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

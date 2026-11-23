@@ -1,0 +1,59 @@
+{
+ "source_id": "hse-asbestos-em1",
+ "about": "Model verdicts on source against tree for hse-asbestos-em1 (system/rag/semcheck.py).",
+ "verdicts": {
+  "192f4e472b8b6a0b": {
+   "version_id": "main@2024-12-06-f647f368",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "high",
+     "problem": "The sentence under What this sheet covers is cut off after its first line, so the scope of the sheet is lost.",
+     "evidence": "source: \"if you discover or accidentally disturb and release asbestos during your work.\" / tree: \"This sheet tells you what you need to do if you discover or\""
+    },
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The printed title of the sheet is not in the tree, which holds a different title.",
+     "evidence": "source: \"What to do if you discover or accidentally disturb asbestos during your work\" / tree: \"Asbestos essentials task sheet EM1 (accidental disturbance)\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "14b07e34e7a60978": {
+   "version_id": "main@2024-12-06-f647f368",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "6c6d1606781c21ed": {
+   "version_id": "main@2024-12-06-f647f368",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The caption of the first photo has a lowercase letter l in place of the capital I in the abbreviation AIB.",
+     "evidence": "source: \"AIB fire surround\" / tree: \"AlB fire surround\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

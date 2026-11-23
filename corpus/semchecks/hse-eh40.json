@@ -1,0 +1,600 @@
+{
+ "source_id": "hse-eh40",
+ "about": "Model verdicts on source against tree for hse-eh40 (system/rag/semcheck.py).",
+ "verdicts": {
+  "1ce5d66fbe810c74": {
+   "version_id": "main@2024-12-06-736c6fc0",
+   "unit": "p10",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "210537ea3e6eb6d0": {
+   "version_id": "main@2024-12-06-736c6fc0",
+   "unit": "p11",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The footnote to the Chromium (VI) process generated limit is not kept with the table but in a separate text section, joined to the running header.",
+     "evidence": "tree: \"Table 1: List of approved workplace exposure limits 1 ‘Process generated’ refers to exposures to Chromium (VI) Compounds\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "d402946a2210763a": {
+   "version_id": "main@2024-12-06-736c6fc0",
+   "unit": "p12",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "5963c071e4f40c6d": {
+   "version_id": "main@2024-12-06-736c6fc0",
+   "unit": "p13",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The page's running header is kept as body text sections, repeated, and one copy is joined to the front of a footnote from page 11.",
+     "evidence": "source: running header \"Table 1: List of approved workplace exposure limits\" / tree: \"Table 1: List of approved workplace exposure limits Table 1: List of approved workplace exposure limits\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "442cb224be600c6b": {
+   "version_id": "main@2024-12-06-736c6fc0",
+   "unit": "p14",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "88f1ece0178ff508": {
+   "version_id": "main@2024-12-06-736c6fc0",
+   "unit": "p15",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The page's running header is kept as a body text section, repeated twice, instead of being dropped.",
+     "evidence": "source: running header \"Table 1: List of approved workplace exposure limits\" / tree: \"Table 1: List of approved workplace exposure limits Table 1: List of approved workplace exposure limits\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "6e91feb511b50155": {
+   "version_id": "main@2024-12-06-736c6fc0",
+   "unit": "p16",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "745d863e8b67bb67": {
+   "version_id": "main@2024-12-06-736c6fc0",
+   "unit": "p17",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The page's running header is kept as two body text sections, each repeating it twice, instead of being dropped.",
+     "evidence": "source: running header \"Table 1: List of approved workplace exposure limits\" / tree: \"Table 1: List of approved workplace exposure limits Table 1: List of approved workplace exposure limits\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "331b7d19e1747fdb": {
+   "version_id": "main@2024-12-06-736c6fc0",
+   "unit": "p18",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The two refractory ceramic fibre limits are printed in one cell across the long-term ppm and mg.m-3 columns, but the grid puts them under ppm only and leaves mg.m-3 empty.",
+     "evidence": "source: \"5mg/m3\" and \"0.3 fibre/millilitre\" across both long-term columns / tree: ppm \"5mg/m3\", mg.m-3 \"\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "60800f975960b9c6": {
+   "version_id": "main@2024-12-06-736c6fc0",
+   "unit": "p19",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The running header of the page is kept as a body text section, repeated twice.",
+     "evidence": "tree: \"Table 1: List of approved workplace exposure limits Table 1: List of approved workplace exposure limits\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "5c382948797f7d44": {
+   "version_id": "main@2024-12-06-736c6fc0",
+   "unit": "p20",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "601f735f0ea93842": {
+   "version_id": "main@2024-12-06-736c6fc0",
+   "unit": "p21",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The running header of the page is kept as body text in two text sections.",
+     "evidence": "tree: \"Table 1: List of approved workplace exposure limits Table 1: List of approved workplace exposure limits\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The sub-rows under Tungsten and Zinc distearate carry only their sub-label, so the substance name is only in the separate heading row above them.",
+     "evidence": "source: \"Zinc distearate / inhalable dust - 10 - 20\" / tree: [\"inhalable dust\", \"557-05-1\", \"-\", \"10\", \"-\", \"20\"]"
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "5b38b9dd3e8efa70": {
+   "version_id": "main@2024-12-06-736c6fc0",
+   "unit": "p28",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-headings are at the same level as the chapter title and do not have it as parent in the heading path.",
+     "evidence": "source: \"APPLYING OCCUPATIONAL EXPOSURE LIMITS\" above \"Scope of the limits\" / tree: heading_path \"Scope of the limits\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "7b65cb5c9472e841": {
+   "version_id": "main@2024-12-06-736c6fc0",
+   "unit": "p29",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The conversion formula lost its fraction line, so the division by 24.05526 is no longer shown.",
+     "evidence": "source: \"WEL in mg.m-3 = WEL in ppm × MWt\" over \"24.05526\" / tree: \"WEL in mg.m-3 = WEL in ppm × MWt 24.05526\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The running header of this page is inserted in the middle of the sentence of paragraph 66 that runs over from page 28.",
+     "evidence": "source: \"short-term exposure limit is normally 15 minutes\" / tree: \"short-term exposure limit Applying occupational exposure limits is normally 15 minutes\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "fbd432f560063141": {
+   "version_id": "main@2024-12-06-736c6fc0",
+   "unit": "p36",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-headings under the chapter MONITORING EXPOSURE are kept as top-level chapters with no parent in the heading path.",
+     "evidence": "source: \"Personal/workplace air monitoring\" (sub-heading under MONITORING EXPOSURE) / tree: heading_path \"Personal/workplace air monitoring\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The footnote reference number is joined to the word before it.",
+     "evidence": "source: \"Monitoring strategies for toxic substances\" with superscript 11 / tree: \"Monitoring strategies for toxic substances11 which provides\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "6d533068bc29f695": {
+   "version_id": "main@2024-12-06-736c6fc0",
+   "unit": "p38",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The subscript carbon numbers of the ranges in paragraph 85 are lost, so the scope of the procedure has no numbers.",
+     "evidence": "source: \"aliphatics in the range C5 to C15, cycloalkanes in the range C5 to C16\" / tree: \"aliphatics in the range C to C , cycloalkanes in the range C to C\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The RCP formula is flattened into a run of words with the fractions and subscripts lost, so it cannot be read as an equation.",
+     "evidence": "source: \"1/OELsol = FRa/OELa + FRb/OELb + FRn/OELn\" / tree: \"1 FR FR FR = a + b + n OEL OEL OEL OEL\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The definitions under 'where:' lose their subscripts, so the mixture limit and the component limit are both just 'OEL'.",
+     "evidence": "source: \"OELsol = occupational exposure limit of the hydrocarbon solvent mixture ... OELa = occupational exposure limit or guidance value of the component 'a'\" / tree: \"OEL = occupational exposure limit of the hydrocarbon solvent mixture (in mg.m-3) OEL = occupational exposure limit or guidance value\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The subscripts of the formula and of the definitions are split off into separate text blocks at the end.",
+     "evidence": "tree: \"sol a b n\" and \"sol a a\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-headings under the chapter MIXED EXPOSURES are kept as top-level chapters with no parent in the heading path.",
+     "evidence": "source: \"WELs for mixtures\" (sub-heading under MIXED EXPOSURES) / tree: heading_path \"WELs for mixtures\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "fb9c3ec2e8437091": {
+   "version_id": "main@2024-12-06-736c6fc0",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "7302c39bd25b5cde": {
+   "version_id": "main@2024-12-06-736c6fc0",
+   "unit": "p40",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The worked equation is flattened in the running text with its terms out of order, and one term lands after the result and runs into the next sentence.",
+     "evidence": "source: \"1/OELsol = 52/100/1200 + 27/100/800 + 10/10/500 + 1/100/220 + 10/100/125\" / tree: \"1 52/100 27/100 = + OEL 1200 800 1/100 + 10/100 220 125 ... OEL = 551 mg.m-3 10/10 + 500 rounded to the nearest 50\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The subscript carbon number of the aromatics is lost.",
+     "evidence": "source: \"1% C8 aromatics (o-, m-, p- xylene or mixed isomers)\" / tree: \"1% C aromatics (o-, m-, p- xylene or mixed isomers)\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The equation is also kept as a table, placed after paragraph 92 instead of before the heading 'Effects of mixed exposures', and its text holds only the subscripts.",
+     "evidence": "tree: table \"1/OELsol\" ... \"551 mg.m-3\" after \"evidence for doing so.\"; table text \"sol\", \"sol\", \"sol\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-headings of the chapter MIXED EXPOSURES are kept as top-level chapters with no parent in the heading path.",
+     "evidence": "source: \"Effects of mixed exposures\" (sub-heading under MIXED EXPOSURES) / tree: heading_path \"Effects of mixed exposures\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "9e54a96ea8b34d06": {
+   "version_id": "main@2024-12-06-736c6fc0",
+   "unit": "p43",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The running header of the page is kept as body text under the earlier section 'Complicating factors'.",
+     "evidence": "tree: \"Complicating factors > Text\": \"Table 2: Biological monitoring guidance values (BMGVs)\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "0afe50a37f6b9bd2": {
+   "version_id": "main@2024-12-06-736c6fc0",
+   "unit": "p44",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "4c97c35bfd0e6b67": {
+   "version_id": "main@2024-12-06-736c6fc0",
+   "unit": "p45",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "One grid cell spells a substance name differently from the page, which prints it without the second 'o'.",
+     "evidence": "source: \"2-Bromo-2-chloro-1,1,1-trifluroethane\" / tree: \"2-Bromo-2-chloro-1,1,1-trifluoroethane\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The running header is kept as a body text section and is doubled, though it is printed once at the top of the page.",
+     "evidence": "source: \"List of synonyms\" / tree: \"List of synonyms List of synonyms\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "5906311fad9558b8": {
+   "version_id": "main@2024-12-06-736c6fc0",
+   "unit": "p46",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "aa8bde33c279aebc": {
+   "version_id": "main@2024-12-06-736c6fc0",
+   "unit": "p47",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "a66ee7329fec5471": {
+   "version_id": "main@2024-12-06-736c6fc0",
+   "unit": "p48",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "8b745d5ce0832de5": {
+   "version_id": "main@2024-12-06-736c6fc0",
+   "unit": "p49",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The running header is kept as a body text section and is doubled, though it is printed once at the top of the page.",
+     "evidence": "source: \"List of synonyms\" / tree: \"List of synonyms List of synonyms\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "c34f339955a0ba1f": {
+   "version_id": "main@2024-12-06-736c6fc0",
+   "unit": "p50",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "c24af26e2ed0c2e0": {
+   "version_id": "main@2024-12-06-736c6fc0",
+   "unit": "p51",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "8299aa729eee1f9a": {
+   "version_id": "main@2024-12-06-736c6fc0",
+   "unit": "p52",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "4d801870f0b32a49": {
+   "version_id": "main@2024-12-06-736c6fc0",
+   "unit": "p53",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The running header of the page is kept as a body text section, and its words are doubled.",
+     "evidence": "source: \"List of synonyms\" (running header, top right) / tree: \"List of synonyms List of synonyms\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "733620c31c5f4484": {
+   "version_id": "main@2024-12-06-736c6fc0",
+   "unit": "p54",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "626741875e9c7c44": {
+   "version_id": "main@2024-12-06-736c6fc0",
+   "unit": "p55",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "3b5d562deebc784c": {
+   "version_id": "main@2024-12-06-736c6fc0",
+   "unit": "p56",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "493aa6c7d02af684": {
+   "version_id": "main@2024-12-06-736c6fc0",
+   "unit": "p57",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The running header of the page is kept twice as a body text block before the table.",
+     "evidence": "source: \"List of synonyms\" (running header) / tree: \"List of synonyms List of synonyms\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "677fb40d77e7c92d": {
+   "version_id": "main@2024-12-06-736c6fc0",
+   "unit": "p58",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "489db5ba4b3c6621": {
+   "version_id": "main@2024-12-06-736c6fc0",
+   "unit": "p59",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "7ee67d47e2430de2": {
+   "version_id": "main@2024-12-06-736c6fc0",
+   "unit": "p9",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Numbered paragraphs 15 and 16 are merged into one text block, with their numbers left inside the text.",
+     "evidence": "source: \"16 However, the entries in the column headed 'CAS number'\" (own paragraph) / tree: \"...by reference to this list. 16 However, the entries in the column headed\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The running header of the page is kept as a body text block under the earlier chapter \"Annotations\".",
+     "evidence": "source: \"Table 1: List of approved workplace exposure limits\" (running header) / tree: heading_path \"Annotations > Text\", text \"Table 1: List of approved workplace exposure limits\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

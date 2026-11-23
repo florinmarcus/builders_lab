@@ -1,0 +1,54 @@
+{
+ "source_id": "hse-cis63",
+ "about": "Model verdicts on source against tree for hse-cis63 (system/rag/semcheck.py).",
+ "verdicts": {
+  "7aebdc48d99d4f68": {
+   "version_id": "main@2024-12-06-1569ba38",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading of the case box is split: its first line is the title and its second line is run into the body text.",
+     "evidence": "source: \"What can happen if health and safety is ignored?\" / tree: title \"What can happen if health and\", text \"safety is ignored? A young worker with no training\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Two separate paragraphs are run into the last bullet of the list.",
+     "evidence": "tree: \"• Make sure the people on your site are trained to do the work safely. This is just a summary\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The opening box comes after the bullet list, See over comes before the case box and Fee for Intervention comes before the case box, unlike the page.",
+     "evidence": "tree: \"Want to run a successful construction site?\" placed after \"See over for examples of good practice...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "66d1c352fe460605": {
+   "version_id": "main@2024-12-06-1569ba38",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading Good examples, printed above the right photo column, is read as body text in the middle of the Further information paragraph.",
+     "evidence": "source: heading \"Good examples\" / tree: \"considering what you need to do. Good examples This leaflet is available at:\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

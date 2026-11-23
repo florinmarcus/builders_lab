@@ -1,0 +1,108 @@
+{
+ "source_id": "hse-cis54",
+ "about": "Model verdicts on source against tree for hse-cis54 (system/rag/semcheck.py).",
+ "verdicts": {
+  "c9bb069fa03b4151": {
+   "version_id": "main@2024-12-06-877cb096",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading Introduction is read as body text at the start of the first paragraph, so the section has no heading.",
+     "evidence": "source: \"Introduction\" as a heading / tree: \"Introduction This information sheet describes dust control systems used with cut-off saws.\""
+    },
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The printed title is longer than the title the tree keeps, and the words on its scope are not in the tree.",
+     "evidence": "source: \"Dust control on cut-off saws used for stone or concrete cutting\" / tree: \"CIS54 Dust control on cut-off saws\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "d971a153031822e0": {
+   "version_id": "main@2024-12-06-877cb096",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "The two columns are mixed: the left column text on silicosis, legal requirements and environmental guidelines is put in the middle of the right column's Wet methods text.",
+     "evidence": "tree: \"often installed to prevent the heads becoming blocked. Silica causes a stiffening and scarring of the lungs called silicosis.\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "A sentence from the Wet methods text is split, with its first half put inside the Figure 1 caption and its second half left after the netregs link.",
+     "evidence": "source: \"Modern cut-off saws have an attachment to which a mains water supply or a pressurised water bottle can be secured.\" / tree: \"breathe in over a full Modern cut-off saws have an attachment to which a shift contains more RCS\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The headings Legal requirements and Environmental guidelines are read as body text, so the exposure limit and the COSHH duty sit under Control systems.",
+     "evidence": "tree: \"can also be responsible. Legal requirements The Control of Substances Hazardous to Health Regulations 2002\" and \"(TWA). Environmental guidelines Releases and wastes\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The end of the Health effects section from page 1 is filed under Control systems and not under Health effects.",
+     "evidence": "source: \"Silica causes a stiffening and scarring of the lungs called silicosis.\" / tree heading_path: \"Control systems > Text\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-headings in the Control systems column are read as body text and run into the paragraphs.",
+     "evidence": "tree: \"Wet methods Wet dust suppression should not\", \"can be secured. Mains water system Where possible\", \"by hand. Water flow rate Studies have shown\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The label printed inside Figure 1 is kept as a separate body text section under Health effects.",
+     "evidence": "tree: \"RCS dust\" with heading_path \"Health effects > Text\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "36f18b671d5c0ddb": {
+   "version_id": "main@2024-12-06-877cb096",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "The left column (References) and the right column (Further information) are mixed, so reference 1 is cut in two and its end sits inside the Further information sentence.",
+     "evidence": "source: \"including a link to additional guidance for CDM dutyholders developed by the construction industry.\" / tree: \"including a link to additional and sinonasal cancer RR595 HSE 2007 www.hse.gov. guidance for CDM dutyholders developed by the uk/research/rrhtm/index.htm 2 Control of substances\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The end of the first Further information paragraph is moved to after the note that closes the references.",
+     "evidence": "tree: \"their future availability cannot be guaranteed. construction industry. HSE priced and free publications can be viewed online\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The heading References is read as body text under Other matters, and references 2 to 8 with their closing note are placed under the heading Further information.",
+     "evidence": "source: heading \"References\" / tree: \"References 1 The burden of occupational cancer in Great Britain\" under \"Other matters > Text\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

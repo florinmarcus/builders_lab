@@ -1,0 +1,41 @@
+{
+ "source_id": "bsr-dutyholder",
+ "about": "Model verdicts on source against tree for bsr-dutyholder (system/rag/semcheck.py).",
+ "verdicts": {
+  "53e2444a7b51a64f": {
+   "version_id": "page@2024-03-04-866e2308",
+   "unit": "part1",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The two-item list under \"you must:\" in \"Higher-risk building work: clients' duties\" is split, so its last bullet sits alone in a second text section without its lead-in.",
+     "evidence": "tree text-2: \"• provide details about the competence of those appointed in the competence declaration and the construction control plan\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The two-item list under \"You must provide information to BSR ... about:\" in the serious sanctions section is split, so its last bullet sits alone in a second text section without its lead-in.",
+     "evidence": "tree text-2: \"• how you will mitigate the risks of appointing an individual or organisation with a serious sanction\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "b8764f5552f13005": {
+   "version_id": "page@2024-03-04-866e2308",
+   "unit": "part2",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

@@ -1,0 +1,114 @@
+{
+ "source_id": "hse-ro-cis26",
+ "about": "Model verdicts on source against tree for hse-ro-cis26 (system/rag/semcheck.py).",
+ "verdicts": {
+  "da423648717abbca": {
+   "version_id": "main@2024-12-06-89348522",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "The three-item bullet list is moved out of its sentence to the end of the page, so the lead-in runs straight into the next heading.",
+     "evidence": "source: \"îndeosebi ca urmare a: contactului cu pielea; inhalării de praf; şi manipulării manuale.\" / tree: \"îndeosebi ca urmare a: Contactul cu pielea Contactul cu ciment umed\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "All headings on the page are read as body text inside one block, so no section has its own heading or heading path.",
+     "evidence": "tree: \"(versiunea 2) Introducere Cimentul se utilizează\" ; \"pentru sănătate. Efectele asupra sănătăţii Cimentul poate\" ; \"grave la nivelul ochilor. Inhalarea de praf Manipularea\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number 1 is inserted in the middle of a sentence.",
+     "evidence": "source: \"de-a lungul întregii zile de lucru\" / tree: \"de-a lungul 1 întregii zile de lucru\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The bullet symbols are kept as raw glyph codes.",
+     "evidence": "tree: \"(cid:2) contactului cu pielea; (cid:2) inhalării de praf; şi (cid:2) manipulării manuale.\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Two words are run together.",
+     "evidence": "source: \"Dermatita alergică este cauzată\" / tree: \"Dermatita alergicăeste cauzată\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "676d9af016e6b948": {
+   "version_id": "main@2024-12-06-89348522",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "The three bullets on why health surveillance is needed are broken up: their first lines are moved to the end of the page and their second lines stay in the body, so the list cannot be read.",
+     "evidence": "source: \"a identifica orice eventuale semne de modificare a pielii asociate expunerii\" / tree: \"este necesară pentru: pielii asociate expunerii, cât mai curând posibil\" ... \"viitorul; şi înregistrate în activitatea de control.\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The headings are read as body text inside one block, so the sections have no heading of their own.",
+     "evidence": "tree: \"medical de medicina muncii. Inhalarea de praf În măsura\" ; \"control necesare. Manipularea manuală Se va evita\" ; \"al riscului. Prevederi legale Reglementările din 1999\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number 2 is inserted in the middle of a title.",
+     "evidence": "source: \"(General COSHH Approved Code of Practice)\" / tree: \"(General COSHH Approved Code 2 of Practice)\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The bullet symbols are kept as raw glyph codes.",
+     "evidence": "tree: \"(cid:2) a proteja angajaţii; (cid:2) a identifica orice eventuale semne\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "0360f27ee83e29b2": {
+   "version_id": "main@2024-12-06-89348522",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The two headings are read as body text and the separate reference entries are merged into one running paragraph.",
+     "evidence": "tree: \"Bibliografie Health surveillance at work, HSG61\" ; \"ISBN 0 7176 1825 0. 3 Informaţii adiţionale Publicaţiile DSSM\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number 3 is inserted in the text, right after an ISBN.",
+     "evidence": "source: \"ISBN 0 7176 1825 0.\" then \"Informaţii adiţionale\" / tree: \"ISBN 0 7176 1825 0. 3 Informaţii adiţionale\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The boxed note is placed after the copyright text, but on the page it comes before it.",
+     "evidence": "source: \"la www.hse.gov.uk.\" then \"Acest pliant include instrucţiuni\" then \"© Crown copyright\" / tree: note after \"Vă rugăm să indicaţi că sursa este DSSM.\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

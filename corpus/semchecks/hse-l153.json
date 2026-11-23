@@ -1,0 +1,221 @@
+{
+ "source_id": "hse-l153",
+ "about": "Model verdicts on source against tree for hse-l153 (system/rag/semcheck.py).",
+ "verdicts": {
+  "50f82b3965fbb906": {
+   "version_id": "main@2024-12-06-b89e9812",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "018ed945e12d349c": {
+   "version_id": "main@2024-12-06-b89e9812",
+   "unit": "p11",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "477ac3f76477d4c1": {
+   "version_id": "main@2024-12-06-b89e9812",
+   "unit": "p27",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The first line of the page, which continues paragraph 72, was cut out into a separate note titled 'Guidance 9, 10' and placed after the paragraph, so the sentence is split and paragraph 72 reads wrongly.",
+     "evidence": "source: \"The term ‘design’ includes drawings, design details, specifications, bills of quantity and calculations prepared for the purpose of a design.\" / tree: \"instructs someone else to do so. and calculations prepared for the purpose of a design.\""
+    },
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "The words \"The term 'design' includes drawings, design details, specifications, bills of quantity\" come after the rest of paragraph 72 in the tree, but in the source they come before \"and calculations prepared\".",
+     "evidence": "source: \"specifications, bills of quantity and calculations prepared for the purpose of a design. Designers include architects\" / tree: note-12 after para-72 \"The term ‘design’ includes drawings, design details, specifications, bills of quantity\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "3627928bfafa8802": {
+   "version_id": "main@2024-12-06-b89e9812",
+   "unit": "p49",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "42c87eaced70b6ec": {
+   "version_id": "main@2024-12-06-b89e9812",
+   "unit": "p51",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Regulation 18 is split into two separate text sections at the page break, with paragraph (1) in one and paragraphs (2) and (3) in another; the words are all there.",
+     "evidence": "tree: text-1 \"(1) Each part of a construction site must\" / text-2 \"(2) Where necessary in the interests of health and safety\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "a872750e13e07a9c": {
+   "version_id": "main@2024-12-06-b89e9812",
+   "unit": "p56",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "c81f7377f196e4ae": {
+   "version_id": "main@2024-12-06-b89e9812",
+   "unit": "p6",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The footnote markers on the column heading and on \"Principal designers\" are dropped from the grid, so the cells no longer point to their footnotes (printed on the next page).",
+     "evidence": "source: \"CDM dutyholders:* Who are they?\" and \"Principal designers** are\" / tree: \"CDM dutyholders: Who are they?\" and \"Principal designers are designers appointed\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "c0cf7fdbb9501cdb": {
+   "version_id": "main@2024-12-06-b89e9812",
+   "unit": "p7",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "high",
+     "problem": "The first table footnote (*), printed in the margin, is not in the tree at all.",
+     "evidence": "source: \"*Organisations or individuals can carry out the role of more than one dutyholder, provided they have the skills, knowledge, experience and (if an organisation)\""
+    },
+    {
+     "kind": "missing",
+     "severity": "high",
+     "problem": "The start of the second footnote (**), with its \"not\", is lost; the tree keeps only the tail from \"co-ordinators.\"",
+     "evidence": "source: \"** Principal designers are not a direct replacement for CDM co-ordinators. The range of duties\" / tree: \"co-ordinators. The range of duties\""
+    },
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "The kept tail of the footnote is mixed line by line with lines from the Workers cell, so it does not read as one note.",
+     "evidence": "tree: \"they carry out is different to those ■■ report anything they see which is likely to\" / \"181–186 for information about ■■ cooperate with their employer, fellow workers,\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The same table is in the tree twice, once before the heading \"Key elements\" and again after paragraph 4, where nothing of it is printed.",
+     "evidence": "tree: \"introduction-who-this-book-is-for-table-p7\" and \"introduction-who-this-book-is-for-table-3\", both with the same three rows"
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "This is the continuation of Table 1, but the tree gives it an invented title and column names that are not printed and differ from Table 1's headings.",
+     "evidence": "source (Table 1, page 6): \"CDM dutyholders:* Who are they?\" / \"Summary of role/main duties\" / tree: title \"Who this book is for\", columns \"Dutyholder\", \"Duties\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "fd77a0a8687fa6ee": {
+   "version_id": "main@2024-12-06-b89e9812",
+   "unit": "p71",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "c12364cec08b1803": {
+   "version_id": "main@2024-12-06-b89e9812",
+   "unit": "p72",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "526ae7414d5766f2": {
+   "version_id": "main@2024-12-06-b89e9812",
+   "unit": "p77",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The Appendix 3 guidance paragraphs are printed as plain guidance (not italic, no Regulation box) but the tree marks each with status \"regulation\"; the text itself matches.",
+     "evidence": "source: \"1 This Appendix gives guidance on the requirements for the construction phase plan\" / tree: \"status\": \"regulation\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "43fb249c1e916af7": {
+   "version_id": "main@2024-12-06-b89e9812",
+   "unit": "p78",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-headings for each dutyholder are printed under 'What must dutyholders do?' but the tree puts them directly under the appendix, beside that heading.",
+     "evidence": "source: \"What must dutyholders do?\" then \"The client\" / tree: \"Appendix 3 The construction phase plan > The client\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "d7d9000c2c778c53": {
+   "version_id": "main@2024-12-06-b89e9812",
+   "unit": "p90",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

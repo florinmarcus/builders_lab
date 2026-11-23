@@ -1,9 +1,7 @@
-# P: semantic validation of the parsed corpus (partial, 23 Nov 2026)
+# P: semantic validation of the parsed corpus (23 Nov 2026)
 
-**Status: stopped part-way.** 890 of 3,022 sampled units are judged. The run was paused to save usage (Florin).
-The Approved Documents are fully judged; the other families are only started. No finding is settled yet and no
-parser fix from this check is committed.
-
+**Status: sample fully judged (3,022 of 3,022 units).** Findings are model-flagged; a hand check of a sample of
+them, the fixes and the numbers after the fixes follow below.
 ## Question
 
 Code checks pass (coverage 0 open, crops 0 bad, model checks 0 open). Does each tree also say what its source
@@ -34,43 +32,42 @@ What I chose: the brief asked for every table page, and for half the figure-only
 near 1,500. Base plus tables is already 2,478, so the 668 extra figure pages were left out. All 1,397 table pages
 are in the sample. Figure pages are covered only as far as the random base pages hit them.
 
-## Judged so far
+## Results: the whole sample (before any fix)
 
-"High" = units with at least one high-severity finding. Interval: 95% Wilson.
+"High" = units with at least one high-severity finding. Interval: 95% Wilson. Random pages are the per-document
+random 10% (the fair rate for ordinary pages); table pages are all the other pages with a table (picked, not drawn).
 
-| Family | Sampled | Judged | ok | Low only | High | High rate | 95% |
-|---|---|---|---|---|---|---|---|
-| Approved Documents (parse_adoc) | 786 | 786 | 341 | 259 | 186 | 23.7% | 20.8 to 26.8% |
-| Guidance PDFs (parse_pdf) | 1,306 | 78 | 4 | 39 | 35 | 44.9% | 34.3 to 55.9% |
-| Fire risk guides (parse_guide) | 349 | 0 | | | | | |
-| Flats guide (parse_flats) | 21 | 0 | | | | | |
-| Home Office booklets (parse_booklet) | 16 | 0 | | | | | |
-| Web pages (parse_html) | 218 | 24 | 23 | 1 | 0 | 0% | 0 to 13.8% |
-| Legislation (parse_legislation) | 326 | 2 | 2 | 0 | 0 | | |
-| **Total** | 3,022 | 890 | 370 | 299 | 221 | | |
+| Family | Units | ok | Low only | High | High rate | 95% |
+|---|---|---|---|---|---|---|
+| Approved Documents, random pages | 319 | 165 | 102 | 52 | 16.3% | 12.7 to 20.8% |
+| Approved Documents, table pages | 467 | 176 | 157 | 134 | 28.7% | 24.8 to 33.0% |
+| Guidance PDFs (parse_pdf), random pages | 726 | 184 | 373 | 169 | 23.3% | 20.3 to 26.5% |
+| Guidance PDFs (parse_pdf), table pages | 580 | 158 | 254 | 168 | 29.0% | 25.4 to 32.8% |
+| Fire risk guides (parse_guide), random pages | 188 | 150 | 36 | 2 | 1.1% | 0.3 to 3.8% |
+| Fire risk guides (parse_guide), table pages | 161 | 103 | 45 | 13 | 8.1% | 4.8 to 13.3% |
+| Flats guide (parse_flats), all pages | 21 | 11 | 10 | 0 | 0% | 0 to 15.5% |
+| Home Office booklets (parse_booklet), all pages | 16 | 9 | 6 | 1 | 6.2% | 1.1 to 28.3% |
+| Web pages (parse_html), parts | 218 | 191 | 26 | 1 | 0.5% | 0.1 to 2.6% |
+| Legislation (parse_legislation), provisions | 326 | 256 | 61 | 9 | 2.8% | 1.5 to 5.2% |
+| **Total** | 3,022 | 1,403 | 1,070 | 549 | | |
 
-Table pages and other pages apart. The random base pages give the fair rate for ordinary pages; table pages are
-all picked, so their rate is a count, not an estimate.
+Guidance PDFs by group (random pages): HSE 22.8% (54 of 237; 17.9 to 28.5%), building regulations circulars and
+manual 16.1% (42 of 261), other government PDFs 25.3% (44 of 174), Awaab's Law PDFs 53.7% (29 of 54).
 
-| Family | Pages | Judged | ok | Low only | High | High rate | 95% |
-|---|---|---|---|---|---|---|---|
-| Approved Documents, random base pages | 319 | 319 | 165 | 102 | 52 | 16.3% | 12.7 to 20.8% |
-| Approved Documents, other table pages | 467 | 467 | 176 | 157 | 134 | 28.7% | 24.8 to 33.0% |
-| Guidance PDFs, random base pages | 726 | 34 | 3 | 16 | 15 | 44.1% | 28.9 to 60.5% |
-| Guidance PDFs, other table pages | 580 | 44 | 1 | 23 | 20 | 45.5% | 31.7 to 59.9% |
+High findings by kind: Approved Documents table 94, structure 74, garbled 30, missing 15, order 11, extra 4,
+figure 1. Guidance PDFs structure 236, order 77, garbled 75, table 43, missing 26, extra 5. Legislation structure
+8, garbled 5. Fire guides table 10, garbled 5, structure 4.
 
-Findings by kind and severity (Approved Documents): table 94 high and 129 low; structure 74 and 220; garbled 30
-and 83; missing 15 and 23; order 11 and 24; extra 4 and 15; figure 1 and 20.
+Two pages printed the same in two versions (nine circular pages) get one key and one verdict; they count once per
+version above. Eight packets came back without an answer in the batch run and were judged again on their own.
 
 **Read these numbers with care.**
-- The guidance PDF numbers are not a sample of that family. The 78 judged pages are the first sources in name
-  order, mostly `awaab-collection` and `awaab-tenants`: tenant guides in Bengali, Urdu, Arabic and Polish and
-  impact assessments, which parse badly. HSE guidance is not judged yet.
-- The Approved Document rate is pulled up by two sources: `adb-historical` (76 high findings) and
-  `adb-amendments` (50). Amendment booklets and the collated AD B are the hardest layouts.
-- The model's own error rate is not measured yet. I checked only a handful of findings against the page or the
-  file (below). The plan was to check a sample of about 50; that is still to do. Until then the rates are an
-  upper bound: "what the model flagged", not "what is wrong".
+- The Approved Document rate is pulled up by `adb-historical` (76 high findings) and `adb-amendments` (50):
+  amendment booklets and the collated AD B are the hardest layouts.
+- Building regulations circulars give 58 high "structure" findings, nearly all one cause: "ANNEX A" titles read as
+  the end of the last paragraph.
+- Awaab's Law PDFs (tenant guides in Bengali, Urdu, Arabic and Polish, impact assessments) are the worst group.
+- Until the hand check below, the rates are "what the model flagged", not "what is wrong".
 
 ## Checked by hand so far
 
@@ -108,7 +105,7 @@ and 83; missing 15 and 23; order 11 and 24; extra 4 and 15; figure 1 and 20.
 8. **Figures** (6 pages): words inside older diagrams (AD A Diagrams 5, 10, 14) are not in `labels`, only in the
    model's description; AD E Diagram A.1 and AD K Diagram 9.1 are not figures at all.
 
-Web pages and legislation look clean so far (25 of 26 ok, one low finding), but too few are judged to say more.
+Web pages (0.5%), legislation (2.8%) and the fire guides' random pages (1.1%) are close to clean.
 
 ## What this implies
 
@@ -116,7 +113,8 @@ Web pages and legislation look clean so far (25 of 26 ok, one low finding), but 
   page would not change the decision; fixing the causes would. Widening was not done.
 - For unsampled Approved Document pages: about 2,000 pages, so roughly 250 to 420 more pages with a finding the
   model would call high, before any fix and before the model's own errors are taken off.
-- Nothing can be said yet about HSE guidance, the fire guides, web pages or legislation.
+- HSE guidance random pages: 22.8% (17.9 to 28.5%). Fire guides, web pages and legislation are near or under the
+  2% line on ordinary pages.
 
 ## Left to do
 

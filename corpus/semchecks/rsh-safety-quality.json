@@ -1,0 +1,53 @@
+{
+ "source_id": "rsh-safety-quality",
+ "about": "Model verdicts on source against tree for rsh-safety-quality (system/rag/semcheck.py).",
+ "verdicts": {
+  "29aa1ae22fcf0305": {
+   "version_id": "safety-and-quality-standard-pdf@2024-04-02-6a7df074",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The page's headings and all its numbered provisions (2.1.1 to 2.3.2) are merged into one running text block under the heading path \"Text\", so headings are read as body text and no provision is its own section.",
+     "evidence": "source: \"2. Specific expectations\" / \"2.1 Stock quality\" / \"2.1.1 Registered providers must have an accurate record\" / tree: \"2. Specific expectations 2.1 Stock quality 2.1.1 Registered providers must have an accurate record\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "5935541b865786ec": {
+   "version_id": "safety-and-quality-standard-pdf@2024-04-02-6a7df074",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading \"2.4 Adaptations\" and the provisions 2.3.3 to 2.4.2 are merged into one running text block under the heading path \"Text\", so the heading is read as body text and no provision is its own section.",
+     "evidence": "source: \"2.4 Adaptations\" / \"2.4.1 Registered providers must clearly communicate\" / tree: \"at 2.1.2. 2.4 Adaptations 2.4.1 Registered providers must clearly communicate\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "ebf3368d5dd32851": {
+   "version_id": "safety-and-quality-standard-pdf@2024-04-02-6a7df074",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

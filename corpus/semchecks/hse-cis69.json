@@ -1,0 +1,84 @@
+{
+ "source_id": "hse-cis69",
+ "about": "Model verdicts on source against tree for hse-cis69 (system/rag/semcheck.py).",
+ "verdicts": {
+  "0bd917e54a08da50": {
+   "version_id": "main@2024-12-06-428b6de2",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The heading Tools and accessories and its body paragraph are held as labels of Figure 1 instead of body text, so the guidance is missing from the section text between the guidelines sentence and Captor hood.",
+     "evidence": "source: \"Tools and accessories Limit the amount of dust created by choosing appropriate tools and accessories\" / tree labels: \"Limit the amount of dust created by choosing\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The subheading Captor hood is read as running body text.",
+     "evidence": "tree: \"Use the following guidelines: Captor hood The hood is the most important part of the LEV system.\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "16fb3721f9196b94": {
+   "version_id": "main@2024-12-06-428b6de2",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The three bullets after \"Check that the hood:\" are held as labels of Figure 2 instead of body text, so the list is cut off and the text runs straight into the Extraction unit part.",
+     "evidence": "source: \"Check that the hood: is designed for the tool and the work that you are going to do\" / tree: \"Check that the hood: Extraction unit The extraction unit is like an industrial vacuum.\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The subheadings What it does, How to choose the right one and Extraction unit are read as running body text.",
+     "evidence": "tree: \"Check that the hood: Extraction unit The extraction unit is like an industrial vacuum.\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "4390a5ae550620a7": {
+   "version_id": "main@2024-12-06-428b6de2",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The page footer and running title are kept as body text with their letters interleaved.",
+     "evidence": "source: \"Published by the Health and Safety Executive CIS69 06/13\" / tree: \"PCuobnlitsrohlelindg b cyo tnhset rHuecatilothn adnuds tS waifteht yo nE-xteocoul teivxetr a c tion CIS69 06/13 4 of 4 pages\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The headings Further reading and Further information and all their text are merged into reference 6.",
+     "evidence": "tree: \"Health and safety issues www.hse gov.uk Further reading For more general information on extraction see www.hse.gov.uk/lev/index.htm Further information For information\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The subheading Cordless tools is read as running body text inside the last bullet's line.",
+     "evidence": "tree: \"Follow the advice given elsewhere by HSE on these issues.6 Cordless tools The general principles of the above standards\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

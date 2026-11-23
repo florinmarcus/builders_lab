@@ -1,0 +1,54 @@
+{
+ "source_id": "hse-cis80",
+ "about": "Model verdicts on source against tree for hse-cis80 (system/rag/semcheck.py).",
+ "verdicts": {
+  "43abc8cdd15605c0": {
+   "version_id": "main@2024-12-06-a88d10b2",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Pieces of the page 2 table header and the page 2 guidance and copyright statement are stuck onto the page 1 intro paragraph.",
+     "evidence": "source: \"You can use the blank template on page 2 to record your plan.\" / tree: \"to record your plan. present do you have? This guidance is issued by the Health and Safety Executive.\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is kept at the end of the closing paragraph.",
+     "evidence": "source: \"for a free smartphone app CDM wizard.\" / tree: \"for a free smartphone app CDM wizard. 1\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "32c62ed587d232a1": {
+   "version_id": "main@2024-12-06-a88d10b2",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The plan template is a table but is read as running text, so each hazard heading is joined to the end of the bullet above it.",
+     "evidence": "source: \"Collapse of excavations\" (row heading) / tree: \"using guardrails, midrails and toeboards Collapse of excavations\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The two column headings of the hazard table are run together and their second halves are moved into another section.",
+     "evidence": "source: \"Hazard is present\" and \"What controls do you have?\" / tree: \"Hazard is What controls Falls from height\" and \"present do you have?\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

@@ -1,0 +1,693 @@
+{
+ "source_id": "gpdo-2015",
+ "about": "Model verdicts on source against tree for gpdo-2015 (system/rag/semcheck.py).",
+ "verdicts": {
+  "e16f8ee714d2e688": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "article-1",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The provision is an article of an Order but the tree types it as a regulation and labels it \"Regulation 1\" in the heading path.",
+     "evidence": "source: \"uksi/2015/596/article/1\" id=\"article-1\" / tree: \"Regulation 1 Citation, commencement and application\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "5d30dcdebd54c25e": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-paragraph-BB.4",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "c66322c75a72e7ec": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-paragraph-TA.3",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "f337e4ea8b94d5ea": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-1-crossheading-class-aa-enlargement-of-a-dwellinghouse-by-construction-of-additional-storeys_paragraph-AA.3",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "563fc124d17d7c1c": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-1-crossheading-class-aa-enlargement-of-a-dwellinghouse-by-construction-of-additional-storeys_paragraph-AA4",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The lettered list items (a) and (b) under the definitions of \"detached\" and \"terrace house\" have lost their letters, so the reference to \"paragraph a\" points at nothing.",
+     "evidence": "source: \"<OrderedList Decoration=\\\"parens\\\" Type=\\\"alpha\\\">\" ... \"share a party wall with another building; or\" / tree: \"share a party wall with another building; or\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "4cee3e2393639c1a": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-1-crossheading-class-b-additions-etc-to-the-roof-of-a-dwellinghouse_paragraph-B.1",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The paragraph number is B.1 in the source but the tree gives the number as B and the heading path as Paragraph B.",
+     "evidence": "source: \"<Pnumber PuncAfter=\\\".1\\\">B</Pnumber>\" (paragraph/B.1) / tree: \"number\": \"B\", \"Paragraph B Development not permitted\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "0d0adbed3aa68fdf": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-11-crossheading-class-a-development-by-historic-england_paragraph-A",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "04e67b333ec17fab": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-11-crossheading-class-a-development-by-historic-england_paragraph-A.3",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The paragraph number is A.3 in the source but the tree gives it as A, in both the number and the heading path.",
+     "evidence": "source: \"<Pnumber PuncAfter=\\\".3\\\">A</Pnumber>\" / tree: \"number\": \"A\", \"Paragraph A Interpretation of Class A\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "1374b0baac536df6": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-11-crossheading-class-b-demolition-of-buildings_paragraph-B.2",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The paragraph number is B.2 in the source but the tree gives it as B, in both the number and the heading path.",
+     "evidence": "source: \"<Pnumber PuncAfter=\\\".2\\\">B</Pnumber>\" / tree: \"number\": \"B\", \"Paragraph B Conditions\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "69deac33a2b48dbf": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-11-crossheading-class-c-demolition-of-gates-fences-walls-etc_paragraph-C",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "1bd460fb1b03a215": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-11-crossheading-class-c-demolition-of-gates-fences-walls-etc_paragraph-C.1",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The paragraph number is C.1 in the source but the tree gives it as C, in both the number and the heading path.",
+     "evidence": "source: \"<Pnumber PuncAfter=\\\".1\\\">C</Pnumber>\" / tree: \"number\": \"C\", \"Paragraph C Development not permitted\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "2377f6c74b082d5d": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-12-crossheading-class-b_paragraph-B",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "916831bfac15f40d": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-12A-crossheading-class-a-emergency-development-by-a-local-authority-or-health-service-body_paragraph-A",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "62d1446a033e9b3c": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-14-crossheading-class-e-installation-or-alteration-etc-of-flue-for-biomass-heating-system-on-domestic-premises_paragraph-E",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "ed89a99ec3f2c62a": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-14-crossheading-class-f-installation-or-alteration-etc-of-flue-for-combined-heat-and-power-on-domestic-premises_paragraph-F",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "ad9e5625974a390f": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-14-crossheading-class-g-installation-or-alteration-etc-of-air-source-heat-pumps-on-domestic-premises_paragraph-G.1",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The paragraph number is G.1 in the source but the tree gives the number and heading path as G, the same as paragraph G itself.",
+     "evidence": "source: \"<Pnumber PuncAfter=\\\".1\\\">G</Pnumber>\" / tree: \"number\": \"G\", \"Paragraph G Development not permitted\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "8d2daffda2be8fb8": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-14-crossheading-class-h-installation-or-alteration-etc-of-wind-turbine-on-domestic-premises_paragraph-H.2",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The paragraph number is H.2 in the source but the tree gives the number and heading path as H, so it cannot be told apart from paragraphs H and H.1.",
+     "evidence": "source: \"<Pnumber PuncAfter=\\\".2\\\">H</Pnumber>\" / tree: \"number\": \"H\", \"Paragraph H\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "2fa4f9dab672dff4": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-14-crossheading-class-j-installation-or-alteration-etc-of-solar-equipment-on-nondomestic-premises_paragraph-wrapper14n2",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "720aebf00a3e2e43": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-16-crossheading-class-a-electronic-communications-code-operators_paragraph-A.1",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "565c1dbd31a685dd": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-16-crossheading-class-c-other-telecommunications-development-microwave-antenna_paragraph-C",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "9a1d564c72479765": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-17-crossheading-class-d-coal-mining-development-by-the-coal-authority-and-licensed-operators_paragraph-D.2",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The paragraph number is D.2 in the source but the tree gives it as D, so the heading path names it as Paragraph D, which is a different provision.",
+     "evidence": "source: \"<Pnumber PuncAfter=\\\".2\\\">D</Pnumber>\" / tree: \"number\": \"D\", \"Paragraph D Interpretation of Class D\""
+    },
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The letters (a) to (d) of the list in the definition of seam plan are dropped, although the text refers to paragraph (a) of this definition.",
+     "evidence": "source: \"<ListItem NumberOverride=\\\"a\\\"> ... land comprising the maximum extent of the coal seam\" / tree: \"land comprising the maximum extent of the coal seam\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "8e62dd0f5d5c9af0": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-17-crossheading-class-i-waste-tipping-from-a-mine-on-sites-used-since-1948_paragraph-I.1",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The paragraph number is I.1 in the source but the tree gives it as I, so the heading path names it as Paragraph I, which is a different provision.",
+     "evidence": "source: \"<Pnumber PuncAfter=\\\".1\\\">I</Pnumber>\" / tree: \"number\": \"I\", \"Paragraph I Development not permitted\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "9e2c2ce19ec7821e": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-19-crossheading-class-a-general-development-by-the-crown_paragraph-A",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "7668ba6a2129d9d7": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-19-crossheading-class-q-development-by-the-crown-relating-to-an-emergency_paragraph-Q",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "ffa1b771790de871": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-19-crossheading-class-s-closed-circuit-television-cameras-for-national-security-purposes_paragraph-S.1",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The provision is paragraph S.1 in the source but the tree gives its number as S, so it carries the same label as paragraph S itself.",
+     "evidence": "source: \"<Pnumber PuncAfter=\\\".1\\\">S</Pnumber>\" / tree: \"number\": \"S\", \"Paragraph S Development not permitted\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "4135d2bf80ecd073": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-19-crossheading-class-t-electronic-communication-apparatus-etc-for-national-security-purposes_paragraph-T",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "ca31f6f4aa7417f1": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-19-crossheading-class-t-electronic-communication-apparatus-etc-for-national-security-purposes_paragraph-T.3",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The provision is paragraph T.3 in the source but the tree gives its number as T and it has no title, so its heading path reads the same as paragraph T itself.",
+     "evidence": "source: \"<Pnumber PuncAfter=\\\".3\\\">T</Pnumber>\" / tree: \"number\": \"T\", \"... > Paragraph T\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "d400725c796ef5a7": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-2-crossheading-class-f-closed-circuit-television-cameras_paragraph-F.3",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The provision is paragraph F.3 in the source but the tree gives its number as F, so it carries the same label as paragraph F itself.",
+     "evidence": "source: \"<Pnumber PuncAfter=\\\".3\\\">F</Pnumber>\" / tree: \"number\": \"F\", \"Paragraph F Interpretation of Class F\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "4020e1a67a4482fb": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-20-crossheading-class-a-new-dwellinghouses-on-detached-blocks-of-flats_paragraph-A.1",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "fb0e46f0982f4f98": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-20-crossheading-class-a-new-dwellinghouses-on-detached-blocks-of-flats_paragraph-A.2",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "b016f97f2fee8b57": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-20-crossheading-class-a-new-dwellinghouses-on-detached-blocks-of-flats_paragraph-B",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "595eca8972b50c2d": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-20-crossheading-class-a-new-dwellinghouses-on-detached-blocks-of-flats_paragraph-C",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The lettered and numbered list items inside the definitions of agricultural tenancy and row lost their (a), (b), (i), (ii) labels and nesting, though the text refers to paragraph (a).",
+     "evidence": "source: \"<OrderedList Decoration=\\\"parens\\\" Type=\\\"alpha\\\">\" ... \"requirements of paragraph (a)\" / tree: \"shares a party wall with, or has a main wall adjoining\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "1940afd70bb562de": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-3-crossheading-class-ma-commercial-business-and-service-uses-to-dwellinghouses_paragraph-MA.3",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "cf8a5d6a50e03ae2": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-3-crossheading-class-p-storage-or-distribution-centre-to-dwellinghouses_paragraph-wrapper6n2",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "25e6ba8725b81833": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-4-crossheading-class-a-temporary-buildings-and-structures_paragraph-A.1",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The paragraph number is A.1 in the source (the \".1\" sits in the PuncAfter attribute) but the tree gives the number and heading path as A, which is a different provision.",
+     "evidence": "source: \"<Pnumber PuncAfter=\\\".1\\\">A</Pnumber>\" / tree: \"number\": \"A\", \"Paragraph A Development not permitted\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "a3f086cc685b78eb": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-4-crossheading-class-ca-provision-of-a-temporary-statefunded-school-on-previously-vacant-commercial-land_paragraph-CA.3",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The lettered and roman list labels inside the definitions, (a), (b) and (i) to (iv), are dropped, so the nested lists read as flat unnumbered lines.",
+     "evidence": "source: \"<OrderedList Decoration=\\\"parens\\\" Type=\\\"alpha\\\">\", \"<ListItem NumberOverride=\\\"i\\\">\" / tree: \"prior approval is given; or\", \"Class C1 (hotels) of Schedule 1;\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "6c2a3806fac86368": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-6-crossheading-class-c-mineral-working-for-agricultural-purposes_paragraph-C.1",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The paragraph number is C.1 in the source but the tree keeps only C, in the number and in the heading path.",
+     "evidence": "source: \"<Pnumber PuncAfter=\\\".1\\\">C</Pnumber>\" (paragraph C.1) / tree: \"number\": \"C\", \"Paragraph C Development not permitted\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "b0c41c5bd824b784": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-7-crossheading-class-a-extensions-etc-of-shops-or-financial-or-professional-premises_paragraph-A.1",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The paragraph number is A.1 in the source but the tree keeps only A, the same number it gives to paragraph A.2.",
+     "evidence": "source: \"<Pnumber PuncAfter=\\\".1\\\">A</Pnumber>\" (paragraph A.1) / tree: \"number\": \"A\", \"Paragraph A Development not permitted\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "A stray space sits before the semicolon at the end of sub-paragraph (g).",
+     "evidence": "source: \"the front of any existing building</Substitution> ;\" / tree: \"the front of any existing building ;\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "5912453247beac58": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-7-crossheading-class-a-extensions-etc-of-shops-or-financial-or-professional-premises_paragraph-A.2",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The paragraph number is A.2 in the source but the tree keeps only A, the same number it gives to paragraph A.1.",
+     "evidence": "source: \"<Pnumber PuncAfter=\\\".2\\\">A</Pnumber>\" (paragraph A.2) / tree: \"number\": \"A\", \"Paragraph A Conditions\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "1ad6b61e5221e04f": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-7-crossheading-class-b-construction-of-shop-trolley-stores_paragraph-B.2",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The paragraph number is B.2 in the source but the tree keeps only B, in the number and in the heading path.",
+     "evidence": "source: \"<Pnumber PuncAfter=\\\".2\\\">B</Pnumber>\" (paragraph B.2) / tree: \"number\": \"B\", \"Paragraph B Condition\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "38e04465d83cbb21": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-7-crossheading-class-f-extensions-etc-of-office-buildings_paragraph-F",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "532e1438a11b0302": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-7-crossheading-class-g-hard-surfaces-for-office-buildings_paragraph-G",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "37caf6f69492b2fc": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-7-crossheading-class-k-waste-deposits-from-an-industrial-process_paragraph-K.1",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The paragraph number is K.1 in the source (Pnumber K with PuncAfter \".1\") but the tree gives number K and \"Paragraph K\" in the heading path, the same as the separate paragraph K.",
+     "evidence": "source: \"<Pnumber PuncAfter=\\\".1\\\">K</Pnumber>\" / tree: \"number\": \"K\", \"Paragraph K Development not permitted\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "68df70769641195d": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-7-crossheading-class-ma-alteration-etc-of-prison-fences_paragraph-MA.1",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "09b4e2b44f85c65d": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-8-crossheading-class-h-air-traffic-services-development-near-an-airport_paragraph-H",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "e21bd0f0095911d8": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-8-crossheading-class-l-development-by-an-air-traffic-services-licence-holder-involving-moveable-structures_paragraph-L",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "07a9d22b69777c10": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-4-paragraph-17",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "bdbd7fc04bdeaf87": {
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-4-paragraph-19",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

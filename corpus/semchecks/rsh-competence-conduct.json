@@ -1,0 +1,71 @@
+{
+ "source_id": "rsh-competence-conduct",
+ "about": "Model verdicts on source against tree for rsh-competence-conduct (system/rag/semcheck.py).",
+ "verdicts": {
+  "8f683ded14663bf9": {
+   "version_id": "competence-and-conduct-standard-pdf@2026-10-01-3c16914c",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "8c8307099a7f8799": {
+   "version_id": "competence-and-conduct-standard-pdf@2026-10-01-3c16914c",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Provisions 2.1 and 2.2 are merged into one text block, which also runs on into 2.3 and 2.4 from the next page, instead of being separate numbered provisions.",
+     "evidence": "source: \"2.1 Registered providers must meet all applicable requirements...\" and \"2.2 Registered providers must have a written policy which includes:\" as separate paragraphs / tree: one text \"2.1 Registered providers must meet ... Social Housing1. 2.2 Registered providers must have a written policy...\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "A running footer line that is not printed on the page image is kept as a body text section.",
+     "evidence": "tree: \"Competence and Conduct Standard 2\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "d7f82d487b37381d": {
+   "version_id": "competence-and-conduct-standard-pdf@2026-10-01-3c16914c",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The numbers 2.3 and 2.4 are cut off from their paragraphs and put in a separate note, so the two provisions run unnumbered into the end of 2.2 d).",
+     "evidence": "source: \"2.3 Registered providers must develop or adopt an appropriate code of conduct\" and \"2.4 Registered providers must ensure that the written policy\" / tree: \"...to be of good quality. Registered providers must develop or adopt...\" and note \"2.3 2.4\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The number 3.1 is split from its paragraph into a separate note.",
+     "evidence": "source: \"3.1 For the purposes of paragraphs 1.1 and 2.1-2.4, ‘relevant staff’ means\" / tree: note \"3.1\" then text \"For the purposes of paragraphs 1.1 and 2.1-2.4...\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "A running footer line that is not printed on the page image is kept as a body text section.",
+     "evidence": "tree: \"Competence and Conduct Standard 3\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

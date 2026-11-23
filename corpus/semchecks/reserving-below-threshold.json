@@ -1,0 +1,35 @@
+{
+ "source_id": "reserving-below-threshold",
+ "about": "Model verdicts on source against tree for reserving-below-threshold (system/rag/semcheck.py).",
+ "verdicts": {
+  "9b1fc1cf797cc982": {
+   "version_id": "guidance-on-reserving-competitions-for-below-threshold-contr@2026-02-16-f6fc9e72",
+   "unit": "part1",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "1e0c781d355f3ff4": {
+   "version_id": "guidance-on-reserving-competitions-for-below-threshold-contr@2026-02-16-f6fc9e72",
+   "unit": "part2",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The five page footnotes are kept as body text of the Contact section, away from the paragraphs that cite them.",
+     "evidence": "source: \"Below-threshold contracts are contracts with an estimated value that is lower than the relevant threshold\" / tree: under heading_path \"Contact\", as \"1. Below-threshold contracts are contracts ...\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

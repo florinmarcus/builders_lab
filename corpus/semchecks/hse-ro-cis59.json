@@ -1,0 +1,96 @@
+{
+ "source_id": "hse-ro-cis59",
+ "about": "Model verdicts on source against tree for hse-ro-cis59 (system/rag/semcheck.py).",
+ "verdicts": {
+  "d8a886c42cb5a9ca": {
+   "version_id": "main@2024-12-06-a6a047ab",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The headings Instalarea şi dezinstalarea, Amplasarea pe şantier, Toalete and Spaţii pentru spălat are read as body text, so the toilet and washing rules sit under the heading Planificare.",
+     "evidence": "tree heading_path \"Planificare > Text\": \"cea vehiculelor. Toalete În măsura posibilităţilor, se vor asigura toalete\" ; \"tampoanelor igienice folosite. Spaţii pentru spălat Spaţiile pentru spălat\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The duty holder headings are read as body text, and their duties sit under Introducere instead of the general duties section.",
+     "evidence": "tree heading_path \"Introducere > Text\": \"Coordonatori de proiectare şi gestionare Este de datoria\" ; \"fazei de construcţie. Contractanţi principali Este de datoria\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The paragraphs that follow each bullet list are merged into the last bullet of the list.",
+     "evidence": "tree: \"• dacă va fi necesară relocarea lor pe parcursul fazei de construcţie. Instalarea şi dezinstalarea dotărilor social-sanitare Va trebui\" ; \"• lavoare suficient de mari ... braţelor. Bărbaţii şi femeile pot folosi\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "163c7fcd4f43ebd4": {
+   "version_id": "main@2024-12-06-a6a047ab",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "The two columns are mixed: the changing-rooms sentence is cut at the column end, the right column (web addresses, heating, LPG bullets) is put in the middle, and the rest of the left column follows the last LPG bullet.",
+     "evidence": "source: \"Bărbaţii şi femeile trebuie să poată folosi vestiarele separat\" / tree: \"Bărbaţii şi www.smokefreeengland.co.uk, www.clearingtheairscotland.com şi www.smokingbanwales.co.uk.\" ... \"fixaţi pe perete sau tavan. femeile trebuie să poată folosi vestiarele separat\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The main heading of the right column is read as body text, split in two and placed inside other sentences, so its section sits under 'Planificare'.",
+     "evidence": "source: \"Utilizarea de dotări social-sanitare alternative pe şantierele de construcţii temporare şi mobile\" / tree: \"Este posibil Utilizarea de dotări social-sanitare să fie necesare dulapuri separate\" ... \"vizitaţi alternative pe şantierele de construcţii temporare şi mobile În această fişă\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The smoking sentence is separated from the web addresses it points to.",
+     "evidence": "source: \"Pentru informaţii adiţionale vizitaţi www.smokefreeengland.co.uk\" / tree: \"Pentru informaţii adiţionale vizitaţi alternative pe şantierele de construcţii\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-headings are read as body text inside the paragraphs, all under the heading path 'Planificare > Text'.",
+     "evidence": "tree: \"sunt necesare dotări speciale. Apă potabilă Este important\" ... \"Vestiare şi dulapuri pentru îmbrăcăminte Toate şantierele\" ... \"Încălzirea Încăperile pentru odihnă\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "62e452fb6603d8c3": {
+   "version_id": "main@2024-12-06-a6a047ab",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Bibliography paragraph 3 also holds the note on sources, the 'Bibliografie suplimentară' list and the whole 'Informaţii adiţionale' section, whose headings are read as body text.",
+     "evidence": "tree: \"ISBN 978 0 7176 6223 4. În ciuda eforturilor depuse\" ... \"Bibliografie suplimentară Health and safety in construction\" ... \"scales of provision of sanitary and associated appliances. Informaţii adiţionale Vizitaţi site-ul Web\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The table caption is placed after the bibliography instead of above the table, and the table is titled 'Planificare'.",
+     "evidence": "source: \"Tabelul 1 Dotări social-sanitare – opţiuni\" above the table / tree: table title \"Planificare\", caption after paragraph 3"
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

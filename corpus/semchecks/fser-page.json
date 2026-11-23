@@ -1,0 +1,420 @@
+{
+ "source_id": "fser-page",
+ "about": "Model verdicts on source against tree for fser-page (system/rag/semcheck.py).",
+ "verdicts": {
+  "d4ca6f6273d0f028": {
+   "version_id": "impact-assessment@2023-07-24-cd8d7385",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The minister's declaration printed above the signature line on this page is kept only in the text of the next page's table (People and Specific Impacts), after the signature line, not with the signature block.",
+     "evidence": "source: \"I have read the Impact Assessment and I am satisfied that, given the available evidence\" / tree: in text of table document-table-6 before \"PEOPLE AND SPECIFIC IMPACTS ASSESSMENT (Option 2)\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "a04f1f7947732f33": {
+   "version_id": "impact-assessment@2023-07-24-cd8d7385",
+   "unit": "p10",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Table 1 is read as running text at the end of paragraph 1, with its caption, and the row label is split around the values.",
+     "evidence": "tree: \"Height (m) 0–11 11–18 18-29 30+ Volume of 1,596,000 75,000 8,160 3,840 buildings\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The source note printed under Table 1 is placed after paragraph 5, far from Table 1 and just before the second copy of Table 2.",
+     "evidence": "source: \"Source: Volume of buildings; 0-11m sourced from Fire Safety Consultation IA\" / tree: separate text block after paragraph 5"
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Table 2 is held twice: the same grid appears again in a second table after paragraph 5, carrying the source note and the page footnotes.",
+     "evidence": "tree: \"Watch Manager\", \"21.94\" / \"Building Safety Manager\", \"20.68\" / \"Admin Processing\", \"15.33\" in two tables"
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The caption of Table 2 is kept as the last sentence of paragraph 2, and the table is titled with the section name instead.",
+     "evidence": "source: \"Table 2, Total labour cost per hour, £, 2021 prices.\" / tree: table title \"A.4 Consultation\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "18db970d52cc1820": {
+   "version_id": "impact-assessment@2023-07-24-cd8d7385",
+   "unit": "p13",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The text of this page is merged into one very long numbered paragraph 6 under A.4 Consultation, and the sub-heading on this page is read as body text, so the familiarisation cost text sits under the wrong provision.",
+     "evidence": "source: heading \"FRA (Public sector)\" / tree: \"(2021/22 prices). FRA (Public sector) There will also be a level of familiarisation cost for FRAs.\" in \"A.4 Consultation > Paragraph 6\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "f8e8599e65619e89": {
+   "version_id": "impact-assessment@2023-07-24-cd8d7385",
+   "unit": "p16",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The section heading Information Boxes and the sub-heading Set-up costs are read as body text inside one very long numbered paragraph 6 under A.4 Consultation, so this page's text sits under the wrong provision.",
+     "evidence": "source: heading \"Information Boxes\" / tree: \"£1.3 million to £1.9 million. Information Boxes The RPs of existing high-rise residential buildings\" in \"A.4 Consultation > Paragraph 6\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is kept at the end of footnote 35.",
+     "evidence": "tree: \"Average cost of seven boxes across these 5 providers used. 16\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "a9d94edb6cec9783": {
+   "version_id": "impact-assessment@2023-07-24-cd8d7385",
+   "unit": "p18",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The separate paragraphs of this page (lifts and firefighting equipment costs) are merged into one very long numbered paragraph 6 under A.4 Consultation, with section headings run into the body text, so the text sits under the wrong provision.",
+     "evidence": "tree: \"Lifts and Essential Fire Fighting Equipment This proposal is to legislate\" in \"A.4 Consultation > Paragraph 6\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "d78258e4ddf79ae9": {
+   "version_id": "impact-assessment@2023-07-24-cd8d7385",
+   "unit": "p19",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The page's body text sits in one huge merged paragraph under the wrong heading path, with the section headings (Fire Doors, Assumptions) read as body text.",
+     "evidence": "source: \"Fire Doors\" (heading), \"Assumptions\" (heading) / tree: heading_path \"A.4 Consultation > Paragraph 6\", text \"...£2.1 million. Fire Doors This proposal is to legislate...\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-heading \"Set-up costs.\" is attached to Table 6 as a note line and is missing from the body text it introduces.",
+     "evidence": "source: \"Set-up costs. Costs from this proposal comes from inspections\" / tree: table-6 text \"Source: Internal HO assumptions developed with DLUHC. Set-up costs.\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "3d1213ae8f7fd0ca": {
+   "version_id": "impact-assessment@2023-07-24-cd8d7385",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The description line and the block headings printed above the tables are placed after all the tables, so the tables lose their headings.",
+     "evidence": "source: \"Description: Deliver the majority of the GTI P1 report's recommendations in a practical way FULL ECONOMIC ASSESSMENT\" before the tables / tree: after the last table, with \"BUSINESS ASSESSMENT (Option 1)\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The benefits heading row has a stray \"4.\" that is not printed on the page.",
+     "evidence": "source: \"BENEFITS, £m\" / tree: \"4. BENEFITS, £m\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "9a266ecdb9a24b0d": {
+   "version_id": "impact-assessment@2023-07-24-cd8d7385",
+   "unit": "p21",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The page's body text sits in one huge merged paragraph under the wrong heading path, with the section heading \"Instructions to Residents\" read as body text.",
+     "evidence": "source: \"Instructions to Residents\" (heading) / tree: heading_path \"A.4 Consultation > Paragraph 6\", text \"...£7.0 million to £15.4 million. Instructions to Residents This proposal is to legislate...\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-heading \"Set-up costs.\" is split off as an empty note after Table 7 and is missing from the body text where it is printed.",
+     "evidence": "source: \"as soon as is practicable. Set-up costs. The costs resulting from this legislation\" / tree: \"as soon as is practicable. The costs resulting from this legislation\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "fc43d8ba3616b2ce": {
+   "version_id": "impact-assessment@2023-07-24-cd8d7385",
+   "unit": "p23",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The page's body text sits in one huge merged paragraph under the wrong heading path, with the headings \"Wayfinding Signage\" and \"Set-up costs.\" read as body text.",
+     "evidence": "source: \"Wayfinding Signage\" (heading) / tree: heading_path \"A.4 Consultation > Paragraph 6\", text \"...£1.7 million to £2.7 million. Wayfinding Signage The RPs of all high-rise...\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The printed page numbers are kept at the end of the footnote texts.",
+     "evidence": "tree: \"The year 2 figures are equal to 4 per cent of the set-up costs. 22\" and \"Available at Impact Assessment (publishing.service.gov.uk) 23\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "d07f4bbee1deca2a": {
+   "version_id": "impact-assessment@2023-07-24-cd8d7385",
+   "unit": "p24",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The page's body text sits in one huge merged paragraph under the wrong heading path, with the headings \"Ongoing and total costs\", \"Additional costs to FRSs\" and \"Set-up costs.\" read as body text.",
+     "evidence": "source: \"Additional costs to FRSs\" (heading) / tree: heading_path \"A.4 Consultation > Paragraph 6\", text \"...£0.6 million to £1.8 million. Additional costs to FRSs It is expected...\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "e4f31e126440bfeb": {
+   "version_id": "impact-assessment@2023-07-24-cd8d7385",
+   "unit": "p26",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The page's body text sits in one huge merged paragraph under the wrong heading path, with the table heading \"Summary of Total Costs\" read as body text.",
+     "evidence": "source: \"Summary of Total Costs\" (table heading) / tree: heading_path \"A.4 Consultation > Paragraph 6\", text \"...£58,000 to £278,000. Summary of Total Costs 28.3 43.6 58.6 The total set-up costs...\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The one summary table is given twice as two tables with the same grid, and neither carries its title \"Summary of Total Costs\".",
+     "evidence": "source: one table \"Summary of Total Costs\" / tree: \"document-a-4-consultation-table-p26\" and \"document-a-4-consultation-table-14\", both titled \"A.4 Consultation\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The table's corner cell and its row labels are also split off as two empty notes.",
+     "evidence": "tree: note title \"Familiarisation (inc. FRS) External Wall Systems Building Plans Information Boxes Lifts and Essential Firefighting Equipment Fire Doors ...\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Three values from the table's last row are stray in the body text.",
+     "evidence": "source: \"Annual per year 28.3 43.6 58.6\" (table row) / tree: \"Summary of Total Costs 28.3 43.6 58.6 The total set-up costs\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The printed page number is kept at the end of the footnote text.",
+     "evidence": "tree: \"(central estimate £126,000) in year 10. 26\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "ddbdebd38f24347b": {
+   "version_id": "impact-assessment@2023-07-24-cd8d7385",
+   "unit": "p29",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The bold subheading on this page is kept as body text inside one very long numbered paragraph 6 under \"A.4 Consultation\", so the page's text has the wrong parent.",
+     "evidence": "source: \"NPSV, BNPV, EANDCB\" (bold heading) / tree: \"...reduce their fear of fire. NPSV, BNPV, EANDCB The Net Present Social Value (NPSV)...\" in \"A.4 Consultation > Paragraph 6\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "19a40fa3e4d3bf29": {
+   "version_id": "impact-assessment@2023-07-24-cd8d7385",
+   "unit": "p33",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The bold central row of Table 12 is read as a heading, and the text and notes that follow are put under it as their parent.",
+     "evidence": "source: table row \"40 10 30.0 -390.8\" / tree: heading \"40 10 30.0 -390.8\", heading_path \"40 10 30.0 -390.8 > Text\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Table 12's header lines and rows are repeated outside the table as two headings and as running text mixed with the next paragraph.",
+     "evidence": "tree: heading \"No plan (%) Some form of plan (%) £ million (PV) £ million (PV)\"; text \"10 0 14.5 -375.3 20 2.5 19.6 -380.4 30 5 24.8 -385.6\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The source note of Table 12 comes after the paragraph that follows the table, not with the table.",
+     "evidence": "source: \"Source: Home Office internal calculations. Central estimate used for all calculations\" directly under Table 12 / tree: separate text after \"This demonstrates that the PV cost estimate...\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The bold subheading is kept as body text inside numbered paragraph 6 under \"A.4 Consultation\".",
+     "evidence": "source: \"Proportion of high-rise buildings which currently have no, or some form of, building plans\" (bold heading) / tree: body text of \"A.4 Consultation > Paragraph 6\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "2d1e48372dc0ffc5": {
+   "version_id": "impact-assessment@2023-07-24-cd8d7385",
+   "unit": "p34",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "Row labels and some numbers of Table 13 are mixed into the running text, with the heading \"I. Wider impacts\" in the middle, so the numbers have no labels.",
+     "evidence": "tree: \"Lifts and Essential Firefighting Low Central High 3.0 0.2 18.4 4.3 Equipment Fire Doors ... EANDCB I. Wider impacts 17.0 25.5 134.9 109.3 18.2 306.1 -306.1 33.9 Leaseholder impacts\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The section headings H and I are not kept as headings, so the page's text and tables sit under a false heading made from a table row.",
+     "evidence": "source: \"H. Direct costs and benefits to business calculations\", \"I. Wider impacts\" / tree: heading_path \"40 10 30.0 -390.8 > Text\"; H kept only as Table 13 `text`"
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Table 13 is in the tree twice, the second time as an unnumbered table with a false title.",
+     "evidence": "tree: table \"document-40-10-30-0-390-8-table-p34\" titled \"40 10 30.0 -390.8\" with the same grid as Table 13"
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The bold subheading is kept as body text.",
+     "evidence": "source: \"Leaseholder impacts in buildings over 11 metres\" (bold heading) / tree: \"...33.9 Leaseholder impacts in buildings over 11 metres It is likely that...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "cc9d17927ad35e77": {
+   "version_id": "impact-assessment@2023-07-24-cd8d7385",
+   "unit": "p37",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The section heading \"L. Annexes\" and the two subheadings are kept as body text, so the page sits under a false heading made from a table row.",
+     "evidence": "source: \"L. Annexes\" (heading) / tree: text \"L. Annexes Impact Assessment Checklist Economic Impact Tests Small and...\" under heading_path \"40 10 30.0 -390.8 > Text\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The second table (Small and Micro-business Assessment) is read as running text, and its \"Yes\" cell lands in the middle of a sentence.",
+     "evidence": "source: \"compared to any larger businesses also in scope of the legislation\" with \"Yes\" in the right column / tree: \"compared to any larger businesses Yes also in scope of the legislation\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The subheading \"Economic Impact Tests\" and the second table's text come before the first table, and the first table has lost its subheading.",
+     "evidence": "source: \"Impact Assessment Checklist\" then the Statutory Equalities Duties table, then \"Economic Impact Tests\" / tree: \"Impact Assessment Checklist Economic Impact Tests Small and Micro-business Assessment (SaMBA)\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "3d176496755448c3": {
+   "version_id": "impact-assessment@2023-07-24-cd8d7385",
+   "unit": "p9",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The section heading \"E. Appraisal\" is kept as body text, so the appraisal text and its numbered assumptions sit under \"A.4 Consultation\".",
+     "evidence": "source: \"E. Appraisal\" (section heading) / tree: \"...to commence on 23 January 2023. E. Appraisal The following sections present analysis...\" in \"A.4 Consultation > Text\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Two bold subheadings are kept as body text.",
+     "evidence": "source: \"Preferred option and implementation plan\", \"General assumptions and data\" (bold headings) / tree: \"...through these regulations. Preferred option and implementation plan Option 1 is the Government’s...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

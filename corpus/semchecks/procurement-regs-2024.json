@@ -1,0 +1,82 @@
+{
+ "source_id": "procurement-regs-2024",
+ "about": "Model verdicts on source against tree for procurement-regs-2024 (system/rag/semcheck.py).",
+ "verdicts": {
+  "74cc27c1b17b8e2c": {
+   "version_id": "main@2026-04-01-3fbf5f3d",
+   "unit": "regulation-40",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "b6759095d9bf88b9": {
+   "version_id": "main@2026-04-01-3fbf5f3d",
+   "unit": "regulation-42B",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The lettered items (a) and (b) inside the definitions of \"relevant period\" and \"reorganisation\" in paragraph (9) have lost their letters in the tree, though the text still refers to \"sub-paragraph (a)\".",
+     "evidence": "source: \"<OrderedList Type=\"alpha\" Decoration=\"parens\">\" ... \"the period of three years ending with the date of contract award, or\" / tree: \"the period of three years ending with the date of contract award, or\" (no \"(a)\")"
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "f6f067e73ecad9ca": {
+   "version_id": "main@2026-04-01-3fbf5f3d",
+   "unit": "regulation-42E",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The lettered items (a) and (b) inside the definition of \"relevant period\" in paragraph (4) have lost their letters in the tree, though the text still refers to \"sub-paragraph (a)\".",
+     "evidence": "source: \"<OrderedList Type=\"alpha\" Decoration=\"parens\">\" ... \"the period of three years ending with the date of contract award, or\" / tree: \"the period of three years ending with the date of contract award, or\" (no \"(a)\")"
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "21375b4fbc879803": {
+   "version_id": "main@2026-04-01-3fbf5f3d",
+   "unit": "regulation-45",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "ec32bd8f3e118012": {
+   "version_id": "main@2026-04-01-3fbf5f3d",
+   "unit": "regulation-48",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The subsection (3) that paragraph (2) inserts into section 17 of the Act is listed like a third paragraph of regulation 48, with nothing to mark it as quoted amendment text, and the closing full stop is lost.",
+     "evidence": "source: \"<BlockAmendment ...><P2><Pnumber>3</Pnumber>...This section does not apply to a private utility\" / tree: \"(3) This section does not apply to a private utility\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

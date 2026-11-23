@@ -1,0 +1,58 @@
+{
+ "source_id": "fser-fire-doors",
+ "about": "Model verdicts on source against tree for fser-fire-doors (system/rag/semcheck.py).",
+ "verdicts": {
+  "505f4c44b6330199": {
+   "version_id": "fire-doors-checklist-accessible@2025-08-08-d2ee24c0",
+   "unit": "part1",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "1d54e0656a87be4f": {
+   "version_id": "fire-safety-england-regulations-2022-fire-door-guidance-acce@2025-08-08-cc46c3f4",
+   "unit": "part1",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "0d0a5f128542617c": {
+   "version_id": "fire-safety-england-regulations-2022-fire-door-guidance-acce@2025-08-08-cc46c3f4",
+   "unit": "part2",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-heading \"Flat entrance doors\", which introduces paragraphs 6.5 to 6.7, is kept as the last body line of paragraph 6.4 and is not in the heading path of 6.5 to 6.7.",
+     "evidence": "source: \"<p> Flat entrance doors\" before 6.5 / tree: para 6.4 text ends \"...as soon as reasonably practicable.\", \"Flat entrance doors\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The two closing paragraphs of the guide, which are about all fire door checks, are attached to paragraph 6.14 under the heading for plant room, service cupboard and riser doors.",
+     "evidence": "tree para 6.14: \"Fire doors checks are vital in making sure your block of flats is safe for residents.\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The photo captions and their group titles are attached to the text of paragraph 6.7 as body lines, not kept as figures.",
+     "evidence": "tree para 6.7: \"Typical examples of fire doors signage\", \"1.\", \"Fire door signage\", \"2.\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

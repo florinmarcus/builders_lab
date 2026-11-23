@@ -1,0 +1,35 @@
+{
+ "source_id": "hfhh-act-2018",
+ "about": "Model verdicts on source against tree for hfhh-act-2018 (system/rag/semcheck.py).",
+ "verdicts": {
+  "63cce00190bfded7": {
+   "version_id": "main@2019-03-20-de89a812",
+   "unit": "section-1",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The full stop that closes subsection (5) after the inserted table row (AppendText) is not in the tree.",
+     "evidence": "source: \"<td>section 9A(9)</td> ... <AppendText>.</AppendText>\" / tree: \"(in the provisions relating to fitness for human habitation of dwellings in England) | section 9A(9)\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "9c51b71ea1e563ed": {
+   "version_id": "main@2019-03-20-de89a812",
+   "unit": "section-2",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

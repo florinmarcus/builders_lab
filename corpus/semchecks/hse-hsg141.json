@@ -1,0 +1,58 @@
+{
+ "source_id": "hse-hsg141",
+ "about": "Model verdicts on source against tree for hse-hsg141 (system/rag/semcheck.py).",
+ "verdicts": {
+  "0741ec587bf8bf27": {
+   "version_id": "main@2024-12-06-e39e04f6",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "546c42925bbc27ad": {
+   "version_id": "main@2024-12-06-e39e04f6",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "331d20913c8f0e29": {
+   "version_id": "main@2024-12-06-e39e04f6",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Paragraphs 6, 7 and 8 are not sections of their own; their text and numbers are run into the last bullet of paragraph 5.",
+     "evidence": "source: \"6 This guidance does not cover the specification or use of electrical equipment\" / tree: \"structures about to be demolished. 6 This guidance does not cover\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The year 1998 lost its last digit twice in paragraph 3, and two stray 8s were put at the end.",
+     "evidence": "source: \"Provision and Use of Work Equipment Regulations 1998 (PUWER 1998).\" / tree: \"Provision and Use of Work Equipment Regulations 199 (PUWER 199 ). 8 8\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Footnote reference marks are joined to the words before them as plain digits.",
+     "evidence": "source: \"INDG370.¹\" and \"practices.²\" / tree: \"INDG370.1\" and \"practices.2\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

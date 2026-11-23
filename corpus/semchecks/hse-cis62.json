@@ -1,0 +1,72 @@
+{
+ "source_id": "hse-cis62",
+ "about": "Model verdicts on source against tree for hse-cis62 (system/rag/semcheck.py).",
+ "verdicts": {
+  "19cccdc0729c2882": {
+   "version_id": "main@2024-12-06-73ef3b50",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading of the case box is split: its first line is the title and its second line is run into the body text.",
+     "evidence": "source: \"What can happen if health and safety is ignored?\" / tree: title \"What can happen if health and\", text \"safety is ignored? At an inspection, a company was found\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Three separate paragraphs are run into the last bullet of the list.",
+     "evidence": "tree: \"• a rest area to sit, make hot drinks and eat food. You must also keep your welfare facilities warm and well ventilated\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The line See over is placed before the case box and the Fee for Intervention note is placed before the case box, but the page prints them the other way round.",
+     "evidence": "tree: \"visiting www.hse.gov.uk/construction/index.htm See over for examples of good practice...\""
+    },
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The printed subtitle of the sheet is not in the tree.",
+     "evidence": "\"What you need to know as a busy builder\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "99cd7a49255dbea8": {
+   "version_id": "main@2024-12-06-73ef3b50",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The Further information running text is read as a one-column table, with the document name as its title.",
+     "evidence": "source: heading \"Further information\" then paragraphs / tree: table \"CIS62 Welfare (busy builder sheet)\" with columns \"Further information\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Three headings are run together as one line of body text, so the two photo columns and the closing section have no headings.",
+     "evidence": "tree: \"Unacceptable Good example Further information\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The cross and tick marks on the photos are kept as three notes with text that is not on the page.",
+     "evidence": "tree: \"• 4\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

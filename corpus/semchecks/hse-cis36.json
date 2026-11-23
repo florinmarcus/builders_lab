@@ -1,0 +1,64 @@
+{
+ "source_id": "hse-cis36",
+ "about": "Model verdicts on source against tree for hse-cis36 (system/rag/semcheck.py).",
+ "verdicts": {
+  "563d0595e739e619": {
+   "version_id": "main@2024-12-06-e18715cd",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The two bold sub-headings under Control (the risks) are read as body text and run into the sentences and bullets around them.",
+     "evidence": "source: \"Stop or reduce the dust\" and \"Control the dust\" as headings / tree: \"given in Table 1. Stop or reduce the dust Before work starts\", \"eg a direct fastening system. Control the dust Even if you stop\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "5b85791103ffca5a": {
+   "version_id": "main@2024-12-06-e18715cd",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "8603d991675e12ec": {
+   "version_id": "main@2024-12-06-e18715cd",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "8baf646fdef3609d": {
+   "version_id": "main@2024-12-06-e18715cd",
+   "unit": "p6",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The page footer, with the page number, is kept as a body text section under Further information.",
+     "evidence": "tree: \"Published by the Health and Safety Executive CIS36(rev3) 03/20 6 of 6 pages\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

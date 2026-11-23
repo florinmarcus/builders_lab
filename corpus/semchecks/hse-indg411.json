@@ -1,0 +1,70 @@
+{
+ "source_id": "hse-indg411",
+ "about": "Model verdicts on source against tree for hse-indg411 (system/rag/semcheck.py).",
+ "verdicts": {
+  "6d76cdc95f0d50ba": {
+   "version_id": "main@2024-12-06-0bfae518",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "high",
+     "problem": "A line of the bold opening paragraph is lost, so the sentence no longer says the reader is a client with legal duties.",
+     "evidence": "source: \"as you will be a client with legal duties under the Construction (Design and Management) Regulations 2015 (CDM 2015)\" / tree: \"as you will be a Regulations 2015 (CDM 2015)\""
+    },
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "Another line of the opening paragraph is taken out of the paragraph and put in the text of a table, so the paragraph reads wrongly.",
+     "evidence": "source: \"user or managing agent and are having maintenance, small-scale building work or other minor works\" / tree: \"user or managing minor works\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The page title block is read as a one-cell table with the publisher name as its column; there is no table on the page.",
+     "evidence": "tree: columns \"Health and Safety Executive\", grid \"Need building work done? A short guide for clients on the Construction (Design and Management) Regulations 2015\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The table text holds the publisher name with its two lines mixed letter by letter.",
+     "evidence": "source: \"Health and Safety Executive\" / tree: \"HExeeacltuht iavned Safety\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The subtitle is joined to the start of the opening body paragraph as running text.",
+     "evidence": "tree: \"A short guide for clients on the Construction (Design and Management) Regulations 2015 This leaflet is aimed at you\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "c80ea11c9687137a": {
+   "version_id": "main@2024-12-06-0bfae518",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "42e3ba211a636f0f": {
+   "version_id": "main@2024-12-06-0bfae518",
+   "unit": "p6",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

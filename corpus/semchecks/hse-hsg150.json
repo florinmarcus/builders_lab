@@ -1,0 +1,283 @@
+{
+ "source_id": "hse-hsg150",
+ "about": "Model verdicts on source against tree for hse-hsg150 (system/rag/semcheck.py).",
+ "verdicts": {
+  "d67d2176115633f0": {
+   "version_id": "main@2024-12-06-0d0c380b",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "high",
+     "problem": "One printed line is dropped in the middle of a sentence, so the scope sentence is broken and the next sentence has lost its start.",
+     "evidence": "source: \"applies to everyone involved in construction. It provides help and assistance on how to work safely on most tasks you will encounter\" / tree: \"applies to everyone involved tasks you will encounter\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page footer is kept at the end of the body text.",
+     "evidence": "tree: \"HSE Books Page 1 of 141\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "4af8e09a998688f4": {
+   "version_id": "main@2024-12-06-0d0c380b",
+   "unit": "p101",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The last four lines of the final bullet of paragraph 514 are taken out of the paragraph and stored as labels of Figure 51, so the bullet is cut off in the paragraph.",
+     "evidence": "source: \"communicate with anyone inside, raise the alarm in an emergency and take charge of rescue procedures\" / tree para-514 ends: \"to communicate with anyone\""
+    },
+    {
+     "kind": "figure",
+     "severity": "low",
+     "problem": "Figure 51 has labels that are not printed inside the picture; they are body text, and the description itself says there are no printed labels.",
+     "evidence": "tree labels: \"inside, raise the alarm in an emergency and take charge of rescue procedures if\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "493a9d92b16985f6": {
+   "version_id": "main@2024-12-06-0d0c380b",
+   "unit": "p105",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "a222b3b10437b09f": {
+   "version_id": "main@2024-12-06-0d0c380b",
+   "unit": "p108",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "9430191face3674b": {
+   "version_id": "main@2024-12-06-0d0c380b",
+   "unit": "p112",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The step headings are read as body text and joined to the end of the paragraph before them, so each step's own paragraphs have no step heading.",
+     "evidence": "source: \"Step 2: Decide who might be harmed and how\" (heading above 586) / tree: para 585 \"...are identified in Section 3. Step 2: Decide who might be harmed and how\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-heading and the Step 1 heading are read as body text at the end of paragraph 582 and are not in the heading path.",
+     "evidence": "source: \"How is a risk assessment carried out?\" (heading) / tree: para 582 \"...to be undertaken. How is a risk assessment carried out? Step 1: Look for the hazards\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "c03c90d729f2cad2": {
+   "version_id": "main@2024-12-06-0d0c380b",
+   "unit": "p114",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "37a43d65b7133322": {
+   "version_id": "main@2024-12-06-0d0c380b",
+   "unit": "p129",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The group heading that spans the nine check columns is not in the column names; all ticks still sit in the right cells.",
+     "evidence": "source: \"Timing and frequency of checks, inspections and examinations\" / tree: columns start \"Inspect before work at the start of every shift (see note 1)\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "3703281c6494da0e": {
+   "version_id": "main@2024-12-06-0d0c380b",
+   "unit": "p20",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The superscript reference mark 7 is read as a plain digit joined to the text.",
+     "evidence": "source: \"Regulations 1995)\" with superscript 7 / tree: \"Regulations 1995)7 to report to HSE\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "3c7c13ffe07bd2b0": {
+   "version_id": "main@2024-12-06-0d0c380b",
+   "unit": "p31",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The end of the last bullet of paragraph 160 is cut from the paragraph and put into the labels of Figure 11, so the rule loses the storage platforms.",
+     "evidence": "source: \"provide edge protection (guard rails and toe boards) on all working platforms and platforms used for storing materials.\" / tree: para 160 ends \"on all working platforms\""
+    },
+    {
+     "kind": "figure",
+     "severity": "low",
+     "problem": "Figure 11 has a label that is not printed inside the picture; it is body text from paragraph 160.",
+     "evidence": "tree: labels \"and platforms used for storing materials.\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "d7044c6f4b0ca6a6": {
+   "version_id": "main@2024-12-06-0d0c380b",
+   "unit": "p33",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The italic sub-heading \"Mobile elevating work platforms (MEWPs)\" sits under \"Mobile access equipment\" in the source, but the tree puts it directly under \"Working at height\".",
+     "evidence": "source: \"Mobile access equipment\" then sub-heading \"Mobile elevating work platforms (MEWPs)\" / tree: \"Working at height > Mobile elevating work platforms (MEWPs)\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "13b6d22691f64b12": {
+   "version_id": "main@2024-12-06-0d0c380b",
+   "unit": "p36",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The italic sub-heading \"Suspended access cradles\" sits under \"Suspended access equipment\" in the source, but the tree puts it directly under \"Working at height\".",
+     "evidence": "source: \"Suspended access equipment\" then sub-heading \"Suspended access cradles\" / tree: \"Working at height > Suspended access cradles\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "5172a3689b2b4f9a": {
+   "version_id": "main@2024-12-06-0d0c380b",
+   "unit": "p59",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The italic sub-heading \"Selection\" sits under \"Vehicles and plant\" in the source, but the tree puts it directly under \"Site traffic and mobile plant\", so paragraphs 278-286 lose the \"Vehicles and plant\" parent.",
+     "evidence": "source: \"Vehicles and plant\" then sub-heading \"Selection\" / tree: \"Site traffic and mobile plant > Selection > Paragraph 278\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "8237dd319ceae669": {
+   "version_id": "main@2024-12-06-0d0c380b",
+   "unit": "p74",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "23c8976de475e788": {
+   "version_id": "main@2024-12-06-0d0c380b",
+   "unit": "p75",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The superscript reference marker 13 is run into the sentence as plain digits.",
+     "evidence": "source: \"Be safe and shore.\" with superscript 13 / tree: \"Be safe and shore.13\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "99ab4b55f004f83b": {
+   "version_id": "main@2024-12-06-0d0c380b",
+   "unit": "p87",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "figure",
+   "findings": [
+    {
+     "kind": "figure",
+     "severity": "low",
+     "problem": "The figure's labels hold only running-footer text that is not in the picture, and none of the key or note words printed in the figure; these are kept only in the model description.",
+     "evidence": "source: \"Roof and exterior walls 1 Roof sheets, slates and tiles 2 Guttering and drainpipe\" / tree: \"Health and safety in construction Index\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "05002110af9755e8": {
+   "version_id": "main@2024-12-06-0d0c380b",
+   "unit": "p99",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

@@ -1,0 +1,35 @@
+{
+ "source_id": "ess-amd-2026",
+ "about": "Model verdicts on source against tree for ess-amd-2026 (system/rag/semcheck.py).",
+ "verdicts": {
+  "e4c571aecf32ff8f": {
+   "version_id": "main@2026-11-13-c55bf259",
+   "unit": "regulation-4",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The semicolon that closes sub-paragraph (b) after the inserted paragraphs (1A) and (1B) is not in the tree.",
+     "evidence": "source: \"should take place has not passed.</Text> ... <AppendText>;</AppendText>\" / tree: \"should take place has not passed.\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "ab841210278c29f0": {
+   "version_id": "main@2026-11-13-c55bf259",
+   "unit": "regulation-7",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

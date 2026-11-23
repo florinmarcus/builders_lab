@@ -1,0 +1,35 @@
+{
+ "source_id": "noise2005",
+ "about": "Model verdicts on source against tree for noise2005 (system/rag/semcheck.py).",
+ "verdicts": {
+  "8cc401d8b359843d": {
+   "version_id": "main@2020-12-31-7b97be8c",
+   "unit": "regulation-14",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "2e58328b85dcd5db": {
+   "version_id": "main@2020-12-31-7b97be8c",
+   "unit": "schedule-1-part-2-paragraph-wrapper2n2",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "high",
+     "problem": "The formula for the weekly personal noise exposure level is an image in the source and the tree keeps nothing of it, not even a figure marker, so the text starts at \"where—\" and defines the symbols of a formula that is not there.",
+     "evidence": "source: \"<Figure Orientation=\\\"portrait\\\" ImageLayout=\\\"vertical\\\"> <Image ResourceRef=\\\"r00005\\\" .../>\" / tree: \"where—\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

@@ -1,0 +1,374 @@
+{
+ "source_id": "hse-l5",
+ "about": "Model verdicts on source against tree for hse-l5 (system/rag/semcheck.py).",
+ "verdicts": {
+  "c4c0ef852e699214": {
+   "version_id": "main@2024-12-06-95519090",
+   "unit": "p15",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The group heading printed above the three right-hand columns of Table 1 is not in the column names; the values still sit in the right columns.",
+     "evidence": "source: \"Duty for the protection of:\" / tree: \"Employees\", \"Other people on the premises\", \"Other people likely to be affected by the work\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "40932729f981c0d9": {
+   "version_id": "main@2024-12-06-95519090",
+   "unit": "p24",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "4afd258476645082": {
+   "version_id": "main@2024-12-06-95519090",
+   "unit": "p32",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The heading for Principle (f) is read as body text at the end of paragraph 111, which belongs to Principle (e), so paragraphs 112 and 113 lose their principle heading.",
+     "evidence": "source: heading \"Principle (f): Check and review regularly all elements of control measures for their continuing effectiveness\" / tree: \"may provide no protection when it fails. Principle (f): Check and review regularly\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The heading for Principle (g) is read as body text at the end of paragraph 113, which belongs to Principle (f), so paragraphs 114 to 116 lose their principle heading.",
+     "evidence": "source: heading \"Principle (g): Inform and train all employees on the hazards and risks\" / tree: \"rely on routine human behaviour. Principle (g): Inform and train all employees\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "cad4997aa6f7408b": {
+   "version_id": "main@2024-12-06-95519090",
+   "unit": "p38",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The small italic sub-headings are placed at the same level as the larger heading above them, so paragraphs 150 to 152 are not under 'Adequate control of exposure by routes other than inhalation'.",
+     "evidence": "source: \"Adequate control of exposure by routes other than inhalation\" then \"Exposure via the skin (or mucous membranes or eyes)\" / tree: \"Regulation 7 ... > Exposure via the skin (or mucous membranes or eyes)\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The footnote marker 8 is run into the title of the publication in paragraph 151.",
+     "evidence": "source: \"Managing skin exposure risks at work\" with superscript 8 / tree: \"Managing skin exposure risks at work8 provides further guidance\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "168d58ae841e4b5e": {
+   "version_id": "main@2024-12-06-95519090",
+   "unit": "p41",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "dfe3048177a8b923": {
+   "version_id": "main@2024-12-06-95519090",
+   "unit": "p7",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "f7e801d65f443857": {
+   "version_id": "main@2024-12-06-95519090",
+   "unit": "p70",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "78ca57d605b8c8da": {
+   "version_id": "main@2024-12-06-95519090",
+   "unit": "p74",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The cross-reference heading \"Regulation 2(1)\" printed above the list is run into the body text in front of the first list entry.",
+     "evidence": "source: \"Regulation 2(1)\" (own line, bold) then \"Aflatoxins.\" / tree: \"Regulation 2(1) Aflatoxins. Arsenic.\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "e7ad5acaccd03377": {
+   "version_id": "main@2024-12-06-95519090",
+   "unit": "p76",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The header labels \"Column 1\" and \"Column 2\" are not in the table's columns, though a cell in row 1 refers to \"Column 1 of this item\".",
+     "evidence": "source: \"Column 1 / Description of substance\", \"Column 2 / Purpose for which the substance is prohibited\" / tree: \"Description of substance\", \"Purpose for which the substance is prohibited\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The item numbers have no column of their own and are joined to the substance text, so item 1 reads like part of the chemical name.",
+     "evidence": "source: \"1\" | \"2-naphthylamine; benzidine;\" / tree: \"1 2-naphthylamine; benzidine; 4-aminodiphenyl;\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The cross-reference heading \"Regulation 4(1)\" is run into the body text in front of the definitions.",
+     "evidence": "source: \"Regulation 4(1)\" (own line above the table) / tree: \"Regulation 4(1) In this Schedule – “aerosol dispenser” means\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "a9259c4d2caa87b4": {
+   "version_id": "main@2024-12-06-95519090",
+   "unit": "p77",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "035c600ce2a85d37": {
+   "version_id": "main@2024-12-06-95519090",
+   "unit": "p78",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "a0051083dbb3f58d": {
+   "version_id": "main@2024-12-06-95519090",
+   "unit": "p80",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Guidance paragraph 309, printed in its own 'Guidance Schedule 2A' box, is merged into the Schedule 2A regulation text and carries the status 'regulation'.",
+     "evidence": "source: \"Guidance Schedule 2A 309 Further information on the principles of good practice\" / tree: \"...overall risk to health and safety. 309 Further information on the principles\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "891f3d7927a63737": {
+   "version_id": "main@2024-12-06-95519090",
+   "unit": "p83",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The numbered paragraph headings 4 and 5 are read as body text, and paragraphs 4, 5 and 6 of the Schedule are merged into one text section.",
+     "evidence": "source: heading \"4 List of employees exposed to certain biological agents\", heading \"5 Notification of the use of biological agents\" / tree: \"...relates to him personally. 5 Notification of the use of biological agents (1) Subject to\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The footnote (a) printed at the top of the page is placed after the paragraph 4 to 6 text in the tree.",
+     "evidence": "source: \"(a) Words substituted subject to transitional provisions as specified by SI 2008/960 Schedule 2, paragraph 11\" printed above \"4 List of employees\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "cff6e597c4038284": {
+   "version_id": "main@2024-12-06-95519090",
+   "unit": "p85",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The group heading 'Containment levels' over the three level columns is lost, so the grid columns are named only 2, 3 and 4.",
+     "evidence": "source: \"Containment measures | Containment levels | 2 | 3 | 4\" / tree: columns \"Containment measures\", \"2\", \"3\", \"4\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Paragraph 6(2) is split across two text sections, with item (c) starting a new section apart from items (a) and (b).",
+     "evidence": "tree: one section ends \"solely for the purpose of disposal; or\" and the next starts \"(c) the biological agent is or is suspected of being present\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "f63371beba083616": {
+   "version_id": "main@2024-12-06-95519090",
+   "unit": "p86",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The group heading 'Containment levels' over the three level columns is lost, so the grid columns are named only 2, 3 and 4.",
+     "evidence": "source: \"Containment measures | Containment levels | 2 | 3 | 4\" / tree: columns \"Containment measures\", \"2\", \"3\", \"4\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "745dc0a26c822190": {
+   "version_id": "main@2024-12-06-95519090",
+   "unit": "p87",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The group heading 'Containment levels' over the three level columns is lost, so the grid columns are named only 2, 3 and 4.",
+     "evidence": "source: \"Containment measures | Containment levels | 2 | 3 | 4\" / tree: columns \"Containment measures\", \"2\", \"3\", \"4\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "7ed9e8cfeb9b6141": {
+   "version_id": "main@2024-12-06-95519090",
+   "unit": "p88",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The biohazard sign that Part IV says is 'shown below' is printed on the page but the tree holds no figure for it.",
+     "evidence": "source: \"shall be in the form shown below –\" followed by the yellow and black triangular biohazard sign / tree: no figure"
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The group heading above the three level columns is not in the column names, so the columns are only called 2, 3 and 4.",
+     "evidence": "source: \"Containment levels\" over \"2 3 4\" / tree: columns \"2\", \"3\", \"4\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "40b081c7e4ca2ccf": {
+   "version_id": "main@2024-12-06-95519090",
+   "unit": "p90",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "88b4c3111255d632": {
+   "version_id": "main@2024-12-06-95519090",
+   "unit": "p91",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The footnote (a) under the Schedule 5 table is printed once but the tree holds it twice, and one copy sits under Part I of Schedule 3 as a section from page 83.",
+     "evidence": "source: \"(a) Words substituted subject to transitional provisions as specified by SI 2008/960 Schedule 2\" / tree: same text also under \"PART I Provisions of general application to biological agents > Text\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "dd5eed5612691cd7": {
+   "version_id": "main@2024-12-06-95519090",
+   "unit": "p92",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "2cc41b32fb15a2ca": {
+   "version_id": "main@2024-12-06-95519090",
+   "unit": "p94",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "55a51f0eb0ae1345": {
+   "version_id": "main@2024-12-06-95519090",
+   "unit": "p95",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

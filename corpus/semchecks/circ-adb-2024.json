@@ -1,0 +1,232 @@
+{
+ "source_id": "circ-adb-2024",
+ "about": "Model verdicts on source against tree for circ-adb-2024 (system/rag/semcheck.py).",
+ "verdicts": {
+  "d1cf1bd11963a6b9": {
+   "version_id": "circular-03-2024@2024-09-02-bd6fb9a1",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Paragraph 12 (Enquiries) does not end at the signature on this page: the annex headings and notices from later pages are merged into it as body text, so the annex notices sit under the Enquiries paragraph.",
+     "evidence": "source: \"Signed: John Palmer\" (page ends) / tree: \"Signed: John Palmer ANNEX A –Withdrawal of Notices Building Act 1984 NOTICE OF THE WITHDRAWAL OF NOTICES\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "8f2d8d61056cd9f4": {
+   "version_id": "circular-03-2024@2024-09-02-bd6fb9a1",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The whole Annex A notice (its heading, the boxed notice and the signature block) is merged into paragraph 12 under ENQUIRIES instead of being its own annex section.",
+     "evidence": "tree: \"E-mail: buildingassurance@communities.gov.uk Signed: John Palmer ANNEX A –Withdrawal of Notices Building Act 1984 NOTICE OF THE WITHDRAWAL OF NOTICES\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "In the same paragraph the Annex C notice follows straight after Annex A, so Annex B is skipped and the annex heading is split across two lines.",
+     "evidence": "tree: \"Local Government 2 September 2024 ANNEX\" / \"C – Notice of Withdrawal Building Act 1984 NOTICE OF WITHDRAWAL OF APPROVAL\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "8f792f352bcc3cf6": {
+   "version_id": "circular-03-2024@2024-09-02-bd6fb9a1",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The grid leaves out the notice's title row and its body row with the dates the approval takes effect; these words are only in the table's raw text.",
+     "evidence": "source: \"The approval takes effect on 2 March 2025 except in respect of work for which a building notice or initial notice has been given\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The Annex B notice table is titled ENQUIRIES and sits under the ENQUIRIES heading; the annex heading is kept only in the table's raw text.",
+     "evidence": "source: \"ANNEX B – Notice of Approval\" / tree: \"heading_path\": \"ENQUIRIES > ENQUIRIES\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "33a21240627329a0": {
+   "version_id": "circular-04-2024@2024-09-02-defaee66",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The three large title lines of the circular's front page are not in the tree, while the smaller lines around them are kept.",
+     "evidence": "source: \"THE BUILDING ACT 1984 THE BUILDING REGULATIONS 2010 APPROVED DOCUMENT B, VOLUME 1 & VOLUME 2\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The circular number is placed before the two lines printed at the top of the page.",
+     "evidence": "tree: \"AMENDS APPROVED DOCUMENT B, VOLUME 2 Circular number 04/2024\" then \"Housing Communities and Local Government Circular\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "acbbb6ba0ace978c": {
+   "version_id": "circular-04-2024@2024-09-02-defaee66",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "9d6bcaf0d54dbb2c": {
+   "version_id": "circular-04-2024@2024-09-02-defaee66",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The grid leaves out the notice's title row and its body row with the dates the revisions take effect; these words are only in the table's raw text.",
+     "evidence": "source: \"The revisions take effect on 30 September 2026 except in respect of work for which a building notice or initial notice has been given\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The Annex A heading is read as the end of paragraph 16 under ENQUIRES instead of as a heading for the notice.",
+     "evidence": "tree: \"Signed: John Palmer ANNEX A – Notice of Approval\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "A word is split in the table's raw text.",
+     "evidence": "source: \"made before that date\" / tree: \"m ade before that date\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "1419746d58c43b19": {
+   "version_id": "circular-04-2024@2024-09-02-defaee66",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The Annex B heading is kept as body text under the earlier annex's \"Building Act 1984\" heading, not as the heading above this notice.",
+     "evidence": "tree: \"heading_path\": \"Building Act 1984 > Text\", \"text\": \"ANNEX B – Notice of Withdrawal\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The grid has column names and row labels that are not printed in the source; the values themselves are right.",
+     "evidence": "tree: \"Part of notice\", \"Text\", \"Notice title\", \"Notice text\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "A word is split in the table's raw text, though the grid has it right.",
+     "evidence": "source: \"REGULATIONS 2010\" / tree: \"REGULAT IONS 2010\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "ecd174896f3aefad": {
+   "version_id": "circular-05-2024@2024-09-02-e7109817",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The three large title lines of the circular's first page are not in the tree.",
+     "evidence": "source: \"THE BUILDING ACT 1984 THE BUILDING REGULATIONS 2010 APPROVED DOCUMENT B, VOLUME 1 & VOLUME 2\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The circular line and date printed under the ministry heading come after the bullets in the tree, and the circular number is joined to the second bullet.",
+     "evidence": "tree: \"AMENDS APPROVED DOCUMENT B, VOLUME 2 Circular number 05/2024\" then \"Housing Communities and Local Government Circular Ministry of Housing, Communities and Local Government 2 September 2024\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "4e4faf1074fbb1e5": {
+   "version_id": "circular-05-2024@2024-09-02-e7109817",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "a628401a82873e97": {
+   "version_id": "circular-05-2024@2024-09-02-e7109817",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The table's first rows, the notice heading and the two paragraphs with the dates the revisions take effect, are not in the grid and are kept only in the table's text.",
+     "evidence": "source: \"The revisions take effect on 2 September 2029 except in respect of work for which a building notice or initial notice has been given\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Annex A is placed under the ENQUIRIES heading, though it is a separate annex of the circular.",
+     "evidence": "source: \"ANNEX A – Notice of Approval\" / tree: \"ENQUIRIES > ANNEX A – Notice of Approval\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "A word is split in the table's text.",
+     "evidence": "source: \"made before that date\" / tree: \"m ade before that date\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

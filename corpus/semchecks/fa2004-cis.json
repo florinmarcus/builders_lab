@@ -1,0 +1,42 @@
+{
+ "source_id": "fa2004-cis",
+ "about": "Model verdicts on source against tree for fa2004-cis (system/rag/semcheck.py).",
+ "verdicts": {
+  "6d36368fb1cc82ed": {
+   "version_id": "main@2026-03-18-8a1c2881",
+   "unit": "section-62C",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The provision is a section of an Act but the tree gives its type as \"regulation\"; the wording and number are right.",
+     "evidence": "source: \"ukpga/2004/12/section/62C\" / tree: \"type\": \"regulation\", \"Section 62C Regulations\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "ca758066b9978759": {
+   "version_id": "main@2026-03-18-8a1c2881",
+   "unit": "section-72A",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The provision is a section of an Act but the tree gives its type as \"regulation\"; the wording, numbers and nesting are right.",
+     "evidence": "source: \"ukpga/2004/12/section/72A\" / tree: \"type\": \"regulation\", \"Section 72A Penalties: deliberate failures to comply\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

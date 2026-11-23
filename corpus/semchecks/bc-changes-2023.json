@@ -1,0 +1,119 @@
+{
+ "source_id": "bc-changes-2023",
+ "about": "Model verdicts on source against tree for bc-changes-2023 (system/rag/semcheck.py).",
+ "verdicts": {
+  "a4f578ef34c6bf36": {
+   "version_id": "additional-q-a-changes-to-the-building-control-process-for-h@2024-03-28-c6890960",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The two columns of the letterhead (sender address on the right, addressees on the left) are mixed into one text.",
+     "evidence": "tree: \"To: (England only) Fry Building 2 Marsham Street Local Government Chief Executives and London SW1P 4DF Heads of Building Control www.gov.uk/dluhc Approved Inspectors\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The one underlined subject heading is split into two headings, and the letter body sits under the second fragment.",
+     "evidence": "source: \"...wider changes to procedural building regulations applying to buildings in England.\" / tree: heading \"...procedural building\" + heading \"regulations applying to buildings in England.\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "e77b5e4333e9f3a5": {
+   "version_id": "additional-q-a-changes-to-the-building-control-process-for-h@2024-03-28-c6890960",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The five items of the bold contents list are read as three separate headings, two of them joining two items each.",
+     "evidence": "tree headings: \"1) transitional provisions 2) statutory consultations\", \"3) work in existing higher-risk buildings 4) enforcement\", \"5) lapse of plans\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The bold numbered questions 1.1, 1.2 and 1.3 are read as body text and the three questions and answers are merged into one text section.",
+     "evidence": "source: bold \"1.2. Schedule 3 doesn’t cover all possible scenarios\" / tree: \"...can be found here. 1.2. Schedule 3 doesn’t cover all possible scenarios...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "4a5fca13f8eae3bf": {
+   "version_id": "additional-q-a-changes-to-the-building-control-process-for-h@2024-03-28-c6890960",
+   "unit": "p6",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The bold numbered questions (3.3, 3.4, 4.1, 4.2) and the quoted heading \"35C Stop notices\" are read as body text, so several questions and answers are merged into one text section.",
+     "evidence": "source: bold \"4.2. When can stop notices be issued?\" / tree: \"...want it to be rectified. 4.2. When can stop notices be issued? Stop notice powers...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "a87f7d1d4fe303a7": {
+   "version_id": "circular-letter-changes-to-the-building-control-process@2024-03-28-3ba48ed4",
+   "unit": "p11",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Two headings on the page are read as body text and run into the sentences around them, and the heading path is only \"Text\".",
+     "evidence": "source: heading \"Changes to enforcement for all buildings\" then heading \"Compliance and stop notices\" / tree: \"private sector building control. Changes to enforcement for all buildings Compliance and stop notices The Building Safety Act 2022 strengthens\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "5fbe51eb4e230ed1": {
+   "version_id": "circular-letter-changes-to-the-building-control-process@2024-03-28-3ba48ed4",
+   "unit": "p18",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The bold heading over regulation 14A is read as body text and run into the end of regulation 14(4), and the heading path is only \"Text\".",
+     "evidence": "source: heading \"Determination of applications for building control approval with full plans\" / tree: \"dwelling-house or flat. Determination of applications for building control approval with full plans 14A.—(1) Subject to\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "fe7d6a93960d0d14": {
+   "version_id": "circular-letter-changes-to-the-building-control-process@2024-03-28-3ba48ed4",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

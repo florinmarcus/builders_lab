@@ -1,0 +1,72 @@
+{
+ "source_id": "hse-cis65",
+ "about": "Model verdicts on source against tree for hse-cis65 (system/rag/semcheck.py).",
+ "verdicts": {
+  "9c836e1d246ec00f": {
+   "version_id": "main@2024-12-06-5bab86dd",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "high",
+     "problem": "A line of the sixth bullet is lost, so the tree no longer says what to arrange with the electricity supplier.",
+     "evidence": "source: \"arrange with the electricity supplier for overhead power lines to be shrouded (covered), or made dead or rerouted.\" / tree: \"arrange with the electricity supplier for (covered), or made dead or rerouted.\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The case box heading and its text, and the line See over, are run into the last bullet instead of being a separate titled box.",
+     "evidence": "tree: \"before drilling into walls etc. What can happen if health and safety is ignored? Two experienced ground workers\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The two sub-bullets with the distances are given at the same level as the main bullets.",
+     "evidence": "tree: \"• 15m (plus length of jib) if the line is suspended from steel towers; or\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The opening box is placed after the bullet list and the case text, but the page prints it first.",
+     "evidence": "tree: \"Don’t let your building project strike the wrong note.\" placed after \"See over for examples of good and bad practice …\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "2c5485bde277d1ce": {
+   "version_id": "main@2024-12-06-5bab86dd",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The two columns under Further information are mixed into one text, so the sentences are interleaved.",
+     "evidence": "source: \"For information about health and safety, or to report inconsistencies\" / tree: \"For information about health and safety, or This leaflet is available at: to report inconsistencies or inaccuracies in www.hse.gov.uk/pubns/cis65.pdf. this guidance\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The Overhead power lines case text is separated from its heading and placed after the Further information text.",
+     "evidence": "source: \"Overhead power lines A new employee without proper training parked beneath three overhead 11KV cables\" / tree: \"Overhead power lines\" then \"Further information\" then \"A new employee without proper training\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The box headings Good practice and Bad practice are joined in one note and no longer mark which picture is good or bad, and Overhead power lines is a note, not a heading.",
+     "evidence": "tree: \"Good practice Bad practice\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

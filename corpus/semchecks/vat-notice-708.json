@@ -1,0 +1,345 @@
+{
+ "source_id": "vat-notice-708",
+ "about": "Model verdicts on source against tree for vat-notice-708 (system/rag/semcheck.py).",
+ "verdicts": {
+  "a0692f05f0b42aca": {
+   "version_id": "page@2026-08-26-5b62fe10",
+   "unit": "part1",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "ab8f90bd228e0a80": {
+   "version_id": "page@2026-08-26-5b62fe10",
+   "unit": "part10",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "f83a20c0216e9b8e": {
+   "version_id": "page@2026-08-26-5b62fe10",
+   "unit": "part11",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "0c758ca8eb65a9f7": {
+   "version_id": "page@2026-08-26-5b62fe10",
+   "unit": "part12",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "097832fa9abc7cc4": {
+   "version_id": "page@2026-08-26-5b62fe10",
+   "unit": "part13",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "f50b464605e7da8d": {
+   "version_id": "page@2026-08-26-5b62fe10",
+   "unit": "part14",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "6178f15d79ae9f33": {
+   "version_id": "page@2026-08-26-5b62fe10",
+   "unit": "part15",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "f09697cc6d87fb3b": {
+   "version_id": "page@2026-08-26-5b62fe10",
+   "unit": "part16",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "0f60f27a1f158d08": {
+   "version_id": "page@2026-08-26-5b62fe10",
+   "unit": "part17",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "86ea3babc3ee9f16": {
+   "version_id": "page@2026-08-26-5b62fe10",
+   "unit": "part18",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The attachment title was read as a top-level chapter, so paragraph 18.2 hangs under it instead of under chapter 18 'The certificates'.",
+     "evidence": "source: \"<h3> 18.2 Zero-rated sales and long leases\" after \"<h2> 18. The certificates\" / tree: \"Zero-rated and reduced-rated building work certificate > 18.2 Zero-rated sales and long leases\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The two attachment titles are kept as chapters with no number, at the same level as the numbered chapters, instead of as attachments inside 18.1 and 18.2.",
+     "evidence": "tree: type \"chapter\", title \"Zero rated sales and long leases certificate\", heading_path \"Zero rated sales and long leases certificate\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The tree keeps the attachment file details that the source marks as dropped page furniture, twice.",
+     "evidence": "source: \"[dropped: last-updated] ODT, 11.4 KB / This file is in an OpenDocument format\" / tree: \"ODT, 11.4 KB\", \"This file is in an OpenDocument format\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "6ec636198e852243": {
+   "version_id": "page@2026-08-26-5b62fe10",
+   "unit": "part19",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Example 2 is not under the 'Examples of calculating the taxable charge' heading, while Example 1 is, so the two examples have different parents.",
+     "evidence": "tree: \"19.3 Buildings completed on or after 1 March 2011 > Examples of calculating the taxable charge > Example 1\" / tree: \"19.3 Buildings completed on or after 1 March 2011 > Example 2\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The example headings that follow 19.2.3 and 19.3.3 hang under 19.2 and 19.3, not under the 'Calculating the taxable charge' paragraphs they illustrate.",
+     "evidence": "source: \"<h4> 19.2.3 Calculating the taxable charge\" ... \"<h4> Example\" / tree: \"19.2 Buildings completed before 1 March 2011 > Example\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "c0b77315b163bff3": {
+   "version_id": "page@2026-08-26-5b62fe10",
+   "unit": "part2",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "919c16009cb87a99": {
+   "version_id": "page@2026-08-26-5b62fe10",
+   "unit": "part20",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "05e53b0f19326b68": {
+   "version_id": "page@2026-08-26-5b62fe10",
+   "unit": "part21",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "08a575123839d3ae": {
+   "version_id": "page@2026-08-26-5b62fe10",
+   "unit": "part22",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "b7c175e25e45a67f": {
+   "version_id": "page@2026-08-26-5b62fe10",
+   "unit": "part23",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "a15dda42379bc2ed": {
+   "version_id": "page@2026-08-26-5b62fe10",
+   "unit": "part3",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The unnumbered sub-headings that follow paragraph 3.4.1 are placed under 3.4, not under 3.4.1, so their text is cut off from the paragraph they explain.",
+     "evidence": "source: \"3.4.1 Architects, surveyors, consultants and supervisors\" then \"Design and build\" / tree: \"3.4 Services excluded from zero rating > Design and build\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The examples that follow a numbered sub-paragraph are placed under the parent paragraph (3.3 and 3.5), not under the sub-paragraph they illustrate.",
+     "evidence": "source: \"3.5.2 Apportionment for mixed site developments\" then \"Example\" / tree: \"3.5 Apportionment > Example\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "b541a9267b959202": {
+   "version_id": "page@2026-08-26-5b62fe10",
+   "unit": "part4",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "a3e917d2e35230d0": {
+   "version_id": "page@2026-08-26-5b62fe10",
+   "unit": "part5",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The unnumbered sub-heading that follows paragraph 5.5.1 is placed under 5.5, not under 5.5.1, so its text is cut off from the paragraph it explains.",
+     "evidence": "source: \"5.5.1 The meaning of ‘person converting’\" then \"Developer\" / tree: \"5.5 Having ‘person converting’ status > Developer\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The three examples at the start are placed under 4.8, not under the sub-paragraph of 4.8 that they illustrate.",
+     "evidence": "tree: \"4.8 Apportionment > Example 1\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "d47ddad07538085d": {
+   "version_id": "page@2026-08-26-5b62fe10",
+   "unit": "part6",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The unnumbered sub-heading that continues paragraph 5.5.1 is filed directly under 5.5, as a sibling of the numbered paragraphs, so its text loses its link to 5.5.1.",
+     "evidence": "source: \"<h4> Contractor or subcontractor\" just before \"<h4> 5.5.2\" / tree: \"5.5 Having ‘person converting’ status > Contractor or subcontractor\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "3afb4481bf2ddfca": {
+   "version_id": "page@2026-08-26-5b62fe10",
+   "unit": "part7",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The two unnumbered \"Example\" headings that follow paragraphs 6.6.1 and 6.6.2 are filed directly under 6.6, not under the paragraph they illustrate.",
+     "evidence": "source: \"<h4> 6.6.1 Apportionment for converting parts of buildings\" then \"<h4> Example\" / tree: \"6.6 Apportionment > Example\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "c98eeaa2f3efc5bf": {
+   "version_id": "page@2026-08-26-5b62fe10",
+   "unit": "part8",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Examples 1 to 3, which illustrate paragraph 7.3.1, are filed directly under 7.3 as siblings of 7.3.1, not under it.",
+     "evidence": "source: \"<h4> 7.3.1 Converting and refurbishing different parts of the building at the same time\" then \"<h4> Example 1\" / tree: \"7.3 Conversions into single household dwellings > Example 1\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "993f72cf683a56c2": {
+   "version_id": "page@2026-08-26-5b62fe10",
+   "unit": "part9",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The \"First rule\" and \"Second rule\" headings, which belong to paragraph 8.3.4, are filed directly under 8.3 as siblings of 8.3.4, so their conditions lose the link to 8.3.4.",
+     "evidence": "source: \"<h4> 8.3.4 People living in the premises whilst you carry out the work\" then \"<h4> First rule\" / tree: \"8.3 Rules for premises that have been lived in recently > Second rule\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

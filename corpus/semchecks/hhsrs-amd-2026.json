@@ -1,0 +1,35 @@
+{
+ "source_id": "hhsrs-amd-2026",
+ "about": "Model verdicts on source against tree for hhsrs-amd-2026 (system/rag/semcheck.py).",
+ "verdicts": {
+  "02bb3d065ed7132d": {
+   "version_id": "main@2026-06-01-4b5f8cc0",
+   "unit": "regulation-2",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "29c1e247f420da86": {
+   "version_id": "main@2026-06-01-4b5f8cc0",
+   "unit": "regulation-4",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The full stop appended after the quoted amendment block (AppendText) is not in the tree.",
+     "evidence": "source: \"</BlockAmendment> <AppendText>.</AppendText>\" / tree: ends at \"as a result of fire or an explosion.\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

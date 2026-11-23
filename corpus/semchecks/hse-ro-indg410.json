@@ -1,0 +1,66 @@
+{
+ "source_id": "hse-ro-indg410",
+ "about": "Model verdicts on source against tree for hse-ro-indg410 (system/rag/semcheck.py).",
+ "verdicts": {
+  "ad8a877178165be7": {
+   "version_id": "main@2024-12-06-b4092d16",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The side note under the cover picture is mixed into the first bullet of 'Generale', and the bullet mark is read as the letter 'n'.",
+     "evidence": "source: \"Să vă informeze în legătură cu eventualele riscuri privind sănătatea și siguranța dvs. la locul dvs. de muncă.\" / tree: \"Generale This is a Romanian language version of pocket n Să vă informeze ... siguranța dvs. card INDG410 la locul dvs. de muncă.\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-headings are read as body text, joined to the end of the bullet before them.",
+     "evidence": "tree: \"Employers’ Liability Compulsory Insurance). Informații și pregătire\" ... \"unul pe altul. Echipament și îmbrăcăminte\" ... \"dacă lucrați în aer liber. Bunăstarea dvs.\""
+    },
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The printed title of the leaflet is not in the tree.",
+     "evidence": "source: \"Ați venit din străinătate și lucrați în Marea Britanie?\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "f09917ee52b21d76": {
+   "version_id": "main@2024-12-06-b4092d16",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "A sub-heading is read as body text and joined to the end of the bullet before it.",
+     "evidence": "source: heading \"Ce trebuie să faceți dacă sunteți îngrijorat(ă) în ceea ce privește siguranța și sănătatea dvs.\" / tree: \"dacă ați născut în ultimele 6 luni. Ce trebuie să faceți dacă sunteți îngrijorat(ă)\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "A separate paragraph is joined to the last bullet of the list above it.",
+     "evidence": "tree: \"Discutați cu responsabilul cu siguranța dacă există o persoană desemnată Dacă încă mai credeți că dvs. și /sau alți muncitori\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-heading 'Femeile și tinerii' is read as body text at the end of a bullet from page 1.",
+     "evidence": "tree: \"(Organul executiv responsabil cu normele pentru protecția muncii) Femeile și tinerii\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

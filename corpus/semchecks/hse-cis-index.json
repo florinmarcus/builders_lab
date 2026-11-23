@@ -1,0 +1,24 @@
+{
+ "source_id": "hse-cis-index",
+ "about": "Model verdicts on source against tree for hse-cis-index (system/rag/semcheck.py).",
+ "verdicts": {
+  "0b7f4f512551fe4c": {
+   "version_id": "main@2026-10-29-1788789c",
+   "unit": "part1",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The first three list items under General are each split into two lines, so the subtitle reads as a separate line and not as part of the item.",
+     "evidence": "source: \"<li> Preventing injury during plasterboard handling: What you need to know as a busy builder\" / tree: \"• Preventing injury during plasterboard handling:\" then \"What you need to know as a busy builder\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

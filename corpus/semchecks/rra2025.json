@@ -1,0 +1,403 @@
+{
+ "source_id": "rra2025",
+ "about": "Model verdicts on source against tree for rra2025 (system/rag/semcheck.py).",
+ "verdicts": {
+  "65ddf4a8b6f64e63": {
+   "version_id": "main@2026-06-22-0bbb78c0",
+   "unit": "schedule-1-paragraph-11",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The two inserted list items are lettered (c) and (d) in the source (list starts at 3, alpha, in brackets) but the tree keeps them with no letters.",
+     "evidence": "source: \"<OrderedList Start=\\\"3\\\" Type=\\\"alpha\\\" Decoration=\\\"parens\\\">\" / tree: \"if the tenancy arose by succession as mentioned in section 39(5), notice was given\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "0e867d5122000d30": {
+   "version_id": "main@2026-06-22-0bbb78c0",
+   "unit": "schedule-1-paragraph-14",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The lettered and numbered list items in the inserted text, (a) to (d), (a) and (b), (i) and (ii), have no labels in the tree, though the text refers to \"paragraph (d)\" and \"the second paragraph (b)\".",
+     "evidence": "source: \"<OrderedList Type=\\\"alpha\\\" Decoration=\\\"parens\\\">\" ... \"by the landlord seeking possession,\" / tree: \"by the landlord seeking possession,\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The substituted paragraph is lettered (b) in the source (list starts at 2) but has no letter in the tree.",
+     "evidence": "source: \"<OrderedList Start=\\\"2\\\" Type=\\\"alpha\\\" Decoration=\\\"parens\\\">\" / tree: \"the tenancy was granted for a particular purpose relating to the tenant’s service as a constable and—\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "f43f7b48025c66f1": {
+   "version_id": "main@2026-06-22-0bbb78c0",
+   "unit": "schedule-1-paragraph-5",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "4b588e15e462eeb4": {
+   "version_id": "main@2026-06-22-0bbb78c0",
+   "unit": "schedule-1-paragraph-9",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The two inserted list items are lettered (c) and (d) in the source (list starts at 3, alpha, in brackets) but the tree keeps them with no letters.",
+     "evidence": "source: \"<OrderedList Start=\\\"3\\\" Type=\\\"alpha\\\" Decoration=\\\"parens\\\">\" / tree: \"if the tenancy arose by succession as mentioned in section 39(5), notice was given\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "a3cdb40220c77a73": {
+   "version_id": "main@2026-06-22-0bbb78c0",
+   "unit": "schedule-2-paragraph-12",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "59d65e2959352afa": {
+   "version_id": "main@2026-06-22-0bbb78c0",
+   "unit": "schedule-2-paragraph-24",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "23abdfd741bd762e": {
+   "version_id": "main@2026-06-22-0bbb78c0",
+   "unit": "schedule-2-paragraph-37",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "5dbc0989c485659b": {
+   "version_id": "main@2026-06-22-0bbb78c0",
+   "unit": "schedule-2-paragraph-44",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "de15b0fd94999b0b": {
+   "version_id": "main@2026-06-22-0bbb78c0",
+   "unit": "schedule-2-paragraph-53",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "3dc60b8176929615": {
+   "version_id": "main@2026-06-22-0bbb78c0",
+   "unit": "schedule-2-paragraph-54",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "65b5db0c945989e8": {
+   "version_id": "main@2026-06-22-0bbb78c0",
+   "unit": "schedule-2-paragraph-64",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "3925f43d1bae0c46": {
+   "version_id": "main@2026-06-22-0bbb78c0",
+   "unit": "schedule-2-paragraph-66",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "5a0c695ff04ff6b8": {
+   "version_id": "main@2026-06-22-0bbb78c0",
+   "unit": "schedule-4-paragraph-22",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The source marks the provision as prospective (not yet in force), but the tree gives its status, and that of every sub-paragraph, as in force.",
+     "evidence": "source: \"id=\\\"schedule-4-paragraph-22\\\" RestrictExtent=\\\"E+W\\\" Match=\\\"false\\\" Status=\\\"Prospective\\\"\" / tree: \"status\": \"in_force\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "7b2445a8983e3258": {
+   "version_id": "main@2026-06-22-0bbb78c0",
+   "unit": "schedule-4-paragraph-26",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The source marks the provision as prospective (not yet in force), but the tree gives its status, and that of every sub-paragraph, as in force.",
+     "evidence": "source: \"id=\\\"schedule-4-paragraph-26\\\" RestrictExtent=\\\"E+W\\\" Match=\\\"false\\\" Status=\\\"Prospective\\\"\" / tree: \"status\": \"in_force\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "0767c7c48620e8a9": {
+   "version_id": "main@2026-06-22-0bbb78c0",
+   "unit": "schedule-4-paragraph-33",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The source marks the provision as prospective (not yet in force), but the tree gives its status, and that of every sub-paragraph, as in force.",
+     "evidence": "source: \"id=\\\"schedule-4-paragraph-33\\\" RestrictExtent=\\\"E+W\\\" Match=\\\"false\\\" Status=\\\"Prospective\\\"\" / tree: \"status\": \"in_force\""
+    },
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The full stop appended after the quoted amendment block in sub-paragraph (3) (AppendText) is not in the tree.",
+     "evidence": "source: \"<InternalLink Ref=\\\"p13367\\\">(3)</InternalLink>,</Text> ... </BlockAmendment> <AppendText>.</AppendText>\" / tree: \"(za) regulations under sections 2A and 2B(3),\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "5ac56ca18bd211e7": {
+   "version_id": "main@2026-06-22-0bbb78c0",
+   "unit": "schedule-4-paragraph-40",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "9bf5fc0f4b2fd934": {
+   "version_id": "main@2026-06-22-0bbb78c0",
+   "unit": "section-106",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "9ec9e98e0b662f3d": {
+   "version_id": "main@2026-06-22-0bbb78c0",
+   "unit": "section-111",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The lettered list under the definition of \"relevant person\" in subsection (5) lost its (a), (b), (c) labels, which the source gives through an alpha list with brackets.",
+     "evidence": "source: \"<OrderedList Type=\\\"alpha\\\" Decoration=\\\"parens\\\">\" / tree: \"a combined authority established under section 103\", \"the Greater London Authority, or\", \"a local housing authority.\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "aa7f8257b2c819fc": {
+   "version_id": "main@2026-06-22-0bbb78c0",
+   "unit": "section-127",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "ec6a4ebbd904f7af": {
+   "version_id": "main@2026-06-22-0bbb78c0",
+   "unit": "section-13",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The lettered lists under the definitions of \"shared owner\" and \"shared ownership lease\" in inserted section 16F(5) lost their (a) and (b) labels, which the source gives through alpha lists with brackets.",
+     "evidence": "source: \"<OrderedList Type=\\\"alpha\\\" Decoration=\\\"parens\\\">\" / tree: \"who is the tenant of the dwelling-house under a shared ownership lease, and\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "3b9d26904db83e20": {
+   "version_id": "main@2026-06-22-0bbb78c0",
+   "unit": "section-24",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "9d58b8fde71d94e1": {
+   "version_id": "main@2026-06-22-0bbb78c0",
+   "unit": "section-37",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "1ff1bb0cad44f9a6": {
+   "version_id": "main@2026-06-22-0bbb78c0",
+   "unit": "section-5",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "6e004a897b9bcab2": {
+   "version_id": "main@2026-06-22-0bbb78c0",
+   "unit": "section-52",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "8b91e1667d661dda": {
+   "version_id": "main@2026-06-22-0bbb78c0",
+   "unit": "section-64",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "In subsection (10) the lettered list under the definition of voluntary mediation services has lost its (a) and (b) labels in the tree.",
+     "evidence": "source: \"<OrderedList Type=\\\"alpha\\\" Decoration=\\\"parens\\\"> ... against the member, or\" / tree: \"against the member, or\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "ad9d9978bfc0ad3c": {
+   "version_id": "main@2026-06-22-0bbb78c0",
+   "unit": "section-68",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "061bbfc2ea438686": {
+   "version_id": "main@2026-06-22-0bbb78c0",
+   "unit": "section-83",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "In subsection (12) the lettered (a)-(c) and roman (i)-(ii) lists inside the two definitions have lost their labels, so the nesting is flattened in the tree.",
+     "evidence": "source: \"<OrderedList Type=\\\"alpha\\\" Decoration=\\\"parens\\\"> ... is made on or after the day\" / tree: \"is made on or after the day on which this section comes into force,\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "6f079a5168ccd9c4": {
+   "version_id": "main@2026-06-22-0bbb78c0",
+   "unit": "section-87",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "In subsection (8) the lettered list under the definition of restricted information has lost its (a) and (b) labels in the tree.",
+     "evidence": "source: \"<OrderedList Type=\\\"alpha\\\" Decoration=\\\"parens\\\"> ... is not made available to the public\" / tree: \"is not made available to the public by virtue of regulations under section 86, and\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

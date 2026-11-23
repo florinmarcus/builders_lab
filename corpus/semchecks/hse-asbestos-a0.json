@@ -1,0 +1,66 @@
+{
+ "source_id": "hse-asbestos-a0",
+ "about": "Model verdicts on source against tree for hse-asbestos-a0 (system/rag/semcheck.py).",
+ "verdicts": {
+  "07b448a8f92faf1c": {
+   "version_id": "main@2024-12-06-3078ecac",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Two bold sub-headings are read as body text, and the second is run onto the end of the bullet before it.",
+     "evidence": "source: \"Consider the material's condition\" (heading) / tree: \"are considered to be firmly bound in a matrix. Consider the material’s condition\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "80e0299c9ce0537f": {
+   "version_id": "main@2024-12-06-3078ecac",
+   "unit": "p8",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "Sign words printed inside the drawing are not in the labels.",
+     "evidence": "source: \"FIRE DOOR\", \"FIRE BLANKET\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "c9147b88bb5d64d4": {
+   "version_id": "main@2024-12-06-3078ecac",
+   "unit": "p9",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The two-column table of premises and enforcing authority is read as running text, so no type of premises is tied to its authority.",
+     "evidence": "source: \"Railways, railway lines, signal boxes | Office of Rail Regulation (ORR)\" / tree: \"operating licensed nuclear sites Railways, railway lines, signal boxes\""
+    },
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "The enforcing authority column is moved out of the table and put under the next heading, How to notify NNLW, in front of its text.",
+     "evidence": "tree: \"Enforcing authority Local authority (LA) Health and Safety Executive (HSE) Office of Rail Regulation (ORR) For NNLW you will need to fill in\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

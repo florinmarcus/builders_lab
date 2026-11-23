@@ -1,0 +1,132 @@
+{
+ "source_id": "hse-indg344",
+ "about": "Model verdicts on source against tree for hse-indg344 (system/rag/semcheck.py).",
+ "verdicts": {
+  "5ee506c4611b806c": {
+   "version_id": "main@2024-12-06-4d5c937a",
+   "unit": "p26",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "high",
+     "problem": "Words that are not on this page are added to the end of the last hand-arm vibration bullet.",
+     "evidence": "source: \"especially when exposed for long periods?\" / tree: \"especially when exposed for long periods? visually examined on site and regularly inspected and tested by a competent person?’\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The picture caption is kept as body text under the Noise heading.",
+     "evidence": "tree: heading_path \"Noise > Text\", text \"‘...have you limited the time that each worker uses high­vibration tools?’\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The two sub-bullets are joined into the first bullet as running text.",
+     "evidence": "tree: \"suitable work methods and plant? Have you chosen the lowest vibration tool that is suitable and can do the job efﬁciently? Have you limited the time\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Hyphens are kept as soft-hyphen characters, so \"hand-arm\" and \"high-vibration\" can read as one word or a split word.",
+     "evidence": "source: \"Hand-arm vibration\", \"high-vibration tools\" / tree: \"Hand­arm vibration\", \"high­ vibration tools\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "8eb040ba870fea0d": {
+   "version_id": "main@2024-12-06-4d5c937a",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The 'For more information, see' list of the Managing section is placed after the whole Reporting accidents text instead of at the end of Managing.",
+     "evidence": "source: \"For more information, see: 1 Health and safety in construction HSG150\" printed before \"Reporting accidents\" / tree: block managing-text-2 after reporting-accidents-text-1"
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Two words are run together.",
+     "evidence": "source: \"For more information, see:\" / tree: \"For moreinformation, see:\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The lead-in line 'You can notify the Contact Centre:' is joined to the end of the bullet before it instead of standing as its own line.",
+     "evidence": "tree: \"then you should notify that too. You can notify the Contact Centre:\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "37d7b104dcb02416": {
+   "version_id": "main@2024-12-06-4d5c937a",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The 'For more information, contact:' line and its one sentence of running text are read as a table with one column and one cell.",
+     "evidence": "source: \"For more information, contact:\" then \"Training organisations (eg the Construction Industry Training Board) or HSE Infoline on 0845 345 0055\" / tree: type \"table\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The Employing note and its contact line are placed after the Subcontracting section, and the leaflet line printed at the top of the page is placed after Subcontracting too.",
+     "evidence": "source: \"Incident at work? MISC769\" at the top, \"Note: If a person working under your control\" before \"Subcontracting\" / tree: both after subcontracting-text-1"
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Two words are run together in the table text.",
+     "evidence": "source: \"For more information, contact:\" / tree: \"For moreinformation, contact:\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "6c216402ea538a32": {
+   "version_id": "main@2024-12-06-4d5c937a",
+   "unit": "p9",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "A picture caption from another page is inserted in the middle of the last scaffold bullet, so two different questions are mixed into one sentence.",
+     "evidence": "source: \"stop people using an incomplete scaffold, eg where working\" / tree: \"eg where working ‘...have the wheels of tower scaffolds been locked when in use and are the platforms empty when they are moved?’ platforms are not fully boarded?\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The picture caption is split in two: its first line is kept as body text and only its second line is the figure title.",
+     "evidence": "source: \"‘...are there effective barriers or warning notices in place to stop people using an incomplete scaffold?’\" / tree: text \"‘...are there effective barriers or warning notices in place\" and title \"to stop people using an incomplete scaffold?’\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The leaflet reference printed above the Scaffolds heading is placed at the end of the page content.",
+     "evidence": "source: \"INDG401\" before \"Scaffolds\" / tree: \"INDG401\" as the last block"
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

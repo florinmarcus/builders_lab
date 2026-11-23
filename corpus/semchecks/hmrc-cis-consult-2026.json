@@ -1,0 +1,35 @@
+{
+ "source_id": "hmrc-cis-consult-2026",
+ "about": "Model verdicts on source against tree for hmrc-cis-consult-2026 (system/rag/semcheck.py).",
+ "verdicts": {
+  "acafe0bb9e282c05": {
+   "version_id": "draft-the-income-tax-construction-industry-scheme-amendment@2026-01-06-752cf507",
+   "unit": "part1",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The tree adds list numbers that are not in the source in front of the inserted paragraphs (9A), (a), (b) and (9B), next to their own legal numbers.",
+     "evidence": "source: \"(9B) Paragraph (9A) does not apply if the contractor has notified\" / tree: \"3. (9B) Paragraph (9A) does not apply if the contractor has notified\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "f9d3acffe0be52b1": {
+   "version_id": "explanatory-note@2026-01-06-2390d59f",
+   "unit": "part1",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

@@ -1,0 +1,54 @@
+{
+ "source_id": "hse-cis79",
+ "about": "Model verdicts on source against tree for hse-cis79 (system/rag/semcheck.py).",
+ "verdicts": {
+  "f520dfd09570d57f": {
+   "version_id": "main@2024-12-06-72577d1a",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "The left and right columns are mixed into one text, so step 2 is cut in half by the health-risk bullets and the right column's intro and step 1 come before the left column.",
+     "evidence": "source: \"If paint is in poor condition remove using a combination of chemical paint stripper\" / tree: \"lead dust or fume can 2 If paint is in poor condition remove using a cause serious problems like kidney\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Bullet squares came through as stray letters n in the text.",
+     "evidence": "source: \"You can take simple steps to stop this dust\" / tree: \"n n You can take simple steps to stop this dust\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "8a5842298c70f1b6": {
+   "version_id": "main@2024-12-06-72577d1a",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The whole page, including the four numbered steps and the guidance statement, is kept only as labels of one figure and not as body text.",
+     "evidence": "source: \"3. Stop lead fume being produced – Set hot air guns or infrared equipment below 500° C.\" / tree: labels of figure-p2"
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The tick and cross marks on the photos came through as four stray labels.",
+     "evidence": "tree: \"• 4\", \"• 4\", \"• 4\", \"• 4\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

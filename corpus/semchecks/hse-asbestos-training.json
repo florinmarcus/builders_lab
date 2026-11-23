@@ -1,0 +1,24 @@
+{
+ "source_id": "hse-asbestos-training",
+ "about": "Model verdicts on source against tree for hse-asbestos-training (system/rag/semcheck.py).",
+ "verdicts": {
+  "4f397f87a3b8f874": {
+   "version_id": "main@2026-10-29-6ca2beea",
+   "unit": "part1",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The bullet list of what asbestos awareness training should cover is split across two text blocks, so its last bullet is cut off from the list and its lead-in.",
+     "evidence": "source: \"<li> how to avoid the risk of exposure to asbestos\" / tree: asbestos-awareness-text-2 starts with \"• how to avoid the risk of exposure to asbestos\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

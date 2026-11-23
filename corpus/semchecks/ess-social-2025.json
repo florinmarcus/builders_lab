@@ -1,0 +1,54 @@
+{
+ "source_id": "ess-social-2025",
+ "about": "Model verdicts on source against tree for ess-social-2025 (system/rag/semcheck.py).",
+ "verdicts": {
+  "7eaed80c5b9e31c5": {
+   "version_id": "main@2025-09-23-c1e760ab",
+   "unit": "regulation-5",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The closing punctuation after each block amendment (AppendText) is dropped, so the amended items end without their \".\" or \";\".",
+     "evidence": "source: \"<Title>Duties of landlords in relation to electrical installations etc.</Title> ... <AppendText>.</AppendText>\" / tree: \"Duties of landlords in relation to electrical installations etc.\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "8571b7d48ce95eb4": {
+   "version_id": "main@2025-09-23-c1e760ab",
+   "unit": "regulation-6",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The lettered list (a), (b), (c) inside the definition of \"safe for continued use\" lost its letters in the tree.",
+     "evidence": "source: \"<OrderedList Type=\\\"alpha\\\" Decoration=\\\"parens\\\"> ... it is of such construction as to prevent\" / tree: \"it is of such construction as to prevent\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The non-breaking space in the Part number is lost, so the words run together.",
+     "evidence": "source: \"PART<Character Name=\\\"NonBreakingSpace\\\"/>2A\" / tree: \"PART2A\""
+    },
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The closing full stop after the block amendment (AppendText) is dropped.",
+     "evidence": "source: \"</BlockAmendment> <AppendText>.</AppendText>\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

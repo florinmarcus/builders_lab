@@ -1,0 +1,66 @@
+{
+ "source_id": "hse-cis78",
+ "about": "Model verdicts on source against tree for hse-cis78 (system/rag/semcheck.py).",
+ "verdicts": {
+  "1cb27404f69768be": {
+   "version_id": "main@2024-12-06-06e9e08e",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "high",
+     "problem": "The first line of the Remember box is missing, so the note starts in the middle of a sentence.",
+     "evidence": "source: \"Construction workers have a high risk of developing lung diseases\" / tree: \"developing lung diseases because many common tasks can create high dust levels.\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The separate line \"See overleaf for examples of good practice ...\" is merged into step 3.",
+     "evidence": "source: \"3 Use the right mask.\" / tree: \"Use the right mask. See overleaf for examples of good practice ...\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The Remember box is placed between steps 2 and 3 of the numbered list.",
+     "evidence": "tree: \"Wet cutting and on-tool extraction are both effective;\" then \"Remember\" then \"Use the right mask.\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "8077d8fca9fedda2": {
+   "version_id": "main@2024-12-06-06e9e08e",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "All the body text of the page, the three numbered steps and the guidance notice, is held only as labels of one figure and not as text sections.",
+     "evidence": "tree labels: \"1. Plan your work –\", \"Don’t cut if you don’t\", \"need to. Put channels\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Stray characters from the cross and tick marks are mixed into the step text.",
+     "evidence": "source: \"energy devices like block splitters?\" / tree: \"energy devices like block 8 4\" \"splitters? They are just as\"; source: \"the dust cloud. On-tool extraction\" / tree: \"the dust cloud. On-tool 4\" \"8\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The copyright column and the Working Well Together column are mixed line by line.",
+     "evidence": "tree: \"© Crown copyright If you wish to reuse this The Working Well Together campaign aims to improve\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

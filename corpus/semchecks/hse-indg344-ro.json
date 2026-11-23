@@ -1,0 +1,84 @@
+{
+ "source_id": "hse-indg344-ro",
+ "about": "Model verdicts on source against tree for hse-indg344-ro (system/rag/semcheck.py).",
+ "verdicts": {
+  "24b8043d2e731e14": {
+   "version_id": "main@2024-12-06-92c0ac41",
+   "unit": "p12",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Each bullet symbol is kept as the raw code '(cid:2)' inside the text, and the four bullets are run into one line.",
+     "evidence": "tree: \"(cid:2) Sunt scările suﬁcient de lungi\" ... \"(cid:2) Este utilizatorul competent?\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The picture caption is split in two: its first line is kept as body text and only its second line is the figure title.",
+     "evidence": "source: \"„...sunt scările poziţionate în aşa fel încât utilizatorii acestora să nu fie nevoiţi să se întindă?”\" / tree: text \"„...sunt scările poziţionate în aşa fel încât utilizatorii acestora\" and title \"să nu ﬁe nevoiţi să se întindă?”\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "d3797c5c834af5ef": {
+   "version_id": "main@2024-12-06-92c0ac41",
+   "unit": "p19",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The second line of the picture caption is not in the tree; the figure title stops after the first line.",
+     "evidence": "source: \"„...se folosesc uneltele şi maşinile corespunzătoare tipului de lucrare?”\" / tree: \"„...se folosesc uneltele şi maşinile corespunzătoare\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Each bullet symbol is kept as the raw code '(cid:2)' inside the text, and the five bullets are run into one line.",
+     "evidence": "tree: \"(cid:2) Se folosesc uneltele şi maşinile corespunzătoare tipului de lucrare? (cid:2) Sunt părţile componente periculoase\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The picture for this page's section is filed under the heading of the section before it.",
+     "evidence": "source: picture and caption above \"Uneltele şi maşinile\" / tree: heading_path \"Circulaţia, vehiculele şi utilajele > „...se folosesc uneltele şi maşinile corespunzătoare\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "facca8d681ecd39f": {
+   "version_id": "main@2024-12-06-92c0ac41",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The paragraph about the Working Well Together campaign and the line with its website, printed in the top half of the page, are not in the tree.",
+     "evidence": "source: \"„Working Well Together” (Lucrăm bine împreună) este o campanie de promovare a securităţii şi sănătăţii în industria construcţiilor\" and \"Pentru informaţii despre activităţile din zona dvs., vizitaţi http://wwt.uk.com.\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The signer's name is joined to the end of the body text and his job titles are a separate block, and the three paragraphs are run into one.",
+     "evidence": "tree: \"un mediu de lucru mai sănătos şi mai sigur. Stephen Williams\" then a new block \"Inspector şef în Construcţii Preşedinte al Comitetului de Consiliere al Industriei Construcţiilor\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

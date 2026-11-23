@@ -1,0 +1,1757 @@
+{
+ "source_id": "hhsrs-operating",
+ "about": "Model verdicts on source against tree for hhsrs-operating (system/rag/semcheck.py).",
+ "verdicts": {
+  "e05b3e78b03cc40c": {
+   "version_id": "hhsrs-operating-guidance-part-1-an-introductory-guide@2026-06-23-f3ec2529",
+   "unit": "p13",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The picture in Box 2 of the scoring bar with two overlaid notes is read as a table with invented column names, and the bar under it is lost.",
+     "evidence": "source: \"Scores eliminated because the dwelling is worse than the average (1 in 200)\" over the bar / tree: columns \"Left side of bar\", \"Right side of bar\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is kept inside the running text, between the end of Box 2 and the note on the next page.",
+     "evidence": "tree: \"giving the dwelling a likelihood score of 1 in 100. 11 Note - In the example used in boxes 1 and 2\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "f007e91a4f3e6e4d": {
+   "version_id": "hhsrs-operating-guidance-part-1-an-introductory-guide@2026-06-23-f3ec2529",
+   "unit": "p14",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading \"Judging the spread of harm outcomes\" is read as body text inside the running paragraph.",
+     "evidence": "tree: \"which could require medical attention. Judging the spread of harm outcomes The assessor now knows the probability\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is kept at the end of the running text, in the middle of a sentence that goes on to the next page.",
+     "evidence": "source: \"has been removed from this updated version of\" / tree: \"from this updated version of 12\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "cff3fe8f4164dd78": {
+   "version_id": "hhsrs-operating-guidance-part-1-an-introductory-guide@2026-06-23-f3ec2529",
+   "unit": "p15",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "high",
+     "problem": "The page number 13 is kept inside a sentence that runs on to the next page, so the text reads as if there are 13 case studies.",
+     "evidence": "source: \"Assessors also have the option to refer to the\" [page 13 ends] / tree: \"Assessors also have the option to refer to the 13 case studies.\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "e530b174d9c01ace": {
+   "version_id": "hhsrs-operating-guidance-part-1-an-introductory-guide@2026-06-23-f3ec2529",
+   "unit": "p17",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The Box 6 calculation table is read as running text with its columns run together, and the class names are split off into a separate note after the page text, so no weighting, spread or result sits beside its class of harm.",
+     "evidence": "source: \"Extreme 10,000 X 1/20 X 5 = 2,500\" / tree: \"Weighting 10,000 X 1,000 X 300 X 10 X Likelihood Spread of harm (%) 1/20 X 5 1/20 X 10\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The headings \"Hazard scores and banding\" and the later headings are read as body text inside the running paragraph.",
+     "evidence": "tree: \"to provide the national average hazard scores. Hazard scores and banding The size of the final hazard score\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is kept inside the running text between two paragraphs.",
+     "evidence": "tree: \"they have a duty to take action. 15 If actions to reduce the risk\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "1d326c6de959332b": {
+   "version_id": "hhsrs-operating-guidance-part-1-an-introductory-guide@2026-06-23-f3ec2529",
+   "unit": "p23",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is kept inside the running text between two paragraphs.",
+     "evidence": "tree: \"the population is taken as a whole. 21 Vulnerability to particular hazards is restricted to age groups.\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "5594b44c4727095e": {
+   "version_id": "hhsrs-operating-guidance-part-1-an-introductory-guide@2026-06-23-f3ec2529",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The sub-bullet marks of the nested list are kept as stray letters \"o\" in the wrong places, one in the middle of a sentence, and the five sub-items run together with the parent bullet.",
+     "evidence": "source: \"Carbon Monoxide and Fuel Combustion Products and Volatile Organic Compounds were combined.\" / tree: \"Carbon Monoxide and Fuel Combustion Products o and Volatile Organic Compounds were combined.\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The printed page number is kept inside the body text at the end of the list.",
+     "evidence": "tree: \"Sanitation o and Drainage were combined. 3\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "5e3abc4f4e10082a": {
+   "version_id": "hhsrs-operating-guidance-part-1-an-introductory-guide@2026-06-23-f3ec2529",
+   "unit": "p6",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-heading \"The principles underlying the HHSRS\" is read as body text, so the paragraphs under it stay in the Introduction and background text with no heading of their own.",
+     "evidence": "source: heading \"The principles underlying the HHSRS\" / tree: \"safety of the occupiers. The principles underlying the HHSRS Any residential premises should\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The sub-bullet marks under the baseline indicators bullet are kept as stray letters \"o\" in the middle of sentences.",
+     "evidence": "source: \"an appendix in Part 2 of this Guidance\" / tree: \"an appendix in Part 2 of this o Guidance\"; tree: \"risk assessment aspect of o the HHSRS\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The last bullet is joined with the body paragraph that follows the list, so that paragraph reads as part of the bullet.",
+     "evidence": "tree: \"• Training requirements for assessors have been updated. Full assessments involving scoring should only be carried out\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The printed page number is kept at the end of the body text.",
+     "evidence": "tree: \"visitors over a 12-month period. 4\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "8668b27137f69f13": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p10",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "0620bea4fd09dd50": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p104",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The group heading over the four harm columns is not in the column names.",
+     "evidence": "source: \"Spread of harm outcomes\" over \"Extreme % Severe % Serious % Moderate %\" / tree: \"Extreme %\", \"Severe %\", \"Serious %\", \"Moderate %\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is kept inside the running text.",
+     "evidence": "source: \"There are three main types of asbestos:\" / tree: \"There are three main types of asbestos: 102\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Sub-headings and the summary box are read as body text in one running paragraph.",
+     "evidence": "tree: \"Description of the hazard This hazard covers the presences of\" and \"owner/manager. Health effects Asbestos is a naturally occurring\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "9895276607c45803": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p109",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "high",
+     "problem": "The page number is kept in the middle of a sentence, where it reads like a count of cases.",
+     "evidence": "source: \"hospital episodes caused by\" [page 107 ends] / tree: \"hospital episodes caused by 107 gastro-intestinal disease and rat bites in 2019-20\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The group heading over the four harm columns is not in the column names.",
+     "evidence": "source: \"Spread of harm outcomes\" over \"Extreme % Severe % Serious % Moderate %\" / tree: \"Extreme %\", \"Severe %\", \"Serious %\", \"Moderate %\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The part heading and the chapter heading are joined into one title, and sub-headings are read as body text.",
+     "evidence": "source: \"PROTECTION AGAINST INFECTION\" then \"16. Domestic Hygiene\" / tree: \"PROTECTION AGAINST INFECTION 16. Domestic Hygiene\"; \"Description of the hazard This hazard covers:\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "ef9477ac45085a80": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p119",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The group heading over the four harm columns is not in the column names.",
+     "evidence": "source: \"Spread of harm outcomes\" over \"Extreme % Severe % Serious % Moderate %\" / tree: \"Extreme %\", \"Severe %\", \"Serious %\", \"Moderate %\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is kept inside the running text.",
+     "evidence": "source: \"(based on Drinking Water Inspectorate data).\" / tree: \"(based on Drinking Water Inspectorate data). 117 Summary box – Water Supply\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Sub-headings are read as body text in one running paragraph.",
+     "evidence": "tree: \"Description of the hazard This hazard covers the quality and adequacy\" and \"separate controls. Vulnerable group and the national average scores Note\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "39bc629d27d7b2a7": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p125",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-headings are read as body text and run into the paragraphs of one text block.",
+     "evidence": "source: heading \"Description of the hazard\" / tree: \"Description of the hazard This hazard covers the risk to health\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The part heading and the chapter heading are joined into one chapter title.",
+     "evidence": "source: \"PSYCHOLOGICAL REQUIREMENTS\" then \"18. Crowding and Space\" / tree: \"PSYCHOLOGICAL REQUIREMENTS 18. Crowding and Space\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The printed page number is kept inside the body text.",
+     "evidence": "source: \"National Housing Federation.\" / tree: \"National Housing Federation. 123 Summary box\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "c3ac67b7aacba2f4": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p131",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-headings are read as body text and run into the paragraphs of one text block.",
+     "evidence": "source: heading \"Health effects\" / tree: \"for larger buildings. Health effects There has been a significant decline\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The printed page number is kept inside the body text.",
+     "evidence": "source: \"a similar downward trend.\" / tree: \"a similar downward trend. 129 The potential health effects are:\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "e1ea06501724d096": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p132",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-heading \"Causes\" is read as body text inside the paragraph.",
+     "evidence": "source: heading \"Causes\" / tree: \"outcomes from this hazard. Causes Economically disadvantaged households\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The printed page number is kept at the end of the body text.",
+     "evidence": "source: \"may be absent or poor.\" / tree: \"may be absent or poor. 130\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "9bf5c5a891d1d8ec": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p137",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-headings are read as body text and run into the paragraphs of one text block.",
+     "evidence": "source: heading \"Description of the hazard\" / tree: \"Description of the hazard This hazard covers threats to physical and mental health\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The printed page number is kept inside the body text.",
+     "evidence": "source: \"incidents where harm resulted.\" / tree: \"incidents where harm resulted. 135 Summary box – Noise\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "2fd9e043bdadc341": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p143",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-headings are read as body text and run into the paragraphs of one text block.",
+     "evidence": "source: heading \"Health effects\" / tree: \"may not be reasonably practicable. Health effects Exposure to natural light\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The printed page number is kept in the middle of a sentence.",
+     "evidence": "source: \"establishing stable sleep patterns and\" / tree: \"establishing stable sleep patterns and 141 can improve the quality of sleep\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "07e44c87cf5fd1c3": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p144",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-heading \"Causes\" is read as body text inside the paragraph.",
+     "evidence": "source: heading \"Causes\" / tree: \"evidence for this effect remained inconclusive. Causes The size, shape and position of windows\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Printed page numbers are kept inside the body text, one in the middle of a sentence.",
+     "evidence": "source: \"can improve the quality of sleep\" / tree: \"sleep patterns and 141 can improve the quality of sleep\"; tree: \"carry out routine tasks. 142\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "e8715a5412f10868": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p147",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The group headings printed above the rows are not in the grid, columns or title, so rows 1.1, 1.2 and 2.1 lose their group names.",
+     "evidence": "source: \"1 Structural Condition\" and \"2 Drainage\" / tree: columns \"Item\", \"Baseline Indicators\", \"Guidance Notes\", title \"Baseline indicators\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "f491a814f4c1b87a": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p148",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "A text section repeats rows 2.2 to 2.5 as running text with the two columns mixed line by line and the first line of each row missing, so it states rules the page does not.",
+     "evidence": "source: \"private sewage disposal system or the dwelling’s greywater system. No WC waste pipe shall be connected to a greywater system.\" / tree: \"No WC waste pipe shall be connected to a private sewage disposal system or the greywater system.\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The same text section has the page numbers of two pages inside the running text.",
+     "evidence": "tree: \"145 a public sewer system, an approved proper sealed connection\" and \"Relevant hazards: Falls on the Level; Domestic Hygiene. 146\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "8f4806f25f4ace5f": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p149",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The group heading printed above the rows is not in the grid, columns or title, so rows 3.1 and 3.2 lose their group name.",
+     "evidence": "source: \"3 Plumbing System\" / tree: columns \"Item\", \"Baseline Indicators\", \"Guidance Notes\", title \"Baseline indicators\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "af7dc3543c620b29": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p15",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Two sub-headings are read as body text inside one text section, and two separate headings are joined into one chapter title.",
+     "evidence": "source: headings \"Description of the hazard\", \"Vulnerable group and the national average scores\", \"PROTECTION AGAINST ACCIDENTS\", \"1. Falls on the Level\" / tree: \"Description of the hazard This hazard covers falls\", title \"PROTECTION AGAINST ACCIDENTS 1. Falls on the Level\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The spanning header over the four harm columns is not in the column names.",
+     "evidence": "source: \"Spread of harm outcomes\" over \"Extreme %\", \"Severe %\", \"Serious %\", \"Moderate %\" / tree: \"Extreme %\", \"Severe %\", \"Serious %\", \"Moderate %\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "d7c9d4d1a27594ab": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p150",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "A text section repeats row 3.3 as running text with the two columns mixed line by line and the first line missing, so the rule reads wrongly.",
+     "evidence": "source: \"discharge externally unless designed by the manufacturer to discharge internally through the cistern or pan.\" / tree: \"discharge externally unless designed by the requirements of the standard. If it seen to discharge internally, the manufacturer to discharge the system\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Row 3.3, the first row on the page and part of group 3, is placed after rows 4.1 to 4.3 in one table with the bathroom rows 4.4 to 4.8.",
+     "evidence": "source: row \"3.3\" printed above \"4 Sanitary Facilities: Bathroom\" / tree: table appendix-1-table-21 rows \"3.3\", \"4.4\", \"4.5\", \"4.6\", \"4.7\", \"4.8\" after table with \"4.1\", \"4.2\", \"4.3\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The group heading printed above rows 4.1 to 4.3 is not in the grid, columns or title.",
+     "evidence": "source: \"4 Sanitary Facilities: Bathroom\" / tree: columns \"Item\", \"Baseline Indicators\", \"Guidance Notes\", title \"Baseline indicators\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The text section has page numbers inside the running text.",
+     "evidence": "tree: \"147 discharge externally unless designed by\" and \"Domestic Hygiene; Water Supply. 148\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "78d6df74769084aa": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p151",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "A text section repeats rows 4.4 to 4.8 as running text with the two columns mixed line by line and the first line of each row missing, so the rules read wrongly.",
+     "evidence": "source: \"properly connected to the heated/unheated potable water supply as appropriate\" / tree: \"properly connected to the to ensure that they supply adequate flow of water and that when heated/unheated potable water supply\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The same text section ends with the page numbers of two pages inside the running text.",
+     "evidence": "tree: \"Pollutants; Excess Heat; Domestic Hygiene. 149 150\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "2f69fed1def9a6fe": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p152",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The group heading row of the table is kept only in the table's raw text, not in the grid, the title or the heading path.",
+     "evidence": "source: \"5 Sanitary Facilities: Kitchen\" / tree: title \"Baseline indicators\", grid starts at \"5.1\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "4a1c7322d291e6e8": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p153",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "A text section repeats table rows 5.3 to 5.5 as running text with the two columns mixed line by line and the first line of each row missing.",
+     "evidence": "tree: \"provided for food preparation. safe storage, preparation and cooking of food. In kitchens for Sufficient cabinets and/or shelves exclusive use of up to two occupiers\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The same text section carries the printed page number inside the running text.",
+     "evidence": "tree: \"Indoor Air Pollutants; Domestic Hygiene. 151 safe removal of fumes\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The superscript in the cubic metre unit is flattened.",
+     "evidence": "source: \"0.24m³ capacity\" / tree: \"0.24m3 capacity\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "4c28e5abec102604": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p154",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "A text section repeats table rows 5.6 to 5.9 as running text with the two columns mixed line by line and the first line of each row missing.",
+     "evidence": "tree: \"safe removal of fumes and moisture- outside to remove any odour or moisture from the kitchen. It should laden air to the external air\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The same text section ends with the printed page number inside the running text.",
+     "evidence": "tree: \"Damp and Mould Growth; Domestic Hygiene. 152\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "c1cee2f0c153692d": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p155",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "061ae06109e79e22": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p156",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "A text section repeats table row 7.3 as running text with the two columns mixed line by line and the first line of the row missing.",
+     "evidence": "tree: \"dwelling used as sleeping and excludes chimney recesses, door arcs, etc., and excludes ceiling accommodation by one person aged 10 heights of less than 1500mm.\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "Row 7.3 has four cells for three columns because the guidance note is split in two in the middle of a sentence.",
+     "evidence": "source: \"whether they are expected to be part of the same household\" / tree: cell 3 ends \"expected to be\", cell 4 starts \"part of the same household\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The superscript in the square metre unit is flattened.",
+     "evidence": "source: \"6.51 m²\" / tree: \"6.51 m2\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "d0f0d82ffb62b902": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p157",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "A text section repeats table row 7.4 as running text with the two columns mixed line by line and the first line of the row missing.",
+     "evidence": "tree: \"shall be at least 2100mm. In a habitable least 2100mm. In a habitable room with a sloping ceiling, at least one-room with a sloping\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The group heading row of the Internal Doors table is kept only in the table's raw text, not in the grid, the title or the heading path.",
+     "evidence": "source: \"8 Internal Doors\" / tree: title \"Baseline indicators\", grid starts at \"8.1\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The table with row 8.1 is placed before the table with row 7.4, which is printed above it on the page.",
+     "evidence": "source: \"7.4 The ceiling height\" then \"8 Internal Doors\" / tree: table \"8.1\" then table \"7.3\", \"7.4\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "1e5a9cb47eb69d7d": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p158",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "629e81be9193f757": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p159",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "A text block repeats table row 10.2 as running text with the two columns mixed line by line, so the noise limits are cut through by the guidance note.",
+     "evidence": "source: \"07:00 to 23:00 – 40 dBLAeq,T16 in the living room and bedroom area\" / tree: \"• 07:00 to 23:00 – 40 dBLAeq,T16 frequency content, duration, intermittence, predictability and source. in the living room and bedroom Individuals find\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "Row 10.2 has four cells for three columns: the guidance note is split in two in the middle of a sentence.",
+     "evidence": "tree: \"...with an integrating sound-level meter. It has\" | \"been decided to include sound pressure levels as Baseline Indicators\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The text block holds printed page numbers inside the running text.",
+     "evidence": "tree: \"as appropriate. 157 Relevant hazards: Excess Heat; Noise. 158\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "ae10ff6fb7b47af8": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p160",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The end of row 10.2 at the top of this page (its relevant hazards) is not in any table grid; it is kept only at the end of a text block with mixed columns.",
+     "evidence": "source: \"Relevant hazards: Excess Heat; Noise.\" / tree: \"policies, as appropriate. 157 Relevant hazards: Excess Heat; Noise. 158\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The group heading row of the table is not in the grid; it is kept only in the table's raw text.",
+     "evidence": "source: \"11 Security\" / tree grid starts at: \"11.1\", \"Adequate external lighting shall be provided\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "2797d7abee476319": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p161",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "A text block repeats rows 11.4 and 11.5 as running text with the two columns mixed line by line, and without the first line of each row.",
+     "evidence": "source: \"door shall have a door entry system allowing a visitor to contact the dwelling.\" / tree: \"door shall have a door entry system ensure that it allows a visitor to ring any selected dwelling within the allowing a visitor to contact the\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The table with rows 12.1 and 12.2 comes before the table with rows 11.4 and 11.5, which are printed first on the page.",
+     "evidence": "source order: \"11.4\", \"11.5\", \"12 Walking Surfaces\", \"12.1\", \"12.2\" / tree order: \"12.1\", \"12.2\", then \"11.4\", \"11.5\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The group heading row is not in the grid, only in the table's raw text, and rows 11.4 and 11.5 sit in one table with rows 12.3 to 13.3 with no group heading.",
+     "evidence": "source: \"12 Walking Surfaces\" / tree grid starts at: \"12.1\", \"Every interior and exterior stairway\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "530ca80d3955586d": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p162",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "A text block repeats rows 12.3 to 12.6 as running text with the two columns mixed line by line, and without the first line of each row.",
+     "evidence": "source: \"between 900mm and 1000mm high, measured from the pitch line to the top of the handrail.\" / tree: \"handrail installed, between 900mm and handrail. 1000mm high, measured from the pitch The handrail shall be firmly fastened\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The heading \"13 Guards\", printed at the foot of the page, comes in the tree as its own table before rows 12.3 to 12.6, and those rows are cut off from their group heading \"12 Walking Surfaces\".",
+     "evidence": "source order: \"12.3\" ... \"12.6\", then \"13 Guards\" / tree order: \"13\", \"Guards\", then \"12.3\" ... \"12.6\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The text block holds printed page numbers inside the running text.",
+     "evidence": "tree: \"Relevant hazard: Falling on Stairs etc.. 160\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "462f0bcbe942ae51": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p163",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "A text block repeats rows 13.1 and 13.2 as running text with the two columns mixed line by line, and without the first line of each row.",
+     "evidence": "source: \"shall have a fall-prevention device that restricts opening to less than 100mm.\" / tree: \"shall have a fall-prevention device that to 100mm maximum. These measurements must be checked for restricts opening to less than 100mm.\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "Rows 13.1 and 13.2 sit in one table with rows 11.4 to 12.6 and are not under their group heading \"13 Guards\", which is kept as a separate table.",
+     "evidence": "tree grid: \"12.6\", \"There shall be landings at the top and bottom\" followed directly by \"13.1\", \"Every stairway, porch, patio, landing\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The text block holds a printed page number inside the running text.",
+     "evidence": "tree: \"Collisions, Entrapment and Ergonomics. 161 heat must be adequately guarded\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "d2a5035db0668c0a": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p164",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "Row 13.3 is also kept as a running text block (appendix-1-text-8) in which the two table columns are mixed line by line and the page numbers sit inside the text; the table grid itself is right.",
+     "evidence": "source: \"ensure any accidental falls or trips do not result in contact with the open flames\" / tree: \"ensure any accidental falls or trips do or visitor to the property. It should be capable of being removed not result in contact with the open\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "7ab6ee28c46bb89a": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p165",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The group heading row of the table is not in the grid or the columns; it is kept only in the table's raw text.",
+     "evidence": "source: \"14 Lighting and Services\" / tree: columns \"Indicator number\", \"Baseline Indicators\", \"Guidance Notes\", rows start at \"14.1\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is kept as body text at the start of a text block (appendix-1-text-9).",
+     "evidence": "tree: \"163 2 separate and remote double electric\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "0a3d27e143dd1d0c": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p166",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "Row 14.6 is also kept as a running text block (appendix-1-text-9) in which the two table columns are mixed line by line, its first line is missing and the page numbers 163 and 164 sit inside the text; the table grid is right.",
+     "evidence": "source: \"sockets that are suitably located for use. Kitchens shall have at least 4 suitably located double sockets.\" / tree: \"Kitchens shall have at least 4 suitably locations, relating to the worktops and food preparation areas. located double sockets.\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The group heading row of the section 15 table is not in the grid or the columns; it is kept only in the table's raw text.",
+     "evidence": "source: \"15 Heating and Insulation\" / tree: rows start at \"15.1\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The table with row 14.6 is printed at the top of the page but comes after the section 15 table in the tree.",
+     "evidence": "source: \"14.6\" then \"15 Heating and Insulation\" / tree: \"15.1\", \"15.2\", \"15.3\" then \"14.6\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "11641b5dc324a29e": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p167",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "b7f0a3e3d86dace6": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p168",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The group heading row of the table is not in the grid or the columns; it is kept only in the table's raw text.",
+     "evidence": "source: \"16 Ventilation\" / tree: columns \"Reference\", \"Baseline Indicators\", \"Guidance Notes\", rows start at \"16.1\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Page numbers are kept as a body text block (appendix-1-text-10).",
+     "evidence": "tree: \"166 167\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "2cd22e1b6599d69c": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p169",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The group heading row of the table is not in the grid or the columns; it is kept only in the table's raw text.",
+     "evidence": "source: \"17 Moisture and contaminant Control\" / tree: columns \"Reference\", \"Baseline Indicators\", \"Guidance Notes\", rows start at \"17.1\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "c6a452c47cd6a806": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p170",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "A text block repeats row 17.5 as running text with the two table columns mixed line by line, so the sentences read wrong.",
+     "evidence": "source: \"Biocidal Products Regulations may be used within the dwelling\" / tree: \"Biocidal Products Regulations may be goods, stop pests like insects or rodents\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The table with row 17.5 is placed after the tables for 18 and 19, though it is printed first on the page.",
+     "evidence": "tree order: \"18.1\", \"19.1\", then \"17.5\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The group headings of the two tables are kept only in the table text, not in the grid, columns or title.",
+     "evidence": "source: \"18 Pest Management\", \"19 Fire Safety\" / tree title: \"Baseline indicators\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is kept at the end of the text block.",
+     "evidence": "tree: \"Relevant hazard: Indoor Air Pollutants. 168\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "0e07cb0c0646a8cb": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p171",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The subheadings under Appendix 2 are read as body text and run into the paragraph.",
+     "evidence": "tree: \"System Grades Grade A mains + standby battery Grade A systems incorporate equipment\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is kept in the middle of a sentence.",
+     "evidence": "source: \"and for the activation of fire alarm devices\" / tree: \"and for the 169 activation of fire alarm devices\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "b540dc58ee636f59": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p22",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The note printed under the table, which explains the values in brackets, is put in the running text before the table and not with the table.",
+     "evidence": "tree text block: \"Vulnerable group and the national average scores Note – Scale point values are shown, with the national average values\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Subheadings are read as body text and run into the paragraphs.",
+     "evidence": "tree: \"Description of the hazard This hazard covers any fall associated with stairs\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The group heading over the four harm columns is not in the column names.",
+     "evidence": "source: \"Spread of harm outcomes\" / tree columns: \"Extreme %\", \"Severe %\", \"Serious %\", \"Moderate %\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is kept in the running text.",
+     "evidence": "tree: \"specifying the age of fall victims. 20 Summary box\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "02fc9e099134806c": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p26",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Two subheadings are read as body text, one joined to the end of a paragraph and one to the end of a bullet.",
+     "evidence": "tree: \"lack of adequate handrail(s) to aid safe movement on sloping ground. Other matters affecting the severity of the harm outcome include:\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is kept at the end of a bullet.",
+     "evidence": "tree: \"long flights increase the severity of the outcome. 24\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "f1e3cdc9b0ae14be": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p29",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The note printed under the table, which explains the values in brackets, is put in the running text before the table and not with the table.",
+     "evidence": "tree text block: \"Vulnerable group and the national average scores Note – Scale point values are shown, with the national average values\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Subheadings are read as body text and run into the paragraphs.",
+     "evidence": "tree: \"Description of the hazard This hazard covers falls from one level to another\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The group heading over the four harm columns is not in the column names.",
+     "evidence": "source: \"Spread of harm outcomes\" / tree columns: \"Extreme %\", \"Severe %\", \"Serious %\", \"Moderate %\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is kept in the running text.",
+     "evidence": "tree: \"specifying the age of fall victims. 27 box – Falling Between Levels\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "9f14ff93b5fd745f": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p31",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Subheadings are read as body text and run into the paragraphs.",
+     "evidence": "tree: \"will provide a softer impact. Behavioural factors Occupiers may remove window restrictors\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is kept in the middle of a sentence.",
+     "evidence": "source: \"present a falls risk. This\" / tree: \"present a falls risk. This 29 includes consideration to unevenness\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "241108433510c6fc": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p34",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-headings on the page are read as body text and run into the paragraphs of one merged text block.",
+     "evidence": "tree: \"Appendix B of Part 3 of the Guidance. Description of the hazard This hazard covers threat to health\" and \"heated water and steam. Vulnerable group and the national average scores Note – Scale point values\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The printed page number 32 is kept in the middle of a sentence.",
+     "evidence": "source: \"the nature and severity\" [page end, page number 32] / tree: \"the nature and severity 32 of injury and clear identification\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "d1ac02cf9a65c5d9": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p40",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Three headings are read as body text and are joined to the end of the bullet before them, so the bullet groups lose their headings.",
+     "evidence": "tree: \"Artificial lighting – including emergency escape lighting Measures to limit fire spread\" and \"a fire blanket is sufficient) Adequate control/elimination of explosion hazards\" and \"valve to unvented system. Preventative measures The dwelling design\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The printed page number 38 is kept inside the running text.",
+     "evidence": "source: \"when placed too close to flammable items.\" [page number 38] / tree: \"too close to flammable items. 38 Where internal doors are required\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "7d9f26bdcdf3b7fb": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p41",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading \"Other considerations for assessment of this hazard\" is read as body text inside the paragraph.",
+     "evidence": "tree: \"Safety devices should be regularly tested. Other considerations for assessment of this hazard Hazard assessment should consider first\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The printed page number 39 is kept at the end of the text.",
+     "evidence": "tree: \"but escape to a place of safety is paramount. 39\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "58251725affd3453": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p43",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-headings on the page are read as body text and run into the paragraphs of one merged text block.",
+     "evidence": "tree: \"covered by the Fire and Explosions hazard. Vulnerable group and the national average scores Note – Scale point values are shown\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The printed page number 41 is kept inside the running text.",
+     "evidence": "source: \"and other harms for this hazard.\" [page number 41] / tree: \"other harms for this hazard. 41 Summary box – Flames, Hot Surfaces, Etc.\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "dd64ea60fd029680": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p48",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-headings on the page are read as body text and run into the paragraphs of one merged text block.",
+     "evidence": "tree: \"an assessment should be undertaken for both hazards. Vulnerable group and the national average scores Note – Scale point values are shown\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The printed page number 46 is kept inside the running text.",
+     "evidence": "source: \"attribute harms to domestic situations.\" [page number 46] / tree: \"attribute harms to domestic situations. 46 Summary box – Collisions, Entrapment and Ergonomics\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "36937bbe9523ddb6": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "fc882286a51bf0d5": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p55",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-headings of the chapter are read as body text and run into one text block with the note and the paragraphs.",
+     "evidence": "source: heading \"Description of the hazard\", heading \"Vulnerable group and the national average scores\" / tree: \"Description of the hazard This hazard covers the threat of collapse\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The printed page number is kept inside the running text.",
+     "evidence": "tree: \"not specified in the cause of the hospital episode. 53 Summary box\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The group heading over the four harm columns is not in the column names; it is only in the table's raw text.",
+     "evidence": "source: \"Spread of harm outcomes\" over \"Extreme % Severe % Serious % Moderate %\" / tree columns: \"Extreme %\", \"Severe %\", \"Serious %\", \"Moderate %\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "3b5064a8f3d2b607": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p60",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-headings and the summary box title are read as body text and run into one text block.",
+     "evidence": "source: headings \"Description of the hazard\", \"Vulnerable group and the national average scores\", \"Health effects\" / tree: \"Description of the hazard This hazard covers risk to health from shock\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The printed page number is kept inside a sentence of the running text.",
+     "evidence": "source: \"are Serious or Moderate, involving burns\" [page end] / tree: \"are Serious or Moderate, involving burns 58 and/or falls\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The group heading over the four harm columns is not in the column names; it is only in the table's raw text.",
+     "evidence": "source: \"Spread of harm outcomes\" over \"Extreme % Severe % Serious % Moderate %\" / tree columns: \"Extreme %\", \"Severe %\", \"Serious %\", \"Moderate %\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "d9c9a0d212b7c617": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p65",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The group heading above the chapter is joined to the chapter title as one heading.",
+     "evidence": "source: \"PHYSIOLOGICAL REQUIREMENTS\" and, separately, \"9. Excess Cold\" / tree: \"PHYSIOLOGICAL REQUIREMENTS 9. Excess Cold\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-headings of the chapter are read as body text and run into one text block.",
+     "evidence": "source: headings \"Description of the hazard\", \"Vulnerable group and the national average scores\" / tree: \"Description of the hazard This hazard covers threats to health\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The printed page number is kept inside the running text.",
+     "evidence": "tree: \"34% of all such harms were Severe harms. 63 Summary box\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The group heading over the four harm columns is not in the column names; it is only in the table's raw text.",
+     "evidence": "source: \"Spread of harm outcomes\" over \"Extreme % Severe % Serious % Moderate %\" / tree columns: \"Extreme %\", \"Severe %\", \"Serious %\", \"Moderate %\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "17b1e413820d1b92": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p71",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-headings of the chapter are read as body text and run into one text block.",
+     "evidence": "source: headings \"Description of the hazard\", \"Vulnerable group and the national average scores\" / tree: \"Description of the hazard This hazard covers threat to health from exposure to radon gas\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The printed page number is kept inside the running text.",
+     "evidence": "tree: \"so that format has been retained in the update. 69 Summary box\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The group heading over the four harm columns is not in the column names; it is only in the table's raw text.",
+     "evidence": "source: \"Spread of harm outcomes\" over \"Extreme % Severe % Serious % Moderate %\" / tree columns: \"Extreme %\", \"Severe %\", \"Serious %\", \"Moderate %\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "9d05a23a60b6d0c5": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p76",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-headings of the chapter are read as body text and run into one text block.",
+     "evidence": "source: headings \"Description of the hazard\", \"Vulnerable group and the national average scores\" / tree: \"Description of the hazard This hazard covers threats to health associated with\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The printed page number is kept inside the running text.",
+     "evidence": "tree: \"were attributable to damp and mould. 74 Summary box\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The group heading over the four harm columns is not in the column names; it is only in the table's raw text.",
+     "evidence": "source: \"Spread of harm outcomes\" over \"Extreme % Severe % Serious % Moderate %\" / tree columns: \"Extreme %\", \"Severe %\", \"Serious %\", \"Moderate %\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "c76de545bf9d6bf2": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p80",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The headings on the page are read as body text, and the numbered baseline indicators are run together into one text block instead of separate provisions.",
+     "evidence": "source: headings \"Behavioural factors\", \"Relevant baseline indicators (accompanying notes are in Appendix 1)\" / tree: \"under-floor cavities. Behavioural factors Occupiers produce up to a kilo\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The printed page number is kept inside the running text between two baseline indicators.",
+     "evidence": "tree: \"discharge internally through the cistern or pan. 78 4.3 A dedicated wash-hand basin\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "4d9dbd016b9be055": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p85",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-headings are read as body text and run into the paragraphs of one text block.",
+     "evidence": "source: heading \"Description of the hazard\" then \"This covers threats to health\" / tree: \"Description of the hazard This covers threats to health from the ingestion of lead. Vulnerable group and the national average scores Note –\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The group heading over the four harm columns is not kept in the column names.",
+     "evidence": "source: \"Spread of harm outcomes\" over \"Extreme % Severe % Serious % Moderate %\" / tree: \"Extreme %\", \"Severe %\", \"Serious %\", \"Moderate %\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The printed page number is kept inside the running text.",
+     "evidence": "source: \"those aged 3 or under to be estimated.\" / tree: \"to be estimated. 83 Summary box – Lead\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "26e32f906a186717": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p89",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-headings are read as body text and run into the paragraphs of one text block.",
+     "evidence": "source: heading \"Vulnerable group and the national average scores\" / tree: \"mechanisms of injury. Vulnerable group and the national average scores Note – Scale point values are shown\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The group heading over the four harm columns is not kept in the column names.",
+     "evidence": "source: \"Spread of harm outcomes\" over \"Extreme % Severe % Serious % Moderate %\" / tree: \"Extreme %\", \"Severe %\", \"Serious %\", \"Moderate %\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The printed page number is kept in the middle of a sentence.",
+     "evidence": "source: \"There are only national estimates for exposure to air\" / tree: \"national estimates for exposure to air 87 pollution.\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "74ca900007cb256f": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p92",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading \"Causes\" is read as body text and run into the paragraphs.",
+     "evidence": "source: heading \"Causes\" then \"Leaks of uncombusted fuel gas\" / tree: \"lower socio-economic groups. Causes Leaks of uncombusted fuel gas are most likely\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Printed page numbers are kept inside the running text, one in the middle of a sentence.",
+     "evidence": "source: \"risk of harm from biocides is around a tenth\" / tree: \"endocrine disruptors. The 89 risk of harm from biocides\" and \"moving out into living spaces. 90\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "d6b9d1e3eed53763": {
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p98",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-headings and the summary box are read as body text and run into one text block.",
+     "evidence": "source: heading \"Description of the hazard\" and boxed \"Summary box – Excess Heat\" / tree: \"Description of the hazard This hazard includes threats\" ... \"in 2019-20. Summary box – Excess Heat Vulnerable group –\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The group heading over the four harm columns is not kept in the column names.",
+     "evidence": "source: \"Spread of harm outcomes\" over \"Extreme % Severe % Serious % Moderate %\" / tree: \"Extreme %\", \"Severe %\", \"Serious %\", \"Moderate %\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The printed page number is kept inside the running text.",
+     "evidence": "source: \"finishes to reflect solar radiation.\" / tree: \"to reflect solar radiation. 96 Health effects\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "d06118173aebf583": {
+   "version_id": "hhsrs-operating-guidance-part-3-a-supplementary-guide-to-the@2026-06-23-cf2bee09",
+   "unit": "p10",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The rows on this page continue a table from the page before, but the tree makes them a separate table with made-up column names, so the two numbers have no real heading.",
+     "evidence": "source: \"Purpose-built block of flats (1-9 storeys) 5.1 180.3\" with no header on this page / tree columns: \"First figure\", \"Second figure\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "f366dc2683798e75": {
+   "version_id": "hhsrs-operating-guidance-part-3-a-supplementary-guide-to-the@2026-06-23-cf2bee09",
+   "unit": "p14",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "3360e06a1e17a631": {
+   "version_id": "hhsrs-operating-guidance-part-3-a-supplementary-guide-to-the@2026-06-23-cf2bee09",
+   "unit": "p36",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Headings and sub-headings on the page are kept as running body text inside one text block, not as headings.",
+     "evidence": "source: heading \"Other relevant matters affecting the severity/likelihood of harm outcomes\", \"Means of escape\", \"Fire protection to escape routes\" / tree: \"...alternative approach. Other relevant matters affecting the severity/likelihood of harm outcomes Note: In the case...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "aedf13feaa6b2e51": {
+   "version_id": "hhsrs-operating-guidance-part-3-a-supplementary-guide-to-the@2026-06-23-cf2bee09",
+   "unit": "p45",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The sub-bullet marks \"o\" are kept as stray letters and sit after each item, so one lands in front of the next paragraph.",
+     "evidence": "source: \"o access arrangements to the site and the building for the fire and rescue service.\" / tree: \"for the fire and rescue service. o The presence of balconies\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "04f6f132b58cad0a": {
+   "version_id": "hhsrs-operating-guidance-part-3-a-supplementary-guide-to-the@2026-06-23-cf2bee09",
+   "unit": "p56",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The table's group heading row \"19 Fire Safety\" is not in the grid or columns, and the first column is named \"Reference\", which is not printed.",
+     "evidence": "source: \"19 | Fire Safety\" above \"Baseline Indicators | Guidance Notes\" / tree columns: \"Reference\", \"Baseline Indicators\", \"Guidance Notes\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The headings under the table are kept as running body text, not as headings.",
+     "evidence": "source: headings \"Minimum grade and category of fire detection and fire alarm systems\", \"System Grades\", \"Grade A mains + standby battery\" / tree: \"Minimum grade and category of fire detection and fire alarm systems System Grades Grade A mains + standby battery Grade A systems incorporate\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "07137fce9e519c81": {
+   "version_id": "hhsrs-operating-guidance-part-3-a-supplementary-guide-to-the@2026-06-23-cf2bee09",
+   "unit": "p60",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Headings and the bold grade lines are run into the bullet items as body text, so the grade reads as part of the last bullet only.",
+     "evidence": "source: \"Communal areas of the HMO\" then bold line \"Grade A Category LD2, with detectors sited...\" then heading \"Specialised Housing\", \"Sheltered housing\" / tree: \"• Communal areas of the HMO Grade A Category LD2, with detectors sited ... L2 system Specialised Housing Sheltered housing\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "3ec1b6481efb1e2d": {
+   "version_id": "hhsrs-operating-guidance-part-3-a-supplementary-guide-to-the@2026-06-23-cf2bee09",
+   "unit": "p61",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "ec4f22a01d63ea33": {
+   "version_id": "hhsrs-operating-guidance-part-3-a-supplementary-guide-to-the@2026-06-23-cf2bee09",
+   "unit": "p7",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The footnote mark 1 after \"1960\" is moved into the middle of the sentence, where it reads as a stray number.",
+     "evidence": "source: \"one of the lowest annual death rates since official records began in 1960¹.\" / tree: \"one of 1 the lowest annual death rates since official records began in 1960 .\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "de3b5f0c4b52d1f1": {
+   "version_id": "hhsrs-operating-guidance-part-3-a-supplementary-guide-to-the@2026-06-23-cf2bee09",
+   "unit": "p9",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is kept as the last line of the table's text, where the table notes go.",
+     "evidence": "source: \"6\" (page number at the foot) / tree: \"(4-9 storeys)\", \"6\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

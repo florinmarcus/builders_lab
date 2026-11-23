@@ -1,0 +1,42 @@
+{
+ "source_id": "vat-s55a-order-2019",
+ "about": "Model verdicts on source against tree for vat-s55a-order-2019 (system/rag/semcheck.py).",
+ "verdicts": {
+  "8dea3422a0ed5ef6": {
+   "version_id": "main@2021-03-01-63306ee5",
+   "unit": "article-1",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The provision is an article of an Order, but the tree labels it as a regulation in its type and heading path; the wording and numbering are right.",
+     "evidence": "source: \"id=\\\"article-1\\\"\" / tree: \"Regulation 1 Citation and commencement\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "489d00b274ee43cd": {
+   "version_id": "main@2021-03-01-63306ee5",
+   "unit": "article-10",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The provision is an article of an Order, but the tree labels it as a regulation in its type and heading path; the wording and numbering are right.",
+     "evidence": "source: \"id=\\\"article-10\\\"\" / tree: \"Regulation 10 Application of section 55A(3) of the Act\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

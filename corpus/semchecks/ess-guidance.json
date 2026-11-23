@@ -1,0 +1,35 @@
+{
+ "source_id": "ess-guidance",
+ "about": "Model verdicts on source against tree for ess-guidance (system/rag/semcheck.py).",
+ "verdicts": {
+  "e323e99d40ee2979": {
+   "version_id": "electrical-safety-standards-in-the-private-and-social-rented@2025-11-01-c3ca73e7",
+   "unit": "part1",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Two bullet lists are each split across two text blocks, so the later bullets lose their lead-in line (\"All landlords must:\" and \"social landlords must:\").",
+     "evidence": "source: \"<li> Supply a copy of the report to the inspector and tester ... <li> Where the report shows that remedial\" / tree: new block starts \"• Where the report shows that remedial\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "fd3042d03198dac9": {
+   "version_id": "electrical-safety-standards-in-the-private-and-social-rented@2025-11-01-c3ca73e7",
+   "unit": "part2",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

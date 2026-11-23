@@ -1,0 +1,604 @@
+{
+ "source_id": "hse-l108",
+ "about": "Model verdicts on source against tree for hse-l108 (system/rag/semcheck.py).",
+ "verdicts": {
+  "56ded3f9108d2efd": {
+   "version_id": "main@2024-12-06-93ed15e0",
+   "unit": "p12",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Three sub-headings are read as body text and joined to the end of the paragraph before them, not placed above the paragraph they introduce.",
+     "evidence": "source: heading \"'A suitable and sufficient assessment'\" above 38 / tree: para 37 ends \"...effects on the risk assessment. ‘A suitable and suffcient assessment’\"; same for \"‘The measures which need to be taken’\" (38) and \"‘Shall assess the levels of noise’\" (39)"
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Ligature letters are dropped, first letters of list items are split off, and one \"low\" has a capital I.",
+     "evidence": "source: \"sufficient\", \"identifies\", \"has been drawn up\", \"as low a level\" / tree: \"suffcient\", \"i dentifes\", \"h as been drawn up\", \"as Iow a level\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "8ad345d3d470f06f": {
+   "version_id": "main@2024-12-06-93ed15e0",
+   "unit": "p22",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Two guidance sub-headings are read as body text and joined to the end of the block before them; the first one lands inside the text of regulation 8(2).",
+     "evidence": "tree: \"...report it to his employer as soon as is practicable. Maintenance and use of noise-control equipment\" and para 94 \"...remedial action is initiated. Use and maintenance of hearing protectors\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Ligature letters are dropped and first letters of list items are split off.",
+     "evidence": "source: \"if he discovers\", \"specified\", \"find out\", \"deficiencies\", \"difficulty\" / tree: \"i f he discovers\", \"specifed\", \"fnd out\", \"defciencies\", \"diffculty\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "1ef06ad36198eddb": {
+   "version_id": "main@2024-12-06-93ed15e0",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "7f319f79b0432596": {
+   "version_id": "main@2024-12-06-93ed15e0",
+   "unit": "p31",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The Schedule 3 revocations table is given the title of Schedule 2 and sits under Schedule 1 Part 2; the heading \"Schedule 3 Revocations (Regulation 15(2))\" is kept only as a line inside the table's text.",
+     "evidence": "source: \"Schedule 3 Revocations (Regulation 15(2))\" above the table / tree: table title \"Schedule 2 Peak sound pressure level (Regulation 2(1))\", heading_path \"Schedule 1 Part 2 Weekly personal noise exposure levels ... > Schedule 2 Peak sound pressure level\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The whole of Schedule 2 (the peak sound pressure definition and formula) is not a section of its own; it is read as words of the revocations table.",
+     "evidence": "tree table text: \"Peak sound pressure level, L , is expressed in decibels and is ascertained using the formula:\" ... \"p is 20 μPa.\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The Schedule 2 formula and its symbols are broken up: subscripts are split from their letters and the fraction is lost, so the formula cannot be read.",
+     "evidence": "source: \"LCpeak = 20 log10 [pCpeak / p0]\" / tree: \"[ ] p L = 20 log Cpeak Cpeak 10 p 0\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "4defa02354ef39c0": {
+   "version_id": "main@2024-12-06-93ed15e0",
+   "unit": "p40",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Two sub-headings are read as body text and joined to the end of the paragraph before them.",
+     "evidence": "tree: para 174 ends \"– see Part 4. Information, instruction and training\"; para 176 ends \"...the training you give. Specialist skills and training in noise control\""
+    },
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The sub-heading at the top of the page is not in the content for this page, as a heading or in any heading_path.",
+     "evidence": "source: \"Manage safety risks\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The Part 2 guidance paragraphs carry status \"regulation\", though the page shows plain guidance text with no Regulation marker.",
+     "evidence": "tree: para-172 to para-178 \"status\": \"regulation\" / source: Part 2 guidance paragraphs 172-178"
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "0766ba7d47f0d0a7": {
+   "version_id": "main@2024-12-06-93ed15e0",
+   "unit": "p46",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "A sub-heading is read as body text and joined to the end of the paragraph before it.",
+     "evidence": "source: heading \"Reduce the noise reaching workers\" above 201 / tree: para 200 ends \"...removed to discuss the work. Reduce the noise reaching workers\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The Part 3 guidance paragraphs carry status \"regulation\", though the page shows plain guidance text with no Regulation marker.",
+     "evidence": "tree: para-200, para-201, para-202 \"status\": \"regulation\" / source: Part 3 guidance paragraphs 200-202"
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "08b87e137763e721": {
+   "version_id": "main@2024-12-06-93ed15e0",
+   "unit": "p54",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "e6b9523f19cf08f7": {
+   "version_id": "main@2024-12-06-93ed15e0",
+   "unit": "p55",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The continued part of Table 2 is kept as a separate table with no number and an invented title, so it is cut off from Table 2.",
+     "evidence": "source: \"Table 2 continued\" / tree: \"Table (Hearing protection)\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading \"Dual protection\" is read as the last words of paragraph 226 instead of a heading above paragraph 227.",
+     "evidence": "source: \"Dual protection\" (heading) / tree: \"over the types of protector provided. Dual protection\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The footnote marker 12 is joined to the text as plain digits after the year.",
+     "evidence": "source: \"Regulations 2018.\" with superscript 12 / tree: \"Regulations 2018.12 You should only supply\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "11b41230f9275cba": {
+   "version_id": "main@2024-12-06-93ed15e0",
+   "unit": "p59",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The formula in paragraph 244 lost its subscripts and superscript, so the two voltages cannot be told apart and the square reads as a plain 2.",
+     "evidence": "source: \"8(Vcrit/Vmax)² Where Vcrit = the criterion voltage, and Vmax = the maximum RMS voltage\" / tree: \"8(V /V )2 Where V = the criterion voltage, and V = the maximum RMS voltage\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The footnote marker 13 is joined to the standard number, giving a wrong standard number.",
+     "evidence": "source: \"BS EN ISO 7731\" with superscript 13 / tree: \"BS EN ISO 773113 can be carried out\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The headings above paragraphs 243 and 246 are read as the last words of the paragraphs before them.",
+     "evidence": "tree: \"based on an earmuff. Protectors with communication facilities\" and \"safety-related communication. Other factors influencing selection Wearer comfort and preference\""
+    },
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The heading above paragraph 242 is not in the content for this page.",
+     "evidence": "source: \"Active noise-reduction protectors\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "7b79c8078e0c38ca": {
+   "version_id": "main@2024-12-06-93ed15e0",
+   "unit": "p64",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The headings \"Duties of employers\" and \"Procurement\" are read as the last words of paragraphs 273 and 277 instead of headings above paragraphs 274 and 278.",
+     "evidence": "tree: \"is set out in Box 2. Duties of employers\" and \"‘buying quiet’ will be realised. Procurement\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The footnote marker 14 is joined to the text as plain digits.",
+     "evidence": "source: \"(SMR)\" with superscript 14 / tree: \"(SMR)14 require that new equipment\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "8ef665c5d77c7055": {
+   "version_id": "main@2024-12-06-93ed15e0",
+   "unit": "p65",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The caption of Box 2 is read as running text at the end of paragraph 278, and the box itself is kept as a note with no number or title.",
+     "evidence": "source: \"Box 2 Summary of the duties of manufacturers and others concerning noise\" (caption) / tree: \"https://www.hse.gov.uk/noise/. Box 2 Summary of the duties of manufacturers and others concerning noise Using manufacturers’ noise data\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "9f4f03c9e4b57e4e": {
+   "version_id": "main@2024-12-06-93ed15e0",
+   "unit": "p69",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "Footnote markers 17, 18 and 19 are joined to the standard numbers in paragraph 3, giving wrong standard numbers.",
+     "evidence": "source: \"BS EN 13819-2\" (17), \"BS EN ISO 4869-1\" (18), \"BS EN ISO 4869-2\" (19) / tree: \"BS EN 13819-217\", \"BS EN ISO 4869-118\", \"BS EN ISO 4869-219\""
+    },
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "Table 4 lost the group heading over the number columns, so the grid does not say the columns are frequencies in Hz.",
+     "evidence": "source: \"Octave-band centre frequency (Hz)\" above \"63 125 250 500 1000 2000 4000 8000\" / tree columns: \"Measure\", \"63\", \"125\", \"250\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading \"Hearing protector performance data\" is read as the last words of paragraph 1 instead of a heading above paragraph 2.",
+     "evidence": "tree: \"reported by the manufacturer. Hearing protector performance data\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "4c9de95adb1ed78b": {
+   "version_id": "main@2024-12-06-93ed15e0",
+   "unit": "p70",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The subscript 'eq' of the symbol in paragraph 13 is lost, so the quantity is no longer named.",
+     "evidence": "source: \"octave-band values of the unweighted Leq).\" / tree: \"octave-band values of the unweighted L ).\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The section heading printed above paragraph 8 is joined to the end of paragraph 7 as body text.",
+     "evidence": "tree: \"not compatible with the procedures given below for predicting attenuation. Methods of estimating the attenuation given by hearing protection\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-heading printed above paragraph 11 is joined to the end of paragraph 10 as body text.",
+     "evidence": "tree: \"(www.hse.gov.uk/noise). ‘Real-world’ protection\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-heading printed above paragraph 13 is joined to the end of paragraph 12 as body text.",
+     "evidence": "tree: \"in conditions of real use. Octave-band method\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "b944502f987d3284": {
+   "version_id": "main@2024-12-06-93ed15e0",
+   "unit": "p72",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Numbered paragraphs 22 to 26 and the section heading are merged into one unnumbered text block (with paragraphs 18 to 21) instead of separate paragraphs.",
+     "evidence": "tree: \"L’ = L – SNR 22 To account for real-world factors ... Selecting hearing protection for peak sound pressures 23 Sources of peak sound pressures\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The text block and Table 6 sit under a heading made from a piece of a formula, not under Appendix 1 and the printed section heading.",
+     "evidence": "source: \"Selecting hearing protection for peak sound pressures\" / tree heading_path: \"[(H – M) ] > Table 6 Common processes generating high peak sound pressure levels\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "Paragraphs 24 to 26, printed after Table 6, come before the table in the tree.",
+     "evidence": "source: Table 6 then \"24 When hearing protectors are used\" / tree: \"24 When hearing protectors are used ...\" then table-6"
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The subscript A of the symbol in paragraph 22 is lost.",
+     "evidence": "source: \"add 4 dB to the calculated L’A in order\" / tree: \"add 4 dB to the calculated L’ in order\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "4996487a5ee13c5e": {
+   "version_id": "main@2024-12-06-93ed15e0",
+   "unit": "p73",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Box 3, the sub-heading and numbered paragraphs 27 and 28 are merged into one unnumbered text block instead of a box and two separate paragraphs.",
+     "evidence": "tree: \"M-value of at least 26 dB. Other factors influencing selection of hearing protection for peak noise 27 In selecting suitable hearing protection\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Table 7 and the text block sit under a heading made from a piece of a formula, not under Appendix 1.",
+     "evidence": "tree heading_path: \"[(H – M) ] > Table 7 Modified sound attenuation values for different impulsive or impact noises\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The running header of the page is kept as a note at the end of Table 7's text.",
+     "evidence": "tree: \"Type 3 H\" then \"Appendix 1: Predicting likely noise reduction from hearing protectors\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The running header of the page is kept as a text section of its own.",
+     "evidence": "tree appendix-1-text-1: \"Appendix 1: Predicting likely noise reduction from hearing protectors\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "e274a2a1583c32ec": {
+   "version_id": "main@2024-12-06-93ed15e0",
+   "unit": "p75",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The superscript 2 in the unit of noise dose is flattened into the unit.",
+     "evidence": "source: \"Noise dose in Pa²h for a representative period\" / tree: \"Noise dose in Pa2h for a representative period\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "1d894d7b3004ba08": {
+   "version_id": "main@2024-12-06-93ed15e0",
+   "unit": "p76",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The section heading printed above paragraph 11 is joined to the end of paragraph 10 as body text.",
+     "evidence": "tree: \"should never be used for workplace noise measurements. Measuring peak sound pressures\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The section heading and sub-heading printed above paragraph 13 are joined to the end of paragraph 12 as body text.",
+     "evidence": "tree: \"you use with your measurement equipment. Making measurements Field calibration check\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "73a88178af3b6b44": {
+   "version_id": "main@2024-12-06-93ed15e0",
+   "unit": "p78",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "List items (a) to (c) of paragraph 21 are not in the paragraph; they are kept as labels of Figure 25, so the paragraph ends at its colon.",
+     "evidence": "source: \"(Figure 25): (a) if the noise is steady and the person stationary\" / tree labels: \"(a) if the noise is steady and the person stationary, a short duration measurement may be\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The subscript Aeq of the symbol in paragraph 21 is lost, so the quantity is no longer named.",
+     "evidence": "source: \"representative measurement of the LAeq or noise dose\" / tree: \"representative measurement of the L or noise dose\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "In the list items the subscript Aeq is split from its symbol and put on a line of its own.",
+     "evidence": "source: \"measure the LAeq over a whole number of cycles\" / tree: \"measure the L over a whole number of cycles\", \"Aeq\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-heading printed above paragraph 21 is joined to the end of paragraph 20 as body text.",
+     "evidence": "tree: \"verify this using a sound level meter. How long should I measure for?\""
+    },
+    {
+     "kind": "figure",
+     "severity": "low",
+     "problem": "The axis label printed on each graph of Figure 25 is missing from the labels.",
+     "evidence": "source: \"Noise level\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "6c616554cac26b43": {
+   "version_id": "main@2024-12-06-93ed15e0",
+   "unit": "p84",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The right-hand section of Table 10 is split off as a separate table with the bogus title \"( EP )\", and everything on the page sits under a bogus heading \"( EP )\".",
+     "evidence": "source: \"Table 10 Daily noise exposure ready-reckoner\" / tree: \"( EP ) > Table (( EP ))\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The subscript EP,d is dropped from the three colour key notes, and the colours they explain are not kept.",
+     "evidence": "source: \"Above upper exposure action value (L EP,d 85 dB(A))\" / tree: \"Above upper exposure action value (L 85 dB(A))\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The group heading over the time columns is not in the columns of the grid.",
+     "evidence": "source: \"Duration of exposure\" / tree columns: \"2 min\", \"5 min\", \"15 min\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "f3e0545cc681f915": {
+   "version_id": "main@2024-12-06-93ed15e0",
+   "unit": "p85",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The Box 4 title is read as body text and joined with headings and paragraphs 17 and 18 that are not printed on this page, and this block is placed before the box content.",
+     "evidence": "tree: \"Box 4 Worked example of noise exposure ready-reckoner Weekly noise exposure ready-reckoner 17 In the circumstances outlined in Part 1\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The worked example table is also run into the box note as plain text, with the Notes and Exposure points cells mixed.",
+     "evidence": "tree: \"so add together values from 4- 16 + 4 = 20 and 1-hour columns in row corresponding to 80 dB(A)\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The subscript EP,d is dropped in the box text.",
+     "evidence": "source: \"gives an L EP,d of between 86 and 87 dB(A)\" / tree: \"gives an L of between 86 and 87 dB(A)\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The ready-reckoner inside Box 4 is kept as separate tables with the bogus title and heading \"( EP )\".",
+     "evidence": "tree: \"( EP ) > Table (( EP ))\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "7f2318f7261a1737": {
+   "version_id": "main@2024-12-06-93ed15e0",
+   "unit": "p93",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The heading above paragraph 21 is not in the tree, not in the text and not in the heading path.",
+     "evidence": "source: \"Interpretation of results\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading above paragraph 23 is kept as the last line of Table 12's notes instead of as a heading.",
+     "evidence": "tree (table-12 text): \"† Compare value with figure given for appropriate age band and gender in Table 13.\", \"Method for using the categorisation scheme\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "9efc3bece1386c04": {
+   "version_id": "main@2024-12-06-93ed15e0",
+   "unit": "p94",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The heading that spans the whole of Table 13 and says what the numbers are is not in the columns of the grid.",
+     "evidence": "source: \"Sum of hearing levels 1, 2, 3, 4 and 6 kHz\" / tree columns: \"Age\", \"Males Mild hearing loss level\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading above paragraph 29 is joined to the end of paragraph 28 as body text.",
+     "evidence": "tree: \"following referral to a doctor or specialist. Actions/advice\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

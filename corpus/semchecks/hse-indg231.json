@@ -1,0 +1,66 @@
+{
+ "source_id": "hse-indg231",
+ "about": "Model verdicts on source against tree for hse-indg231 (system/rag/semcheck.py).",
+ "verdicts": {
+  "f8936c163bc2e071": {
+   "version_id": "main@2024-12-06-4d30d7b7",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The italic sub-headings are read as body text and run into the end of the paragraph or bullet before them.",
+     "evidence": "source: \"Provide safe and suitable equipment\" (sub-heading) / tree: \"using adaptors can cause fire. Provide safe and suitable equipment\"; tree: \"You may need specialist advice. Reduce the voltage One of the best ways\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The footnote marker 1 is joined to the text as a plain digit.",
+     "evidence": "source: \"Requirements for electrical installations,¹ and then\" / tree: \"Requirements for electrical installations,1 and then\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "2a3cbf781ca73a9e": {
+   "version_id": "main@2024-12-06-4d30d7b7",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The italic sub-headings are read as body text and run into the end of the bullet before them.",
+     "evidence": "source: \"Provide a safety device\" (sub-heading) / tree: \"are readily available. Provide a safety device If equipment operating at 230 volts\"; tree: \"you should use this regularly. Carry out preventative maintenance All electrical equipment\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "4ff82c4d7fb747b9": {
+   "version_id": "main@2024-12-06-4d30d7b7",
+   "unit": "p6",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The page footer with the page number is kept as a body text section under Further information.",
+     "evidence": "tree: \"Published by the Health Safety Executive Reprinted 08/13 INDG231(rev1) Page 6 of 6\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

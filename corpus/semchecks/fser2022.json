@@ -1,0 +1,35 @@
+{
+ "source_id": "fser2022",
+ "about": "Model verdicts on source against tree for fser2022 (system/rag/semcheck.py).",
+ "verdicts": {
+  "f03afc2f6581b38b": {
+   "version_id": "main@2026-04-06-9826f8e6",
+   "unit": "regulation-2",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The three items of the lettered list under “military premises” have no (a), (b), (c) labels in the tree.",
+     "evidence": "source: OrderedList Type=\"alpha\" Decoration=\"parens\" with \"military barracks,\" / tree: \"military barracks,\" with no \"(a)\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "a06afa95f7d14897": {
+   "version_id": "main@2026-04-06-9826f8e6",
+   "unit": "regulation-4",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

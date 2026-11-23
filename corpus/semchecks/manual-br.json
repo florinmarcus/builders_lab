@@ -1,0 +1,354 @@
+{
+ "source_id": "manual-br",
+ "about": "Model verdicts on source against tree for manual-br (system/rag/semcheck.py).",
+ "verdicts": {
+  "e33acc36ca7283d8": {
+   "version_id": "manual-to-the-building-regulations@2020-07-20-f04e1e10",
+   "unit": "p10",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "The group headings over the columns are lost from the grid, so the two pairs of New and Existing columns cannot be told apart as dwellings or other buildings.",
+     "evidence": "source: \"Dwellings | Other buildings\" over \"New Existing1 New Existing1\" / tree: columns \"New\", \"Existing1\", \"New\", \"Existing1\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The heading \"Following other guidance\" and the four body paragraphs under it are kept only inside the text of Table 1.1, not as their own section.",
+     "evidence": "source: \"Following other guidance It is important to agree with the building control body that the standards you are using are right for your project.\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page footer is kept at the end of the table text.",
+     "evidence": "tree: \"10 Overview Manual to the Building Regulations\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "b6078811494ca410": {
+   "version_id": "manual-to-the-building-regulations@2020-07-20-f04e1e10",
+   "unit": "p12",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The flowchart Figure 2.1 is read as a one-column table titled \"Chapter 2\", and its caption is kept as body text joined to the two paragraphs printed under the figure.",
+     "evidence": "source: \"Figure 2.1 The building control process\" / tree: table title \"Chapter 2\"; text \"Figure 2.1 The building control process Refer to Volume 2, Chapter E\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The caption and the two closing paragraphs come before the flowchart content, though the closing paragraphs are printed after it.",
+     "evidence": "tree: \"Refer to Volume 2, Chapter E for details of approved inspectors’ initial notices.\" before \"Do Building Regulations apply to the work?\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "11bee26051691c51": {
+   "version_id": "manual-to-the-building-regulations@2020-07-20-f04e1e10",
+   "unit": "p15",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "high",
+     "problem": "The Yes and No branch labels of the flowchart are not in the grid, so the rows do not say which answer leads to which outcome.",
+     "evidence": "source: \"Has the work commenced?\" No -> \"The work may be checked by the local authority or an approved inspector\", Yes -> \"Apply to the local authority\" / tree: \"Has the work commenced?\", \"Apply to the local authority\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The flowchart is read as a one-column table and given a column heading that is not printed as a figure caption on the page.",
+     "evidence": "tree: columns \"Figure: Is a building control body involved?\"; title \"Chapter 4\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The chapter heading is read as the first words of the body text, and the chapter title is only \"Chapter 4\".",
+     "evidence": "source: heading \"Is a building control body involved?\" / tree: \"Is a building control body involved? When Building Regulations apply to the work you want to do\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page footer is kept at the end of the table text.",
+     "evidence": "tree: \"Manual to the Building Regulations Overview 15\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "e48ec1a77d36007e": {
+   "version_id": "manual-to-the-building-regulations@2020-07-20-f04e1e10",
+   "unit": "p19",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The flowchart is kept as a one-column table, so the branch is lost: in the source the 'No' (building notice) route goes straight to 'Work may start' and skips the plans assessment box, but the tree reads as if every step applies to both routes.",
+     "evidence": "source: arrow from \"The applicant may deposit a building notice application\" to \"Work may start after the local authority has had at least two clear working days' notice\" / tree: rows in one sequence"
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The flowchart has no caption of its own, and the tree gives it the chapter name as title and column name; its first box is also repeated as a separate text section.",
+     "evidence": "source: \"Local authority route\" / tree: title \"Chapter 6\", columns [\"Chapter 6\"], and text \"Local authority route Local authority building control under the Building Regulations 2010\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The chapter title and a sub-heading are read as body text inside one text section.",
+     "evidence": "tree: \"Local authority building control and approved inspectors There are two types of building control body.\" and \"Local authority building control If you apply for approval\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "e1159051cf95fac8": {
+   "version_id": "manual-to-the-building-regulations@2020-07-20-f04e1e10",
+   "unit": "p20",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "high",
+     "problem": "The text printed to the right of the flowchart (what must be given to the local authority and what an initial notice must contain) is in no section and no grid cell; it survives only mixed line by line into the table's raw text.",
+     "evidence": "source: \"an insurance declaration demonstrating that the approved inspector has the appropriate professional and public liability insurance\" and \"a site plan to a scale of not less than 1:1250\""
+    },
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "In the table's raw text the flowchart boxes and the side column are mixed into one run of lines.",
+     "evidence": "tree: \"Agree site inspection plan with approved b. an insurance declaration demonstrating that the approved\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The flowchart is kept as a one-column table with the chapter name as title, the loop back from 'No' to the question is lost, and its first two boxes are repeated as separate text sections.",
+     "evidence": "tree: title \"Chapter 6\"; text sections \"Approved inspector route Approved inspectors under the Building (Approved Inspectors etc.) Regulations 2010\" and \"In conjunction with the approved inspector an initial notice must be given to the local authority\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-heading is read as body text, and the paragraph printed after the flowchart is joined to the paragraph before it.",
+     "evidence": "tree: \"Approved inspectors You can apply for approval\" and \"follow this route: You can learn more about these two types\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "c9c6a76a21f021ea": {
+   "version_id": "manual-to-the-building-regulations@2020-07-20-f04e1e10",
+   "unit": "p21",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The body paragraph printed after Table 7.1 is not in any text section; it is kept only inside the table's text, after the table note, as if it were part of the table.",
+     "evidence": "source: \"In addition to complying with the technical requirements in Schedule 1 to the Building Regulations, work controlled by the Building Regulations must be carried out with adequate and proper materials\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The chapter title and a sub-heading are read as body text.",
+     "evidence": "tree: \"Meeting the technical requirements Complying with the Building Regulations The key legal requirements\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "c037cf79236ff615": {
+   "version_id": "manual-to-the-building-regulations@2020-07-20-f04e1e10",
+   "unit": "p28",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Paragraph A12 with its heading and conditions a to e is not in any text section; it is kept only inside Table A1's text as if it were a table note, and the provision is split from its condition f on the next page.",
+     "evidence": "source: \"A12 The exemption in Class 7 (see paragraph A11) applies to conservatories, porches and open-sided carports only where\" ... \"c. The extension has a maximum floor area of 30m²\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The note printed under Table A1 is turned into a table row with 'NOTE' in the Class column.",
+     "evidence": "tree: [\"NOTE\", \"If any water or electricity in an exempt greenhouse or building exempted under Class 6 or 7 is supplied from or shared with a dwelling\"]"
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Numbered paragraphs and the heading 'Exempt buildings' are joined into one unnumbered text section.",
+     "evidence": "tree: \"(referred to as ‘substantive requirements’ in the Building Act). Exempt buildings A11 Regulation 9 of the Building Regulations\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "124dd6bf04bf74f8": {
+   "version_id": "manual-to-the-building-regulations@2020-07-20-f04e1e10",
+   "unit": "p30",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Paragraphs A18, A19 and A20 and their headings are joined into one unnumbered text section, with the headings read as body text.",
+     "evidence": "tree: \"comply with the Building Regulations. Material alteration A19 The Building Regulations always apply\" and \"structural alterations. Material change of use A20 The Building Regulations apply\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "dfd665442769a663": {
+   "version_id": "manual-to-the-building-regulations@2020-07-20-f04e1e10",
+   "unit": "p31",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The table has lost its number and caption: the caption is kept as a separate note section and the table is titled with the chapter name, so 'Table A2' does not point to it.",
+     "evidence": "source: \"Table A2 Requirements that apply to material changes of use\" / tree: note \"Table A2 Requirements that apply to material changes of use\", table title \"Chapter A\", no number"
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The group heading over the 5(a) to 5(k) columns is not in the column names, and the first column name is cut short.",
+     "evidence": "source: \"Material change of use under:\" and \"Requirement (from Schedule 1 to the Building Regulations 2010)\" / tree: columns \"Requirement\", \"All cases\", \"5(a)\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "f447d2152242e909": {
+   "version_id": "manual-to-the-building-regulations@2020-07-20-f04e1e10",
+   "unit": "p41",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The numbered paragraphs E1 to E7 and the headings \"Approved inspectors\" and \"The initial notice\" are merged into one text section, with the headings read as body text.",
+     "evidence": "tree: \"Approved inspectors E1 This chapter refers to ... negotiate the fees involved. The initial notice E6 When the person\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The running footer of the page is kept as a body text section under Chapter E.",
+     "evidence": "tree: \"Manual to the Building Regulations Further guidance 41\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "e798cb955049d66b": {
+   "version_id": "manual-to-the-building-regulations@2020-07-20-f04e1e10",
+   "unit": "p56",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "All the glossary entries on the page are merged into one text section, with each defined term read as body text.",
+     "evidence": "tree: \"Refer to Chapter F for details. Competent person schemes allow tradespeople to demonstrate\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The running footer of the page is kept as a body text section under Appendix I.",
+     "evidence": "tree: \"56 Appendices Manual to the Building Regulations\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "b722f96ab32e7927": {
+   "version_id": "manual-to-the-building-regulations@2020-07-20-f04e1e10",
+   "unit": "p57",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The four glossary entries on the page are merged into one text section, with each defined term read as body text.",
+     "evidence": "tree: \"and L2B, 3.1. Responsible person is the person defined in article 3\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The running footer of the page is kept as a body text section under Appendix I.",
+     "evidence": "tree: \"Manual to the Building Regulations Appendices 57\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "d610bb290481cd8b": {
+   "version_id": "manual-to-the-building-regulations@2020-07-20-f04e1e10",
+   "unit": "p61",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading \"List of approved documents\" is read as body text and the whole list of documents is run together into one text section.",
+     "evidence": "tree: \"List of approved documents The following documents have been published ... Approved Document 7 Materials and workmanship Approved Document A Structure\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The running footer of the page is kept as a body text section under Appendix II.",
+     "evidence": "tree: \"Manual to the Building Regulations Appendices 61\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

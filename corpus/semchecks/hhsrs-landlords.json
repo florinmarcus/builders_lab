@@ -1,0 +1,97 @@
+{
+ "source_id": "hhsrs-landlords",
+ "about": "Model verdicts on source against tree for hhsrs-landlords (system/rag/semcheck.py).",
+ "verdicts": {
+  "628dcced44ebb61d": {
+   "version_id": "landlord-and-agent-guide-to-the-housing-health-and-safety-ra@2026-09-16-49811e5d",
+   "unit": "part1",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "9379406ebdad20e8": {
+   "version_id": "landlord-and-agent-guide-to-the-housing-health-and-safety-ra@2026-09-16-49811e5d",
+   "unit": "part2",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "088faf3917bc25e1": {
+   "version_id": "landlord-and-agent-guide-to-the-housing-health-and-safety-ra@2026-09-16-49811e5d",
+   "unit": "part3",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "In 5.2 the tree splits the lettered list (a) to (d) into separate lines but leaves item (e) joined onto item (d).",
+     "evidence": "tree: \"(d) a person who is, or is proposing to be, otherwise involved in the management of the premises, and (e) a person who occupies the premises.\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "596af945ef7d4bc7": {
+   "version_id": "landlord-and-agent-guide-to-the-housing-health-and-safety-ra@2026-09-16-49811e5d",
+   "unit": "part4",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "e69d233d42195042": {
+   "version_id": "landlord-and-agent-guide-to-the-housing-health-and-safety-ra@2026-09-16-49811e5d",
+   "unit": "part5",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "afbe1d97cc5c1014": {
+   "version_id": "landlord-and-agent-guide-to-the-housing-health-and-safety-ra@2026-09-16-49811e5d",
+   "unit": "part6",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "b55b7d99b37db125": {
+   "version_id": "landlord-and-agent-guide-to-the-housing-health-and-safety-ra@2026-09-16-49811e5d",
+   "unit": "part7",
+   "kind": "semcheck-html",
+   "family": "html",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The page footnote about the PACE interview is kept as a last line of the glossary text, with an added number, as if it were a glossary entry.",
+     "evidence": "source: \"A PACE interview is formal evidence gathering exercise by a regulator.\" / tree: \"1. A PACE interview is formal evidence gathering exercise by a regulator.\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

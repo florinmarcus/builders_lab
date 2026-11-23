@@ -1,0 +1,170 @@
+{
+ "source_id": "hse-l56",
+ "about": "Model verdicts on source against tree for hse-l56 (system/rag/semcheck.py).",
+ "verdicts": {
+  "07e5c11d3afb5c82": {
+   "version_id": "main@2024-12-06-769c6338",
+   "unit": "p19",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "f44cb2f0281f145e": {
+   "version_id": "main@2024-12-06-769c6338",
+   "unit": "p46",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Paragraph 200 is printed in the ACOP box but the tree marks it as regulation, and paragraph 201 is printed as Guidance but the tree marks it as acop.",
+     "evidence": "source: \"ACOP 18(1)–(2) 200 The location and routing of installation pipework should take into account\" / tree: para-200 status \"regulation\", para-201 status \"acop\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The summary box and the regulation text 18(1)–(2) are merged into one text block marked as guidance, so the regulation itself is not marked as regulation.",
+     "evidence": "source: \"Regulation 18(1)–(2) 1) No person shall install any installation pipework\" / tree: \"Summary of regulation 18 This regulation requires ... 1) No person shall install\" status \"guidance\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "c6016c5085ea2bb8": {
+   "version_id": "main@2024-12-06-769c6338",
+   "unit": "p56",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "9486c22e1abaf69b": {
+   "version_id": "main@2024-12-06-769c6338",
+   "unit": "p72",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Paragraph 304 is printed in the Guidance 36A box but the tree marks it as regulation.",
+     "evidence": "source: \"Guidance 36A 304 The changes set out in regulation 36A aim to offer more flexibility\" / tree: para-304 status \"regulation\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The footnote to regulation 36A(4) is filed under the Record keeping heading instead of with the regulation text it belongs to.",
+     "evidence": "source: \"under regulation 36(3) (a) or (b).1\" ... \"1 Regulation 36A was added by\" / tree: heading_path \"... > Record keeping > Text\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "18dd5b64b0bf9bcd": {
+   "version_id": "main@2024-12-06-769c6338",
+   "unit": "p80",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The text of regulation 40A is printed in the Regulation box but the tree marks it as guidance.",
+     "evidence": "source: \"Regulation 40A (1) The Secretary of State must from time to time –\" / tree: regulation-40a-review-text-1 status \"guidance\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The footnote to regulation 40A(5) is filed under Regulation 41 instead of Regulation 40A.",
+     "evidence": "source: \"(section 32 of that Act).1\" ... \"1 Regulation 40A was added by\" / tree: heading_path \"Regulation 41 Revocation and amendments > Text\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Two words are run together with the year where the footnote markers were dropped.",
+     "evidence": "source: \"Regulations 1996 and the Gas Safety\", \"Regulations 1996 are hereby revoked\" / tree: \"1996and\", \"1996are\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "41d057a719b2e34b": {
+   "version_id": "main@2024-12-06-769c6338",
+   "unit": "p83",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "8b6a5c2e9572b9d2": {
+   "version_id": "main@2024-12-06-769c6338",
+   "unit": "p84",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The letters R and M printed inside the Figure 10 diagram are kept as a separate note between Figure 9 and Figure 10, and are missing from the Figure 10 labels.",
+     "evidence": "source: \"R M\" (symbols inside the Figure 10 meter box) / tree: note-1 text \"R M\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "cc96d2571958aaf3": {
+   "version_id": "main@2024-12-06-769c6338",
+   "unit": "p86",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "1025b43177911151": {
+   "version_id": "main@2024-12-06-769c6338",
+   "unit": "p9",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The regulation 2(1) definition of \"flue\", printed in its own Regulation box, is merged into the end of guidance paragraph 26 under the heading Emergency control and marked as guidance.",
+     "evidence": "source: Regulation 2(1) \"“flue” means a passage for conveying the products of combustion from a gas appliance to the external air\" / tree: end of para-26, status guidance"
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The regulation 2(1) definition of \"gas\", printed in its own Regulation box, is merged into the end of guidance paragraph 27 under the heading Flues and marked as guidance.",
+     "evidence": "source: Regulation 2(1) \"“gas” means any substance which is or (if it were in a gaseous state) would be gas\" / tree: end of para-27, status guidance"
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

@@ -1,0 +1,300 @@
+{
+ "source_id": "pd-householder-guide",
+ "about": "Model verdicts on source against tree for pd-householder-guide (system/rag/semcheck.py).",
+ "verdicts": {
+  "dedd777f8d1dc7a0": {
+   "version_id": "permitted-development-rights-for-householders-technical-guid@2019-09-10-c034f050",
+   "unit": "p10",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The key of the curtilage diagram is read as a one-column table with an invented heading, and the diagram itself is not kept as a figure, so the tree does not say which area is white.",
+     "evidence": "source: diagram with key \"Curtilage of house\" (white box), \"Original house\" (blue box) / tree: table, columns \"Diagram key\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The numbered limits A.1 (a) and (b) and their explanations are run together into one block of body text instead of separate provisions.",
+     "evidence": "tree: \"A.1 Development is not permitted by Class A if – (a) permission to use the dwellinghouse ... (change of use) Enlargement etc. is not permitted\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The printed page number is kept inside the running text.",
+     "evidence": "source: \"50% of the white area.\" / tree: \"would be 50% of the white area. 10 (c) the height of the part\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "e87b8715ddfc6e41": {
+   "version_id": "permitted-development-rights-for-householders-technical-guid@2019-09-10-c034f050",
+   "unit": "p13",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The printed page number is kept inside the body text at the end of the paragraph.",
+     "evidence": "source: \"any extension of a house is to be made.\" / tree: \"any extension of a house is to be made. 13\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "cd6f7aa93acb5ea1": {
+   "version_id": "permitted-development-rights-for-householders-technical-guid@2019-09-10-c034f050",
+   "unit": "p15",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Labels printed inside the two drawings are run into the end of the body paragraph, with the page number.",
+     "evidence": "source: \"will follow these walls.\" / tree: \"will follow these walls. Highway Walls Forming Principal Elevation Highway Highway 15\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "A drawing label is kept as a body text section of its own and again as a table row.",
+     "evidence": "tree: \"Any extension forward of this line will not be permitted development and will require an application for planning permission\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "61b5a4b57c30e7de": {
+   "version_id": "permitted-development-rights-for-householders-technical-guid@2019-09-10-c034f050",
+   "unit": "p20",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The page sits under a heading \"X\" that is not in the document, so Class A limit (h) is not under Class A.",
+     "evidence": "source: \"h) the enlarged part of the dwellinghouse would have more than a single storey\" / tree heading_path: \"X > Text\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "A bold sub-heading and the new provision (h) are read as running body text in one block with the earlier text.",
+     "evidence": "tree: \"9m A B 19 Side wall extensions extending beyond rear walls An extension on a side wall\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The drawing label 3m is run into the body text between two paragraphs.",
+     "evidence": "tree: \"extensions from side walls. 3m  h) the enlarged part of the dwellinghouse\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "7e3106e0604ce4dd": {
+   "version_id": "permitted-development-rights-for-householders-technical-guid@2019-09-10-c034f050",
+   "unit": "p23",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The page sits under a heading \"X\" that is not in the document, so the Class A side and rear extension limits are not under Class A.",
+     "evidence": "source: \"Rear and side extensions ... The extension must: (i) extend no more than 6 metres beyond the rear wall\" / tree heading_path: \"X > Text\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The tree has a number 33 before the drawing label 6m that is not printed on the page.",
+     "evidence": "source: \"For example:\" then drawing label \"6m\" / tree: \"For example: 33 6m  23 In the following example\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The bold sub-heading is read as running body text.",
+     "evidence": "tree: \"it would not be permitted development. Rear and side extensions Where an extension fills the area\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "22870306eb7d11a8": {
+   "version_id": "permitted-development-rights-for-householders-technical-guid@2019-09-10-c034f050",
+   "unit": "p26",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The cross mark beside the drawings is read as a chapter heading \"X\", and the Class A text around it is put under that heading.",
+     "evidence": "source: boxed cross \"X\" beside each drawing / tree: chapter title \"X\", heading_path \"X > Text\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Drawing labels and the page number are run into the body text.",
+     "evidence": "tree: \"An application for planning permission would therefore be required. 3m 3m\" and \"26 In some situations\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "60f9117e1a34d1f5": {
+   "version_id": "permitted-development-rights-for-householders-technical-guid@2019-09-10-c034f050",
+   "unit": "p27",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The cross mark beside the drawing is read as a chapter heading \"X\", and the Class A text around it is put under that heading.",
+     "evidence": "source: boxed cross \"X\" beside the drawing / tree: chapter title \"X\", heading_path \"X > Text\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Drawing labels and page numbers are run into the body text.",
+     "evidence": "source: \"For example:\" ... \"In the example above\" / tree: \"26 In some situations\", \"For example: 3m B\", \"A In the example above\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "de40908dbbf45b85": {
+   "version_id": "permitted-development-rights-for-householders-technical-guid@2019-09-10-c034f050",
+   "unit": "p28",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The page's sections, including limit (ja), sit under a heading \"X\" that is not a heading in the document (it looks like the cross mark of a diagram), so the rule is not under its Class A parent.",
+     "evidence": "tree: \"X > (ja) any total enlargement (being the enlarged part together with any existing\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Limit (ja) is split in two: its first printed line is read as a heading and the rest of the same sentence as body text.",
+     "evidence": "source: \"(ja) any total enlargement (being the enlarged part together with any existing enlargement of the original dwellinghouse\" / tree: title \"(ja) any total enlargement (being the enlarged part together with any existing\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The labels of the diagram are read as a table with an invented column name, though the page has no table.",
+     "evidence": "tree: columns \"Drawing label\", row \"Enlarged part of house (A) that extends beyond side wall of house remains less than half the width of the original house\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Loose diagram labels are run into the end of the body paragraph.",
+     "evidence": "source: \"extension (as it does not join it).\" / tree: \"(as it does not join it). 3m  B A width of\""
+    },
+    {
+     "kind": "figure",
+     "severity": "low",
+     "problem": "The figure's labels lose the words \"width of\" from the long label.",
+     "evidence": "source: \"half the width of the original house\" / tree: \"half the\", \"the\", \"original\", \"house\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Page numbers are left inside the running text.",
+     "evidence": "tree: \"planning permission. 27 The next example\" and \"pages 18, 21 and 27). 28 (k) it would consist\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "212d414441707706": {
+   "version_id": "permitted-development-rights-for-householders-technical-guid@2019-09-10-c034f050",
+   "unit": "p35",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is left inside the running text, between two paragraphs.",
+     "evidence": "source: \"should not be included in this measurement.\" / tree: \"should not be included in this measurement. 35 This 0.2m set back\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "6bbb238e748c6fdc": {
+   "version_id": "permitted-development-rights-for-householders-technical-guid@2019-09-10-c034f050",
+   "unit": "p38",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The diagram is read as a table, with the label \"Roof Slope\" used as the column heading over the 0.15 metres limit, so the limit reads as a value for the roof slope instead of the protrusion.",
+     "evidence": "source: diagram labels \"Roof Slope\", \"No more than 0.15 metres\", \"(This diagram is not to scale)\" / tree: columns \"Roof Slope\", row \"No more than 0.15 metres\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is left inside the running text.",
+     "evidence": "tree: \"as protruding from the original roof. 38 (c) it would result\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "24b18ea044299c4d": {
+   "version_id": "permitted-development-rights-for-householders-technical-guid@2019-09-10-c034f050",
+   "unit": "p49",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The heading \"Class H – microwave antenna\" is read as body text, so the Class H limits sit under the \"Conditions\" heading of an earlier class instead of under their own heading.",
+     "evidence": "source: heading \"Class H – microwave antenna\" / tree: heading_path \"Other Classes under Part 1 > Conditions > Text\", text \"Class H – microwave antenna This provides permitted development rights\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is left at the end of the running text.",
+     "evidence": "tree: \"on a building which exceeds 15 metres in height 49\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

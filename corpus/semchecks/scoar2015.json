@@ -1,0 +1,35 @@
+{
+ "source_id": "scoar2015",
+ "about": "Model verdicts on source against tree for scoar2015 (system/rag/semcheck.py).",
+ "verdicts": {
+  "66d489a09c8f9d0e": {
+   "version_id": "main@2026-05-01-67ee9cdd",
+   "unit": "regulation-2",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The lettered sub-items inside the definitions (ordered lists marked as (a), (b), (c) in the source) are kept as plain lines with no letters, so the numbering and nesting are lost.",
+     "evidence": "source: \"<OrderedList Decoration=\\\"parens\\\" Type=\\\"alpha\\\"> ... to install a prescribed alarm;\" / tree: \"to install a prescribed alarm;\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "a45448cb40aeb4e8": {
+   "version_id": "main@2026-05-01-67ee9cdd",
+   "unit": "schedule-paragraph-7",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

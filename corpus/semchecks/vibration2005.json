@@ -1,0 +1,42 @@
+{
+ "source_id": "vibration2005",
+ "about": "Model verdicts on source against tree for vibration2005 (system/rag/semcheck.py).",
+ "verdicts": {
+  "83168a67e1d755e0": {
+   "version_id": "main@2015-10-16-a051e606",
+   "unit": "schedule-1-paragraph-1n1",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The tree merges the following unnumbered paragraphs of Part I into this provision, so its text runs well past the end of the source paragraph, which stops after the T0 definition.",
+     "evidence": "source: \"is the reference duration of 8 hours (28,800 seconds).\" / tree: \"To avoid confusion between vibration magnitude and daily exposure to vibration, it is conventional to express\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "751852a6a3a9346d": {
+   "version_id": "main@2015-10-16-a051e606",
+   "unit": "schedule-2-paragraph-1n2",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The tree adds a sentence after the formula's definitions that is not in this source paragraph, so a following paragraph looks merged into this one.",
+     "evidence": "source: \"is the daily exposure for day j.\" / tree: \"The exposure to vibration averaged over one week is for use only for the purposes of Regulation 6(5).\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

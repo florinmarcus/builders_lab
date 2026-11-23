@@ -1,0 +1,53 @@
+{
+ "source_id": "hse-hsg85",
+ "about": "Model verdicts on source against tree for hse-hsg85 (system/rag/semcheck.py).",
+ "verdicts": {
+  "481887b9573af801": {
+   "version_id": "main@2024-12-06-dbdc937e",
+   "unit": "p17",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The superscript reference marker 19 is joined to the word before it in paragraph 35.",
+     "evidence": "source: \"(Design and Management) Regulations\" with superscript 19 / tree: \"Regulations19 will apply\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "ccc19136550f3bf2": {
+   "version_id": "main@2024-12-06-dbdc937e",
+   "unit": "p23",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "aa213ff18cd37220": {
+   "version_id": "main@2024-12-06-dbdc937e",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The superscript reference marker 3 is joined to the standard number, so the BSI publication number reads wrong.",
+     "evidence": "source: \"see BSI publication PD 6519\" with superscript 3 / tree: \"see BSI publication PD 65193\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

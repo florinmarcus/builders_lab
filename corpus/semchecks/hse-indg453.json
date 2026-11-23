@@ -1,0 +1,66 @@
+{
+ "source_id": "hse-indg453",
+ "about": "Model verdicts on source against tree for hse-indg453 (system/rag/semcheck.py).",
+ "verdicts": {
+  "8f17900c1f87707f": {
+   "version_id": "main@2024-12-06-3b5e1c58",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Four printed sub-headings are read as body text and run into the paragraphs or bullets around them, the last one onto the end of a list item.",
+     "evidence": "source: \"Over-seven-day injuries to workers\" (sub-heading) / tree: \"...admittance to hospital for more than 24 hours. Over-seven-day injuries to workers This is where an employee\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "d5d120974c7c832e": {
+   "version_id": "main@2024-12-06-3b5e1c58",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "The four sub-items of the road traffic exemption are cut from their bullet and placed at the end of the page, after the Recording requirements and How to report sections.",
+     "evidence": "source: \"road traffic accidents, unless the accident involved: - the loading or unloading of a vehicle;\" / tree: after \"8.30 am to 5 pm).\": \"the loading or unloading of a vehicle; work alongside the road\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-headings Online and Telephone are read as body text and run into the paragraphs.",
+     "evidence": "source: \"Telephone\" (sub-heading) / tree: \"You will receive a copy for your records. Telephone All incidents can be reported online\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "744bf530b4627ea3": {
+   "version_id": "main@2024-12-06-3b5e1c58",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The running footer of the page is kept as a body text section under Further information.",
+     "evidence": "tree: \"Published by the Health and Safety Executive 10/13 INDG453(rev1) Page 5 of 5\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

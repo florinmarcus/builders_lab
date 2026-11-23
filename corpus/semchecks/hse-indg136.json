@@ -1,0 +1,131 @@
+{
+ "source_id": "hse-indg136",
+ "about": "Model verdicts on source against tree for hse-indg136 (system/rag/semcheck.py).",
+ "verdicts": {
+  "8fcfe8c708887de8": {
+   "version_id": "main@2024-12-06-25069a38",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Six sub-headings are read as body text and run into the paragraphs and bullets around them.",
+     "evidence": "source: \"Look at each substance\", \"Think about the task\", \"Exposure by breathing in\" (headings) / tree: \"• skin puncture? Bear these in mind when you look at the tasks. Exposure by breathing in Once breathed in\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The first word has capital I letters in place of lower-case l.",
+     "evidence": "source: \"Ill health caused by these substances\" / tree: \"III health caused by these substances\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Two separate Myth and Reality boxes are joined into one note.",
+     "evidence": "tree: \"citrus oils can cause skin problems. Myth ‘I don’t work with harmful substances.‘ Reality Most businesses\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "1dacb248f1c43b58": {
+   "version_id": "main@2024-12-06-25069a38",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "Labels of the symbol pictures in the right column are mixed into the middle of the sentences of the left column.",
+     "evidence": "source: \"Note: medicines, pesticides and cosmetic products have different legislation and don’t have a safety data sheet\" / tree: \"cosmetic products Highly Extremely Explosive Dangerous have different legislation\""
+    },
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "The picture heading 'New International symbols' is put inside a sentence of the body text.",
+     "evidence": "source: \"to find out about health risks and emergency situations, concentrate on:\" / tree: \"emergency situations, New International symbols concentrate on:\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "A stray letter from the Irritant symbol and the heading 'European symbols' are put into the body text.",
+     "evidence": "tree: \"Safety data sheets European symbols Products you use\" and \"Some examples are given here. i These products include\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The headings 'Exposure by skin puncture' and 'Safety data sheets' are read as body text, and the boxed Safety data sheets text sits under 'Which substances are harmful?' with no heading of its own.",
+     "evidence": "tree: \"Exposure by skin puncture Risks from skin puncture\" and \"eg drugs. Safety data sheets European symbols Products\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The set of European hazard symbol pictures is read as a one-column table and placed after the Hazard checklist, and the nine new international symbols are not kept as a figure.",
+     "evidence": "tree: columns \"European symbols\", grid \"Toxic\", \"Very toxic\", \"Harmful\", \"Irritant\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "a31c32ffe00c32a7": {
+   "version_id": "main@2024-12-06-25069a38",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "A separate closing sentence about measures 5, 6 and 7 is merged into list item 7.",
+     "evidence": "source: \"If your control measures include 5, 6 and 7, make sure they all work together.\" (own paragraph) / tree: \"PPE must fit the wearer. If your control measures include 5, 6 and 7\" in Paragraph 7"
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading 'Examples of control measures' is read as body text.",
+     "evidence": "source: \"Examples of control measures\" (heading) / tree: type \"text\", \"Examples of control measures\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "db30ed868d1fbced": {
+   "version_id": "main@2024-12-06-25069a38",
+   "unit": "p8",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-headings and the boxed REACH note are run into one body text block instead of being kept as headings and a separate note.",
+     "evidence": "source: \"Monitoring exposure\" (sub-heading), \"Health checks\" (sub-heading), \"REACH\" (box title) / tree: \"Monitoring exposure Monitoring normally means air sampling\" ... \"See ‘Find out more’. REACH REACH is a European Union regulation\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "55d5d8057ad5ebe7": {
+   "version_id": "main@2024-12-06-25069a38",
+   "unit": "p9",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

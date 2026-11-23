@@ -1,0 +1,42 @@
+{
+ "source_id": "lg-exclusion-order-2026",
+ "about": "Model verdicts on source against tree for lg-exclusion-order-2026 (system/rag/semcheck.py).",
+ "verdicts": {
+  "0bc23609a2935c0f": {
+   "version_id": "main@2026-02-03-47fe71f4",
+   "unit": "article-1",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The provision is an article of an Order, but the heading path labels it as a regulation; the wording and numbering are otherwise exact.",
+     "evidence": "source: \"id=\\\"article-1\\\" ... This article and article 4 extend\" / tree: \"Regulation 1 Citation, commencement, extent and application\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "3af40f854d3ebad1": {
+   "version_id": "main@2026-02-03-47fe71f4",
+   "unit": "article-3",
+   "kind": "semcheck-xml",
+   "family": "legislation-xml",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The provision is an article of an Order, but the heading path labels it as a regulation; the wording, numbering and nesting are otherwise exact.",
+     "evidence": "source: \"id=\\\"article-3\\\"\" / tree: \"Regulation 3 Matters not to be non-commercial matters\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

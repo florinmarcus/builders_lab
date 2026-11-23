@@ -1,0 +1,198 @@
+{
+ "source_id": "decent-home-2006",
+ "about": "Model verdicts on source against tree for decent-home-2006 (system/rag/semcheck.py).",
+ "verdicts": {
+  "d6633ecca14e9d43": {
+   "version_id": "a-decent-home-definition-and-guidance-for-implementation-jun@2006-06-07-fd1d0009",
+   "unit": "p12",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Paragraphs 4.1 to 4.4 are merged into one unnumbered text block and their numbers sit alone in a separate note, so no provision can be found by its number.",
+     "evidence": "source: \"4.2 Dwellings which fail to meet this criterion are those containing one or more hazards\" / tree: note \"4.1 4.2 4.3 4.4\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The chapter title and the heading \"Introduction\" are read as body text, and the chapter title is left as only \"SECTION 4\".",
+     "evidence": "source: \"A decent home – summary of the definition\" and \"Introduction\" / tree: \"A decent home – summary of the definition Introduction The definition of what is a decent home\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The criterion headings a), b) and c) are run into the paragraph text instead of standing as headings between the paragraphs.",
+     "evidence": "tree: \"four criteria: a) It meets the current statutory minimum standard for housing Dwellings which fail to meet this criterion\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Footnote 1 is kept as ordinary section text, not as a footnote tied to its marker, and the marker is glued to the word.",
+     "evidence": "source: \"guidance on HHSRS¹\" / tree: \"statutory guidance on HHSRS1\" and text \"1 Housing Act 2004, Part 1. Statutory Guidance has been given\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is kept at the end of the footnote text.",
+     "evidence": "tree: \"www.communities.gov.uk/hhsrs 11\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Two words in the footnote are run together.",
+     "evidence": "source: \"the HHSRS Operating Guidance\" / tree: \"the HHSRSOperating Guidance\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "bce108d6bf1b0f7b": {
+   "version_id": "a-decent-home-definition-and-guidance-for-implementation-jun@2006-06-07-fd1d0009",
+   "unit": "p16",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading \"Building components\" is read as the end of paragraph 5.7 and is not in the heading path of paragraphs 5.8 to 5.11.",
+     "evidence": "source: heading \"Building components\" / tree: \"A component cannot fail this criterion based on age alone. Building components\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading \"Old and in poor condition\" is read as the end of paragraph 5.11 and is not in the heading path of paragraph 5.12.",
+     "evidence": "source: heading \"Old and in poor condition\" / tree: \"need replacing or require immediate major repair. Old and in poor condition\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "9e60e8fa4bc9071b": {
+   "version_id": "a-decent-home-definition-and-guidance-for-implementation-jun@2006-06-07-fd1d0009",
+   "unit": "p21",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Paragraphs 6.1 to 6.5 are merged into one unnumbered text block and their numbers sit alone in separate notes, so no provision can be found by its number.",
+     "evidence": "source: \"6.4 When considering refurbishment packages, landlords should consult with current Building Regulations\" / tree: notes \"6.1\" and \"6.2 6.3 6.4 6.5\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The chapter title and the heading \"Standard of work to be carried out\" are read as body text, and the chapter title is left as only \"SECTION 6\".",
+     "evidence": "tree: \"Implementing the Decent Homes standard – Social sector This section explains\" and \"most effective long-term strategy. Standard of work to be carried out The Decent Homes standard\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Footnotes 10 and 11 are kept as ordinary section text, not as footnotes tied to their markers, and the markers are glued to the words.",
+     "evidence": "source: \"technical publications.¹⁰\" and \"Green Street¹¹\" / tree: \"publications.10 And the current\", \"Green Street11\", \"10 www.communities.gov.uk/buildingregs 11 www.greenstreet.org.uk\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is kept as a note of its own.",
+     "evidence": "tree: note \"20\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "ee84bba9e6ff3e6d": {
+   "version_id": "a-decent-home-definition-and-guidance-for-implementation-jun@2006-06-07-fd1d0009",
+   "unit": "p28",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Paragraphs 7.5 to 7.9 are merged into one paragraph numbered \"1\", and their numbers are split off into two separate notes.",
+     "evidence": "source: \"7.5 Local monitoring requires the establishment of local baselines\" / tree: number \"1\" \"Local monitoring requires...\"; notes \"7.5\" and \"7.6 7.7 7.8 7.9\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading \"Predicting future progress\" is read as body text inside the merged paragraph and is missing from the heading path.",
+     "evidence": "source: heading \"Predicting future progress\" / tree: \"renegotiated deadline. Predicting future progress The following paragraphs explain\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Footnote 16 is kept as plain section text, not as a note tied to its marker in paragraph 7.6, and the page number is joined to it.",
+     "evidence": "tree: \"16 Decent Homes: Capturing the standard at the local level, DTLR (ODPM) (March 2002) ... www.communities.gov.uk/decenthomes 27\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "2bac7e77ab75fe19": {
+   "version_id": "a-decent-home-definition-and-guidance-for-implementation-jun@2006-06-07-fd1d0009",
+   "unit": "p34",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The Annex A heading and its paragraph 1 are merged into the body of paragraph 7.36 of Section 7, so the annex is not a section of its own.",
+     "evidence": "source: heading \"ANNEX A\" then \"1. Table 1 shows the component lifetimes\" / tree: para 7.36 \"...DCLG web site18. ANNEX A Component lifetimes and definition ... 1. Table 1 shows\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Table 1 sits under the wrong parent in the heading path: Section 7 instead of Annex A.",
+     "evidence": "tree: \"SECTION 7 > Predicting impact of investment > Table 1 Component lifetimes used in the disrepair criterion\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "0f9ff368aa30eb36": {
+   "version_id": "a-decent-home-definition-and-guidance-for-implementation-jun@2006-06-07-fd1d0009",
+   "unit": "p35",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The three bullet conditions that end Annex A paragraph 3 are not in the paragraph but in the text of Table 2, so the paragraph stops at \"unless:\" and runs into Annex B.",
+     "evidence": "source: \"rather than replacement unless: the component is sufficiently damaged that it is impossible to repair;\" / tree: \"rather than replacement unless: ANNEX B Clarifying the Roles\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Annex A paragraphs 2 and 3 and the heading \"In poor condition\" are merged into the body of paragraph 7.36 of Section 7.",
+     "evidence": "source: heading \"In poor condition\" then \"2. Table 2 sets out the definitions\" / tree: para 7.36 \"...function effectively. In poor condition 2. Table 2 sets out\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Table 2 sits under the wrong parent in the heading path: Section 7 instead of Annex A.",
+     "evidence": "tree: \"SECTION 7 > Predicting impact of investment > Table 2 Definition of ‘poor condition’ used in disrepair criterion\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

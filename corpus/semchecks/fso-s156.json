@@ -1,0 +1,78 @@
+{
+ "source_id": "fso-s156",
+ "about": "Model verdicts on source against tree for fso-s156 (system/rag/semcheck.py).",
+ "verdicts": {
+  "65cb41d885d51dce": {
+   "version_id": "check-your-fire-safety-responsibilities-under-section-156-of-7617419@2023-10-25-68c61f73",
+   "unit": "p13",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The heading \"Guidance\" is read as body text, so the two Article 50 paragraphs are merged into the \"Offences\" section.",
+     "evidence": "source: heading \"Guidance\" then \"Article 50 of the Fire Safety Order requires\" / tree: \"non-compliance. Guidance Article 50 of the Fire Safety Order requires\" under Offences"
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page's heading words are also kept as a body text block under the previous chapter.",
+     "evidence": "tree: \"Other changes to fire safety legislation\" under \"Duties of Responsible Persons for buildings which contain two or more sets of domestic premises > Text\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "4a4c0da92daf0b49": {
+   "version_id": "check-your-fire-safety-responsibilities-under-section-156-of-7617419@2023-10-25-68c61f73",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The text block ends with a heading that is not printed on this page.",
+     "evidence": "tree: \"GOV.UK1 To which buildings do these new fire safety requirements apply?\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "c05366fbc8b3dd95": {
+   "version_id": "check-your-fire-safety-responsibilities-under-section-156-of-7617419@2023-10-25-68c61f73",
+   "unit": "p8",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "The left column's opening sentence and the right column's heading are mixed line by line into one unreadable sentence.",
+     "evidence": "source: \"The following duties apply to you if you are the Responsible Person for any building regulated by the Fire Safety Order.\" / tree: \"The following duties apply to you Recording your fire if you are the Responsible Person risk assessment and for any building regulated by the other information Fire Safety Order.\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The heading \"Recording your fire risk assessment and other information\" is read as body text, so the tree has no section for it.",
+     "evidence": "source: heading \"Recording your fire risk assessment and other information\" / tree: \"Recording your fire ... risk assessment and ... other information\" inside the body text"
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page's heading words are also kept as a body text block under the previous chapter.",
+     "evidence": "tree: \"Duties for all Responsible Persons\" under \"Background to Section 156 of the Building Safety Act 2022 > Text\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

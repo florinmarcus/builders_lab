@@ -1,0 +1,194 @@
+{
+ "source_id": "hse-hsg264",
+ "about": "Model verdicts on source against tree for hse-hsg264 (system/rag/semcheck.py).",
+ "verdicts": {
+  "a6d14415201f3fd7": {
+   "version_id": "main@2024-12-06-179c858c",
+   "unit": "p13",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "dfec10cca4a8fad6": {
+   "version_id": "main@2024-12-06-179c858c",
+   "unit": "p26",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "72e2a5b38710c96b": {
+   "version_id": "main@2024-12-06-179c858c",
+   "unit": "p32",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-heading printed above paragraph 94 is read as the last sentence of paragraph 93, and paragraph 94 is left under the heading Introduction.",
+     "evidence": "source: \"Types, location and appearance of asbestos-containing building products: Appendices\" (heading) / tree: \"...carried out frequently. Types, location and appearance of asbestos-containing building products: Appendices\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "In Box 8 the group headings Internal areas and General are joined to the end of the bullet before them.",
+     "evidence": "source: \"Internal areas:\" (own line) / tree: \"Work from the periphery inwards. Internal areas:\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "7699f925e05e8157": {
+   "version_id": "main@2024-12-06-179c858c",
+   "unit": "p33",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "high",
+     "problem": "The footnote to Box 10, marked by the asterisk in its title, is not in the tree.",
+     "evidence": "source: \"* Where the refurbishment or demolition work will not take place for a significant period after the survey (eg three months), then the information required for a management survey should be obtained (see paragraph 52).\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "bef81d02aeb00cc8": {
+   "version_id": "main@2024-12-06-179c858c",
+   "unit": "p42",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "f81bb8ccb183ad21": {
+   "version_id": "main@2024-12-06-179c858c",
+   "unit": "p43",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "9e0ddda873c268be": {
+   "version_id": "main@2024-12-06-179c858c",
+   "unit": "p44",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "c71d3fec68e8e9e4": {
+   "version_id": "main@2024-12-06-179c858c",
+   "unit": "p49",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "889904bd2a79fd9f": {
+   "version_id": "main@2024-12-06-179c858c",
+   "unit": "p52",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "9140bb61cf6fd26d": {
+   "version_id": "main@2024-12-06-179c858c",
+   "unit": "p53",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "e52a5d7f8735076a": {
+   "version_id": "main@2024-12-06-179c858c",
+   "unit": "p54",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "e4674458a691c8e8": {
+   "version_id": "main@2024-12-06-179c858c",
+   "unit": "p55",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "In the fully compressed flat sheet row the source sets \"Up to 50% chrysotile\" beside the higher asbestos content sheets only, but the grid cell runs it on after \"As for profiled sheets\" so the pairing is lost.",
+     "evidence": "source: \"Higher asbestos content sheets produced for industrial applications\" beside \"Up to 50% chrysotile.\" / tree: \"As for profiled sheets. Up to 50% chrysotile.\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "051408613fa93028": {
+   "version_id": "main@2024-12-06-179c858c",
+   "unit": "p56",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "high",
+     "problem": "In the Flooring row the source pairs each flooring type with its own asbestos content and release note by position, but the grid joins each cell into one run of text, so \"Very hard, fibre release unlikely\" and \"About 2% asbestos\" no longer belong to magnesium oxychloride flooring only.",
+     "evidence": "source: \"Magnesium oxychloride flooring used in WCs\" beside \"About 2% asbestos.\" and \"Very hard, fibre release unlikely.\" / tree: \"‘Novilon’, ‘Serval asbestos’. Very hard, fibre release unlikely.\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "e0741df7d6455a69": {
+   "version_id": "main@2024-12-06-179c858c",
+   "unit": "p67",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

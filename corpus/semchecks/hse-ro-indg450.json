@@ -1,0 +1,90 @@
+{
+ "source_id": "hse-ro-indg450",
+ "about": "Model verdicts on source against tree for hse-ro-indg450 (system/rag/semcheck.py).",
+ "verdicts": {
+  "c8d2506de08f9e0c": {
+   "version_id": "main@2024-12-06-3b4cb54f",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "high",
+     "problem": "The second line of the first bullet under 'Aveți următoarele drepturi' is lost, so the right is cut off mid-sentence.",
+     "evidence": "source: \"toate riscurile legate de securitatea și sănătatea dumneavoastră sunt controlate în mod corespunzător;\" / tree: \"toate riscurile legate de securitatea și\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The side note under the cover picture is mixed into the body sentence.",
+     "evidence": "source: \"și unde puteți obține ajutor.\" / tree: \"și unde This is a Romanian version puteți obține ajutor. of leaflet INDG450, published 10/12 Aceste informații\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The headings 'Introducere' and 'Securitatea și sănătatea dumneavoastră' are read as body text, and everything sits under the heading path 'Text'.",
+     "evidence": "tree: \"Scurt îndrumar pentru lucrători Romanian Introducere Aceste informații provin\" ... \"www.hse.gov.uk/voluntary/index.htm. Securitatea și sănătatea dumneavoastră Aveți următoarele drepturi:\""
+    },
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The printed main title of the leaflet is not in the tree for this page.",
+     "evidence": "source: \"Securitatea dumneavoastră, sănătatea dumneavoastră\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "35ab3c42713b9e82": {
+   "version_id": "main@2024-12-06-3b4cb54f",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading 'Responsabilitățile angajatorilor' is read as body text at the end of a bullet, so the employer's duties sit under the plain heading path 'Text'.",
+     "evidence": "tree: \"să respectați instruirea care vi s-a dat. Responsabilitățile angajatorilor Ce trebuie să facă angajatorul dumneavoastră:\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The bold note for self-employed people and the lead-in lines are joined to the end of the bullets before them.",
+     "evidence": "tree: \"o examinare înainte de a începe. Notă: Dacă lucrați cu adevărat pe cont propriu (self-employed)\" ... \"facilități corespunzătoare de prim ajutor. Ce trebuie să faceți:\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "68ab5affed450e49": {
+   "version_id": "main@2024-12-06-3b4cb54f",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Two section headings on this page are read as body text and run into the paragraphs around them, so the page has no heading structure.",
+     "evidence": "source: headings \"Ce puteți face dacă aveți îngrijorări cu privire la securitatea și sănătatea dumneavoastră\" and \"Informații suplimentare\" / tree: \"...vizibil la locul dumneavoastră de muncă. Ce puteți face dacă aveți îngrijorări...\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The running footer with the page number is kept as a text section.",
+     "evidence": "tree: \"Published by the Health and Safety Executive 10/12 INDG450RO Pagina 3 din 3\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

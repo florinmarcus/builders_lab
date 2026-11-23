@@ -1,0 +1,70 @@
+{
+ "source_id": "hse-hsg47",
+ "about": "Model verdicts on source against tree for hse-hsg47 (system/rag/semcheck.py).",
+ "verdicts": {
+  "7591aaa8778586ef": {
+   "version_id": "main@2024-12-06-6d2515ba",
+   "unit": "p25",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Paragraphs 111 to 117 are merged into the last bullet of paragraph 110 as one text block, with their numbers left inline.",
+     "evidence": "tree: \"picks should not be used in soft clay or other soft soils near to underground services. 111 Safe methods of excavating may include\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The caption of Figure 7 is mixed into the middle of the sentence of paragraph 111, and the tree has no figure for it.",
+     "evidence": "source: \"vacuum excavation, which may incorporate use of water jetting\" / tree: \"vacuum excavation, Figure 7 Using an air digging tool which may incorporate use of water jetting\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "3c811b949b565897": {
+   "version_id": "main@2024-12-06-6d2515ba",
+   "unit": "p39",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "8ce56394e304cea2": {
+   "version_id": "main@2024-12-06-6d2515ba",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "222554718d5e18e8": {
+   "version_id": "main@2024-12-06-6d2515ba",
+   "unit": "p40",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page footer (imprint and page number) is kept as the last line of the Further information text.",
+     "evidence": "tree: \"Published by the Health and Safety Executive 02/14 HSG47 Page 40 of 40\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}

@@ -1,0 +1,96 @@
+{
+ "source_id": "rsh-code-of-practice",
+ "about": "Model verdicts on source against tree for rsh-code-of-practice (system/rag/semcheck.py).",
+ "verdicts": {
+  "7233a0dec5fd926a": {
+   "version_id": "consumer-standards-code-of-practice-pdf@2026-10-01-bc555748",
+   "unit": "p15",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The heading \"Local cooperation\" and its scope note, which introduce paragraph 69, are read as body text at the end of paragraph 68.",
+     "evidence": "source: heading \"Local cooperation\" + \"(Relevant to the Neighbourhood and Community Standard required outcome 1.2.1 and specific expectation 2.1.1)\" / tree: para 68 \"...safety issue for their tenants. Local cooperation (Relevant to...\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The heading \"Anti-social behaviour and hate incidents\" and its scope note, which introduce paragraphs 70 to 75, are read as body text at the end of paragraph 69.",
+     "evidence": "source: heading \"Anti-social behaviour and hate incidents\" + \"(Relevant to ... required outcome 1.3.1 and specific expectations 2.2.1, 2.2.2, 2.2.3 and 2.2.5)\" / tree: para 69 \"...among other considerations. Anti-social behaviour and hate incidents (Relevant to...\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "A running footer line that is not printed on the page image is kept as a body text section.",
+     "evidence": "tree: \"Consumer Standards Code of Practice 15\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "d5d811e2e2dd5792": {
+   "version_id": "consumer-standards-code-of-practice-pdf@2026-10-01-bc555748",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The heading \"Health and safety\" and its scope note, which introduce paragraphs 18 to 22, are read as body text at the end of paragraph 17.",
+     "evidence": "source: heading \"Health and safety\" + \"(Relevant to the Safety and Quality Standard required outcome 1.3.1 and specific expectations 2.2.1, 2.2.2 and 2.2.3)\" / tree: para 17 \"...implications to affected tenants. Health and safety (Relevant to...\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The heading \"Repairs, maintenance and planned improvements\" and its scope note, which introduce paragraph 23, are read as body text at the end of paragraph 22.",
+     "evidence": "source: heading \"Repairs, maintenance and planned improvements\" + \"(Relevant to ... required outcome 1.4.1 and specific expectations 2.3.3, 2.3.4 and 2.3.5)\" / tree: para 22 \"...when prioritising repairs. Repairs, maintenance and planned improvements (Relevant to...\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "A running footer line that is not printed on the page image is kept as a body text section.",
+     "evidence": "tree: \"Consumer Standards Code of Practice 5\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  },
+  "1bc74f252df53c2f": {
+   "version_id": "consumer-standards-code-of-practice-pdf@2026-10-01-bc555748",
+   "unit": "p7",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The standard heading \"Transparency, Influence and Accountability Standard\", the heading \"Fairness and respect\" and its scope note, which introduce paragraphs 29 and 30, are read as body text at the end of paragraph 28.",
+     "evidence": "source: headings \"Transparency, Influence and Accountability Standard\", \"Fairness and respect\" + \"(Relevant to ... required outcome 1.1.1)\" / tree: para 28 \"...adapted to meet their needs. Transparency, Influence and Accountability Standard Fairness and respect (Relevant to...\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The heading \"Diverse Needs\" and its scope note, which introduce paragraphs 31 to 33, are read as body text at the end of paragraph 30.",
+     "evidence": "source: heading \"Diverse Needs\" + \"(Relevant to ... required outcome 1.2.1 and specific expectations 2.1.1, 2.1.2, 2.1.3, 2.1.4)\" / tree: para 30 \"...meet individual tenants’ needs. Diverse Needs (Relevant to...\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "A running footer line that is not printed on the page image is kept as a body text section.",
+     "evidence": "tree: \"Consumer Standards Code of Practice 7\""
+    }
+   ],
+   "confidence": "high",
+   "by": "semantic check, Fable (Claude Code headless)",
+   "date": "2026-11-23"
+  }
+ }
+}
