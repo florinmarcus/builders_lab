@@ -1527,6 +1527,17 @@
    "by": "model check, Fable 5.2, Claude Code headless (packet)",
    "confidence": "high",
    "date": "2026-11-23"
+  },
+  {
+   "key": "21c528143132833d",
+   "kind": "figure_description",
+   "target": "figure-p154: Site assessment for reoccupation (Four-stage clearance procedure)",
+   "value": "Flow chart headed \"TRANSPORT AND PACKAGING: FIBROUS\" showing the steps for transporting fibrous asbestos waste: \"The waste is dangerous for transport, CDG applies\", then \"Asbestos cannot be transported in bulk, it must be packed in UN-approved packages displaying: Proper shipping name, Class number, Hazard placard (see Figure 7.21)\". It then asks \"Does the vehicle in which the waste is to be transported have a maximum weight in excess of 3.5 tonnes?\"; YES leads to \"Driver to be trained for Class 9 Dangerous Goods\", \"Vehicle to be fitted with a 2 kg dry powder extinguisher in cab and 6 kg elsewhere*\" and \"Emergency information (Tremcard) to be provided to the driver\", and NO leads to \"Does the weight of the asbestos exceed: Blue or brown - 333 kg? White - 1000 kg?\", where NO leads to \"Transport as per timetable on the Waste Consignment Note\". YES from that question, and the 3.5 tonne branch, lead to \"Are the packages of asbestos to be carried in a vehicle or in a bulk container on a vehicle?\", where \"Bulk container\" requires \"Vehicle to display orange panel at front and rear\" and \"Hazard placards to be displayed on all four sides of the bulk container\", \"Vehicle\" requires \"Vehicle to display orange panel at front and rear\", and both then lead to \"Transport as per timetable on the Waste Consignment Note\".",
+   "reason": "The image is a flow chart about transport and packaging of fibrous asbestos waste; the section title \"Site assessment for reoccupation (Four-stage clearance procedure)\" does not match what the figure shows.",
+   "evidence": "Header \"TRANSPORT AND PACKAGING: FIBROUS\", side label \"FIBROUS\", decision boxes with YES/NO, Bulk container/Vehicle branches, all read from figure-p154.png; the footer notes in the labels (\"Waste Consignment Note to be kept by the consignor for three years.\", \"* Vehicles <3.5 tonnes: 2 kg in cab and 2 kg elsewhere\") are not visible in the crop.",
+   "by": "model check, Opus 5.5, Claude Code headless (packet)",
+   "confidence": "high",
+   "date": "2026-11-23"
   }
  ]
 }

@@ -34,6 +34,37 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "a5896ef22ca100cd": {
+   "version_id": "main@2024-12-06-665c4e9c",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Sub-headings (CDM coordinators, Installing and removing from site, Toilets, Washing facilities and others) are run into body text, and the following paragraphs are attached to the last bullet of the list before them.",
+     "evidence": "tree: \"• whether they need to be relocated during the construction phase. Installing and removing from site You need to plan...\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The paragraph after the washing-facilities list is merged into the last bullet.",
+     "evidence": "tree: \"• sinks large enough to wash face, hands and forearms. Men and women can share sinks...\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The standard number has a stray space inside it.",
+     "evidence": "source: \"BS6465–1:2006\" / tree: \"BS6465– 1:2006\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
   "727a86f6d9335497": {
    "version_id": "main@2024-12-06-665c4e9c",
    "unit": "p3",
@@ -77,6 +108,25 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "76510894a7785ad2": {
+   "version_id": "main@2024-12-06-665c4e9c",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-headings Drinking water, Changing rooms and lockers, Rest facilities, Smoking and Heating are run into the body text instead of being kept as headings.",
+     "evidence": "tree: \"...compressed air. Drinking water A supply of wholesome drinking water...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
   "8f29b4f25643a29b": {
    "version_id": "main@2024-12-06-665c4e9c",
    "unit": "p4",
@@ -101,6 +151,37 @@
      "severity": "low",
      "problem": "The Further reading heading is run into the References body text.",
      "evidence": "tree: \"cannot be guaranteed. Further reading Health and safety in construction HSG150\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "b23ae6c288ac0c32": {
+   "version_id": "main@2024-12-06-665c4e9c",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Table 1 is given twice: once as table-1 and again as an unnumbered table with the same grid.",
+     "evidence": "tree: \"Table (Use of alternative facilities for transient construction sites)\" with the same rows 1a to 5"
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The running footer is kept as body text under Further information.",
+     "evidence": "tree: \"Printed and published by the Health and Safety Executive CIS59 01/11 4 of 4 pages\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The Further reading sub-heading is run into the References body text.",
+     "evidence": "tree: \"...cannot be guaranteed. Further reading Health and safety in construction HSG150\""
     }
    ],
    "confidence": "high",

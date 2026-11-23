@@ -3,6 +3,80 @@
  "model": "claude-opus-5-5",
  "about": "Verdicts of claude-opus-5-5 on source against tree for hse-hsg247 (system/rag/semcheck.py).",
  "verdicts": {
+  "48f93f08846d8fee": {
+   "version_id": "main@2026-07-21-56258caf",
+   "unit": "p168",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The Box 8.1 text block drops the Pre-use, Daily and Weekly checks group headings, so the weekly check runs on into the last daily bullet and reads as a daily check.",
+     "evidence": "source: \"testing of RCDs. Weekly checks Visual check of electrical equipment for damage\" / tree: \"testing of RCDs. Visual check of electrical equipment for damage, wear, overheating etc.\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Box 8.1 is given twice, once as running text and again as a table placed after paragraphs 8.43-8.47.",
+     "evidence": "tree: \"Box 8.1 Supervisors' checklist for asbestos hygiene units Visual check\" and table rows \"Pre-use checks\", \"Daily checks\", \"Weekly checks\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The Box 8.1 table comes after the Showering and laundering text, but the box is printed above it on the page.",
+     "evidence": "table \"Maintenance and cleaning of hygiene facilities\" listed after \"8.47 Laundry operators\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The subheading 'Laundering of coveralls and towels' is kept as a note, and the small headings Coveralls, Towels and Laundry operators are run into the body text.",
+     "evidence": "source: \"Laundering of coveralls and towels\" (heading) / tree: note \"Laundering of coveralls and towels\"; \"Coveralls 8.43 Coveralls used\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "e2f67fcf092e56d0": {
+   "version_id": "main@2026-07-21-56258caf",
+   "unit": "p168",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The Box 8.1 text block drops the Pre-use, Daily and Weekly checks group headings, so the weekly check runs on into the last daily bullet and reads as a daily check.",
+     "evidence": "source: \"testing of RCDs. Weekly checks Visual check of electrical equipment for damage\" / tree: \"testing of RCDs. Visual check of electrical equipment for damage, wear, overheating etc.\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Box 8.1 is given twice, once as running text and again as a table placed after paragraphs 8.43-8.47.",
+     "evidence": "tree: \"Box 8.1 Supervisors' checklist for asbestos hygiene units Visual check\" and table rows \"Pre-use checks\", \"Daily checks\", \"Weekly checks\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The Box 8.1 table comes after the Showering and laundering text, but the box is printed above it on the page.",
+     "evidence": "table \"Maintenance and cleaning of hygiene facilities\" listed after \"8.47 Laundry operators\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The subheading 'Laundering of coveralls and towels' is kept as a note, and the small headings Coveralls, Towels and Laundry operators are run into the body text.",
+     "evidence": "source: \"Laundering of coveralls and towels\" (heading) / tree: note \"Laundering of coveralls and towels\"; \"Coveralls 8.43 Coveralls used\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
   "455cb336a6d8cfc2": {
    "version_id": "main@2026-07-21-56258caf",
    "unit": "p18",

@@ -33,6 +33,173 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "7463abd0dba49513": {
+   "version_id": "awaabs-law-phase-2-final-stage-impact-assessment--awaab-s-law-phase-2-final-stage-impact-assessment@2026-07-13-5c1854f4",
+   "unit": "p13",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "97d82950d05c1a8f": {
+   "version_id": "awaabs-law-phase-2-final-stage-impact-assessment--awaab-s-law-phase-2-final-stage-impact-assessment@2026-07-13-5c1854f4",
+   "unit": "p13",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The top table (monetised, non-monetised and distributional impacts) is read as running text in Paragraph 9, with row labels cut short and the ratings split off into separate notes.",
+     "evidence": "tree: \"Non-monetised There are significant positive...\", \"Any significant There are likely...\"; notes \"Monetised impacts\", \"Negative\", \"impacts\", \"Positive\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Rating cells and row label fragments of the top table become stand-alone notes with no link to their rows.",
+     "evidence": "source: \"Negative Based on likely £NPSV\" beside \"Monetised impacts\" / tree: note-9 title \"Negative\" text \"Based on likely £NPSV\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The group heading '(3) Expected impacts on households' is run into body text.",
+     "evidence": "tree: \"income. (3) Expected impacts on households 13 Households will benefit\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "0cda2ce60d16eb6d": {
+   "version_id": "awaabs-law-phase-2-final-stage-impact-assessment--awaab-s-law-phase-2-final-stage-impact-assessment@2026-07-13-5c1854f4",
+   "unit": "p15",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The headings below the table are run into the body text of one giant 'Paragraph 9' that spans the whole document, so the costs text has no section of its own.",
+     "evidence": "source: \"Analysis\" / \"Monetised costs\" (headings) / tree: \"14 rating Analysis Awaab’s Law works alongside ... Monetised costs As an indication\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The table printed at the top of the page comes after the page's body text in the tree.",
+     "evidence": "source: table \"Business environment: ...\" then \"Analysis\" / tree: para-9 text first, then document-table-p15"
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "aaff8e82102d5d60": {
+   "version_id": "awaabs-law-phase-2-final-stage-impact-assessment--awaab-s-law-phase-2-final-stage-impact-assessment@2026-07-13-5c1854f4",
+   "unit": "p15",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The headings below the table are run into the body text of one giant 'Paragraph 9' that spans the whole document, so the costs text has no section of its own.",
+     "evidence": "source: \"Analysis\" / \"Monetised costs\" (headings) / tree: \"14 rating Analysis Awaab’s Law works alongside ... Monetised costs As an indication\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The table printed at the top of the page comes after the page's body text in the tree.",
+     "evidence": "source: table \"Business environment: ...\" then \"Analysis\" / tree: para-9 text first, then document-table-p15"
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "5bf41d12bbb5f38e": {
+   "version_id": "awaabs-law-phase-2-final-stage-impact-assessment--awaab-s-law-phase-2-final-stage-impact-assessment@2026-07-13-5c1854f4",
+   "unit": "p6",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Headings on the page are read as body text inside one giant 'Paragraph 9' that spans the whole document.",
+     "evidence": "source: \"Current position on quality and repairs in the social rented sector\" / \"Quality\" / \"Repairs\" / tree: \"Annex A. Current position on quality and repairs in the social rented sector Quality The English\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The two footnotes are made into a table with invented column names instead of being kept as footnotes linked to their markers.",
+     "evidence": "tree: columns \"Footnote number\", \"Footnote text\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Footnote markers are joined onto the words before them.",
+     "evidence": "source: \"ten years¹\" / tree: \"ten years1\"; source: \"hazard²\" / tree: \"hazard2\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The table text has broken ligature characters in footnote 2 (the grid is correct).",
+     "evidence": "source: \"headline findings on housing quality and energy efficiency\" / tree: \"headline �indings on housing quality and energy ef�iciency\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "f903e0d8e7342b42": {
+   "version_id": "awaabs-law-phase-2-final-stage-impact-assessment--awaab-s-law-phase-2-final-stage-impact-assessment@2026-07-13-5c1854f4",
+   "unit": "p6",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Headings on the page are read as body text inside one giant 'Paragraph 9' that spans the whole document.",
+     "evidence": "source: \"Current position on quality and repairs in the social rented sector\" / \"Quality\" / \"Repairs\" / tree: \"Annex A. Current position on quality and repairs in the social rented sector Quality The English\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The two footnotes are made into a table with invented column names instead of being kept as footnotes linked to their markers.",
+     "evidence": "tree: columns \"Footnote number\", \"Footnote text\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Footnote markers are joined onto the words before them.",
+     "evidence": "source: \"ten years¹\" / tree: \"ten years1\"; source: \"hazard²\" / tree: \"hazard2\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The table text has broken ligature characters in footnote 2 (the grid is correct).",
+     "evidence": "source: \"headline findings on housing quality and energy efficiency\" / tree: \"headline �indings on housing quality and energy ef�iciency\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
   }
  }
 }

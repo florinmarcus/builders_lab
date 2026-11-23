@@ -34,6 +34,25 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "55edabd271507690": {
+   "version_id": "main@2024-12-06-877cb096",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-headings under Control systems are run into the body text instead of being kept as headings.",
+     "evidence": "tree: \"Wet methods Wet dust suppression should not be used... Mains water system Where possible...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
   "c6b5e3e356cc0fa7": {
    "version_id": "main@2024-12-06-877cb096",
    "unit": "p2",
@@ -116,6 +135,31 @@
     }
    ],
    "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "0bd39247a81b9dff": {
+   "version_id": "main@2024-12-06-877cb096",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The eight numbered references are run together into one text block instead of separate items.",
+     "evidence": "tree: \"...rrhtm/index.htm 2 Control of substances hazardous to health (Fifth edition)...\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The printer's imprint line is kept as a References text section after Further information.",
+     "evidence": "tree: \"Printed on paper made using 50% recycled fibre from post-consumer sources.\" under \"References > Text\""
+    }
+   ],
+   "confidence": "medium",
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"

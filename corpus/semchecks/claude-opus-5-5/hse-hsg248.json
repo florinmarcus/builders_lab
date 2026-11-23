@@ -222,6 +222,25 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "e7a7c10457afb5a5": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p124",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The footnote printed under Table A2.5 is kept as a data row of the grid, not as a note.",
+     "evidence": "tree: grid row \"* Pleochroism may also be observed under crossed polars, see paragraph A2.42.\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
   "620be15566409312": {
    "version_id": "main@2024-12-06-9ed204da",
    "unit": "p127",
@@ -635,6 +654,186 @@
    "verdict": "ok",
    "findings": [],
    "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "ee0faaff8e52066f": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p196",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The continuation of Table A6.1 on this page is parsed as a separate untitled table 'Templates' instead of as rows of Table A6.1, whose grid stops at the page-195 rows.",
+     "evidence": "source: \"Table A6.1 continued\" / tree: \"Appendix 6 Templates > Table (Templates)\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "Name and Signature of the assessor are placed under the Yes and Comments columns.",
+     "evidence": "tree: [\"Details of assessor\", \"\", \"Name\", \"\", \"Signature\"]"
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "fe6ebef21d760027": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p196",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The continuation of Table A6.1 on this page is parsed as a separate untitled table 'Templates' instead of as rows of Table A6.1, whose grid stops at the page-195 rows.",
+     "evidence": "source: \"Table A6.1 continued\" / tree: \"Appendix 6 Templates > Table (Templates)\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "Name and Signature of the assessor are placed under the Yes and Comments columns.",
+     "evidence": "tree: [\"Details of assessor\", \"\", \"Name\", \"\", \"Signature\"]"
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "01f286a87843dae3": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p198",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "In the first table, the column headings Yes/No/Comments are applied to the whole form, so Name, Signature, Passed, Failed, Date and Time sit under the wrong headings.",
+     "evidence": "tree: [\"Details of assessor\", \"Name\", \"\", \"Signature\"] under columns \"Item, Yes, No, Comments\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The rows of Table A6.1 on this page are given twice, as two separate tables.",
+     "evidence": "tree: tables \"appendix-6-table-p198\" and \"appendix-6-table-9\" both hold \"Stage 4 of 4: Assessment of site for reoccupation\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "In the second table, the blank answer cells of requirements 4.1-4.3 are filled with the column labels, as if they were entries.",
+     "evidence": "source: empty Yes/No/Comments cells / tree: \"4.1 Former enclosure/work area ...\", \"Yes; No; Comments\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The table has no number; the caption 'Table A6.1 continued' is kept only as a separate note.",
+     "evidence": "source: \"Table A6.1 continued\" / tree: title \"Templates\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "c0d2d62320cafcd7": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p198",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "In the first table, the column headings Yes/No/Comments are applied to the whole form, so Name, Signature, Passed, Failed, Date and Time sit under the wrong headings.",
+     "evidence": "tree: [\"Details of assessor\", \"Name\", \"\", \"Signature\"] under columns \"Item, Yes, No, Comments\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The rows of Table A6.1 on this page are given twice, as two separate tables.",
+     "evidence": "tree: tables \"appendix-6-table-p198\" and \"appendix-6-table-9\" both hold \"Stage 4 of 4: Assessment of site for reoccupation\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "In the second table, the blank answer cells of requirements 4.1-4.3 are filled with the column labels, as if they were entries.",
+     "evidence": "source: empty Yes/No/Comments cells / tree: \"4.1 Former enclosure/work area ...\", \"Yes; No; Comments\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The table has no number; the caption 'Table A6.1 continued' is kept only as a separate note.",
+     "evidence": "source: \"Table A6.1 continued\" / tree: title \"Templates\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "815b14a144682afd": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p200",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The rows of Table A6.2 printed on this page are given twice: in the whole table A6.2 and again in a separate unnumbered table.",
+     "evidence": "tree: \"Stage 2: Clearance air sampling inside the DCU\" in both \"table-a6-2\" and \"appendix-6-table-p200\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "In table A6.2, the form's column labels are put in different columns from row to row, so Yes/No/Comments and the fibre-count set labels do not line up with the cells they head.",
+     "evidence": "tree: [\"Sampling information\", \"\", \"Yes, No, Comments\"] but [\"Total time of disturbance\", \"Minutes\", \"\"]"
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "In the second table, the blank answer cells of 'All areas are dry' and 'Disturbance method used' are filled with the column labels, as if they were entries.",
+     "evidence": "source: empty Yes/No/Comments cells / tree: \"All areas are dry\", \"Yes; No; Comments\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "ec091401df8b5867": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p200",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The page-200 rows of Table A6.2 are given twice: once inside table A6.2 and again as a separate untitled table 'Templates' with no table number.",
+     "evidence": "tree: \"appendix-6-table-p200\" title \"Templates\" repeats \"Stage 1 photos to be inserted/attached to document with date, time and caption\" ... already in table-a6-2"
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "In the separate table the column headings Yes/No/Comments are copied as values into the empty rows below them.",
+     "evidence": "source: \"All areas are dry\" (empty cells) / tree: [\"All areas are dry\", \"Yes; No; Comments\"]"
+    }
+   ],
+   "confidence": "medium",
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"

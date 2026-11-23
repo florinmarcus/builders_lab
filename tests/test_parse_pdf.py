@@ -1637,3 +1637,48 @@ def test_a_table_longer_than_four_pages_is_cut_into_parts_that_keep_its_title_an
             "value": {"columns": ["Module", "Core competences"], "rows": [["Module 1", "Know the risk"]], "sentences": ["x."]}}
     t2 = build_tree({"lines": lines, "rects": [], "images": [], "page_count": 7, "tables": tables}, META, fixes=[fix, fix1])
     assert sec(t2, part["id"])["columns"] == ["Module", "Core competences"]
+
+
+def _wl(page, top, x0, text, size=12.0, font="Arial"):
+    """A line with real word boxes (6pt per character), as read_pdf gives it."""
+    words, x = [], float(x0)
+    for w in text.split():
+        words.append({"x0": x, "x1": x + 6 * len(w), "text": w})
+        x += 6 * len(w) + 4
+    return {"page": page, "top": float(top), "x0": float(x0), "size": size, "font": font, "text": text, "words": words}
+
+
+def test_two_columns_of_separate_lines_are_read_column_by_column():
+    """S128 fix 3 (Procurement Act short guides, Home Office guides): two text columns whose lines sit at slightly
+    different heights are never joined into one line, so no gap inside a line showed the gutter and reading by height
+    mixed the columns line by line. Now the gutter is found from where the lines start and end."""
+    from system.rag.parse_pdf import split_columns
+    left = [_wl(1, 100 + 17 * k, 42, f"left column line {k} of the text") for k in range(8)]
+    right = [_wl(1, 104 + 17 * k, 314, f"right column line {k} of it") for k in range(8)]
+    out = split_columns(left + right, 12.0, 595.0, [], 842.0)
+    order = [l["text"] for l in sorted(out, key=lambda l: (l.get("band", 0), l.get("col", 0), l["top"], l["x0"]))]
+    assert order == [l["text"] for l in left] + [l["text"] for l in right]
+    one = [_wl(1, 100 + 17 * k, 42, "a full width line of running text that crosses the middle of the page") for k in range(8)]
+    assert all("col" not in l for l in split_columns(one, 12.0, 595.0, [], 842.0))  # one column: untouched
+
+
+def test_a_gutter_starts_where_its_column_starts_and_cuts_a_small_gap():
+    """S128 fix 3: a gutter found at the bullet text (x=334) moves left to where the column starts ("It will:" at
+    314) when no left line reaches that strip; at a gutter found on the page a 6pt gap is enough to cut a line that
+    the PDF joined across the columns (CIS54 "www.hse.gov. guidance")."""
+    from system.rag.parse_pdf import _gutter_start, split_columns
+    ls = [_wl(1, 100 + 17 * k, 42, "left text that ends early") for k in range(6)] + [_wl(1, 90, 314, "It will:")]
+    assert _gutter_start(ls, 334.0, 12.0) == 314.0
+    long = _wl(1, 300, 42, "a left line that runs into the strip")
+    long["words"][-1]["x1"] = 325.0  # ends between 314 and 334: the strip belongs to the left column
+    assert _gutter_start(ls + [long], 334.0, 12.0) == 334.0
+    rows = []
+    for k in range(6):  # joined lines: left part ends at 290, right part at 303 (gap 13pt): the gutter
+        a = _wl(1, 100 + 14 * k, 55, "left words of the line")
+        b = _wl(1, 100 + 14 * k, 303, "right words of the line")
+        rows.append({**a, "text": a["text"] + " " + b["text"], "words": a["words"] + b["words"]})
+    a = _wl(1, 200, 55, "and sinonasal cancer RR595 HSE www.hse.gov.")
+    a["words"][-1]["x1"] = 297.0  # ends 6pt before the right column
+    b = _wl(1, 200, 303, "guidance for CDM duty")
+    out = split_columns(rows + [{**a, "text": a["text"] + " " + b["text"], "words": a["words"] + b["words"]}], 10.0, 595.0, [], 842.0)
+    assert any(l["text"] == "guidance for CDM duty" for l in out)

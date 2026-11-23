@@ -257,6 +257,8 @@ lenient; its rates are not comparable with Fable's.
 | Fix (judge) | Units changed | High before / after | Fixed | Broken | McNemar p | Noise would give (fixed / broken) |
 |---|---|---|---|---|---|---|
 | 2. HSE headings, table rows stop at body text (Opus 5.5) | 252 | 54 / 33 | 25 | 4 | 0.0001 | 0 / 3 |
+| S132. Parts of long tables keep title and headings (Opus 5.5) | 8 | 1 / 1 | 0 | 0 | 1 | 0 / 0.1 |
+| 3. Two columns (reader) (Opus 5.5) | 80 | 30 / 17 | 13 | 0 | 0.00024 | 0 / 0.8 |
 
 Fix 2: 30 trees changed against the fix-1 trees, 395 byte-identical; model checks (Fable, then Opus for the last
 tables) 0 open; crops 0 bad (one crop of a go-live slide kept with a named defect: the same cut was there before);
@@ -265,6 +267,11 @@ missed, so text sat under the wrong sub-heading; a heading at the top of a whole
 and were fixed before the final run. The 4 final breaks: three faults that were in the tree before (HSG248 A5.41
 bullet, L108 Box 4 order, a learning manual footnote section), and Scenario 7/8 in the learning manual, headings in
 the right column of a two-column page (fix 3).
+
+Fix 3 (reader): two columns of separate lines found from where lines start and end; a gutter moves left to where
+its column starts; a 4pt gap cuts a joined line at a gutter. A fourth change (a page set smaller than body text) was
+dropped: its target was out of scope and it moved 34 Home Office guide pages. 24 trees changed, 405 byte-identical;
+model checks 0 open, crops 0 bad, coverage 0 open. No unit broke.
 
 ### English only (S130, Florin, 23 Nov 2026)
 

@@ -275,8 +275,12 @@ def split_columns(lines: list[dict], body_size: float, page_width: float,
             if crossing * 2 <= len(hits):
                 gutters.append(x)
         if not gutters:
-            out.extend(ls)
-            continue
+            g = _stacked_gutter(ls, body_size, page_width, boxes)
+            if g is None:
+                out.extend(ls)
+                continue
+            gutters = [g]
+        gutters = [_gutter_start(ls, g, body_size) for g in gutters]
         cut: list[dict] = []
         for l in ls:
             ws = l.get("words") or []
@@ -286,8 +290,9 @@ def split_columns(lines: list[dict], body_size: float, page_width: float,
             for k in range(1, len(ws)):
                 a, b = ws[k - 1], ws[k]
                 bs, as_ = _size_at(ws, k, l), a.get("s", l["size"])
+                # At a gutter found on this page a smaller gap is enough (CIS54: "www.hse.gov. guidance" 6pt apart)
                 if any(a.get("x1", a["x0"]) < g - 2 and b["x0"] >= g - 1 for g in gutters) \
-                        and b["x0"] - a.get("x1", a["x0"]) >= max(8.0, 1.2 * bs) and bs >= body_size - 1.5 \
+                        and b["x0"] - a.get("x1", a["x0"]) >= max(4.0, 0.5 * bs) and bs >= body_size - 1.5 \
                         and as_ >= body_size - 1.5:
                     parts.append(ws[start:k])
                     start = k
@@ -315,6 +320,48 @@ def split_columns(lines: list[dict], body_size: float, page_width: float,
                 l["aside"] = True
             out.append(l)
     return out
+
+
+def _gutter_start(ls: list[dict], g: float, body_size: float) -> float:
+    """Move a gutter left to where its column starts: lines that begin up to 25pt left of it ("It will:" over bullet
+    text whose bullets were dropped) belong to the right column when no line from the left reaches that strip."""
+    def x1(l):
+        ws = l.get("words") or []
+        return max((w.get("x1", w["x0"] + 5 * len(w["text"])) for w in ws), default=l["x0"])
+
+    starts = sorted(l["x0"] for l in ls if g - 25 <= l["x0"] < g - 1 and l["size"] >= body_size - 1.5)
+    if not starts:
+        return g
+    x = starts[0]
+    if any(l["x0"] < x - 1 and x - 4 < x1(l) < g + 2 for l in ls if l["size"] >= body_size - 1.5):
+        return g
+    return float(x)
+
+
+def _stacked_gutter(ls: list[dict], body_size: float, page_width: float, boxes: list[dict]) -> float | None:
+    """Two text columns whose lines sit at slightly different heights are never joined into one line, so no gap
+    inside a line shows the gutter, and reading by height mixes the columns line by line (Procurement Act short
+    guides, S128). The gutter: an x right of a third of the page where five or more body lines start, five or more
+    end left of it, the two sets run side by side over the same heights, and at most one body line there crosses it."""
+    def x1(l):
+        ws = l.get("words") or []
+        return max((w.get("x1", w["x0"] + 5 * len(w["text"])) for w in ws), default=l["x0"])
+
+    body = [l for l in ls if l["size"] >= body_size - 1.5 and (l.get("words") or [])
+            and not any(t["top"] - 2 <= l["top"] <= t["bottom"] and t["x0"] - 2 <= l["x0"] <= t["x1"] for t in boxes)]
+    for g in sorted({round(l["x0"]) for l in body if 0.33 * page_width < l["x0"] < 0.75 * page_width}):
+        right = [l for l in body if l["x0"] >= g - 1]
+        left = [l for l in body if l["x0"] < g - 1 and x1(l) <= g - 6]
+        if len(right) < 5 or len(left) < 5:
+            continue
+        lo = max(min(l["top"] for l in left), min(l["top"] for l in right))
+        hi = min(max(l["top"] for l in left), max(l["top"] for l in right))
+        if sum(lo <= l["top"] <= hi for l in left) < 4 or sum(lo <= l["top"] <= hi for l in right) < 4:
+            continue
+        if sum(1 for l in body if l["x0"] < g - 1 and x1(l) > g - 6 and lo <= l["top"] <= hi) > 1:
+            continue
+        return float(g)
+    return None
 
 
 def _size_weights(lines: list[dict]) -> Counter:

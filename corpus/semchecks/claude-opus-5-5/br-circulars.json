@@ -59,6 +59,80 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "85be53dc40c677bd": {
+   "version_id": "new-approved-documents-circular-odpm-04-2004--circular-4-2004-new-approved-documents-on-parts-a-c-and-e@2012-11-14-1afc5f49",
+   "unit": "p16",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "The Annex B.3 flowchart is read as one run of text with boxes from different branches mixed, so the decision logic cannot be followed.",
+     "evidence": "tree: \"Before 1 December Before 1 December 2004, 2004, has building No No has a plans certificate work started? been given?\""
+    },
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "The two outcome boxes and the footnote are interleaved, mixing two different results.",
+     "evidence": "tree: \"applicable at the Building work is subject to the time the initial notice was given*. provisions and Approved Documents applicable at the time the initial notice after 1 December 2004\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The footnote is split: its start is a footnote of B.3, its end is in B.3 body text and again as a separate section under Annex B.1.",
+     "evidence": "source: \"* But individual new buildings started on or after 1 December 2004 are subject to the revised Parts A and C\" / tree: footnote \"* But individual new buildings started on or\"; annex-b-1-text-2 \"after 1 December 2004 are subject to the revised\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "A flowchart is kept as running text instead of a figure.",
+     "evidence": "tree: annex-b-3-text-1 \"Approved Inspector Building Control Route Building work is subject to the Before 1 December 2004, has No\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "a42e0ef09139bed7": {
+   "version_id": "new-approved-documents-circular-odpm-04-2004--circular-4-2004-new-approved-documents-on-parts-a-c-and-e@2012-11-14-1afc5f49",
+   "unit": "p16",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "The Annex B.3 flowchart is read as one run of text with boxes from different branches mixed, so the decision logic cannot be followed.",
+     "evidence": "tree: \"Before 1 December Before 1 December 2004, 2004, has building No No has a plans certificate work started? been given?\""
+    },
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "The two outcome boxes and the footnote are interleaved, mixing two different results.",
+     "evidence": "tree: \"applicable at the Building work is subject to the time the initial notice was given*. provisions and Approved Documents applicable at the time the initial notice after 1 December 2004\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The footnote is split: its start is a footnote of B.3, its end is in B.3 body text and again as a separate section under Annex B.1.",
+     "evidence": "source: \"* But individual new buildings started on or after 1 December 2004 are subject to the revised Parts A and C\" / tree: footnote \"* But individual new buildings started on or\"; annex-b-1-text-2 \"after 1 December 2004 are subject to the revised\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "A flowchart is kept as running text instead of a figure.",
+     "evidence": "tree: annex-b-3-text-1 \"Approved Inspector Building Control Route Building work is subject to the Before 1 December 2004, has No\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
   "52863b30f4927fc3": {
    "version_id": "new-approved-documents-circular-odpm-04-2004--circular-4-2004-new-approved-documents-on-parts-a-c-and-e@2012-11-14-1afc5f49",
    "unit": "p3",
@@ -264,6 +338,80 @@
      "severity": "low",
      "problem": "The heading and intro for the SI 2004/1466 table, from the next page, are joined in front of the SI 2004/1465 table, so they come before the table they follow.",
      "evidence": "tree: \"... SI 2003/2692) THE BUILDING (APPROVED INSPECTORS ETC.) REGULATIONS 2004 (SI 2004/1466) The following table lists the change made by SI 2004/1466...\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "3b3fc91b8e9a8236": {
+   "version_id": "sound-insulation-testing-circular-odpm-03-2002--circular-03-2002-amendment-of-approved-document-giving-guida@2012-11-14-272b0adb",
+   "unit": "p18",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "The Annex E.3 flowchart is read as one run of text with boxes from different branches mixed together, so the decision logic cannot be followed.",
+     "evidence": "tree: \"Building work is subject to the Before 1/7/03, has an initial No revised Part E and the new notice been given? Approved Document E.\""
+    },
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "The two final outcome boxes and the footnote are interleaved word by word.",
+     "evidence": "tree: \"Building work is subject to the Part E provisions applicable at the time the Building work is subject to the initial notice was given*. Part E provisions applicable at the time the initial notice was * But individual new buildings\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "A flowchart is kept as a note of running text instead of a figure.",
+     "evidence": "tree: note-31 \"Annex E.3 THE BUILDING (AMENDMENT) (No. 2) REGULATIONS 2002 ... Approved Inspector Building Control Route\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is kept as a note.",
+     "evidence": "tree: note-32 \"18\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "c5449033b4c175cf": {
+   "version_id": "sound-insulation-testing-circular-odpm-03-2002--circular-03-2002-amendment-of-approved-document-giving-guida@2012-11-14-272b0adb",
+   "unit": "p18",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Parts of the Annex E.3 flowchart text are repeated in two further notes after the full note.",
+     "evidence": "tree: note-35 \"Before 1/7/03, has an initial notice been given? Yes Before 1/7/03, has a plans certificate been given?\"; note-36 repeats \"Before, on or after 1/7/03, has the plans certificate been accepted?\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The word AND inside a flowchart box is made a heading, so the second condition sits under a heading \"AND\".",
+     "evidence": "tree: heading_path \"... > AND\" title \"AND\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "In note-34 a No label from the flowchart is mixed into an outcome box text.",
+     "evidence": "tree: \"Building work is subject to the No revised Part E and the new Approved Document E.\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is kept at the end of a note.",
+     "evidence": "tree: \"has been given. 18\""
     }
    ],
    "confidence": "medium",

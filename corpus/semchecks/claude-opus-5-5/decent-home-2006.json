@@ -220,6 +220,37 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "8d49491ebf8ee141": {
+   "version_id": "a-decent-home-definition-and-guidance-for-implementation-jun@2006-06-07-fd1d0009",
+   "unit": "p28",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Paragraph 7.5 is merged into a paragraph numbered 1 that holds text from the earlier page, and its number 7.5 is kept only as a separate note.",
+     "evidence": "source: \"7.5 Local monitoring requires\" / tree: para-1 \"...Corporation will monitor progress... Local monitoring requires\"; note-16 \"7.5\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Paragraphs 7.6 to 7.10 are merged into one text block and their numbers are put together in a separate note.",
+     "evidence": "tree: note-17 \"7.6 7.7 7.8 7.9 7.10\"; text-1 \"The following paragraphs explain ... or a late start.\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Footnote 16 is kept as body text with the page number, not attached to the reference in 7.6.",
+     "evidence": "tree: \"16 Decent Homes: Capturing the standard at the local level ... www.communities.gov.uk/decenthomes 27\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
   "ee84bba9e6ff3e6d": {
    "version_id": "a-decent-home-definition-and-guidance-for-implementation-jun@2006-06-07-fd1d0009",
    "unit": "p28",

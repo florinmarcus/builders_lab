@@ -157,6 +157,19 @@ flowchart TD
     d -->|no| text["stays text: paragraphs in a frame, a form, a flow chart's boxes<br/>(coverage: accepted with a reason)"]
 ```
 
+Two columns (S128 fix 3, 23 Nov 2026), in the reader (`split_columns`):
+
+```mermaid
+flowchart TD
+    pg["page"] --> gap{"a wide gap inside 3+ lines at one x?"}
+    gap -->|yes| g["gutter"]
+    gap -->|no| st{"5+ body lines start right of a third of the page,<br/>5+ end left of that x, side by side over the same heights,<br/>at most one line crossing? (lines at slightly<br/>different heights are never joined)"}
+    st -->|yes| g
+    st -->|no| one["one column"]
+    g --> mv["move the gutter left to lines starting up to 25pt before it<br/>('It will:' over bullet text) when no left line ends in that strip"]
+    mv --> cut["cut joined lines at the gutter (a 4pt gap is enough there)"]
+```
+
 HSE headings and text after tables (S128 fix 2, 23 Nov 2026):
 
 ```mermaid

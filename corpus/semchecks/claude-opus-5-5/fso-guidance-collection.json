@@ -1,0 +1,81 @@
+{
+ "source_id": "fso-guidance-collection",
+ "model": "claude-opus-5-5",
+ "about": "Verdicts of claude-opus-5-5 on source against tree for fso-guidance-collection (system/rag/semcheck.py).",
+ "verdicts": {
+  "24fd5bc6e8fd347d": {
+   "version_id": "fire-safety-risk-assessment-5-step-checklist--fire-safety-risk-assessment-5-step-checklist@2025-01-20-2ae5e597",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The page heading and introduction paragraph are kept only as figure labels instead of a heading and body text.",
+     "evidence": "tree labels: \"Fire safety risk assessment\", \"Follow the 5 key steps below and fill in the checklist.\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "Figure labels from different boxes are interleaved, splitting sentences.",
+     "evidence": "tree labels: \"needs regular\", \"review and Fire\", \"How many\", \"updating if hazards\"; \"How many floors and staircases are\", \"and keep a record of this. Do you have\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "586fbdb53e99587a": {
+   "version_id": "fire-safety-risk-assessment-5-step-checklist--fire-safety-risk-assessment-5-step-checklist@2025-01-20-2ae5e597",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The page heading and the intro paragraph are kept only as figure labels, not as a heading and body text.",
+     "evidence": "source: \"Fire safety risk assessment Follow the 5 key steps below and fill in the checklist.\" / tree: figure labels only"
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "Figure labels from different text boxes are interleaved, so box texts are mixed together.",
+     "evidence": "tree: \"review and Fire\", \"updating if hazards\", \"changes. 5\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "3f834131c4dd69f8": {
+   "version_id": "fire-safety-risk-assessment-open-air-events-and-ve--fire-safety-risk-assessment-open-air-events-and-venues@2023-09-12-08e6885e",
+   "unit": "p13",
+   "kind": "semcheck-pdf",
+   "family": "fire-risk-guide-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "635d6e69c670e39e": {
+   "version_id": "fire-safety-risk-assessment-open-air-events-and-ve--fire-safety-risk-assessment-open-air-events-and-venues@2023-09-12-08e6885e",
+   "unit": "p13",
+   "kind": "semcheck-pdf",
+   "family": "fire-risk-guide-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  }
+ }
+}
