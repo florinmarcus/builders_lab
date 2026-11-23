@@ -303,3 +303,18 @@ def test_real_adb_historical_keeps_only_the_editions_in_force_from_2025():
     assert len(kept) == 4
     assert all("2019 edition incorporating 2020 and 2022 amendments" in t for t in kept)
     assert sum("collated with 2025, 2026 and 2029" in t for t in kept) == 2
+
+
+def test_accept_refetch_writes_dated_legislation_file_and_lists_it(store):
+    """S126: with accept_refetch, a missing dated legislation file is written from a fresh download whose bytes differ,
+    listed with both SHA-256 values; the record is not changed. Without the option it stays a mismatch."""
+    rec = store.add(SRC, leg("2015-01-01", b"b"))
+    raw = _drop_raw(store, rec)
+    store.accept_refetch = True
+    assert store.add(SRC, leg("2015-01-01", b"b-new-metadata")) is None
+    assert raw.read_bytes() == b"b-new-metadata"
+    assert store.mismatched == [] and len(store.refetched) == 1
+    e = store.refetched[0]
+    assert e["record_sha256"] == rec["sha256"] and e["file_sha256"] != rec["sha256"]
+    assert e["text_check"].startswith(("same text", "not verifiable"))
+    assert store.records("demo")[0]["sha256"] == rec["sha256"]  # record untouched

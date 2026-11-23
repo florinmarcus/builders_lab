@@ -12,6 +12,7 @@ writes corpus/harvest-report.md. Never overwrites a stored version.
 from __future__ import annotations
 
 import argparse
+import json
 import re
 import sys
 import time
@@ -348,14 +349,15 @@ def fetch_url(http: Http, store: Store, source: dict) -> list[Fetched]:
 # ---------------------------------------------------------------- run
 
 
-def run(only: list[str] | None = None, priority: int | None = None, report: bool = True) -> int:
+def run(only: list[str] | None = None, priority: int | None = None, report: bool = True,
+        accept_refetch: bool = False) -> int:
     doc = load_sources()
     errors = validate_sources(doc)
     if errors:
         print("sources.yaml has problems:\n  " + "\n  ".join(errors))
         return 2
     history_from = str((doc.get("defaults") or {}).get("history_from", "2010-10-01"))
-    store, http = Store(), Http()
+    store, http = Store(accept_refetch=accept_refetch), Http()
     rows = []
     for s in doc["sources"]:
         if only and s["id"] not in only:
@@ -391,6 +393,13 @@ def run(only: list[str] | None = None, priority: int | None = None, report: bool
                 traceback.print_exc()
             rows.append((s, "failed", len(new), msg))
             print(f"FAILED  {s['id']}: {msg}", flush=True)
+    if store.refetched:
+        man = CORPUS_DIR / "refetched.json"
+        old = json.loads(man.read_text(encoding="utf-8")) if man.exists() else []
+        seen = {e["raw_path"] for e in store.refetched}
+        man.write_text(json.dumps([e for e in old if e["raw_path"] not in seen] + store.refetched, indent=2) + "\n",
+                       encoding="utf-8")
+        print(f"raw files written from a fresh download (see text_check): {len(store.refetched)} -> {man}", flush=True)
     if store.restored or store.mismatched:
         print(f"raw files restored: {len(store.restored)}, mismatched (not saved): {len(store.mismatched)}", flush=True)
         for m in store.mismatched:
@@ -446,8 +455,11 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--only", nargs="*", help="source ids to fetch")
     ap.add_argument("--priority", type=int, help="fetch sources with this priority or higher (1 is highest)")
     ap.add_argument("--no-report", action="store_true")
+    ap.add_argument("--accept-refetch", action="store_true",
+                    help="write a missing raw file from a fresh download whose bytes differ but whose text (content "
+                         "hash) equals the record's; listed in corpus/refetched.json")
     a = ap.parse_args(argv)
-    return run(a.only, a.priority, report=not a.no_report)
+    return run(a.only, a.priority, report=not a.no_report, accept_refetch=a.accept_refetch)
 
 
 if __name__ == "__main__":

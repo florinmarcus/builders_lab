@@ -276,8 +276,13 @@ def chain_order(r: dict) -> tuple:
 
 
 class Store:
-    def __init__(self, corpus_dir: Path | None = None):
+    def __init__(self, corpus_dir: Path | None = None, accept_refetch: bool = False):
         self.corpus_dir = corpus_dir or CORPUS_DIR
+        # Florin, 23 Nov 2026 (S126): a missing raw file may be written back from a fresh download whose bytes differ,
+        # but only when its content hash (the text, without the publisher's metadata) equals the record's. Every such
+        # file is listed in corpus/refetched.json with both SHA-256 values. Records are never changed.
+        self.accept_refetch = accept_refetch
+        self.refetched: list[dict] = []
         self.versions_dir = self.corpus_dir / "versions"
         self.raw_dir = self.corpus_dir / "raw"
         # raw_path in records is relative to the repo root, e.g. corpus/raw/...
@@ -334,7 +339,21 @@ class Store:
                 or (not f.dedupe_on_date and chash == r.get("content_hash"))]
         missing = [r for r in like if not self._raw_exists(r)]
         for r in missing:
-            self.mismatched.append(r["raw_path"])
+            same_text = chash == r.get("content_hash")
+            # Old records hold the file's SHA-256 as content hash, so their text cannot be compared. A dated
+            # legislation version fetched again from its own dated address is accepted, and flagged.
+            no_text_hash = r.get("content_hash") == r["sha256"] and f.dedupe_on_date and bool(f.edition_date)
+            if self.accept_refetch and (same_text or no_text_hash):
+                raw = self.rel_base / r["raw_path"]
+                raw.parent.mkdir(parents=True, exist_ok=True)
+                raw.write_bytes(f.content)
+                self.refetched.append({"raw_path": r["raw_path"], "version_id": r["version_id"],
+                                       "record_sha256": r["sha256"], "file_sha256": digest,
+                                       "content_hash": chash, "fetched": date.today().isoformat(),
+                                       "text_check": "same text" if same_text else
+                                       "not verifiable: the record has no text hash; same dated version"})
+            else:
+                self.mismatched.append(r["raw_path"])
         return bool(missing)
 
     def _write(self, rec: dict) -> None:
