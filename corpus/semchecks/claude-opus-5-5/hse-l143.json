@@ -1,0 +1,75 @@
+{
+ "source_id": "hse-l143",
+ "model": "claude-opus-5-5",
+ "about": "Verdicts of claude-opus-5-5 on source against tree for hse-l143 (system/rag/semcheck.py).",
+ "verdicts": {
+  "0c3b46e354931055": {
+   "version_id": "main@2024-12-06-96fe14d2",
+   "unit": "p54",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "42573bb272a5d854": {
+   "version_id": "main@2024-12-06-96fe14d2",
+   "unit": "p54",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "3cb9b63501e330f8": {
+   "version_id": "main@2024-12-06-96fe14d2",
+   "unit": "p67",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The Regulation 12 summary box and the regulation text itself are merged into one text block, and that block is marked as guidance although the page labels the text 'Regulation 12'.",
+     "evidence": "source: \"Regulation 12 (1) Every employer who provides any control measure\" / tree: \"Summary This regulation requires ... (1) Every employer\" status \"guidance\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "4e272ef4946e5fac": {
+   "version_id": "main@2024-12-06-96fe14d2",
+   "unit": "p67",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The text of Regulation 12, printed in its own Regulation box, is merged into the Summary text block and marked as guidance instead of regulation.",
+     "evidence": "source: \"Regulation 12 (1) Every employer who provides any control measure\" / tree: Summary > Text, status \"guidance\", \"...use of those measures. (1) Every employer...\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "ACOP paragraph 310 is placed under the Summary heading, though it follows the regulation, not the summary box.",
+     "evidence": "tree: \"Regulation 12 Use of control measures etc > Summary > Paragraph 310\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  }
+ }
+}

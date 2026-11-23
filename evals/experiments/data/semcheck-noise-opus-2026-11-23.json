@@ -1,0 +1,3315 @@
+{
+ "about": "Opus judge noise (S128, 23 Nov 2026): the 150 designed noise units of the Fable round, judged twice by Opus 5.5 in",
+ "model": "claude-opus-5-5",
+ "units": [
+  {
+   "source_id": "ada",
+   "version_id": "approved-document-a-structure@2013-09-01-96a5a374",
+   "unit": "p15",
+   "family": "approved-document-pdf",
+   "key": "6113394029cff8f7",
+   "unchanged": true,
+   "fable_saved": "low",
+   "fable_again": "low",
+   "opus_1": "ok",
+   "opus_2": "low",
+   "opus_1_findings": [],
+   "opus_2_findings": [
+    {
+     "kind": "structure",
+     "problem": "The unindented paragraph after item e of 2C3 is joined into item e instead of standing as its own paragraph after the list.",
+     "evidence": "source: \"BS EN 1996-1-1:2005 with its UK National Annex gives design strengths\" (unindented, after list) / tree: inside \"e. the guidance given is based upon...\"",
+     "severity": "low"
+    }
+   ]
+  },
+  {
+   "source_id": "ada",
+   "version_id": "frequently-asked-questions@2013-09-01-224c5c74",
+   "unit": "p6",
+   "family": "approved-document-pdf",
+   "key": "aecfa45a4d2326bc",
+   "unchanged": true,
+   "fable_saved": "high",
+   "fable_again": "high",
+   "opus_1": "high",
+   "opus_2": "high",
+   "opus_1_findings": [
+    {
+     "kind": "missing",
+     "problem": "The start of point 2 is lost; the tree jumps from point 1 to a stray page number and 'Building Regulations.'",
+     "evidence": "source: \"2. Local Authority Building Control are content with respect to all the relevant parts of the Building Regulations.\" / tree: \"5 Building Regulations.\"",
+     "severity": "high"
+    },
+    {
+     "kind": "extra",
+     "problem": "Page numbers 5 and 6 are run into the text.",
+     "evidence": "tree: \"has been granted 5 Building Regulations\" ... \"Building Regulations. 6\"",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": [
+    {
+     "kind": "missing",
+     "problem": "The start of point 2 is lost, so the second condition (Building Control being content) is gone and the text runs from point 1 straight into its end.",
+     "evidence": "source: \"2. Local Authority Building Control are content with respect to all the relevant parts of the Building Regulations.\" / tree: \"has been granted 5 Building Regulations.\"",
+     "severity": "high"
+    },
+    {
+     "kind": "extra",
+     "problem": "Page numbers 5 and 6 are kept inside the text.",
+     "evidence": "tree: \"has been granted 5 Building Regulations. ... Building Regulations. 6\"",
+     "severity": "low"
+    }
+   ]
+  },
+  {
+   "source_id": "adb",
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings@2026-09-16-fabdc362",
+   "unit": "p86",
+   "family": "approved-document-pdf",
+   "key": "65fd19955dc75d65",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "low",
+   "opus_1": "low",
+   "opus_2": "low",
+   "opus_1_findings": [
+    {
+     "kind": "figure",
+     "problem": "In Diagram 9.3 the labels interleave the key text with plan labels, so key lines are mixed with 'serving area' and 'Fd'.",
+     "evidence": "tree: \"serving area BS EN 13501-3, where X is the fire\" / \"Fd resistance rating (in minutes) of the\"",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": [
+    {
+     "kind": "garbled",
+     "problem": "In Diagram 9.3 the key text is interleaved with plan labels, splitting the EIS X classification sentence.",
+     "evidence": "source: \"fire resisting ductwork classified EIS X in accordance with BS EN 13501-3, where X is the fire resistance rating\" / tree: \"Ductwork classified EIS X in accordance with\", \"serving area BS EN 13501-3, where X is the fire\", \"Fd resistance rating\"",
+     "severity": "low"
+    },
+    {
+     "kind": "garbled",
+     "problem": "In Diagram 9.4 plan labels are run together with the key and note.",
+     "evidence": "tree: \"Ductwork Ductwork Fd Fire doorset\", \"Fd NOTE: Ventilation ducts which serve other\"",
+     "severity": "low"
+    }
+   ]
+  },
+  {
+   "source_id": "adb",
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings@2026-09-16-fabdc362",
+   "unit": "p130",
+   "family": "approved-document-pdf",
+   "key": "852ff7869c857a0f",
+   "unchanged": true,
+   "fable_saved": "low",
+   "fable_again": "low",
+   "opus_1": "low",
+   "opus_2": "ok",
+   "opus_1_findings": [
+    {
+     "kind": "missing",
+     "problem": "The asterisk that marks some defined terms is dropped from their titles.",
+     "evidence": "source: \"*Dwelling\" \"*Dwellinghouse\" \"*External wall\" / tree: \"Dwelling\" \"Dwellinghouse\" \"External wall\"",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "adb",
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings@2026-09-16-fabdc362",
+   "unit": "p169",
+   "family": "approved-document-pdf",
+   "key": "6ee487229c75657f",
+   "unchanged": true,
+   "fable_saved": "low",
+   "fable_again": "ok",
+   "opus_1": "low",
+   "opus_2": "low",
+   "opus_1_findings": [
+    {
+     "kind": "structure",
+     "problem": "The table's heading path has a standard reference as a parent heading under Appendix C, which is not a heading.",
+     "evidence": "tree: \"Appendix C: Fire doorsets > BS EN 81-58. > Provisions for fire doorsets\"",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": [
+    {
+     "kind": "structure",
+     "problem": "The table's heading path has a bogus parent heading taken from a standard reference.",
+     "evidence": "tree: \"Appendix C: Fire doorsets > BS EN 81-58. > Provisions for fire doorsets\"",
+     "severity": "low"
+    }
+   ]
+  },
+  {
+   "source_id": "adb",
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings@2026-09-16-fabdc362",
+   "unit": "p197",
+   "family": "approved-document-pdf",
+   "key": "bf98564f32835898",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "adb-historical",
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen-8507631@2025-01-14-b0b468a7",
+   "unit": "p170",
+   "family": "approved-document-pdf",
+   "key": "b5b47a5df57447e9",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "low",
+   "opus_1": "ok",
+   "opus_2": "low",
+   "opus_1_findings": [],
+   "opus_2_findings": [
+    {
+     "kind": "table",
+     "problem": "The top header over the four value columns is left out of the joined column names, so the columns do not say they give the maximum total glazed area.",
+     "evidence": "source: \"Maximum total glazed area in parts of a building with access to:\" / tree: \"A single stair Walls\"",
+     "severity": "low"
+    }
+   ]
+  },
+  {
+   "source_id": "adb-historical",
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen@2025-01-14-5ec1573c",
+   "unit": "p40",
+   "family": "approved-document-pdf",
+   "key": "2261d8613e41d6bd",
+   "unchanged": true,
+   "fable_saved": "low",
+   "fable_again": "low",
+   "opus_1": "low",
+   "opus_2": "low",
+   "opus_1_findings": [
+    {
+     "kind": "structure",
+     "problem": "The headings 'Ramps and sloping floors' and 'Lighting of common escape routes' are printed at the same level as 'Flooring of common escape routes' but the tree nests them under it.",
+     "evidence": "tree: \"Flooring of common escape routes > Lighting of common escape routes\"",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": [
+    {
+     "kind": "structure",
+     "problem": "The headings 'Ramps and sloping floors' and 'Lighting of common escape routes' are printed at the same level as 'Flooring of common escape routes' but the tree puts them under it.",
+     "evidence": "tree: \"Flooring of common escape routes > Lighting of common escape routes > Paragraph 3.41\"",
+     "severity": "low"
+    },
+    {
+     "kind": "garbled",
+     "problem": "The subscript in the fire doorset class is split off with a space before the bracket.",
+     "evidence": "source: \"E 30 Sa)\" / tree: \"E 30 Sa )\"",
+     "severity": "low"
+    }
+   ]
+  },
+  {
+   "source_id": "adb-historical",
+   "version_id": "approved-document-b-fire-safety-volume-1-dwellings-2019-edition-incorporating-2020-and-2022-amendmen@2025-01-14-5ec1573c",
+   "unit": "p57",
+   "family": "approved-document-pdf",
+   "key": "551404296c2ae865",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "adb-historical",
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2-8507629@2025-01-14-57241901",
+   "unit": "p19",
+   "family": "approved-document-pdf",
+   "key": "f73c34bc5bfafdc3",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "adb-historical",
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2@2025-01-14-bb70d2c9",
+   "unit": "p31",
+   "family": "approved-document-pdf",
+   "key": "7a544203110c5c82",
+   "unchanged": true,
+   "fable_saved": "low",
+   "fable_again": "high",
+   "opus_1": "high",
+   "opus_2": "high",
+   "opus_1_findings": [
+    {
+     "kind": "missing",
+     "problem": "The labels of Diagram 2.8 leave out the '2m max.' dimension printed in both examples; only the description gives it.",
+     "evidence": "source: \"2m max.\" (Example 1 and Example 2) / tree labels: no \"2m max.\"",
+     "severity": "high"
+    },
+    {
+     "kind": "extra",
+     "problem": "Diagram 2.8 labels include 'Corridor', which is not printed in that diagram.",
+     "evidence": "tree: \"Corridor\"",
+     "severity": "low"
+    },
+    {
+     "kind": "figure",
+     "problem": "Diagram 2.7 labels repeat 'See para 2.24' three times and '2m max.' four times, though each appears once and three times in the picture.",
+     "evidence": "tree: \"See para 2.24\", \"See para 2.24\", \"See para 2.24\"",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": [
+    {
+     "kind": "missing",
+     "problem": "The two '2m max.' dimension labels in Diagram 2.8, which give the limit on the corridor extension, are not in its labels (only in the description).",
+     "evidence": "source: \"2m max.\" / tree labels: \"Corridor\", \"See para 2.24\", \"Protected Protected\", \"stairway stairway\", \"Example 1 Example 2\"",
+     "severity": "high"
+    },
+    {
+     "kind": "figure",
+     "problem": "Diagram 2.8 labels include 'Corridor', which is not printed in that diagram (it belongs to Diagram 2.7).",
+     "evidence": "tree labels (2.8): \"Corridor\"",
+     "severity": "low"
+    },
+    {
+     "kind": "figure",
+     "problem": "Diagram 2.7 and 2.8 labels repeat words that are printed only once.",
+     "evidence": "tree: \"See para 2.24\", \"See para 2.24\", \"See para 2.24\"; \"Example 1 Example 2\" twice",
+     "severity": "low"
+    }
+   ]
+  },
+  {
+   "source_id": "adb-historical",
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2@2025-01-14-bb70d2c9",
+   "unit": "p105",
+   "family": "approved-document-pdf",
+   "key": "e7fb25f1edef1052",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "adb-historical",
+   "version_id": "approved-document-b-fire-safety-volume-2-buildings-other-than-dwellings-2019-edition-incorporating-2@2025-01-14-bb70d2c9",
+   "unit": "p125",
+   "family": "approved-document-pdf",
+   "key": "c087f76f09f02e93",
+   "unchanged": true,
+   "fable_saved": "low",
+   "fable_again": "low",
+   "opus_1": "low",
+   "opus_2": "low",
+   "opus_1_findings": [
+    {
+     "kind": "garbled",
+     "problem": "The cross-reference label in Diagram 15.3 is garbled into run-together repeated characters.",
+     "evidence": "source: \"See para 15.10\" / tree: \"SeeSepearpaa1r5a.1015.10\"",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": [
+    {
+     "kind": "garbled",
+     "problem": "The cross-reference label in the diagram is scrambled into overlapping characters.",
+     "evidence": "source: \"See para 15.10\" / tree: \"SeeSepearpaa1r5a.1015.10\"",
+     "severity": "low"
+    },
+    {
+     "kind": "figure",
+     "problem": "Two separate labels at opposite ends of the diagram are joined into one label.",
+     "evidence": "source: \"Building\" ... \"Exit\" / tree: \"Building Exit\"",
+     "severity": "low"
+    }
+   ]
+  },
+  {
+   "source_id": "ade",
+   "version_id": "approved-document-e-resistance-to-the-passage-of-sound@2015-03-04-e6a8feb6",
+   "unit": "p15",
+   "family": "approved-document-pdf",
+   "key": "3c2ed024c7057ca0",
+   "unchanged": true,
+   "fable_saved": "low",
+   "fable_again": "low",
+   "opus_1": "low",
+   "opus_2": "low",
+   "opus_1_findings": [
+    {
+     "kind": "structure",
+     "problem": "The BS 7913 footnote is referenced from paragraph 0.7 (\"recognised1\") but is attached to paragraph 0.8.",
+     "evidence": "source: \"needs to be recognised1\" (0.7) / tree: footnotes on para-0.8: \"1 BS 7913 The principles of the conservation of historic buildings\"",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": [
+    {
+     "kind": "structure",
+     "problem": "Footnote 1 is referenced in paragraph 0.7 but the tree attaches it to paragraph 0.8.",
+     "evidence": "source: \"needs to be recognised1\" (0.7) / tree: footnote \"1 BS 7913 The principles of the conservation of historic buildings\" under para-0.8",
+     "severity": "low"
+    }
+   ]
+  },
+  {
+   "source_id": "ade",
+   "version_id": "frequently-asked-questions@2015-03-04-da0e95e9",
+   "unit": "p4",
+   "family": "approved-document-pdf",
+   "key": "d2ff31ce5e95fefe",
+   "unchanged": true,
+   "fable_saved": "low",
+   "fable_again": "high",
+   "opus_1": "low",
+   "opus_2": "low",
+   "opus_1_findings": [
+    {
+     "kind": "structure",
+     "problem": "The chapter heading \"Noise from neighbours\" is missing; its question sits under a generic \"Frequently Asked Questions\" parent instead.",
+     "evidence": "source: \"Noise from neighbours\" / tree: \"Frequently Asked Questions > I am disturbed by noise from neighbours...\"",
+     "severity": "low"
+    },
+    {
+     "kind": "garbled",
+     "problem": "The page number 4 has been run into the answer text where it joins the next page.",
+     "evidence": "tree: \"to carry out pre-completion testing\\\". 4 test organisations to undertake the work.\"",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": [
+    {
+     "kind": "structure",
+     "problem": "The chapter heading 'Noise from neighbours' is missing; its question sits under 'Frequently Asked Questions' instead.",
+     "evidence": "source: \"Noise from neighbours\" / tree: \"Frequently Asked Questions > I am disturbed by noise from neighbours...\"",
+     "severity": "low"
+    },
+    {
+     "kind": "garbled",
+     "problem": "The page number 4 appears spliced into the answer text where it runs on to the next page.",
+     "evidence": "tree: \"suitably qualified to carry out pre-completion testing\". 4 test organisations to undertake the work.\"",
+     "severity": "low"
+    }
+   ]
+  },
+  {
+   "source_id": "adf",
+   "version_id": "approved-document-f-volume-1-applies-to-dwellings@2022-06-15-5d3ebc08",
+   "unit": "p18",
+   "family": "approved-document-pdf",
+   "key": "b3407e7ffb80e20f",
+   "unchanged": true,
+   "fable_saved": "high",
+   "fable_again": "high",
+   "opus_1": "high",
+   "opus_2": "high",
+   "opus_1_findings": [
+    {
+     "kind": "table",
+     "problem": "Table 1.2 has the wrong second column heading and merges the separate High rate and Continuous rate columns into one cell.",
+     "evidence": "source: \"High rate (l/s)\" | \"Continuous rate\" / tree: columns \"Intermittent extract rate (l/s)\"",
+     "severity": "high"
+    }
+   ],
+   "opus_2_findings": [
+    {
+     "kind": "table",
+     "problem": "Table 1.2 has an invented column heading and merges the 'High rate (l/s)' and 'Continuous rate' columns into one.",
+     "evidence": "source: \"Room | High rate (l/s) | Continuous rate\" / tree: columns \"Room\", \"Intermittent extract rate (l/s)\"",
+     "severity": "high"
+    }
+   ]
+  },
+  {
+   "source_id": "adf",
+   "version_id": "approved-document-f-volume-2-applies-to-buildings-other-than@2022-06-15-e039b3b0",
+   "unit": "p37",
+   "family": "approved-document-pdf",
+   "key": "327b641c6411f2ad",
+   "unchanged": true,
+   "fable_saved": "low",
+   "fable_again": "low",
+   "opus_1": "ok",
+   "opus_2": "low",
+   "opus_1_findings": [],
+   "opus_2_findings": [
+    {
+     "kind": "structure",
+     "problem": "The closing sentence of B5, printed after the list, is merged into list item b.",
+     "evidence": "source: \"b. 3mg/h for ozone.\" then \"To meet the performance criteria...\" / tree: \"b. 3mg/h for ozone. To meet the performance criteria...\"",
+     "severity": "low"
+    }
+   ]
+  },
+  {
+   "source_id": "adf-2026",
+   "version_id": "approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96",
+   "unit": "p22",
+   "family": "approved-document-pdf",
+   "key": "a579c3299128d14c",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "adf-2026",
+   "version_id": "approved-document-f-volume-1-dwellings@2026-09-08-4ca79c96",
+   "unit": "p52",
+   "family": "approved-document-pdf",
+   "key": "40273e1565879b58",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "adg",
+   "version_id": "approved-document-g-sanitation-hot-water-safety-and-water-ef@2024-10-01-cc02cbfc",
+   "unit": "p45",
+   "family": "approved-document-pdf",
+   "key": "3bc1b5b13f31b231",
+   "unchanged": true,
+   "fable_saved": "low",
+   "fable_again": "low",
+   "opus_1": "low",
+   "opus_2": "low",
+   "opus_1_findings": [
+    {
+     "kind": "garbled",
+     "problem": "Ligature letters fi/fl are dropped in several words in A20, A22, A24 and A26.",
+     "evidence": "source: \"reflect\", \"coefficient\", \"filter\", \"first\", \"studio flat\", \"sufficient\", \"fittings\" / tree: \"refect\", \"coeffcient\", \"flter\", \"frst\", \"studio fat\", \"suffcient\", \"fttings\"",
+     "severity": "low"
+    },
+    {
+     "kind": "structure",
+     "problem": "The subheading 'Rainwater demand calculations' is run into the body text of A24 instead of being a heading.",
+     "evidence": "tree: \"BS 8515 should be followed. Rainwater demand calculations\"",
+     "severity": "low"
+    },
+    {
+     "kind": "structure",
+     "problem": "The heading 'Rainwater calculations' is kept as a definition with the subheading as its text.",
+     "evidence": "tree: title \"Rainwater calculations\" text \"Rainwater collection calculations\"",
+     "severity": "low"
+    },
+    {
+     "kind": "structure",
+     "problem": "Table A5.2 title is cut short; the rest went into the table text.",
+     "evidence": "source: \"Rainwater collection calculation – BS 8515 detailed approach\" / tree: title \"Rainwater collection\"",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": [
+    {
+     "kind": "garbled",
+     "problem": "The 'fl' ligature is dropped in A22, turning 'studio flat' into 'studio fat' and 'filter' into 'flter'.",
+     "evidence": "source: \"A studio flat should assume two occupants\" / tree: \"A studio fat should assume two occupants\"",
+     "severity": "low"
+    },
+    {
+     "kind": "garbled",
+     "problem": "The 'fi'/'fl' ligatures are dropped in A20, A22 and A24, giving misspelt words.",
+     "evidence": "source: \"reflect ... figure ... specified ... coefficient ... first ... sufficient\" / tree: \"refect ... fgure ... specifed ... coeffcient ... frst ... suffcient\"",
+     "severity": "low"
+    },
+    {
+     "kind": "structure",
+     "problem": "The sub-heading 'Rainwater demand calculations' is merged into the body text of A24 instead of being a heading.",
+     "evidence": "tree: \"BS 8515 should be followed. Rainwater demand calculations\"",
+     "severity": "low"
+    },
+    {
+     "kind": "structure",
+     "problem": "A heading from the next page, 'Rainwater saving calculations', is joined to the end of A26.",
+     "evidence": "tree: \"to calculate the rainwater savings. Rainwater saving calculations\"",
+     "severity": "low"
+    },
+    {
+     "kind": "structure",
+     "problem": "The heading 'Rainwater calculations' is stored as a definition whose text is the sub-heading 'Rainwater collection calculations'.",
+     "evidence": "tree: type \"definition\", title \"Rainwater calculations\", text \"Rainwater collection calculations\"",
+     "severity": "low"
+    },
+    {
+     "kind": "garbled",
+     "problem": "The table titles are cut short: A5.1 loses 'approach' and A5.2 loses 'calculation – BS 8515 detailed approach'.",
+     "evidence": "source: \"Rainwater collection calculation – BS 8515 detailed approach\" / tree: \"Rainwater collection\"",
+     "severity": "low"
+    }
+   ]
+  },
+  {
+   "source_id": "adh",
+   "version_id": "approved-document-h-drainage-and-waste-disposal@2010-12-04-46d6a268",
+   "unit": "p18",
+   "family": "approved-document-pdf",
+   "key": "1b0efc901a8bad53",
+   "unchanged": true,
+   "fable_saved": "high",
+   "fable_again": "high",
+   "opus_1": "high",
+   "opus_2": "high",
+   "opus_1_findings": [
+    {
+     "kind": "structure",
+     "problem": "The notes under Table 7 are attached to Table 6 and missing from Table 7.",
+     "evidence": "source (Table 7): \"Note: Some of these materials may not be suitable for conveying trade effluent\" / tree: in table-6 text",
+     "severity": "high"
+    },
+    {
+     "kind": "order",
+     "problem": "Table 6 text mixes in the rows of Table 7, interleaved with Table 6 rows and notes.",
+     "evidence": "tree: \"100 1:40 9.2 Ductile iron BS EN 598\", \"* Minimum of 1 WC Structure walled\"",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": [
+    {
+     "kind": "structure",
+     "problem": "Table 7's notes are attached to Table 6, and Table 7 has no notes of its own.",
+     "evidence": "source (under Table 7): \"Note: Some of these materials may not be suitable for conveying trade effluent\" / tree: in table-6 text",
+     "severity": "high"
+    },
+    {
+     "kind": "order",
+     "problem": "Table 6's text mixes in the rows of Table 7 from the column beside it.",
+     "evidence": "tree: \"Peak flow Pipe size Minimum Maximum Vitrified clay BS 65, BS EN 295 (litres/sec) (mm) gradient capacity Concrete BS 5911\"",
+     "severity": "low"
+    }
+   ]
+  },
+  {
+   "source_id": "adh",
+   "version_id": "approved-document-h-drainage-and-waste-disposal@2010-12-04-46d6a268",
+   "unit": "p24",
+   "family": "approved-document-pdf",
+   "key": "02f485a2ce01e16f",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "adj",
+   "version_id": "approved-document-j-combustion-appliances-and-fuel-storage-s@2022-09-30-ac8f5915",
+   "unit": "p32",
+   "family": "approved-document-pdf",
+   "key": "78c21522c168acc5",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "adj",
+   "version_id": "approved-document-j-combustion-appliances-and-fuel-storage-s@2022-09-30-ac8f5915",
+   "unit": "p37",
+   "family": "approved-document-pdf",
+   "key": "6de17314b1b4374c",
+   "unchanged": true,
+   "fable_saved": "low",
+   "fable_again": "low",
+   "opus_1": "low",
+   "opus_2": "high",
+   "opus_1_findings": [
+    {
+     "kind": "missing",
+     "problem": "Diagram 21 has no labels; the distances printed in it are kept only in the model description.",
+     "evidence": "source: \"At least 200mm\", \"At least 50mm\", \"Less than 200mm\", \"At least 40mm\"",
+     "severity": "low"
+    },
+    {
+     "kind": "structure",
+     "problem": "Diagram 21, printed at the top of the page, is placed after 2.21 under the 'Formation of gathers' heading.",
+     "evidence": "tree: heading_path \"... > Formation of gathers > Minimum separation distances from combustible material in or near a chimney\"",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": [
+    {
+     "kind": "missing",
+     "problem": "Diagram 21 has no labels, so the distance limits printed in it are kept only in the model's description.",
+     "evidence": "source: \"At least 200mm\", \"At least 50mm\", \"Less than 200mm\", \"At least 40mm\", \"Metal fastening or support\"",
+     "severity": "high"
+    },
+    {
+     "kind": "structure",
+     "problem": "Diagram 21 is printed at the top of the page but sits after 2.21, under the heading 'Formation of gathers', which it does not belong to.",
+     "evidence": "tree: \"Formation of gathers > Minimum separation distances from combustible material in or near a chimney\"",
+     "severity": "low"
+    }
+   ]
+  },
+  {
+   "source_id": "adj",
+   "version_id": "approved-document-j-combustion-appliances-and-fuel-storage-s@2022-09-30-ac8f5915",
+   "unit": "p38",
+   "family": "approved-document-pdf",
+   "key": "d0a73fdaee936847",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "low",
+   "opus_2": "low",
+   "opus_1_findings": [
+    {
+     "kind": "missing",
+     "problem": "The figures have no labels; the printed callouts are only summarised in the descriptions, which do keep the 45 degree limits.",
+     "evidence": "source: \"Gather unit may be built in at time of construction of recess or retro-fitted into rectangular recess\", \"Flue\", \"Firebed\"",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": [
+    {
+     "kind": "missing",
+     "problem": "Neither figure has labels; the printed callouts are absent, though the 45° limits are carried in the descriptions.",
+     "evidence": "source: \"Smooth finish to gather at an angle of not more than 45º to the vertical\", \"Angle not more than 45º\" / tree: no labels",
+     "severity": "low"
+    }
+   ]
+  },
+  {
+   "source_id": "adl",
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-1@2023-02-02-1ab93e59",
+   "unit": "p62",
+   "family": "approved-document-pdf",
+   "key": "4fc9ea86a0260c62",
+   "unchanged": true,
+   "fable_saved": "low",
+   "fable_again": "low",
+   "opus_1": "low",
+   "opus_2": "low",
+   "opus_1_findings": [
+    {
+     "kind": "structure",
+     "problem": "The calibration sentences printed as a separate paragraph after the list are joined onto item b, so they read as part of that option.",
+     "evidence": "tree: \"b. A period in accordance with manufacturer’s guidance. Calibration should be carried out in accordance with CIBSE’s TM23.\"",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": [
+    {
+     "kind": "structure",
+     "problem": "The calibration paragraph that applies to all of 7.2 is joined onto list item b.",
+     "evidence": "source: \"Calibration should be carried out in accordance with CIBSE's TM23.\" (own paragraph) / tree: \"b. A period in accordance with manufacturer's guidance. Calibration should be...\"",
+     "severity": "low"
+    }
+   ]
+  },
+  {
+   "source_id": "adl",
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-1@2023-02-02-1ab93e59",
+   "unit": "p63",
+   "family": "approved-document-pdf",
+   "key": "f97244e400319aa5",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "adl",
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-2@2023-02-02-951ba0b9",
+   "unit": "p39",
+   "family": "approved-document-pdf",
+   "key": "f577f071c5030551",
+   "unchanged": true,
+   "fable_saved": "low",
+   "fable_again": "low",
+   "opus_1": "ok",
+   "opus_2": "low",
+   "opus_1_findings": [],
+   "opus_2_findings": [
+    {
+     "kind": "table",
+     "problem": "The second column heading has words added that are not printed in that header cell.",
+     "evidence": "source: \"Average zone height\" / tree: \"Average zone height for reference space\"",
+     "severity": "low"
+    }
+   ]
+  },
+  {
+   "source_id": "adl",
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-2@2023-02-02-951ba0b9",
+   "unit": "p50",
+   "family": "approved-document-pdf",
+   "key": "0094bc2fd9cfeeec",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "low",
+   "opus_1": "low",
+   "opus_2": "ok",
+   "opus_1_findings": [
+    {
+     "kind": "garbled",
+     "problem": "Equation 6.1 and its definitions are run into one line, with subscripts flattened and the equation label inline, though the meaning still reads.",
+     "evidence": "tree: \"boiler seasonal efficiency = 0.81η30% + 0.19η100% equation 6.1 Where: η30% is the gross boiler efficiency\"",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "adl",
+   "version_id": "approved-document-l-conservation-of-fuel-and-power-volume-2@2023-02-02-951ba0b9",
+   "unit": "p86",
+   "family": "approved-document-pdf",
+   "key": "e510aefef1e93183",
+   "unchanged": true,
+   "fable_saved": "low",
+   "fable_again": "low",
+   "opus_1": "low",
+   "opus_2": "low",
+   "opus_1_findings": [
+    {
+     "kind": "table",
+     "problem": "The first grid row of a one-column box has two cells, splitting regulation 6(3) mid-sentence; no text is lost.",
+     "evidence": "tree: \"only contains materials of European Classification\" | \"A2-s1, d0 or A1, classified in accordance with BS EN 13501-1\"",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": [
+    {
+     "kind": "table",
+     "problem": "The first row of the one-column regulation box is split into two cells mid-sentence in paragraph (3).",
+     "evidence": "tree: \"...only contains materials of European Classification\" | \"A2-s1, d0 or A1, classified in accordance with...\"",
+     "severity": "low"
+    }
+   ]
+  },
+  {
+   "source_id": "adl-2026",
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p35",
+   "family": "approved-document-pdf",
+   "key": "e5d79ab0df043a08",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "adl-2026",
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p41",
+   "family": "approved-document-pdf",
+   "key": "66a8c6c3bd6e5b58",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "adl-2026",
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p45",
+   "family": "approved-document-pdf",
+   "key": "11b73d477d998a7d",
+   "unchanged": true,
+   "fable_saved": "high",
+   "fable_again": "high",
+   "opus_1": "low",
+   "opus_2": "low",
+   "opus_1_findings": [
+    {
+     "kind": "garbled",
+     "problem": "The exponent in the note's formula lost its superscript, so V to the power 0.4 reads as V0.4.",
+     "evidence": "source: \"(8.33 × V^0.4)\" / tree: \"(8.33 × V0.4))\"",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": [
+    {
+     "kind": "garbled",
+     "problem": "The exponent in the note formula lost its superscript, so V to the power 0.4 reads as V0.4.",
+     "evidence": "source: \"(8.33 × V^0.4)\" / tree: \"(8.33 × V0.4)\"",
+     "severity": "low"
+    }
+   ]
+  },
+  {
+   "source_id": "adl-2026",
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p58",
+   "family": "approved-document-pdf",
+   "key": "e07e2fe71bab2147",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "adl-2026",
+   "version_id": "approved-document-l-volume-1-dwellings@2026-09-08-438bbd19",
+   "unit": "p81",
+   "family": "approved-document-pdf",
+   "key": "d88fd18990eb230f",
+   "unchanged": true,
+   "fable_saved": "low",
+   "fable_again": "low",
+   "opus_1": "low",
+   "opus_2": "low",
+   "opus_1_findings": [
+    {
+     "kind": "structure",
+     "problem": "The second Intention lead-in paragraph about new dwellings is joined onto the end of list item b for existing dwellings.",
+     "evidence": "tree: \"b. Relevant information for work on existing systems in accordance with paragraphs 9.7 to 9.10. In the Secretary of State’s view, when a new dwelling\"",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": [
+    {
+     "kind": "structure",
+     "problem": "The separate intro sentence for new dwellings is joined onto item b of the existing-dwellings list instead of starting its own paragraph.",
+     "evidence": "tree: \"b. Relevant information for work on existing systems in accordance with paragraphs 9.7 to 9.10. In the Secretary of State’s view, when a new dwelling\"",
+     "severity": "low"
+    }
+   ]
+  },
+  {
+   "source_id": "adl-2026",
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p43",
+   "family": "approved-document-pdf",
+   "key": "f3af27a5874f92cf",
+   "unchanged": true,
+   "fable_saved": "high",
+   "fable_again": "high",
+   "opus_1": "low",
+   "opus_2": "low",
+   "opus_1_findings": [
+    {
+     "kind": "garbled",
+     "problem": "The exponent 2/3 in both note formulas lost its superscript, so V to the power 2/3 reads as V2/3.",
+     "evidence": "source: \"1.28 × (0.2 + 0.051V^2/3)\" / tree: \"1.28 × (0.2 + 0.051V2/3)\"",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": [
+    {
+     "kind": "garbled",
+     "problem": "The exponent 2/3 in both note formulas lost its superscript, so V to the power 2/3 reads as V2/3.",
+     "evidence": "source: \"1.28 × (0.2 + 0.051V^2/3)\" / tree: \"1.28 × (0.2 + 0.051V2/3)\"",
+     "severity": "low"
+    }
+   ]
+  },
+  {
+   "source_id": "adl-2026",
+   "version_id": "approved-document-l-volume-2-buildings-other-than-dwellings@2026-09-08-bb3ca5bb",
+   "unit": "p108",
+   "family": "approved-document-pdf",
+   "key": "2705f56a54ced4b0",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "adm",
+   "version_id": "approved-document-m-access-to-and-use-of-buildings-volume-2@2024-10-01-0e5d4dee",
+   "unit": "p59",
+   "family": "approved-document-pdf",
+   "key": "5668a1393f2889ea",
+   "unchanged": true,
+   "fable_saved": "low",
+   "fable_again": "low",
+   "opus_1": "low",
+   "opus_2": "ok",
+   "opus_1_findings": [
+    {
+     "kind": "structure",
+     "problem": "Diagram 24 belongs to the shower facilities provisions of 5.18 but the tree files it under the later Wheelchair-accessible bathrooms > Design considerations heading, after 5.19.",
+     "evidence": "tree: \"Wheelchair-accessible bathrooms > Design considerations > An example of a shower room incorporating a corner WC\"",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "adr",
+   "version_id": "approved-document-r-volume-2-physical-infrastructure-for-hig@2022-10-04-5fc888fe",
+   "unit": "p20",
+   "family": "approved-document-pdf",
+   "key": "c1ab1b86166e646c",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "ads",
+   "version_id": "approved-document-s-infrastructure-for-charging-electric-veh@2023-04-17-71f78926",
+   "unit": "p37",
+   "family": "approved-document-pdf",
+   "key": "365342797e78efdd",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "awaab-collection",
+   "version_id": "awaabs-law-consultation-on-timescales-for-repairs--awaab-s-law-final-stage-impact-assessment@2025-06-25-6bb2585a",
+   "unit": "p20",
+   "family": "guidance-pdf",
+   "key": "a4c81787e8bd4153",
+   "unchanged": true,
+   "fable_saved": "low",
+   "fable_again": "low",
+   "opus_1": "low",
+   "opus_2": "low",
+   "opus_1_findings": [
+    {
+     "kind": "structure",
+     "problem": "The headings on the page are run into the body text instead of being kept as headings.",
+     "evidence": "tree: \"period27. Qualitative summary Tenants Health and wellbeing The new requirements\"; also \"Mental wellbeing Tenant's mental health\"",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": [
+    {
+     "kind": "structure",
+     "problem": "The printed subheadings are run into the body text instead of kept as headings.",
+     "evidence": "tree: \"net benefits to society during the appraisal period27. Qualitative summary Tenants Health and wellbeing The new requirements\"",
+     "severity": "low"
+    },
+    {
+     "kind": "garbled",
+     "problem": "Footnote reference numbers are joined to the words before them.",
+     "evidence": "source: \"£985 per dwelling²⁶\" / tree: \"£985 per dwelling26\"",
+     "severity": "low"
+    }
+   ]
+  },
+  {
+   "source_id": "awaab-consolidated",
+   "version_id": "awaab-s-law-regulations-as-they-apply-from-30-november-2026@2026-07-13-546a4539",
+   "unit": "p10",
+   "family": "guidance-pdf",
+   "key": "024f232c7f9e074a",
+   "unchanged": true,
+   "fable_saved": "low",
+   "fable_again": "low",
+   "opus_1": "low",
+   "opus_2": "low",
+   "opus_1_findings": [
+    {
+     "kind": "extra",
+     "problem": "Page numbers from the page footers are left inside the regulation text.",
+     "evidence": "tree: \"begin the relevant supplementary preventative work, or 9 (b) where it is not\"; \"contact the lessor. 10 (6) Regulation 10\"",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": [
+    {
+     "kind": "garbled",
+     "problem": "The page number 10 from the page footer is inserted into the text of regulation 14 before paragraph (6).",
+     "evidence": "tree: \"information about how the lessee may contact the lessor. 10 (6) Regulation 10 applies\"",
+     "severity": "low"
+    },
+    {
+     "kind": "garbled",
+     "problem": "The previous page's footer number 9 is inserted into regulation 13(2) between (a) and (b).",
+     "evidence": "tree: \"begin the relevant supplementary preventative work, or 9 (b) where it is not reasonably practicable\"",
+     "severity": "low"
+    }
+   ]
+  },
+  {
+   "source_id": "ba1984",
+   "version_id": "main@2026-07-01-c5f82d05",
+   "unit": "schedule-1-paragraph-1H",
+   "family": "legislation-xml",
+   "key": "b87bf8a2164f7da0",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "ba1984",
+   "version_id": "main@2026-07-01-c5f82d05",
+   "unit": "section-112",
+   "family": "legislation-xml",
+   "key": "a776c22e5bd07669",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "bc-changes-2023",
+   "version_id": "additional-q-a-changes-to-the-building-control-process-for-h@2024-03-28-c6890960",
+   "unit": "p1",
+   "family": "guidance-pdf",
+   "key": "a4f578ef34c6bf36",
+   "unchanged": true,
+   "fable_saved": "low",
+   "fable_again": "low",
+   "opus_1": "low",
+   "opus_2": "low",
+   "opus_1_findings": [
+    {
+     "kind": "order",
+     "problem": "The recipient list and the sender's address block, printed in two columns, are mixed into one text.",
+     "evidence": "tree: \"To: (England only) Fry Building 2 Marsham Street Local Government Chief Executives and London SW1P 4DF Heads of Building Control\"",
+     "severity": "low"
+    },
+    {
+     "kind": "structure",
+     "problem": "The one underlined letter title is split into two headings, the second starting mid-phrase.",
+     "evidence": "tree: \"...wider changes to procedural building\" / \"regulations applying to buildings in England.\"",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": [
+    {
+     "kind": "structure",
+     "problem": "The single underlined title is split into two headings, so the letter body sits under a fragment heading.",
+     "evidence": "tree: \"...wider changes to procedural building\" / \"regulations applying to buildings in England.\"",
+     "severity": "low"
+    },
+    {
+     "kind": "order",
+     "problem": "The recipient list and the sender address column are interleaved into one text.",
+     "evidence": "tree: \"To: (England only) Fry Building 2 Marsham Street Local Government Chief Executives and London SW1P 4DF Heads of Building Control\"",
+     "severity": "low"
+    }
+   ]
+  },
+  {
+   "source_id": "br-circulars",
+   "version_id": "amendments-to-approved-document-b-fire-safety-circ--circular-03-2024@2024-09-02-bd6fb9a1",
+   "unit": "p4",
+   "family": "guidance-pdf",
+   "key": "8f2d8d61056cd9f4",
+   "unchanged": true,
+   "fable_saved": "high",
+   "fable_again": "high",
+   "opus_1": "high",
+   "opus_2": "high",
+   "opus_1_findings": [
+    {
+     "kind": "structure",
+     "problem": "Annex A, a separate notice printed as a boxed table, is merged into paragraph 12 under the Enquiries heading as running text.",
+     "evidence": "tree: \"Signed: John Palmer ANNEX A –Withdrawal of Notices Building Act 1984 NOTICE OF THE WITHDRAWAL OF NOTICES\"",
+     "severity": "high"
+    }
+   ],
+   "opus_2_findings": [
+    {
+     "kind": "structure",
+     "problem": "Annex A (its title, the Building Act 1984 heading and the withdrawal notice) is merged into paragraph 12 under the ENQUIRIES heading instead of being its own section.",
+     "evidence": "tree: \"Signed: John Palmer ANNEX A –Withdrawal of Notices Building Act 1984 NOTICE OF THE WITHDRAWAL OF NOTICES\"",
+     "severity": "high"
+    },
+    {
+     "kind": "structure",
+     "problem": "The boxed notice table on this page is read as running text, and the signature cells are run together.",
+     "evidence": "tree: \"Signed by authority of the Secretary of State J. Palmer An Assistant Secretary for the Ministry\"",
+     "severity": "low"
+    }
+   ]
+  },
+  {
+   "source_id": "br-circulars",
+   "version_id": "approved-document-b-2022-amendments-circular-02202--circular-letter-the-building-amendment-regulations-2022@2022-06-01-7e9ec3c0",
+   "unit": "p3",
+   "family": "guidance-pdf",
+   "key": "f00aac8d7aa82fd3",
+   "unchanged": true,
+   "fable_saved": "low",
+   "fable_again": "low",
+   "opus_1": "low",
+   "opus_2": "low",
+   "opus_1_findings": [
+    {
+     "kind": "structure",
+     "problem": "The headings on this page are read as body text inside a generic text block instead of as headings.",
+     "evidence": "tree: \"in height. These changes do not change ... Approved Document B June 2022 edition Coming into force date The amendments\"",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": [
+    {
+     "kind": "structure",
+     "problem": "The headings on this page are read as body text inside the running text instead of headings.",
+     "evidence": "tree: \"Approved Document B June 2022 edition Coming into force date The amendments to Approved Document B\"",
+     "severity": "low"
+    },
+    {
+     "kind": "structure",
+     "problem": "The heading \"a) Combustible materials in and on the external walls of buildings:\" and \"Description of the changes\" are run into the body text.",
+     "evidence": "tree: \"Description of the changes Approved Document B (ADB) has been updated\"",
+     "severity": "low"
+    }
+   ]
+  },
+  {
+   "source_id": "br-circulars",
+   "version_id": "approved-document-b-2024-amendments-circular-01202--approved-document-b-2024-amendments-circular-01-2024@2024-03-29-81c5b5a6",
+   "unit": "p5",
+   "family": "guidance-pdf",
+   "key": "d5544af3fe6125a0",
+   "unchanged": true,
+   "fable_saved": "low",
+   "fable_again": "low",
+   "opus_1": "low",
+   "opus_2": "low",
+   "opus_1_findings": [
+    {
+     "kind": "structure",
+     "problem": "The annex heading is kept as body text under the 'Building Act 1984' heading that is printed below it.",
+     "evidence": "tree: heading_path \"Building Act 1984 > Text\": \"ANNEX B – Notice of Withdrawal\"",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": [
+    {
+     "kind": "structure",
+     "problem": "The annex title is kept as body text under the Building Act 1984 heading, which is printed after it.",
+     "evidence": "tree: heading_path \"Building Act 1984 > Text\" / text \"ANNEX B – Notice of Withdrawal\"",
+     "severity": "low"
+    },
+    {
+     "kind": "table",
+     "problem": "The signature row has two cells in the source but the grid joins them into one cell.",
+     "evidence": "source: \"Signed by authority of the Secretary of State\" | \"J. Palmer ...\" / tree: \"Signed by authority of the Secretary of State. J. Palmer.\"",
+     "severity": "low"
+    }
+   ]
+  },
+  {
+   "source_id": "br-circulars",
+   "version_id": "approved-document-b-april-2019-edition-circular-01--approved-document-b-april@2019-04-16-fdcc340b",
+   "unit": "p7",
+   "family": "guidance-pdf",
+   "key": "e7e1c046a0bf84a4",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "br-circulars",
+   "version_id": "building-regulations-in-england-circular-012022--building-regulations-in-england-circular-01-2022@2022-02-25-88183880",
+   "unit": "p5",
+   "family": "guidance-pdf",
+   "key": "6dfc82776c58001b",
+   "unchanged": true,
+   "fable_saved": "high",
+   "fable_again": "high",
+   "opus_1": "high",
+   "opus_2": "high",
+   "opus_1_findings": [
+    {
+     "kind": "table",
+     "problem": "The second copy of the table drops regulation 25 from both Part L rows.",
+     "evidence": "source: \"Regulations 6, 22, 23, 24, 25, 25A, 25B\" / tree: \"Regulations 6, 22, 23, 24, 25A, 25B\"",
+     "severity": "high"
+    },
+    {
+     "kind": "extra",
+     "problem": "The Annex A notice table is given twice, as table-4 and as a second table titled ENQUIRIES.",
+     "evidence": "tree: \"Table (ENQUIRIES)\" repeats all rows of \"Table 4\"",
+     "severity": "low"
+    },
+    {
+     "kind": "garbled",
+     "problem": "Table 4's title is a fragment of a cell, not the table's heading.",
+     "evidence": "source: \"NOTICE OF APPROVAL OF REVISION OF DOCUMENTS...\" / tree: \".6, paragraph 5.13, table 6.9, paragraph 1, Part L 6.79 and Appendix B\"",
+     "severity": "low"
+    },
+    {
+     "kind": "structure",
+     "problem": "The Annex A table sits under the ENQUIRIES heading, and \"ANNEX A\" is run into paragraph 12's text instead of being a heading.",
+     "evidence": "tree: \"ENQUIRIES > Table 4\"; \"...Levelling Up, Housing and Communities ANNEX A\"",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": [
+    {
+     "kind": "table",
+     "problem": "The second copy of the table drops regulation 25 from both Approved Document L rows.",
+     "evidence": "source: \"Regulations 6, 22, 23, 24, 25, 25A, 25B\" / tree: \"Regulations 6, 22, 23, 24, 25A, 25B\"",
+     "severity": "high"
+    },
+    {
+     "kind": "extra",
+     "problem": "The notice table appears twice in the tree, once as Table 4 and again as a table titled ENQUIRIES.",
+     "evidence": "tree: \"Table (ENQUIRIES)\"",
+     "severity": "low"
+    },
+    {
+     "kind": "garbled",
+     "problem": "Table 4 has a title made of cell fragments that is not printed on the page.",
+     "evidence": "tree: \".6, paragraph 5.13, table 6.9, paragraph 1, Part L 6.79 and Appendix B\"",
+     "severity": "low"
+    },
+    {
+     "kind": "structure",
+     "problem": "The Annex A notice is filed under ENQUIRIES, and the heading ANNEX A is kept as the last words of paragraph 12.",
+     "evidence": "tree: \"REVISED APPROVED DOCUMENT L, VOLUMES 1 AND 2 > ENQUIRIES > Table 4\" / \"...Levelling Up, Housing and Communities ANNEX A\"",
+     "severity": "low"
+    }
+   ]
+  },
+  {
+   "source_id": "br-circulars",
+   "version_id": "energy-performance-of-buildings-regulations-2008-c--circular-06-2008-provisions-relating-to-energy-performance@2008-09-09-3a574f87",
+   "unit": "p4",
+   "family": "guidance-pdf",
+   "key": "db445029ae757968",
+   "unchanged": true,
+   "fable_saved": "low",
+   "fable_again": "low",
+   "opus_1": "low",
+   "opus_2": "low",
+   "opus_1_findings": [
+    {
+     "kind": "structure",
+     "problem": "Paragraphs 8 to 12 and their section headings are merged into one text block instead of separate numbered paragraphs under headings.",
+     "evidence": "tree: \"...subsequentamendment. AMENDMENTS RELATED TO THE LENGTH OF VALIDITY OF AN ENERGY PERFORMANCE CERTIFICATE 9. Amendment regulation 2(2)\"",
+     "severity": "low"
+    },
+    {
+     "kind": "garbled",
+     "problem": "Many words are run together without spaces.",
+     "evidence": "source: \"twelve months to three years, and regulation 5 makes\" / tree: \"twelvemonthstothreeyears,andregulation5makes\"",
+     "severity": "low"
+    },
+    {
+     "kind": "garbled",
+     "problem": "More run-together words in paragraph 12 and paragraph 8.",
+     "evidence": "source: \"Inspectors etc) Regulations 2000 to require\" / tree: \"Inspectorsetc)Regulations2000torequire\"",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": [
+    {
+     "kind": "structure",
+     "problem": "Numbered paragraphs 7 to 12 and the section headings are merged into one text block, with the headings read as body text.",
+     "evidence": "tree: \"8. Amendment regulation 2(8) ... AMENDMENTS RELATED TO THE LENGTH OF VALIDITY OF AN ENERGY PERFORMANCE CERTIFICATE 9. Amendment\"",
+     "severity": "low"
+    },
+    {
+     "kind": "garbled",
+     "problem": "Many words are run together without spaces.",
+     "evidence": "source: \"the retrieval of data that may not be readily obtainable\" / tree: \"facilitatestheretrievalofdatathatmaynotbereadilyobtainable\"",
+     "severity": "low"
+    }
+   ]
+  },
+  {
+   "source_id": "br-circulars",
+   "version_id": "introduction-of-target-fabric-energy-efficiency-ra--circular-03-2013-the-building-act-1984-building-regulation@2013-08-08-d8aed573",
+   "unit": "p2",
+   "family": "guidance-pdf",
+   "key": "e9d4ccdcac3eca6e",
+   "unchanged": true,
+   "fable_saved": "low",
+   "fable_again": "low",
+   "opus_1": "low",
+   "opus_2": "low",
+   "opus_1_findings": [
+    {
+     "kind": "garbled",
+     "problem": "Capital letters of proper nouns and sentence starts are lost in the paragraphs.",
+     "evidence": "source: \"I am directed by the Secretary of State\" / tree: \"i am directed by the secretary of state\"",
+     "severity": "low"
+    },
+    {
+     "kind": "garbled",
+     "problem": "Further lost capitals in names and references.",
+     "evidence": "source: \"Committee for England\", \"Croydon Corporation Act 1960\", \"SI 2013/1959\" / tree: \"committee for england\", \"croydon corporation Act 1960\", \"si 2013/1959\"",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": [
+    {
+     "kind": "garbled",
+     "problem": "Capital letters are lost in many words, so proper names and the first word of sentences appear in lower case.",
+     "evidence": "source: \"I am directed by the Secretary of State\" / tree: \"i am directed by the secretary of state\"",
+     "severity": "low"
+    },
+    {
+     "kind": "garbled",
+     "problem": "Names and abbreviations are in lower case.",
+     "evidence": "source: \"Croydon Corporation Act 1960 ... SI 2013/1959\" / tree: \"croydon corporation Act 1960 ... si 2013/1959\"",
+     "severity": "low"
+    }
+   ]
+  },
+  {
+   "source_id": "br-circulars",
+   "version_id": "new-competent-person-schemes-water-efficiency-calc--circular-09-2009-the-building-regulations-2000-authorisati@2009-09-08-0487c7c1",
+   "unit": "p2",
+   "family": "guidance-pdf",
+   "key": "ef5749b759e3a336",
+   "unchanged": true,
+   "fable_saved": "low",
+   "fable_again": "low",
+   "opus_1": "low",
+   "opus_2": "low",
+   "opus_1_findings": [
+    {
+     "kind": "structure",
+     "problem": "All headings and paragraphs 1 to 7 on this page are merged into one text block with no separate headings or numbered paragraphs.",
+     "evidence": "tree: \"...(September 2009) INTRODUCTION 1. I am directed by the Secretary of State...\"",
+     "severity": "low"
+    },
+    {
+     "kind": "garbled",
+     "problem": "Many words are run together without spaces.",
+     "evidence": "source: \"to include a table to deal with dwellings' multiple kitchen sink taps\" / tree: \"toinclude atabletodealwithdwellings’multiplekitchensinktaps\"",
+     "severity": "low"
+    },
+    {
+     "kind": "garbled",
+     "problem": "Run-together words in the date and item c).",
+     "evidence": "source: \"will come into force on 1 October 2009\" / tree: \"willcomeintoforce on1 October2009\"",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": [
+    {
+     "kind": "structure",
+     "problem": "The headings and numbered paragraphs 1 to 7 are merged into one text block, with headings read as body text.",
+     "evidence": "tree: \"INTRODUCTION 1. I am directed ... AMENDMENTS RELATING TO THE AUTHORISATION OF COMPETENT PERSON SCHEMES 6.\"",
+     "severity": "low"
+    },
+    {
+     "kind": "garbled",
+     "problem": "Many words are run together without spaces.",
+     "evidence": "source: \"The Amendment Regulations authorise building control bodies to accept\" / tree: \"TheAmendmentRegulationsauthorisebuildingcontrolbodiestoaccept\"",
+     "severity": "low"
+    }
+   ]
+  },
+  {
+   "source_id": "br-circulars",
+   "version_id": "the-building-act-1984-building-amendment-regulatio--circular-01-2012-the-building-act-1984-building-amendment-@2012-03-13-abeb722e",
+   "unit": "p4",
+   "family": "guidance-pdf",
+   "key": "aea41ae1c9b16376",
+   "unchanged": true,
+   "fable_saved": "low",
+   "fable_again": "low",
+   "opus_1": "low",
+   "opus_2": "low",
+   "opus_1_findings": [
+    {
+     "kind": "structure",
+     "problem": "The Annex heading and its title are run into the body text of the earlier section instead of being headings.",
+     "evidence": "tree: \"...department for communities and local government Annex The Building (Amendment) Regulations 2012 (s.i. 2012/718)\"",
+     "severity": "low"
+    },
+    {
+     "kind": "structure",
+     "problem": "The table is titled with the collection name instead of the Annex heading.",
+     "evidence": "tree: \"Table (Building regulations: circulars (collection, 2003 to 2026))\"",
+     "severity": "low"
+    },
+    {
+     "kind": "garbled",
+     "problem": "Capital letters are lost in the S.I. references.",
+     "evidence": "source: \"(S.I. 2012/718)\" / tree: \"(s.i. 2012/718)\"",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": [
+    {
+     "kind": "structure",
+     "problem": "The Annex headings are read as body text inside the enquiries text block, and the table is not under an Annex heading.",
+     "evidence": "tree: \"...department for communities and local government Annex The Building (Amendment) Regulations 2012 (s.i. 2012/718) The following table\"",
+     "severity": "low"
+    },
+    {
+     "kind": "garbled",
+     "problem": "Capital letters are lost in abbreviations and names.",
+     "evidence": "source: \"(S.I. 2012/718) ... (S.I. 2010/2214)\" / tree: \"(s.i. 2012/718) ... (s.i. 2010/2214)\"",
+     "severity": "low"
+    }
+   ]
+  },
+  {
+   "source_id": "bsa2022",
+   "version_id": "main@2026-07-01-f38fae86",
+   "unit": "schedule-6-paragraph-30",
+   "family": "legislation-xml",
+   "key": "e632fb9745fbe70d",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "bsa2022",
+   "version_id": "main@2026-07-01-f38fae86",
+   "unit": "schedule-8-paragraph-12",
+   "family": "legislation-xml",
+   "key": "00967ffe447b2aa7",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "bsr-dutyholder",
+   "version_id": "page@2024-03-04-866e2308",
+   "unit": "part1",
+   "family": "html",
+   "key": "53e2444a7b51a64f",
+   "unchanged": true,
+   "fable_saved": "low",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "damp-mould-health",
+   "version_id": "understanding-and-addressing-the-health-risks-of-damp-and-mo@2026-04-01-d870aed0",
+   "unit": "part3",
+   "family": "html",
+   "key": "f39715c2787758b2",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "damp-mould-health",
+   "version_id": "understanding-and-addressing-the-health-risks-of-damp-and-mo@2026-04-01-d870aed0",
+   "unit": "part6",
+   "family": "html",
+   "key": "9ffd4208ff5ed729",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "fso-guidance-collection",
+   "version_id": "check-your-fire-safety-responsibilities-under-sect--check-your-fire-safety-responsibilities-under-section-156--7617419@2023-10-25-68c61f73",
+   "unit": "p9",
+   "family": "home-office-booklet-pdf",
+   "key": "ea444ade06f6a544",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "fso-guidance-collection",
+   "version_id": "fire-safety-in-purpose-built-blocks-of-flats--fire-safety-in-purpose-built-blocks-of-flats@2024-12-02-5c6ae503",
+   "unit": "p2",
+   "family": "flats-guide-pdf",
+   "key": "b8daf8563a0e0254",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "fso-guidance-collection",
+   "version_id": "fire-safety-in-purpose-built-blocks-of-flats--fire-safety-in-purpose-built-blocks-of-flats@2024-12-02-5c6ae503",
+   "unit": "p11",
+   "family": "flats-guide-pdf",
+   "key": "c3d42a7db8eefef1",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "low",
+   "opus_1": "low",
+   "opus_2": "ok",
+   "opus_1_findings": [
+    {
+     "kind": "table",
+     "problem": "The table has column headings that are not printed on the page; every value still sits in the right row.",
+     "evidence": "tree: \"Organisation\", \"Abbreviation\" / source: no header row",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "fso-guidance-collection",
+   "version_id": "fire-safety-in-purpose-built-blocks-of-flats--fire-safety-in-purpose-built-blocks-of-flats@2024-12-02-5c6ae503",
+   "unit": "p25",
+   "family": "flats-guide-pdf",
+   "key": "2fb60929e72cdc00",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "fso-guidance-collection",
+   "version_id": "fire-safety-in-purpose-built-blocks-of-flats--fire-safety-in-purpose-built-blocks-of-flats@2024-12-02-5c6ae503",
+   "unit": "p65",
+   "family": "flats-guide-pdf",
+   "key": "c90d0b715e51010e",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "fso-guidance-collection",
+   "version_id": "fire-safety-in-purpose-built-blocks-of-flats--fire-safety-in-purpose-built-blocks-of-flats@2024-12-02-5c6ae503",
+   "unit": "p152",
+   "family": "flats-guide-pdf",
+   "key": "f3a58a3941cf6c4c",
+   "unchanged": true,
+   "fable_saved": "low",
+   "fable_again": "low",
+   "opus_1": "low",
+   "opus_2": "low",
+   "opus_1_findings": [
+    {
+     "kind": "garbled",
+     "problem": "Two words are run together in one bullet but still read right.",
+     "evidence": "source: \"purpose-built blocks of flats\" / tree: \"purpose-built blocks offlats\"",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": [
+    {
+     "kind": "garbled",
+     "problem": "Two words are run together in one bullet of A3.3; it still reads right.",
+     "evidence": "source: \"purpose-built blocks of flats\" / tree: \"purpose-built blocks offlats\"",
+     "severity": "low"
+    }
+   ]
+  },
+  {
+   "source_id": "fso-guidance-collection",
+   "version_id": "fire-safety-risk-assessment-animal-premises-and-st--fire-safety-risk-assessment-animal-premises-and-stables@2023-09-12-697807b1",
+   "unit": "p36",
+   "family": "fire-risk-guide-pdf",
+   "key": "25b63a7ddf7b9a62",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "fso-guidance-collection",
+   "version_id": "fire-safety-risk-assessment-animal-premises-and-st--fire-safety-risk-assessment-animal-premises-and-stables@2023-09-12-697807b1",
+   "unit": "p54",
+   "family": "fire-risk-guide-pdf",
+   "key": "01f281496b3edf04",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "fso-guidance-collection",
+   "version_id": "fire-safety-risk-assessment-animal-premises-and-st--fire-safety-risk-assessment-animal-premises-and-stables@2023-09-12-697807b1",
+   "unit": "p59",
+   "family": "fire-risk-guide-pdf",
+   "key": "8a26a2e354840a23",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "fso-guidance-collection",
+   "version_id": "fire-safety-risk-assessment-animal-premises-and-st--fire-safety-risk-assessment-animal-premises-and-stables@2023-09-12-697807b1",
+   "unit": "p123",
+   "family": "fire-risk-guide-pdf",
+   "key": "957710f0d82cd140",
+   "unchanged": true,
+   "fable_saved": "low",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "fso-guidance-collection",
+   "version_id": "fire-safety-risk-assessment-animal-premises-and-st--fire-safety-risk-assessment-animal-premises-and-stables@2023-09-12-697807b1",
+   "unit": "p141",
+   "family": "fire-risk-guide-pdf",
+   "key": "2ea8a4743698091b",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "fso-guidance-collection",
+   "version_id": "fire-safety-risk-assessment-educational-premises--fire-safety-risk-assessment-educational-premises@2023-09-12-148e02df",
+   "unit": "p86",
+   "family": "fire-risk-guide-pdf",
+   "key": "4724a8da43016ca9",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "fso-guidance-collection",
+   "version_id": "fire-safety-risk-assessment-factories-and-warehous--fire-safety-risk-assessment-factories-and-warehouses@2023-09-12-ca8d9634",
+   "unit": "p10",
+   "family": "fire-risk-guide-pdf",
+   "key": "7e611e34ffacbc01",
+   "unchanged": true,
+   "fable_saved": "low",
+   "fable_again": "low",
+   "opus_1": "low",
+   "opus_2": "low",
+   "opus_1_findings": [
+    {
+     "kind": "structure",
+     "problem": "Two separate printed paragraphs are merged into one section; the 'New buildings' paragraph is joined to the 'premises were in use before 2006' paragraph.",
+     "evidence": "source: \"(Workplace) Regulations.3,4\" [new paragraph] \"New buildings or significant building alterations\" / tree: \"Regulations.³,⁴ New buildings or significant building alterations\"",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": [
+    {
+     "kind": "structure",
+     "problem": "Two separate printed paragraphs are merged into one paragraph in the tree.",
+     "evidence": "source: new paragraph \"New buildings or significant building alterations should be designed...\" / tree: joined to the end of \"If your premises were in use before 2006...\"",
+     "severity": "low"
+    }
+   ]
+  },
+  {
+   "source_id": "fso-guidance-collection",
+   "version_id": "fire-safety-risk-assessment-healthcare-premises--fire-safety-risk-assessment-healthcare-premises@2023-09-12-9afdb9f7",
+   "unit": "p44",
+   "family": "fire-risk-guide-pdf",
+   "key": "da533f08f036af7b",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "fso-guidance-collection",
+   "version_id": "fire-safety-risk-assessment-means-of-escape-for-di--fire-safety-risk-assessment-means-of-escape-for-disabled-p-9117398@2023-09-12-6e9a3e0f",
+   "unit": "p42",
+   "family": "fire-risk-guide-pdf",
+   "key": "1fa6def832f87968",
+   "unchanged": true,
+   "fable_saved": "low",
+   "fable_again": "low",
+   "opus_1": "low",
+   "opus_2": "low",
+   "opus_1_findings": [
+    {
+     "kind": "structure",
+     "problem": "The table's repeated column header row on this page is also kept as a body paragraph, with header words from different columns run together and given twice.",
+     "evidence": "tree: \"Option Type of Electric Wheel- Mobility Asthma Visually Hearing Dyslexic/ Learning Mental Dexterity escape Wheel- chair impaired\"",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": [
+    {
+     "kind": "garbled",
+     "problem": "The table's header row is also kept as a paragraph before the table, with the column words run together and repeated twice.",
+     "evidence": "tree: \"Option Type of Electric Wheel- Mobility Asthma Visually Hearing Dyslexic/ Learning Mental Dexterity escape Wheel- chair impaired\"",
+     "severity": "low"
+    }
+   ]
+  },
+  {
+   "source_id": "fso-guidance-collection",
+   "version_id": "fire-safety-risk-assessment-offices-and-shops--fire-safety-risk-assessment-offices-and-shops@2023-09-12-33a009ce",
+   "unit": "p70",
+   "family": "fire-risk-guide-pdf",
+   "key": "ec2363ccbcd92abd",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "low",
+   "opus_2": "low",
+   "opus_1_findings": [
+    {
+     "kind": "order",
+     "problem": "The right-column paragraph is printed before Table 2 on the page, but the tree puts it after the table.",
+     "evidence": "source: \"When assessing travel distances you need to consider\" (right column, above Table 2) / tree: after table-2",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": [
+    {
+     "kind": "order",
+     "problem": "Table 2 sits below both text columns on the page, but the tree puts it before the right-column paragraph.",
+     "evidence": "source: \"When assessing travel distances you need to consider\" (right column, above Table 2) / tree: after the table",
+     "severity": "low"
+    }
+   ]
+  },
+  {
+   "source_id": "fso-guidance-collection",
+   "version_id": "fire-safety-risk-assessment-offices-and-shops--fire-safety-risk-assessment-offices-and-shops@2023-09-12-33a009ce",
+   "unit": "p126",
+   "family": "fire-risk-guide-pdf",
+   "key": "42e8f1a7a84a0fa2",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "fso-guidance-collection",
+   "version_id": "fire-safety-risk-assessment-open-air-events-and-ve--fire-safety-risk-assessment-open-air-events-and-venues@2023-09-12-08e6885e",
+   "unit": "p13",
+   "family": "fire-risk-guide-pdf",
+   "key": "635d6e69c670e39e",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "fso-guidance-collection",
+   "version_id": "fire-safety-risk-assessment-open-air-events-and-ve--fire-safety-risk-assessment-open-air-events-and-venues@2023-09-12-08e6885e",
+   "unit": "p50",
+   "family": "fire-risk-guide-pdf",
+   "key": "c7acbfbc767ab481",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "fso-guidance-collection",
+   "version_id": "fire-safety-risk-assessment-sleeping-accommodation--fire-safety-risk-assessment-sleeping-accommodation@2023-09-12-ff019659",
+   "unit": "p58",
+   "family": "fire-risk-guide-pdf",
+   "key": "262daa067293627d",
+   "unchanged": true,
+   "fable_saved": "low",
+   "fable_again": "low",
+   "opus_1": "low",
+   "opus_2": "ok",
+   "opus_1_findings": [
+    {
+     "kind": "structure",
+     "problem": "The first two printed paragraphs of 2.3 are joined into one paragraph in the tree.",
+     "evidence": "source: \"...published by ODPM/ CFOA/BFPSA.15\" (paragraph end) then \"If there are excessive false alarms\" / tree: one paragraph holding both",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "fso-guidance-collection",
+   "version_id": "fire-safety-risk-assessment-small-and-medium-place--fire-safety-risk-assessment-small-and-medium-places-of-ass-8089035@2024-08-28-3384dda7",
+   "unit": "p103",
+   "family": "fire-risk-guide-pdf",
+   "key": "238339b5139c5939",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "low",
+   "opus_2": "ok",
+   "opus_1_findings": [
+    {
+     "kind": "missing",
+     "problem": "Figure 57 has no labels; the words printed in the notice appear only in the model description.",
+     "evidence": "source: \"Lift receiver and dial '999'\", \"DO NOT REPLACE RECEIVER UNTIL ADDRESS HAS BEEN REPEATED BY FIRE BRIGADE\" / tree: no labels",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "fso-guidance-collection",
+   "version_id": "fire-safety-risk-assessment-theatres-cinemas-and-s--fire-safety-risk-assessment-theatres-cinemas-and-similar-p@2023-09-12-ede06ce4",
+   "unit": "p22",
+   "family": "fire-risk-guide-pdf",
+   "key": "b66720d5a6429f94",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "fso-guidance-collection",
+   "version_id": "fire-safety-risk-assessment-theatres-cinemas-and-s--fire-safety-risk-assessment-theatres-cinemas-and-similar-p@2023-09-12-ede06ce4",
+   "unit": "p26",
+   "family": "fire-risk-guide-pdf",
+   "key": "70dbde757e7e80f1",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "fso-guidance-collection",
+   "version_id": "fire-safety-risk-assessment-theatres-cinemas-and-s--fire-safety-risk-assessment-theatres-cinemas-and-similar-p@2023-09-12-ede06ce4",
+   "unit": "p124",
+   "family": "fire-risk-guide-pdf",
+   "key": "3a1f78ac364f63d9",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "low",
+   "opus_1": "low",
+   "opus_2": "low",
+   "opus_1_findings": [
+    {
+     "kind": "garbled",
+     "problem": "The tree keeps ligature glyphs instead of plain letters throughout the page, which reads right but breaks text search.",
+     "evidence": "source: \"fire policy manual\", \"specifications\" / tree: \"ﬁre policy manual\", \"speciﬁcations\"",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": [
+    {
+     "kind": "garbled",
+     "problem": "The tree keeps the 'fi' ligature glyph (U+FB01) instead of plain letters throughout the text, titles and heading path; it reads right but breaks plain-text search.",
+     "evidence": "source: \"fire policy manual\" / tree: \"ﬁre policy manual\"; \"Plans and speciﬁcations\"",
+     "severity": "low"
+    }
+   ]
+  },
+  {
+   "source_id": "fso-guidance-collection",
+   "version_id": "fire-safety-risk-assessment-transport-premises-and--fire-safety-risk-assessment-transport-premises-and-facilit@2023-09-12-249a59ff",
+   "unit": "p46",
+   "family": "fire-risk-guide-pdf",
+   "key": "e925ad1600f17c95",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "fso-guidance-collection",
+   "version_id": "fire-safety-risk-assessment-transport-premises-and--fire-safety-risk-assessment-transport-premises-and-facilit@2023-09-12-249a59ff",
+   "unit": "p113",
+   "family": "fire-risk-guide-pdf",
+   "key": "fa1b47b411d155d7",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "fso-guidance-collection",
+   "version_id": "making-your-small-block-of-flats-safe-from-fire--a-guide-to-making-your-small-block-of-flats-safe-from-fire@2025-01-20-cb50e244",
+   "unit": "p30",
+   "family": "home-office-booklet-pdf",
+   "key": "7cf0de6b466de5a2",
+   "unchanged": true,
+   "fable_saved": "low",
+   "fable_again": "low",
+   "opus_1": "low",
+   "opus_2": "ok",
+   "opus_1_findings": [
+    {
+     "kind": "garbled",
+     "problem": "The URL is split by a space at the line break, twice.",
+     "evidence": "source: \"www.gov.uk/government/collections/fire-safety-guidance\" / tree: \"www.gov.uk/government/ collections/fire-safety-guidance\"",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "fso-guidance-collection",
+   "version_id": "making-your-small-block-of-flats-safe-from-fire--a-guide-to-making-your-small-block-of-flats-safe-from-fire@2025-01-20-cb50e244",
+   "unit": "p34",
+   "family": "home-office-booklet-pdf",
+   "key": "66aa6d0f8ca0e601",
+   "unchanged": true,
+   "fable_saved": "low",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "fso-guidance-collection",
+   "version_id": "making-your-small-paying-guest-accommodation-safe--making-your-small-paying-guest-accommodation-safe-from-fire-8403143@2025-01-20-ab917022",
+   "unit": "p2",
+   "family": "home-office-booklet-pdf",
+   "key": "a40b3f3baffed888",
+   "unchanged": true,
+   "fable_saved": "low",
+   "fable_again": "low",
+   "opus_1": "low",
+   "opus_2": "ok",
+   "opus_1_findings": [
+    {
+     "kind": "missing",
+     "problem": "The 2024 Updates change list on this page is not in the tree; it says what changed in this version.",
+     "evidence": "source: \"2024 Updates ... Added new legal requirements introduced through Section 156 of the Building Safety Act 2022\"",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "fso-guidance-collection",
+   "version_id": "making-your-small-paying-guest-accommodation-safe--making-your-small-paying-guest-accommodation-safe-from-fire-8403143@2025-01-20-ab917022",
+   "unit": "p9",
+   "family": "home-office-booklet-pdf",
+   "key": "6dcfcda85ac5eba1",
+   "unchanged": true,
+   "fable_saved": "low",
+   "fable_again": "low",
+   "opus_1": "low",
+   "opus_2": "ok",
+   "opus_1_findings": [
+    {
+     "kind": "garbled",
+     "problem": "The URL is split by a space at the line break.",
+     "evidence": "source: \"www.gov.uk/planning-permission-england-wales\" / tree: \"www.gov.uk/ planning-permission-england-wales\"",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "fso-s156",
+   "version_id": "check-your-fire-safety-responsibilities-under-section-156-of-7617419@2023-10-25-68c61f73",
+   "unit": "p13",
+   "family": "guidance-pdf",
+   "key": "00bb37c9c1339aca",
+   "unchanged": false,
+   "fable_saved": "high",
+   "fable_again": "high",
+   "opus_1": "low",
+   "opus_2": "low",
+   "opus_1_findings": [
+    {
+     "kind": "structure",
+     "problem": "The chapter heading is also kept as a body text block under the previous section, before the chapter itself.",
+     "evidence": "tree: text block \"Other changes to fire safety legislation\" under \"Duties of Responsible Persons ... > Provision of > Text\"",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": [
+    {
+     "kind": "structure",
+     "problem": "The chapter heading is also kept as a body text block under the previous section, before the real chapter heading.",
+     "evidence": "tree: \"Provision of > Text\": \"Other changes to fire safety legislation\"",
+     "severity": "low"
+    }
+   ]
+  },
+  {
+   "source_id": "gpdo-2015",
+   "version_id": "main@2026-10-21-e0719d67",
+   "unit": "schedule-2-part-7-crossheading-class-ma-alteration-etc-of-prison-fences_paragraph-MA.1",
+   "family": "legislation-xml",
+   "key": "68df70769641195d",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "hhsrs-landlords",
+   "version_id": "landlord-and-agent-guide-to-the-housing-health-and-safety-ra@2026-09-16-49811e5d",
+   "unit": "part7",
+   "family": "html",
+   "key": "b55b7d99b37db125",
+   "unchanged": true,
+   "fable_saved": "low",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "hhsrs-operating",
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p80",
+   "family": "guidance-pdf",
+   "key": "c76de545bf9d6bf2",
+   "unchanged": true,
+   "fable_saved": "low",
+   "fable_again": "low",
+   "opus_1": "low",
+   "opus_2": "low",
+   "opus_1_findings": [
+    {
+     "kind": "structure",
+     "problem": "The page's subheadings are run into the body text as one paragraph instead of being kept as headings.",
+     "evidence": "tree: \"has been replaced. ... Behavioural factors Occupiers produce up to a kilo ... Relevant matters and baseline indicators affecting the likelihood and harm outcomes Other hazards\"",
+     "severity": "low"
+    },
+    {
+     "kind": "extra",
+     "problem": "The printed page number is kept inside the body text.",
+     "evidence": "tree: \"discharge internally through the cistern or pan. 78 4.3 A dedicated wash-hand basin\"",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": [
+    {
+     "kind": "structure",
+     "problem": "The page's subheadings are run into the body text instead of being kept as headings.",
+     "evidence": "tree: \"...under-floor cavities. Behavioural factors Occupiers produce...\" / \"...Relevant matters and baseline indicators affecting the likelihood and harm outcomes Other hazards impacting...\"",
+     "severity": "low"
+    },
+    {
+     "kind": "extra",
+     "problem": "The printed page number is kept inside the body text.",
+     "evidence": "tree: \"discharge internally through the cistern or pan. 78 4.3 A dedicated wash-hand basin\"",
+     "severity": "low"
+    }
+   ]
+  },
+  {
+   "source_id": "hhsrs-operating",
+   "version_id": "hhsrs-operating-guidance-part-2-a-technical-guide-for-assess@2026-06-23-ab18598e",
+   "unit": "p148",
+   "family": "guidance-pdf",
+   "key": "f491a814f4c1b87a",
+   "unchanged": true,
+   "fable_saved": "high",
+   "fable_again": "high",
+   "opus_1": "high",
+   "opus_2": "high",
+   "opus_1_findings": [
+    {
+     "kind": "order",
+     "problem": "A text section repeats this page's table as running text with the two columns interleaved and broken, so fragments join into wrong sentences.",
+     "evidence": "tree: \"a public sewer system, an approved proper sealed connection. No WC waste pipe shall be connected to a private sewage disposal system or the greywater system.\"",
+     "severity": "high"
+    },
+    {
+     "kind": "extra",
+     "problem": "The scrambled text duplicates the table rows 2.2 to 2.5, which the table grid already holds correctly, and includes the page numbers.",
+     "evidence": "tree: \"dwelling’s greywater system. No WC Relevant hazard: Domestic Hygiene. waste pipe shall be connected ... 146\"",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": [
+    {
+     "kind": "order",
+     "problem": "A text section repeats this page's table with its two columns mixed into one jumbled text, which changes the meaning of baseline indicator 2.2.",
+     "evidence": "tree: \"No WC waste pipe shall be connected to a private sewage disposal system or the greywater system.\" / source: \"No WC waste pipe shall be connected to a greywater system.\"",
+     "severity": "high"
+    },
+    {
+     "kind": "extra",
+     "problem": "The jumbled text section duplicates the table rows for 2.3 to 2.5 in broken fragments that are already kept correctly in the grid.",
+     "evidence": "tree: \"surface- and foul-water drainage for the the drainage chamber, or that there are signs of overflowing around size and maximum occupancy\"",
+     "severity": "low"
+    }
+   ]
+  },
+  {
+   "source_id": "hhsrs-regs-2005",
+   "version_id": "main@2026-06-23-58cb4af9",
+   "unit": "schedule-1-paragraph-3",
+   "family": "legislation-xml",
+   "key": "02627e7e158601ab",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "hmrc-cis-simplify-2026",
+   "version_id": "simplification-and-administrative-improvements-to-the-constr@2026-03-13-9790741a",
+   "unit": "part1",
+   "family": "html",
+   "key": "a7a9d5ff4c7059e8",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "hmrc-vatrevcon",
+   "version_id": "vatrevcon22000@2025-04-02-dcaa8e31",
+   "unit": "part1",
+   "family": "html",
+   "key": "5464c8f0e19821c5",
+   "unchanged": true,
+   "fable_saved": "low",
+   "fable_again": "low",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "hmrc-vatrevcon",
+   "version_id": "vatrevcon33100@2025-04-02-46cf2844",
+   "unit": "part1",
+   "family": "html",
+   "key": "f4c5bfa7e7611af4",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "hmrc-vatrevcon",
+   "version_id": "vatrevcon37200@2025-04-02-d8d248e0",
+   "unit": "part1",
+   "family": "html",
+   "key": "19ee54253c7bb35e",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "hmrc-vatrevcon",
+   "version_id": "vatrevcon44000@2025-04-02-b5f9f201",
+   "unit": "part1",
+   "family": "html",
+   "key": "10692c20dd2df6bf",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "hrb-procedures-2023",
+   "version_id": "main@2026-10-01-2c5017f2",
+   "unit": "schedule-3-paragraph-4",
+   "family": "legislation-xml",
+   "key": "cea87c4937c159af",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "hse-asbestos-a0",
+   "version_id": "main@2024-12-06-3078ecac",
+   "unit": "p5",
+   "family": "guidance-pdf",
+   "key": "07b448a8f92faf1c",
+   "unchanged": true,
+   "fable_saved": "low",
+   "fable_again": "low",
+   "opus_1": "low",
+   "opus_2": "low",
+   "opus_1_findings": [
+    {
+     "kind": "structure",
+     "problem": "The subheading 'Consider the material's condition' is run into the end of the previous bullet as body text instead of standing as a heading.",
+     "evidence": "tree: \"considered to be firmly bound in a matrix. Consider the material’s condition\"",
+     "severity": "low"
+    },
+    {
+     "kind": "structure",
+     "problem": "The three paragraphs after the last bullet (from 'Once you've considered' to 'whether the work is notifiable') are joined into that bullet instead of being separate paragraphs.",
+     "evidence": "tree: \"with gel or steam? Once you’ve considered these three elements, the Decision flow chart will help you\"",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": [
+    {
+     "kind": "structure",
+     "problem": "The sub-heading 'Consider the material's condition' is run into the end of the previous bullet instead of being kept as a heading.",
+     "evidence": "tree: \"considered to be firmly bound in a matrix. Consider the material’s condition\"",
+     "severity": "low"
+    },
+    {
+     "kind": "structure",
+     "problem": "Four separate body paragraphs (Once you've considered..., In summary..., NNLW will normally include..., Each Asbestos essentials task sheet...) are merged into the last bullet of the condition list.",
+     "evidence": "tree: \"deteriorating textured coatings (Artex) with gel or steam? Once you’ve considered these three elements, the Decision flow chart\"",
+     "severity": "low"
+    },
+    {
+     "kind": "structure",
+     "problem": "The sub-heading 'Consider the asbestos type' is kept as a plain text line, not as a heading.",
+     "evidence": "tree: \"Consider the asbestos type\"",
+     "severity": "low"
+    }
+   ]
+  },
+  {
+   "source_id": "hse-asbestos-information",
+   "version_id": "main@2026-10-29-6d58136a",
+   "unit": "part1",
+   "family": "html",
+   "key": "9be3f089641c4ce8",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "hse-cis63",
+   "version_id": "main@2024-12-06-1569ba38",
+   "unit": "p1",
+   "family": "guidance-pdf",
+   "key": "7aebdc48d99d4f68",
+   "unchanged": true,
+   "fable_saved": "low",
+   "fable_again": "low",
+   "opus_1": "low",
+   "opus_2": "low",
+   "opus_1_findings": [
+    {
+     "kind": "structure",
+     "problem": "The box heading is split: half is kept as the title and the rest starts the body text.",
+     "evidence": "source: \"What can happen if health and safety is ignored?\" / tree: title \"What can happen if health and\", text \"safety is ignored? A young worker...\"",
+     "severity": "low"
+    },
+    {
+     "kind": "structure",
+     "problem": "The paragraph after the bullets and the 'See over' line are merged into the last bullet.",
+     "evidence": "tree: \"• Make sure the people on your site are trained to do the work safely. This is just a summary – ... See over for examples of good practice...\"",
+     "severity": "low"
+    },
+    {
+     "kind": "order",
+     "problem": "The orange intro box comes before the bullets on the page but after them in the tree, and the subtitle is kept as the first bullet-list line.",
+     "evidence": "source: \"Want to run a successful construction site?\" (before bullets) / tree: note-1 after the bullet list",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": [
+    {
+     "kind": "structure",
+     "problem": "The box heading is split, half kept as the title and half moved into the body text.",
+     "evidence": "source: \"What can happen if health and safety is ignored?\" / tree: title \"What can happen if health and\", text \"safety is ignored? A young worker...\"",
+     "severity": "low"
+    },
+    {
+     "kind": "structure",
+     "problem": "The closing summary paragraph and 'See over' line are merged into the last bullet point.",
+     "evidence": "tree: \"• Make sure the people on your site are trained to do the work safely. This is just a summary – you can find out...\"",
+     "severity": "low"
+    },
+    {
+     "kind": "order",
+     "problem": "The intro box printed above the bullet list comes after the list in the tree.",
+     "evidence": "source: \"Want to run a successful construction site?\" printed before \"Keep your site clean and tidy\"",
+     "severity": "low"
+    }
+   ]
+  },
+  {
+   "source_id": "hse-cis63",
+   "version_id": "main@2024-12-06-1569ba38",
+   "unit": "p2",
+   "family": "guidance-pdf",
+   "key": "15c99157352dd39f",
+   "unchanged": false,
+   "fable_saved": "low",
+   "fable_again": "low",
+   "opus_1": "low",
+   "opus_2": "low",
+   "opus_1_findings": [
+    {
+     "kind": "structure",
+     "problem": "The right-hand column under Further information (leaflet location, copyright, first published) is placed under the photo heading 'Good examples' instead of 'Further information'.",
+     "evidence": "tree: heading_path \"Good examples > Text\" for \"This leaflet is available at: www.hse.gov.uk/pubns/cis63.pdf...\"",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": [
+    {
+     "kind": "structure",
+     "problem": "The right-hand column of the Further information block is put under the 'Good examples' photo heading, and that heading is moved after Further information.",
+     "evidence": "tree: heading_path \"Good examples > Text\": \"This leaflet is available at: www.hse.gov.uk/pubns/cis63.pdf...\"",
+     "severity": "low"
+    }
+   ]
+  },
+  {
+   "source_id": "hse-eh40",
+   "version_id": "main@2024-12-06-736c6fc0",
+   "unit": "p9",
+   "family": "guidance-pdf",
+   "key": "3caf4fbb5801a5ae",
+   "unchanged": false,
+   "fable_saved": "low",
+   "fable_again": "low",
+   "opus_1": "low",
+   "opus_2": "low",
+   "opus_1_findings": [
+    {
+     "kind": "structure",
+     "problem": "Numbered paragraphs 15 and 16 are merged into one text block with their numbers left inline.",
+     "evidence": "tree: \"15 This list is legally binding ... 16 However, the entries in the column headed ‘CAS number’...\"",
+     "severity": "low"
+    },
+    {
+     "kind": "extra",
+     "problem": "The running header is kept as a text section before the chapter heading.",
+     "evidence": "tree: \"Table 1: List of approved workplace exposure limits\"",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": [
+    {
+     "kind": "structure",
+     "problem": "Numbered paragraphs 15 and 16 are merged into one text block with their numbers left inline.",
+     "evidence": "tree: \"15 This list is legally binding... 16 However, the entries in the column headed ‘CAS number’...\"",
+     "severity": "low"
+    },
+    {
+     "kind": "extra",
+     "problem": "The running header is kept as a text block.",
+     "evidence": "tree: \"Table 1: List of approved workplace exposure limits\" (Annotations > Text)",
+     "severity": "low"
+    }
+   ]
+  },
+  {
+   "source_id": "hse-hsg227",
+   "version_id": "main@2024-12-06-ef0a75ce",
+   "unit": "p65",
+   "family": "guidance-pdf",
+   "key": "dd21dfa8dea79584",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "hse-hsg227",
+   "version_id": "main@2024-12-06-ef0a75ce",
+   "unit": "p68",
+   "family": "guidance-pdf",
+   "key": "e1fa30ccb0b529a6",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "hse-hsg247",
+   "version_id": "main@2026-07-21-56258caf",
+   "unit": "p6",
+   "family": "guidance-pdf",
+   "key": "13e4170fcd8b54d9",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "hse-hsg247",
+   "version_id": "main@2026-07-21-56258caf",
+   "unit": "p24",
+   "family": "guidance-pdf",
+   "key": "421bce2ff7e54295",
+   "unchanged": true,
+   "fable_saved": "high",
+   "fable_again": "high",
+   "opus_1": "low",
+   "opus_2": "high",
+   "opus_1_findings": [
+    {
+     "kind": "structure",
+     "problem": "The Appendix 1.3 flow chart sits under the heading 'Medical examination of asbestos removal workers under CAWR 2002', which is not its parent.",
+     "evidence": "tree: \"Chapter 1 ... > Medical examination of asbestos removal workers under CAWR 2002 > Table\" / source: \"Appendix 1.3 AIB and insulating blocks in poor condition\"",
+     "severity": "low"
+    },
+    {
+     "kind": "missing",
+     "problem": "The flattened chart row leaves out that 'Carry out repair work' leads on to 'Record, manage and monitor'.",
+     "evidence": "source: arrow from \"Carry out repair work\" to \"Record, manage and monitor\" / tree: \"Yes: Carry out repair work. No: ...\"",
+     "severity": "low"
+    },
+    {
+     "kind": "order",
+     "problem": "The appendix caption comes as a text block after the chart, not before it.",
+     "evidence": "tree: text \"Appendix 1.3 AIB and insulating blocks in poor condition\" after the table",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": [
+    {
+     "kind": "structure",
+     "problem": "The Appendix 1.1-1.4 flow charts are kept as one table titled and filed under the 'Medical examination of asbestos removal workers under CAWR 2002' heading, which is not what this chart is about.",
+     "evidence": "source: \"Appendix 1.3 AIB and insulating blocks in poor condition\" / tree: \"Medical examination of asbestos removal workers under CAWR 2002 > Table\"",
+     "severity": "high"
+    },
+    {
+     "kind": "structure",
+     "problem": "The chart heading 'Appendix 1.3' is kept as a body text section placed after the table, not as the heading above the chart.",
+     "evidence": "tree: \"Text\": \"Appendix 1.3 AIB and insulating blocks in poor condition\"",
+     "severity": "low"
+    }
+   ]
+  },
+  {
+   "source_id": "hse-hsg247",
+   "version_id": "main@2026-07-21-56258caf",
+   "unit": "p175",
+   "family": "guidance-pdf",
+   "key": "aa8f9f8d00234e57",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "hse-hsg248",
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p2",
+   "family": "guidance-pdf",
+   "key": "d59a70ddece0e860",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "hse-hsg248",
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p67",
+   "family": "guidance-pdf",
+   "key": "962b97a6b1ed2d7b",
+   "unchanged": false,
+   "fable_saved": "high",
+   "fable_again": "high",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "hse-hsg248",
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p227",
+   "family": "guidance-pdf",
+   "key": "7be66d6913e6dcbe",
+   "unchanged": false,
+   "fable_saved": "high",
+   "fable_again": "high",
+   "opus_1": "low",
+   "opus_2": "low",
+   "opus_1_findings": [
+    {
+     "kind": "table",
+     "problem": "Table A9.5's grid row has four cells under two columns: the 'Detail of core competence' text is split into extra unnamed cells, mid-sentence.",
+     "evidence": "tree: \"...create a report for a\" | \"management survey in accordance with HSG264...\" (cells 3 and 4 have no column)",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": [
+    {
+     "kind": "table",
+     "problem": "Table A9.5 has two columns but its grid row holds four cells, so the detail text spills into two extra columns with no heading.",
+     "evidence": "tree: grid cell 3 \"building services and plant and equipment...\", cell 4 \"management survey in accordance with HSG264...\"",
+     "severity": "low"
+    }
+   ]
+  },
+  {
+   "source_id": "hse-indg236",
+   "version_id": "main@2024-12-06-cc2a26a2",
+   "unit": "p2",
+   "family": "guidance-pdf",
+   "key": "beb3311fbd099721",
+   "unchanged": true,
+   "fable_saved": "high",
+   "fable_again": "high",
+   "opus_1": "high",
+   "opus_2": "high",
+   "opus_1_findings": [
+    {
+     "kind": "order",
+     "problem": "The two sub-bullets under 'either:' are interleaved line by line, part placed in the bullet and the rest moved to a separate section at the end of the page.",
+     "evidence": "source: \"repaired by someone competent (ie with suitable training, skills and knowledge for the task...)\" / tree: \"either: knowledge for the task to prevent injury... or arrangements for disposing\"",
+     "severity": "high"
+    },
+    {
+     "kind": "structure",
+     "problem": "The paragraph after the bullet list is merged into the last bullet.",
+     "evidence": "\"...no legal requirement to do either of these things. Table 1 at the end of this leaflet gives an initial indication\"",
+     "severity": "low"
+    },
+    {
+     "kind": "structure",
+     "problem": "The sub-headings 'User checks' and 'Visual inspections' are kept as body text, and the Visual inspections text is merged into the last user-check bullet.",
+     "evidence": "\"cables trapped under furniture or in floor boxes. Visual inspections To carry out a visual inspection\"",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": [
+    {
+     "kind": "order",
+     "problem": "The two sub-bullets under 'either:' are split up: their line ends sit inside the main bullet and their starts are moved to a separate block at the end of the page, so neither option reads whole.",
+     "evidence": "source: \"repaired by someone competent (ie with suitable training, skills and knowledge for the task...)\" / tree: \"either: knowledge for the task to prevent injury...\"",
+     "severity": "high"
+    },
+    {
+     "kind": "structure",
+     "problem": "The subheadings 'User checks' and 'Visual inspections' are run into the body text instead of being kept as headings.",
+     "evidence": "tree: \"User checks These should be carried out\" / \"floor boxes. Visual inspections To carry out\"",
+     "severity": "low"
+    }
+   ]
+  },
+  {
+   "source_id": "hse-indg453",
+   "version_id": "main@2024-12-06-3b5e1c58",
+   "unit": "p4",
+   "family": "guidance-pdf",
+   "key": "d5d120974c7c832e",
+   "unchanged": true,
+   "fable_saved": "high",
+   "fable_again": "high",
+   "opus_1": "high",
+   "opus_2": "high",
+   "opus_1_findings": [
+    {
+     "kind": "order",
+     "problem": "The four sub-bullets of the road traffic exemption are cut off and placed at the end of the page after 'How to report', so 'unless the accident involved:' ends with nothing.",
+     "evidence": "source: \"road traffic accidents, unless the accident involved: - the loading or unloading of a vehicle;\" / tree: \"road traffic accidents, unless the accident involved:\"",
+     "severity": "high"
+    },
+    {
+     "kind": "structure",
+     "problem": "The sub-headings 'Online' and 'Telephone' are kept as body text in one run-on paragraph.",
+     "evidence": "\"Online Go to www.hse.gov.uk/riddor ... Telephone All incidents can be reported online\"",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": [
+    {
+     "kind": "order",
+     "problem": "The four sub-bullets that limit the road traffic exemption are moved away from their lead-in, past Recording requirements and How to report, to the end of the page.",
+     "evidence": "source: \"road traffic accidents, unless the accident involved: the loading or unloading of a vehicle;\" / tree: \"unless the accident involved:\" then \"Recording requirements\"",
+     "severity": "high"
+    },
+    {
+     "kind": "structure",
+     "problem": "The subheadings 'Online' and 'Telephone' are run into the body text.",
+     "evidence": "tree: \"Online Go to www.hse.gov.uk/riddor\" / \"Telephone All incidents can be reported online\"",
+     "severity": "low"
+    }
+   ]
+  },
+  {
+   "source_id": "hse-indg463",
+   "version_id": "main@2024-12-06-53aea9a8",
+   "unit": "p3",
+   "family": "guidance-pdf",
+   "key": "556caaed39d1c574",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "low",
+   "opus_1": "low",
+   "opus_2": "low",
+   "opus_1_findings": [
+    {
+     "kind": "structure",
+     "problem": "The lead-in sentence for the RPE list is merged into the last 'You should' bullet, so the RPE items read as part of the same list.",
+     "evidence": "\"wear protective clothing properly. If you have to wear RPE, make sure that:\"",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": [
+    {
+     "kind": "structure",
+     "problem": "The separate paragraph that introduces the RPE list is joined onto the last bullet of the list before it.",
+     "evidence": "source: \"If you have to wear RPE, make sure that:\" / tree: \"• wear protective clothing properly. If you have to wear RPE, make sure that:\"",
+     "severity": "low"
+    }
+   ]
+  },
+  {
+   "source_id": "hse-l108",
+   "version_id": "main@2024-12-06-93ed15e0",
+   "unit": "p54",
+   "family": "guidance-pdf",
+   "key": "152c2c2f1f2a3d86",
+   "unchanged": false,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "hse-l140",
+   "version_id": "main@2024-12-06-0a314fd6",
+   "unit": "p55",
+   "family": "guidance-pdf",
+   "key": "b53c6b3c2e02eb8d",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "low",
+   "opus_2": "low",
+   "opus_1_findings": [
+    {
+     "kind": "missing",
+     "problem": "The colour key bands (Above ELV, Likely to be above ELV, Above EAV, Likely to be at or above EAV, Below EAV) are not linked to any cells in the grid; they survive only as jumbled words in the table text.",
+     "evidence": "source: \"Key Above ELV / Likely to be above ELV / Above EAV / Likely to be at or above EAV / Below EAV\" / tree: \"Likely to be 20 67 200 400 800 1200\"",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": [
+    {
+     "kind": "missing",
+     "problem": "The table grid does not keep the colour band of each cell, so the key (Above ELV, Likely to be above ELV, Above EAV, Likely to be at or above EAV, Below EAV) cannot be applied to the values; the key words survive only in the table text.",
+     "evidence": "source: \"Key Above ELV / Likely to be above ELV / Above EAV / Likely to be at or above EAV / Below EAV\"",
+     "severity": "low"
+    }
+   ]
+  },
+  {
+   "source_id": "hse-l5",
+   "version_id": "main@2024-12-06-95519090",
+   "unit": "p94",
+   "family": "guidance-pdf",
+   "key": "2cc41b32fb15a2ca",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "hswa1974",
+   "version_id": "main@2026-07-16-51da3781",
+   "unit": "section-35",
+   "family": "legislation-xml",
+   "key": "7a9aa618a5fd2107",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "party-wall-booklet",
+   "version_id": "the-party-wall-etc-act-1996-explanatory-booklet@2016-05-12-28fa7e30",
+   "unit": "part1",
+   "family": "html",
+   "key": "de15d8ffc442180a",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "payments-compliance-notices",
+   "version_id": "guidance-payments-compliance-notices-html@2026-07-20-9abddd55",
+   "unit": "part1",
+   "family": "html",
+   "key": "9e8670c33060dcb1",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "procurement-act-2023",
+   "version_id": "main@2026-07-16-41607668",
+   "unit": "schedule-11-paragraph-2",
+   "family": "legislation-xml",
+   "key": "1400bb1cc00adb48",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "procurement-act-2023",
+   "version_id": "main@2026-07-16-41607668",
+   "unit": "schedule-5-paragraph-4",
+   "family": "legislation-xml",
+   "key": "4de4c404bc1a6530",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "procurement-act-2023",
+   "version_id": "main@2026-07-16-41607668",
+   "unit": "section-88",
+   "family": "legislation-xml",
+   "key": "e9ea54b8a16cbaeb",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "procurement-regs-2024",
+   "version_id": "main@2026-04-01-3fbf5f3d",
+   "unit": "regulation-42B",
+   "family": "legislation-xml",
+   "key": "b6759095d9bf88b9",
+   "unchanged": true,
+   "fable_saved": "low",
+   "fable_again": "low",
+   "opus_1": "low",
+   "opus_2": "ok",
+   "opus_1_findings": [
+    {
+     "kind": "structure",
+     "problem": "The (a) and (b) labels of the lettered lists in the definitions of 'relevant period' and 'reorganisation' are dropped, though the text refers to 'sub-paragraph (a)'.",
+     "evidence": "source: OrderedList Type=\"alpha\" Decoration=\"parens\" / tree: \"the period of three years ending with the date of contract award, or\"",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "procurement-supplier-guide",
+   "version_id": "how-to-register-your-organisation-and-find-your-unique-ident@2026-10-21-4d625a25",
+   "unit": "part1",
+   "family": "html",
+   "key": "789c4bddfa108bd6",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "rbca-2024",
+   "version_id": "main@2026-11-06-a9c073cb",
+   "unit": "schedule-3-paragraph-1A",
+   "family": "legislation-xml",
+   "key": "4f0ee9d44b1ec845",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "scheme-cc-1998",
+   "version_id": "main@2011-10-01-1d85d315",
+   "unit": "schedule-part-I-paragraph-22",
+   "family": "legislation-xml",
+   "key": "06f5f0601507892c",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "shra2023",
+   "version_id": "main@2024-04-01-01885967",
+   "unit": "section-39",
+   "family": "legislation-xml",
+   "key": "37c14321367af3f9",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "supplier-information",
+   "version_id": "procurement-act-2023-short-guides--the-procurement-act-2023-abnormally-low-tenders-pdf@2026-10-21-ee5d0ede",
+   "unit": "p9",
+   "family": "guidance-pdf",
+   "key": "25f58d74337fac7b",
+   "unchanged": true,
+   "fable_saved": "low",
+   "fable_again": "low",
+   "opus_1": "low",
+   "opus_2": "low",
+   "opus_1_findings": [
+    {
+     "kind": "extra",
+     "problem": "The page number 9 from the footer is appended to the end of paragraph 21's text.",
+     "evidence": "tree: \"21.7 a chronology of events against time. 9\"",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": [
+    {
+     "kind": "extra",
+     "problem": "The page number from the footer is appended to the end of paragraph 21's text.",
+     "evidence": "tree: \"21.7 a chronology of events against time. 9\"",
+     "severity": "low"
+    }
+   ]
+  },
+  {
+   "source_id": "supplier-information",
+   "version_id": "procurement-act-2023-short-guides--transforming-public-procurement-get-ready-for-go-live-slide@2026-10-21-fb08df22",
+   "unit": "p3",
+   "family": "guidance-pdf",
+   "key": "0095ed69e6d76285",
+   "unchanged": true,
+   "fable_saved": "high",
+   "fable_again": "low",
+   "opus_1": "low",
+   "opus_2": "low",
+   "opus_1_findings": [
+    {
+     "kind": "structure",
+     "problem": "The bullet list of agenda items is read as a one-column table instead of a list.",
+     "evidence": "source: \"We will to cover: ● Procurement Act 2023 - what you need to know\" / tree: table grid rows",
+     "severity": "low"
+    },
+    {
+     "kind": "table",
+     "problem": "The table is given a column heading that is not printed on this page; it is one of the list items.",
+     "evidence": "tree: columns [\"Central Digital Platform\"]",
+     "severity": "low"
+    },
+    {
+     "kind": "structure",
+     "problem": "The slide title is kept as a note rather than a heading.",
+     "evidence": "source: \"Transforming Public Procurement - Get ready for go-live\" / tree: type \"note\"",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": [
+    {
+     "kind": "structure",
+     "problem": "The bulleted agenda list on this slide is read as a one-column table instead of a list of text.",
+     "evidence": "source: \"We will to cover: ● Procurement Act 2023 - what you need to know\" / tree: table grid row \"Procurement Act 2023 - what you need to know\"",
+     "severity": "low"
+    },
+    {
+     "kind": "table",
+     "problem": "The table's only column heading is an agenda item, which is not a heading in the source.",
+     "evidence": "tree: columns [\"Central Digital Platform\"]",
+     "severity": "low"
+    }
+   ]
+  },
+  {
+   "source_id": "supplier-information",
+   "version_id": "procurement-act-2023-short-guides--uk1-the-new-pipeline-notice-pdf@2026-10-21-3dc87997",
+   "unit": "p3",
+   "family": "guidance-pdf",
+   "key": "c3596b425dc618bb",
+   "unchanged": true,
+   "fable_saved": "low",
+   "fable_again": "low",
+   "opus_1": "low",
+   "opus_2": "low",
+   "opus_1_findings": [
+    {
+     "kind": "structure",
+     "problem": "The headings and bullet lists of the page are run together into one note, so headings read as body text.",
+     "evidence": "source: \"Information required\" ... \"For Suppliers:\" / tree: \"Information required Contracting authority information ... For Suppliers: The Pipeline Notice\"",
+     "severity": "low"
+    },
+    {
+     "kind": "missing",
+     "problem": "The screenshots of the Find a Tender filters are not kept as figures; they only illustrate the listed steps.",
+     "evidence": "source: \"UK1: Pipeline notice\", \"Small and medium-sized enterprises (SME)\"",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": [
+    {
+     "kind": "structure",
+     "problem": "The headings and bulleted lists on the page are merged into one note block, so the headings are read as body text.",
+     "evidence": "source: \"Information required\" ... \"For Suppliers:\" / tree: \"Information required Contracting authority information ... For Suppliers: The Pipeline Notice\"",
+     "severity": "low"
+    }
+   ]
+  },
+  {
+   "source_id": "supplier-information",
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p5",
+   "family": "guidance-pdf",
+   "key": "346e0a02fe03323d",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "supplier-information",
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p32",
+   "family": "guidance-pdf",
+   "key": "a436a129140ebde1",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "supplier-information",
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p143",
+   "family": "guidance-pdf",
+   "key": "89c05468b98026fe",
+   "unchanged": false,
+   "fable_saved": "high",
+   "fable_again": "low",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "supplier-information",
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p183",
+   "family": "guidance-pdf",
+   "key": "9b2135a67e50dec4",
+   "unchanged": true,
+   "fable_saved": "high",
+   "fable_again": "high",
+   "opus_1": "high",
+   "opus_2": "high",
+   "opus_1_findings": [
+    {
+     "kind": "structure",
+     "problem": "The headings that say which authorities each table applies to are merged into one text block and not kept as parents of the tables, so the central-government tendering periods lose their scope.",
+     "evidence": "source: \"Central government authorities\" above \"Tendering period (days)\" / tree: \"All contracting authorities Central government authorities Non-central government authorities\"",
+     "severity": "high"
+    }
+   ],
+   "opus_2_findings": [
+    {
+     "kind": "structure",
+     "problem": "The headings that scope each table are run together as one body text, and neither table sits under its heading in heading_path, so the tendering periods lose the 'Central government authorities' condition.",
+     "evidence": "source: \"Central government authorities\" above the Tendering period table / tree: text \"All contracting authorities Central government authorities Non-central government authorities\"",
+     "severity": "high"
+    }
+   ]
+  },
+  {
+   "source_id": "supplier-information",
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p290",
+   "family": "guidance-pdf",
+   "key": "b8d928303587bf86",
+   "unchanged": true,
+   "fable_saved": "low",
+   "fable_again": "low",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "supplier-information",
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p377",
+   "family": "guidance-pdf",
+   "key": "5cff396f729edec0",
+   "unchanged": true,
+   "fable_saved": "low",
+   "fable_again": "low",
+   "opus_1": "low",
+   "opus_2": "ok",
+   "opus_1_findings": [
+    {
+     "kind": "structure",
+     "problem": "The heading 'Award Criteria weightings' is run into the body text instead of being kept as a heading.",
+     "evidence": "source: \"Award Criteria weightings\" (heading) / tree: \"...want to make: Award Criteria weightings How can the relative importance...\"",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "supplier-information",
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p575",
+   "family": "guidance-pdf",
+   "key": "6cbace089c23cc6c",
+   "unchanged": false,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "supplier-information",
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p583",
+   "family": "guidance-pdf",
+   "key": "b4f6971cdb5c2f29",
+   "unchanged": true,
+   "fable_saved": "low",
+   "fable_again": "low",
+   "opus_1": "low",
+   "opus_2": "low",
+   "opus_1_findings": [
+    {
+     "kind": "structure",
+     "problem": "The heading 'Establishing a utilities framework' is merged into a body text block instead of being kept as a heading.",
+     "evidence": "source: \"Establishing a utilities framework\" (heading) / tree: \"Establishing a utilities framework A utilities framework is a framework which...\"",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": [
+    {
+     "kind": "structure",
+     "problem": "The heading 'Establishing a utilities framework' is kept as body text, and the steps under it stay under 'Process flows' instead of under that heading.",
+     "evidence": "source: \"Establishing a utilities framework\" (heading) / tree: \"Establishing a utilities framework A utilities framework is a framework which...\"",
+     "severity": "low"
+    }
+   ]
+  },
+  {
+   "source_id": "supplier-information",
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p610",
+   "family": "guidance-pdf",
+   "key": "41f0b414d0ec084e",
+   "unchanged": true,
+   "fable_saved": "low",
+   "fable_again": "low",
+   "opus_1": "low",
+   "opus_2": "low",
+   "opus_1_findings": [
+    {
+     "kind": "structure",
+     "problem": "The headings 'Part 7' and 'Part 8' are joined into one text block before the tables, so each table is not placed under its own Part heading.",
+     "evidence": "source: \"Part 7 implementation of international obligations\" / tree: \"Part 7 implementation of international obligations Part 8 information and notices: general provisions Part 9...\"",
+     "severity": "low"
+    }
+   ],
+   "opus_2_findings": [
+    {
+     "kind": "structure",
+     "problem": "The part headings above each table are run together into one text block before both tables, so neither table sits under its own part heading.",
+     "evidence": "source: \"Part 7 implementation of international obligations\" ... \"Part 8 information and notices: general provisions\" / tree: \"Part 7 implementation of international obligations Part 8 information and notices: general provisions Part 9 remedies...\"",
+     "severity": "low"
+    }
+   ]
+  },
+  {
+   "source_id": "vat-notice-708",
+   "version_id": "page@2026-08-26-5b62fe10",
+   "unit": "part5",
+   "family": "html",
+   "key": "a3e917d2e35230d0",
+   "unchanged": true,
+   "fable_saved": "low",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  },
+  {
+   "source_id": "vat-notice-708",
+   "version_id": "page@2026-08-26-5b62fe10",
+   "unit": "part22",
+   "family": "html",
+   "key": "08a575123839d3ae",
+   "unchanged": true,
+   "fable_saved": "ok",
+   "fable_again": "ok",
+   "opus_1": "ok",
+   "opus_2": "ok",
+   "opus_1_findings": [],
+   "opus_2_findings": []
+  }
+ ]
+}

@@ -1477,16 +1477,20 @@ class Builder:
             return False
         if _is_bold(l["font"]) and self.body_size + 2 <= l["size"] < 2 * self.body_size and "Italic" not in l["font"]:
             return any(abs(l["x0"] - c) <= 2.5 for c in self.text_lefts)
-        return bool(MEDIUM_RE.search(l["font"])) and self.body_size + 0.5 <= l["size"] < 1.3 * self.body_size \
-            and abs(l["x0"] - self.left(l)) <= 3 and len(t.split()) <= (16 if run == 2 else 8)
+        return bool(MEDIUM_RE.search(l["font"])) and self.body_size + 0.5 <= l["size"] < 1.5 * self.body_size \
+            and (self.left(l) - 3 <= l["x0"] <= self.left(l) + 25 or any(abs(l["x0"] - c) <= 2.5 for c in self.text_lefts)) \
+            and len(t.split()) <= (16 if run == 2 else 12)
 
     def _heading_wrap(self, h: dict, x: dict) -> bool:
         """The second line of a wrapped heading: same font, size and left edge, and it starts in lower case or a
         bracket ("Îndatoriri generale [Construction (Design" / "and Management) Regulations 2015]") or the two
         lines stand alone in that style ("What are the main changes ... under the" / "Procurement Act 2023?")."""
         t = x["text"].strip()
-        return x["font"] == h["font"] and x["size"] == h["size"] and abs(x["x0"] - h["x0"]) <= 3 and bool(t) \
-            and len(t.split()) <= 10 and (t[0].islower() or t[0] in "([" or self._block_run(h) == 2)
+        if not t or x["font"] != h["font"] or x["size"] != h["size"] or len(t.split()) > 10:
+            return False
+        if t[0].islower() and -16 <= x["x0"] - h["x0"] <= 3:  # a numbered question's second line starts further left
+            return True
+        return abs(x["x0"] - h["x0"]) <= 3 and (t[0] in "([" or self._block_run(h) == 2)
 
     def _block_run(self, l, first: bool = False):
         """How many lines in a row, one under the other at the same left edge, share this line's font and size: a
@@ -1955,6 +1959,16 @@ class Builder:
             if l["page"] in self.table_pages and l["page"] not in diagram_done:
                 diagram_done.add(l["page"])
                 rest = [j for j in range(k_line, len(self.lines)) if self.lines[j]["page"] == l["page"]]
+                if self.is_heading(l) and not self.rect_of(l):
+                    # S128: a heading over a whole-page table ("Voluntary" over its notices) is a heading, and the
+                    # table sits under it, not under the heading before.
+                    hid = f"{chapter['id']}-{slugify(l['text'])}"
+                    while hid in self.by_id:
+                        hid += "-2"
+                    heading = parent = self.new(hid, "heading", chapter, None, l["text"], [*chapter["heading_path"], l["text"]], l["page"])
+                    para = None
+                    rest = rest[1:]
+                    l = self.lines[rest[0]] if rest else l
                 g = next((t for t in self.doc_tables if t["page"] == l["page"] and id(t) in self.run_on), None)
                 owner = self._run_on_owner(g)
                 if owner is not None:  # a whole page of rows run on from the table on the page before (S118)
@@ -2508,6 +2522,9 @@ class Builder:
         if any(l["top"] < t["top"] - 2 and not CONT_LABEL_RE.match(l["text"].strip())
                for l in self.lines_by_page.get(page, [])):
             return None
+        if any(t["top"] - 2 <= l["top"] <= t["top"] + 30 and (self.is_heading(l) or self.is_chapter(l))
+               for l in self.lines_by_page.get(page, [])):
+            return None  # a heading at the top of the grid starts a new table ("Voluntary" over its notices)
         before = [x for x in self.doc_tables if x["page"] == page - 1 and self._ruled_grid(x)]
         if not before:
             return None

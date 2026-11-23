@@ -1,0 +1,1379 @@
+{
+ "source_id": "hse-hsg248",
+ "model": "claude-opus-5-5",
+ "about": "Verdicts of claude-opus-5-5 on source against tree for hse-hsg248 (system/rag/semcheck.py).",
+ "verdicts": {
+  "8262164d5cc24b78": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p104",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The paragraph after Table A1.1 and paragraph A1.50 are not separate blocks; they exist only inside the table's text, so the reporting rule sits under the table.",
+     "evidence": "source: \"The report should clearly state that the reported result is for respirable fibres and not asbestos fibres\" / tree: only in table-a1-1 text"
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "8e3191495c0aa16a": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p104",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The end of paragraph A1.49 is printed below Table A1.1 on this page, but the tree puts all of it before the table.",
+     "evidence": "source (after table): \"The report should clearly state that the reported result is for respirable fibres and not asbestos fibres.\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "f5c0c4471f1b91ae": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p105",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The table has no header row in the source, but the tree gives it invented column names.",
+     "evidence": "tree: columns \"Item\", \"Column 2\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "f68eb3aa87fd4f03": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p105",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "2f9978e872614914": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p117",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Paragraphs A2.19, A2.20 and A2.21 below the table are swallowed into the table's note text and have no paragraph blocks of their own.",
+     "evidence": "tree table text: \"A2.19 Breaking of resistant materials (A)...\", \"A2.20 Acid treatment (B)...\", \"A2.21 Solvent treatment (C)...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "b51e419a0a2d94aa": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p117",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The superscript reference number 73 is run into the word in the Vermiculite row.",
+     "evidence": "source: \"sedimentation⁷³\" / tree: \"sedimentation73\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "9d27f55b90de6b4e": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p123",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Paragraphs A2.38 and A2.39 are not their own sections; their text is only kept inside the Table A2.4 text as if they were table notes.",
+     "evidence": "tree table text: \"A2.38 In practice, as the physical appearance in Table A2.3...\" and \"A2.39 The observations made...\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The lead-in sentence after the first list is joined into the last bullet of that list.",
+     "evidence": "tree: \"in the visible spectrum. An assessment of the optical properties in the sequence listed in Table A2.4\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The subscript on lambda is lost.",
+     "evidence": "source: \"(λ0)\" / tree: \"(λ)\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "cbc113ce420446bd": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p123",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sentence introducing the second list is merged into the last bullet of the first list.",
+     "evidence": "tree: \"in the visible spectrum. An assessment of the optical properties in the sequence listed in Table A2.4 would be carried out as follows:\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The subscript zero on lambda is lost.",
+     "evidence": "source: \"(λ₀)\" / tree: \"(λ)\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "60b5451f14396f55": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p124",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "A section from chapter 8 on domestic clothing (page 70) is attached to this page, but none of its text is printed here.",
+     "evidence": "tree: \"(ii) Additional clothing may be required in some circumstances (eg cold weather).\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The table note is put in the grid as a data row, and the empty first header is given an invented name 'Item'.",
+     "evidence": "tree grid row: \"* Pleochroism may also be observed under crossed polars, see paragraph A2.42.\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The 'Note:' paragraph after the quoted list is joined to the last bullet of A2.41.",
+     "evidence": "tree: \"fibres showing curvature.’ Note: Many minerals are a mix\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "7fbb7bded54750e5": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p124",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "A block from chapter 8 (page 70) about additional clothing is attached to this page, but none of its text is printed here.",
+     "evidence": "tree: \"(ii) Additional clothing may be required in some circumstances (eg cold weather)\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The separate 'Note:' paragraph after the quoted list is merged into the last bullet of A2.41.",
+     "evidence": "tree: \"fibres showing curvature.’ Note: Many minerals are a mix of both fibrous and non-fibrous components\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "620be15566409312": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p127",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The paragraph printed after Table A2.7 is placed before the table, inside A2.49.",
+     "evidence": "source: table then \"Crocidolite is the only one of the six regulated asbestos types\" / tree: text before table-a2-7"
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "Table A2.7 has no printed header row, but the tree invents the column names 'Item' and 'Column 2'.",
+     "evidence": "tree columns: \"Item\", \"Column 2\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "856c06b1d0e54828": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p127",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "838bd8ae6f2a3aeb": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p131",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "Text printed after Table A2.8 and after Table A2.9 is placed in A2.53 before both tables.",
+     "evidence": "source: \"When the RI match between particle and mount is just outside the visible spectrum\" follows Table A2.8; \"Where there is a mismatch of RI\" follows Table A2.9"
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "Tables A2.8 and A2.9 have no header row in the source, but the tree adds invented column names.",
+     "evidence": "tree: \"Item\", \"Column 2\", \"Column 3\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "bb7b9d3e13c7b7b1": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p131",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Paragraphs A2.54 and A2.55 are not kept as their own paragraphs but run into the notes text of Table A2.9.",
+     "evidence": "tree table-a2-9 text: \"A2.54 Different dispersion staining colours will be observed ... A2.55 The dispersion staining colour difference along and across the fibre\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The end of paragraph A2.55 (from the next page) is appended to paragraph A2.53, so A2.53 holds text of another provision.",
+     "evidence": "tree A2.53: \"commercially produced products. direction but in the other direction the colour will be desaturated\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "Tables A2.8 and A2.9 have no printed header row, but the tree gives them invented column names.",
+     "evidence": "tree columns: \"Item\", \"Column 2\", \"Column 3\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "7d21b43069505c99": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p141",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Paragraph A2.81 printed below the table is not its own paragraph; it exists only inside Table A2.10's text, so the rule sits under the table.",
+     "evidence": "source: \"A2.81 Colour or other vision defects need not disqualify a prospective analyst\" / tree: only in table-a2-10 text"
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "c9e9b9e728124c86": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p141",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The caption and lead-in of Table A2.11 (from the next page) are merged into the text of paragraph A2.81, so the points system rules sit under the colour vision paragraph.",
+     "evidence": "tree: \"MS7 on colour vision92 is available, which includes a list of colour vision tests. Table A2.11 Examples of different number combinations\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The footnote reference 92 is run into the word as a plain number.",
+     "evidence": "source: \"colour vision⁹²\" / tree: \"colour vision92\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "08d7ebb1d3eb5481": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p142",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "high",
+     "problem": "The footnote under the two tables, which explains the asterisks, is not in the tree.",
+     "evidence": "source: \"* Additional QC will be required on sample numbers above 20 and 40 for Category B and A samples respectively.\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The Table A2.11 caption and the points-system rules are put inside paragraph A2.81, and the two tables have no number and a generic title instead.",
+     "evidence": "tree A2.81: \"...colour vision tests. Table A2.11 Examples of different number combinations...\" / tree table title: \"Quality assurance and quality control\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "581e4185e3b8d337": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p142",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "high",
+     "problem": "The footnote under Table A2.11 that explains the asterisks is not in either table's text or anywhere in the tree.",
+     "evidence": "source: \"* Additional QC will be required on sample numbers above 20 and 40 for Category B and A samples respectively.\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The Table A2.11 caption and the 'system operates as follows' bullets are merged into paragraph A2.80 instead of belonging to the table, and the two tables lose their number and caption.",
+     "evidence": "tree: \"...six regulated asbestos types. Table A2.11 Examples of different number combinations...\" / tree title: \"Quality assurance and quality control\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading 'Sample packaging and transport' is run into the end of A2.80, and A2.82 and Figure A2.9 are filed under 'Quality assurance and quality control' instead of that heading.",
+     "evidence": "tree: \"(preferably by a different analyst). Sample packaging and transport\" / heading_path: \"Quality assurance and quality control > Paragraph A2.82\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "65f0a51f9436ad73": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p176",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Paragraph A5.5 has no block of its own; it is kept only as a note at the end of Table A5.3's text.",
+     "evidence": "tree (table-a5-3 text): \"A5.5 The analyst should consult with the licence holder about the potential for contamination\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The 'Stage 1' heading and A5.6 are not placed under the parent heading 'THE FOUR-STAGE CLEARANCE PROCEDURE IN DETAIL' in heading_path.",
+     "evidence": "heading_path: \"Appendix 5 ... > Stage 1: Preliminary check of site condition and job completeness\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "8f06f56d927abbcd": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p176",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "0a664888480b0576": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p180",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The two notes printed under Table A5.4 are kept as separate numbered paragraphs 1 and 2 of the section, not as notes of the table; the table text ends with only the word 'Notes'.",
+     "evidence": "source: \"Notes 1 The degree of 'sheeting out'...\" / tree: table text ends \"Notes\"; separate \"Paragraph 1\", \"Paragraph 2\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "4f156a2c6c71b2b4": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p180",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "A5.20, A5.21, Table A5.4 and its notes are filed under 'Stage 1: Preliminary check' instead of the heading 'Estimating how long a visual inspection should take'.",
+     "evidence": "tree: \"... > Stage 1: Preliminary check of site condition and job completeness > Paragraph A5.20\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading 'Estimating how long a visual inspection should take' is read as body text at the end of paragraph A5.17.",
+     "evidence": "tree: \"...before starting stage 2. Estimating how long a visual inspection should take\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The two notes under Table A5.4 are kept as separate numbered paragraphs 1 and 2, not as notes of the table.",
+     "evidence": "source: \"Notes 1 The degree of 'sheeting out'...\" / tree: table text ends \"Notes\"; separate \"Paragraph 1\", \"Paragraph 2\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "2650365078234a6c": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p186",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The Figure A5.6 caption from the left column is inserted in the middle of a sentence in paragraph A5.38.",
+     "evidence": "tree: \"Table A5.5 gives examples of the Figure A5.6 Air sampling during clearance minimum numbers of measurements required.\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "59f7e749fc10e0a7": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p186",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The caption of Figure A5.6 is inserted mid-sentence into paragraph A5.38, and the figure has no block of its own.",
+     "evidence": "source: \"Table A5.5 gives examples of the minimum numbers\" / tree: \"Table A5.5 gives examples of the Figure A5.6 Air sampling during clearance minimum numbers\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading 'Dusty surfaces inside enclosures' is run into the end of A5.40 as body text, and A5.41 is filed under the Stage 3 heading instead.",
+     "evidence": "tree: \"The photographs should be included in the CfR. Dusty surfaces inside enclosures\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "1bab0d0527f63220": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p187",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The sentence printed as its own paragraph after both options is merged into the second bullet, so the pass condition seems to apply only to the second option.",
+     "evidence": "source: separate line \"If readable results of <0.010 f/ml are obtained, stage 3 has been successfully completed\" / tree: inside bullet \"Carry out 'normal' and 'short period sampling' simultaneously. If readable results...\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The second line of the Figure A5.7 caption has spilled onto the end of paragraph A5.43, and the figure title lacks it.",
+     "evidence": "tree A5.43: \"...clearance indicator value (0.010 f/ml). in a mobile laboratory\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "e643a168c4921be7": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p187",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sentence printed after both bullets in A5.41 is put inside the second bullet, so the clearance condition seems to apply only to the second option.",
+     "evidence": "source: separate line \"If readable results of <0.010 f/ml are obtained, stage 3 has been successfully completed\" / tree: inside bullet \"Carry out 'normal' and 'short period sampling' simultaneously. If readable results...\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading 'Assessment of air sampling results' is run into the end of A5.42, so A5.43 sits under the wrong heading.",
+     "evidence": "tree: \"...demonstrate the need for using a sealant. Assessment of air sampling results\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The end of the Figure A5.7 caption is attached to paragraph A5.43 and missing from the figure title.",
+     "evidence": "source: \"Analyst carrying out a PCM count in a mobile laboratory\" / tree: A5.43 ends \"(0.010 f/ml). in a mobile laboratory\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "9e04f2053e951088": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p19",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Paragraph 3.6 is not its own section; its text is only kept at the end of the Table 3.1 text as if it were a table note.",
+     "evidence": "tree table text: \"3.6 Analysts who will have to enter enclosures must complete practical training on RPE and decontamination\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sentence printed after the list of functions is joined into the last bullet of paragraph 3.3.",
+     "evidence": "tree: \"other inspections (eg contaminated land, non-licensed work). Training and development will normally include the four areas outlined below.\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "bf5f334e5b884d13": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p19",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "4423acae6312bf53": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p210",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The table has no header row in the source, but the tree adds invented column names.",
+     "evidence": "tree: columns \"Section\", \"Information to be collected\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "8c72fb5d5f4391d4": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p210",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The separate closing paragraph of A7.30 is merged into the last bullet of the list.",
+     "evidence": "tree: \"• taking care not to step into the unit being sampled. Survey and sampling personnel may also need to use appropriate controls\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "2b8aff3efc9eacaa": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p212",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The heading 'Site survey reports' and paragraph A7.36 below the table are swallowed into the table's note text and have no blocks of their own.",
+     "evidence": "tree table text: \"Site survey reports\", \"A7.36 As already explained, site surveys will usually be carried out in two stages...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "bfb8d824507e549b": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p212",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "4b974f0b74478c17": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p217",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Paragraph A7.46 is split in two at 'Appendix 2', and the second half becomes a separate paragraph wrongly numbered 2.",
+     "evidence": "source: \"(in Appendix 2 and this appendix; see Figure A7.4)\" / tree: A7.46 ends \"(in Appendix\"; new paragraph number \"2\": \"and this appendix; see Figure A7.4)...\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Subheadings are read as body text at the end of the paragraph before them.",
+     "evidence": "tree: \"...one of these methods. Evaluation of drop mounts for identification of asbestos fibre type and number concentration\"; \"...Appendices 1, 2 and 4. Preparation of filters for fibre number and possible asbestos fibre concentration\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading 'Quantification of number of fine fibres' is placed in the body of A7.45 after a stray fragment, instead of heading A7.46.",
+     "evidence": "tree: \"...found in each search is reported. in terms of f/ml or f/g of soil) Quantification of number of fine fibres\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "a71b466d7282cb74": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p217",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Paragraph A7.46 is split in two at the line break 'Appendix / 2', and the second half becomes a separate invented 'Paragraph 2'.",
+     "evidence": "source: \"(in Appendix 2 and this appendix; see Figure A7.4)\" / tree: \"(in Appendix\" ... number \"2\": \"and this appendix; see Figure A7.4)\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "e5bddf0e32b053ad": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p217",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Paragraph A7.46 is split in two at a line break and its second half is kept as a separate 'Paragraph 2'.",
+     "evidence": "source: \"PLM identification (in Appendix 2 and this appendix; see Figure A7.4)\" / tree: A7.46 ends \"(in Appendix\", then \"Paragraph 2\": \"and this appendix\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading 'Preparation of filters for fibre number and possible asbestos fibre concentration' is run into the end of A7.49, so A7.50 sits under the wrong heading.",
+     "evidence": "tree: \"...described further in Appendices 1, 2 and 4. Preparation of filters for fibre number and possible asbestos fibre concentration\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "3efd55f40e222fd8": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p28",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "8bbf897771d8bdcb": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p28",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "A heading from the next page is appended as body text to the end of paragraph 4.9.",
+     "evidence": "tree: \"...is presented in paragraphs 4.16–4.20. Dust\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "fa550969d0ebb74e": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p28",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "6932af805722c3ca": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p29",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "f546f166bbf952ef": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p29",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading 'Dust' is missing, so paragraphs 4.10, 4.11 and Figure 4.4 sit under 'Safe systems of work'.",
+     "evidence": "source: \"Dust\" / tree: heading_path \"4 BULK SAMPLING AND MATERIAL ANALYSIS > Safe systems of work > Paragraph 4.10\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "ff9581ae0f2ada9d": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p29",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "87d45d9b37288351": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p32",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "f37d3c878f09ff8f": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p32",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "9d177a48ffce035e": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p33",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "high",
+     "problem": "The list item 'other visual records' is missing from paragraph 4.26; it was pulled into the Figure 4.5 caption instead.",
+     "evidence": "source: \"other visual records (eg photographs/videos);\" / tree 4.26 list has no such item"
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The notes printed under Table 4.2 are stored as labels of Figure 4.5 instead of with the table.",
+     "evidence": "source: \"Notes: (i) Sample collection may cause spread of dust and debris\" / tree: figure-4-5 labels"
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The heading 'Records and reporting of sampling' is merged into the end of paragraph 4.25, and paragraph 4.26 sits under 'Methods' instead of that heading.",
+     "evidence": "tree: \"presented in Table 4.2. Records and reporting of sampling\" / heading_path: \"Methods > Paragraph 4.26\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The Figure 4.5 caption has a list item from the next column run into it.",
+     "evidence": "source: \"Analyst taking a core sample\" / tree: \"Analyst taking a core ■ other visual records (eg photographs/videos); sample\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "bd4da25446e9258f": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p33",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "high",
+     "problem": "The bullet 'other visual records' is missing from the list in paragraph 4.26 and was merged into the Figure 4.5 caption instead.",
+     "evidence": "source: \"other visual records (eg photographs/videos);\" / tree figure title: \"Analyst taking a core ■ other visual records (eg photographs/videos); sample\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The notes printed under Table 4.2 are not in the table text but are put into the labels of Figure 4.5.",
+     "evidence": "source: \"Notes: (i) Sample collection may cause spread of dust and debris\" / tree: in figure-4-5 labels"
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "7526b758317ffa0f": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p34",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "7a092582593926b7": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p34",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "8fb5655c9630c847": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p38",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "e554b7861b0246f7": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p38",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "6680aeae7a46ead6": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p42",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The italic subheading 'Personal sampling for compliance under CAR...' sits under 'Sampling types' on the page but the tree makes it a sibling of 'Sampling types' directly under chapter 5.",
+     "evidence": "tree: \"5 MEASUREMENT OF AIRBORNE FIBRE CONCENTRATIONS > Personal sampling for compliance under CAR, for specific short-duration activities and to assess respiratory protection\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "b94bcca2c678a55c": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p42",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "c9fe104aee7a7412": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p42",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "A subheading from the next page is merged into the end of paragraph 5.33 as body text.",
+     "evidence": "tree: \"is shown in Figure 5.4. Sampling when energetic wet blasting cleaning methods are used\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "19faf51c5051eea8": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p44",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "8b3d38c003e72fd3": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p44",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The subheading for paragraphs 5.37-5.41 is read as body text at the end of 5.36, so those paragraphs sit only under Static sampling in heading_path.",
+     "evidence": "source: heading \"Sampling during the four-stage clearance procedure at licensed asbestos removal sites\" / tree: \"...paragraphs 5.37–5.54. Sampling during the four-stage clearance procedure at licensed asbestos removal sites\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "A heading from the next page is appended as body text to the end of paragraph 5.41.",
+     "evidence": "tree: \"Any fibres counted are assumed to be asbestos. Leak testing\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "238b827572d5277a": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p55",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The Table 6.1 caption is run into the end of paragraph 6.17, and the table block has no number and takes the section heading as its title.",
+     "evidence": "source: \"Table 6.1 Areas and items to be photographed...\" / tree: table title \"Visual confirmation of site cleanliness and thorough cleaning\", no number"
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The italic subheading 'Photographic evidence' is kept as a body text block, not as a heading.",
+     "evidence": "tree: type \"text\", \"Photographic evidence\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The first column has an invented header; the printed header cell is empty.",
+     "evidence": "tree: \"Item number\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "2c7fa6a6a61ab205": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p55",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The Table 6.1 caption is run into the end of paragraph 6.17, and the table block has no number and takes the subheading as its title.",
+     "evidence": "source: \"Table 6.1 Areas and items to be photographed...\" / tree: table title \"Photographic evidence\", no number"
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "'Photographic evidence' is a subheading under 'Visual confirmation of site cleanliness and thorough cleaning' but the tree puts it beside that heading, not under it.",
+     "evidence": "tree: \"6 SITE CLEARANCE AND CERTIFICATION > Photographic evidence\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The column headers are invented; the source has only a header over the description column.",
+     "evidence": "tree: \"Item\", \"Column 2\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "a3f461facedda8ae": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p56",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "da51acdc46ae43fa": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p56",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Paragraphs 6.18, 6.19 and 6.20 and the heading 'Video evidence' are absorbed into the text of Table 6.2 instead of being their own sections.",
+     "evidence": "tree table text: \"6.18 Photographs should also be taken of the items and areas ... Video evidence 6.19 It will also be beneficial\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The table's blank first column heading is given invented names and the number column is called 'Column 2'.",
+     "evidence": "source: \"(blank) | Areas/items to be photographed\" / tree: \"Item\", \"Column 2\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Table 5.2 notes from chapter 5 (page 43) are placed after paragraph 6.22 in this page's reading order.",
+     "evidence": "tree: \"Notes 1 Higher flow rates (eg 4 litres/min*) can be used\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "3ddcea3ee669631b": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p62",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The subheading above 7.21 is read as body text at the end of 7.20, and 7.21 to 7.24 keep the old subheading in heading_path.",
+     "evidence": "source: \"Interpretation of results for assessing the risk to workers\" (heading) / tree: 7.20 text ends \"...are adequate. Interpretation of results for assessing the risk to workers\"; heading_path \"Risk estimation and evaluation > Paragraph 7.21\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "e17b22d4ec42c3ae": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p62",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading 'Interpretation of results for assessing the risk to workers' is merged into paragraph 7.20 as body text, so 7.21 to 7.24 sit under the wrong parent heading.",
+     "evidence": "tree: \"can be carried out to assess whether the controls and respiratory protection are adequate. Interpretation of results for assessing the risk to workers\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The paragraph after the list in 7.21 is merged into the last bullet.",
+     "evidence": "tree: \"• condition of the soil (eg moisture content). Air monitoring has shown46\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Paragraph 7.24 ends with figure words that are not part of the paragraph.",
+     "evidence": "tree: \"to ALARP. No further action Assess likelihood of exposure and detail controls to be used in each zone\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "e5c972e9abf1e097": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p62",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "7e426a0a5ef97e77": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p67",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Paragraph 8.11 printed below Table 8.1 is not its own paragraph; it exists only inside the table's text, so its rule sits under the table.",
+     "evidence": "source: \"8.11 ... Where RPE has to be worn continuously for periods over an hour, powered equipment will be necessary\" / tree: only in table-8-1 text"
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "962b97a6b1ed2d7b": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p67",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "24ba847e8c60af53": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p68",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "53096322f1e5eb85": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p68",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Paragraph 8.18 and its heading, printed after Table 8.2, are kept only inside the table's notes text, not as their own provision.",
+     "evidence": "tree: table-8-2 text ends \"Correct fitting and wearing 8.18 RPE should be fitted properly (see Figure 8.2) and worn correctly...\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Subheadings are read as body text at the end of the paragraph before them.",
+     "evidence": "tree: \"...suitable for the individual wearer. Tight-fitting facepieces, fit testing and fit checking\"; \"...provide protection. Repeat fit tests\"; \"...in INDG479. Pre-use checks\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "1510e2e3d1b334df": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p72",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The italic subheading before paragraph 8.32 is appended to the end of paragraph 8.31 as body text.",
+     "evidence": "source: heading \"Entry into 'live' enclosures (see definition in paragraph 1.6 and associated footnote)\" / tree 8.31 ends: \"...suitable RPE. Entry into 'live' enclosures (see definition...)\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "318b2d7b8f6ac399": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p72",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "517cf9d12a708b0b": {
+   "version_id": "main@2024-12-06-9ed204da",
+   "unit": "p72",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The subheading above 8.32 is read as body text at the end of 8.31.",
+     "evidence": "source: heading \"Entry into 'live' enclosures (see definition in paragraph 1.6 and associated footnote)\" / tree: 8.31 text ends \"...suitable RPE. Entry into 'live' enclosures (see definition in paragraph 1.6 and associated footnote)\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  }
+ }
+}

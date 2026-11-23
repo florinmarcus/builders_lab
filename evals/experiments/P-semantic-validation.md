@@ -236,9 +236,41 @@ paragraph 10, a one-row table read as a note in the learning manual). A fourth b
 title printed inside the next ruled table let Annex B's table join Annex A's), was fixed before the final run.
 Guidance PDFs over all sampled units: 24.2% high before, 22.3% after.
 
-Fix 2 (HSE headings over a column and medium-weight sub-headings; body text after a ruled table) is built, with
-tests, and its model checks are done except three L108 tables; its semantic check waits for the Fable limit
-(reset 25 Nov 2026, 01:00 UTC).
+### Judge from fix 2 on: Opus 5.5 (Florin, 23 Nov 2026)
+
+The judge is a setting now (`semcheck --model`, default Opus 5.5). Each judge has its own store; a paired table uses
+one judge on both sides (before = trees from the code before the fix, after = new trees), so Fable and Opus verdicts
+are never mixed.
+
+Opus judge noise: the 145 designed noise units still in scope (5 were non-English), judged twice by Opus in fresh
+runs (`evals/experiments/data/semcheck-noise-opus-2026-11-23.json`):
+
+| Set | Units | Class flips | High-flag flips | High to not high | Not high to high |
+|---|---|---|---|---|---|
+| Opus run 1 vs run 2 | 145 | 17 (12%) | 2 (1.4%; 0.4 to 4.9%) | 0 of 10 | 2 of 135 (1.5%) |
+
+Opus against Fable on the 137 of them whose content is unchanged: the high flag agrees on 132 (96.4%). Both high 9,
+Opus only 1, Fable only 4: Opus flags fewer units high (7.3% against Fable's 9.5% on these units), mostly in
+guidance PDFs (Opus 6, Fable 12 of 45). So Opus is steadier than Fable (1.4% flips against 5.3%) and a little more
+lenient; its rates are not comparable with Fable's.
+
+| Fix (judge) | Units changed | High before / after | Fixed | Broken | McNemar p | Noise would give (fixed / broken) |
+|---|---|---|---|---|---|---|
+| 2. HSE headings, table rows stop at body text (Opus 5.5) | 252 | 54 / 33 | 25 | 4 | 0.0001 | 0 / 3 |
+
+Fix 2: 30 trees changed against the fix-1 trees, 395 byte-identical; model checks (Fable, then Opus for the last
+tables) 0 open; crops 0 bad (one crop of a go-live slide kept with a named defect: the same cut was there before);
+coverage 0 open. The first Opus run found 7 breaks; 4 came from the fix (a heading found above, the next heading
+missed, so text sat under the wrong sub-heading; a heading at the top of a whole-page table swallowed by the table)
+and were fixed before the final run. The 4 final breaks: three faults that were in the tree before (HSG248 A5.41
+bullet, L108 Box 4 order, a learning manual footnote section), and Scenario 7/8 in the learning manual, headings in
+the right column of a two-column page (fix 3).
+
+### English only (S130, Florin, 23 Nov 2026)
+
+97 sampled units in translated or Romanian documents left the sample (95 guidance pages, 2 web parts). On the Fable
+verdicts of the fix-1 trees this alone moves guidance PDFs from 22.9% to 20.1% (random pages) and 21.6% to 20.1%
+(table pages). This is a change of scope, not a fix.
 
 ## Limits
 

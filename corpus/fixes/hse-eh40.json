@@ -17456,6 +17456,38 @@
    "by": "model check, Fable 5.2, Claude Code headless (packet)",
    "confidence": "high",
    "date": "2026-11-23"
+  },
+  {
+   "key": "1c7163de0bb80c15",
+   "kind": "table",
+   "target": "reciprocal-calculation-procedure-for-mixtures-of-hydrocarbon-aromatics-table-1: Aromatics",
+   "value": {
+    "columns": [
+     "Calculation"
+    ],
+    "rows": [
+     [
+      "1/OEL_sol = (52/100)/1200 + (27/100)/800 + (10/10)/500 + (1/100)/220 + (10/100)/125"
+     ],
+     [
+      "1/OEL_sol = 1.816 x 10-3"
+     ],
+     [
+      "OEL_sol = 551 mg.m-3"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "The OEL for white spirit is obtained as 1/OEL_sol = (52/100)/1200 + (27/100)/800 + (10/10)/500 + (1/100)/220 + (10/100)/125.",
+     "The OEL for white spirit calculation gives 1/OEL_sol = 1.816 x 10-3.",
+     "The OEL for white spirit calculation gives OEL_sol = 551 mg.m-3."
+    ]
+   },
+   "reason": "The span (y 227-377 pt on page 40) covers the worked equation block for the white spirit OEL, not a printed table; the section title Aromatics and the text 'sol sol sol' come from the subscripts. It has no printed column headings, so it is kept as a single-column box with one line per equation step; the heading Calculation is added only because every column needs a heading.",
+   "evidence": "Page 40 shows 1/OEL_sol = 52/100 over 1200 + 27/100 over 800 + 10/10 over 500 + 1/100 over 220 + 10/100 over 125; then 1/OEL_sol = 1.816 x 10-3; then OEL_sol = 551 mg.m-3. The third term is printed as 10/10, kept as printed.",
+   "by": "model check, Opus 5.5, Claude Code headless (packet)",
+   "confidence": "low",
+   "date": "2026-11-23"
   }
  ]
 }

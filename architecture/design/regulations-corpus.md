@@ -157,6 +157,23 @@ flowchart TD
     d -->|no| text["stays text: paragraphs in a frame, a form, a flow chart's boxes<br/>(coverage: accepted with a reason)"]
 ```
 
+HSE headings and text after tables (S128 fix 2, 23 Nov 2026):
+
+```mermaid
+flowchart TD
+    l["line, 12 words or fewer, starts upper case,<br/>no end stop, not boxed, not a caption or 'Page N'"] --> b{"bold, 2pt+ over body,<br/>at a text column's left edge?"}
+    b -->|yes| h["heading"]
+    b -->|no| m{"medium weight (Md, Medium, Semibold),<br/>0.5pt+ over body, under 1.5x,<br/>at the margin or a text column's edge?"}
+    m -->|yes| r{"three or more lines in a row in that style?"}
+    r -->|no| h
+    r -->|"yes: a lead-in set large"| t["text"]
+    m -->|no| t
+    h --> w["second line joins when it starts in lower case or a bracket,<br/>or the two lines stand alone in that style"]
+    cap["body-size table caption, rows read downwards"] --> stop{"a '3.6 ...' paragraph, or body text<br/>under the ruled grid (not 'Note:', '*', a key)?"}
+    stop -->|yes| end1["the table ends there"]
+    wp["heading at the top of a whole-page table<br/>or at the top of a grid run on from the page before"] --> h2["a heading; the table sits under it, no join"]
+```
+
 Tables over pages (S118, 23 Nov 2026). A table that ran on to the next page became a second table, named after the
 heading above it (HSG248 Table 4.1), or its rows were taken by the next table's caption (Table 3.2 into Table 3.3):
 

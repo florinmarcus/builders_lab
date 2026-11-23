@@ -1,0 +1,51 @@
+{
+ "source_id": "fso-s156",
+ "model": "claude-opus-5-5",
+ "about": "Verdicts of claude-opus-5-5 on source against tree for fso-s156 (system/rag/semcheck.py).",
+ "verdicts": {
+  "00bb37c9c1339aca": {
+   "version_id": "check-your-fire-safety-responsibilities-under-section-156-of-7617419@2023-10-25-68c61f73",
+   "unit": "p13",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The chapter heading is repeated as a text block under the previous section, as well as kept as the chapter title.",
+     "evidence": "tree: text \"Other changes to fire safety legislation\" under \"Duties of Responsible Persons ... > Provision of > Text\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "65cb41d885d51dce": {
+   "version_id": "check-your-fire-safety-responsibilities-under-section-156-of-7617419@2023-10-25-68c61f73",
+   "unit": "p13",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The \"Guidance\" heading is run into the Offences text, so the Article 50 guidance sits under the Offences heading.",
+     "evidence": "source: \"Guidance\" (heading) / tree: \"...increased deterrent against non-compliance. Guidance Article 50 of the Fire Safety Order requires...\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The chapter heading is repeated as a text block under the previous section, as well as kept as the chapter title.",
+     "evidence": "tree: text \"Other changes to fire safety legislation\" under \"Duties of Responsible Persons ... > Text\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  }
+ }
+}

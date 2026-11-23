@@ -1,0 +1,63 @@
+{
+ "source_id": "hse-indg136",
+ "model": "claude-opus-5-5",
+ "about": "Verdicts of claude-opus-5-5 on source against tree for hse-indg136 (system/rag/semcheck.py).",
+ "verdicts": {
+  "1dacb248f1c43b58": {
+   "version_id": "main@2024-12-06-25069a38",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "Symbol labels and panel headings from the symbol column are mixed into the running text of the safety data sheets box, breaking sentences.",
+     "evidence": "tree: \"cosmetic products Highly Extremely Explosive Dangerous have different legislation\"; \"emergency situations, New International symbols concentrate on:\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The headings 'Exposure by skin puncture' and 'Safety data sheets' are read as body text, so the safety data sheets box has no heading of its own and sits under 'Which substances are harmful?'.",
+     "evidence": "tree: \"Exposure by skin puncture Risks from skin puncture...\"; \"eg drugs. Safety data sheets European symbols Products you use\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "750aa4227f637419": {
+   "version_id": "main@2024-12-06-25069a38",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "Symbol labels and the 'New International symbols' panel heading are mixed into the running text of the safety data sheets box, breaking sentences.",
+     "evidence": "tree: \"cosmetic products Highly Extremely Explosive Dangerous have different legislation\"; \"emergency situations, New International symbols concentrate on:\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The box heading 'Safety data sheets' is joined with the figure label 'European symbols' into one heading.",
+     "evidence": "source: \"Safety data sheets\" / tree: \"Safety data sheets European symbols\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The subheading 'Exposure by skin puncture' is read as body text.",
+     "evidence": "tree: \"Exposure by skin puncture Risks from skin puncture such as butchery\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  }
+ }
+}

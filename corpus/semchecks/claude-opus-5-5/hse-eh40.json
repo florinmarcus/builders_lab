@@ -1,0 +1,193 @@
+{
+ "source_id": "hse-eh40",
+ "model": "claude-opus-5-5",
+ "about": "Verdicts of claude-opus-5-5 on source against tree for hse-eh40 (system/rag/semcheck.py).",
+ "verdicts": {
+  "5b38b9dd3e8efa70": {
+   "version_id": "main@2024-12-06-736c6fc0",
+   "unit": "p28",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The running header from the next page is inserted in the middle of the sentence in paragraph 66.",
+     "evidence": "tree: \"The averaging period for the short-term exposure limit Applying occupational exposure limits is normally 15 minutes\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "5f4f2a3509bf33a1": {
+   "version_id": "main@2024-12-06-736c6fc0",
+   "unit": "p28",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The running header from the next page is inserted in the middle of the sentence in paragraph 66.",
+     "evidence": "tree: \"The averaging period for the short-term exposure limit Applying occupational exposure limits is normally 15 minutes\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "6d533068bc29f695": {
+   "version_id": "main@2024-12-06-736c6fc0",
+   "unit": "p38",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The carbon-number subscripts in paragraph 85 are lost, so the scope ranges of the procedure have no numbers.",
+     "evidence": "source: \"aliphatics in the range C5 to C15, cycloalkanes in the range C5 to C16\" / tree: \"aliphatics in the range C to C , cycloalkanes in the range C to C\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The RCP formula is flattened and its subscripts are split off into separate text blocks, so the formula cannot be read.",
+     "evidence": "source: \"1/OELsol = FRa/OELa + FRb/OELb + FRn/OELn\" / tree: \"1 FR FR FR = a + b + n OEL OEL OEL OEL\" and \"sol a b n\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The definitions lose their subscripts, so two different terms both read as OEL and FR has no component.",
+     "evidence": "source: \"OELsol = ... OELa = ... FRa = fraction\" / tree: \"OEL = occupational exposure limit ... OEL = occupational exposure limit or guidance value ... FR = fraction\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "A running header from the next page is inserted into paragraph 86.",
+     "evidence": "tree: \"in the solvent mixture Mixed exposures The OEL obtained\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "a0964b367e2c12bb": {
+   "version_id": "main@2024-12-06-736c6fc0",
+   "unit": "p38",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The carbon-number subscripts in paragraph 85 are lost, so the scope ranges of the procedure have no numbers.",
+     "evidence": "source: \"aliphatics in the range C5 to C15, cycloalkanes in the range C5 to C16\" / tree: \"aliphatics in the range C to C , cycloalkanes in the range C to C\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The RCP formula is flattened and its subscripts are split off into separate text blocks, so the formula cannot be read.",
+     "evidence": "source: \"1/OELsol = FRa/OELa + FRb/OELb + FRn/OELn\" / tree: \"1 FR FR FR = a + b + n OEL OEL OEL OEL\" and \"sol a b n\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The definitions lose their subscripts, so two different terms both read as OEL and FR has no component.",
+     "evidence": "source: \"OELsol = ... OELa = ... FRa = fraction\" / tree: \"OEL = occupational exposure limit ... OEL = occupational exposure limit or guidance value ... FR = fraction\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "A running header from the next page is inserted into paragraph 86.",
+     "evidence": "tree: \"in the solvent mixture Mixed exposures The OEL obtained\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "09d98ceda3c3d8f5": {
+   "version_id": "main@2024-12-06-736c6fc0",
+   "unit": "p40",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The subscript 8 in C8 aromatics is lost, so the aromatic group named in the example loses its carbon number.",
+     "evidence": "source: \"1% C8 aromatics (o-, m-, p- xylene\" / tree: \"1% C aromatics (o-, m-, p- xylene\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The worked formula in the running text is scrambled: fractions split, OELsol loses its subscript and the 10/10 over 500 term is moved after the result.",
+     "evidence": "tree: \"1 52/100 27/100 = + OEL 1200 800 1/100 + 10/100 220 125 1 = 1.816 x 10-3 OEL OEL = 551 mg.m-3 10/10 + 500 rounded\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The formula table is placed after paragraph 92 instead of inside the example, and its title puts it under the Aromatics group heading.",
+     "evidence": "tree: table \"Aromatics\" after \"92 With all types of mixed exposures\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The table text holds only stray subscript fragments.",
+     "evidence": "tree: \"sol\", \"sol\", \"sol\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "7302c39bd25b5cde": {
+   "version_id": "main@2024-12-06-736c6fc0",
+   "unit": "p40",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The subscript 8 in C8 aromatics is lost, so the aromatic group named in the example loses its carbon number.",
+     "evidence": "source: \"1% C8 aromatics (o-, m-, p- xylene\" / tree: \"1% C aromatics (o-, m-, p- xylene\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The worked formula in the running text is scrambled: fractions split, OELsol loses its subscript and the 10/10 over 500 term is moved after the result.",
+     "evidence": "tree: \"1 52/100 27/100 = + OEL 1200 800 1/100 + 10/100 220 125 1 = 1.816 x 10-3 OEL OEL = 551 mg.m-3 10/10 + 500 rounded\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The formula table is placed after paragraph 92 instead of inside the example before the rounding sentence.",
+     "evidence": "tree: table after \"92 With all types of mixed exposures\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The table text holds only stray subscript fragments.",
+     "evidence": "tree: \"sol\", \"sol\", \"sol\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  }
+ }
+}

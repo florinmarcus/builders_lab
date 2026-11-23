@@ -1,0 +1,311 @@
+{
+ "source_id": "decent-home-2006",
+ "model": "claude-opus-5-5",
+ "about": "Verdicts of claude-opus-5-5 on source against tree for decent-home-2006 (system/rag/semcheck.py).",
+ "verdicts": {
+  "3038adaa2845e109": {
+   "version_id": "a-decent-home-definition-and-guidance-for-implementation-jun@2006-06-07-fd1d0009",
+   "unit": "p12",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Paragraphs 4.1 to 4.4 and the criterion headings a), b), c) are merged into one text block, with the paragraph numbers moved into a separate note.",
+     "evidence": "source: \"4.3 Dwellings which fail to meet this criterion\" / tree: note \"4.1 4.2 4.3 4.4\" and one merged text"
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The section title is kept as a body text block instead of a heading.",
+     "evidence": "tree: text \"A decent home – summary of the definition\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Words run together in the footnote.",
+     "evidence": "source: \"HHSRS Operating Guidance\" / tree: \"HHSRSOperating Guidance\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is appended to the footnote.",
+     "evidence": "tree: \"www.communities.gov.uk/hhsrs 11\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "d6633ecca14e9d43": {
+   "version_id": "a-decent-home-definition-and-guidance-for-implementation-jun@2006-06-07-fd1d0009",
+   "unit": "p12",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Paragraphs 4.1 to 4.4 are merged into one text block and their numbers are split off into a separate note, so the criteria paragraphs lose their numbers.",
+     "evidence": "source: \"4.4 Dwellings which fail to meet this criterion\" / tree: note \"4.1 4.2 4.3 4.4\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The headings 'A decent home – summary of the definition', 'Introduction' and the criterion headings a) to c) are read as body text inside the merged block.",
+     "evidence": "tree: \"A decent home – summary of the definition Introduction The definition\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Two words of the footnote are run together.",
+     "evidence": "source: \"HHSRS Operating Guidance\" / tree: \"HHSRSOperating Guidance\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number 11 is appended to the footnote text.",
+     "evidence": "tree: \"www.communities.gov.uk/hhsrs 11\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "78ce0abddfa42a59": {
+   "version_id": "a-decent-home-definition-and-guidance-for-implementation-jun@2006-06-07-fd1d0009",
+   "unit": "p16",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The subheading 'Old and in poor condition' is read as body text at the end of paragraph 5.11, so 5.12 sits under 'Building components' instead of under it.",
+     "evidence": "source: heading \"Old and in poor condition\" / tree: 5.11 \"...require immediate major repair. Old and in poor condition\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "bce108d6bf1b0f7b": {
+   "version_id": "a-decent-home-definition-and-guidance-for-implementation-jun@2006-06-07-fd1d0009",
+   "unit": "p16",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading 'Building components' is read as body text at the end of paragraph 5.7.",
+     "evidence": "tree: \"A component cannot fail this criterion based on age alone. Building components\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading 'Old and in poor condition' is read as body text at the end of paragraph 5.11.",
+     "evidence": "tree: \"require immediate major repair. Old and in poor condition\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "1ea587e4798a5680": {
+   "version_id": "a-decent-home-definition-and-guidance-for-implementation-jun@2006-06-07-fd1d0009",
+   "unit": "p21",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Paragraphs 6.2 to 6.5 are merged into one text block and their numbers are moved into a separate note, so no rule can be tied to its paragraph number.",
+     "evidence": "source: \"6.4 When considering refurbishment packages\" / tree: note \"6.2 6.3 6.4 6.5\" and one merged text"
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Paragraph 6.1 loses its number to a separate note placed after it, and the section title is joined into its body text.",
+     "evidence": "source: \"Implementing the Decent Homes standard – Social sector\" / tree: text \"Implementing the Decent Homes standard – Social sector This section explains\"; note \"6.1\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is kept as a note.",
+     "evidence": "tree: note \"20\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "9e60e8fa4bc9071b": {
+   "version_id": "a-decent-home-definition-and-guidance-for-implementation-jun@2006-06-07-fd1d0009",
+   "unit": "p21",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Paragraphs 6.1 to 6.5 are merged into one text block and their numbers are split off into separate note sections, so no paragraph keeps its number.",
+     "evidence": "source: \"6.2 The Decent Homes standard is a minimum standard\" / tree: note \"6.2 6.3 6.4 6.5\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The headings 'Implementing the Decent Homes standard – Social sector' and 'Standard of work to be carried out' are read as body text inside the merged block.",
+     "evidence": "tree: \"long-term strategy. Standard of work to be carried out The Decent Homes standard\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number 20 is kept as a note.",
+     "evidence": "tree: note \"20\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "41da1282a1ef5a3f": {
+   "version_id": "a-decent-home-definition-and-guidance-for-implementation-jun@2006-06-07-fd1d0009",
+   "unit": "p28",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Paragraph 7.5 on this page is merged into a section 'Paragraph 1' that holds earlier paragraphs, and its number 7.5 sits in a separate note.",
+     "evidence": "source: \"7.5 Local monitoring requires\" / tree: para-1 \"...Statistical Return. Local monitoring requires\"; note \"7.5\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "The figure '1' of '1 million' is taken as a paragraph number, so the number of unfit properties is lost from the text.",
+     "evidence": "tree: \"The number of unfit properties was\" / para-1 number \"1\" text \"million in 2003\""
+    },
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Paragraphs 7.6 to 7.9 are merged into one text block, with their numbers in a separate note.",
+     "evidence": "source: \"7.9 Where non-decent properties are to be demolished\" / tree: note \"7.6 7.7 7.8 7.9\" and one merged text"
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is appended to the footnote.",
+     "evidence": "tree: \"www.communities.gov.uk/decenthomes 27\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "ee84bba9e6ff3e6d": {
+   "version_id": "a-decent-home-definition-and-guidance-for-implementation-jun@2006-06-07-fd1d0009",
+   "unit": "p28",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Paragraphs 7.5 to 7.9 are merged into one section numbered '1', and their real numbers are split off into separate notes.",
+     "evidence": "source: \"7.5 Local monitoring requires\" / tree: paragraph number \"1\", notes \"7.5\" and \"7.6 7.7 7.8 7.9\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading 'Predicting future progress' is read as body text inside the merged paragraph.",
+     "evidence": "tree: \"renegotiated deadline. Predicting future progress The following paragraphs\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number 27 is appended to footnote 16.",
+     "evidence": "tree: \"www.communities.gov.uk/decenthomes 27\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "11678d7a84e27ece": {
+   "version_id": "a-decent-home-definition-and-guidance-for-implementation-jun@2006-06-07-fd1d0009",
+   "unit": "p35",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The three bullet conditions that end paragraph 3 are put in the table's notes text instead of in paragraph 3, so the paragraph ends at 'unless:' with its conditions under Table 2.",
+     "evidence": "source: \"repair should be prescribed rather than replacement unless: • the component is sufficiently damaged\" / tree: table-2 text \"the component is sufficiently damaged that it is impossible to repair;\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Stray bullet letters 'l' and run-together row labels appear in the table text.",
+     "evidence": "source: \"Electrical system\" / tree: \"l\", \"Electricalsystem\", \"Centralheatingboiler\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "1ad6db02bc9de6b5": {
+   "version_id": "a-decent-home-definition-and-guidance-for-implementation-jun@2006-06-07-fd1d0009",
+   "unit": "p35",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The three bullet conditions that end paragraph 3 are put in the table's notes text instead of in paragraph 3, so the paragraph ends at 'unless:' with its conditions under Table 2.",
+     "evidence": "source: \"rather than replacement unless: • the component is sufficiently damaged\" / tree: table-2 text \"the component is sufficiently damaged that it is impossible to repair;\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading 'In poor condition' is read as body text at the start of a paragraph, so Table 2 and paragraphs 2-3 sit under the wrong parent.",
+     "evidence": "source: heading \"In poor condition\" / tree: text \"In poor condition 2. Table 2 sets out\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Stray bullet letters 'l' and run-together row labels appear in the table text.",
+     "evidence": "source: \"Central heating boiler\" / tree: \"l\", \"Centralheatingboiler\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  }
+ }
+}

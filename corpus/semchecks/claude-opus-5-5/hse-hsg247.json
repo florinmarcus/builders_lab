@@ -1,0 +1,45 @@
+{
+ "source_id": "hse-hsg247",
+ "model": "claude-opus-5-5",
+ "about": "Verdicts of claude-opus-5-5 on source against tree for hse-hsg247 (system/rag/semcheck.py).",
+ "verdicts": {
+  "455cb336a6d8cfc2": {
+   "version_id": "main@2026-07-21-56258caf",
+   "unit": "p18",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The italic subheading for the ASLIC section is kept as the first words of the body text instead of as a heading.",
+     "evidence": "source: heading \"The Asbestos (Licensing) Regulations 1983 (as amended)\" / tree: \"The Asbestos (Licensing) Regulations 1983 (as amended) 1.40 In Great Britain...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "c39c89580ebd9edb": {
+   "version_id": "main@2026-07-21-56258caf",
+   "unit": "p18",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The subheading of the ASLIC section is attached to the end of the Table 1.3 notes and is missing before paragraph 1.40.",
+     "evidence": "tree table text ends: \"...any continuous 12-week period. The Asbestos (Licensing) Regulations 1983 (as amended)\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  }
+ }
+}

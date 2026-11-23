@@ -1,0 +1,45 @@
+{
+ "source_id": "hse-cis63",
+ "model": "claude-opus-5-5",
+ "about": "Verdicts of claude-opus-5-5 on source against tree for hse-cis63 (system/rag/semcheck.py).",
+ "verdicts": {
+  "15c99157352dd39f": {
+   "version_id": "main@2024-12-06-1569ba38",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The column heading 'Good examples' is placed after the Further information text, and the right-column imprint text is put under it.",
+     "evidence": "tree: \"Good examples > Text\": \"This leaflet is available at: www.hse.gov.uk/pubns/cis63.pdf.\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "66d1c352fe460605": {
+   "version_id": "main@2024-12-06-1569ba38",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The column heading 'Good examples' is read as body text in the middle of the Further information paragraph.",
+     "evidence": "tree: \"what you need to do. Good examples This leaflet is available at\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  }
+ }
+}

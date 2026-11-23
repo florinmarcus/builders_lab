@@ -1,0 +1,434 @@
+{
+ "source_id": "br-circulars",
+ "model": "claude-opus-5-5",
+ "about": "Verdicts of claude-opus-5-5 on source against tree for br-circulars (system/rag/semcheck.py).",
+ "verdicts": {
+  "301cd49f6ce0d658": {
+   "version_id": "approved-document-j-2022-amendments-circular-03202--approved-document-j-2022-amendments-circular-03-2022@2022-09-30-fcb1b6a9",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The Part J bullet heading is split: its last words become body text under it.",
+     "evidence": "source: \"PART J COMBUSTION APPLIANCES AND FUEL STORAGE SYSTEMS\" / tree: heading \"• PART J COMBUSTION APPLIANCES AND FUEL\" + text \"STORAGE SYSTEMS\""
+    },
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The circular's title lines are not in the tree.",
+     "evidence": "source: \"THE BUILDING ACT 1984 THE BUILDING REGULATIONS 2010\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The circular number and department address printed at the top come last in the tree.",
+     "evidence": "source: \"Levelling Up, Housing and Communities Circular 03/2022\" (top of page) / tree: last block"
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "4ef46407d8267edf": {
+   "version_id": "approved-document-j-2022-amendments-circular-03202--approved-document-j-2022-amendments-circular-03-2022@2022-09-30-fcb1b6a9",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The main title naming the Act and the Regulations is not in the tree.",
+     "evidence": "source: \"THE BUILDING ACT 1984 THE BUILDING REGULATIONS 2010\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The circular reference block printed at the top of the page comes last in the tree, and the date is run into the body sentence.",
+     "evidence": "tree: \"29 July 2022 Amended Approved Document to support...\" then \"Levelling Up, Housing and Communities Circular 03/2022...\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "52863b30f4927fc3": {
+   "version_id": "new-approved-documents-circular-odpm-04-2004--circular-4-2004-new-approved-documents-on-parts-a-c-and-e@2012-11-14-1afc5f49",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Numbered paragraphs 7 to 10 are merged into one section numbered \"1\", so each rule sits under the wrong provision number.",
+     "evidence": "tree: id \"para-1\", number \"1\", text \"... 7. SI 2004/1465 introduces ... 8. As noted above ... 9. The content of Part C ... 10. Subparagraph (a)\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The headings on the page are read as body text, and the tables sit under the heading THE BUILDING ACT 1984 rather than under the Part C heading.",
+     "evidence": "source: \"PART C (SITE PREPARATION AND RESISTANCE TO CONTAMINANTS AND MOISTURE) AND APPROVED DOCUMENT C\", \"The Requirements\" / tree: inline in para-1; table heading_path \"THE BUILDING ACT 1984 AND THE BUILDING REGULATIONS\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The two tables come after the whole paragraph text instead of after the sentences that introduce them.",
+     "evidence": "tree: \"Requirement C1 is sub-divided as follows: Requirement C1(2) relates ...\" with the C1 table placed after paragraph 10"
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "Both tables have no header row in the source, but the tree gives them invented column names.",
+     "evidence": "tree columns: \"Requirement\", \"Previous requirement\", \"Subject\" and \"Requirement\", \"Subject\", \"Note\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "f7d6494c14df3eb9": {
+   "version_id": "new-approved-documents-circular-odpm-04-2004--circular-4-2004-new-approved-documents-on-parts-a-c-and-e@2012-11-14-1afc5f49",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Numbered paragraphs 7 to 10 (and later ones) are merged into one section numbered 1, so each provision loses its own number.",
+     "evidence": "source: \"7. SI 2004/1465 introduces...\" \"9. The content of Part C...\" / tree: number \"1\", heading_path \"Paragraph 1\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Headings on the page are read as body text inside the merged paragraph.",
+     "evidence": "tree: \"December 2004. PART C (SITE PREPARATION AND RESISTANCE TO CONTAMINANTS AND MOISTURE) AND APPROVED DOCUMENT C 7.\" ; \"The Requirements 9.\" ; \"Requirements in relation to Material Change of Use (Regulation 6) 10.\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The two tables are placed after the whole run of text instead of inside paragraph 9 where they are printed.",
+     "evidence": "source: \"Requirement C1 is sub-divided as follows:\" [table] / tree: tables follow \"...Formal notice of [...]\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The tables have no printed header row; the column names are invented.",
+     "evidence": "tree: \"Requirement\", \"Previous requirement\", \"Subject\" / \"Requirement\", \"Subject\", \"Note\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "6100bd7a8b23705b": {
+   "version_id": "new-approved-documents-circular-odpm-04-2004--circular-4-2004-new-approved-documents-on-parts-a-c-and-e@2012-11-14-1afc5f49",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Numbered paragraphs 14 to 17 are merged into one section numbered \"1\", so each rule sits under the wrong provision number.",
+     "evidence": "tree: id \"para-1\", number \"1\", text \"... 14. Regulations 20A and 12A came into force ... 15. A new paragraph (4) ... 16. ... 17. It should be noted\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "8b006653b51d3828": {
+   "version_id": "new-approved-documents-circular-odpm-04-2004--circular-4-2004-new-approved-documents-on-parts-a-c-and-e@2012-11-14-1afc5f49",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Numbered paragraphs 14 to 17 on this page, and later ones, are merged into one section numbered \"1\", so each rule sits under the wrong paragraph number.",
+     "evidence": "source: \"14. Regulations 20A and 12A came into force\" ... \"17. It should be noted\" / tree: one section \"number\": \"1\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "512bf6f9598ce45f": {
+   "version_id": "new-approved-documents-circular-odpm-04-2004--circular-4-2004-new-approved-documents-on-parts-a-c-and-e@2012-11-14-1afc5f49",
+   "unit": "p6",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Numbered paragraphs 17 to 20 are merged into one section numbered \"1\", so each rule sits under the wrong provision number.",
+     "evidence": "tree: id \"para-1\", number \"1\", text \"... 17. It should be noted ... 18. SI 2004/1465 ... 20. SI 2004/1465 comes into force ...\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The headings on the page are read as body text inside the merged paragraph.",
+     "evidence": "source: \"Definition of ‘room for residential purposes’\", \"Amendments 2004 to Approved Document E\", \"COMING INTO FORCE AND TRANSITIONAL PROVISIONS\" / tree: inline in para-1 text"
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "bc7d03465e09fcd6": {
+   "version_id": "new-approved-documents-circular-odpm-04-2004--circular-4-2004-new-approved-documents-on-parts-a-c-and-e@2012-11-14-1afc5f49",
+   "unit": "p6",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Numbered paragraphs 18, 19 and 20 are merged into one section numbered \"1\", so each rule sits under the wrong paragraph number.",
+     "evidence": "source: \"18. SI 2004/1465 also revises\" ... \"20. SI 2004/1465 comes into force\" / tree: one section \"number\": \"1\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The headings on this page are run into the body text instead of being kept as headings.",
+     "evidence": "source: \"Definition of ‘room for residential purposes’\", \"Amendments 2004 to Approved Document E\", \"COMING INTO FORCE AND TRANSITIONAL PROVISIONS\" / tree: inline in paragraph text"
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "18298a4c99b72f1a": {
+   "version_id": "new-approved-documents-circular-odpm-04-2004--circular-4-2004-new-approved-documents-on-parts-a-c-and-e@2012-11-14-1afc5f49",
+   "unit": "p9",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The intro for the later SI 2004/1466 table is placed before this page's SI 2004/1465 table, in the same text block.",
+     "evidence": "tree: \"(as amended by SI 2001/3335, SI 2002/440, SI 2002/2871 and SI 2003/2692) THE BUILDING (APPROVED INSPECTORS ETC.) REGULATIONS 2004 (SI 2004/1466)\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading naming the regulations is read as body text.",
+     "evidence": "source: \"THE BUILDING (AMENDMENT) REGULATIONS 2004 (SI 2004/1465)\" / tree: text \"THE BUILDING (AMENDMENT) REGULATIONS 2004 (SI 2004/1465) The following table\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "7705aaa4eadc54ac": {
+   "version_id": "new-approved-documents-circular-odpm-04-2004--circular-4-2004-new-approved-documents-on-parts-a-c-and-e@2012-11-14-1afc5f49",
+   "unit": "p9",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The Annex A heading for the 2004 Amendment Regulations is read as body text.",
+     "evidence": "source: \"THE BUILDING (AMENDMENT) REGULATIONS 2004 (SI 2004/1465)\" / tree: text \"THE BUILDING (AMENDMENT) REGULATIONS 2004 (SI 2004/1465) The following table lists...\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The heading and intro for the SI 2004/1466 table, from the next page, are joined in front of the SI 2004/1465 table, so they come before the table they follow.",
+     "evidence": "tree: \"... SI 2003/2692) THE BUILDING (APPROVED INSPECTORS ETC.) REGULATIONS 2004 (SI 2004/1466) The following table lists the change made by SI 2004/1466...\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "7e73af61418aca7c": {
+   "version_id": "the-building-act-1984-building-amendment-regulatio--the-building-act-1984-building-amendment-regulations-2012-@2012-12-19-da25fded",
+   "unit": "p10",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "f10dfa82c33f9f93": {
+   "version_id": "the-building-act-1984-building-amendment-regulatio--the-building-act-1984-building-amendment-regulations-2012-@2012-12-19-da25fded",
+   "unit": "p10",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "7e5ca3142ff370ec": {
+   "version_id": "the-building-act-1984-building-amendment-regulatio--the-building-act-1984-building-amendment-regulations-2012-@2012-12-19-da25fded",
+   "unit": "p11",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "9b5bf5e793b1285f": {
+   "version_id": "the-building-act-1984-building-amendment-regulatio--the-building-act-1984-building-amendment-regulations-2012-@2012-12-19-da25fded",
+   "unit": "p11",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "02d21b823a1e5358": {
+   "version_id": "the-building-act-1984-building-amendment-regulatio--the-building-act-1984-building-amendment-regulations-2012-@2012-12-19-da25fded",
+   "unit": "p12",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The Annex B subheading naming the regulations is read as body text, run into the intro sentence.",
+     "evidence": "source: \"The Building Regulations etc (Amendment) Regulations 2012 (S.I. 2012/3119)\" / tree: \"The Building Regulations etc (Amendment) Regulations 2012 (s.i. 2012/3119) The following table lists\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Capital letters are changed in the intro text.",
+     "evidence": "source: \"S.I. 2012/3119 to the Building (Local Authority Charges) Regulations 2010\" / tree: \"s.i. 2012/3119 to the Building (local Authority charges) Regulations 2010\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "c447e3c761b9f326": {
+   "version_id": "the-building-act-1984-building-amendment-regulatio--the-building-act-1984-building-amendment-regulations-2012-@2012-12-19-da25fded",
+   "unit": "p12",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The subheading under Annex B is run into the body text instead of being kept as a heading.",
+     "evidence": "source: \"The Building Regulations etc (Amendment) Regulations 2012 (S.I. 2012/3119)\" (heading) / tree: \"The Building Regulations etc (Amendment) Regulations 2012 (s.i. 2012/3119) The following table lists...\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Capitals in the regulation title are changed.",
+     "evidence": "source: \"Building (Local Authority Charges) Regulations 2010\" / tree: \"Building (local Authority charges) Regulations 2010\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "3cced0365afc7f98": {
+   "version_id": "the-building-act-1984-building-amendment-regulatio--the-building-act-1984-building-amendment-regulations-2012-@2012-12-19-da25fded",
+   "unit": "p8",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The one heading printed over two lines is split into two sibling headings, so the year and S.I. number become a separate heading.",
+     "evidence": "source: \"The Building Regulations etc (Amendment) Regulations 2012 (S.I. 2012/3119)\" / tree: \"The Building Regulations etc (Amendment) Regulations\" + \"2012 (s.i. 2012/3119)\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The abbreviation S.I. is lower-cased in the heading.",
+     "evidence": "source: \"2012 (S.I. 2012/3119)\" / tree: \"2012 (s.i. 2012/3119)\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "b6cb53301ecbaf6c": {
+   "version_id": "the-building-act-1984-building-amendment-regulatio--the-building-act-1984-building-amendment-regulations-2012-@2012-12-19-da25fded",
+   "unit": "p8",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "339d1be3207d0fde": {
+   "version_id": "the-building-act-1984-building-amendment-regulatio--the-building-act-1984-building-amendment-regulations-2012-@2012-12-19-da25fded",
+   "unit": "p9",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "be1c1d89d8cc1bad": {
+   "version_id": "the-building-act-1984-building-amendment-regulatio--the-building-act-1984-building-amendment-regulations-2012-@2012-12-19-da25fded",
+   "unit": "p9",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  }
+ }
+}

@@ -1,0 +1,51 @@
+{
+ "source_id": "hse-cis36",
+ "model": "claude-opus-5-5",
+ "about": "Verdicts of claude-opus-5-5 on source against tree for hse-cis36 (system/rag/semcheck.py).",
+ "verdicts": {
+  "086ab10465b44036": {
+   "version_id": "main@2024-12-06-e18715cd",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The smaller sub-headings 'Stop or reduce the dust' and 'Control the dust' sit at top level instead of under 'Control (the risks)'.",
+     "evidence": "tree: heading_path \"Stop or reduce the dust\" and \"Control the dust\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  },
+  "563d0595e739e619": {
+   "version_id": "main@2024-12-06-e18715cd",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The sub-headings 'Stop or reduce the dust' and 'Control the dust' are read as body text inside the 'Control (the risks)' text.",
+     "evidence": "tree: \"given in Table 1. Stop or reduce the dust Before work starts\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading 'Control the dust' is run into the end of a bullet item.",
+     "evidence": "tree: \"eg a direct fastening system. Control the dust Even if you stop some dust\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-23"
+  }
+ }
+}
