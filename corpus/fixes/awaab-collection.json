@@ -4298,6 +4298,54 @@
    "by": "model check, Opus 5.5, Claude Code headless (packet)",
    "confidence": "medium",
    "date": "2026-11-23"
+  },
+  {
+   "key": "0cc85c88f63896cc",
+   "kind": "table",
+   "target": "document-benefits-m-total-transition-average-annual-total-benefit-table-2: BENEFITS (£m) Total Transition Average Annual Total Benefit",
+   "value": {
+    "columns": [
+     "BENEFITS (£m)",
+     "Total Transition: (Constant Price)",
+     "Total Transition: Years",
+     "Average Annual (excl. Transition) (Constant Price)",
+     "Total Benefit (Present Value)"
+    ],
+    "rows": [
+     [
+      "Low",
+      "N/A",
+      "",
+      "N/A",
+      "N/A"
+     ],
+     [
+      "High",
+      "N/A",
+      "",
+      "N/A",
+      "N/A"
+     ],
+     [
+      "Best Estimate",
+      "0",
+      "",
+      "-4.1",
+      "-34.3"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "Benefits (£m), Low: Total Transition (Constant Price) is N/A, Average Annual (excl. Transition) (Constant Price) is N/A, and Total Benefit (Present Value) is N/A.",
+     "Benefits (£m), High: Total Transition (Constant Price) is N/A, Average Annual (excl. Transition) (Constant Price) is N/A, and Total Benefit (Present Value) is N/A.",
+     "Benefits (£m), Best Estimate: Total Transition (Constant Price) is 0, Average Annual (excl. Transition) (Constant Price) is -4.1, and Total Benefit (Present Value) is -34.3."
+    ]
+   },
+   "reason": "The table is the BENEFITS (£m) box on page 7 with a header row and three data rows (Low, High, Best Estimate). 'Total Transition' heads two sub-columns, '(Constant Price)' and 'Years'. The Years cells are one merged blank cell, so they are empty. The library grid instead holds the text boxes and the business assessment on page 8, which are not part of this table.",
+   "evidence": "p7: header 'BENEFITS (£m) | Total Transition (Constant Price) Years | Average Annual (excl. Transition) (Constant Price) | Total Benefit (Present Value)'; rows 'Low N/A N/A N/A', 'High N/A N/A N/A', 'Best Estimate 0 -4.1 -34.3'.",
+   "by": "model check, Opus 5.5, Claude Code headless (packet)",
+   "confidence": "medium",
+   "date": "2026-11-24"
   }
  ]
 }

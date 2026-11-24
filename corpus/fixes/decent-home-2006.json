@@ -215,6 +215,92 @@
    "by": "model check, Claude Code subagent (packet)",
    "confidence": "high",
    "date": "2026-11-21"
+  },
+  {
+   "key": "d0320f5fa3a1d68d",
+   "kind": "table",
+   "target": "table-2: Definition of ‘poor condition’ used in disrepair criterion",
+   "value": {
+    "columns": [
+     "Component",
+     "Definition of ‘poor condition’ used in EHCS"
+    ],
+    "rows": [
+     [
+      "Wall structure",
+      "Replace 10% or more or repair 30% or more"
+     ],
+     [
+      "Wall finish",
+      "Replace/repoint/renew 50% or more"
+     ],
+     [
+      "Chimneys",
+      "1 chimney need partial rebuilding or more"
+     ],
+     [
+      "Roof structure",
+      "Replace 10% or more or strengthen 30% or more"
+     ],
+     [
+      "Roof covering",
+      "Replace or isolated repairs to 50% or more"
+     ],
+     [
+      "Windows",
+      "Replace at least one window or repair/replace sash or member to least two (excluding easing sashes, reglazing painting)"
+     ],
+     [
+      "External doors",
+      "Replace at least one"
+     ],
+     [
+      "Kitchen",
+      "Major repair or replace 3 or more items out of the 6 (cold water drinking supply, hot water, sink, cooking provision, cupboards, worktop)"
+     ],
+     [
+      "Bathroom",
+      "Major repairs or replace 2 or more items (bath, wash hand basin, WC)"
+     ],
+     [
+      "Electrical system",
+      "Replace or major repair to system"
+     ],
+     [
+      "Central heating boiler",
+      "Replace or major repair"
+     ],
+     [
+      "Central heating distribution",
+      "Replace or major repair"
+     ],
+     [
+      "Storage heaters",
+      "Replace or major repair"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "In the definition of ‘poor condition’ used in the disrepair criterion, wall structure is in poor condition when it needs: replace 10% or more or repair 30% or more.",
+     "In the definition of ‘poor condition’ used in the disrepair criterion, wall finish is in poor condition when it needs: replace/repoint/renew 50% or more.",
+     "In the definition of ‘poor condition’ used in the disrepair criterion, chimneys are in poor condition when: 1 chimney need partial rebuilding or more.",
+     "In the definition of ‘poor condition’ used in the disrepair criterion, roof structure is in poor condition when it needs: replace 10% or more or strengthen 30% or more.",
+     "In the definition of ‘poor condition’ used in the disrepair criterion, roof covering is in poor condition when it needs: replace or isolated repairs to 50% or more.",
+     "In the definition of ‘poor condition’ used in the disrepair criterion, windows are in poor condition when they need: replace at least one window or repair/replace sash or member to least two (excluding easing sashes, reglazing painting).",
+     "In the definition of ‘poor condition’ used in the disrepair criterion, external doors are in poor condition when they need: replace at least one.",
+     "In the definition of ‘poor condition’ used in the disrepair criterion, a kitchen is in poor condition when it needs: major repair or replace 3 or more items out of the 6 (cold water drinking supply, hot water, sink, cooking provision, cupboards, worktop).",
+     "In the definition of ‘poor condition’ used in the disrepair criterion, a bathroom is in poor condition when it needs: major repairs or replace 2 or more items (bath, wash hand basin, WC).",
+     "In the definition of ‘poor condition’ used in the disrepair criterion, an electrical system is in poor condition when it needs: replace or major repair to system.",
+     "In the definition of ‘poor condition’ used in the disrepair criterion, a central heating boiler is in poor condition when it needs: replace or major repair.",
+     "In the definition of ‘poor condition’ used in the disrepair criterion, central heating distribution is in poor condition when it needs: replace or major repair.",
+     "In the definition of ‘poor condition’ used in the disrepair criterion, storage heaters are in poor condition when they need: replace or major repair."
+    ]
+   },
+   "reason": "Two-column table under one full-width heading 'Definition of ‘poor condition’ used in EHCS'; the first column (component names) has no printed heading of its own, so it is left blank rather than inventing one. 13 data rows; grid run-together words (Electricalsystem etc.) fixed from the image; typos 'need' and 'to least' kept as printed. The page prints no heading for the empty column, so a neutral heading was added by the lead agent (as in the earlier fix for this table).",
+   "evidence": "p35 (printed 34), Table 2: rows Wall structure through Storage heaters, each a bold component name beside its definition.",
+   "by": "model check, Opus 5.5, Claude Code headless (packet); empty headings filled by the lead agent",
+   "confidence": "medium",
+   "date": "2026-11-24"
   }
  ]
 }

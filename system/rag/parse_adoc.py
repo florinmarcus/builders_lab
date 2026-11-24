@@ -875,6 +875,8 @@ class AdocBuilder:
                     if skipping:
                         continue
                     self.chapter = None
+                    if self.box and self.box.get("carried") and (page, l["top"]) > self.box["end"]:
+                        self.box = None  # a box carried on by its band (below) ends before the next chapter
                     chap = self.add("x", "chapter", None, None, title, page)  # id set below
                     self.by_id.pop("x", None)
                     ban = self.banner.get(page)
@@ -919,6 +921,12 @@ class AdocBuilder:
                 if skipping or self.chapter is None:
                     continue
                 self._pos = (page, l["top"])
+                ban = self.banner.get(page)
+                if self.box and self._pos > self.box["end"] and page > self.box["end"][0] and ban \
+                        and ("valid_to" if ban[0] == "until" else "valid_from", ban[1]) == self.box["valid"]:
+                    # S128 round 3 (AD B Vol 1 2019 incorporating 2020 and 2022 amendments, Appendix B): the same
+                    # edition band printed at the top of the next page carries the box on over that page.
+                    self.box["end"], self.box["carried"] = (page, 10_000.0), True
                 if self.box and self._pos > self.box["end"]:
                     # Past the bottom of an edition box: what follows is printed outside it (AD B 3.36 after the
                     # 2026 amendment box), so it goes back under the heading the box sat in, with no box date.

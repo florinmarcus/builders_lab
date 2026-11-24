@@ -2026,6 +2026,408 @@
    "by": "model check, Claude Code subagent",
    "confidence": "high",
    "date": "2026-11-20"
+  },
+  {
+   "key": "ca9185f95218e747",
+   "kind": "table",
+   "target": "table-3: Priority assessment algorithm (read page 60, paragraph 7 on score averaging before using this algorithm)",
+   "value": {
+    "columns": [
+     "Assessment factor",
+     "Sub-factor",
+     "Score",
+     "Examples of score variables"
+    ],
+    "rows": [
+     [
+      "Normal occupant activity",
+      "Main type of activity in area",
+      "0",
+      "Rare disturbance activity (eg little used store room)"
+     ],
+     [
+      "Normal occupant activity",
+      "Main type of activity in area",
+      "1",
+      "Low disturbance activities (eg office type activity)"
+     ],
+     [
+      "Normal occupant activity",
+      "Main type of activity in area",
+      "2",
+      "Periodic disturbance (eg industrial or vehicular activity which may contact ACMs)"
+     ],
+     [
+      "Normal occupant activity",
+      "Main type of activity in area",
+      "3",
+      "High levels of disturbance, (eg fire door with asbestos insulating board sheet in constant use)"
+     ],
+     [
+      "Normal occupant activity",
+      "Secondary activities for area",
+      "As above",
+      "As above"
+     ],
+     [
+      "Likelihood of disturbance",
+      "Location",
+      "0",
+      "Outdoors"
+     ],
+     [
+      "Likelihood of disturbance",
+      "Location",
+      "1",
+      "Large rooms or well-ventilated areas"
+     ],
+     [
+      "Likelihood of disturbance",
+      "Location",
+      "2",
+      "Rooms up to 100 m2"
+     ],
+     [
+      "Likelihood of disturbance",
+      "Location",
+      "3",
+      "Confined spaces"
+     ],
+     [
+      "Likelihood of disturbance",
+      "Accessibility",
+      "0",
+      "Usually inaccessible or unlikely to be disturbed"
+     ],
+     [
+      "Likelihood of disturbance",
+      "Accessibility",
+      "1",
+      "Occasionally likely to be disturbed"
+     ],
+     [
+      "Likelihood of disturbance",
+      "Accessibility",
+      "2",
+      "Easily disturbed"
+     ],
+     [
+      "Likelihood of disturbance",
+      "Accessibility",
+      "3",
+      "Routinely disturbed"
+     ],
+     [
+      "Likelihood of disturbance",
+      "Extent/amount",
+      "0",
+      "Small amounts or items (eg strings, gaskets)"
+     ],
+     [
+      "Likelihood of disturbance",
+      "Extent/amount",
+      "1",
+      "≤10 m2 or ≤10 m pipe run."
+     ],
+     [
+      "Likelihood of disturbance",
+      "Extent/amount",
+      "2",
+      ">10 m2 to ≤50 m2 or >10 m to ≤50 m pipe run"
+     ],
+     [
+      "Likelihood of disturbance",
+      "Extent/amount",
+      "3",
+      ">50 m2 or >50 m pipe run"
+     ],
+     [
+      "Human exposure potential",
+      "Number of occupants",
+      "0",
+      "None"
+     ],
+     [
+      "Human exposure potential",
+      "Number of occupants",
+      "1",
+      "1 to 3"
+     ],
+     [
+      "Human exposure potential",
+      "Number of occupants",
+      "2",
+      "4 to 10"
+     ],
+     [
+      "Human exposure potential",
+      "Number of occupants",
+      "3",
+      ">10"
+     ],
+     [
+      "Human exposure potential",
+      "Frequency of use of area",
+      "0",
+      "Infrequent"
+     ],
+     [
+      "Human exposure potential",
+      "Frequency of use of area",
+      "1",
+      "Monthly"
+     ],
+     [
+      "Human exposure potential",
+      "Frequency of use of area",
+      "2",
+      "Weekly"
+     ],
+     [
+      "Human exposure potential",
+      "Frequency of use of area",
+      "3",
+      "Daily"
+     ],
+     [
+      "Human exposure potential",
+      "Average time area is in use",
+      "0",
+      "<1 hour"
+     ],
+     [
+      "Human exposure potential",
+      "Average time area is in use",
+      "1",
+      ">1 to <3 hours"
+     ],
+     [
+      "Human exposure potential",
+      "Average time area is in use",
+      "2",
+      ">3 to <6 hours"
+     ],
+     [
+      "Human exposure potential",
+      "Average time area is in use",
+      "3",
+      ">6 hours"
+     ],
+     [
+      "Maintenance activity",
+      "Type of maintenance activity",
+      "0",
+      "Minor disturbance (eg possibility of contact when gaining access)"
+     ],
+     [
+      "Maintenance activity",
+      "Type of maintenance activity",
+      "1",
+      "Low disturbance (eg changing light bulbs in asbestos insulating board ceiling)"
+     ],
+     [
+      "Maintenance activity",
+      "Type of maintenance activity",
+      "2",
+      "Medium disturbance (eg lifting one or two asbestos insulating board ceiling tiles to access a valve)"
+     ],
+     [
+      "Maintenance activity",
+      "Type of maintenance activity",
+      "3",
+      "High levels of disturbance (eg removing a number of asbestos insulating board ceiling tiles to replace a valve or for recabling)"
+     ],
+     [
+      "Maintenance activity",
+      "Frequency of maintenance activity",
+      "0",
+      "ACM unlikely to be disturbed for maintenance"
+     ],
+     [
+      "Maintenance activity",
+      "Frequency of maintenance activity",
+      "1",
+      "≤1 per year"
+     ],
+     [
+      "Maintenance activity",
+      "Frequency of maintenance activity",
+      "2",
+      ">1 per year"
+     ],
+     [
+      "Maintenance activity",
+      "Frequency of maintenance activity",
+      "3",
+      ">1 per month"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "In the priority assessment algorithm, for main type of activity in area (normal occupant activity), a score of 0 means \"Rare disturbance activity (eg little used store room)\".",
+     "In the priority assessment algorithm, for main type of activity in area (normal occupant activity), a score of 1 means \"Low disturbance activities (eg office type activity)\".",
+     "In the priority assessment algorithm, for main type of activity in area (normal occupant activity), a score of 2 means \"Periodic disturbance (eg industrial or vehicular activity which may contact ACMs)\".",
+     "In the priority assessment algorithm, for main type of activity in area (normal occupant activity), a score of 3 means \"High levels of disturbance, (eg fire door with asbestos insulating board sheet in constant use)\".",
+     "In the priority assessment algorithm, secondary activities for area (normal occupant activity) are scored as above, with examples as above.",
+     "In the priority assessment algorithm, for location (likelihood of disturbance), a score of 0 means \"Outdoors\".",
+     "In the priority assessment algorithm, for location (likelihood of disturbance), a score of 1 means \"Large rooms or well-ventilated areas\".",
+     "In the priority assessment algorithm, for location (likelihood of disturbance), a score of 2 means \"Rooms up to 100 m2\".",
+     "In the priority assessment algorithm, for location (likelihood of disturbance), a score of 3 means \"Confined spaces\".",
+     "In the priority assessment algorithm, for accessibility (likelihood of disturbance), a score of 0 means \"Usually inaccessible or unlikely to be disturbed\".",
+     "In the priority assessment algorithm, for accessibility (likelihood of disturbance), a score of 1 means \"Occasionally likely to be disturbed\".",
+     "In the priority assessment algorithm, for accessibility (likelihood of disturbance), a score of 2 means \"Easily disturbed\".",
+     "In the priority assessment algorithm, for accessibility (likelihood of disturbance), a score of 3 means \"Routinely disturbed\".",
+     "In the priority assessment algorithm, for extent/amount (likelihood of disturbance), a score of 0 means \"Small amounts or items (eg strings, gaskets)\".",
+     "In the priority assessment algorithm, for extent/amount (likelihood of disturbance), a score of 1 means \"≤10 m2 or ≤10 m pipe run\".",
+     "In the priority assessment algorithm, for extent/amount (likelihood of disturbance), a score of 2 means \">10 m2 to ≤50 m2 or >10 m to ≤50 m pipe run\".",
+     "In the priority assessment algorithm, for extent/amount (likelihood of disturbance), a score of 3 means \">50 m2 or >50 m pipe run\".",
+     "In the priority assessment algorithm, for number of occupants (human exposure potential), a score of 0 means \"None\".",
+     "In the priority assessment algorithm, for number of occupants (human exposure potential), a score of 1 means \"1 to 3\".",
+     "In the priority assessment algorithm, for number of occupants (human exposure potential), a score of 2 means \"4 to 10\".",
+     "In the priority assessment algorithm, for number of occupants (human exposure potential), a score of 3 means \">10\".",
+     "In the priority assessment algorithm, for frequency of use of area (human exposure potential), a score of 0 means \"Infrequent\".",
+     "In the priority assessment algorithm, for frequency of use of area (human exposure potential), a score of 1 means \"Monthly\".",
+     "In the priority assessment algorithm, for frequency of use of area (human exposure potential), a score of 2 means \"Weekly\".",
+     "In the priority assessment algorithm, for frequency of use of area (human exposure potential), a score of 3 means \"Daily\".",
+     "In the priority assessment algorithm, for average time area is in use (human exposure potential), a score of 0 means \"<1 hour\".",
+     "In the priority assessment algorithm, for average time area is in use (human exposure potential), a score of 1 means \">1 to <3 hours\".",
+     "In the priority assessment algorithm, for average time area is in use (human exposure potential), a score of 2 means \">3 to <6 hours\".",
+     "In the priority assessment algorithm, for average time area is in use (human exposure potential), a score of 3 means \">6 hours\".",
+     "In the priority assessment algorithm, for type of maintenance activity (maintenance activity), a score of 0 means \"Minor disturbance (eg possibility of contact when gaining access)\".",
+     "In the priority assessment algorithm, for type of maintenance activity (maintenance activity), a score of 1 means \"Low disturbance (eg changing light bulbs in asbestos insulating board ceiling)\".",
+     "In the priority assessment algorithm, for type of maintenance activity (maintenance activity), a score of 2 means \"Medium disturbance (eg lifting one or two asbestos insulating board ceiling tiles to access a valve)\".",
+     "In the priority assessment algorithm, for type of maintenance activity (maintenance activity), a score of 3 means \"High levels of disturbance (eg removing a number of asbestos insulating board ceiling tiles to replace a valve or for recabling)\".",
+     "In the priority assessment algorithm, for frequency of maintenance activity (maintenance activity), a score of 0 means \"ACM unlikely to be disturbed for maintenance\".",
+     "In the priority assessment algorithm, for frequency of maintenance activity (maintenance activity), a score of 1 means \"≤1 per year\".",
+     "In the priority assessment algorithm, for frequency of maintenance activity (maintenance activity), a score of 2 means \">1 per year\".",
+     "In the priority assessment algorithm, for frequency of maintenance activity (maintenance activity), a score of 3 means \">1 per month\"."
+    ]
+   },
+   "reason": "Factor headings (bold) and sub-factors split into two columns; one row per score. On the page the 'for recabling)' line and the frequency-of-maintenance examples are shifted down one line; the text belongs to type-of-maintenance score 3, and frequency scores 0-3 map to the four examples starting with 'ACM unlikely...'. The glyph printed as 'I' (and 'oΛI') is a font mapping failure for '≤' (and 'or ≤'), matching the '≤' used in score 2 of the same factor; written as ≤.",
+   "evidence": "p54 image: four bordered blocks (Normal occupant activity, Likelihood of disturbance, Human exposure potential, Maintenance activity), score column 0-3 per sub-factor, 'As above' for secondary activities; last column has five example lines for frequency of maintenance where 'for recabling)' finishes the score-3 text above.",
+   "by": "model check, Opus 5.5, Claude Code headless (packet)",
+   "confidence": "medium",
+   "date": "2026-11-24"
+  },
+  {
+   "key": "857acbf6cf9249ca",
+   "kind": "table",
+   "target": "table-5: Priority assessment algorithm for asbestos insulating board panelling on the inside walls of a temporary classroom",
+   "value": {
+    "columns": [
+     "Assessment factor",
+     "Sub-factor",
+     "Variable(s) selected",
+     "Score for each variable",
+     "Overall score"
+    ],
+    "rows": [
+     [
+      "Normal occupant activity",
+      "Main type of activity in area",
+      "High levels of disturbance, children running in and out of classroom, knocking wall panels, wall displays",
+      "3",
+      "3"
+     ],
+     [
+      "Likelihood of disturbance",
+      "Location",
+      "Rooms up to 100 m2 – classroom 10 m x 9 m",
+      "2",
+      ""
+     ],
+     [
+      "Likelihood of disturbance",
+      "Accessibility",
+      "Routinely disturbered – easily accessible to young children",
+      "3",
+      ""
+     ],
+     [
+      "Likelihood of disturbance",
+      "Extent/amount",
+      "57 m2 area of wall paneling",
+      "3",
+      "average = 3"
+     ],
+     [
+      "Human exposure potential",
+      "Number of occupants",
+      ">10–30 children, 1 teacher and 1 classroom assistant",
+      "3",
+      ""
+     ],
+     [
+      "Human exposure potential",
+      "Frequency of use of area",
+      "Daily",
+      "3",
+      ""
+     ],
+     [
+      "Human exposure potential",
+      "Average time area is in use",
+      ">6 hours",
+      "3",
+      "average = 3"
+     ],
+     [
+      "Maintenance activity",
+      "Type of maintenance activity",
+      "Low disturbance – occassional redecoration",
+      "1",
+      ""
+     ],
+     [
+      "Maintenance activity",
+      "Frequency of maintenance activity",
+      "≤1 per year",
+      "1",
+      "average = 1"
+     ],
+     [
+      "Total priority assessment score",
+      "",
+      "",
+      "",
+      "10"
+     ],
+     [
+      "Material assessment score (supplied by surveyor)",
+      "",
+      "",
+      "",
+      "7"
+     ],
+     [
+      "Total of material and priority assessment scores",
+      "",
+      "",
+      "",
+      "17"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "In the worked example for asbestos insulating board panelling on the inside walls of a temporary classroom, main type of activity in area (normal occupant activity) was assessed as \"High levels of disturbance, children running in and out of classroom, knocking wall panels, wall displays\" and scored 3; the overall score for normal occupant activity is 3.",
+     "In the worked example for asbestos insulating board panelling on the inside walls of a temporary classroom, location (likelihood of disturbance) was assessed as \"Rooms up to 100 m2 – classroom 10 m x 9 m\" and scored 2.",
+     "In the worked example for asbestos insulating board panelling on the inside walls of a temporary classroom, accessibility (likelihood of disturbance) was assessed as \"Routinely disturbered – easily accessible to young children\" and scored 3.",
+     "In the worked example for asbestos insulating board panelling on the inside walls of a temporary classroom, extent/amount (likelihood of disturbance) was assessed as \"57 m2 area of wall paneling\" and scored 3; the overall score for likelihood of disturbance is average = 3.",
+     "In the worked example for asbestos insulating board panelling on the inside walls of a temporary classroom, number of occupants (human exposure potential) was assessed as \">10–30 children, 1 teacher and 1 classroom assistant\" and scored 3.",
+     "In the worked example for asbestos insulating board panelling on the inside walls of a temporary classroom, frequency of use of area (human exposure potential) was assessed as \"Daily\" and scored 3.",
+     "In the worked example for asbestos insulating board panelling on the inside walls of a temporary classroom, average time area is in use (human exposure potential) was assessed as \">6 hours\" and scored 3; the overall score for human exposure potential is average = 3.",
+     "In the worked example for asbestos insulating board panelling on the inside walls of a temporary classroom, type of maintenance activity (maintenance activity) was assessed as \"Low disturbance – occassional redecoration\" and scored 1.",
+     "In the worked example for asbestos insulating board panelling on the inside walls of a temporary classroom, frequency of maintenance activity (maintenance activity) was assessed as \"≤1 per year\" and scored 1; the overall score for maintenance activity is average = 1.",
+     "In the worked example for asbestos insulating board panelling on the inside walls of a temporary classroom, the total priority assessment score is 10.",
+     "In the worked example for asbestos insulating board panelling on the inside walls of a temporary classroom, the material assessment score (supplied by surveyor) is 7.",
+     "In the worked example for asbestos insulating board panelling on the inside walls of a temporary classroom, the total of material and priority assessment scores is 17."
+    ]
+   },
+   "reason": "Used the template columns and sentence pattern. The 'Priority assessment algorithm' banner is a caption row over the header, not data, so it is dropped. Group overall scores stay on the row where printed. Typos kept (disturbered, paneling, occassional). The 'I 1 per year' glyph is a font mapping failure for '≤', written as ≤.",
+   "evidence": "p57 image: four bordered groups with sub-factors, score column 3 / 2,3,3 / 3,3,3 / 1,1, overall 3 / average = 3 / average = 3 / average = 1, then three bold totals rows with 10, 7, 17 in the overall score column.",
+   "by": "model check, Opus 5.5, Claude Code headless (packet)",
+   "confidence": "high",
+   "date": "2026-11-24"
   }
  ]
 }

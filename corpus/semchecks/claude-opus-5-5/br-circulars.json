@@ -128,6 +128,25 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "2453b716a4753e95": {
+   "version_id": "amendments-relating-to-approved-documents-b-and-l--circular-02-2010-the-building-act-1984-the-building-regulat@2010-03-16-85e78575",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Some words are run together but still read right.",
+     "evidence": "source: \"The Secretary of State\", \"Formal notice\" / tree: \"The Secretaryof State\", \"Formalnotice\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "a1419a5e90feb171": {
    "version_id": "amendments-relating-to-approved-documents-b-and-l--circular-02-2010-the-building-act-1984-the-building-regulat@2010-03-16-85e78575",
    "unit": "p2",
@@ -264,6 +283,68 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "e35baff9d453fd22": {
+   "version_id": "amendments-relating-to-approved-documents-b-and-l--circular-02-2010-the-building-act-1984-the-building-regulat@2010-03-16-85e78575",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The ENQUIRIES heading is read as body text and merged, with the contact block, into paragraph 11 under RELATIONSHIP WITH PART L (2010).",
+     "evidence": "tree: \"apply to these building projects. ENQUIRIES All enquiries on matters addressed by this Circular\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Paragraph 10 is merged into the second bullet of paragraph 9.",
+     "evidence": "tree: \"• Amendment slip to Approved Document L1A, L1B, L2A and L2B 10. Copies of the amendments are available\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Words run together in the text.",
+     "evidence": "source: \"since April 2006\" / tree: \"since April2006\"; source: \"Local Government\" / tree: \"LocalGovernment\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The next page's heading ANNEX is attached to the end of paragraph 11.",
+     "evidence": "tree: \"Department for Communities and Local Government ANNEX\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
+  "1d7f0ff4304cab68": {
+   "version_id": "amendments-relating-to-approved-documents-b-and-l--circular-02-2010-the-building-act-1984-the-building-regulat@2010-03-16-85e78575",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The table's notice title and approval paragraph, including the effective date, are missing from the grid and kept only in the table text.",
+     "evidence": "source: \"The approval takes effect on 16 March 2010.\" / tree grid: starts at \"Amendment slip to Approved Document B\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The ANNEX heading on this page is kept only as a trailing word in the previous section's body text.",
+     "evidence": "tree: \"Department for Communities and Local Government ANNEX\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "35d9466f28516e1e": {
    "version_id": "amendments-relating-to-approved-documents-b-and-l--circular-02-2010-the-building-act-1984-the-building-regulat@2010-03-16-85e78575",
    "unit": "p4",
@@ -313,6 +394,18 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "1f4f455bdeda8444": {
+   "version_id": "amendments-relating-to-energy-efficiency-and-compe--circular-03-2010-the-building-act-1984-the-building-regula@2010-03-16-39da5298",
+   "unit": "p10",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "4b0fb789e796e93b": {
    "version_id": "amendments-relating-to-energy-efficiency-and-compe--circular-03-2010-the-building-act-1984-the-building-regula@2010-03-16-39da5298",
@@ -457,6 +550,43 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "a3d32b6e4f6f76ec": {
+   "version_id": "amendments-relating-to-energy-efficiency-and-compe--circular-03-2010-the-building-act-1984-the-building-regula@2010-03-16-39da5298",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The subscript 2 in CO2 is lost, so the tree says CO (carbon monoxide) emission rate instead of CO2.",
+     "evidence": "source: \"for CO2 emission rate calculations\" / tree: \"for CO emission rate calculations\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Several words are run together in the paragraph 9 and Part F bullets.",
+     "evidence": "source: \"retained or replaced if removed or where the heating system of the building is\" / tree: \"retained orreplaced if removedor where the heating system of the buildingis\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Words run together in the Part F bullets and paragraph 10.",
+     "evidence": "source: \"to ensure that such systems provide adequate ventilation\" / tree: \"to ensurethat such systems provide adequateventilation\"; \"more than100 kilowatts\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Paragraphs 10 and 11 are merged into one text block.",
+     "evidence": "tree: \"...more than three storeys. 11. The paragraphs of the Schedule...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "a5fdaf5897fdb3bb": {
    "version_id": "amendments-relating-to-energy-efficiency-and-compe--circular-03-2010-the-building-act-1984-the-building-regula@2010-03-16-39da5298",
    "unit": "p3",
@@ -487,6 +617,18 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "28d757c61ceb5a99": {
+   "version_id": "amendments-relating-to-energy-efficiency-and-compe--circular-03-2010-the-building-act-1984-the-building-regula@2010-03-16-39da5298",
+   "unit": "p6",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "b1c48b5c54e9a6e3": {
    "version_id": "amendments-relating-to-energy-efficiency-and-compe--circular-03-2010-the-building-act-1984-the-building-regula@2010-03-16-39da5298",
@@ -593,6 +735,44 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "d5def018c8734797": {
+   "version_id": "amendments-relating-to-energy-efficiency-and-compe--circular-03-2010-the-building-act-1984-the-building-regula@2010-03-16-39da5298",
+   "unit": "p8",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Two words are run together in the intro sentence to Annex B.",
+     "evidence": "source: \"Regulations 2000 (S.I. 2000/2532)\" / tree: \"Regulations2000 (S.I. 2000/2532)\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
+  "169132b46b786448": {
+   "version_id": "amendments-relating-to-energy-efficiency-and-compe--circular-03-2010-the-building-act-1984-the-building-regula@2010-03-16-39da5298",
+   "unit": "p9",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Words in the intro sentence are run together.",
+     "evidence": "source: \"all the changes\", \"in turn amend\" / tree: \"all thechanges\", \"in turnamend\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "939d5d2c7db7de5c": {
    "version_id": "amendments-relating-to-energy-efficiency-and-compe--circular-03-2010-the-building-act-1984-the-building-regula@2010-03-16-39da5298",
@@ -717,6 +897,37 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "cc907e8c1f661de5": {
+   "version_id": "amendments-to-approved-document-b-fire-safety-circ--amendments-to-approved-document-b-fire-safety-circular-01-@2025-03-02-fe657c2f",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The annex heading is read as body text and attached to the end of paragraph 10 from the previous page.",
+     "evidence": "tree: \"Signed: John Palmer ANNEX A – Notice of Approval\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The notice title and the approval statement in the table's top rows are kept only in the table text, not as grid rows.",
+     "evidence": "source: \"NOTICE OF APPROVAL OF REVISION OF DOCUMENTS ... The approval takes effect on 2 March 2025.\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "A word is split in the approval date sentence.",
+     "evidence": "source: \"The approval takes effect\" / tree: \"T he approval takes effect\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "e4181580243069fc": {
    "version_id": "amendments-to-approved-document-b-fire-safety-circ--amendments-to-approved-document-b-fire-safety-circular-01-@2025-03-02-fe657c2f",
@@ -3134,6 +3345,25 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "9dd1eb9c901a7231": {
+   "version_id": "building-amendment-regulations-2018-circular-02201--building-amendment-regulations-2018-circular-02-2018@2018-11-29-29419d26",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Numbered paragraphs 1 to 5 are merged into one text block instead of separate paragraphs.",
+     "evidence": "tree: \"...referred to below. 2. In accordance with section 14(3)... 3. The purpose of this Circular is to:\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "c0459ade8aa92c52": {
    "version_id": "building-amendment-regulations-2018-circular-02201--building-amendment-regulations-2018-circular-02-2018@2018-11-29-29419d26",
    "unit": "p2",
@@ -4186,6 +4416,25 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "50f0756be282c446": {
+   "version_id": "building-regulations-2010-amended-approved-documen--circular-01-2018-amended-approved-document-l1b-and-domesti@2018-04-05-a4baf69a",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The notice heading is cut off and joined to 'Building Act 1984'; its rest and the notice paragraph are kept only in the table text, not as heading and body text.",
+     "evidence": "source: \"NOTICE OF APPROVAL OF A DOCUMENT FOR THE PURPOSE OF GIVING PRACTICAL GUIDANCE WITH RESPECT TO THE REQUIREMENTS OF THE BUILDING REGULATIONS 2010\" / tree: title \"... FOR THE PURPOSE OF GIVING\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "92cbfc91e3f7d8d4": {
    "version_id": "building-regulations-2010-amended-approved-documen--circular-01-2018-amended-approved-document-l1b-and-domesti@2018-04-05-a4baf69a",
    "unit": "p4",
@@ -4478,6 +4727,37 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "c590ff8f11c2ab75": {
+   "version_id": "building-regulations-and-longer-time-limits-for-pr--circular-03-2008-designation-of-certain-provisions-of-the-@2008-03-13-725186df",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Words are run together in the introduction.",
+     "evidence": "source: \"come into force on 6 April 2008\" / tree: \"come into forceon 6 April 2008\"; source: \"by S.I. 2008/671\" / tree: \"byS.I. 2008/671\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The small-caps department name is broken into split letters.",
+     "evidence": "source: \"DEPARTMENT FOR COMMUNITIES AND LOCAL GOVERNMENT\" / tree: \"D C L G EPARTMENT FOR OMMUNITIES AND OCAL OVERNMENT\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Numbered paragraphs 1 to 4 are merged into one text block, although the numbers are kept.",
+     "evidence": "tree: \"...on 6 April 2008. 2. The purpose of this Circular... 3. These regulations... 4. The Annex...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "3b34166aca5b05c1": {
    "version_id": "building-regulations-and-longer-time-limits-for-pr--circular-03-2008-designation-of-certain-provisions-of-the-@2008-03-13-725186df",
    "unit": "p3",
@@ -4514,6 +4794,43 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "7366e7fbe8fe5903": {
+   "version_id": "building-regulations-and-longer-time-limits-for-pr--circular-03-2008-designation-of-certain-provisions-of-the-@2008-03-13-725186df",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The Annex table is read as running text and merged into paragraph 12, so it has no table, columns or rows.",
+     "evidence": "tree: \"File reference: CI/43/19/1 ANNEX The Building (Amendment) Regulations 2008 (S.I. 2008/671) The following table ... 12(5) 2(2) Giving of a building notice\""
+    },
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "Cells of the last table row are interleaved, mixing the first column into the Action text.",
+     "evidence": "source: \"Schedule 2A, column 2 of paragraph 10\" / tree: \"Schedule 2A, 2(4) Descriptions of work where no building column 2 of notice or full plans required\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The ANNEX heading and its title are kept as body text under ENQUIRIES instead of as headings.",
+     "evidence": "source: \"ANNEX The Building (Amendment) Regulations 2008 (S.I. 2008/671)\" / tree: heading_path \"ENQUIRIES > Text\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "A price that is not on this page is added at the end of the text.",
+     "evidence": "tree: \"on a change of ownership £6\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "987323c9a5b656b1": {
    "version_id": "building-regulations-and-longer-time-limits-for-pr--circular-03-2008-designation-of-certain-provisions-of-the-@2008-03-13-725186df",
@@ -4631,6 +4948,18 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "c0802f37a85c80ff": {
+   "version_id": "building-regulations-and-longer-time-limits-for-pr--circular-03-2008-designation-of-certain-provisions-of-the-@2008-03-13-725186df",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "8c0618f714c4732b": {
    "version_id": "building-regulations-and-new-minimum-water-efficie--circular-05-2009-new-part-g-in-schedule-1-to-the-building-@2009-05-13-299d20a4",
    "unit": "p14",
@@ -4743,6 +5072,44 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "f0521605db10b465": {
+   "version_id": "building-regulations-and-new-minimum-water-efficie--circular-05-2009-new-part-g-in-schedule-1-to-the-building-@2009-05-13-299d20a4",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Several words are run together in the body text, but they still read right.",
+     "evidence": "source: \"a building (or part\", \"must be given\", \"require a building notice\" / tree: \"abuilding (or part\", \"must begiven\", \"requirea building notice\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
+  "8d7f50fbd08bbda8": {
+   "version_id": "building-regulations-and-new-minimum-water-efficie--circular-05-2009-new-part-g-in-schedule-1-to-the-building-@2009-05-13-299d20a4",
+   "unit": "p6",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The second line of the Annex A heading is cut from the title and put at the start of the body text.",
+     "evidence": "source: \"The Building and Approved Inspectors (Amendment) Regulations 2009 (SI 2009/1219)\" / tree: \"Regulations 2009 (SI 2009/1219) The following table lists\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "e31cc878d6e13605": {
    "version_id": "building-regulations-and-new-minimum-water-efficie--circular-05-2009-new-part-g-in-schedule-1-to-the-building-@2009-05-13-299d20a4",
    "unit": "p6",
@@ -4810,6 +5177,31 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "e9933cef2d2068d3": {
+   "version_id": "building-regulations-and-new-minimum-water-efficie--circular-05-2009-new-part-g-in-schedule-1-to-the-building-@2009-05-13-299d20a4",
+   "unit": "p8",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The second line of the Annex B heading is split off from the title and put at the start of the body text.",
+     "evidence": "source: \"The Building and Approved Inspectors (Amendment) Regulations 2009 (S.I. 2009/1219)\" / tree: text \"Regulations 2009 (S.I. 2009/1219) The following table lists\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Two words are run together in the intro sentence.",
+     "evidence": "source: \"Regulations 2000\" / tree: \"Regulations2000\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "4d4782b066fb92e8": {
    "version_id": "building-regulations-etc-amendment-england-no-2-re--building-regulations-etc-amendment-england-no-2-regulation@2021-12-15-16620421",
@@ -5496,6 +5888,43 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "82bd556552e1d089": {
+   "version_id": "building-regulations-self-certification-schemes-an--circular-01-2009-minor-changes-to-schedule-2a-to-the-build@2009-03-09-dd3ffeff",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The Annex A table is read as running text, so it has no table, columns or rows.",
+     "evidence": "tree: \"S.I. 2000/2531 S.I. 2009/466 Action Regulation No. Regulation No. Schedule 2A, 2(2)(a) Adds persons registered by Capita Gas paragraph 2,\""
+    },
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "Row labels from the first column are mixed into the Action text of each row.",
+     "evidence": "source: \"Schedule 2A, paragraph 9, column 2\" / tree: \"Substitutes EC Certiﬁcation Limited for paragraph 9, The Electrical Contractors Association column 2 Limited\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Part of the annex title is kept as body text instead of in the heading.",
+     "evidence": "source: \"The Building (Amendment) Regulations 2009 (S.I. 2009/466)\" / tree: text starts \"(S.I. 2009/466) The following table\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "A price that is not on this page is added at the end of the text.",
+     "evidence": "tree: \"ELECSA Limited column 2 £6\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "cb94e5fdccb2090e": {
    "version_id": "building-regulations-self-certification-schemes-an--circular-01-2009-minor-changes-to-schedule-2a-to-the-build@2009-03-09-dd3ffeff",
    "unit": "p4",
@@ -5507,6 +5936,18 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "e5a143a320028b12": {
+   "version_id": "building-regulations-self-certification-schemes-an--circular-01-2009-minor-changes-to-schedule-2a-to-the-build@2009-03-09-dd3ffeff",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "59906553be971601": {
    "version_id": "changes-to-part-b-fire-safety-of-the-building-regu--circular-05-2006-the-building-regulations-2000-and-the-bui@2006-12-18-4cc3c4bb",
@@ -5538,6 +5979,31 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "5f61d765b7f54857": {
+   "version_id": "changes-to-part-b-fire-safety-of-the-building-regu--circular-05-2006-the-building-regulations-2000-and-the-bui@2006-12-18-4cc3c4bb",
+   "unit": "p10",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The superscript in the floor area unit is lost and run into the next word.",
+     "evidence": "source: \"floor area of 900m² or more\" / tree: \"floor areaof 900m2or more\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Several words are run together in C.17 to C.20.",
+     "evidence": "tree: \"blocks of flatsorto fire doors\", \"moved to section 3and\", \"there shouldbe access\", \"A number of designflexibilities\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "9b54ec1dfaae4641": {
    "version_id": "changes-to-part-b-fire-safety-of-the-building-regu--circular-05-2006-the-building-regulations-2000-and-the-bui@2006-12-18-4cc3c4bb",
@@ -5575,6 +6041,18 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "5ca44aa927ba4637": {
+   "version_id": "changes-to-part-b-fire-safety-of-the-building-regu--circular-05-2006-the-building-regulations-2000-and-the-bui@2006-12-18-4cc3c4bb",
+   "unit": "p14",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "6401b24edce8bfb7": {
    "version_id": "changes-to-part-b-fire-safety-of-the-building-regu--circular-05-2006-the-building-regulations-2000-and-the-bui@2006-12-18-4cc3c4bb",
@@ -5619,6 +6097,18 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "2c36571324341cc7": {
+   "version_id": "changes-to-part-b-fire-safety-of-the-building-regu--circular-05-2006-the-building-regulations-2000-and-the-bui@2006-12-18-4cc3c4bb",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "347dddb800fe1a12": {
    "version_id": "changes-to-part-b-fire-safety-of-the-building-regu--circular-05-2006-the-building-regulations-2000-and-the-bui@2006-12-18-4cc3c4bb",
@@ -5669,6 +6159,18 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "7ae9e736cfe3bb56": {
+   "version_id": "changes-to-part-b-fire-safety-of-the-building-regu--circular-05-2006-the-building-regulations-2000-and-the-bui@2006-12-18-4cc3c4bb",
+   "unit": "p6",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "a61394df27be0b58": {
    "version_id": "changes-to-part-b-fire-safety-of-the-building-regu--circular-05-2006-the-building-regulations-2000-and-the-bui@2006-12-18-4cc3c4bb",
    "unit": "p6",
@@ -5687,6 +6189,31 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "4c42a2d79d4c859b": {
+   "version_id": "changes-to-part-b-fire-safety-of-the-building-regu--circular-05-2006-the-building-regulations-2000-and-the-bui@2006-12-18-4cc3c4bb",
+   "unit": "p8",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Several words are run together in C.9 to C.11.",
+     "evidence": "source: \"fire safety in adult placements\" / tree: \"fire safety inadultplacements\"; also \"coveringsincorporates\", \"alternativeapproach\", \"storeyhousesand\", \"systemsinhouses\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Words run together in C.11.",
+     "evidence": "source: \"Guidance on the junction between compartment walls\" / tree: \"Guidanceon the junction betweencompartment walls\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "e7536c3e35a84870": {
    "version_id": "changes-to-part-b-fire-safety-of-the-building-regu--circular-05-2006-the-building-regulations-2000-and-the-bui@2006-12-18-4cc3c4bb",
@@ -5781,6 +6308,37 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "8e494351f49a9ba1": {
+   "version_id": "electronic-communication-of-specified-building-con--circular-05-2008-the-building-act-1984-the-building-regula@2012-11-14-9676603d",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The bold heading about electronic communication is read as body text and run together with the regulation titles.",
+     "evidence": "source: \"PROVISION MADE FOR THE ELECTRONIC COMMUNICATION OF SPECIFIED BUILDING CONTROL DOCUMENTS\" / tree: \"REGULATIONS 2000 PROVISION MADE FOR THE ELECTRONIC COMMUNICATION\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The small-caps department name is split into broken letters.",
+     "evidence": "source: \"DEPARTMENT FOR COMMUNITIES AND LOCAL GOVERNMENT\" / tree: \"D C L G EPARTMENT FOR OMMUNITIES AND OCAL OVERNMENT\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Several words are run together.",
+     "evidence": "source: \"1 October 2008\", \"other bodies\", \"sets out the\" / tree: \"1October 2008\", \"otherbodies\", \"sets outthe\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "d87a14184da332cc": {
    "version_id": "electronic-communication-of-specified-building-con--circular-05-2008-the-building-act-1984-the-building-regula@2012-11-14-9676603d",
    "unit": "p1",
@@ -5837,6 +6395,31 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "d5a5f5ec6e5dff64": {
+   "version_id": "electronic-communication-of-specified-building-con--circular-05-2008-the-building-act-1984-the-building-regula@2012-11-14-9676603d",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The table of sections and documents is read as running text, with the two header cells mixed together.",
+     "evidence": "tree: \"Section in the Building Act Description of document for which 1984 as amended provision has been made for electronic service in section 94A 16(6) Notice on...\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The page-bottom 'continued' marker is run into the table text between two rows.",
+     "evidence": "tree: \"Notice of change of person intending to carry out work continued 52\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "5b24fc0c8c1efc11": {
    "version_id": "electronic-communication-of-specified-building-con--circular-05-2008-the-building-act-1984-the-building-regula@2012-11-14-9676603d",
    "unit": "p8",
@@ -5855,6 +6438,18 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "67a27c8d2980c88f": {
+   "version_id": "electronic-communication-of-specified-building-con--circular-05-2008-the-building-act-1984-the-building-regula@2012-11-14-9676603d",
+   "unit": "p8",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "861277b268362cb1": {
    "version_id": "electronic-transmission-of-documents-under-the-par--circular-02-2016-electronic-transmission-of-documents-unde@2016-03-22-a256bf55",
@@ -5974,6 +6569,31 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "1f878a94a528c962": {
+   "version_id": "energy-performance-of-buildings-regulations-2008-c--circular-06-2008-provisions-relating-to-energy-performance@2008-09-09-3a574f87",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The subscript 2 of CO2 is lost, so the emission rate reads as CO.",
+     "evidence": "source: \"BUILDING AS BUILT CO2 EMISSION RATE\" / tree: \"BUILDING AS BUILT CO EMISSION RATE\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The seven separate bold subject headings of the circular are run together into one text block filed under the Home Information Pack heading.",
+     "evidence": "tree: \"ADDITIONAL PROVISIONS ... ACCESS TO THE REGISTER AMENDED PROVISION IN THE ENERGY PERFORMANCE...\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "8bbbe0041795893d": {
    "version_id": "energy-performance-of-buildings-regulations-2008-c--circular-06-2008-provisions-relating-to-energy-performance@2008-09-09-3a574f87",
    "unit": "p2",
@@ -6048,6 +6668,25 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "19d31251d9b793f9": {
+   "version_id": "energy-performance-of-buildings-regulations-2008-c--circular-06-2008-provisions-relating-to-energy-performance@2008-09-09-3a574f87",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Several words on this page are run together.",
+     "evidence": "source: \"twelve months\", \"calculation of\", \"validity of the notice that\" / tree: \"twelvemonths\", \"calculationof\", \"validityof the noticethat\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "5fa2c65df3c84a47": {
    "version_id": "energy-performance-of-buildings-regulations-2008-c--circular-06-2008-provisions-relating-to-energy-performance@2008-09-09-3a574f87",
    "unit": "p4",
@@ -6084,6 +6723,31 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "92f2a3ff81e91dce": {
+   "version_id": "energy-performance-of-buildings-regulations-2008-c--circular-06-2008-provisions-relating-to-energy-performance@2008-09-09-3a574f87",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "A bold heading is read as body text inside paragraph 11, so paragraph 12 sits under the wrong heading.",
+     "evidence": "source: heading \"AMENDMENTS TO THE BUILDING REGULATIONS AND BUILDING (APPROVED INSPECTORS ETC) REGULATIONS RELATING TO THE GIVING OF ENERGY PERFORMANCE CERTIFICATES\" / tree: inside \"DATA TO BE LODGED\" text"
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Several words are run together.",
+     "evidence": "source: \"twelve months\", \"calculation of\", \"validity of the notice that\" / tree: \"twelvemonths\", \"calculationof\", \"validityof the noticethat\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "db445029ae757968": {
    "version_id": "energy-performance-of-buildings-regulations-2008-c--circular-06-2008-provisions-relating-to-energy-performance@2008-09-09-3a574f87",
@@ -6460,6 +7124,25 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "d8ff6da688d3a816": {
+   "version_id": "multi-foil-insulation-circular-06-2009--circular-06-2009-building-regulations-2000-schedule-1-part-l@2009-06-18-a391587a",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Two words of the address are run together.",
+     "evidence": "source: \"Communities and Local Government\" / tree: \"Communities and LocalGovernment\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "5b79e86aedbfa958": {
    "version_id": "multi-foil-insulation-circular-06-2009--circular-06-2009-building-regulations-2000-schedule-1-part-l@2009-06-18-a391587a",
    "unit": "p4",
@@ -6490,6 +7173,31 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "acbb9a1fbc2e981e": {
+   "version_id": "multi-foil-insulation-circular-06-2009--circular-06-2009-building-regulations-2000-schedule-1-part-l@2009-06-18-a391587a",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Numbered paragraphs 1, 2 and 3 are merged into one text block.",
+     "evidence": "tree: \"...comparative (‘in situ’) testing. 2. The Department maintains... 3. The Department accepts...\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Several words are run together.",
+     "evidence": "source: \"materials and products\", \"tests that have\", \"agreed ETA for\", \"are free\" / tree: \"materialsand\", \"thathave\", \"ETAfor\", \"arefree\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "b7223f5c4addf804": {
    "version_id": "multi-foil-insulation-circular-06-2009--circular-06-2009-building-regulations-2000-schedule-1-part-l@2009-06-18-a391587a",
@@ -6559,6 +7267,25 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "425e80612f8b9800": {
+   "version_id": "new-approved-document-on-electrical-safety-circula--circular-05-2004-new-approved-document-giving-guidance-on-@2012-11-14-2e9f7139",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The headings 'TRANSITIONAL PROVISIONS' and 'NEW APPROVED DOCUMENT P' are read as body text, so paragraphs 14 to 17 stay under 'Limits on application'.",
+     "evidence": "tree: \"listed in Table 2 of the Approved Document. TRANSITIONAL PROVISIONS 14. S.I. 2004/1808\"; \"self-certification schemes. NEW APPROVED DOCUMENT P 15.\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "6f0ff74561101270": {
    "version_id": "new-approved-document-on-electrical-safety-circula--circular-05-2004-new-approved-document-giving-guidance-on-@2012-11-14-2e9f7139",
@@ -6702,6 +7429,31 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "fe8f5d327c0506ea": {
+   "version_id": "new-approved-document-on-electrical-safety-circula--circular-05-2004-new-approved-document-giving-guidance-on-@2012-11-14-2e9f7139",
+   "unit": "p8",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The paragraph numbers B.1, B.2 and B.3 are cut from their paragraphs and put together in a separate note, so the three provisions are merged into one text block (the text itself refers to 'paragraph B.1' and 'B.2').",
+     "evidence": "source: \"B.1 Regulation 3 of the Building\" / \"B.2 Regulation 3(3)\" / tree: note \"B.1 B.2 B.3\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The bold sub-heading is read as the start of the body text.",
+     "evidence": "tree: \"The Building (Amendment) (No.2) Regulations 2004 Regulation 3 of the Building\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "74778729ca6f5013": {
    "version_id": "new-approved-documents-and-guidance-circular-06-20--circular-06-2010-the-building-act-1984-the-building-regula@2010-04-30-64833aed",
@@ -7325,6 +8077,68 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "197ec57bd79e290d": {
+   "version_id": "new-approved-documents-circular-odpm-04-2004--circular-4-2004-new-approved-documents-on-parts-a-c-and-e@2012-11-14-1afc5f49",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading 'Requirements in relation to Material Change of Use (Regulation 6)' is read as body text, so paragraph 10 sits under 'The Requirements'.",
+     "evidence": "tree: \"Requirement C2 is subdivided as follows: Requirements in relation to Material Change of Use (Regulation 6) 10. Subparagraph (a)\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "Both tables are placed after the whole running text instead of after the sentences that introduce them.",
+     "evidence": "source: \"Requirement C1 is sub-divided as follows:\" [table C1 (1)-(3)] / tree: table follows paragraph 12 text"
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "Column headings are invented; the printed tables have no header row.",
+     "evidence": "tree: columns \"Requirement\", \"Previous requirement\", \"Subject\" / \"Requirement\", \"Subject\", \"Note\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
+  "2932f0445101540c": {
+   "version_id": "new-approved-documents-circular-odpm-04-2004--circular-4-2004-new-approved-documents-on-parts-a-c-and-e@2012-11-14-1afc5f49",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading 'Requirements in relation to Material Change of Use (Regulation 6)' is read as body text inside 'The Requirements' text, so paragraphs 10 onwards sit under the wrong heading.",
+     "evidence": "tree: \"Requirement C2 is subdivided as follows: Requirements in relation to Material Change of Use (Regulation 6) 10. Subparagraph (a)\""
+    },
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "Both tables have no header row in the source, but the tree gives them invented column names.",
+     "evidence": "tree columns: \"Requirement\", \"Previous requirement\", \"Subject\" / \"Requirement\", \"Subject\", \"Note\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The two tables are printed inside paragraph 9 after each 'as follows:', but the tree puts them after the whole text, ending with paragraph 12.",
+     "evidence": "tree: \"Requirement C1 is sub-divided as follows: Requirement C1(2) relates to contaminants\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "52863b30f4927fc3": {
    "version_id": "new-approved-documents-circular-odpm-04-2004--circular-4-2004-new-approved-documents-on-parts-a-c-and-e@2012-11-14-1afc5f49",
    "unit": "p3",
@@ -7611,6 +8425,25 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "58453b6a0b01dee8": {
+   "version_id": "new-approved-documents-circular-odpm-04-2004--circular-4-2004-new-approved-documents-on-parts-a-c-and-e@2012-11-14-1afc5f49",
+   "unit": "p9",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The Annex A heading for the regulations is kept as body text, not as a heading.",
+     "evidence": "\"THE BUILDING (AMENDMENT) REGULATIONS 2004 (SI 2004/1465)\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "7705aaa4eadc54ac": {
    "version_id": "new-approved-documents-circular-odpm-04-2004--circular-4-2004-new-approved-documents-on-parts-a-c-and-e@2012-11-14-1afc5f49",
    "unit": "p9",
@@ -7667,6 +8500,62 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "d039c1f001898bff": {
+   "version_id": "new-competent-person-schemes-water-efficiency-calc--circular-09-2009-the-building-regulations-2000-authorisati@2009-09-08-0487c7c1",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Words are run together where the source has a space.",
+     "evidence": "source: \"other bodies\", \"in new dwellings\" / tree: \"otherbodies\", \"innew dwellings\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Ligature glyphs are kept instead of plain letters, which still read right but may hurt search.",
+     "evidence": "source: \"Efficiency\", \"certificates\", \"flushing\" / tree: \"Efﬁciency\", \"certiﬁcates\", \"ﬂushing\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
+  "d7c44b7f4e5dc1dd": {
+   "version_id": "new-competent-person-schemes-water-efficiency-calc--circular-09-2009-the-building-regulations-2000-authorisati@2009-09-08-0487c7c1",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The heading on wholesome water methodology is read as body text, so paragraph 7 sits under the competent person schemes heading.",
+     "evidence": "tree: \"...fitted with a flushing device. AMENDMENTS RELATING TO THE METHODOLOGY FOR THE CALCULATION ... 7. The methodology...\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Numbered paragraphs 1 to 5 are merged into one text block, with paragraphs 4 and 5 joined to the last bullet.",
+     "evidence": "tree: \"...wholesome water innew dwellings. 4. This Circular does not give advice... 5. Annex A...\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Words are run together.",
+     "evidence": "source: \"other bodies\" / tree: \"otherbodies\"; source: \"water in new dwellings\" / tree: \"water innew dwellings\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "ef5749b759e3a336": {
    "version_id": "new-competent-person-schemes-water-efficiency-calc--circular-09-2009-the-building-regulations-2000-authorisati@2009-09-08-0487c7c1",
    "unit": "p2",
@@ -7697,6 +8586,56 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "0bb6dad45fe2bfa2": {
+   "version_id": "new-competent-person-schemes-water-efficiency-calc--circular-09-2009-the-building-regulations-2000-authorisati@2009-09-08-0487c7c1",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The heading for regulation 22A revocation is run into body text, so paragraphs 9 and 10 sit under the competent person schemes heading.",
+     "evidence": "source: \"REVOCATION OF REGULATION 22A OF THE BUILDING REGULATIONS (TIME LIMIT FOR PROSECUTION...)\" / tree: heading_path \"AMENDMENTS RELATING TO THE AUTHORISATION OF COMPETENT PERSON SCHEMES > Text\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The word ANNEX, a heading from the next page, is appended to the enquiries text.",
+     "evidence": "tree: \"Department for Communities and Local Government ANNEX\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Several words are run together.",
+     "evidence": "source: \"Building Regulations to\" / tree: \"Building Regulationsto\"; \"numberof\"; \"forCommunities\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
+  "573099256ea7b05f": {
+   "version_id": "new-competent-person-schemes-water-efficiency-calc--circular-09-2009-the-building-regulations-2000-authorisati@2009-09-08-0487c7c1",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Words are run together in paragraphs 8 and 11.",
+     "evidence": "source: \"Building Regulations to\", \"ISBN number of\", \"Department for Communities\" / tree: \"Building Regulationsto\", \"ISBN numberof\", \"Department forCommunities\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "aff34f7d423d73ca": {
    "version_id": "new-competent-person-schemes-water-efficiency-calc--circular-09-2009-the-building-regulations-2000-authorisati@2009-09-08-0487c7c1",
@@ -7785,6 +8724,56 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "7b44027aca3f34b6": {
+   "version_id": "new-competent-person-schemes-water-efficiency-calc--circular-09-2009-the-building-regulations-2000-authorisati@2009-09-08-0487c7c1",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "A price that is not on this page is added to the intro text.",
+     "evidence": "tree: \"(S.I.2000/2531) £6\""
+    },
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The ANNEX heading above the regulation title is not kept.",
+     "evidence": "source: \"ANNEX\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
+  "adb0bf36902fd1ec": {
+   "version_id": "new-competent-person-schemes-water-efficiency-calc--circular-09-2009-the-building-regulations-2000-authorisati@2009-09-08-0487c7c1",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The 'ANNEX' heading is not kept as a heading on this page, so the annex title and table are not under ANNEX.",
+     "evidence": "source: \"ANNEX\" / tree: heading_path \"The Building (Amendment) Regulations 2009 (S.I. 2009/2397)\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Stray characters are added at the end of the intro sentence.",
+     "evidence": "source: \"(S.I.2000/2531)\" / tree: \"(S.I.2000/2531) £6\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "f24aae54dc1a9c7e": {
    "version_id": "new-competent-person-schemes-water-efficiency-calc--circular-09-2009-the-building-regulations-2000-authorisati@2009-09-08-0487c7c1",
    "unit": "p4",
@@ -7821,6 +8810,18 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "464758138ff9d15c": {
+   "version_id": "new-competent-person-schemes-water-efficiency-calc--circular-09-2009-the-building-regulations-2000-authorisati@2009-09-08-0487c7c1",
+   "unit": "p6",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "58edbc95a90f9005": {
    "version_id": "new-competent-person-schemes-water-efficiency-calc--circular-09-2009-the-building-regulations-2000-authorisati@2009-09-08-0487c7c1",
@@ -8005,6 +9006,31 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "5326920462155dc0": {
+   "version_id": "postponement-of-amendments-to-the-building-regulat--circular-10-2009-postponement-of-the-coming-into-force-of-@2009-09-14-d45052cc",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Words run together in paragraphs 1 and 2.",
+     "evidence": "source: \"were made on 8 September\" / tree: \"madeon 8 September\"; source: \"requirements and\" / tree: \"requirementsand\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "A ligature character is kept instead of plain letters.",
+     "evidence": "source: \"water efficiency\" / tree: \"water efﬁciency\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "b265a3242cb6caaf": {
    "version_id": "postponement-of-amendments-to-the-building-regulat--circular-10-2009-postponement-of-the-coming-into-force-of-@2009-09-14-d45052cc",
    "unit": "p2",
@@ -8047,6 +9073,31 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "281d07c391ee2687": {
+   "version_id": "postponement-of-amendments-to-the-building-regulat--circular-10-2009-postponement-of-the-coming-into-force-of-@2009-09-14-d45052cc",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Words and number groups are run together or split oddly.",
+     "evidence": "source: \"Fax: 020 7944 5719\", \"in September 2009. However, its use for the purposes\" / tree: \"Fax: 020 79445719\", \"September2009. However,its use for thepurposes\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The enquiries text ends with a stray price that is not printed on this page.",
+     "evidence": "tree: \"...Communities and Local Government £6\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "54ffffe00422b05c": {
    "version_id": "postponement-of-amendments-to-the-building-regulat--circular-10-2009-postponement-of-the-coming-into-force-of-@2009-09-14-d45052cc",
@@ -8140,6 +9191,18 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "0079a588ee03d743": {
+   "version_id": "postponement-of-amendments-to-the-building-regulat--circular-10-2009-postponement-of-the-coming-into-force-of-@2009-09-14-d45052cc",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "3122bf4fbfab5cc2": {
    "version_id": "postponement-of-amendments-to-the-building-regulat--circular-10-2009-postponement-of-the-coming-into-force-of-@2009-09-14-d45052cc",
@@ -8380,6 +9443,31 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "c3d56de083c09b02": {
+   "version_id": "sound-insulation-testing-circular-odpm-03-2002--circular-03-2002-amendment-of-approved-document-giving-guida@2012-11-14-272b0adb",
+   "unit": "p7",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is kept as a note section.",
+     "evidence": "tree: note text \"7\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The Annex A heading is cut short; the rest of the title and the intro sentence sit only in the table text.",
+     "evidence": "source: \"THE BUILDING (AMENDMENT) (NO. 2) REGULATIONS 2002 (SI 2002/2871)\" / tree: title \"THE BUILDING (AMENDMENT) (NO. 2)\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "4f0ec80449c319dd": {
    "version_id": "sound-insulation-testing-circular-odpm-03-2002--circular-03-2002-amendment-of-approved-document-giving-guida@2012-11-14-272b0adb",
@@ -9311,6 +10399,37 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "4128899337d95d5d": {
+   "version_id": "the-building-act-1994-the-building-regulations-200--circular-07-2000-the-building-regulations-2000-and-the-bui@2012-11-14-beea9961",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The body paragraphs 1 to 3 are typed as a note with a garbled title under 'Introduction', and paragraph 3 is not under its heading 'The Building Regulations 2000', which holds only a note '1'.",
+     "evidence": "tree: note title \"D E ,\"; text \"... Approved Documents. The Building Regulations 2000 3. After consultation\"; note-2 text \"1\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The small-caps letterhead lost its capital letters.",
+     "evidence": "source: \"DEPARTMENT OF THE ENVIRONMENT, TRANSPORT AND THE REGIONS\" / tree: \"EPARTMENT OF THE NVIRONMENT T R RANSPORT AND THE EGIONS\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is kept as a note under 'The Building Regulations 2000'.",
+     "evidence": "tree: \"1\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "a8f42909d98c759f": {
    "version_id": "the-building-act-1994-the-building-regulations-200--circular-07-2000-the-building-regulations-2000-and-the-bui@2012-11-14-beea9961",
    "unit": "p11",
@@ -9355,6 +10474,25 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "a02ea633b8455b39": {
+   "version_id": "the-building-act-1994-the-building-regulations-200--circular-07-2000-the-building-regulations-2000-and-the-bui@2012-11-14-beea9961",
+   "unit": "p18",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is kept as a note.",
+     "evidence": "tree: note \"18\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "92f1540d92af0eea": {
    "version_id": "the-building-act-1994-the-building-regulations-200--circular-07-2000-the-building-regulations-2000-and-the-bui@2012-11-14-beea9961",
    "unit": "p19",
@@ -9373,6 +10511,31 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "e48f9c93125357ea": {
+   "version_id": "the-building-act-1994-the-building-regulations-200--circular-07-2000-the-building-regulations-2000-and-the-bui@2012-11-14-beea9961",
+   "unit": "p19",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "In the table text, the two-column signature block is read across both columns, mixing the signatory's name and title into the authority line.",
+     "evidence": "source: \"Signed by authority of the Secretary of State for the\" / tree: \"Signed by authority of the P. F. Everall Secretary of State for the an Assistant Secretary in the\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is kept as a note.",
+     "evidence": "tree: \"19\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "474af73571d78f53": {
    "version_id": "the-building-act-1994-the-building-regulations-200--circular-07-2000-the-building-regulations-2000-and-the-bui@2012-11-14-beea9961",
@@ -9536,6 +10699,18 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "e45bb84d7de795ce": {
+   "version_id": "the-building-act-1994-the-building-regulations-200--circular-07-2000-the-building-regulations-2000-and-the-bui@2012-11-14-beea9961",
+   "unit": "p28",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "f7844921c0022f55": {
    "version_id": "the-building-act-1994-the-building-regulations-200--circular-07-2000-the-building-regulations-2000-and-the-bui@2012-11-14-beea9961",
@@ -9943,6 +11118,18 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "c59fec229729e172": {
+   "version_id": "the-building-amendment-no-3-regulations-2004-circu--circular-08-2004-the-building-amendment-no-3-regulations-2@2012-11-14-f0c8ac6c",
+   "unit": "p10",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "df10cb25e1cc4524": {
    "version_id": "the-building-amendment-no-3-regulations-2004-circu--circular-08-2004-the-building-amendment-no-3-regulations-2@2012-11-14-f0c8ac6c",
    "unit": "p10",
@@ -9985,6 +11172,43 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "23fd82ac6050ddc3": {
+   "version_id": "the-building-amendment-no-3-regulations-2004-circu--circular-08-2004-the-building-amendment-no-3-regulations-2@2012-11-14-f0c8ac6c",
+   "unit": "p11",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The two-column Document / Requirement table is read as running text and the cells of its row are interleaved.",
+     "evidence": "source: \"Amendment to Approved Document P: Electrical safety | Schedule 1 Part P of the Building Regulations 2000\" / tree: \"Amendment to Approved Document P: Schedule 1 Part P of the Building Electrical safety Regulations 2000\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The signature block's two columns are mixed, putting the signer's name inside the phrase on the left.",
+     "evidence": "tree: \"Signed by authority of the Paul F Everall First Secretary ofState an Assistant Secretary\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Stray marks from the scan are kept as bullet items.",
+     "evidence": "tree: \"• //\", \"• IJ\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Words are run together.",
+     "evidence": "source: \"1 January 2005\" / tree: \"1January 2005\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "08550a63eb0bbfe1": {
    "version_id": "the-building-amendment-no-3-regulations-2004-circu--circular-08-2004-the-building-amendment-no-3-regulations-2@2012-11-14-f0c8ac6c",
@@ -10078,6 +11302,86 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "c41bd5fa1fb50ec5": {
+   "version_id": "the-building-amendment-no-3-regulations-2004-circu--circular-08-2004-the-building-amendment-no-3-regulations-2@2012-11-14-f0c8ac6c",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "high",
+     "problem": "OCR errors change SI numbers and the circular number.",
+     "evidence": "source: \"(S.I. 2004/1808)\", \"ODPM CIRCULAR 05/2004\" / tree: \"(5.1. 2004/1808)\", \"ODPM CIRCULAR OS/2004\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The whole page text is given twice, in two sections with slightly different OCR.",
+     "evidence": "tree: \"INTRODUCTION 1. I am directed by the First Secretary of State...\" appears in text-1 and text-2"
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "OCR noise that is not on the page is added to the text.",
+     "evidence": "tree: \"~.•.••..•. o ex>\", \"111111 54022001449908 INTRODUCTION\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The INTRODUCTION and ODPM CIRCULAR 05/2004 headings are read as body text, and the text sits under a wrong heading about Part P.",
+     "evidence": "tree: heading_path \"New Approved Document giving guidance on Part P (Electrical safety) > Text\", \"...S.l. 2004/3210. ODPM CIRCULAR OS/2004 5. The information...\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The email address is broken, and in the first copy the word \"is\" is replaced by a repeat.",
+     "evidence": "source: \"for enquiries is enquiries.br@odpm.gsi.gov.uk\" / tree: \"for enquiries enquiries. br@odpm.gsi.gov.uk\", \"br@odpm.gsLgov.uk\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Words run together and S.I. is misread.",
+     "evidence": "source: \"of the interests\", \"S.I. 2004/3210\" / tree: \"ofthe interests\", \"S.l. 2004/3210\", \"S.L 2004/3210\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
+  "60adf58ca88b05d3": {
+   "version_id": "the-building-amendment-no-3-regulations-2004-circu--circular-08-2004-the-building-amendment-no-3-regulations-2@2012-11-14-f0c8ac6c",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The printed title of the annex is kept as body text instead of a heading.",
+     "evidence": "source: \"THE BUILDING (AMENDMENT) (NO. 3) REGULATIONS 2004 (S.I. 2004/3210)\" / tree: text block starting \"THE BUILDING (AMENDMENT) (NO. 3) REGULATIONS 2004 (S.1. 2004/3210) The following\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "OCR reads S.I. as S.1. or S.l. in the intro text, so the instrument numbers read wrongly.",
+     "evidence": "source: \"(S.I. 2004/3210)\", \"S.I. 2002/440\" / tree: \"(S.1. 2004/3210)\", \"S.l. 2002/440\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "OCR junk characters are added at the end of the intro text.",
+     "evidence": "tree: \".-' ~ ... : 4 - -\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "6affb3367b9934d4": {
    "version_id": "the-building-amendment-no-3-regulations-2004-circu--circular-08-2004-the-building-amendment-no-3-regulations-2@2012-11-14-f0c8ac6c",
    "unit": "p5",
@@ -10096,6 +11400,18 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "0a74b0c7c1db5132": {
+   "version_id": "the-building-amendment-no-3-regulations-2004-circu--circular-08-2004-the-building-amendment-no-3-regulations-2@2012-11-14-f0c8ac6c",
+   "unit": "p6",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "51817fae0a2abc26": {
    "version_id": "the-building-amendment-no-3-regulations-2004-circu--circular-08-2004-the-building-amendment-no-3-regulations-2@2012-11-14-f0c8ac6c",
@@ -10128,6 +11444,37 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "d8b857d603b741b4": {
+   "version_id": "the-building-amendment-no-3-regulations-2004-circu--circular-08-2004-the-building-amendment-no-3-regulations-2@2012-11-14-f0c8ac6c",
+   "unit": "p7",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The tree has a stray text block of dashes that is not printed text on the page (likely scan marks).",
+     "evidence": "tree: \"- - - -\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
+  "9fd26e9277f383be": {
+   "version_id": "the-building-amendment-no-3-regulations-2004-circu--circular-08-2004-the-building-amendment-no-3-regulations-2@2012-11-14-f0c8ac6c",
+   "unit": "p8",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "a64bcd04b0fcd15a": {
    "version_id": "the-building-amendment-no-3-regulations-2004-circu--circular-08-2004-the-building-amendment-no-3-regulations-2@2012-11-14-f0c8ac6c",
    "unit": "p8",
@@ -10158,6 +11505,25 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "47eb2d31f5bbd440": {
+   "version_id": "the-building-amendment-no-3-regulations-2004-circu--circular-08-2004-the-building-amendment-no-3-regulations-2@2012-11-14-f0c8ac6c",
+   "unit": "p9",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "A text section with only dashes follows the table; it is not printed on the page.",
+     "evidence": "tree: \"- - -\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "4584dca124b0a2be": {
    "version_id": "the-building-amendment-regulation-2003-circular-od--odpm-circular-11-2003-the-building-amendment-regulation-20@2003-11-05-ba14a335",
@@ -10482,6 +11848,18 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "befa9aec44e12ef3": {
+   "version_id": "the-building-amendment-regulations-2001-and-the-bu--circular-03-2001-new-parts-h-j-and-l-in-schedule-1-to-the-@2012-11-14-4cf3bffc",
+   "unit": "p15",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "e76950bfe804b51f": {
    "version_id": "the-building-amendment-regulations-2001-and-the-bu--circular-03-2001-new-parts-h-j-and-l-in-schedule-1-to-the-@2012-11-14-4cf3bffc",
    "unit": "p15",
@@ -10500,6 +11878,18 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "785deed519c00322": {
+   "version_id": "the-building-amendment-regulations-2001-and-the-bu--circular-03-2001-new-parts-h-j-and-l-in-schedule-1-to-the-@2012-11-14-4cf3bffc",
+   "unit": "p16",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "8afc03f6568b643e": {
    "version_id": "the-building-amendment-regulations-2001-and-the-bu--circular-03-2001-new-parts-h-j-and-l-in-schedule-1-to-the-@2012-11-14-4cf3bffc",
@@ -11311,6 +12701,68 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "e3238494bdfd0ea7": {
+   "version_id": "the-building-regulations-and-the-building-approved--circular-062007-the-building-regulations-and-the-building-@2007-12-07-f5b155f7",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Several words are run together in paragraph 27 and the enquiries address.",
+     "evidence": "source: \"their multi-foil\", \"on the market\", \"Accreditation Service\", \"its members\", \"Local Government\" / tree: \"theirmulti-foil\", \"onthe\", \"AccreditationService\", \"itsmembers\", \"LocalGovernment\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The bold subheading about paragraphs 25 to 27 is kept as body text, not as a heading.",
+     "evidence": "PARAGRAPHS 25 TO 27 OF ANNEX B TO ODPM CIRCULAR LETTER DATED 30 MARCH 2006"
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Enquiries is a top-level closing section of the circular but is placed under Annex A.",
+     "evidence": "tree: \"Annex A > Enquiries\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The enquiries text ends with a price not printed on this page.",
+     "evidence": "tree: \"Local Government £6\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
+  "fe10bb0eb5443ed2": {
+   "version_id": "the-building-regulations-and-the-building-approved--circular-062007-the-building-regulations-and-the-building-@2007-12-07-f5b155f7",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "Paragraph 26 is split at the date: the day '1' became a paragraph number, so the date loses its day and paragraphs 26 and 27 sit under a wrong 'Paragraph 1'.",
+     "evidence": "source: \"Therefore from 1 January 2007 values of thermal resistance\" / tree: \"Therefore from\" + paragraph number \"1\" \"January 2007 values\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The bold heading under WITHDRAWN is kept as body text, not as a heading.",
+     "evidence": "PARAGRAPHS 25 TO 27 OF ANNEX B TO ODPM CIRCULAR LETTER DATED 30 MARCH 2006"
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "9067f2128ca183d6": {
    "version_id": "the-building-regulations-and-the-building-approved--circular-062007-the-building-regulations-and-the-building-@2007-12-07-f5b155f7",
    "unit": "p5",
@@ -11380,6 +12832,25 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "f65c4624f74a5ade": {
+   "version_id": "the-builiding-regulations-2000-and-the-building-ap--circular-05-2007-the-building-regulations-2000-and-the-bui@2007-12-05-2e591312",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The second line of the Annex A heading is split off from the title and put at the start of the body text.",
+     "evidence": "source: \"The Building and Approved Inspectors (Amendment) Regulations 2007 (S.I.2007/3384)\" / tree: text \"Regulations 2007 (S.I.2007/3384) The following table lists\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "0c964d535c53b49b": {
    "version_id": "the-builiding-regulations-2000-and-the-building-ap--circular-05-2007-the-building-regulations-2000-and-the-bui@2007-12-05-2e591312",
    "unit": "p5",
@@ -11404,6 +12875,56 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "aaff9ecc0b2bf792": {
+   "version_id": "the-builiding-regulations-2000-and-the-building-ap--circular-05-2007-the-building-regulations-2000-and-the-bui@2007-12-05-2e591312",
+   "unit": "p5",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The Annex B heading is cut short; its second line is moved into the body text.",
+     "evidence": "source: \"The Building and Approved Inspectors (Amendment) Regulations 2007 (SI 2007/3384)\" / tree: title \"The Building and Approved Inspectors (Amendment)\", text \"Regulations 2007 (SI 2007/3384) The following table...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
+  "58f74ce57719ebe2": {
+   "version_id": "the-builiding-regulations-2000-and-the-building-ap--circular-05-2007-the-building-regulations-2000-and-the-bui@2007-12-05-2e591312",
+   "unit": "p6",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The closing line that applies to both regulation 2(4)(b) bullets is merged into the last bullet only.",
+     "evidence": "\"the amendments made by regulation 2(4)(b) do not apply to that work.\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The paragraph introducing the regulation 2(4)(b) circumstances is merged into the third bullet of the previous list.",
+     "evidence": "tree: \"there is noneed to notify thework. The circumstances in respect of the amendments made by regulation 2(4)(b)\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Many words are run together.",
+     "evidence": "tree: \"noticeis\", \"plansaredeposited\", \"supplementaryprovision\", \"isvaried\", \"Ifthe\", \"1October\", \"noneed\", \"bya\", \"inSchedule\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "ce2454860590a2fc": {
    "version_id": "the-builiding-regulations-2000-and-the-building-ap--circular-05-2007-the-building-regulations-2000-and-the-bui@2007-12-05-2e591312",
@@ -11442,6 +12963,25 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "11efc5b2e65cdd0f": {
+   "version_id": "the-builiding-regulations-2000-and-the-building-ap--circular-05-2007-the-building-regulations-2000-and-the-bui@2007-12-05-2e591312",
+   "unit": "p7",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "Two words are run together.",
+     "evidence": "source: \"to the scope\" / tree: \"to thescope\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "309b98d18cda656b": {
    "version_id": "the-builiding-regulations-2000-and-the-building-ap--circular-05-2007-the-building-regulations-2000-and-the-bui@2007-12-05-2e591312",
    "unit": "p7",
@@ -11460,6 +13000,18 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "ef982853e19f8d68": {
+   "version_id": "the-builiding-regulations-2000-and-the-building-ap--circular-05-2007-the-building-regulations-2000-and-the-bui@2007-12-05-2e591312",
+   "unit": "p8",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "f217ef27d6028091": {
    "version_id": "the-builiding-regulations-2000-and-the-building-ap--circular-05-2007-the-building-regulations-2000-and-the-bui@2007-12-05-2e591312",

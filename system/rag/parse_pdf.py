@@ -376,6 +376,32 @@ def _size_weights(lines: list[dict]) -> Counter:
 SUPERSCRIPT = str.maketrans("0123456789", "⁰¹²³⁴⁵⁶⁷⁸⁹")
 
 
+def _spaced(chars: list[dict], text: str, page_chars: list[dict] = ()) -> str:
+    """A line's text with the word gaps pdfplumber missed: some justified lines have no space characters and gaps
+    under its 3pt tolerance ("createdbyamaterialchangeofuse", circulars of 2008-2010). The spaces pdfplumber put
+    in stay; a space is added only between two characters of the same size on the same baseline with a gap at
+    least 0.2 of that size wide and nothing printed in it, so kerning ("Over view") stays joined, and so does a
+    letter whose subscript pdfplumber put on a line of its own ("C1T1", "SiO4")."""
+    cs = [c for c in chars if not c["text"].isspace()]
+    if "".join(c["text"] for c in cs) != text.replace(" ", ""):
+        return text  # a character pdfplumber left out or added: keep its text
+    out, k = [], 0
+    for ch in text:
+        if ch == " ":
+            out.append(ch)
+            continue
+        c, prev = cs[k], cs[k - 1] if k else None
+        if prev is not None and out and out[-1] != " " and abs(c["size"] - prev["size"]) < 0.1 \
+                and abs(c["bottom"] - prev["bottom"]) < 0.5 and c["x0"] - prev["x1"] >= 0.2 * c["size"] \
+                and not any(o["x0"] >= prev["x1"] - 0.5 and o["x1"] <= c["x0"] + 0.5 and not o["text"].isspace()
+                            and o["top"] < c["bottom"] + c["size"] and o["bottom"] > c["top"] - c["size"]
+                            for o in page_chars):
+            out.append(" ")
+        out.append(ch)
+        k += 1
+    return "".join(out)
+
+
 def mark_superscripts(chars: list[dict]) -> list[dict]:
     """Footnote numbers set small and raised ("the Order¹"): give them superscript digits, so they do not run
     into the word ("Order1", "Regulations20027"). A digit is raised when it is at most 80% of the line's main
@@ -463,6 +489,8 @@ def read_pdf(path, *, graphics: bool = False, superscripts: bool = False, common
                 text = l["text"]
                 if superscripts or split_backwards or sum(len(w["text"]) for w in ws) < len(text.replace(" ", "")):
                     text = " ".join(w["text"] for w in ws)  # overprinted characters dropped, superscripts marked
+                elif len(ws) > len(text.split()):
+                    text = _spaced(l["chars"], text, page.chars)
                 lines.append(normalise_bullet({
                     "page": n, "top": round(l["top"], 1), "x0": round(l["x0"], 1),
                     "size": round(first["size"], 1), "font": first["fontname"].split("+")[-1],
@@ -1517,10 +1545,13 @@ class Builder:
         # medium weight a point larger than body text ("Video evidence", 11pt medium condensed oblique).
         t = l["text"].strip()
         run, first = self._block_run(l, first=True)
+        # S128 round 3 (circulars): a heading in bold capitals at body size may wrap to three lines ("REVOCATION OF
+        # REGULATION 22A OF THE BUILDING REGULATIONS (TIME" / "LIMIT FOR ..." / "REGULATIONS)").
+        caps3 = run == 3 and t.isupper() and _is_bold(l["font"]) and l["size"] == self.body_size
         if len(t.split()) > (16 if run == 2 else 12) or not first or t.endswith((".", ",", ";", ":")) \
                 or not t[:1].isupper() or self._boxed(l) \
                 or re.match(r"^(Figure|Table|Diagram)\s+[A-Z]?\d", t) or re.search(r"\bPage\s+\d+|HSE Books", t) \
-                or all(len(w) <= 1 for w in t.split()) or (len(t) <= 6 and not re.search(r"[a-z]", t)) or run > 2:
+                or all(len(w) <= 1 for w in t.split()) or (len(t) <= 6 and not re.search(r"[a-z]", t)) or run > (3 if caps3 else 2):
             return False
         if _is_bold(l["font"]) and self.body_size + 2 <= l["size"] < 2 * self.body_size and "Italic" not in l["font"]:
             return any(abs(l["x0"] - c) <= 2.5 for c in self.text_lefts)
@@ -1531,14 +1562,17 @@ class Builder:
         if self.body_size * 1.4 <= l["size"] < 2 * self.body_size and at_edge and "Italic" not in l["font"] \
                 and "Oblique" not in l["font"]:
             return True
-        if _is_bold(l["font"]) and l["size"] == self.body_size and at_edge and len(t.split()) <= 8 \
-                and "Italic" not in l["font"] and "Oblique" not in l["font"] and run <= 2:
-            return self._standalone(l, two=run == 2)
+        # S128 round 3 (circulars): a heading in capitals may be longer ("AMENDMENTS RELATING TO PART G OF SCHEDULE 1
+        # TO THE BUILDING" / "REGULATIONS 2000").
+        if _is_bold(l["font"]) and l["size"] == self.body_size and at_edge \
+                and len(t.split()) <= (12 if t.isupper() else 8) \
+                and "Italic" not in l["font"] and "Oblique" not in l["font"] and (run <= 2 or caps3):
+            return self._standalone(l, two=run - 1)
         return bool(MEDIUM_RE.search(l["font"])) and self.body_size + 0.5 <= l["size"] < 1.5 * self.body_size \
             and (self.left(l) - 3 <= l["x0"] <= self.left(l) + 25 or any(abs(l["x0"] - c) <= 2.5 for c in self.text_lefts)) \
             and len(t.split()) <= (16 if run == 2 else 12)
 
-    def _standalone(self, l: dict, two: bool = False) -> bool:
+    def _standalone(self, l: dict, two: int = 0) -> bool:
         """A line with space above it (or first on its page) and a line of running text (not bold) under it, after
         a gap of 1.5 to 2.6 times its size."""
         ls = self.lines_by_page.get(l["page"], [])
@@ -1549,9 +1583,9 @@ class Builder:
         if any(b["x0"] - a.get("x1", b["x0"]) > 2 * l["size"] for a, b in zip(ws, ws[1:])):
             return False  # wide gaps between its words: a table row
         last = l
-        if two:  # a heading on two lines: the space under it is measured from its second line
+        for _ in range(int(two)):  # a heading on two (or three) lines: the space under it is measured from its last line
             last = min((x for x in ls if x["font"] == l["font"] and x["size"] == l["size"] and abs(x["x0"] - l["x0"]) <= 3
-                        and 0 < x["top"] - l["top"] <= 1.8 * l["size"]), key=lambda x: x["top"], default=l)
+                        and 0 < x["top"] - last["top"] <= 1.8 * l["size"]), key=lambda x: x["top"], default=last)
         above = [x for x in ls if x["top"] < l["top"] - 1 and abs(x["x0"] - l["x0"]) < 200]
         below = sorted((x for x in ls if x["top"] > last["top"] + 1 and abs(x["x0"] - l["x0"]) <= 40), key=lambda x: x["top"])
         if above and l["top"] - max(x["top"] for x in above) < 1.5 * l["size"]:
@@ -1572,7 +1606,8 @@ class Builder:
             return False
         if t[0].islower() and -16 <= x["x0"] - h["x0"] <= 3:  # a numbered question's second line starts further left
             return True
-        return abs(x["x0"] - h["x0"]) <= 3 and (t[0] in "([" or self._block_run(h) == 2)
+        run = self._block_run(h)
+        return abs(x["x0"] - h["x0"]) <= 3 and (t[0] in "([" or run == 2 or (run == 3 and h["text"].isupper() and t.isupper()))
 
     def _block_run(self, l, first: bool = False):
         """How many lines in a row, one under the other at the same left edge, share this line's font and size: a
@@ -2293,11 +2328,12 @@ class Builder:
             # ---- headings (merge wrapped heading lines)
             expected = counters.get(counter_key, 0) + 1
             if (self.is_heading(l) and not self._bullet_continuation(k_line)) or self.is_runin_heading(k_line, expected):
-                title = l["text"]
+                title, prev = l["text"], l
                 while i < len(self.lines) and self.lines[i]["page"] == l["page"] and not self.rect_of(self.lines[i]) \
                         and ((self.is_heading(self.lines[i]) and self.lines[i]["top"] - l["top"] < max(16, 1.6 * l["size"]))
-                             or (self._heading_wrap(l, self.lines[i]) and self.lines[i]["top"] - l["top"] < 1.8 * l["size"])):
+                             or (self._heading_wrap(l, self.lines[i]) and self.lines[i]["top"] - prev["top"] < 1.8 * l["size"])):
                     title += " " + self.lines[i]["text"]
+                    prev = self.lines[i]
                     i += 1
                 hid = f"{chapter['id']}-{slugify(title)}"
                 while hid in self.by_id:
@@ -2334,6 +2370,13 @@ class Builder:
             spaced = prev is None or prev["page"] != l["page"] or l["top"] - prev["top"] >= 1.6 * l["size"]
             num = int(m.group(1)) if m else 0
             near = abs(l["x0"] - self.left(l))
+            # S128 round 3 (circulars): a number with no dot at the start of a line that runs on from a sentence with
+            # no gap ("Therefore from" / "1 January 2007 values") is a wrapped date or count, not a paragraph number.
+            if m and not dotted and not spaced and prev is not None and not _is_bold(prev["font"]) \
+                    and re.search(r"[a-z]$", prev["text"].rstrip()) \
+                    and (num != expected or re.match(r"\s*(?:[a-z]|(?:January|February|March|April|May|June|July|August|"
+                                                     r"September|October|November|December)\b)", m.group(2))):
+                m = None
             if m and ((num == expected and (near <= 2 or (dotted and near <= 20) or (spaced and near <= 8)))
                       or (expected < num <= expected + 3 and near <= 2 and spaced and self._next_is(k_line, num + 1))):
                 if num != expected:
@@ -2592,7 +2635,12 @@ class Builder:
     def _page_frame(self, t: dict, doc: dict) -> bool:
         p = self.page_sizes.get(t["page"])
         pw, ph = (p["width"], p["height"]) if p else (doc.get("page_width") or 595.0, doc.get("page_height") or 842.0)
-        return t["x1"] - t["x0"] >= 0.85 * pw and t["bottom"] - t["top"] >= 0.85 * ph
+        if t["x1"] - t["x0"] < 0.85 * pw or t["bottom"] - t["top"] < 0.85 * ph:
+            return False
+        # S128 round 3 (procurement e-learning): a table that fills the page, with a header row of two or more filled
+        # cells over two or more rows, is a table, not a frame round the page.
+        rows = [r for r in t["rows"] if any(c and c.strip() for c in r)]
+        return not (len(rows) >= 3 and sum(1 for c in rows[0] if c and c.strip()) >= 2 and self._ruled_grid(t))
 
     @staticmethod
     def _ruled_grid(t: dict) -> bool:

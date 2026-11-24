@@ -34,6 +34,31 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "28321c60e31dd1d9": {
+   "version_id": "main@2024-12-06-4d5c937a",
+   "unit": "p3",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The Managing panel's 'For more information' list is placed after the Reporting accidents text instead of before it.",
+     "evidence": "For more information, see: 1 Health and safety in construction HSG150"
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The lead-in line 'You can notify the Contact Centre:' is merged into the previous bullet instead of standing on its own.",
+     "evidence": "source: \"notify that too.\" + \"You can notify the Contact Centre:\" / tree: \"...notify that too. You can notify the Contact Centre:\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "8eb040ba870fea0d": {
    "version_id": "main@2024-12-06-4d5c937a",
    "unit": "p3",
@@ -95,6 +120,25 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "bb36497ed4655de0": {
+   "version_id": "main@2024-12-06-4d5c937a",
+   "unit": "p4",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The Employing note and 'For more information, contact' lines, and the leaflet line at the top, are placed after the Subcontracting text instead of in page order.",
+     "evidence": "Note: If a person working under your control and direction is treated as self-employed"
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "6c216402ea538a32": {
    "version_id": "main@2024-12-06-4d5c937a",

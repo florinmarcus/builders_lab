@@ -4351,6 +4351,68 @@
    "by": "model check, Opus 5.5, Claude Code headless (packet)",
    "confidence": "high",
    "date": "2026-11-23"
+  },
+  {
+   "key": "5c4b0a18f4ac39b8",
+   "kind": "figure_description",
+   "target": "figure-28: Weekly noise exposure calculator",
+   "value": "Screenshot of the HSE 'Weekly Noise Exposure Calculator' spreadsheet (V4-11 May 2019), which says the Control of Noise at Work Regulations 2005 allows the use of weekly exposures in place of daily exposures where noise exposures vary markedly from day to day, with 'Comparison with LEAV & UEAV' selected. The worked example lists daily noise exposures by week day: Sunday tank cleaning 87 dB(A) (158 points), Monday Tank re-fit 88 dB(A) (200 points), Tuesday to Thursday General maintenance 79 dB(A) (25 points each), and Friday and Saturday Not a working day. The weekly noise exposure is 84 dB(A) (87 points), with the warning 'Weekly exposure at or above LEAV. Control measures required. Hearing protection must be availlable (check suitability with ELV calculator)'.",
+   "reason": "Figure is a screenshot of a spreadsheet calculator with a worked example; labels and numbers copied as printed.",
+   "evidence": "Image figure-28.png shows title, menu buttons, the day-by-day table, the weekly result 84 dB(A) / 87 points and the yellow warning box.",
+   "by": "model check, Opus 5.5, Claude Code headless (packet)",
+   "confidence": "high",
+   "date": "2026-11-24"
+  },
+  {
+   "key": "e429f1c1339ec6e5",
+   "kind": "table",
+   "target": "table-12: The HSE categorisation scheme",
+   "value": {
+    "columns": [
+     "Category",
+     "NIHL seen on audiogram?",
+     "Calculation†",
+     "Action"
+    ],
+    "rows": [
+     [
+      "1 Acceptable hearing ability",
+      "No*",
+      "Sum of hearing levels at 1, 2, 3, 4 and 6 kHz",
+      "Repeat health surveillance at next routine interval"
+     ],
+     [
+      "2 Mild hearing loss",
+      "Stable NIHL may be present+",
+      "Sum of hearing levels at 1, 2, 3, 4 and 6 kHz",
+      "Consider earlier repeat health surveillance than routine, taking into account factors such as extent of hearing loss"
+     ],
+     [
+      "3 Significant hearing loss or new/ progressive NIHL",
+      "Yes, newly identified or progressive NIHL may be present (this category may also include more severe but stable NIHL)",
+      "Sum of hearing levels at 1, 2, 3, 4 and 6 kHz",
+      "Refer for medical assessment. Timing of next health surveillance depends on outcome of assessment"
+     ],
+     [
+      "4 Rapid hearing loss+ Reduction in hearing level of 30 dB or more, within 3 years or less",
+      "Possible",
+      "Sum of hearing levels at 3, 4 and 6 kHz",
+      "Refer for medical assessment. Timing of next health surveillance depends on outcome of assessment"
+     ]
+    ],
+    "heading_rows": [],
+    "sentences": [
+     "In the HSE categorisation scheme, Category 1 Acceptable hearing ability has NIHL seen on audiogram 'No*', is calculated as the sum of hearing levels at 1, 2, 3, 4 and 6 kHz, and the action is to repeat health surveillance at next routine interval.",
+     "In the HSE categorisation scheme, Category 2 Mild hearing loss means stable NIHL may be present+, is calculated as the sum of hearing levels at 1, 2, 3, 4 and 6 kHz, and the action is to consider earlier repeat health surveillance than routine, taking into account factors such as extent of hearing loss.",
+     "In the HSE categorisation scheme, Category 3 Significant hearing loss or new/ progressive NIHL means yes, newly identified or progressive NIHL may be present (this category may also include more severe but stable NIHL), is calculated as the sum of hearing levels at 1, 2, 3, 4 and 6 kHz, and the action is to refer for medical assessment, with timing of next health surveillance depending on outcome of assessment.",
+     "In the HSE categorisation scheme, Category 4 Rapid hearing loss+ (reduction in hearing level of 30 dB or more, within 3 years or less) has NIHL seen on audiogram 'Possible', is calculated as the sum of hearing levels at 3, 4 and 6 kHz, and the action is to refer for medical assessment, with timing of next health surveillance depending on outcome of assessment."
+    ]
+   },
+   "reason": "Page image matches the library grid: four columns with one header row and four category rows; no group headings or spanned cells. Footnote marks *, + and † kept as printed.",
+   "evidence": "Page 93 image, Table 12 'The HSE categorisation scheme', rows 1 to 4 and header Category / NIHL seen on audiogram? / Calculation† / Action.",
+   "by": "model check, Opus 5.5, Claude Code headless (packet)",
+   "confidence": "high",
+   "date": "2026-11-24"
   }
  ]
 }

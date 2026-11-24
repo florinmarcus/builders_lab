@@ -850,6 +850,25 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "470b0409e13d106a": {
+   "version_id": "procurement-act-2023-short-guides--the-procurement-act-2023-a-short-guide-for-suppliers-pdf@2026-10-21-7a2130d7",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "missing",
+   "findings": [
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The document's main title is missing; the tree keeps only the subtitle and the collection title.",
+     "evidence": "source: \"The Procurement Act 2023 – a short guide for suppliers\" / tree: \"Transforming Public Procurement February 2025 – a short guide for suppliers\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "4cc48d3202a3124a": {
    "version_id": "procurement-act-2023-short-guides--the-procurement-act-2023-a-short-guide-for-suppliers-pdf@2026-10-21-7a2130d7",
    "unit": "p1",
@@ -1435,6 +1454,31 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "3cba38c6924648dd": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p110",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The page heading is split: the full heading is kept as body text under 'Process flow', and the chapter heading lost its first word.",
+     "evidence": "source: \"Summary of transparency notice requirements for below-threshold contracts\" / tree: chapter \"of transparency notice requirements for below-threshold contracts\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The running header is kept as note text.",
+     "evidence": "tree: note \"Transforming Public Procurement\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "94c654b0ebdc4391": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
    "unit": "p110",
@@ -1654,6 +1698,25 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "54ff62f3bd0d5c7b": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p125",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The paragraph about thresholds is printed after the Works Contracts box but the tree puts it before the box, joined to the opening sentence.",
+     "evidence": "source: box then \"All thresholds relating to the publication of notices\" / tree: \"nature of the procurement. All thresholds relating...\" before box"
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "60f785ec3d1f6fdf": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
    "unit": "p125",
@@ -1808,6 +1871,31 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "585cdad446e779ca": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p138",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The Exemptions heading from the right column is not a heading; it and its definition are run into the Purpose / variation text.",
+     "evidence": "source: \"Exemptions\" heading / tree: \"depending on the nature of your procurement. 1313 Exemptions Organisations and / or contracts...\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "A stray page number is inserted into the text before Exemptions.",
+     "evidence": "tree: \"1313 Exemptions\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "581491303267fd5f": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
@@ -1998,6 +2086,25 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "900a064b9f54dffe": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p142",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Page-number fragments are kept as a text section after the table.",
+     "evidence": "tree: \"1357 1480\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "89c05468b98026fe": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
    "unit": "p143",
@@ -2033,6 +2140,18 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "f3ebaacd8a4dae5c": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p143",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "75645be8ab5e958d": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
@@ -2070,6 +2189,18 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "ee9a0f30c8ef5103": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p144",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "14b5a772f708bfa8": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
    "unit": "p146",
@@ -2088,6 +2219,25 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "844c54e60c5d70d7": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p146",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The running header banner is kept as a note in the tree.",
+     "evidence": "tree: \"Transforming Public Procurement\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "9b21cdebe03ec538": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
@@ -2145,6 +2295,18 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "ac506a8e2e666993": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p148",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "a5669539ec3abb53": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
    "unit": "p150",
@@ -2156,6 +2318,18 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "c27c6b88be6a232c": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p150",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "56e19dfb60ed2070": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
@@ -2187,6 +2361,18 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "ed9ab32281adc4ed": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p152",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "04bafd22636d4e66": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
@@ -2689,6 +2875,25 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "cbf69153c53f13d8": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p231",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The separate paragraph after the bullet list is merged into the third bullet.",
+     "evidence": "source: \"The intention of each stage, i.e. whether it is to reduce the number of suppliers\" (own paragraph) / tree: appended to bullet \"...procurement process. The intention of each stage...\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "2638a7f6103f6f44": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
    "unit": "p232",
@@ -2707,6 +2912,18 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "7111b7875f04a470": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p232",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "904e1bac324c326b": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
@@ -2807,6 +3024,18 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "f623e69786db25d2": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p233",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "88143a2a1af6fbcd": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
@@ -3033,6 +3262,25 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "29a432b639b03757": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p247",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "garbled",
+   "findings": [
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "The chapter heading lost its first word.",
+     "evidence": "source: \"Summary of supplementary processes for the competitive flexible procedure\" / tree: \"of supplementary processes for the competitive flexible procedure\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "499c59b4121ef83e": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
    "unit": "p247",
@@ -3114,6 +3362,18 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "d3a28a964d336c3f": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p249",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "0c908613cdce5e59": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
    "unit": "p262",
@@ -3132,6 +3392,18 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "55fd3e8c2e71494c": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p262",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "9c1c6f2fe25b9542": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
@@ -3187,6 +3459,18 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "b97e7fc4a0e9bc13": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p265",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "20ca401860db85c1": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
@@ -3473,6 +3757,31 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "f446a1a07245e7b9": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p288",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The running header box is kept as a note in the tree, under an unrelated earlier chapter.",
+     "evidence": "tree: \"Transforming Public Procurement\" (note-332)"
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "A text section with a running title that is not printed on this page sits under the wrong chapter.",
+     "evidence": "tree: \"Frameworks vs dynamic markets - cheat sheet\" under \"9. Frameworks and dynamic markets established by non-contracting authorities\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "0729ad2a5b0094d5": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
    "unit": "p29",
@@ -3509,6 +3818,18 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "859e7c56f2318e38": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p290",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "b8d928303587bf86": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
    "unit": "p290",
@@ -3520,6 +3841,18 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "013e2f9652821f77": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p296",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "caa336ff57947682": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
@@ -3568,6 +3901,18 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "46da8c4bacd89828": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p300",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "fc535e0da9a1a37f": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
@@ -3680,6 +4025,37 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "b19e1258524c8615": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p304",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The decision tree flowchart is read as scattered notes, with the Yes/No branch labels pulled out into one line, so a reader cannot tell which answer leads to Framework.",
+     "evidence": "source: \"Do you want to appoint a single supplier? Yes -> Framework\" / tree: \"Continue Continue Yes No No Yes Yes Yes No Yes No\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Two separate flowchart questions are joined into one note and the second question is split across two notes.",
+     "evidence": "tree: \"Do you want to appoint a single supplier? Do you want the flexibility to refresh or add\" / \"suppliers during the term of the agreement?\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The tree has text not printed on this page, and keeps the running header as a note.",
+     "evidence": "tree: \"Frameworks and DMs - decision tree\"; \"Transforming Public Procurement\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "30e64d723fdcf830": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
    "unit": "p306",
@@ -3736,6 +4112,31 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "4f2a0604571413ef": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p306",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "A text line not printed on this page is placed under an unrelated Decision tree heading path.",
+     "evidence": "tree: \"Tender notice fields - frameworks\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The running header is kept as a note.",
+     "evidence": "tree: \"Transforming Public Procurement\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "daf1a30f0bab5e88": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
    "unit": "p306",
@@ -3772,6 +4173,18 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "02f15c2c3cbc1394": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p314",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "84ca7d96d400c4c7": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
@@ -3832,6 +4245,18 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "99e6b2e210ffb796": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p320",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "45eb17d81811cdb4": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
@@ -4200,6 +4625,37 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "e96eebea48e991fe": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p357",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The 'Fact sheet' subtitle is made a separate chapter instead of sitting under 'Exclusions and connected persons', so the table and note lose that parent.",
+     "evidence": "tree: heading_path \"Fact sheet > Table (Fact sheet)\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The box heading 'Connected persons' is joined into the note text instead of being kept as a heading.",
+     "evidence": "source: \"Connected persons\" / tree: \"Connected persons Schedule 6, paragraph 45) of the act sets out\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The running header box is kept as a note under the previous section.",
+     "evidence": "tree: \"Transforming Public Procurement\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "a324304b400d8645": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
    "unit": "p358",
@@ -4236,6 +4692,18 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "9cd2eb5f028047b1": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p359",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "65a4fb6078b294f5": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
    "unit": "p36",
@@ -4248,6 +4716,18 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "ab1ee968a5a3151b": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p36",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "5311f023be295e13": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
    "unit": "p360",
@@ -4259,6 +4739,31 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "006caaa98242d1f1": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p363",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The running header box is kept as a note in the tree.",
+     "evidence": "tree: \"Transforming Public Procurement\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The tree has a text block with a heading-like phrase that is not printed on this page.",
+     "evidence": "tree: \"Step by step guide - exclusions\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "172ef58b16213043": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
@@ -4321,6 +4826,18 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "53e29714ab545674": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p374",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "5abf352434379a51": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
@@ -4460,6 +4977,18 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "889cd2d2a9c61d8b": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p38",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "58b7b93631cfba59": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
    "unit": "p39",
@@ -4471,6 +5000,18 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "b378e3c7ac6b696e": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p39",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "66c188a416573c43": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
@@ -4515,6 +5056,25 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "76a693acf2621d2f": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p398",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The running header banner is kept as a note in the tree.",
+     "evidence": "tree: \"Transforming Public Procurement\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "bb0553ba5ee7d88b": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
    "unit": "p398",
@@ -4557,6 +5117,30 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "f5934649e12760ce": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p400",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
+  "2830d1a46944cf0c": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p403",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "42db96558bc0c429": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
@@ -4613,6 +5197,18 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "3a40fc4e74a1dc04": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p418",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "564cbe07a07aad3c": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
    "unit": "p418",
@@ -4660,6 +5256,18 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "473ee5406150ea40": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p420",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "543aed44511dcd31": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
@@ -4902,6 +5510,31 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "bd113b4a20cdbd20": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p447",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The note on section 74(4) is printed between the heading '6. Below-Threshold Modifications' and the 'Ground' text, but the tree puts it after the whole Ground and Change text.",
+     "evidence": "source: \"6. Below-Threshold Modifications (Section 74(4)) ... Note: 74(4) deals with ... Ground:\" / tree: note-529 after \"For example:\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The numbered heading '6. Below-Threshold Modifications (Section 74(4))' is kept as body text joined to the Ground paragraph.",
+     "evidence": "tree: \"6. Below-Threshold Modifications (Section 74(4)) Ground: “Below-threshold” amendments are permitted\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "1e14f1602f50bc46": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
@@ -5359,6 +5992,31 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "12e8f8cfd49cb21e": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p486",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "The two flowchart boxes side by side are mixed into one text, so the termination notice line runs into the other branch.",
+     "evidence": "source: \"Publish a contract termination notice (unless exemptions apply - see appendix 1).\" / tree: \"Publish a contract termination notice Where the breach / poor performance leads (unless exemptions apply - see appendix 1).\""
+    },
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The Yes and No branch labels that say which box applies are missing.",
+     "evidence": "source: \"Yes\" \"No\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "48e8e7b6674e04ee": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
    "unit": "p486",
@@ -5433,6 +6091,25 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "2872fcf6085f43a9": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p487",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The Step 2 note repeats the whole table text as running text, so the table content appears twice.",
+     "evidence": "tree: \"Reason for modification Associated modification ground To exercise an optional contract clause Schedule 8 (1): provided for in the contract\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "47c0a5f0d1b76810": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
@@ -5515,6 +6192,31 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "0e22a38c557ca401": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p488",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "Note-554 repeats both tables as running text with the two columns mixed, so the novation row reads wrongly.",
+     "evidence": "source: \"it is not permitted to change a supplier under any circumstances\" / tree: \"it is Schedule 8 (9): transfer on corporate not permitted to change a supplier under any restructuring circumstances\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The table rows are kept twice: once as correct tables and again flattened inside the note text.",
+     "evidence": "tree: \"Reason for modification Associated modification ground Due to unforeseen circumstances arising Schedule 8 (4)\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "2cd16fb5307196fe": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
    "unit": "p488",
@@ -5596,6 +6298,18 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "f9a7181f38507ef8": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p49",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "0c8ce35c4ac0291d": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
    "unit": "p491",
@@ -5658,6 +6372,68 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "b9d0fd3dc7fa4cee": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p491",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The two-column exemptions table is read as running text, with the second column heading run into the bullet text; values stay in the right order.",
+     "evidence": "tree: \"...then a contract change notice must be published Exempt from publication of modifications • defence and security contracts\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "A heading from the next page is run into the end of the body text.",
+     "evidence": "tree: \"(including the value of the modification) Making a contract modification - checklist\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
+  "101f146da4c76f26": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p495",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "The flowchart steps are out of order: identifying the ground and checking conditions come after signing, and the change notice comes before agreeing terms.",
+     "evidence": "source: \"Identify the appropriate modification ground ... Ensure that all applicable conditions ... Agree the terms\" / tree: \"Sign the modified contract ... Identify the appropriate modification ground\""
+    },
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "The first two flowchart boxes are mixed into each other.",
+     "evidence": "source: \"Identify the need to make a modification.\" / tree: \"Identify impact of etc).\" \"Identify the need to modification (e.g. make a modification. contract value, duration\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "A title that is not printed on this page is kept as text.",
+     "evidence": "tree: \"Modifying a contract - flowcharts\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The running header banner is kept as a note.",
+     "evidence": "tree: \"Transforming Public Procurement\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "1b1ac394de07c18c": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
@@ -5833,6 +6609,18 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "548c9fa1f3d3b3a1": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p50",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "68222dc1ecf430ba": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
    "unit": "p50",
@@ -5888,6 +6676,31 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "70b3616459d0d5c8": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p500",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The running header box is kept as a note in the tree.",
+     "evidence": "tree: \"Transforming Public Procurement\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "A line not printed on the page is filed under the previous document's heading path.",
+     "evidence": "tree: \"Terminating a public contract - step by step guide\" under \"Fact sheet > Awareness of a potential risk\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "9f84464e4665c6b4": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
@@ -6039,6 +6852,31 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "fdcd9d7ac3e57050": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p503",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "The Yes box and the No box after Step 5 are read line by line across both columns, so their words are mixed into one text.",
+     "evidence": "source: \"Complete a final KPI assessment and publish a final contract performance notice.\" / tree: \"Complete a final KPI assessment You do not need to publish a and publish a final contract contract performance notice.\""
+    },
+    {
+     "kind": "missing",
+     "severity": "high",
+     "problem": "The Yes and No branch labels of the flowchart are dropped, so the tree no longer says which answer leads to which box.",
+     "evidence": "source: \"Yes\" / \"No\" arrows from Step 4 and Step 5, e.g. No -> \"Ensure all outstanding matters are finalised.\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "2e1580ecf957ce89": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
    "unit": "p508",
@@ -6088,6 +6926,25 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "c9b12674fbca4c12": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p508",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The running header banner is kept as a note in the tree.",
+     "evidence": "tree: \"Transforming Public Procurement\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "e55805d26fc39da7": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
@@ -6170,6 +7027,25 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "9952f38a571a38cb": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p512",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "'Flowcharts' is printed as a subheading under 'Terminating a contract' but the tree makes both top-level chapters.",
+     "evidence": "source: \"Terminating a contract / Flowcharts\" / tree: heading_path \"Flowcharts\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "b47107ddf0e2f00a": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
    "unit": "p515",
@@ -6248,6 +7124,18 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "552c33af59bc5b9a": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p52",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "ce77651609f9a692": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
@@ -6627,6 +7515,18 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "cea37345af28a191": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p55",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "01116d7cf9824548": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
    "unit": "p555",
@@ -6657,6 +7557,37 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "ad6e8440310ae9d9": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p555",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The running header is kept as a note section in the tree.",
+     "evidence": "tree: \"Transforming Public Procurement\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
+  "313f37512d0a06ed": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p556",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "4c8034d80bcf4175": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
@@ -6732,6 +7663,25 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "2365d9cc642fce0c": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p557",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "A stray text block of run-together page numbers is in the tree but not printed on the page.",
+     "evidence": "tree: \"5532 5543\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "8e6292ef88b3dce4": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
    "unit": "p557",
@@ -6769,6 +7719,18 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "1ff4366e9b4200ac": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p558",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "3ea9245831d32d41": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
    "unit": "p558",
@@ -6780,6 +7742,25 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "4888d652e5583c03": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p559",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The running header is kept as a note in the tree.",
+     "evidence": "tree: \"Transforming Public Procurement\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "639121a5d3b589d1": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
@@ -6817,6 +7798,18 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "909a2853a529b0c2": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p561",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "b47f02aa83cbfe30": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
    "unit": "p561",
@@ -6840,6 +7833,18 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "2ab83d62d206a2bd": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p562",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "4bc7fc4d8a0c1240": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
@@ -6876,6 +7881,25 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "e50d456394e74fa1": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p563",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The running header box is kept as a note and attached to the previous chapter 'Fact sheet'.",
+     "evidence": "tree: \"Transforming Public Procurement\" (heading_path \"Fact sheet > Note\")"
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "e6464271e7b47187": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
@@ -7048,6 +8072,31 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "05658e09969d80d9": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p58",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The two cells of the table row are mixed together, so the row label's section number lands inside the rule text.",
+     "evidence": "source: \"Reserving contracts to public service mutuals (section 33) | In respect of certain, specified light touch contacts\" / tree: \"specified light touch (section 33) contacts\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "A table row (provision and rule) is read as a running note instead of a table.",
+     "evidence": "tree: \"Reserving contracts to public service mutuals In respect of certain\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "65e42af1158142b7": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
    "unit": "p58",
@@ -7154,6 +8203,18 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "dd2945b570ea3b82": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p583",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "001f36ab3b5b329f": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
    "unit": "p595",
@@ -7197,6 +8258,31 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "8f62a617dbd1d041": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p595",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "Page-number fragments are kept as a text section after the table.",
+     "evidence": "tree: \"5910 5932\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The running banner and a copy of the page title are kept as text and a note under the previous chapter's heading.",
+     "evidence": "tree: \"Transforming Public Procurement\" / \"Utilities transparency requirements\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "a25176561e6f26fb": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
@@ -7246,6 +8332,18 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "513828f7c24a5d6c": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p597",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "e4a63486dcf8baae": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
@@ -7315,6 +8413,18 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "b85e004b2b4b5413": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p598",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "180168bd6593a0a6": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
    "unit": "p599",
@@ -7363,6 +8473,25 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "b7b130acbd22bfb2": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p599",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The running header banner is kept as note sections in the tree.",
+     "evidence": "tree: \"Transforming Public Procurement\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "3384678274fdcd5d": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
@@ -7413,6 +8542,25 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "de41ace611e6029f": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p60",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The two-column table under 'Remedies, procurement oversight and the debarment list' is read as a note, with the provision name and its position run together into one sentence.",
+     "evidence": "tree: \"Automatic suspension of the entry into or The automatic suspension of the entry into or modification of contracts (section 101) modification of contracts only applies\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "1c00283aa49a3de1": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
@@ -7468,6 +8616,18 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "54af94c8208cffd2": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p601",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "1028ce78d37d2754": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
@@ -7531,6 +8691,18 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "685b2ca42e1cce26": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p602",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "b2409f7812ad571b": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
    "unit": "p602",
@@ -7585,6 +8757,18 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "ae25a5fba3f155a9": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p603",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "c728ba4767a1b1fc": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
@@ -7685,6 +8869,18 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "957d8d7691b12d97": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p604",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "4bb125a6eda616cd": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
    "unit": "p607",
@@ -7696,6 +8892,18 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "6d08eb20ed8f1218": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p607",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "860359d12ada0436": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
@@ -7993,6 +9201,18 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "7d21066c742556d0": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p616",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "874bde76906bf244": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
    "unit": "p616",
@@ -8004,6 +9224,18 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "1028a132feb177e0": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p62",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "bf31c831ac754fdb": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
@@ -8146,6 +9378,37 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "4b98c9e0ca346f4b": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p631",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "A stray number from page numbering is kept as a text section under Part 1 key definitions.",
+     "evidence": "tree: \"6216\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "A text line not printed on this page is placed under an earlier heading path.",
+     "evidence": "tree: \"Procurement Act sections - which sections apply to light touch and user choice\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The running header is kept as a note.",
+     "evidence": "tree: \"Transforming Public Procurement\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "7a38c6a5e03cc4a0": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
@@ -8438,6 +9701,25 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "bc12b2fc80c89d74": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p638",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "A text block holds stray numbers that are not printed on the page.",
+     "evidence": "tree: \"6383 6394\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "9794de5075b4d732": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
    "unit": "p639",
@@ -8456,6 +9738,18 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "9dedfd92b97e35c4": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p639",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "d3becf6a774d98cf": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
@@ -8480,6 +9774,18 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "8b48fa61afe07cfe": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p641",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "914c12e07143a702": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
@@ -8548,6 +9854,18 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "ba2db9ab98d7ac35": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p642",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "382a7fe1b1d07630": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
    "unit": "p643",
@@ -8585,6 +9903,25 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "ba1a60fd1fba9a72": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p643",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "A text block holds stray numbers that are not printed on the page.",
+     "evidence": "tree: \"61338 61349\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "6170bceab898c3c2": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
    "unit": "p644",
@@ -8616,6 +9953,18 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "fbd7d980cf3925e7": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p644",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "45541450f8f30c90": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
    "unit": "p645",
@@ -8640,6 +9989,25 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "54d32de5773fe0e3": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p645",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The table text ends with a stray number that is not printed on the page.",
+     "evidence": "tree: \"section. 61450\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "b17bd6af8387511c": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
@@ -8843,6 +10211,25 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "f76b6b3098f35061": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p649",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The tree has a text section of stray digits that are not printed on the page, probably page numbers run together.",
+     "evidence": "tree: \"61494 62405\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "7809b73ed33efc6c": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
    "unit": "p651",
@@ -8854,6 +10241,18 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "b2d4d9cc9d9ca312": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p651",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "df89e52e1942f8d7": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
@@ -9151,6 +10550,18 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "d33889b75ab64051": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p659",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "e1281cee1b8ee357": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
    "unit": "p659",
@@ -9212,6 +10623,18 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "02cb59a8c5b7d77d": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p662",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "1db96d2c537017db": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
@@ -9281,6 +10704,18 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "5f398ad17da4b21a": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p663",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "63ca47fd33385cce": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
@@ -9503,6 +10938,25 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "2e47841c41eff934": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p79",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "table",
+   "findings": [
+    {
+     "kind": "table",
+     "severity": "low",
+     "problem": "The Exempted contracts row has a third cell: the end of the How it applies text was split off at the page break into a column that does not exist.",
+     "evidence": "source: \"of schedule 4 are exempt from the act.\" / tree: \"...set out in part 2 of schedule\", \"4 are exempt from the act.\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "5c50942f902b15d6": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
    "unit": "p79",
@@ -9597,6 +11051,37 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "f417de1723924d24": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p81",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
+  "81dabfdfe8a504dc": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p82",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The one-row two-column box for Time limits is kept as a note instead of a table; the text is intact.",
+     "evidence": "source: table row \"Time limits (section 54) | No minimum timescales are mandated...\" / tree: note text"
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "9b04687459c7b8f1": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
    "unit": "p82",
@@ -9660,6 +11145,31 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "9488259a9d4c8a25": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p83",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The two-column Supplier selection box is read as one line, so the left column's '(section 57)' lands inside the right column's sentence.",
+     "evidence": "source: \"Meaning of excluded and excludable supplier (section 57)\" / tree: \"Private utilities have a wider discretion on (section 57) whether to exclude\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The provision/details box under Supplier selection is a table row but is kept as a note of running text.",
+     "evidence": "tree: \"Meaning of excluded and excludable supplier Private utilities have a wider discretion on (section 57)\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "c1eea373a6226c3e": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
    "unit": "p83",
@@ -9715,6 +11225,25 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "870327b5a14c9958": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p84",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The one-row table under 'Remedies, procurement oversight and the debarment list' is kept as a note, with the row label run into the cell text.",
+     "evidence": "tree: \"Procurement investigations (section 108) A private utility is not considered a “relevant contracting authority”\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "876ffea3a1afb300": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
@@ -9821,6 +11350,31 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "5e183ad6a1d0159a": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p87",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "extra",
+   "findings": [
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The running header box is kept as a note in the tree.",
+     "evidence": "tree: \"Transforming Public Procurement\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "A line not printed on the page is filed under the previous document's heading path.",
+     "evidence": "tree: \"Exemptions cheat sheet - concession contracts\" under \"Private utilities > Contract governance\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "c4ebc0f317219b2f": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
    "unit": "p87",
@@ -9845,6 +11399,18 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "12bb94308c95177d": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p88",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "4be3aa428d30d7de": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
@@ -9907,6 +11473,25 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "7330f39000ecc3c7": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p89",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The one-row two-column box for Key performance indicators is kept as a note instead of a table; the text is intact.",
+     "evidence": "source: table row \"Key performance indicators (section 52) | The requirement to set and publish...\" / tree: note text"
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "f48071e5e1cf4f9c": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
    "unit": "p89",
@@ -9938,6 +11523,18 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "8c73dbc10d0cbff3": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p90",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "e064221783e304d4": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
    "unit": "p90",
@@ -9961,6 +11558,31 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "04d1a5a136c60b36": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p92",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "high",
+     "problem": "The two cells of the one-row table are mixed together, so the section range is split by the rule text.",
+     "evidence": "source: \"Below-threshold contracts (Part 6 - sections 84 to 88) | Are exempt from the rules...\" / tree: \"sections 84 Are exempt from the rules governing regulated to 88) below-threshold contracts.\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Two-column table rows are read as running notes instead of tables.",
+     "evidence": "tree: \"N/A N/A\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "3f9059e3476ea586": {
    "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
@@ -10060,6 +11682,18 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "d05250d77d1a67d9": {
+   "version_id": "the-official-procurement-act-2023-e-learning--transforming-public-procurement-learning-manual-pdf@2024-04-22-b09d74c8",
+   "unit": "p93",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "ok",
+   "findings": [],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   }
  }
 }

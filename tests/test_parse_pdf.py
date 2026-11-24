@@ -1704,3 +1704,86 @@ def test_leaflet_headings_in_bold_at_body_size_or_large_regular_type():
     heads = {s["title"] for s in t["sections"] if s["type"] == "heading"}
     assert {"Health effects", "Your health and safety"} <= heads
     assert not any(h.startswith(("Irritant", "Grade")) for h in heads)
+
+
+def test_long_heading_in_capitals_on_two_lines():
+    """S128 round 3 (circulars of 2008-2010): a bold heading in capitals at body size, wrapped to two lines, has up
+    to 12 words on its first line ("AMENDMENTS RELATING TO PART G OF SCHEDULE 1 TO THE BUILDING" / "REGULATIONS
+    2000"); it was read as body text because headings in this style had at most 8 words."""
+    H, B = "HelveticaNeue", "HelveticaNeue-Bold"
+    body = "The Amendment Regulations add a new requirement to Part G of Schedule 1 for water efficiency."
+    lines = [ln(1, 60, body, 11.0, H, x0=128)] + [ln(1, 74 + 14 * k, body, 11.0, H, x0=128) for k in range(6)]
+    lines += [ln(1, 169, "AMENDMENTS RELATING TO PART G OF SCHEDULE 1 TO THE BUILDING", 11.0, B, x0=128),
+              ln(1, 183, "REGULATIONS 2000", 11.0, B, x0=128), ln(1, 210, "7. " + body, 11.0, H, x0=128)]
+    lines += [ln(1, 224 + 14 * k, body, 11.0, H, x0=128) for k in range(10)]
+    t = build_tree({"lines": lines, "rects": [], "images": [], "page_count": 1}, META)
+    heads = [s["title"] for s in t["sections"] if s["type"] == "heading"]
+    assert any(h.startswith("AMENDMENTS RELATING TO PART G") and h.endswith("REGULATIONS 2000") for h in heads)
+
+
+def test_missed_word_gaps_in_justified_lines():
+    """S128 round 3 (circulars of 2008-2010): justified lines with no space characters and word gaps under
+    pdfplumber's tolerance came out as "createdbyamaterial". A space goes in at a real gap between characters of
+    the same size and baseline; kerning and a letter whose subscript sits on its own line stay joined."""
+    from system.rag.parse_pdf import _spaced
+
+    def chars(spec):  # (text, x0, x1), size 10 on one baseline
+        return [{"text": t, "x0": a, "x1": b, "size": 10.0, "top": 100.0, "bottom": 110.0} for t, a, b in spec]
+    cs = chars([("b", 0, 5), ("y", 5, 10), ("a", 13, 18), ("m", 18, 26)])
+    assert _spaced(cs, "byam", cs) == "by am"
+    kern = chars([("O", 0, 7), ("v", 7.8, 12)])  # under 0.2 of size: kerning
+    assert _spaced(kern, "Ov", kern) == "Ov"
+    sub = chars([("C", 0, 7), ("T", 10, 16)])
+    printed = sub + [{"text": "1", "x0": 7.2, "x1": 9.5, "size": 6.0, "top": 106.0, "bottom": 112.0}]
+    assert _spaced(sub, "CT", printed) == "CT"
+    assert _spaced(cs, "by am", cs) == "by am"  # spaces already there stay as they are
+
+
+def test_a_ruled_table_that_fills_the_page_is_a_table_not_a_page_frame():
+    """S128 round 3 (procurement e-learning manual): a ruled table over nearly the whole page (more than 0.85 of
+    its width and height) was dropped as a frame drawn round the page, so its cells became notes and running text.
+    A grid with a header row of two or more filled cells over two or more rows is a table."""
+    rows = [["Section", "Is it applicable to utilities contracts?", "Is it applicable to private utilities?"],
+            ["20 Competitive tendering procedures", "Yes", "Yes"], ["22 Conditions of participation", "Yes", "Yes"],
+            ["23 Award criteria", "Yes", "Yes"]]
+    lines = [ln(2, 60, "Which sections apply to utilities", 20.0, "HelveticaNeue-Medium", x0=40)]
+    lines += [ln(3, 51 + 60 * k, "  ".join(r), 11.0, "HelveticaNeue-Light", x0=40) for k, r in enumerate(rows)]
+    tables = [_grid(3, 36, 800, rows, x0=36.0, x1=559.0)]
+    t = build_tree({"lines": lines, "rects": [], "images": [], "page_count": 3, "tables": tables,
+                    "pages": {str(p): {"width": 595.0, "height": 842.0} for p in range(1, 4)}}, META)
+    tabs = [s for s in t["sections"] if s["type"] == "table"]
+    assert len(tabs) == 1 and tabs[0]["grid"] == rows
+
+
+def test_heading_in_capitals_on_three_lines():
+    """S128 round 3 (circular 09/2009): a bold heading in capitals at body size can wrap to three lines ("REVOCATION
+    OF REGULATION 22A OF THE BUILDING REGULATIONS (TIME" / "LIMIT FOR PROSECUTION FOR CONTRAVENTION OF CERTAIN" /
+    "REGULATIONS)"); it was read as body text, so the paragraphs under it sat under the heading before."""
+    H, B = "HelveticaNeue", "HelveticaNeue-Bold"
+    body = "The Amendment Regulations add a new requirement to Part G of Schedule 1 for water efficiency."
+    lines = [ln(1, 60 + 14 * k, body, 11.0, H, x0=128) for k in range(7)]
+    lines += [ln(1, 169, "REVOCATION OF REGULATION 22A OF THE BUILDING REGULATIONS (TIME", 11.0, B, x0=128),
+              ln(1, 183, "LIMIT FOR PROSECUTION FOR CONTRAVENTION OF CERTAIN", 11.0, B, x0=128),
+              ln(1, 197, "REGULATIONS)", 11.0, B, x0=128), ln(1, 224, "9. " + body, 11.0, H, x0=128)]
+    lines += [ln(1, 238 + 14 * k, body, 11.0, H, x0=128) for k in range(10)]
+    t = build_tree({"lines": lines, "rects": [], "images": [], "page_count": 1}, META)
+    heads = [s["title"] for s in t["sections"] if s["type"] == "heading"]
+    assert "REVOCATION OF REGULATION 22A OF THE BUILDING REGULATIONS (TIME LIMIT FOR PROSECUTION FOR CONTRAVENTION " \
+           "OF CERTAIN REGULATIONS)" in heads
+
+
+def test_a_date_wrapped_to_the_start_of_a_line_is_not_a_paragraph_number():
+    """S128 round 3 (circular 06/2007): "Therefore from" / "1 January 2007 values ..." made a paragraph 1 out of the
+    day of the date. A number with no dot at the start of a line that runs on from a sentence with no gap, and is
+    followed by a month or a lower-case word (or is not the next paragraph number), is part of the sentence."""
+    H = "HelveticaNeue"
+    lines = [ln(1, 60, "1. Products must have a European Technical Approval for thermal insulation products by 31", 11.0, H),
+             ln(1, 74, "December 2006 at the latest, as the notice says. Therefore from", 11.0, H),
+             ln(1, 88, "1 January 2007 values of thermal resistance may be taken from the technical data.", 11.0, H),
+             ln(1, 102, "The figures for the rest are set under section", 11.0, H),
+             ln(1, 116, "2 of the Act and apply from that date onwards in every case.", 11.0, H)]
+    t = build_tree({"lines": lines, "rects": [], "images": [], "page_count": 1}, META)
+    paras = [s for s in t["sections"] if s["type"] == "paragraph"]
+    assert [p["number"] for p in paras] == ["1"]
+    assert "Therefore from 1 January 2007 values" in paras[0]["text"]
+    assert "section 2 of the Act" in paras[0]["text"]

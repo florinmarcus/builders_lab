@@ -515,3 +515,12 @@ def test_xml_reader_drops_notes_by_name_and_flags_a_lost_provision(tmp_path):
     items = C.check_version({"source_id": "x", "version_id": "v", "sha256": "cd" * 32}, tree, raw)["items"]
     assert [i["key"] for i in items if i["kind"] == "block"] == [
         "cdcdcdcd:schedule-1:title:lost", "cdcdcdcd:schedule-1-paragraph-1:a-whole-paragraph-the-parser-lost"]
+
+
+def test_match_raw_word_that_is_a_run_of_tree_words():
+    """S128 round 3: pdfplumber reads a justified line with no word gaps as one word ("createdbyamaterial"); the
+    parser puts the spaces back, so the raw word is a run of adjacent tree words. A run that is not adjacent in the
+    tree, or a short joined word, does not count."""
+    tree = ["created", "by", "a", "material", "change"]
+    assert C.match(["createdbyamaterial"], Counter(tree), tree) == [True]
+    assert C.match(["materialcreated"], Counter(tree), tree) == [False]

@@ -305,6 +305,26 @@ These are Opus rates. They are not comparable with the Fable rates above (Opus f
 content), so the fix effects are the paired tables, not the difference between these rates and Fable's. The
 remaining causes are parked in S128 for after chunking.
 
+### Round 3 (S128, 24 Nov 2026): circulars, supplier guides, HSG248, AD B history
+
+Judge Opus 5.5 on both sides; before = trees from the round 2 code, after = new trees; only changed units re-judged.
+
+| Fix (judge) | Units changed | High before / after | Fixed | Broken | McNemar p |
+|---|---|---|---|---|---|
+| 5. Missing word gaps in justified lines, longer headings in capitals (Opus 5.5) | 73 | 21 / 15 | 9 | 3 | 0.15 |
+| 6 + 7. Page-filling table with a header row; headings in capitals on three lines; a wrapped number is not a paragraph number (Opus 5.5) | 179 | 35 / 21 | 17 | 3 | 0.0026 |
+| AD B edition box carried over a page with the same band (Opus 5.5) | 9 | 9 / 0 | 9 | 0 | 0.0039 |
+
+Fix 5's 3 broken units had real causes (a heading in capitals on three lines, a date and "Part 1 of" wrapped to the
+start of a line read as paragraph numbers); fix 7 fixes them. The 3 broken units of fixes 6 + 7 are all in the
+procurement e-learning transcript (pages 60, 138, 488): their sections are the same before and after except for note
+numbers, so they are judge noise. AD B fix: in the 2019 Volume 1 incorporating 2020 and 2022 amendments, Appendix B
+pages 148-157 now carry valid_to 2025-03-01 and sit under the right heading.
+
+42 trees changed against the round 2 trees, 387 byte-identical. Model checks 0 open, crops 0 bad, coverage 0 open
+for every changed source. Single-page faults found by the judge in the supplier, circular, HSE, Awaab and Decent
+Homes guides were saved as fixes (`corpus/fixes/`). Left for later: S135-S139.
+
 ## Limits
 
 - One model judges, with the noise measured above; a finding is a claim until checked. The hand check covers 50

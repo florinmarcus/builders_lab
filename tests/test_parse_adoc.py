@@ -837,3 +837,27 @@ def test_classic_heading_on_two_lines_is_one_heading_but_capitals_above_it_are_n
     assert "EXAMPLES: SEE PARAGRAPH 1.55" in heads and "Hearth, fireplace, flues" in heads
     para = next(s for s in t["sections"] if s.get("number") == "2C19")
     assert para["heading_path"][-2] == "Construction materials and workmanship"
+
+
+def test_an_edition_box_goes_on_over_a_page_with_the_same_band_at_its_top():
+    # AD B volume 1, 2019 edition incorporating the 2020 and 2022 amendments, Appendix B: "Effective until 1 March
+    # 2025" is a box inside page 147 and the same band is printed at the top of pages 148 to 157. Paragraph B24 on
+    # page 148 lost its end date and sat under the heading before the box.
+    W = {"b": True, "c": WHITE}
+    band = "Effective until 1 March 2025 – see 2025 amendment, page 146".split()
+    L = page_furniture(1, "135") + page_furniture(2, "136") + [
+        ln(1, 84, bold("Appendix", "B:", "Fire", "behaviour"), 26.0, "Agenda-Bold"),
+        ln(1, 110, bold("Introduction"), 15.0, "Agenda-Bold"),
+        ln(1, 120, [("B17", B), "Before", "the", "box."], font="Agenda-Semibold", x0=34.0),
+        ln(1, 154, [(w, W) for w in band], x0=34.0),
+        ln(1, 174, [("B18", B), "Old", "rule."], font="Agenda-Semibold", x0=34.0),
+        ln(2, 75, [(w, W) for w in band], x0=34.0),
+        ln(2, 96, [("B24", B), "Old", "rule", "on", "the", "next", "page."], font="Agenda-Semibold", x0=34.0)]
+    shapes = [_shape(1, 148, 168, 28, 544, fill=True), _shape(1, 148, 148, 28, 545),
+              _shape(1, 168, 790, 28, 28), _shape(1, 168, 790, 544, 544), _shape(1, 790, 790, 28, 545)]
+    t = build_tree({"lines": L, "tables": [], "shapes": shapes, "page_width": 595.0}, META)
+    by = {s["id"]: s for s in t["sections"]}
+    b18, b24 = (next(s for s in t["sections"] if s.get("number") == n) for n in ("B18", "B24"))
+    assert b18["valid_to"] == "2025-03-01"
+    assert b24.get("valid_to") == "2025-03-01"
+    assert by[b24["parent_id"]]["title"].startswith("Effective until")

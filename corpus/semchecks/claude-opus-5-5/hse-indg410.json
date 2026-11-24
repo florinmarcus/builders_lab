@@ -40,6 +40,43 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "a20ff75a85615a0c": {
+   "version_id": "main@2024-12-06-1cf5b094",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The subheadings General, Information and training, Equipment and clothing and Your welfare are not under 'What your employer must do', so the tree loses that these are the employer's duties.",
+     "evidence": "source: \"What your employer must do > General\" / tree: heading_path \"General\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The picture caption is joined onto the last General bullet as if part of the employer duty.",
+     "evidence": "tree: \"Employers’ Liability Compulsory Insurance. This is a web­friendly version of pocket card INDG410\""
+    },
+    {
+     "kind": "missing",
+     "severity": "low",
+     "problem": "The printed title and subtitle are not kept; the tree uses a different title.",
+     "evidence": "source: \"Working in the UK from overseas? Your health and safety at work in agriculture and food processing\" / tree: \"INDG410 Working in Great Britain from overseas\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page footer is kept as body text.",
+     "evidence": "tree: \"1 of 2 pages\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "57d268e6e920e1da": {
    "version_id": "main@2024-12-06-1cf5b094",
    "unit": "p2",

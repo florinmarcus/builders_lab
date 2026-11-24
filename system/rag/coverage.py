@@ -799,6 +799,31 @@ def match(seq: list[str], pool: Counter, tree_seq: list[str] | None = None) -> l
                     pool[b] -= 1
                     got[i] = True
                     break
+        # S128 round 3: a raw word that is a run of adjacent tree words joined, where pdfplumber missed the word gaps
+        # of a justified line ("createdbyamaterialchangeofuse") and the parser put the spaces back.
+        need = {seq[i] for i in missing if not got[i] and len(seq[i]) >= 8}
+        if need:
+            longest, runs = max(map(len, need)), defaultdict(list)
+            for k in range(len(tree_seq)):
+                j = tree_seq[k]
+                for n in range(2, 13):
+                    if k + n > len(tree_seq):
+                        break
+                    j += tree_seq[k + n - 1]
+                    if len(j) > longest:
+                        break
+                    if j in need:
+                        runs[j].append(tuple(tree_seq[k:k + n]))
+            for i in missing:
+                if got[i] or seq[i] not in runs:
+                    continue
+                for parts in runs[seq[i]]:
+                    c = Counter(parts)
+                    if all(pool[t] >= m for t, m in c.items()):
+                        for t, m in c.items():
+                            pool[t] -= m
+                        got[i] = True
+                        break
     left = [i for i in missing if not got[i]]
     if left:
         by_variant = defaultdict(list)

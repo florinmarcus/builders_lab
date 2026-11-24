@@ -3,6 +3,25 @@
  "model": "claude-opus-5-5",
  "about": "Verdicts of claude-opus-5-5 on source against tree for bc-changes-2023 (system/rag/semcheck.py).",
  "verdicts": {
+  "1ba57fadd3d8a2b9": {
+   "version_id": "additional-q-a-changes-to-the-building-control-process-for-h@2024-03-28-c6890960",
+   "unit": "p1",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "order",
+   "findings": [
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The letterhead's two columns (recipients on the left, sender address on the right) are mixed into one text.",
+     "evidence": "tree: \"To: (England only) Fry Building 2 Marsham Street Local Government Chief Executives and London SW1P 4DF Heads of Building Control\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "a4f578ef34c6bf36": {
    "version_id": "additional-q-a-changes-to-the-building-control-process-for-h@2024-03-28-c6890960",
    "unit": "p1",
@@ -27,6 +46,31 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "9334c717db9461a6": {
+   "version_id": "additional-q-a-changes-to-the-building-control-process-for-h@2024-03-28-c6890960",
+   "unit": "p2",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The intro line and the numbered list of topics are read as top-level headings instead of body text and a list.",
+     "evidence": "tree headings: \"There are 6 pages of questions and answers, covering:\" / \"1) transitional provisions 2) statutory consultations\" / \"5) lapse of plans\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "Questions 1.1, 1.2 and 1.3 are merged into one text block; the bold questions are not kept as separate headings or provisions.",
+     "evidence": "tree: \"...can be found here. 1.2. Schedule 3 doesn't cover all possible scenarios...\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "e77b5e4333e9f3a5": {
    "version_id": "additional-q-a-changes-to-the-building-control-process-for-h@2024-03-28-c6890960",

@@ -503,6 +503,37 @@
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
   },
+  "8b5a8cfbdd49aca0": {
+   "version_id": "awaabs-law-consultation-on-timescales-for-repairs--awaab-s-law-final-stage-impact-assessment@2025-06-25-6bb2585a",
+   "unit": "p7",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The monetised and non-monetised benefits paragraphs are merged into one text with no row labels; the labels appear only in the table's notes.",
+     "evidence": "source: \"Description and scale of key monetised benefits by 'main affected groups'\" ... \"Other key non-monetised benefits by 'main affected groups'\" / tree: \"(PV, -£34.3m). An expected outcome\""
+    },
+    {
+     "kind": "order",
+     "severity": "low",
+     "problem": "The benefits table comes before the benefits text on the page, but the tree puts it after the text.",
+     "evidence": "source: \"Best Estimate 0 -4.1 -34.3\" then \"It has not been possible\""
+    },
+    {
+     "kind": "garbled",
+     "severity": "low",
+     "problem": "A word is split in the table's notes text.",
+     "evidence": "source: \"Description\" / tree: \"Descriptio n\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
+  },
   "e27c53b6ed3dc6b4": {
    "version_id": "awaabs-law-consultation-on-timescales-for-repairs--awaab-s-law-final-stage-impact-assessment@2025-06-25-6bb2585a",
    "unit": "p7",
@@ -539,6 +570,31 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "3833419dc56b6fd1": {
+   "version_id": "awaabs-law-consultation-on-timescales-for-repairs--awaab-s-law-final-stage-impact-assessment@2025-06-25-6bb2585a",
+   "unit": "p8",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The key assumptions paragraph is joined onto the non-monetised benefits text with no label; its row heading and the discount rate appear only in the notes of the benefits table.",
+     "evidence": "source: \"Key assumptions/sensitivities/risks Discount rate 3.5 The scale of impacts\" / tree: \"act swiftly in these cases. The scale of impacts\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The Business Assessment table sits under the BENEFITS (£m) heading and its header 'Direct impact on business (Equivalent Annual) £m (2025 Prices, 2025 present value)' is kept only in the table text, not in the columns.",
+     "evidence": "source: \"BUSINESS ASSESSMENT (Option 1) Direct impact on business (Equivalent Annual) £m\" / tree: columns \"Costs\", \"Benefits\", \"Net\""
+    }
+   ],
+   "confidence": "medium",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "ee2ccc7018012f4d": {
    "version_id": "awaabs-law-consultation-on-timescales-for-repairs--awaab-s-law-final-stage-impact-assessment@2025-06-25-6bb2585a",
@@ -792,6 +848,37 @@
    "by": "Opus 5.5, Claude Code headless (packet)",
    "model": "claude-opus-5-5",
    "date": "2026-11-23"
+  },
+  "bbd6e4ce6bc12fac": {
+   "version_id": "awaabs-law-phase-2-final-stage-impact-assessment--awaab-s-law-phase-2-final-stage-impact-assessment@2026-07-13-5c1854f4",
+   "unit": "p18",
+   "kind": "semcheck-pdf",
+   "family": "guidance-pdf",
+   "verdict": "structure",
+   "findings": [
+    {
+     "kind": "structure",
+     "severity": "high",
+     "problem": "The captions that say which table is PRP, LA or total sector costs are run into the body text, and all three tables carry only the title 'Monetised costs', so the tables cannot be told apart.",
+     "evidence": "source: \"PRP costs (undiscounted 2026 prices), £m:\" / tree table title: \"Monetised costs\""
+    },
+    {
+     "kind": "structure",
+     "severity": "low",
+     "problem": "The heading 'Summary of monetised costs:' is kept inside running text, not as a heading.",
+     "evidence": "tree: \"£189.3m in present value terms. Summary of monetised costs: The total costs\""
+    },
+    {
+     "kind": "extra",
+     "severity": "low",
+     "problem": "The page number is kept at the end of the text.",
+     "evidence": "tree: \"Total sector costs (undiscounted 2026 prices), £m: 18\""
+    }
+   ],
+   "confidence": "high",
+   "by": "Opus 5.5, Claude Code headless (packet)",
+   "model": "claude-opus-5-5",
+   "date": "2026-11-24"
   },
   "f569ec0af7f3b698": {
    "version_id": "awaabs-law-phase-2-final-stage-impact-assessment--awaab-s-law-phase-2-final-stage-impact-assessment@2026-07-13-5c1854f4",
