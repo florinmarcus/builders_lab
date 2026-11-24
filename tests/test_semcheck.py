@@ -264,3 +264,34 @@ def test_xml_ids_keep_every_version_and_the_tree_extent_picks_one(tmp_path):
     assert S.pick_version(ids["section-43A"], "E+W+S").get("RestrictExtent") == "E+W+S"
     assert S.pick_version(ids["section-43A"], "N.I.").get("RestrictExtent") == "N.I."
     assert S.pick_version(ids["section-43A"], None).get("RestrictExtent") == "E+W+S"
+
+
+def test_words_counts_source_text_only():
+    tree = [{"id": "s1", "title": "Fire doors", "text": "Doors must close.", "heading_path": ["A", "B"],
+             "grid": [["Door", "Rating"], ["FD30", "30 min"]], "description": "a drawing of a door"}]
+    assert S.words(tree) == 2 + 3 + 5
+
+
+def _row(fam, words, kinds=None, judged=True):
+    v = {"findings": [{"kind": k, "severity": "high"} for k in (kinds or [])]} if judged else None
+    return {"family": fam, "words": words, "verdict": v}
+
+
+def test_scoreboard_weights_families_by_their_share_of_the_corpus():
+    rows = ([_row("a", 100, ["missing"])] + [_row("a", 100) for _ in range(3)]
+            + [_row("b", 50, ["order"]), _row("b", 150), _row("b", 0, judged=False)])
+    sb = S.scoreboard(rows, {"a": 300, "b": 100}, "2026-11-24", "claude-opus-5-5", "abc")
+    a, b = sb["families"]["a"], sb["families"]["b"]
+    assert a["units"]["k"] == 1 and a["units"]["n"] == 4 and a["words_rate"] == 0.25
+    assert b["words_rate"] == 0.25 and b["not_judged"] == 1 and b["units"]["rate"] == 0.5
+    assert a["text"]["k"] == 1 and a["place"]["k"] == 0 and b["place"]["k"] == 1
+    assert sb["corpus"]["serious_share"] == 0.25          # 0.75 * 0.25 + 0.25 * 0.25
+    assert sb["corpus"]["low"] <= 0.25 <= sb["corpus"]["high"]
+    assert sb["sample"]["units"]["k"] == 2 and sb["sample"]["not_judged"] == 1
+    assert sb["judge_noise"] == 0.014
+
+
+def test_scoreboard_ignores_findings_shown_to_be_the_judges_mistake():
+    v = {"findings": [{"kind": "garbled", "severity": "high", "settled": {"as": "model-wrong"}}]}
+    sb = S.scoreboard([{"family": "a", "words": 10, "verdict": v}], {"a": 10}, "d", "m")
+    assert sb["families"]["a"]["units"]["k"] == 0

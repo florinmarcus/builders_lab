@@ -325,6 +325,17 @@ pages 148-157 now carry valid_to 2025-03-01 and sit under the right heading.
 for every changed source. Single-page faults found by the judge in the supplier, circular, HSE, Awaab and Decent
 Homes guides were saved as fixes (`corpus/fixes/`). Left for later: S135-S139.
 
+## Scoreboard (S140, 24 Nov 2026)
+
+From now on every round ends with `python -m system.rag.semcheck scoreboard --write`, committed. It reads the
+saved verdict for each sampled unit as the tree stands now, weights each family by its share of all source words
+in the corpus (5.47M words), and writes a dated line to `data/corpus-scoreboard.jsonl`.
+
+Baseline after round 3 (Opus 5.5 judge, commit 1142db8): serious faults in about **5.9% of the corpus text**
+(range 4.6 to 8.3%). Units with a serious finding: Approved Documents 11.1%, guidance PDFs 11.6%, fire guides
+3.7%, legislation 0.9%, web pages 0%. The two open families are 43% of the corpus words. It still measures the
+pages we fix against; a frozen audit sample (S141) will give the honest figure.
+
 ## Limits
 
 - One model judges, with the noise measured above; a finding is a claim until checked. The hand check covers 50

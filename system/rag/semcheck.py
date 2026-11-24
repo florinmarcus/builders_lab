@@ -892,7 +892,7 @@ def status(source_ids: list[str] | None = None, sample: dict | None = None) -> l
             cache[sid] = load_verdicts(sid)["verdicts"]
         rows.append({"source_id": sid, "version_id": rec["version_id"], "unit": pk["unit"], "key": pk["key"],
                      "kind": pk["kind"], "family": pk["family"], "stratum": pk["stratum"],
-                     "verdict": cache[sid].get(pk["key"])})
+                     "words": words(pk.get("content")), "verdict": cache[sid].get(pk["key"])})
     return rows
 
 
@@ -950,6 +950,101 @@ def report(source_ids: list[str] | None = None, verbose: bool = False, json_out:
     return 1 if total["open"] or total["not_judged"] else 0
 
 
+# ---------------------------------------------------------------- scoreboard (S140)
+# One dated line per run, so progress across rounds is measured the same way every time. Plain code, no model.
+
+WORD_KEYS = ("text", "grid", "title", "labels", "columns", "footnotes", "term")  # source words in a tree: not the
+# repeated heading_path, not row_sentences (the grid again), not model-written figure descriptions
+GROUPS = {"text": ("missing", "garbled", "extra"), "place": ("structure", "order"), "table": ("table", "figure")}
+JUDGE_NOISE = {"claude-opus-5-5": 0.014, "claude-fable-5-2": 0.053}  # high-flag flips on unchanged units (S125, S128)
+SCOREBOARD = ROOT / "evals" / "experiments" / "data" / "corpus-scoreboard.jsonl"
+
+
+def words(obj, key: str | None = None) -> int:
+    """Source words in a tree or a piece of one: strings under WORD_KEYS, at any depth."""
+    if isinstance(obj, dict):
+        return sum(words(v, k) for k, v in obj.items())
+    if isinstance(obj, list):
+        return sum(words(v, key) for v in obj)
+    return len(obj.split()) if isinstance(obj, str) and key in WORD_KEYS else 0
+
+
+def corpus_words(source_ids: list[str] | None = None) -> Counter:
+    """Source words per parser family over every in-scope version (the whole corpus, not only the sample)."""
+    out: Counter = Counter()
+    for _rec, tp in in_scope_versions(source_ids):
+        tree = json.loads(tp.read_text(encoding="utf-8"))
+        out[family(tree)] += words(tree.get("sections")) + words(tree.get("definitions"))
+    return out
+
+
+def _high_kinds(v: dict) -> set[str]:
+    return {f["kind"] for f in real_findings(v) if f["severity"] == "high"}
+
+
+def _rate(k: int, n: int) -> dict:
+    lo, hi = wilson(k, n)
+    return {"k": k, "n": n, "rate": round(k / n, 4) if n else 0.0, "low": round(lo, 4), "high": round(hi, 4)}
+
+
+def scoreboard(rows: list[dict], fam_words: dict[str, int], today: str, judge_model: str, commit: str = "") -> dict:
+    """The big picture: per family and for the whole corpus, the share of units and of words with a serious
+    (high) finding, split into lost or garbled text, wrong place, and tables or figures. The corpus figure weights
+    each family's word rate by that family's share of all source words, so a family counts as much as its text."""
+    total_words = sum(fam_words.values()) or 1
+    fams, est, est_lo, est_hi = {}, 0.0, 0.0, 0.0
+    for fam in sorted({r["family"] for r in rows} | set(fam_words)):
+        judged = [r for r in rows if r["family"] == fam and r["verdict"]]
+        hk = [_high_kinds(r["verdict"]) for r in judged]
+        n, w = len(judged), sum(r.get("words") or 0 for r in judged)
+        bad_w = sum(r.get("words") or 0 for r, k in zip(judged, hk) if k)
+        units = _rate(sum(1 for k in hk if k), n)
+        share = fam_words.get(fam, 0) / total_words
+        # word rate when the sample has words, else the unit rate; its range moves with the unit range
+        wr = bad_w / w if w else units["rate"]
+        scale = wr / units["rate"] if units["rate"] else 1.0
+        lo, hi = units["low"] * scale, min(1.0, units["high"] * scale if units["rate"] else units["high"])
+        fams[fam] = {"units": units, "words_rate": round(wr, 4), "corpus_share": round(share, 4),
+                     "not_judged": sum(1 for r in rows if r["family"] == fam and not r["verdict"]),
+                     **{g: _rate(sum(1 for k in hk if k & set(ks)), n) for g, ks in GROUPS.items()}}
+        est, est_lo, est_hi = est + share * wr, est_lo + share * lo, est_hi + share * hi
+    judged = [r for r in rows if r["verdict"]]
+    hk = [_high_kinds(r["verdict"]) for r in judged]
+    return {"date": today, "judge": judge_model, "commit": commit, "judge_noise": JUDGE_NOISE.get(judge_model),
+            "sample": {"units": _rate(sum(1 for k in hk if k), len(judged)),
+                       "not_judged": len(rows) - len(judged),
+                       **{g: _rate(sum(1 for k in hk if k & set(ks)), len(judged)) for g, ks in GROUPS.items()}},
+            "corpus": {"words": sum(fam_words.values()), "serious_share": round(est, 4),
+                       "low": round(est_lo, 4), "high": round(est_hi, 4)},
+            "families": fams}
+
+
+def print_scoreboard(sb: dict) -> None:
+    c = sb["corpus"]
+    print(f"{sb['date']} judge {sb['judge']} (noise {sb['judge_noise']}) commit {sb['commit'][:8]}")
+    print(f"CORPUS ({c['words']:,} words): serious faults in about {c['serious_share']:.1%} of the text "
+          f"(range {c['low']:.1%} to {c['high']:.1%})")
+    for fam, f in sb["families"].items():
+        u = f["units"]
+        print(f"  {fam}: {f['corpus_share']:.0%} of the corpus; units {u['k']}/{u['n']} = {u['rate']:.1%} "
+              f"({u['low']:.1%} to {u['high']:.1%}), words {f['words_rate']:.1%}; text {f['text']['rate']:.1%}, "
+              f"place {f['place']['rate']:.1%}, table {f['table']['rate']:.1%}"
+              + (f"; {f['not_judged']} not judged" if f["not_judged"] else ""))
+
+
+def run_scoreboard(write: bool = False, today: str | None = None) -> int:
+    today = today or datetime.date.today().isoformat()
+    commit = subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT, capture_output=True, text=True).stdout.strip()
+    sb = scoreboard(status(), corpus_words(), today, judge(), commit)
+    print_scoreboard(sb)
+    if write:
+        SCOREBOARD.parent.mkdir(parents=True, exist_ok=True)
+        with SCOREBOARD.open("a", encoding="utf-8") as fh:
+            fh.write(json.dumps(sb, ensure_ascii=False) + "\n")
+        print(f"written to {SCOREBOARD.relative_to(ROOT)}")
+    return 0
+
+
 # ---------------------------------------------------------------- command line
 
 def main(argv: list[str] | None = None) -> int:
@@ -982,6 +1077,8 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--source", nargs="*")
     p.add_argument("--verbose", action="store_true")
     p.add_argument("--json", type=Path)
+    b = sub.add_parser("scoreboard", help="the big picture across the corpus; --write adds a dated line to the history")
+    b.add_argument("--write", action="store_true")
     a = ap.parse_args(argv)
     if a.model:
         os.environ["SEMCHECK_MODEL"] = a.model
@@ -997,6 +1094,8 @@ def main(argv: list[str] | None = None) -> int:
         return run(a.source, parallel=a.parallel, out_dir=a.out, by=a.by)
     if a.cmd == "save":
         return save(a.answers, a.by, a.source)
+    if a.cmd == "scoreboard":
+        return run_scoreboard(write=a.write)
     if a.cmd == "accept":
         return accept(a.source, a.key, a.as_, a.reason, a.by, a.finding)
     return report(a.source, verbose=a.verbose, json_out=a.json)
