@@ -111,12 +111,17 @@ def test_legislation_regulations_split_when_long_and_regulation_2_gives_definiti
                           {"term": "designer", "text": "“designer” means any person who—", "section_id": "regulation-2"}])
     t["sections"][0]["text"] = ("(1) In these Regulations—\n“the Act” means the Building Act 1984;\n“designer” means any person "
                                 "who—\ncarries out design work, or\narranges for it;\n“dwelling” includes a flat;")
+    defs_text = t["sections"][0]["text"]
+    t["sections"][1:1] = [sec("regulation-2-1", "paragraph", defs_text, "regulation-2", **base),
+                          sec("regulation-2-2", "paragraph", "(2) Work is not short duration if it takes over an hour.",
+                              "regulation-2", **base)]
     chunks, splits = chunk_tree(t, LAW, {})
     C = by_suffix(chunks)
     assert C["regulation-3"]["chunk_type"] == "regulation" and C["regulation-3"]["legal_weight"] == "law"
     assert "regulation-4" not in C and C["regulation-4-2"]["chunk_type"] == "clause"
     assert splits == ["regulation-4: 62 characters, split into 2 paragraphs"]
     assert C["regulation-2-term-the-act"]["text"].startswith("“the Act” means") and "regulation-2" not in C
+    assert C["regulation-2-2"]["chunk_type"] == "clause" and "regulation-2-1" not in C  # rule kept, definitions not twice
     assert C["regulation-2-term-designer"]["text"] == "“designer” means any person who—\ncarries out design work, or\narranges for it;"
     assert C["schedule-1-B1"]["text"].endswith("Limits on application: Not prisons.")
     assert C["schedule-1-B1"]["applies_to"] == "E+W" and C["schedule-1-B1"]["url"] == "https://legislation/reg"

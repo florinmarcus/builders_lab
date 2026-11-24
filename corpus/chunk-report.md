@@ -1494,10 +1494,10 @@ Made by `python -m system.rag.chunk` from the parsed trees (not in git). Rebuilt
 
 ## br2010 `main@2026-11-06-9e455f6e`
 
-- Chunks: 762 (clause 386, regulation 148, definition 90, requirement 80, paragraph 52, table 6).
-- Text length: median 319, longest 4820 characters.
+- Chunks: 764 (clause 388, regulation 148, definition 90, requirement 80, paragraph 52, table 6).
+- Text length: median 318, longest 4820 characters.
 - Open model checks in the tree: 0.
-- Cross-references: 388, resolved in this document 353, to another document 7, unresolved 28.
+- Cross-references: 389, resolved in this document 353, to another document 7, unresolved 29.
 - Splits (48):
   - regulation-4: 2861 characters, split into 9 paragraphs
   - regulation-6: 3848 characters, split into 4 paragraphs
@@ -1547,7 +1547,7 @@ Made by `python -m system.rag.chunk` from the parsed trees (not in git). Rebuilt
   - regulation-27@W: 2592 characters, split into 6 paragraphs
   - regulation-27A@W: 2610 characters, split into 6 paragraphs
   - regulation-38@W: 2620 characters, split into 6 paragraphs
-- Unresolved references (most common): "paragraph F1" ×5, "paragraph E1" ×4, "paragraph 2" ×3, "paragraph 3" ×3, "regulation 7A" ×2, "Section 67" ×2, "paragraph B1" ×1, "paragraph B3" ×1, "paragraph B4" ×1, "paragraph B5" ×1, "paragraphs G2" ×1, "paragraphs G1" ×1, "regulation 63" ×1, "Section 30" ×1, "paragraph 1" ×1.
+- Unresolved references (most common): "paragraph F1" ×5, "paragraph E1" ×4, "paragraph 2" ×3, "paragraph 3" ×3, "Section 67" ×3, "regulation 7A" ×2, "paragraph B1" ×1, "paragraph B3" ×1, "paragraph B4" ×1, "paragraph B5" ×1, "paragraphs G2" ×1, "paragraphs G1" ×1, "regulation 63" ×1, "Section 30" ×1, "paragraph 1" ×1.
 
 ## bsa-secondary `page@2022-07-25-db46397e`
 
@@ -1640,22 +1640,22 @@ Made by `python -m system.rag.chunk` from the parsed trees (not in git). Rebuilt
 
 ## car2012 `main@2020-12-31-6057ef64`
 
-- Chunks: 91 (clause 37, regulation 29, definition 18, paragraph 6, table 1).
-- Text length: median 433, longest 2267 characters.
+- Chunks: 96 (clause 42, regulation 29, definition 18, paragraph 6, table 1).
+- Text length: median 425, longest 2267 characters.
 - Open model checks in the tree: 0.
-- Cross-references: 49, resolved in this document 44, to another document 0, unresolved 5.
+- Cross-references: 51, resolved in this document 45, to another document 0, unresolved 6.
 - Splits (5):
   - regulation-3: 3268 characters, split into 5 paragraphs
   - regulation-4: 3581 characters, split into 11 paragraphs
   - regulation-11: 3415 characters, split into 6 paragraphs
   - regulation-15: 2601 characters, split into 5 paragraphs
   - regulation-22: 4297 characters, split into 10 paragraphs
-- Unresolved references (most common): "regulation 36" ×1, "paragraph 1" ×1, "paragraph 4" ×1, "paragraph 14" ×1, "paragraph 2" ×1.
+- Unresolved references (most common): "regulation 36" ×1, "paragraph 1" ×1, "paragraph 4" ×1, "paragraph 14" ×1, "paragraph 2" ×1, "Appendix 7" ×1.
 
 ## cdm2015 `main@2018-01-01-d6380775`
 
-- Chunks: 127 (paragraph 38, regulation 36, definition 31, clause 21, table 1).
-- Text length: median 231, longest 3143 characters.
+- Chunks: 128 (paragraph 38, regulation 36, definition 31, clause 22, table 1).
+- Text length: median 239, longest 3143 characters.
 - Open model checks in the tree: 0.
 - Cross-references: 60, resolved in this document 53, to another document 0, unresolved 7.
 - Splits (2):
@@ -1740,8 +1740,8 @@ Made by `python -m system.rag.chunk` from the parsed trees (not in git). Rebuilt
 
 ## coshh2002 `main@2020-12-31-d75962c8`
 
-- Chunks: 89 (clause 33, paragraph 30, regulation 17, table 6, definition 3).
-- Text length: median 461, longest 3662 characters.
+- Chunks: 91 (clause 35, paragraph 30, regulation 17, table 6, definition 3).
+- Text length: median 458, longest 3662 characters.
 - Open model checks in the tree: 0.
 - Cross-references: 24, resolved in this document 21, to another document 0, unresolved 3.
 - Splits (4):
@@ -1788,8 +1788,8 @@ Made by `python -m system.rag.chunk` from the parsed trees (not in git). Rebuilt
 
 ## eawr1989 `main@2015-04-06-64b017cd`
 
-- Chunks: 45 (regulation 32, paragraph 9, table 4).
-- Text length: median 260, longest 2447 characters.
+- Chunks: 47 (regulation 32, paragraph 9, table 4, clause 2).
+- Text length: median 280, longest 2447 characters.
 - Open model checks in the tree: 0.
 - Cross-references: 8, resolved in this document 5, to another document 0, unresolved 3.
 - Splits (1):
@@ -1899,12 +1899,12 @@ Made by `python -m system.rag.chunk` from the parsed trees (not in git). Rebuilt
 
 ## fser2022 `main@2026-04-06-9826f8e6`
 
-- Chunks: 11 (regulation 11).
+- Chunks: 13 (regulation 11, clause 2).
 - Text length: median 874, longest 2186 characters.
 - Open model checks in the tree: 0.
-- Cross-references: 5, resolved in this document 4, to another document 0, unresolved 1.
+- Cross-references: 8, resolved in this document 6, to another document 0, unresolved 2.
 - Splits: none.
-- Unresolved references (most common): "Appendix D" ×1.
+- Unresolved references (most common): "Appendix D" ×1, "Appendix A" ×1.
 
 ## fso-guidance-collection `check-your-fire-safety-responsibilities-under-sect--check-your-fire-safety-responsibilities-under-section-156--7617419@2023-10-25-68c61f73`
 
@@ -2936,10 +2936,10 @@ Made by `python -m system.rag.chunk` from the parsed trees (not in git). Rebuilt
 
 ## hrb-procedures-2023 `main@2026-10-01-2c5017f2`
 
-- Chunks: 379 (clause 243, definition 66, regulation 42, paragraph 28).
-- Text length: median 314, longest 5814 characters.
+- Chunks: 381 (clause 245, definition 66, regulation 42, paragraph 28).
+- Text length: median 312, longest 5814 characters.
 - Open model checks in the tree: 0.
-- Cross-references: 318, resolved in this document 274, to another document 0, unresolved 44.
+- Cross-references: 324, resolved in this document 280, to another document 0, unresolved 44.
 - Splits (27):
   - regulation-4: 5915 characters, split into 3 paragraphs
   - regulation-7: 5144 characters, split into 14 paragraphs
@@ -3623,8 +3623,8 @@ Made by `python -m system.rag.chunk` from the parsed trees (not in git). Rebuilt
 
 ## noise2005 `main@2020-12-31-7b97be8c`
 
-- Chunks: 44 (clause 13, regulation 12, definition 12, paragraph 6, table 1).
-- Text length: median 346, longest 2019 characters.
+- Chunks: 45 (clause 14, regulation 12, definition 12, paragraph 6, table 1).
+- Text length: median 299, longest 2019 characters.
 - Open model checks in the tree: 0.
 - Cross-references: 29, resolved in this document 25, to another document 0, unresolved 4.
 - Splits (2):
@@ -3802,10 +3802,10 @@ Made by `python -m system.rag.chunk` from the parsed trees (not in git). Rebuilt
 
 ## rbca-2024 `main@2026-11-06-a9c073cb`
 
-- Chunks: 193 (clause 63, paragraph 47, definition 43, regulation 40).
-- Text length: median 260, longest 3535 characters.
+- Chunks: 198 (clause 68, paragraph 47, definition 43, regulation 40).
+- Text length: median 258, longest 3535 characters.
 - Open model checks in the tree: 0.
-- Cross-references: 140, resolved in this document 97, to another document 3, unresolved 40.
+- Cross-references: 144, resolved in this document 98, to another document 3, unresolved 43.
 - Splits (9):
   - regulation-4: 2975 characters, split into 2 paragraphs
   - regulation-5: 7495 characters, split into 12 paragraphs
@@ -3816,7 +3816,7 @@ Made by `python -m system.rag.chunk` from the parsed trees (not in git). Rebuilt
   - regulation-33: 3074 characters, split into 7 paragraphs
   - regulation-45: 2550 characters, split into 6 paragraphs
   - regulation-46: 4423 characters, split into 4 paragraphs
-- Unresolved references (most common): "paragraph 4" ×5, "paragraph 2" ×3, "regulation 27A" ×2, "regulation 27C" ×2, "paragraph 1" ×2, "paragraph 9" ×2, "regulation 20A" ×1, "regulation 25A" ×1, "regulation 26A" ×1, "regulation 26C" ×1, "regulation 40A" ×1, "regulation 40B" ×1, "regulation 44D" ×1, "regulation 44E" ×1, "regulation 44F" ×1.
+- Unresolved references (most common): "paragraph 4" ×6, "paragraph 2" ×3, "regulation 27A" ×2, "regulation 27C" ×2, "paragraph 1" ×2, "paragraph 5" ×2, "paragraph 9" ×2, "regulation 20A" ×1, "regulation 25A" ×1, "regulation 26A" ×1, "regulation 26C" ×1, "regulation 40A" ×1, "regulation 40B" ×1, "regulation 44D" ×1, "regulation 44E" ×1.
 
 ## reserving-below-threshold `guidance-on-reserving-competitions-for-below-threshold-contr@2026-02-16-f6fc9e72`
 
@@ -3829,8 +3829,8 @@ Made by `python -m system.rag.chunk` from the parsed trees (not in git). Rebuilt
 
 ## riddor2013 `main@2026-04-06-ab53f81c`
 
-- Chunks: 216 (paragraph 133, definition 44, clause 22, regulation 15, table 2).
-- Text length: median 140, longest 3915 characters.
+- Chunks: 218 (paragraph 133, definition 44, clause 24, regulation 15, table 2).
+- Text length: median 143, longest 3915 characters.
 - Open model checks in the tree: 0.
 - Cross-references: 61, resolved in this document 46, to another document 0, unresolved 15.
 - Splits (4):
@@ -3952,10 +3952,10 @@ Made by `python -m system.rag.chunk` from the parsed trees (not in git). Rebuilt
 
 ## scoar2015 `main@2026-05-01-67ee9cdd`
 
-- Chunks: 23 (regulation 15, paragraph 8).
-- Text length: median 767, longest 2489 characters.
+- Chunks: 24 (regulation 15, paragraph 8, clause 1).
+- Text length: median 971, longest 2489 characters.
 - Open model checks in the tree: 0.
-- Cross-references: 11, resolved in this document 9, to another document 0, unresolved 2.
+- Cross-references: 15, resolved in this document 13, to another document 0, unresolved 2.
 - Splits: none.
 - Unresolved references (most common): "paragraph 1" ×1, "paragraph 4" ×1.
 
@@ -4175,7 +4175,7 @@ Made by `python -m system.rag.chunk` from the parsed trees (not in git). Rebuilt
 
 ## vibration2005 `main@2015-10-16-a051e606`
 
-- Chunks: 37 (clause 24, regulation 8, paragraph 4, definition 1).
+- Chunks: 38 (clause 25, regulation 8, paragraph 4, definition 1).
 - Text length: median 429, longest 1676 characters.
 - Open model checks in the tree: 0.
 - Cross-references: 17, resolved in this document 16, to another document 0, unresolved 1.
@@ -4188,7 +4188,7 @@ Made by `python -m system.rag.chunk` from the parsed trees (not in git). Rebuilt
 
 ## wah2005 `main@2015-10-01-eca52d23`
 
-- Chunks: 94 (paragraph 54, regulation 19, clause 10, definition 10, table 1).
+- Chunks: 95 (paragraph 54, regulation 19, clause 11, definition 10, table 1).
 - Text length: median 249, longest 3291 characters.
 - Open model checks in the tree: 0.
 - Cross-references: 23, resolved in this document 19, to another document 0, unresolved 4.

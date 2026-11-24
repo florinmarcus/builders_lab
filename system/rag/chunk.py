@@ -264,6 +264,14 @@ class Chunker:
             seen[slug] += 1  # some terms are defined twice (e.g. under regulation 11D and 11U)
             fake = {**reg2, "id": f"regulation-2-term-{slug}" + (f"-{seen[slug]}" if seen[slug] > 1 else "")}
             self.add(fake, "definition", self.full_definition(d["text"], reg2["text"]), term=d["term"])
+        # Paragraphs of regulation 2 that hold no definition (e.g. CAR 2012 reg 2(3) "short duration") are rules
+        # in their own right: chunk them as clauses, or they are lost (found by the gold label check, 24 Nov).
+        defs = [d["text"].strip()[:40] for d in self.tree.get("definitions", []) if d.get("section_id") == "regulation-2"]
+        for k in self.sections:
+            stub = "\n" not in k["text"].strip() and k["text"].rstrip().endswith(("—", "–"))  # "(1) In these Regulations—"
+            if k["parent_id"] == "regulation-2" and k["type"] == "paragraph" and not stub \
+                    and not any(x and x in k["text"] for x in defs):
+                self.add(k, "clause", k["text"], parent_title=reg2.get("title"))
 
     @staticmethod
     def full_definition(text: str, reg_text: str) -> str:
