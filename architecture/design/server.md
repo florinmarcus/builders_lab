@@ -2,7 +2,7 @@
 
 MCP server, security, data and deployment. Code: `system/api/`. Flows: [sequences/server.md](../sequences/server.md). Up: [architecture](../ARCHITECTURE.md).
 
-Updated 20 Nov 2026. Solid = built. Dashed = planned.
+Updated 24 Nov 2026. Solid = built. Dashed = planned.
 
 ## Components
 
@@ -26,6 +26,8 @@ flowchart LR
     jobs & docs & pay & inbox --> pg[("Postgres")]
     tools --> pg
     regs --> rag["rag.search<br/>(corpus)"]
+    rag --> cpg[("corpus-db<br/>Postgres + pgvector<br/>read-only login")]
+    rag --> bed["Bedrock: Titan (London),<br/>Rerank (Frankfurt)"]
     regs --> fb["fallback<br/>7 passages"]
     inbox --> eml["demo mail folder"]
     inbox -.-> gmail["Gmail API"]

@@ -21,6 +21,28 @@ services:
     networks: [backend]
     # no ports: the database is never reachable from outside
 
+  # Regulations corpus (ADR 0013): its own Postgres with pgvector, separate from the firm database.
+  # Loaded by system/rag/load.py as builders_corpus_owner; the app reads as builders_corpus_reader (read-only).
+  corpus-db:
+    image: pgvector/pgvector:0.8.0-pg16
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${CORPUS_SUPER_PASSWORD:?set CORPUS_SUPER_PASSWORD}
+      CORPUS_OWNER_PASSWORD: ${CORPUS_OWNER_PASSWORD:?set CORPUS_OWNER_PASSWORD}
+      CORPUS_READER_PASSWORD: ${CORPUS_READER_PASSWORD:?set CORPUS_READER_PASSWORD}
+    command: ["postgres", "-c", "shared_buffers=512MB", "-c", "effective_cache_size=1GB", "-c", "work_mem=16MB"]
+    volumes:
+      - corpusdata:/var/lib/postgresql/data
+      - ./corpus-db-init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d builders_corpus"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    networks: [backend]
+    # no ports: reached only from the backend network
+
   app:
     image: ${APP_IMAGE:-builders-api:local}
     build: { context: .., dockerfile: Dockerfile }
@@ -29,7 +51,7 @@ services:
       db: { condition: service_healthy }
     environment:
       DATABASE_URL: postgresql://builders_app:${APP_DB_PASSWORD}@db:5432/builders
-      CORPUS_READER_URL: ${CORPUS_READER_URL:-}   # read-only regulations corpus (deploy/rds/)
+      CORPUS_READER_URL: ${CORPUS_READER_URL:-}   # read-only regulations corpus (corpus-db, or an outside URL)
       RAG_ENABLED: ${RAG_ENABLED:-off}            # "on" = use it; anything else = fallback search
       MIGRATE_DATABASE_URL: postgresql://builders_owner:${POSTGRES_PASSWORD}@db:5432/builders
       HOST: 0.0.0.0
@@ -90,6 +112,7 @@ services:
 volumes:
   maildir:
   pgdata:
+  corpusdata:
   caddy_data:
   caddy_config:
 

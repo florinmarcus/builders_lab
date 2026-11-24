@@ -98,6 +98,27 @@ sudo -i
 
 Or the AWS console: EC2, the instance, Connect, Session Manager.
 
+## Regulations corpus (24 Nov 2026)
+
+The corpus lives in its own container, `corpus-db` (pgvector, own volume `corpusdata`, no ports), next to the firm
+database. Set-up runs once when the volume is created: `corpus-db-init/01-corpus.sh` makes the owner and the
+read-only reader (5 connections, 5-second queries), the same as `rds/corpus-setup.sql`. Passwords are created in
+Parameter Store by `env-from-ssm.sh` (`secrets/corpus_owner_password`, `corpus_reader_password`,
+`corpus_super_password`). The app uses the reader; an outside URL in `secrets/corpus_reader_url` wins, so delete
+that parameter to stop using Frankfurt.
+
+Load a new index: build it where the chunks and vectors are (`python -m system.rag.load` into any Postgres with
+pgvector), dump the schema, copy the file to the server, restore it as the owner:
+
+```
+pg_dump -n corpus -Fc -f corpus.dump <local corpus database>
+cd /opt/builders-lab/repo/deploy && source scripts/common.sh
+dc exec -T corpus-db pg_restore -U builders_corpus_owner -d builders_corpus --clean --if-exists --single-transaction < corpus.dump
+```
+
+The restore is one transaction: searches see the old index until it commits. Then set `rag_enabled` to `on` in
+Parameter Store and run `upgrade.sh`.
+
 ## Upgrade
 
 - **Normal:** push to main. GitHub runs the tests, then `upgrade.sh <commit>` on the server.

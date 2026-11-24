@@ -31,7 +31,7 @@ if [ ! -f "$BASE/gmail-token.json" ]; then
   chmod 600 "$BASE/gmail-token.json"
 fi
 
-dc up -d db
+dc up -d db corpus-db
 dc exec -T db sh -c 'until pg_isready -q -U builders_owner -d builders; do sleep 1; done'
 
 backup=""
