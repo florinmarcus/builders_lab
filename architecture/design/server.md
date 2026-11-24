@@ -149,7 +149,7 @@ Also: `schema_migrations` (applied files and hashes), `server_flags` (kill switc
 flowchart TB
     internet(["Internet"]) -->|"80, 443 only"| caddy
     subgraph aws["AWS eu-west-2, own VPC"]
-        subgraph ec2["EC2 t4g.small, encrypted disk, no SSH"]
+        subgraph ec2["EC2 t4g.medium, encrypted disk, no SSH"]
             caddy["Caddy<br/>HTTPS"] --> app["MCP server<br/>non-root, read-only"]
             app --> pg[("Postgres<br/>app user: no DDL")]
         end

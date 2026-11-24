@@ -68,7 +68,7 @@ Prices are a starting guess to test in the pilot. Price per firm, not per person
 
 | Item | £ a month | Note |
 |---|---|---|
-| London server (EC2 t4g.small) | about 16 | $20.15 (`research/hosting-costs/`); next size up about £14 more if the corpus needs it |
+| London server (EC2 t4g.medium since 24 Nov 2026, for the regulations corpus) | about 27 | $33.88: $0.0376 x 730 h + 30 GB disk $2.78 + IPv4 $3.65 (prices of 17 Nov 2026, `research/hosting-costs/`) |
 | Regulations database | 0 extra | Moves from the Frankfurt lab RDS onto the London server (N17); the lab gets switched off |
 | Bedrock embedding and re-ranking | under 1 | Pilot volumes |
 | Logs, secrets, backups | 2 to 3 | Guess |

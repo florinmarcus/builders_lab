@@ -9,7 +9,7 @@ Florin wants a repeatable server set-up in Git, safe upgrades, and security with
 ## Decision
 
 - **Region:** London (eu-west-2).
-- **Server:** one EC2 `t4g.small` (Amazon Linux 2023, ARM), not Lightsail, because Lightsail cannot take an IAM role and does not support Session Manager in the same simple way.
+- **Server:** one EC2 `t4g.small` (Amazon Linux 2023, ARM; resized to `t4g.medium` on 24 Nov 2026 so the regulations corpus fits in memory, N17), not Lightsail, because Lightsail cannot take an IAM role and does not support Session Manager in the same simple way.
 - **AWS side as code:** `deploy/cloudformation/server.yaml`: own network, firewall with 80 and 443 only, no SSH, IMDSv2, encrypted disk, daily snapshots (7 kept), server-down alarm with auto-recover, alert email, monthly budget alarm, GitHub OIDC deploy role.
 - **On the server:** Docker Compose with Postgres, our MCP server and Caddy (automatic HTTPS). Database not exposed. App runs as non-root, read-only, no Linux capabilities, with a database user that cannot change tables.
 - **Secrets:** AWS Parameter Store. Created once at random by `install.sh`, never in Git.

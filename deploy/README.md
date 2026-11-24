@@ -67,7 +67,7 @@ aws iam attach-user-policy --user-name <deploy user> \
 
 ## Current production (20 Nov 2026)
 
-- Stack `builders-lab-prod`, server `i-0f7814c27302e471f`, address `https://16-60-88-218.sslip.io`.
+- Stack `builders-lab-prod`, server `i-0f7814c27302e471f` (t4g.medium since 24 Nov 2026: stack parameter InstanceType), address `https://16-60-88-218.sslip.io`.
 - Florin's API key (expires 31 Dec 2026) is in Parameter Store, not in chat or Git:
   ```
   aws ssm get-parameter --region eu-west-2 --with-decryption --name /builders-lab/prod/handover/florin_api_key --query Parameter.Value --output text
