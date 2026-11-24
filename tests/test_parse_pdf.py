@@ -1410,7 +1410,7 @@ def test_a_signature_beside_signed_by_on_the_left_is_not_a_photo():
 
 def test_ligature_glyph_mapped_to_a_bare_f_is_read_by_its_glyph_name():
     """HSG33, AD G: the font names the glyph "fi" but the PDF's ToUnicode table says "f" ("frst-aid", "foor")."""
-    from pdfminer import pdffont
+    pdffont = pytest.importorskip("pdfminer.pdffont")
 
     from system.rag.parse_pdf import ligature_glyphs, ligature_text
 
