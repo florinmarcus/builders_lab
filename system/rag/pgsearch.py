@@ -96,6 +96,7 @@ SELECT id, source_id, source_title, legal_weight, edition_date, valid_from, vali
 FROM {schema}.chunks
 WHERE (valid_from IS NULL OR valid_from <= %(d)s) AND (valid_to IS NULL OR valid_to >= %(d)s)
   AND (applies_to IS NULL OR %(c)s = ANY (string_to_array(replace(applies_to, '.', ''), '+')))
+  AND (%(w)s::text[] IS NULL OR legal_weight = ANY (%(w)s::text[]))
 ORDER BY embedding <=> %(v)s::vector
 LIMIT %(n)s
 """
@@ -106,14 +107,16 @@ def nearest_sql(schema: str) -> str:
 
 
 def nearest(vector: list[float], as_of: datetime.date, country: str, n: int, url: str | None = None,
-            schema: str | None = None) -> list[dict]:
+            schema: str | None = None, weights: list[str] | None = None) -> list[dict]:
+    """weights: only chunks of these legal weights (one lane, ADR 0016); None = all."""
     import psycopg
     from psycopg.rows import dict_row
 
     c = cfg()
     v = "[" + ",".join(f"{x:.7g}" for x in vector) + "]"
     with psycopg.connect(url or c["url"], connect_timeout=5, row_factory=dict_row) as conn:
-        return conn.execute(nearest_sql(schema or c["schema"]), {"v": v, "d": as_of, "c": country, "n": n}).fetchall()
+        return conn.execute(nearest_sql(schema or c["schema"]), {
+            "v": v, "d": as_of, "c": country, "n": n, "w": weights}).fetchall()
 
 
 # Codes in a question, written as system/rag/localsearch.py writes them at load time ("7(2)" -> "7_2").
@@ -155,6 +158,7 @@ scored AS (
   WHERE (ch.tsv @@ (SELECT t FROM tq) OR ch.codes_tsv @@ (SELECT c FROM tq))
     AND (ch.valid_from IS NULL OR ch.valid_from <= %(d)s) AND (ch.valid_to IS NULL OR ch.valid_to >= %(d)s)
     AND (ch.applies_to IS NULL OR %(c)s = ANY (string_to_array(replace(ch.applies_to, '.', ''), '+')))
+    AND (%(w)s::text[] IS NULL OR ch.legal_weight = ANY (%(w)s::text[]))
   GROUP BY ch.id, ch.doc_len
 )
 SELECT c.id, c.source_id, c.source_title, c.legal_weight, c.edition_date, c.valid_from, c.valid_to, c.section_id,
@@ -170,7 +174,7 @@ def keyword_sql(schema: str) -> str:
 
 
 def keyword(question: str, as_of: datetime.date, country: str, n: int, url: str | None = None,
-            schema: str | None = None) -> list[dict]:
+            schema: str | None = None, weights: list[str] | None = None) -> list[dict]:
     import psycopg
     from psycopg.rows import dict_row
 
@@ -178,7 +182,7 @@ def keyword(question: str, as_of: datetime.date, country: str, n: int, url: str 
     with psycopg.connect(url or c["url"], connect_timeout=5, row_factory=dict_row) as conn:
         return conn.execute(keyword_sql(schema or c["schema"]), {
             "q": question, "codes": question_codes(question), "wc": c["codes_weight"], "d": as_of,
-            "c": country, "n": n}).fetchall()
+            "c": country, "n": n, "w": weights}).fetchall()
 
 
 def rrf(*lists: list[dict], k: int = 60) -> list[dict]:
@@ -220,17 +224,19 @@ def passage(r: dict, score: float) -> dict:
 
 
 def candidates(question: str, as_of_date: datetime.date | None = None, country: str = "E", embed=None,
-               url: str | None = None, n: int | None = None) -> list[dict]:
+               url: str | None = None, n: int | None = None, weights: list[str] | None = None,
+               vector: list[float] | None = None) -> list[dict]:
     """The first stage: nearest chunks, one per section, in distance order (what search re-ranks; evals
-    score Recall@50 on this)."""
+    score Recall@50 on this). weights limits it to one lane; vector skips the embedding call."""
     c = cfg()
     as_of, n = as_of_date or datetime.date.today(), n or c["top_k"]
-    vec = (embed or embed_question)(question)
-    rows = one_per_section(nearest(vec, as_of, country, n, url))
+    vec = vector or (embed or embed_question)(question)
+    lane = {"weights": weights} if weights else {}  # only passed when set, so callers and fakes without it still work
+    rows = one_per_section(nearest(vec, as_of, country, n, url, **lane))
     if not c["hybrid"]:
         return rows
     try:
-        kw = one_per_section(keyword(question, as_of, country, n, url))
+        kw = one_per_section(keyword(question, as_of, country, n, url, **lane))
     except Exception as e:  # a slow or failed keyword query must not break search: vectors alone still work
         log.warning("keyword search failed, vectors only: %s", type(e).__name__)
         return rows
@@ -256,3 +262,46 @@ def search(question: str, as_of_date: datetime.date | None = None, country: str 
             raise
         raise SearchError(f"regulations search failed: {type(e).__name__}") from e
     return [passage(rows[i], s) for i, s in order if s >= c["min_score"]][:limit]
+
+
+# The four lanes of ADR 0016 (point 8): each searches only chunks of its legal strength and keeps its own short
+# list, so a strong guidance passage cannot push the law out of the answer, and an empty lane says so.
+LANES: dict[str, list[str]] = {
+    "law": ["law"],
+    "approved-document": ["statutory-guidance"],
+    "acop": ["approved-code"],
+    "guidance": ["guidance"],
+}
+
+
+def search_lanes(question: str, as_of_date: datetime.date | None = None, country: str = "E", per_lane: int = 3,
+                 embed=None, rerank_fn=None, url: str | None = None,
+                 lanes: dict[str, list[str]] | None = None) -> dict[str, list[dict]]:
+    """Best passages per lane, {lane: [passages]}; an empty list means that lane found nothing. One embedding,
+    then the lanes run side by side, each with its own candidates and its own re-rank. Not on the server yet."""
+    from concurrent.futures import ThreadPoolExecutor
+
+    c = cfg()
+    lanes = lanes or LANES
+    if not question.strip():
+        return {k: [] for k in lanes}
+    as_of = as_of_date or datetime.date.today()
+
+    def one(weights: list[str]) -> list[dict]:
+        rows = candidates(question, as_of, country, url=url, weights=weights, vector=vec)
+        if not rows:
+            return []
+        if not c["rerank"]:
+            return [passage(r, 1 - float(r["distance"])) for r in rows[:per_lane]]
+        order = (rerank_fn or rerank)(question, [r["embed_text"] for r in rows], per_lane)
+        return [passage(rows[i], s) for i, s in order if s >= c["min_score"]][:per_lane]
+
+    try:
+        vec = (embed or embed_question)(question)
+        with ThreadPoolExecutor(max_workers=len(lanes)) as ex:
+            got = dict(zip(lanes, ex.map(one, lanes.values())))
+    except Exception as e:
+        if type(e).__name__ in ("ProgrammingError", "UndefinedTable", "InsufficientPrivilege"):
+            raise
+        raise SearchError(f"regulations search failed: {type(e).__name__}") from e
+    return got

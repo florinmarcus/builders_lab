@@ -11,7 +11,7 @@ from system.rag import pgsearch as P
 
 
 def row(i, section=None, **kw):
-    return {"id": f"c{i}", "source_id": "adb", "source_title": "AD B", "legal_weight": "statutory-guidance",
+    return {"id": f"c{i}", "source_id": "adb", "source_title": "AD B", "legal_weight": kw.get("legal_weight", "statutory-guidance"),
             "edition_date": datetime.date(2026, 9, 30), "valid_from": datetime.date(2026, 9, 30),
             "valid_to": kw.get("valid_to"), "section_id": section or f"para-{i}", "section_title": None,
             "heading_path": ["AD B", "Section 3", kw.get("title", f"Paragraph 3.{i}")], "printed_page": "26",
@@ -134,3 +134,46 @@ def test_keyword_sql_has_no_stray_percent_signs():
     import re
     sql = re.sub(r"%\(\w+\)s", "", P.keyword_sql("corpus"))  # psycopg reads any other % as a placeholder
     assert "%" not in sql
+
+
+def test_lane_filter_is_in_both_sql_queries():
+    assert "legal_weight = ANY (%(w)s::text[])" in P.nearest_sql("corpus")
+    assert "ch.legal_weight = ANY (%(w)s::text[])" in P.keyword_sql("corpus")
+
+
+def test_search_lanes_keeps_a_short_list_per_lane_and_reports_empty_lanes(monkeypatch):
+    monkeypatch.setenv("RAG_HYBRID", "1")
+    monkeypatch.setenv("RAG_MIN_SCORE", "0")
+    law = [row(1, legal_weight="law"), row(2, legal_weight="law")]
+    adoc = [row(3), row(4), row(5)]
+    calls = {"embed": 0}
+
+    def by_lane(*a, weights=None, **kw):
+        return {"law": law, "statutory-guidance": adoc}.get((weights or [None])[0], [])
+    monkeypatch.setattr(P, "nearest", lambda v, d, c, n, url=None, weights=None: by_lane(weights=weights))
+    monkeypatch.setattr(P, "keyword", lambda q, d, c, n, url=None, weights=None: by_lane(weights=weights))
+
+    def embed(q):
+        calls["embed"] += 1
+        return [0.0] * 1024
+    got = P.search_lanes("pay less notice", per_lane=2, embed=embed,
+                         rerank_fn=lambda q, texts, n: [(i, 0.9 - i / 10) for i in range(min(n, len(texts)))])
+    assert list(got) == ["law", "approved-document", "acop", "guidance"]
+    assert [p["chunk_id"] for p in got["law"]] == ["c1", "c2"]
+    assert len(got["approved-document"]) == 2  # its own short list, not cut by the other lanes
+    assert got["acop"] == [] and got["guidance"] == []
+    assert calls["embed"] == 1  # one embedding shared by all lanes
+
+
+def test_lanes_in_the_database_return_only_their_legal_weight():
+    import psycopg
+    url = os.environ.get("CORPUS_TEST_READER_URL")
+    if not url:
+        pytest.skip("no test corpus")
+    with psycopg.connect(url) as c:
+        vec = c.execute("SELECT embedding::text FROM corpus.chunks WHERE legal_weight = 'law' LIMIT 1").fetchone()
+    if not vec:
+        pytest.skip("no law chunk in the test corpus")
+    v = [float(x) for x in vec[0].strip("[]").split(",")]
+    got = P.nearest(v, datetime.date(2026, 1, 1), "E", 5, url, weights=["approved-code"])
+    assert all(r["legal_weight"] == "approved-code" for r in got)

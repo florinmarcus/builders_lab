@@ -59,6 +59,8 @@ def config(schema: str, search) -> dict:
     c["queries_from"] = os.environ.get("EVAL_QUERIES_FROM")
     c["fuse"] = os.environ.get("EVAL_FUSE", "0")
     c["rerank_with"] = os.environ.get("EVAL_RERANK_WITH", "question")
+    c["lanes"] = os.environ.get("EVAL_LANES", "0")
+    c["per_lane"] = int(os.environ.get("EVAL_PER_LANE", "2"))
     c["golden_sha"] = hashlib.sha256(GOLDEN.read_bytes()).hexdigest()[:12] if GOLDEN.exists() else None
     return c
 
@@ -193,8 +195,81 @@ def saved_queries(run: str, qid: str) -> list[str] | None:
     return _saved_queries[run].get(qid)
 
 
+def label_lanes(url: str, schema: str, search) -> dict:
+    """Which lane each section key belongs to, from the chunks' legal weight: {"source:section": {lanes}}."""
+    import psycopg
+
+    lane_of = {w: lane for lane, ws in search.LANES.items() for w in ws}
+    out: dict[str, set] = {}
+    with psycopg.connect(url, connect_timeout=5) as conn:
+        for src, sec, w in conn.execute(f"SELECT DISTINCT source_id, section_id, legal_weight FROM {schema}.chunks"):
+            if w in lane_of:
+                out.setdefault(M.section_key(src, sec), set()).add(lane_of[w])
+    return out
+
+
+def lanes_of(expected: str, keys: dict) -> list[str]:
+    """The lanes of an expected section: those of every chunk section it touches (a parent or a part)."""
+    src = expected.split(":")[0]
+    hit = keys.get(expected)
+    if hit is None:
+        hit = set().union(*([v for k, v in keys.items() if k.startswith(src + ":") and M.touches(expected, k)] or [set()]))
+    return sorted(hit)
+
+
+def lanes_search(query: str, search, url: str, top_k: int, rerank: bool) -> dict:
+    """ADR 0016 lanes: one embedding, then per lane its own candidates and its own re-rank (top 5 kept, so the
+    lane size can be tuned on saved rows)."""
+    vec = search.embed_question(query)
+    out = {}
+    for lane, weights in search.LANES.items():
+        rows = search.candidates(query, url=url, n=top_k, weights=weights, vector=vec)
+        cands = [M.section_key(r["source_id"], r["section_id"]) for r in rows]
+        rr = [[cands[i], None, rows[i]["id"]] for i in range(min(5, len(rows)))]
+        if rerank and rows:
+            rr = [[cands[i], round(s, 6), rows[i]["id"]] for i, s in search.rerank(query, [r["embed_text"] for r in rows], 5)]
+        out[lane] = {"candidates": cands, "reranked": rr}
+    return out
+
+
+def lane_scores(rows: list[dict], per_lane: int) -> dict:
+    """Per lane: of the questions with a label in that lane, how often the lane's own top per_lane (and top 50)
+    holds one of them. "any": some label found in its own lane's short list. "every_lane": every lane that has
+    labels found one. Labels in no lane (source not loaded) are left out."""
+    scored = [r for r in rows if r.get("expected") and r.get("lanes")]
+    out = {"questions": len(scored), "per_lane": per_lane}
+    for lane in ("law", "approved-document", "acop", "guidance"):
+        qs = [r for r in scored if any(lane in r["expected_lanes"].get(e, []) for e in r["expected"])]
+        exp = lambda r: [e for e in r["expected"] if lane in r["expected_lanes"].get(e, [])]  # noqa: E731
+        top = lambda r: [x[0] for x in r["lanes"][lane]["reranked"]]  # noqa: E731
+        n = len(qs) or 1
+        out[lane] = {"questions": len(qs),
+                     f"recall@{per_lane}": round(sum(M.recall_at(exp(r), top(r), per_lane) for r in qs) / n, 4),
+                     "recall@5": round(sum(M.recall_at(exp(r), top(r), 5) for r in qs) / n, 4),
+                     "recall@50": round(sum(M.recall_at(exp(r), r["lanes"][lane]["candidates"], 50) for r in qs) / n, 4)}
+
+    def found(r, lane):
+        exp = [e for e in r["expected"] if lane in r["expected_lanes"].get(e, [])]
+        return M.recall_at(exp, [x[0] for x in r["lanes"][lane]["reranked"]], per_lane) == 1.0
+    has = lambda r: [l for l in r["lanes"] if any(l in r["expected_lanes"].get(e, []) for e in r["expected"])]  # noqa: E731
+    n = len(scored) or 1
+    out["any"] = round(sum(any(found(r, l) for l in has(r)) for r in scored) / n, 4)
+    out["every_lane"] = round(sum(bool(has(r)) and all(found(r, l) for l in has(r)) for r in scored) / n, 4)
+    return out
+
+
 def run_one(q: dict, search, url: str, top_k: int, rerank: bool, min_score: float) -> dict:
     t0 = time.time()
+    if os.environ.get("EVAL_LANES") == "1":
+        per = int(os.environ.get("EVAL_PER_LANE", "2"))
+        lanes = lanes_search(q["question"], search, url, top_k, rerank)
+        cands = [c for i in range(top_k) for v in lanes.values() if i < len(v["candidates"]) for c in [v["candidates"][i]]]
+        top = [x for v in lanes.values() for x in v["reranked"][:per]]
+        return {"id": q["id"], "role": q.get("role"), "kind": q.get("kind"), "multi_rule": q.get("multi_rule", False),
+                "question": q["question"], "expected": q.get("expected_sections", []), "candidates": cands,
+                "queries": [q["question"]], "rewrite_tokens": [0, 0], "lanes": lanes, "reranked": top,
+                "top5": [x[0] for x in top], "top5_chunks": [x[2] for x in top], "scores": [x[1] for x in top],
+                "latency_ms": int((time.time() - t0) * 1000)}
     queries, rw_in, rw_out = ([q["question"]], 0, 0)
     reuse = os.environ.get("EVAL_QUERIES_FROM")
     if reuse and saved_queries(reuse, q["id"]):
@@ -232,6 +307,7 @@ def run(name: str, schema: str, split: str, pace: float, limit: int | None) -> d
     url = reader_url()
     cfg = config(schema, P)
     loaded = loaded_sources(url, P._schema(schema))
+    keys = label_lanes(url, P._schema(schema), P) if cfg["lanes"] == "1" else {}
     qs = load_questions(split)
     qs = [q for q in qs if q.get("expected_sections")] + [q for q in qs if not q.get("expected_sections")]
     qs = qs[:limit] if limit else qs
@@ -245,6 +321,8 @@ def run(name: str, schema: str, split: str, pace: float, limit: int | None) -> d
         for i, q in enumerate(qs, 1):
             if q["id"] in done:
                 done[q["id"]]["in_corpus"] = in_corpus(done[q["id"]]["expected"], loaded)
+                if keys:
+                    done[q["id"]]["expected_lanes"] = {e: lanes_of(e, keys) for e in done[q["id"]]["expected"]}
                 rows.append(done[q["id"]])
                 continue
             for attempt in range(4):
@@ -257,9 +335,12 @@ def run(name: str, schema: str, split: str, pace: float, limit: int | None) -> d
                     time.sleep(10 * (attempt + 1))
                     print(f"  retry {q['id']}: {type(e).__name__}", flush=True)
             r["in_corpus"] = in_corpus(r["expected"], loaded)
+            if keys:
+                r["expected_lanes"] = {e: lanes_of(e, keys) for e in r["expected"]}
             rows.append(r)
             chars += sum(len(x) for x in r["queries"])
-            reranks += (1 if os.environ.get("EVAL_FUSE") == "1" else len(r["queries"])) if cfg["rerank"] else 0
+            reranks += (len(r["lanes"]) if r.get("lanes") else 1 if os.environ.get("EVAL_FUSE") == "1"
+                        else len(r["queries"])) if cfg["rerank"] else 0
             rw_tokens[0] += r["rewrite_tokens"][0]
             rw_tokens[1] += r["rewrite_tokens"][1]
             f.write(json.dumps(r, ensure_ascii=False) + "\n")
@@ -278,6 +359,10 @@ def run(name: str, schema: str, split: str, pace: float, limit: int | None) -> d
     summary = {"run": name, "split": split, "time": datetime.datetime.now(datetime.UTC).replace(tzinfo=None).isoformat(timespec="seconds") + "Z",
                "config": cfg, "cost_usd_this_call": round(cost, 4), **M.summarise(rows),
                "in_corpus": M.summarise([r for r in rows if r.get("in_corpus")])}
+    if cfg["lanes"] == "1":
+        summary["lanes"] = lane_scores(rows, cfg["per_lane"])
+        summary["note"] = ("lanes run: top-level recall@5 counts only the first 5 of the lanes' lists together; "
+                           "use lanes.any and the per-lane numbers")
     (RESULTS / f"{name}-{split}.summary.json").write_text(json.dumps(summary, indent=1), encoding="utf-8")
     with open(RESULTS / "runs.jsonl", "a", encoding="utf-8") as f:
         f.write(json.dumps({k: summary[k] for k in ("run", "split", "time", "questions", "recall@50", "recall@5", "mrr@5", "ndcg@5")

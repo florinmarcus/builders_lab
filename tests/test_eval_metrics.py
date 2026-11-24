@@ -75,3 +75,24 @@ def test_merge_interleaves_candidates_and_keeps_best_score_per_section():
     assert cands == ["s:1", "s:4", "s:2", "s:3"]
     assert [x[0] for x in rr] == ["s:4", "s:1", "s:2"] and rr[1][2] == "c1b"
     assert R.merge([a]) == (a[0], a[1])
+
+
+def test_lanes_of_finds_the_lane_of_a_parent_or_a_part():
+    import retrieval as R
+    keys = {"car2012:regulation-20": {"law"}, "hse-l143:para-12": {"acop"}, "hse-l143:regulation-5-1": {"law"}}
+    assert R.lanes_of("car2012:regulation-20-4", keys) == ["law"]  # a part of a whole-regulation chunk
+    assert R.lanes_of("hse-l143:para-12", keys) == ["acop"]
+    assert R.lanes_of("hse-l143:regulation-5", keys) == ["law"]
+    assert R.lanes_of("missing:x", keys) == []
+
+
+def test_lane_scores_check_each_label_in_its_own_lane():
+    import retrieval as R
+    lane = lambda top: {"candidates": top, "reranked": [[k, 0.5, "c"] for k in top]}  # noqa: E731
+    rows = [{"expected": ["a:law-1", "b:para-1"], "expected_lanes": {"a:law-1": ["law"], "b:para-1": ["guidance"]},
+             "lanes": {"law": lane(["a:law-1"]), "approved-document": lane([]), "acop": lane([]),
+                       "guidance": lane(["b:other", "b:x", "b:para-1"])}}]
+    s = R.lane_scores(rows, 2)
+    assert s["law"]["recall@2"] == 1.0 and s["guidance"]["recall@2"] == 0.0 and s["guidance"]["recall@5"] == 1.0
+    assert s["approved-document"]["questions"] == 0
+    assert s["any"] == 1.0 and s["every_lane"] == 0.0
