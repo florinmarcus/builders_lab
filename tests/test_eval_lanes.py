@@ -65,3 +65,16 @@ def test_found_counts_accepted_sections(monkeypatch):
     row = {"id": "q1", "expected": ["law:s-1"], "top5": ["x:a", "other:s-2"]}
     assert PT.found(row, 8) and not PT.found(dict(row, id="q2"), 8)
     assert PT.doc(row) == "law"
+
+
+def test_rule_coverage_counts_rules_stated_by_the_shown_passages(monkeypatch):
+    import paired as PT
+    monkeypatch.setattr(PT, "rule_counts", lambda: {"q1": 3})
+    monkeypatch.setattr(PT, "rules_stated", lambda: {("q1", "a:1"): frozenset({1}), ("q1", "b:1"): frozenset({1, 3}),
+                                                     ("q1", "c:1"): frozenset({2})})
+    row = {"id": "q1", "expected": ["a:1"], "top5": ["a:1", "b:1", "x:9", "c:1"]}
+    assert PT.coverage(row, 3) == (2 / 3, 1)  # rules 1 and 3; x:9 has no verdict
+    assert PT.coverage(row, 4) == (1.0, 1)
+    assert PT.coverage(dict(row, id="q2"), 8) is None
+    r = PT.compare([1.0, 2 / 3, 0.0], [1 / 3, 2 / 3, 1 / 3])
+    assert (r["only_a"], r["only_b"]) == (1, 1) and abs(r["diff"] - 1 / 9) < 0.01

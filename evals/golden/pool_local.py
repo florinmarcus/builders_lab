@@ -115,7 +115,10 @@ def dev_ids(questions: dict) -> list[str]:
     return sorted(q for q, v in questions.items() if v.get("split") == "dev" and v.get("expected_sections"))
 
 
-def pool(questions: dict, runs: list[str], k: int, ids: set[str], done: set) -> list[tuple[str, str]]:
+def pool(questions: dict, runs: list[str], k: int, ids: set[str], done: set,
+         labelled: bool = False) -> list[tuple[str, str]]:
+    """Passages to judge. labelled=True also takes passages that touch an expected section: rule coverage needs a
+    rule-by-rule verdict for every passage shown, labelled or not."""
     pairs = []
     for run in runs:
         for line in (RESULTS / f"{run}.jsonl").read_text(encoding="utf-8").splitlines():
@@ -124,7 +127,7 @@ def pool(questions: dict, runs: list[str], k: int, ids: set[str], done: set) -> 
             if r["id"] not in ids or not q:
                 continue
             for key in keys_of(r, k):
-                if (r["id"], key) in done or any(M.touches(e, key) for e in q["expected_sections"]):
+                if (r["id"], key) in done or (not labelled and any(M.touches(e, key) for e in q["expected_sections"])):
                     continue
                 done.add((r["id"], key))
                 pairs.append((r["id"], key))
@@ -153,6 +156,7 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--size", type=int, default=20, help="pairs per packet")
     p.add_argument("--recheck", type=float, default=0.10, help="share of pairs judged again, in other batches")
     p.add_argument("--seed", type=int, default=25)
+    p.add_argument("--labelled", action="store_true", help="also judge passages that touch an expected section")
     m = sub.add_parser("merge")
     m.add_argument("--judged", nargs="+", required=True)
     m.add_argument("--to", default=str(OUT), help="judgments.jsonl (primary judge) or recheck.jsonl")
@@ -163,7 +167,7 @@ def main(argv: list[str] | None = None) -> int:
         if a.sample:
             ids = sorted(random.Random(a.seed).sample(ids, a.sample))
         done = {(j["id"], j["section"]) for j in read_jsonl(OUT)}
-        pairs = pool(questions, a.runs, a.k, set(ids), done)
+        pairs = pool(questions, a.runs, a.k, set(ids), done, a.labelled)
         index = B.section_index()
         out = Path(a.out)
         out.mkdir(parents=True, exist_ok=True)
