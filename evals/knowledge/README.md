@@ -12,6 +12,7 @@ with Florin. Documents only, no code.
 | `notes/systematic-evals/` | Research notes behind the report |
 | `notes/llm-judge-case-studies/` | Published LLM-as-judge validations with real numbers |
 | `notes/uk-government-ai-evals/` | What UK public bodies publish on evals: i.AI Consult, GOV.UK Chat, Inspect, the cross-government AI testing framework |
+| `notes/uk-government-ai-evals/prompts/` | Copies of i.AI Consult and GOV.UK Chat judge prompts (MIT), one file per judge |
 
 **Priorities (Florin, 25 Nov 2026):** judge design (topic 4, piece 4) and prompt
 experiments with abstention (topic 11). Open follow-ups are at the end of the assessment.
