@@ -17,6 +17,9 @@ from builders_api.admin import create_key, extend_key, revoke_key
 from builders_api.mcp_server.server import build_app
 
 SECRET = "test-path-secret-0123456789"
+FIRM_TOOLS = {"list_jobs", "get_job", "list_missing_items", "search_job_documents", "get_payment_dates", "sync_inbox",
+              "save_facts", "verify_answer", "lookup_terms", "get_job_timeline", "get_firm_profile"}
+REGULATIONS_TOOLS = {"search_regulations", "lookup_terms"}
 
 
 @pytest.fixture()
@@ -38,7 +41,7 @@ def server(seeded, monkeypatch):
             break
         time.sleep(0.05)
     base = f"http://127.0.0.1:{port}"
-    yield {"base": base, "url": f"{base}/mcp/{SECRET}", "guard": guard}
+    yield {"base": base, "url": f"{base}/mcp/{SECRET}", "regs": f"{base}/mcp/{SECRET}/regulations", "guard": guard}
     srv.should_exit = True
     thread.join(timeout=5)
 
@@ -62,8 +65,7 @@ def _call(url: str, key: str, tool: str, args: dict):
 def test_tools_over_http_with_key(server, conn):
     key = create_key("oakline", "test", dt.date.today() + dt.timedelta(days=60))
     names, ok = _call(server["url"], key, "get_payment_dates", {"job": "office"})
-    assert names == {"list_jobs", "get_job", "list_missing_items", "search_job_documents",
-                     "search_regulations", "get_payment_dates", "sync_inbox", "save_facts", "verify_answer", "lookup_terms", "get_job_timeline", "get_firm_profile"}
+    assert names == FIRM_TOOLS
     assert "ai_notice" not in ok and ok["job"]["ref"] == "KWY-4"
     assert "access_notice" not in ok and "untrusted_content_notice" in ok
     _, missing = _call(server["url"], key, "get_job", {"job": "Mill Lane"})
@@ -109,3 +111,16 @@ def test_revoked_key_and_kill_switch(server):
         assert h.post(server["url"], json=body, headers=auth).status_code == 200
         revoke_key(key.split("_")[1])
         assert h.post(server["url"], json=body, headers=auth).status_code == 401
+
+
+def test_regulations_server_same_key(server, conn):
+    """ADR 0015: a second server on its own path, the same keys, only public tools."""
+    key = create_key("oakline", "test", dt.date.today() + dt.timedelta(days=60))
+    names, out = _call(server["regs"], key, "lookup_terms", {"text": "diriginte de șantier"})
+    assert names == REGULATIONS_TOOLS and "error" not in out and out["trace_id"]
+    with httpx.Client() as h:
+        r = h.post(server["regs"], json={"jsonrpc": "2.0", "id": 1, "method": "tools/list"})
+        assert r.status_code == 401 and "tools" not in r.text
+        assert h.post(server["regs"] + "/x", json={}).status_code == 404
+    rows = conn.execute("select name, status from traces order by id").fetchall()
+    assert [tuple(r) for r in rows] == [("lookup_terms", "ok")]

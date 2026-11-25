@@ -1,6 +1,6 @@
 # 0015: Two MCP servers: public regulations and private firm data
 
-Date: 22 Nov 2026. Status: proposed (Florin to confirm). Changes ADR 0004 (one MCP server in front of both stores),
+Date: 22 Nov 2026. Status: accepted (Florin, 25 Nov 2026; built the same day). Changes ADR 0004 (one MCP server in front of both stores),
 and touches ADR 0007 (security), ADR 0009 (deploy) and ADR 0011 (plugin).
 
 ## Context
@@ -94,3 +94,15 @@ the regulations server from the start.
      through both.
   7. **Connector names and the switch.** Rename BuildersMCP to two clear names. Existing users reconnect once.
      Plugin evals and judges must connect both.
+
+## Built (25 Nov 2026)
+
+- **One process, two apps:** firm at `/mcp/<secret>` (the old address, so the existing connector keeps working),
+  regulations at `/mcp/<secret>/regulations`. One Gateway in front of both (`mcp_server/server.py`, `gateway.py`).
+- **Open point 3:** a firm's one key works on both servers.
+- **Open point 5:** `versions/server/shared.v1.md` holds the rules for both; `firm.v1.md` and `regulations.v1.md` the
+  rest. Each server's instructions are its own text plus the shared one.
+- **Open point 7:** connector names BuildersMCP (firm, unchanged) and BuildersRegulations.
+- **Shortcuts (parking lot S155):** the regulations server runs in the same process and still uses the firm database
+  for keys, quotas and traces; no separate read-only corpus user yet; query logs (open point 2) and one trace across
+  both servers (open point 6) not done.

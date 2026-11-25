@@ -1,4 +1,7 @@
-"""MCP server (official SDK's MCPServer, the successor of FastMCP) over streamable HTTP.
+"""Two MCP servers (official SDK's MCPServer, the successor of FastMCP) over streamable HTTP, ADR 0015:
+- firm: one firm's jobs, emails, documents and dates, at /mcp/<secret>;
+- regulations: the public regulations library, at /mcp/<secret>/regulations.
+One process, one Gateway, the same API keys (parking lot S155).
 
 Every tool: firm from the caller's API key, access check, daily quota, one trace row,
 structured errors (never a stack trace). The Gateway in front refuses strangers (ADR 0007).
@@ -23,7 +26,7 @@ from builders_api import contracts, quotas, security, terminology, versions
 from builders_api.config import rate_limit_per_minute, support_contact
 from builders_api.db import connection
 from builders_api.errors import AppError
-from builders_api.mcp_server.gateway import Gateway, mcp_path_from_env
+from builders_api.mcp_server.gateway import Gateway, mcp_path_from_env, regulations_path
 from builders_api.service import documents, inbox, jobs, payments, profile, regulations
 from builders_api.service import facts as facts_service
 from builders_api.service import verify as verify_service
@@ -125,17 +128,44 @@ class FactIn(BaseModel):
     detail: dict[str, Any] | None = Field(None, description="Structured detail, e.g. amount_gbp, room, material, result")
 
 
+def _instructions(name: str) -> tuple[str, str]:
+    """Shared rules (language, speak first) plus the server's own rules, one text each, versioned."""
+    shared = versions.get("server_instructions", "shared")
+    own = versions.get("server_instructions", name)
+    return own.text + "\n\n" + shared.text, f"{own.id}+{shared.id}"
+
+
+def _desc(name: str) -> str:
+    return versions.get("tool_description", name).text
+
+
+def build_regulations_server() -> MCPServer:
+    """Public knowledge only: no tool here reads firm data (ADR 0015)."""
+    text, version = _instructions("regulations")
+    server = MCPServer(name="builders-regulations", title="Builders Lab Regulations", instructions=text,
+                       version=version)
+
+    @server.tool(description=_desc("search_regulations"), annotations=READ_ONLY)
+    def search_regulations(question: str, as_of_date: str | None = None) -> dict[str, Any]:
+        return run_tool("search_regulations", lambda f: regulations.search_regulations(question, as_of_date))
+
+    @server.tool(description=_desc("lookup_terms"), annotations=READ_ONLY)
+    def lookup_terms(text: str, direction: str = "auto") -> dict[str, Any]:
+        return run_tool("lookup_terms", lambda f: terminology.lookup(text, direction))
+
+    return server
+
+
 def build_server() -> MCPServer:
-    instructions = versions.get("server_instructions", "instructions")
+    """The firm server: one firm's data, every query filtered by the caller's firm."""
+    text, version = _instructions("firm")
     server = MCPServer(
         name="oakline-builders-demo",
         title="Builders Lab (Marcus Limited)",
-        instructions=instructions.text,
-        version=instructions.id,
+        instructions=text,
+        version=version,
     )
-
-    def desc(name: str) -> str:
-        return versions.get("tool_description", name).text
+    desc = _desc
 
     @server.tool(description=desc("get_firm_profile"), annotations=READ_ONLY)
     def get_firm_profile() -> dict[str, Any]:
@@ -160,10 +190,6 @@ def build_server() -> MCPServer:
     @server.tool(description=desc("search_job_documents"), annotations=READ_ONLY)
     def search_job_documents(query: str, job: str | None = None, limit: int = 10) -> dict[str, Any]:
         return run_tool("search_job_documents", lambda f: documents.search_job_documents(f, query, job, limit))
-
-    @server.tool(description=desc("search_regulations"), annotations=READ_ONLY)
-    def search_regulations(question: str, as_of_date: str | None = None) -> dict[str, Any]:
-        return run_tool("search_regulations", lambda f: regulations.search_regulations(question, as_of_date))
 
     @server.tool(description=desc("get_payment_dates"), annotations=READ_ONLY)
     def get_payment_dates(job: str) -> dict[str, Any]:
@@ -200,10 +226,40 @@ def startup_checks() -> None:
         versions.register(conn)
 
 
+class _Router:
+    """Send each request to the firm or the regulations app by path, and run both apps' lifespans."""
+
+    def __init__(self, routes: dict[str, Any]) -> None:
+        self.routes = routes
+
+    async def __call__(self, scope, receive, send):
+        if scope["type"] == "lifespan":
+            return await self._lifespan(receive, send)
+        app = self.routes.get(scope.get("path", "").rstrip("/"))
+        if app is None:  # the Gateway already answers unknown paths; this is a second guard
+            await send({"type": "http.response.start", "status": 404, "headers": []})
+            return await send({"type": "http.response.body", "body": b""})
+        return await app(scope, receive, send)
+
+    async def _lifespan(self, receive, send):
+        from contextlib import AsyncExitStack
+        await receive()  # lifespan.startup
+        async with AsyncExitStack() as stack:
+            try:
+                for app in self.routes.values():
+                    await stack.enter_async_context(app.router.lifespan_context(app))
+            except Exception as exc:  # noqa: BLE001
+                await send({"type": "lifespan.startup.failed", "message": str(exc)})
+                return
+            await send({"type": "lifespan.startup.complete"})
+            await receive()  # lifespan.shutdown
+        await send({"type": "lifespan.shutdown.complete"})
+
+
 def build_app(guard: security.Guard | None = None):
     startup_checks()
-    server = build_server()
     mcp_path = mcp_path_from_env()
+    regs_path = regulations_path(mcp_path)
     host = os.environ.get("HOST", "127.0.0.1")
     allowed = [h.strip() for h in os.environ.get("ALLOWED_HOSTS", "").split(",") if h.strip()]
     security_settings = None
@@ -213,12 +269,17 @@ def build_app(guard: security.Guard | None = None):
             allowed_hosts=allowed + ["127.0.0.1:*", "localhost:*"],
             allowed_origins=["https://claude.ai", "https://claude.com"],  # Claude often sends no Origin at all
         )
-    app = server.streamable_http_app(
-        streamable_http_path=mcp_path,
-        stateless_http=True,
-        json_response=True,
-        transport_security=security_settings,
-        host=host,
-        max_request_body_size=MAX_REQUEST_BYTES,
-    )
-    return Gateway(app, mcp_path=mcp_path, guard=guard, per_ip_per_minute=rate_limit_per_minute())
+
+    def http_app(server: MCPServer, path: str):
+        return server.streamable_http_app(
+            streamable_http_path=path,
+            stateless_http=True,
+            json_response=True,
+            transport_security=security_settings,
+            host=host,
+            max_request_body_size=MAX_REQUEST_BYTES,
+        )
+
+    router = _Router({mcp_path: http_app(build_server(), mcp_path),
+                      regs_path: http_app(build_regulations_server(), regs_path)})
+    return Gateway(router, mcp_paths=(mcp_path, regs_path), guard=guard, per_ip_per_minute=rate_limit_per_minute())

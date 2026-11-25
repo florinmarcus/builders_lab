@@ -18,9 +18,10 @@ flowchart LR
     end
 
     subgraph ours["Our system (AWS, London)"]
-        mcp["MCP server<br/>tools + security"]
+        mcp["Firm MCP server<br/>/mcp/&lt;secret&gt;"]
+        regs["Regulations MCP server<br/>/mcp/&lt;secret&gt;/regulations"]
         db[("Postgres<br/>firm data")]
-        rag["Regulations search<br/>(corpus session)"]
+        rag["Regulations search<br/>(corpus-db)"]
     end
 
     gmail["Gmail"]
@@ -32,10 +33,13 @@ flowchart LR
     dev --> code
     app -->|"Gmail connector"| gmail
     app -->|"Xero connector"| xero
-    app -->|"our connector<br/>API key"| mcp
-    code -->|"same connector"| mcp
+    app -->|"firm connector<br/>API key"| mcp
+    app -->|"regulations connector<br/>same key"| regs
+    code -->|"same two connectors"| mcp
+    code --> regs
     mcp --> db
-    mcp --> rag
+    regs --> rag
+    mcp -.->|"verify_answer checks quotes<br/>(shared code, ADR 0015)"| rag
     mcp -.->|"Gmail API (sync)"| gmail
 ```
 
@@ -50,7 +54,7 @@ flowchart TB
 
     subgraph aws["AWS eu-west-2 (live since 20 Nov 2026; ADR 0009)"]
         subgraph ec2["EC2 server (Docker)"]
-            caddy["Caddy<br/>HTTPS"] --> app["MCP server"] --> pg[("Postgres")]
+            caddy["Caddy<br/>HTTPS"] --> app["MCP process<br/>firm + regulations servers"] --> pg[("Postgres")]
         end
         ssm["Parameter Store<br/>secrets"]
         backup["Backups"]

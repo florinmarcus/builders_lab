@@ -16,8 +16,12 @@ export BUILDERS_MCP_URL=https://<server>/mcp/<path secret>
 export BUILDERS_API_KEY=bl_...
 ```
 
-In the Claude app (web, desktop, phone), add the connector by hand instead: Settings, Connectors, Add custom connector,
-Authentication "No sign-in", header `Authorization: Bearer bl_...` (see `deploy/README.md`).
+This gives two connectors (ADR 0015): `builders` (firm data) and `builders-regulations` (the same address plus
+`/regulations`), with the same key.
+
+In the Claude app (web, desktop, phone), add both connectors by hand instead: Settings, Connectors, Add custom connector,
+Authentication "No sign-in", header `Authorization: Bearer bl_...` (see `deploy/README.md`). Name them BuildersMCP
+(address `https://<server>/mcp/<path secret>`) and BuildersRegulations (the same address plus `/regulations`).
 
 ## Context layers
 
@@ -41,7 +45,7 @@ sub-agent (`agents/`, on Haiku), draft from its Findings JSON, check the draft w
 Notes from testing in the app (20 Nov 2026): the specialist agents run only in Cowork and Claude Code; in chat, the builders-workflow skill starts a general sub-agent on Haiku with the specialist's instructions (from `agents/<name>.md`) when sub-agents are available, and otherwise does the steps itself (verify_answer still checks every answer). The plugin is on in all chats, so every skill says it is for Marcus Limited work only; turn the plugin off for personal use if needed.
 
 
-1. `./build-plugin-zip.sh` makes `dist/builders-plugin-app.zip` (skills, agents, commands, rules; no connectors file, because the app already has BuildersMCP, Gmail and Calendar connected).
+1. `./build-plugin-zip.sh` makes `dist/builders-plugin-app.zip` (skills, agents, commands, rules; no connectors file, because the app already has BuildersMCP, BuildersRegulations, Gmail and Calendar connected).
 2. In the Claude app: Customize, Plugins, upload the ZIP (or ask Claude in the app to install it).
 3. Project instructions: `claude-app/PROJECT_INSTRUCTIONS.md` (short).
 
@@ -49,7 +53,7 @@ Notes from testing in the app (20 Nov 2026): the specialist agents run only in C
 
 1. Create a project "Marcus Limited"; paste `claude-app/PROJECT_INSTRUCTIONS_NO_PLUGIN.md` as its instructions (the firm context comes live from `get_firm_profile`).
 2. Optional: run `./build-skill-zips.sh` and upload the ZIPs in Customize, Skills, Upload a skill.
-3. Switch the BuildersMCP connector on in that project's chats only.
+3. Switch the BuildersMCP and BuildersRegulations connectors on in that project's chats only.
 
 ## What you can say
 

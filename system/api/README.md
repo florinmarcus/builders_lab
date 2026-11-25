@@ -18,7 +18,7 @@ python -m builders_api.mcp_server  # MCP server on http://HOST:PORT/mcp (streama
 - `service/`: the logic. `jobs.py` (list, get, missing items), `documents.py` (Postgres full-text search),
   `payments.py` (payment notice dates from contract terms), `regulations.py` (corpus contract or fallback),
   `inbox.py` (sync), `ingest.py` and `mail_sources.py` (parse, file, store), `facts.py` (save_facts), `verify.py` (verify_answer).
-- `mcp_server/`: tools over the service layer. Uses the official MCP SDK's `MCPServer` (FastMCP's successor in SDK 2.x).
+- `mcp_server/`: two MCP servers over the service layer, firm and regulations, one process (ADR 0015). Uses the official MCP SDK's `MCPServer` (FastMCP's successor in SDK 2.x).
   Every tool call: daily quota, one trace row, structured error. Rate limit per client on the HTTP endpoint.
 - `versions/`: server instructions, tool descriptions and prompts as `<name>.v<N>.md`. Highest N is active.
   Never edit a committed file: add a new version, then `python -m builders_api.versions --lock`.
@@ -28,25 +28,27 @@ python -m builders_api.mcp_server  # MCP server on http://HOST:PORT/mcp (streama
 
 ## Tools
 
-| Tool | Demo moment |
-|---|---|
-| `list_jobs` | 1: what came in, filed by job |
-| `get_job` | 2: approvals with quotes; any job question |
-| `search_job_documents` | 2: find an email or document |
-| `list_missing_items` | 3: what's missing (incl. expired insurance) |
-| `search_regulations` | 4, 7: rules with section and edition date |
-| `get_payment_dates` | 7: payment notice deadlines |
-| `sync_inbox` | 1: fetch new email from the mail source, store, file by job, hand over emails needing facts |
-| `save_facts` | 1: record job, document types and facts for one email (server-checked) |
-| `verify_answer` | all: deterministic checks on a draft answer (`architecture/design/agent-contracts.md`) |
-| `lookup_terms` | Romanian questions: glossary lookup (`terminology/`, ADR 0012) |
-| `get_firm_profile` | start of a conversation: who we are, jobs, contacts, what is due |
-| `get_job_timeline` | delays, "what have I sent?": everything on a job in date order |
+Firm server at `/mcp/<secret>`, regulations server at `/mcp/<secret>/regulations` (ADR 0015).
+
+| Tool | Server | Demo moment |
+|---|---|---|
+| `list_jobs` | firm | 1: what came in, filed by job |
+| `get_job` | firm | 2: approvals with quotes; any job question |
+| `search_job_documents` | firm | 2: find an email or document |
+| `list_missing_items` | firm | 3: what's missing (incl. expired insurance) |
+| `search_regulations` | regulations | 4, 7: rules with section and edition date |
+| `get_payment_dates` | firm | 7: payment notice deadlines |
+| `sync_inbox` | firm | 1: fetch new email from the mail source, store, file by job, hand over emails needing facts |
+| `save_facts` | firm | 1: record job, document types and facts for one email (server-checked) |
+| `verify_answer` | firm | all: deterministic checks on a draft answer (`architecture/design/agent-contracts.md`) |
+| `lookup_terms` | both | Romanian questions: glossary lookup (`terminology/`, ADR 0012) |
+| `get_firm_profile` | firm | start of a conversation: who we are, jobs, contacts, what is due |
+| `get_job_timeline` | firm | delays, "what have I sent?": everything on a job in date order |
 
 ## Security (ADR 0007)
 
 - `mcp_server/gateway.py` runs before the MCP layer: `/healthz`, kill switch, lockdown, IP block, rate limits,
-  secret path (`/mcp/<MCP_PATH_SECRET>`, anything else is 404), API key (`Authorization: Bearer` or `X-API-Key`).
+  secret paths (`/mcp/<MCP_PATH_SECRET>` and `/mcp/<MCP_PATH_SECRET>/regulations`, anything else is 404), API key (`Authorization: Bearer` or `X-API-Key`).
 - The key decides the firm. Expiring keys add a plain `access_notice`; ended keys get a plain `access_ended` message.
 - Admin commands (on the server):
 

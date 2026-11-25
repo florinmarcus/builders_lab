@@ -43,7 +43,7 @@ flowchart TB
     l -->|no| b{"IP blocked?"} -->|yes| r403["403"]
     b -->|no| ri{"Per-IP limit?"} -->|over| r429a["429"]
     ri -->|ok| p{"Secret path?"} -->|no| r404["404"]
-    p -->|yes| key{"Valid API key?"} -->|no| r401["401 + count failure"]
+    p -->|"firm or /regulations"| key{"Valid API key?"} -->|no| r401["401 + count failure"]
     key -->|yes| rk{"Per-key limit?"} -->|over| r429b["429"]
     rk -->|ok| a{"Access state"}
     a -->|ended| msg["Plain 'access ended' message"]
@@ -52,20 +52,22 @@ flowchart TB
 
 ## Tools
 
-| Tool | Reads | Demo moment |
-|---|---|---|
-| `list_jobs` | jobs, emails | 1 |
-| `get_job` | jobs, emails, attachments, facts, contract terms | 2 |
-| `search_job_documents` | emails, attachments | 2 |
-| `list_missing_items` | required items, attachments, facts | 3 |
-| `search_regulations` | corpus or fallback | 4, 7 |
-| `get_payment_dates` | contract terms | 7 |
-| `sync_inbox` | mail source (demo folder; Gmail planned), stores and files emails | 1 |
-| `save_facts` | writes job, document types and facts after server checks | 1 |
-| `verify_answer` | read-only checks on a draft answer (agent contracts) | all |
-| `lookup_terms` | Romanian <-> English glossary lookup (ADR 0012) | all (Romanian) |
-| `get_firm_profile` | live firm context: people, jobs, contacts, due in 14 days | start of every conversation |
-| `get_job_timeline` | emails received and sent, documents, dated facts, upcoming | delays, "what have I sent" |
+Two servers in one process (ADR 0015): **firm** at `/mcp/<secret>`, **regulations** at `/mcp/<secret>/regulations`. Same keys, same Gateway.
+
+| Tool | Server | Reads | Demo moment |
+|---|---|---|---|
+| `list_jobs` | firm | jobs, emails | 1 |
+| `get_job` | firm | jobs, emails, attachments, facts, contract terms | 2 |
+| `search_job_documents` | firm | emails, attachments | 2 |
+| `list_missing_items` | firm | required items, attachments, facts | 3 |
+| `search_regulations` | regulations | corpus or fallback | 4, 7 |
+| `get_payment_dates` | firm | contract terms | 7 |
+| `sync_inbox` | firm | mail source (demo folder; Gmail planned), stores and files emails | 1 |
+| `save_facts` | firm | writes job, document types and facts after server checks | 1 |
+| `verify_answer` | firm | read-only checks on a draft answer (agent contracts) | all |
+| `lookup_terms` | both | Romanian <-> English glossary lookup (ADR 0012) | all (Romanian) |
+| `get_firm_profile` | firm | live firm context: people, jobs, contacts, due in 14 days | start of every conversation |
+| `get_job_timeline` | firm | emails received and sent, documents, dated facts, upcoming | delays, "what have I sent" |
 
 ## Data (database state)
 

@@ -6,7 +6,7 @@ model: haiku
 
 You are the `delays` specialist for a UK building firm. Read the plugin's `shared/rules.md`: it applies to you.
 
-**Tools you may use (builders connector):** get_job_timeline, get_job, search_job_documents, search_regulations. No other tool.
+**Tools you may use:** get_job_timeline, get_job, search_job_documents (builders connector); search_regulations (builders-regulations connector). No other tool.
 
 **Input:** a SpecialistTask JSON (`contract`, `question`, `kind` "delays", `job`).
 

@@ -56,10 +56,10 @@ async def _reply(send, status: int, code: str, message: str, extra_headers=()) -
 
 
 class Gateway:
-    def __init__(self, app, *, mcp_path: str, guard: security.Guard | None = None,
+    def __init__(self, app, *, mcp_paths: tuple[str, ...], guard: security.Guard | None = None,
                  per_ip_per_minute: int = 60, per_key_per_minute: int = 120) -> None:
         self.app = app
-        self.mcp_path = mcp_path.rstrip("/")
+        self.mcp_paths = {p.rstrip("/") for p in mcp_paths}
         self.guard = guard or security.Guard()
         self.per_ip = TokenBucket(per_ip_per_minute)
         self.per_key = TokenBucket(per_key_per_minute)
@@ -80,7 +80,7 @@ class Gateway:
         self.guard.record_request()
         if not self.per_ip.allow(ip):
             return await _reply(send, 429, "rate_limited", "Too many requests. Wait a minute.", [(b"retry-after", b"60")])
-        if path != self.mcp_path:
+        if path not in self.mcp_paths:
             self.guard.record_failure(ip, count_for_lockdown=False)
             return await _reply(send, 404, "not_found", "Not found.")
         key = _key_from_headers(dict(scope.get("headers") or []))
@@ -107,3 +107,8 @@ def mcp_path_from_env() -> str:
     if len(secret) < 16:
         raise RuntimeError("MCP_PATH_SECRET must be set to a random string of at least 16 characters.")
     return f"/mcp/{secret}"
+
+
+def regulations_path(mcp_path: str) -> str:
+    """The regulations server sits under the same secret path (ADR 0015): /mcp/<secret>/regulations."""
+    return mcp_path.rstrip("/") + "/regulations"

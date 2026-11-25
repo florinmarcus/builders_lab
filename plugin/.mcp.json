@@ -5,6 +5,11 @@
       "url": "${BUILDERS_MCP_URL}",
       "headers": { "Authorization": "Bearer ${BUILDERS_API_KEY}" }
     },
+    "builders-regulations": {
+      "type": "http",
+      "url": "${BUILDERS_MCP_URL}/regulations",
+      "headers": { "Authorization": "Bearer ${BUILDERS_API_KEY}" }
+    },
     "gmail": { "type": "http", "url": "https://gmailmcp.googleapis.com/mcp/v1" },
     "xero": { "type": "http", "url": "https://mcp.xero.com/mcp" },
     "docusign": { "type": "http", "url": "https://mcp.docusign.com/mcp" }

@@ -58,7 +58,8 @@ aws iam attach-user-policy --user-name <deploy user> \
    dc exec -T app python -m builders_api.db.seed
    dc exec -T app python -m builders_api.admin keys create --firm oakline --label "Florin, Claude app" --expires 2026-12-31
    ```
-7. **The connector address** is `https://<Domain>/mcp/<path secret>`. Read the secret:
+7. **The connector addresses** (ADR 0015) are `https://<Domain>/mcp/<path secret>` (firm data) and
+   `https://<Domain>/mcp/<path secret>/regulations` (regulations library). The same key works on both. Read the secret:
    ```
    aws ssm get-parameter --region eu-west-2 --with-decryption --name /builders-lab/prod/secrets/mcp_path_secret --query Parameter.Value --output text
    ```
