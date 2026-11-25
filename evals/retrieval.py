@@ -33,6 +33,7 @@ import metrics as M  # noqa: E402
 RESULTS = ROOT / "evals" / "results"
 GOLDEN = ROOT / "evals" / "golden" / "questions.jsonl"
 TITAN_USD_PER_1K = 0.0001     # London, checked 20 Nov 2026 (system/rag/embed.py)
+LANE_KEEP = int(os.environ.get("EVAL_LANE_KEEP", "5"))  # re-ranked passages kept per lane
 KEEP = int(os.environ.get("EVAL_KEEP", "5"))  # re-ranked passages kept per search (same re-rank cost); 20 for recall@10/20 and pooling
 RERANK_USD_PER_QUERY = 0.001  # Amazon Rerank, about $1 per 1,000 queries of up to 100 documents (ADR 0013; verify)
 
@@ -62,6 +63,8 @@ def config(schema: str, search) -> dict:
     c["rerank_with"] = os.environ.get("EVAL_RERANK_WITH", "question")
     c["lanes"] = os.environ.get("EVAL_LANES", "0")
     c["per_lane"] = int(os.environ.get("EVAL_PER_LANE", "2"))
+    c["lane_merge"] = os.environ.get("EVAL_LANE_MERGE", "slots")
+    c["lane_keep"] = LANE_KEEP
     c["keep"] = KEEP
     c["golden_sha"] = hashlib.sha256(GOLDEN.read_bytes()).hexdigest()[:12] if GOLDEN.exists() else None
     return c
@@ -221,8 +224,8 @@ def lanes_of(expected: str, keys: dict) -> list[str]:
 
 
 def lanes_search(query: str, search, url: str, top_k: int, rerank: bool, extra: list[str] | None = None) -> dict:
-    """ADR 0016 lanes: one embedding, then per lane its own candidates and its own re-rank (top 5 kept, so the
-    lane size can be tuned on saved rows). With extra (agent queries, B4): in each lane, candidates of the question
+    """ADR 0016 lanes: one embedding, then per lane its own candidates and its own re-rank (top LANE_KEEP kept, so
+    the lane size can be tuned on saved rows). With extra (agent queries, B4): in each lane, candidates of the question
     and of each extra query, fused by RRF, one per section, re-ranked against the ORIGINAL question (as B3, per lane)."""
     vecs = [search.embed_question(x) for x in [query] + (extra or [])]
     out = {}
@@ -230,9 +233,9 @@ def lanes_search(query: str, search, url: str, top_k: int, rerank: bool, extra: 
         lists = [search.candidates(x, url=url, n=top_k, weights=weights, vector=v) for x, v in zip([query] + (extra or []), vecs)]
         rows = lists[0] if len(lists) == 1 else search.one_per_section(search.rrf(*lists))[:top_k]
         cands = [M.section_key(r["source_id"], r["section_id"]) for r in rows]
-        rr = [[cands[i], None, rows[i]["id"]] for i in range(min(5, len(rows)))]
+        rr = [[cands[i], None, rows[i]["id"]] for i in range(min(LANE_KEEP, len(rows)))]
         if rerank and rows:
-            rr = [[cands[i], round(s, 6), rows[i]["id"]] for i, s in search.rerank(query, [r["embed_text"] for r in rows], 5)]
+            rr = [[cands[i], round(s, 6), rows[i]["id"]] for i, s in search.rerank(query, [r["embed_text"] for r in rows], LANE_KEEP)]
         out[lane] = {"candidates": cands, "reranked": rr}
     return out
 
@@ -273,8 +276,15 @@ def run_one(q: dict, search, url: str, top_k: int, rerank: bool, min_score: floa
             queries += [x for x in saved_queries(reuse, q["id"]) if x != q["question"]]
         lanes = lanes_search(q["question"], search, url, top_k, rerank, queries[1:])
         cands = [c for i in range(top_k) for v in lanes.values() if i < len(v["candidates"]) for c in [v["candidates"][i]]]
-        top = [x for v in lanes.values() for x in v["reranked"][:per]]
-        return {"id": q["id"], "role": q.get("role"), "kind": q.get("kind"), "multi_rule": q.get("multi_rule", False),
+        merge_by = os.environ.get("EVAL_LANE_MERGE", "slots")
+        if merge_by == "score":  # B5: no slots; the best re-rank scores over all lanes (the re-ranker scores each
+            best = {}            # passage against the question alone, so scores compare across lanes)
+            for x in sorted((x for v in lanes.values() for x in v["reranked"]), key=lambda x: -(x[1] or 0)):
+                best.setdefault(x[0], x)
+            top = list(best.values())[:KEEP]
+        else:
+            top = [x for v in lanes.values() for x in v["reranked"][:per]]
+        return {"lane_merge": merge_by,"id": q["id"], "role": q.get("role"), "kind": q.get("kind"), "multi_rule": q.get("multi_rule", False),
                 "question": q["question"], "expected": q.get("expected_sections", []), "candidates": cands,
                 "queries": queries, "rewrite_tokens": [0, 0], "lanes": lanes, "reranked": top,
                 "top5": [x[0] for x in top], "top5_chunks": [x[2] for x in top], "scores": [x[1] for x in top],
@@ -370,7 +380,9 @@ def run(name: str, schema: str, split: str, pace: float, limit: int | None) -> d
                "in_corpus": M.summarise([r for r in rows if r.get("in_corpus")])}
     if cfg["lanes"] == "1":
         summary["lanes"] = lane_scores(rows, cfg["per_lane"])
-        summary["note"] = ("lanes run: top-level recall@5 counts only the first 5 of the lanes' lists together; "
+        summary["note"] = ("lanes merged by re-rank score: top-level recall@k is over the merged list, as for mixed"
+                           if cfg["lane_merge"] == "score" else
+                           "lanes run: top-level recall@5 counts only the first 5 of the lanes' lists together; "
                            "use lanes.any and the per-lane numbers")
     (RESULTS / f"{name}-{split}.summary.json").write_text(json.dumps(summary, indent=1), encoding="utf-8")
     with open(RESULTS / "runs.jsonl", "a", encoding="utf-8") as f:

@@ -22,7 +22,7 @@ RESULTS = Path(__file__).resolve().parent / "results"
 
 
 def found(row: dict, n: int) -> bool:
-    if row.get("lanes"):
+    if row.get("lanes") and row.get("lane_merge", "slots") == "slots":
         per = n // len(row["lanes"])
         keys = list(dict.fromkeys(x[0] for lane in row["lanes"].values() for x in lane["reranked"][:per]))
         return M.recall_at(row["expected"], keys, len(keys) or 1) > 0

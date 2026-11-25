@@ -57,7 +57,7 @@ def sample(questions: list[dict], n: int, seed: int) -> list[str]:
 
 
 def set_keys(row: dict, mode: str, n: int) -> list[str]:
-    if mode == "lanes":
+    if mode == "lanes" and row.get("lane_merge", "slots") == "slots":
         return list(dict.fromkeys(x[0] for lane in row["lanes"].values() for x in lane["reranked"][:n]))
     return [x[0] for x in row["reranked"][:n]]
 
