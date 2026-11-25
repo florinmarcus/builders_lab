@@ -31,4 +31,18 @@ At 20 passages mixed and lanes tie, but on different questions: 16 (B1/B2) and 1
 
 B4 per lane, top 2 (B2 in brackets): law 0.54 (0.51), Approved Documents 0.46 (0.52), ACoP 0.60 (0.58), guidance 0.55 (0.55). Agent queries lift law's top 50 from 0.75 to 0.85.
 
+## Is it real or noise? (paired test, `evals/paired.py`)
+
+Same 299 questions, so we count the questions only one run found. p below 0.05 = unlikely to be luck.
+
+| Comparison | 8 passages | 20 passages |
+|---|---|---|
+| Mixed beats lanes (B1 vs B2) | +6 points, 37 vs 19 questions, p 0.02: **real** | tie, 16 vs 16 |
+| Same, with agent queries (B3 vs B4) | +7 points, 40 vs 20, p 0.01: **real** | tie, 17 vs 17 |
+| Agent queries help mixed (B3 vs B1) | +2 points, 13 vs 7, p 0.26: **not shown** | +4 points, 19 vs 8, p 0.05: borderline |
+| Agent queries help lanes (B4 vs B2) | +1 point, 12 vs 8, p 0.50: **not shown** | +4 points, 13 vs 2, p 0.007: **real** |
+
+So: at 8 passages mixed really beats lanes. Agent queries help when we keep 20 passages; at 8 the gain is too small
+to tell from noise on 299 questions. Strict labels only; the answer-set judge may change the picture.
+
 Still to come: the answer-set judge (can a builder get the full answer from the 8 passages?) on 80 questions.

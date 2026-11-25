@@ -43,3 +43,12 @@ def test_lanes_with_extra_fuse_per_lane_and_rerank_on_question():
     for lane in ("law", "guidance"):
         assert sorted(out[lane]["candidates"]) == [f"{lane}:q", f"{lane}:r"]
     assert s.reranked_with == ["question", "question"]
+
+
+def test_paired_sign_test_and_compare():
+    import paired as PT
+    assert PT.sign_test(0, 0) == 1.0
+    assert PT.sign_test(10, 10) == 1.0
+    assert PT.sign_test(20, 0) < 0.001
+    r = PT.compare([True] * 30 + [False] * 10, [True] * 20 + [False] * 20)
+    assert r["diff"] == 0.25 and r["only_a"] == 10 and r["only_b"] == 0 and r["ci95"][0] > 0
