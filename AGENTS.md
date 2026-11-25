@@ -28,6 +28,7 @@ branch into main only when its work is finished and its tests pass, because ever
 | Deploying, upgrading, keys, kill switch | `deploy/README.md`, `decisions/0009-...md` |
 | Mock data, demo emails, Gmail demo | `system/data/mock/README.md`, `decisions/0005-...md` |
 | Regulations corpus or search | `system/rag/README.md` (contract), `corpus/README.md`, `.claude/skills/corpus-document/` |
+| Evals, judges, prompt or retrieval tuning, graph vs vector | `evals/README.md`, `evals/knowledge/README.md` (eval knowledge base: terminology, actions, ADR seeds) |
 | Research or requirements | `research/summary.md`, `requirements/prototype.md` |
 | Business plan, prices, pilot | `requirements/business-plan.md`, `decisions/0014-pilot-business-model.md` |
 | Language, Romanian terms, spoken answers | `decisions/0012-language-and-voice.md`, `research/domain/glossary.md` (then `python -m builders_api.terminology --build`) |
