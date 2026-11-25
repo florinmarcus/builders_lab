@@ -7,6 +7,7 @@ That is the difference between mixed search and lanes. Judged locally by Claude 
     python evals/golden/answer_set.py packets --out DIR                  # sample, sets, packets, DIR/keys.json
     python evals/golden/answer_set.py merge --out DIR                    # DIR/judged-*.jsonl -> pooled/answer-sets-v2.jsonl
     python evals/golden/answer_set.py score                              # per set: grades, and agreement on the re-check
+    python evals/golden/answer_set.py compare                            # paired, question by question: full answer or not
 
 Fairness: every set has the same number of passages (8 by default): mixed top 8, lanes 2 each, fused top 8.
 Blind: passages of a set are shuffled and lanes are flattened, so the judge cannot tell which run made it. The key
@@ -28,6 +29,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "evals" / "golden"))
 import build as B  # noqa: E402
+sys.path.insert(0, str(ROOT / "evals"))
+from paired import sign_test  # noqa: E402
 from pool_judge import section_text  # noqa: E402
 
 RESULTS = ROOT / "evals" / "results"
@@ -100,6 +103,7 @@ def main(argv: list[str] | None = None) -> int:
     m = sub.add_parser("merge")
     m.add_argument("--out", required=True, help="the packets DIR (keys.json and judged-*.jsonl)")
     sub.add_parser("score")
+    sub.add_parser("compare")
     a = ap.parse_args(argv)
     questions = {q["id"]: q for q in map(json.loads, (ROOT / "evals/golden/questions.jsonl").read_text(encoding="utf-8").splitlines())}
 
@@ -154,6 +158,8 @@ def main(argv: list[str] | None = None) -> int:
 
     rows = [json.loads(x) for x in OUT.read_text().splitlines()] if OUT.exists() else []
     primary = [r for r in rows if r["judge"] == "opus-a"]
+    if a.cmd == "compare":
+        return compare(primary, questions)
     by_set = collections.defaultdict(list)
     for r in primary:
         by_set[r["set"]].append(r["grade"])
@@ -167,6 +173,33 @@ def main(argv: list[str] | None = None) -> int:
             a_, b_ = zip(*pairs)
             print(f"opus-a vs {other}: n={len(pairs)}, same grade {sum(x == y for x, y in pairs) / len(pairs):.0%}, "
                   f"kappa {kappa(list(a_), list(b_))}")
+    return 0
+
+
+PAIRS = [("mixed8", "lanes2"), ("fused8", "lanesfused2"), ("fused8", "mixed8"), ("lanesfused2", "lanes2")]
+
+
+def compare(primary: list[dict], questions: dict[str, dict]) -> int:
+    """Paired per question, one judge only (opus-a): full answer (grade 2) or not, and the grade itself."""
+    g = {(r["id"], r["set"]): r["grade"] for r in primary}
+    for x, y in PAIRS:
+        ids = sorted(i for i, s in g if s == x and (i, y) in g)
+        if not ids:
+            continue
+        only_x = [i for i in ids if g[(i, x)] == 2 and g[(i, y)] < 2]
+        only_y = [i for i in ids if g[(i, y)] == 2 and g[(i, x)] < 2]
+        up = sum(g[(i, x)] > g[(i, y)] for i in ids)
+        down = sum(g[(i, x)] < g[(i, y)] for i in ids)
+        print(f"{x} vs {y} (n={len(ids)}): full answer only in {x} {len(only_x)}, only in {y} {len(only_y)}, "
+              f"p {sign_test(len(only_x), len(only_y)):.3f}; any grade better {up}, worse {down}, p {sign_test(up, down):.3f}")
+    print("\nNot a full answer, by role (mixed8 / lanes2 / fused8 / lanesfused2):")
+    roles = collections.defaultdict(lambda: collections.Counter())
+    for (i, s), grade in g.items():
+        roles[questions[i].get("role") or "?"][s] += grade < 2
+    n = collections.Counter(questions[i].get("role") or "?" for i, s in g if s == "mixed8")
+    for role in sorted(roles):
+        c = roles[role]
+        print(f"  {role:20} n={n[role]:2}  {c['mixed8']:2} / {c['lanes2']:2} / {c['fused8']:2} / {c['lanesfused2']:2}")
     return 0
 
 

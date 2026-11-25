@@ -49,4 +49,37 @@ to tell from noise on 299 questions. Strict labels only; the answer-set judge ma
 
 Baseline: B1 (live behaviour), found 226 of 299 at 8 passages. Against it: B2 fails (37 lost, 19 gained, 6 must-pass lost); B3 fails only on 2 must-pass questions (7 lost, 13 gained, p 0.26).
 
-Still to come: the answer-set judge (can a builder get the full answer from the 8 passages?) on 80 questions.
+## Answer-set judge (can a builder get the full answer from the 8 passages?)
+
+80 dev questions (spread over the 6 roles), each judged on the 8 passages of each run, blind and shuffled.
+Judge opus-a on all 320 sets; opus-b and Sonnet re-judged 32 of them. Code: `evals/golden/answer_set.py`
+(`packets`, `merge`, `score`, `compare`); grades in `evals/golden/pooled/answer-sets-v2.jsonl`. Brief: `evals/golden/ANSWER-SET-BRIEF.md`.
+
+| | B1 mixed | B2 lanes | B3 mixed + agent | B4 lanes + agent |
+|---|---|---|---|---|
+| Full answer (2) | 78% | 60% | 81% | 61% |
+| Part answer (1) | 18% | 35% | 18% | 34% |
+| Nothing useful (0) | 5% | 5% | 1% | 5% |
+
+Judge agreement on the 32 re-judged sets: opus-b and Sonnet both gave the same grade as opus-a on all 32 (kappa 1.0),
+in their own words. 32 is a small sample, so read it as "the judges are not noisy", not as proof.
+
+Paired, question by question (opus-a only):
+
+| Comparison | Full answer only in the first | Only in the second | p |
+|---|---|---|---|
+| B1 mixed vs B2 lanes | 16 | 2 | 0.001: **real** |
+| B3 vs B4 (both with agent queries) | 17 | 1 | <0.001: **real** |
+| B3 vs B1 (agent queries help mixed) | 3 | 0 | 0.25: not shown (5 better, 0 worse on any grade) |
+| B4 vs B2 (agent queries help lanes) | 2 | 1 | 1.0: no difference |
+
+Why lanes lose: 2 slots per lane go to lanes with nothing useful for the question (an ACoP for a CIS question),
+so the second rule the answer needs drops out. Lanes lose most on housing repairs (7 of 13 not full, mixed 2) and
+money (7 of 13, mixed 4).
+
+What is still missing in B3 (15 of 80 not full): nearly always the second part of the question, such as an
+exception, a threshold or a follow-on rule (the £30,000 notice threshold, the 50% renovation trigger, the
+domestic-client CDM duty). Two are parse gaps: a diagram with no text (stair headroom) and an edition question.
+
+**Conclusion:** keep mixed search. Agent queries never made a set worse and helped 5; keep them (B3) if the
+must-pass check is clean. Lanes are dropped for the 8-passage answer.
