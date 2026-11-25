@@ -84,6 +84,7 @@ flowchart LR
 | Design | [Agents: who does what, the flow, guardrails](design/agents.md) |
 | Design | [Agent contracts: JSON in, JSON out, verify step](design/agent-contracts.md) |
 | Design | [Regulations corpus and search](design/regulations-corpus.md) (corpus session) |
+| Design | [Regulations search: aim, mixed vs lanes, tuning loop](design/retrieval-tuning.md) |
 | Sequences | [Server flows](sequences/server.md) |
 | Sequences | [How email reaches the assistant](sequences/email.md) |
 | Plugin | [Builders plugin: skills + connectors](../plugin/README.md) (ADR 0011) |
