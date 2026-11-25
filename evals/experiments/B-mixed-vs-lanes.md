@@ -45,4 +45,8 @@ Same 299 questions, so we count the questions only one run found. p below 0.05 =
 So: at 8 passages mixed really beats lanes. Agent queries help when we keep 20 passages; at 8 the gain is too small
 to tell from noise on 299 questions. Strict labels only; the answer-set judge may change the picture.
 
+## Regression gate
+
+Baseline: B1 (live behaviour), found 226 of 299 at 8 passages. Against it: B2 fails (37 lost, 19 gained, 6 must-pass lost); B3 fails only on 2 must-pass questions (7 lost, 13 gained, p 0.26).
+
 Still to come: the answer-set judge (can a builder get the full answer from the 8 passages?) on 80 questions.

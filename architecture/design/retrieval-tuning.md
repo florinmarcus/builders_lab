@@ -100,7 +100,9 @@ flowchart TB
     why -->|"found but ranked low"| fr["Fix ranking<br/>(lane sizes, re-rank, k)"]
     why -->|"passage cut badly"| fc["Rechunk<br/>(only if the numbers show it)"]
     fq & fr & fc --> rerun["Run again on dev"]
-    rerun --> score
+    rerun --> gate{"Regression gate<br/>(evals/gate.py):<br/>lost vs gained,<br/>must-pass list"}
+    gate -->|"pass"| score
+    gate -->|"fail"| miss
     score -->|"best setting chosen"| hold["One final check on holdout"]
     hold --> live["Switch the live tool"]
 ```
