@@ -1,6 +1,6 @@
-# 0017: Parse profiles per document family
+# 0018: Parse profiles per document family
 
-Date: 24 Nov 2026. Status: proposed (Florin, 24 Nov). To pick up after the firm visits (28 Nov and 5 Dec).
+Date: 24 Nov 2026. Status: proposed (Florin, 24 Nov). To pick up after the firm visits (28 Nov and 5 Dec). Renumbered from 0017 on 25 Nov 2026: 0017 is the workflow-control decision.
 Not started.
 
 ## Context
