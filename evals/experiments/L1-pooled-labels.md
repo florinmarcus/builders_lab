@@ -173,3 +173,13 @@ payments only) and building-control-050 `ad7:para-1.19` (council sampling power 
 and all of them for only 40 to 50% of questions. The order of runs is the same (B6 and B7 ahead), but no pair
 differs reliably on 60 questions (p_holm 0.55 or more). 30 of the 130 rules are stated by no judged passage at all:
 either the corpus lacks them or search never ranks them in the first 8. That list is the next thing to read.
+
+### Where the 30 missing rules are (25 Nov, late)
+
+The 71 labelled sections of those 27 questions that no run showed in its first 8 were judged with the same brief
+(opus-a, 0 INVALID, planted 4/4 yes and 4/4 no). 25 of the 30 rules are stated by a labelled section that search
+never ranks in the first 8: search misses, not corpus gaps. Many are tables (`hse-l143:table-2`, `table-7`,
+`adk:table-1.1`, `hse-nnlw:notification-table-1`) or short legislation provisions (`fso2005:article-9-3`,
+`eawr1989:regulation-16`, `vibration2005:regulation-7-1`, `br2010:regulation-12-5`). 5 rules are stated by no
+judged section (asbestos-011 r2, asbestos-013 r2, asbestos-044 r2, building-control-069 r2, money-059 r1): a corpus
+gap, a missing label or a rule worded too tightly; not yet read.
