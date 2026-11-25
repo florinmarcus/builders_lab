@@ -9,7 +9,10 @@ expected section.
 
 Checks in code (merge), after the published UK government judges (evals/knowledge/notes/uk-government-ai-evals/):
 - every packet holds two planted lines with a known verdict (a labelled section, high confidence: yes; a section
-  labelled for a question from another role: no). A packet that gets one wrong is not merged;
+  labelled for a question from another role: no). A packet with a planted "no" judged "yes", or a planted line
+  INVALID for any other reason, is not merged. A planted "yes" judged "no" (with a valid line) does not fail the
+  packet: in the first run about a quarter of labelled sections only cross-referred or were general, and separate
+  judges agreed, so it is listed as a label to check (S116) and the run's planted-yes hit rate is printed;
 - every "yes" rule must quote the passage word for word (spacing, quote marks and dashes aside); a verdict that is
   not "scope_match yes and at least one rule yes with a found quote" is INVALID. INVALID lines are never counted as
   yes or no: they go to DIR/invalid-*.jsonl, to be judged again;
@@ -219,7 +222,7 @@ def main(argv: list[str] | None = None) -> int:
     to = Path(a.to)
     seen = {(j["id"], j["section"], j.get("judge")) for j in read_jsonl(to)}
     n = 0
-    report: dict[str, list] = {"invalid_lines": [], "failed_packets": []}
+    report: dict[str, list] = {"invalid_lines": [], "failed_packets": [], "planted": [], "planted_yes_missed": []}
     with open(to, "a", encoding="utf-8") as f:
         for path in sorted({p for g in a.judged for p in glob.glob(g)}):
             path = Path(path)
@@ -230,7 +233,16 @@ def main(argv: list[str] | None = None) -> int:
                 report["failed_packets"].append((path.name, f"{len(judged)} lines for {len(packet)}"))
                 continue
             why = [check_line(j, p, planted.get(f"{p['id']}|{p['section']}")) for j, p in zip(judged, packet)]
-            bad_plant = [w for w, p in zip(why, packet) if f"{p['id']}|{p['section']}" in planted and w]
+            bad_plant = []
+            for j, p, w in zip(judged, packet, why):
+                known = planted.get(f"{p['id']}|{p['section']}")
+                if known is None:
+                    continue
+                report["planted"].append((known, w is None))
+                if w == "planted line judged no, known yes":  # the label may be weak: listed, packet kept
+                    report["planted_yes_missed"].append((path.name, p["id"], p["section"], (j.get("reason") or "")[:200]))
+                elif w:
+                    bad_plant.append(w)
             if bad_plant:
                 report["failed_packets"].append((path.name, bad_plant[0]))
                 continue
@@ -260,6 +272,14 @@ def main(argv: list[str] | None = None) -> int:
           f"{len(report['failed_packets'])} packets failed")
     for x in report["failed_packets"] + report["invalid_lines"]:
         print("  ", *x)
+    for kind in ("yes", "no"):
+        got = [ok for k, ok in report["planted"] if k == kind]
+        if got:
+            print(f"planted {kind}: {sum(got)}/{len(got)} judged as known")
+    if report["planted_yes_missed"]:
+        print("planted yes judged no (check these labels, S116):")
+        for x in report["planted_yes_missed"]:
+            print("  ", *x)
     return 0
 
 if __name__ == "__main__":

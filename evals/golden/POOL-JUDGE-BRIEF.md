@@ -8,8 +8,8 @@ sees this brief and one packet, nothing else. Its verdicts count only once they 
 Built from the published UK government judge prompts (`evals/knowledge/notes/uk-government-ai-evals/prompts/`):
 the rules are written once per question (`RULES-BRIEF.md`), as in GOV.UK Chat's context relevancy judge; scope is
 written down before the verdict; a "yes" quotes the passage word for word and code checks the quote, as in i.AI
-Consult's binary match judge. Each packet holds two planted lines with a known verdict; a packet that gets one wrong
-is judged again.
+Consult's binary match judge. Each packet holds two planted lines with a known verdict. A packet that says "yes" to a
+planted "no" is judged again; a planted "yes" judged "no" is listed as a label to check (`pool_local.py`).
 
 ---
 

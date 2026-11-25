@@ -81,7 +81,7 @@ def test_merge_keeps_good_lines_drops_planted_and_quotes_and_writes_invalid(tmp_
     assert [r["id"] for r in P.read_jsonl(d / "invalid-packet-000.jsonl")] == ["q-2"]
 
 
-def test_merge_skips_a_packet_with_a_failed_planted_line_or_wrong_line_count(tmp_path):
+def test_merge_skips_a_packet_with_a_planted_no_judged_yes_or_wrong_line_count(tmp_path):
     lines = [judged(), judged(section="s:2"), judged(id="q-2", verdict="no", scope_match="no")]
     d = _setup(tmp_path, lines, {"q-1|s:2": "no"})
     to = tmp_path / "judgments.jsonl"
@@ -90,3 +90,13 @@ def test_merge_skips_a_packet_with_a_failed_planted_line_or_wrong_line_count(tmp
     (d / "judged-packet-000.jsonl").write_text(json.dumps(judged()) + "\n")
     P.main(["merge", "--judged", str(d / "judged-*.jsonl"), "--to", str(to)])
     assert P.read_jsonl(to) == []
+
+
+def test_merge_keeps_a_packet_whose_planted_yes_was_judged_no_and_lists_it(tmp_path, capsys):
+    lines = [judged(), judged(section="s:2", verdict="no", scope_match="no"), judged(id="q-2", verdict="no", scope_match="no")]
+    d = _setup(tmp_path, lines, {"q-1|s:2": "yes"})
+    to = tmp_path / "judgments.jsonl"
+    P.main(["merge", "--judged", str(d / "judged-*.jsonl"), "--to", str(to)])
+    assert [(g["id"], g["section"]) for g in P.read_jsonl(to)] == [("q-1", "s:1"), ("q-2", "s:1")]
+    out = capsys.readouterr().out
+    assert "planted yes: 0/1" in out and "q-1 s:2" in out
