@@ -9,9 +9,12 @@ loses a must-pass question. Dev only: the holdout is never used for tuning.
     python evals/gate.py must-pass                            # (re)pick the must-pass list from the baseline
 
 The run itself: `python evals/retrieval.py ... --split dev` (see evals/experiments/B-mixed-vs-lanes.md).
-"Found": as in paired.py (an expected or accepted section in the first N passages; lanes: N/4 per lane). N is fixed
-in the baseline (8). The paired test groups questions by source document. When the labels change (new pool
-verdicts), set the baseline again: its "found" was computed with the old labels.
+The score is rule coverage, as in paired.py: the share of a question's rules that the first N passages state (lanes:
+N/4 per lane), on the dev questions that have rules. N is fixed in the baseline (8). A question is lost when its
+coverage falls and gained when it rises. The paired test groups questions by source document. Shown passages with no
+pool verdict count as stating nothing, so the check fails until they are judged (evals/golden/pool_local.py). When
+the rules or verdicts change, set the baseline again: its coverage was computed with the old ones. A baseline from
+before 25 Nov 2026 holds the old "found" score and must be set again.
 """
 
 from __future__ import annotations
@@ -47,16 +50,24 @@ def holdout_ids() -> set[str]:
     return {q["id"] for q in map(json.loads, QUESTIONS.read_text(encoding="utf-8").splitlines()) if q.get("split") == "holdout"}
 
 
-def found_map(rows: dict[str, dict], n: int) -> dict[str, bool]:
-    return {q: P.found(r, n) for q, r in sorted(rows.items())}
+def coverage_map(rows: dict[str, dict], n: int) -> tuple[dict[str, float], int]:
+    """(rule coverage per dev question that has rules, shown passages with no verdict)."""
+    out, unjudged = {}, 0
+    for q, r in sorted(rows.items()):
+        c = P.coverage(r, n)
+        if c is not None:
+            out[q] = round(c[0], 4)
+            unjudged += c[1]
+    return out, unjudged
 
 
 def pick_must_pass(baseline: dict, rows: dict[str, dict], per_role: int = PER_ROLE, seed: int = 25) -> list[str]:
-    """per_role questions per role that the baseline finds, answerable ones first, random within that (seeded)."""
+    """per_role questions per role whose rules the baseline covers in full, answerable ones first, random within that
+    (seeded)."""
     rng = random.Random(seed)
     by_role: dict[str, list[str]] = {}
-    for q, hit in baseline["found"].items():
-        if hit:
+    for q, cov in baseline["coverage"].items():
+        if cov == 1:
             by_role.setdefault(rows[q].get("role") or "?", []).append(q)
     out = []
     for role in sorted(by_role):
@@ -67,20 +78,22 @@ def pick_must_pass(baseline: dict, rows: dict[str, dict], per_role: int = PER_RO
     return out
 
 
-def check(baseline: dict, new: dict[str, bool], must: list[str]) -> dict:
+def check(baseline: dict, new: dict[str, float], must: list[str], unjudged: int = 0) -> dict:
     """The gate verdict: lost, gained, the paired test and the reasons to fail (empty = pass)."""
-    old = baseline["found"]
+    old = baseline["coverage"]
     ids = sorted(set(old) & set(new))
     missing = sorted(set(old) - set(new))
     docs = baseline.get("docs") or {}
     r = P.compare([new[q] for q in ids], [old[q] for q in ids], [docs.get(q, q) for q in ids])
-    lost = [q for q in ids if old[q] and not new[q]]
-    gained = [q for q in ids if new[q] and not old[q]]
+    lost = [q for q in ids if new[q] < old[q]]
+    gained = [q for q in ids if new[q] > old[q]]
     score_old = sum(old[q] for q in ids) / len(ids)
     score_new = sum(new[q] for q in ids) / len(ids)
     fails = []
     if missing:
         fails.append(f"{len(missing)} baseline questions not in the new run")
+    if unjudged:
+        fails.append(f"{unjudged} shown passages have no pool verdict: judge them first")
     if len(lost) > len(gained) and r["p"] < P_LOSS:
         fails.append(f"loses more than it gains, not luck (lost {len(lost)}, gained {len(gained)}, p {r['p']})")
     if score_old - score_new > MAX_DROP:
@@ -89,7 +102,7 @@ def check(baseline: dict, new: dict[str, bool], must: list[str]) -> dict:
     if must_lost:
         fails.append(f"loses must-pass questions: {', '.join(must_lost)}")
     return {"questions": len(ids), "score_old": round(score_old, 4), "score_new": round(score_new, 4),
-            "lost": lost, "gained": gained, "p": r["p"], "ci95": r["ci95"], "fails": fails}
+            "lost": lost, "gained": gained, "p": r["p"], "ci95": r["ci95"], "unjudged": unjudged, "fails": fails}
 
 
 def git_head() -> str:
@@ -118,29 +131,38 @@ def main(argv: list[str] | None = None) -> int:
             return 2
 
     if a.cmd == "baseline":
+        cov, unjudged = coverage_map(rows, a.n)
+        if unjudged:
+            print(f"refused: {unjudged} shown passages have no pool verdict; judge them first")
+            return 2
         base = {"run": a.run, "n": a.n, "set": datetime.date.today().isoformat(), "commit": git_head(),
-                "found": found_map(rows, a.n), "docs": {q: P.doc(r) for q, r in sorted(rows.items())}}
+                "metric": "coverage", "coverage": cov, "docs": {q: P.doc(r) for q, r in sorted(rows.items())}}
         BASELINE.write_text(json.dumps(base, indent=0) + "\n")
-        hits = sum(base["found"].values())
-        print(f"baseline {a.run}: found {hits}/{len(base['found'])} at {a.n} passages -> {BASELINE.relative_to(HERE.parent)}")
+        mean = sum(cov.values()) / max(len(cov), 1)
+        print(f"baseline {a.run}: coverage {mean:.3f} on {len(cov)} questions at {a.n} passages -> "
+              f"{BASELINE.relative_to(HERE.parent)}")
         if not MUST_PASS.exists():
             a.cmd = "must-pass"
         else:
             return 0
 
     base = json.loads(BASELINE.read_text())
+    if "coverage" not in base:
+        print("refused: the baseline holds the old \"found\" score; set it again with `gate.py baseline <run>`")
+        return 2
     if a.cmd == "must-pass":
         rows = load_run(base["run"])
         ids = pick_must_pass(base, rows)
-        MUST_PASS.write_text("# Must-pass questions for evals/gate.py: found by the baseline, 5 per role. Edit by hand if needed.\n"
+        MUST_PASS.write_text("# Must-pass questions for evals/gate.py: all rules covered by the baseline, 5 per role. Edit by hand if needed.\n"
                              + "\n".join(ids) + "\n")
         print(f"{len(ids)} must-pass questions -> {MUST_PASS.relative_to(HERE.parent)}")
         return 0
 
     must = [x.strip() for x in MUST_PASS.read_text().splitlines() if x.strip() and not x.startswith("#")] if MUST_PASS.exists() else []
-    v = check(base, found_map(rows, base["n"]), must)
+    cov, unjudged = coverage_map(rows, base["n"])
+    v = check(base, cov, must, unjudged)
     text = {q: rows[q]["question"][:90] for q in v["lost"] + v["gained"] if q in rows}
-    print(f"gate: {a.run} against baseline {base['run']} ({v['questions']} dev questions, found in {base['n']} passages)")
+    print(f"gate: {a.run} against baseline {base['run']} ({v['questions']} dev questions, rule coverage in {base['n']} passages)")
     print(f"score {v['score_old']} -> {v['score_new']}; lost {len(v['lost'])}, gained {len(v['gained'])}; p {v['p']}; 95% CI {v['ci95']}")
     for name in ("lost", "gained"):
         for q in v[name]:

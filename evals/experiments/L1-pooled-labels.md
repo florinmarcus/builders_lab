@@ -156,7 +156,7 @@ At most one question moves per run.
 ## Rule coverage (25 Nov, late)
 
 Florin's point: yes/no per passage throws away detail when a question rests on two or three rules. The score is now
-rule coverage (`evals/paired.py --metric coverage`): the share of a question's rules that the first 8 passages state
+rule coverage (`evals/paired.py`): the share of a question's rules that the first 8 passages state
 between them, from the judge's rule-by-rule verdicts. This is nugget recall (TREC RAG track) or context recall
 (RAGAS). The 94 shown passages that touch a label had no rule verdicts, so they were judged with the same brief
 (`pool_local.py packets --labelled`, opus-a, 0 INVALID, planted no 5/5, planted yes 3/5). 80 of the 95 labelled

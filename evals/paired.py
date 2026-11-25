@@ -1,22 +1,20 @@
-"""Paired test between runs on the same dev questions: is a difference in "found" real or noise? (25 Nov 2026)
+"""Paired test between runs on the same dev questions: is a difference in rule coverage real or noise? (25 Nov 2026)
 
     python evals/paired.py B1-v2-mixed-k20-dev-dev B3-v2-fused-k20-dev-dev B6-v2-fused-plainrr-dev-dev --n 8
 
-"Found": in the first n passages (lanes: n/4 per lane, flattened) there is an expected section or a section the
-pool judge accepted for that question ("also_acceptable" in golden questions.jsonl, dev only; see
-evals/experiments/L1-pooled-labels.md). This is the only meaning of "found"; gate.py uses it too.
+Rule coverage at n: the share of a question's rules (golden/pooled/rules.jsonl) that the first n passages (lanes:
+n/4 per lane, flattened) state between them, by the pool judge's rule-by-rule verdicts (golden/pooled/judgments.jsonl,
+in scope only). Two of three rules covered scores 0.67. It is nugget recall (TREC RAG) or context recall (RAGAS) under
+our name, and it judges retrieval only. A rule is one fact from the law or guidance that the expert's answer depends
+on (evals/experiments/L1-pooled-labels.md). It replaced "found" (an expected or accepted section shown) on 25 Nov
+2026; gate.py uses it too. Only questions with rules count. A shown passage with no verdict states no rule and is
+reported as unjudged: judge it before trusting a comparison.
 
 Questions from one source document move together (93 documents for 299 dev questions), so the test works on
 documents, not questions (evals/knowledge/eval-practice-assessment.md, topic 3):
 - p: paired permutation test that flips the sign of each document's summed difference at random;
 - ci95: paired bootstrap of the difference that resamples whole documents.
 With more than two runs every pair is compared and p_holm is the Holm-corrected p (topic 6): read p_holm.
-
-"Rule coverage" (--metric coverage, 25 Nov 2026): the share of a question's rules (golden/pooled/rules.jsonl) that
-the first n passages state between them, by the pool judge's rule-by-rule verdicts (golden/pooled/judgments.jsonl).
-Two of three rules covered scores 0.67. It is nugget recall (TREC RAG) or context recall (RAGAS) under our name. Only
-questions with rules count; a shown passage with no verdict states no rule and is reported as unjudged. It replaces
-"found" once every dev question has rules (S153).
 """
 
 from __future__ import annotations
@@ -41,7 +39,7 @@ JUDGMENTS = HERE / "golden" / "pooled" / "judgments.jsonl"
 
 @lru_cache(maxsize=1)
 def acceptable() -> dict[str, tuple[str, ...]]:
-    """Sections the pool judge accepted per question (dev only)."""
+    """Sections the pool judge accepted per question (dev only; retrieval.py diagnostics)."""
     if not QUESTIONS.exists():
         return {}
     rows = map(json.loads, QUESTIONS.read_text(encoding="utf-8").splitlines())
@@ -54,12 +52,6 @@ def shown(row: dict, n: int) -> list[str]:
         per = n // len(row["lanes"])
         return list(dict.fromkeys(x[0] for lane in row["lanes"].values() for x in lane["reranked"][:per]))
     return list(row["top5"][:n])
-
-
-def found(row: dict, n: int) -> bool:
-    ok = list(row["expected"]) + list(acceptable().get(row["id"], ()))
-    keys = shown(row, n)
-    return M.recall_at(ok, keys, len(keys) or 1) > 0
 
 
 @lru_cache(maxsize=1)
@@ -100,7 +92,7 @@ def doc(row: dict) -> str:
 
 
 def compare(a: list[float], b: list[float], docs: list[str] | None = None, seed: int = 1, draws: int = 10000) -> dict:
-    """a minus b, question by question (found as 0/1, or rule coverage), tested by document (docs=None: each
+    """a minus b, question by question (rule coverage, or any 0/1 or float score), tested by document (docs=None: each
     question its own document)."""
     d = [float(x) - float(y) for x, y in zip(a, b)]
     n = len(d)
@@ -143,29 +135,23 @@ def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("runs", nargs="+", help="two or more run names (results file without .jsonl)")
     ap.add_argument("--n", type=int, default=8)
-    ap.add_argument("--metric", choices=("found", "coverage"), default="found",
-                    help="coverage: rule coverage, on the questions that have rules")
     a = ap.parse_args(argv)
     if len(a.runs) < 2:
         ap.error("give at least two runs")
     rows = {r: load(r) for r in a.runs}
-    ids = sorted(set.intersection(*(set(v) for v in rows.values())))
-    if a.metric == "coverage":
-        ids = [q for q in ids if q in rule_counts()]
-        score = {r: {q: coverage(rows[r][q], a.n) for q in ids} for r in a.runs}
-        for r in a.runs:
-            unjudged = sum(c[1] for c in score[r].values())
-            print(json.dumps({"run": r, "questions": len(ids), "n": a.n,
-                              "coverage": round(sum(c[0] for c in score[r].values()) / max(len(ids), 1), 3),
-                              "all_rules": sum(c[0] == 1 for c in score[r].values()), "unjudged_passages": unjudged}))
-        value = lambda r, q: score[r][q][0]  # noqa: E731
-    else:
-        value = lambda r, q: found(rows[r][q], a.n)  # noqa: E731
+    ids = sorted(set.intersection(*(set(v) for v in rows.values())) & set(rule_counts()))
+    score = {r: {q: coverage(rows[r][q], a.n) for q in ids} for r in a.runs}
+    for r in a.runs:
+        print(json.dumps({"run": r, "questions": len(ids), "n": a.n,
+                          "coverage": round(sum(c[0] for c in score[r].values()) / max(len(ids), 1), 3),
+                          "all_rules": sum(c[0] == 1 for c in score[r].values()),
+                          "unjudged_passages": sum(c[1] for c in score[r].values())}))
+    value = lambda r, q: score[r][q][0]  # noqa: E731
     docs = [doc(rows[a.runs[0]][q]) for q in ids]
     out = []
     for x, y in itertools.combinations(a.runs, 2):
         r = compare([value(x, q) for q in ids], [value(y, q) for q in ids], docs)
-        out.append({"a": x, "b": y, "metric": a.metric, "questions": len(ids), "n": a.n, **r})
+        out.append({"a": x, "b": y, "metric": "coverage", "questions": len(ids), "n": a.n, **r})
     for o, ph in zip(out, holm([o["p"] for o in out])):
         o["p_holm"] = ph
         print(json.dumps(o))

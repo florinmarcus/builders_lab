@@ -59,12 +59,9 @@ def test_paired_compare_by_document_and_holm():
     assert PT.holm([0.01, 0.04, 0.03]) == [0.03, 0.06, 0.06]
 
 
-def test_found_counts_accepted_sections(monkeypatch):
+def test_doc_is_the_source_of_the_first_expected_section():
     import paired as PT
-    monkeypatch.setattr(PT, "acceptable", lambda: {"q1": ("other:s-2",)})
-    row = {"id": "q1", "expected": ["law:s-1"], "top5": ["x:a", "other:s-2"]}
-    assert PT.found(row, 8) and not PT.found(dict(row, id="q2"), 8)
-    assert PT.doc(row) == "law"
+    assert PT.doc({"id": "q1", "expected": ["law:s-1", "other:s-2"], "top5": []}) == "law"
 
 
 def test_rule_coverage_counts_rules_stated_by_the_shown_passages(monkeypatch):
