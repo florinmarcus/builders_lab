@@ -183,3 +183,21 @@ never ranks in the first 8: search misses, not corpus gaps. Many are tables (`hs
 `eawr1989:regulation-16`, `vibration2005:regulation-7-1`, `br2010:regulation-12-5`). 5 rules are stated by no
 judged section (asbestos-011 r2, asbestos-013 r2, asbestos-044 r2, building-control-069 r2, money-059 r1): a corpus
 gap, a missing label or a rule worded too tightly; not yet read.
+
+### Rule coverage on all of dev (25 Nov, night)
+
+Rules were written for the other 239 dev questions (299 questions, 643 rules, `pooled/rules.jsonl`). The shown
+passages of those questions were judged with the same brief (115 packets, opus-a, 3,431 verdicts; planted no
+115/115, planted yes 87/115; one quote under the 10-character minimum, re-judged). Every passage in the first 8
+of B1, B3, B6 and B7 now has a rule verdict (`unjudged_passages` 0).
+
+| | B1 | B3 | B6 | B7 |
+|---|---|---|---|---|
+| Rule coverage, first 8 (299 questions) | 0.654 | 0.684 | 0.692 | 0.686 |
+| Questions with every rule covered | 136 | 145 | 149 | 148 |
+
+Search brings back about two thirds of the rules, and all of them for under half of the questions. B1 (mixed) is
+3 to 4 points behind the three fused runs (raw p 0.02 to 0.05), but after Holm correction no pair differs
+reliably (p_holm 0.14 or more). B3, B6 and B7 are level (diffs under 1 point). The 28 planted-yes lines judged no
+are listed by `pool_local.py merge`; they are weak labels for S116. No new baseline is set until Florin's
+calibration (S151).
