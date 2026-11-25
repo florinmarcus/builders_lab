@@ -152,3 +152,24 @@ Found in the first 8 with the new labels (same runs, expected sections swapped):
 | Labelled or judged yes, v2 | 0.867 | 0.867 | 0.917 | 0.900 |
 
 At most one question moves per run.
+
+## Rule coverage (25 Nov, late)
+
+Florin's point: yes/no per passage throws away detail when a question rests on two or three rules. The score is now
+rule coverage (`evals/paired.py --metric coverage`): the share of a question's rules that the first 8 passages state
+between them, from the judge's rule-by-rule verdicts. This is nugget recall (TREC RAG track) or context recall
+(RAGAS). The 94 shown passages that touch a label had no rule verdicts, so they were judged with the same brief
+(`pool_local.py packets --labelled`, opus-a, 0 INVALID, planted no 5/5, planted yes 3/5). 80 of the 95 labelled
+passages judged so far state a rule. Two more weak labels: money-046 `hgcra1996-p2:section-109-1` (45-day stage
+payments only) and building-control-050 `ad7:para-1.19` (council sampling power only), for S116.
+
+| | B1 | B3 | B6 | B7 |
+|---|---|---|---|---|
+| Rule coverage, first 8 | 0.631 | 0.639 | 0.697 | 0.692 |
+| Questions with every rule covered (of 60) | 24 | 24 | 29 | 30 |
+| Found (label or judged yes), for comparison | 0.867 | 0.867 | 0.917 | 0.900 |
+
+"Found" says 87 to 92% of questions are answered; coverage says search brings back about two thirds of the rules,
+and all of them for only 40 to 50% of questions. The order of runs is the same (B6 and B7 ahead), but no pair
+differs reliably on 60 questions (p_holm 0.55 or more). 30 of the 130 rules are stated by no judged passage at all:
+either the corpus lacks them or search never ranks them in the first 8. That list is the next thing to read.
