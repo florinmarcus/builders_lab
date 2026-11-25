@@ -3,7 +3,7 @@
 Every corner we cut goes here, so nothing is forgotten after the demo. Use it for code, architecture and security reviews.
 Update it in the same commit as the shortcut. Close an item only when it is done: move it to Closed and say where.
 
-Started 20 Nov 2026. Sorted on 25 Nov 2026 into three groups by when each item must be done: before the firm visits (Sat 28 Nov), before a pilot, later. IDs are never reused; the next free ID is S147 (N23, Q15: N21, N22 and Q14 are taken by ADR 0017 on branch claude/clever-thompson-rh7gee). Closed items are at the end.
+Started 20 Nov 2026. Sorted on 25 Nov 2026 into three groups by when each item must be done: before the firm visits (Sat 28 Nov), before a pilot, later. IDs are never reused; the next free ID is S151 (N23, Q15: N21, N22 and Q14 are taken by ADR 0017 on branch claude/clever-thompson-rh7gee). Closed items are at the end.
 
 ## Before the firm visits (28 Nov)
 
@@ -76,6 +76,8 @@ Started 20 Nov 2026. Sorted on 25 Nov 2026 into three groups by when each item m
 | S146 | Some gold labels are older than the library: e.g. site-safety-062 (planning permission) is out_of_scope, but `gpdo-2015` and `pd-householder-guide` are ingested. The decomposer judge then scores right answers as wrong. | `evals/golden/questions.jsonl` | Recheck out_of_scope labels against `corpus/sources.yaml` with S116 |
 | S147 | Edition changes are notes in `corpus/sources.yaml` only (`status`, `notes`, "Watch" lines for L143 and HSG248, 25 Nov 2026). Nothing checks HSE or BSI for a new edition, and search answers say nothing about a coming change. Fix: a monthly re-check (by hand or a scheduled job) and a rule for when a watched document is replaced. |
 | S148 | The decomposer's library list is built from `corpus/sources.yaml` (`evals/experiments/decomposer/library.py`), but five "never held" items (prices, insurance, worker cards, manufacturers' instructions, other nations) are kept by hand, and the fixed judge (`judge-v1.md`) keeps its own older not-held line. | `evals/experiments/decomposer/` | When the prompt is locked, build the server instruction and the judge's line from the same code |
+| S149 | Outside citations ("to BS 5839", "manufacturer's instructions") are found and sorted into list, mention or binding by wording only (`evals/experiments/library-map/build.py`); checked by hand on 40 citations, binding right about 9 in 10. Search results don't yet say "the detail is in a document we don't hold". | `evals/experiments/library-map/`, M1 | Add an outside-reference field to search results, built at chunking; check precision on a bigger sample |
+| S150 | The gold set has few questions where we hold the topic but the detail sits in an outside document (4 of 60 tune questions). 503 of the 548 cited outside documents are not in `corpus/sources.yaml`, so their edition and status are unknown. | `evals/golden/`, `corpus/sources.yaml` | Add 5 to 10 such questions with S116; list the most cited standards (BS 476, BS EN 13501, BS 5839, BS 7671) in sources.yaml as link_only |
 | Q4 | Is a Claude Code scheduled task reliable enough for regular inbox syncs, or do we need Haiku on the server? | ADR 0006 | – |
 | Q6 | Does Florin's employment contract allow this side work, and who owns code he writes outside work? | `requirements/business-plan.md` | – |
 | Q7 | Anthropic's liability cap and data terms for Claude Team (not confirmed) | `requirements/business-plan.md` | – |
