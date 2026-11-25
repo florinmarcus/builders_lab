@@ -29,6 +29,8 @@ Started 20 Nov 2026. Status of the demo build: steps 1 (mock data plan), 2 (sche
 | N18 | Replace the demo Gmail tool with Claude's own Gmail and Microsoft 365 connectors for real firms (ADR 0014) | Demo uses our own inbox | Real firms would need a Google security review |
 | N19 | Excel export of a firm's data, then deletion within 30 days, confirmed in writing (pilot agreement; see N11) | Not needed for mock data | Promise in the pilot agreement we cannot keep |
 | N20 | Pilot agreement with DPA, our terms with the 12-month cap, and a setup help sheet for the partner | Business plan agreed 21 Nov 2026 | No pilot can start |
+| N21 | Workflow run records on the server: steps done and left, tools refuse out of order (e.g. no draft before `verify_answer` passes), first for the new-emails workflow (ADR 0017) | Decided 25 Nov 2026, not built | Step control depends on Claude following skills, with no hard stop |
+| N22 | Robot seat on a Team plan running Claude Code cloud scheduled tasks hourly, with hooks in those sessions (ADR 0017) | Pilot fetches live; waits for Anthropic's answer (Q14) or slow live answers | Slow first answers when email piles up; no background filing |
 
 ## Shortcuts taken (works, but not production)
 
@@ -139,10 +141,10 @@ Started 20 Nov 2026. Status of the demo build: steps 1 (mock data plan), 2 (sche
 | # | Question | Where it came from |
 |---|---|---|
 | Q1 | Can a Claude app connector send a header API key and use OAuth at the same time? | ADR 0007 |
-| Q2 | Does the Claude app have hooks? None found (20 Nov 2026) | `research/hosting-costs/connector-auth-options.md` |
+| Q2 | Does the Claude app have hooks? None found (20 Nov 2026). 24 Nov 2026: hooks run only where Claude Code runs (terminal, desktop, cloud sessions), not in the phone app; ADR 0017 puts hard control on the server | `research/hosting-costs/connector-auth-options.md` |
 | Q3 | Can a connector reach files on an iPhone? | `research/backlog.md` item 12 |
 | Q5 | ~~Which header does the Claude app accept?~~ Answered 20 Nov 2026: `Authorization` works with Authentication set to "No sign-in". The server also accepts the key without "Bearer" or without the space | ADR 0007 |
-| Q4 | Is a Claude Code scheduled task reliable enough for regular inbox syncs, or do we need Haiku on the server? | ADR 0006 |
+| Q4 | Is a Claude Code scheduled task reliable enough for regular inbox syncs, or do we need Haiku on the server? 24 Nov 2026: still a research preview, tied to one account; pilot fetches live instead (ADR 0017) | ADR 0006 |
 | Q6 | Does Florin's employment contract allow this side work, and who owns code he writes outside work? | `requirements/business-plan.md` |
 | Q7 | Anthropic's liability cap and data terms for Claude Team (not confirmed) | `requirements/business-plan.md` |
 | Q8 | ChatGPT Business and Enterprise prices from OpenAI's own page (third-party figures so far) | `requirements/business-plan.md` |
@@ -151,6 +153,7 @@ Started 20 Nov 2026. Status of the demo build: steps 1 (mock data plan), 2 (sche
 | Q11 | Real quotes: cyber insurance, professional indemnity, accountant | `requirements/business-plan.md` |
 | Q12 | SI numbers for CDM 2015, the Control of Asbestos Regulations 2012 and the Scheme for Construction Contracts in the MCP report came from memory; only the Building Regulations 2010 (SI 2010/2214) was tested live | `research/reports/UK legislation MCP servers.md` |
 | Q13 | Watch the GDS and National Archives "AI-ready legal data" Alpha (June 2026) and i.AI Lex: if an official, supported legislation MCP server appears, consider using it for legislation lookups instead of our own fetch (it will not cover Approved Documents) | `research/reports/UK legislation MCP servers.md` |
+| Q14 | May a Claude Team seat be used only by automation (a firm "robot" running cloud scheduled tasks, fired by our server)? No source allows or forbids it; the usage policy bans routing requests through consumer subscriptions. Ask Anthropic sales in writing before the pilot relies on it | ADR 0017 |
 | S99 | Parsed trees carry a parser label ("guidance-pdf/0.3") that was not bumped when the code changed; no git commit or code hash in the tree, no test that a parse repeats, no record of past tree hashes | Labels set by hand; trees are rebuilt, not kept (ADR 0010) | A tree cannot say which code made it; a silent change in output goes unnoticed. Planned next in `evals/PLAN.md` |
 | S100 | No tool tells a user or Claude what the regulations library holds, what it lacks (paywalled British Standards, BS 7671, JCT, out-of-scope subjects), example questions, or how well it finds the right passage | Corpus still being cleaned; numbers worth showing only after the clean re-measure | Users cannot check coverage before relying on an answer. Planned in `evals/PLAN.md`: `about_regulations_library` after the retrieval step |
 | S101 | One MCP server holds both public regulations tools and private firm tools, behind one key and in one process | Built as one server first (ADR 0004) | A regulations bug runs next to private data; corpus and firm releases are coupled. Proposed split: ADR 0015, after the retrieval work |
