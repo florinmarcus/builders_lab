@@ -5,6 +5,9 @@ Goal: one fixed prompt that turns a builder's question into search queries with 
 
 - `split.json`: 60 dev questions to tune on, 30 others to check the winner (fixed seed, by kind). Holdout never used.
 - `prompt-dN.md`: drafts. Only the winner is copied into `versions/prompts/` and locked.
+- `library.py`: from draft 3, the "topics it covers" and "does not hold" lines come from `corpus/sources.yaml`
+  (`prompt-d3.tmpl.md` -> `python evals/experiments/decomposer/library.py --render d3`). Draft 2 wrote them by hand and
+  wrongly said planning was not held. `tests/test_decomposer_library.py` fails if the rendered draft is stale.
 - `haiku-runner.md`: the fixed brief each Haiku subagent gets (10 questions per subagent, each handled on its own;
   small risk that one question colours the next).
 - `judge-v1.md`: the fixed judge instructions (Opus). It sees the question, Haiku's output, the reference answer,
