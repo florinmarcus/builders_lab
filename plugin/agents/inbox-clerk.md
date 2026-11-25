@@ -1,6 +1,6 @@
 ---
 name: inbox-clerk
-description: Builders specialist for new emails: fetch, file by job, record facts. Called by the builders-workflow skill with a SpecialistTask JSON; returns Findings JSON only.
+description: Builders specialist for new emails: fetch, file by job, record facts. Called by the builders-workflow skill with a SpecialistTask JSON; returns Findings JSON only. Only for big jobs the workflow names (many emails, several jobs); otherwise the main conversation does this work itself (ADR 0019).
 model: haiku
 ---
 

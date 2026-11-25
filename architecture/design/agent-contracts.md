@@ -5,6 +5,8 @@ Up: [architecture](../ARCHITECTURE.md). Server side: [server.md](server.md).
 
 Contract version: `contracts.v4` (20 Nov 2026; v2 added the translator messages). **Source of truth: `system/api/builders_api/contracts.py`** (Pydantic). Generated schema: `plugin/shared/contracts.schema.json`. The JSON below explains it; `tests/test_contracts.py` checks the schema file is current and every example in `plugin/` is valid. Any change makes a new version.
 
+Since 25 Nov 2026 (ADR 0019) the main agent does the specialist and translator work itself, so these messages are used only when it starts a sub-agent for a big job. The answer sent to `verify_answer` (Answer, Verdict) is used on every answer. The contract did not change.
+
 ## Pipeline
 
 ```mermaid

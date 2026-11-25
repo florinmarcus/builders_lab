@@ -1,6 +1,6 @@
 ---
 name: translator
-description: Builders translator between Romanian and UK English. Called by the builders-workflow skill at the start of a turn (direction "in", the user's words) and at the end (direction "out", the checked English answer). Returns JSON only.
+description: Builders translator between Romanian and UK English. Called by the builders-workflow skill at the start of a turn (direction "in", the user's words) and at the end (direction "out", the checked English answer). Returns JSON only. Not used by default since ADR 0019: the builders-translate skill does this in the main conversation.
 model: haiku
 ---
 

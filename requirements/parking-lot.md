@@ -3,7 +3,7 @@
 Every corner we cut goes here, so nothing is forgotten after the demo. Use it for code, architecture and security reviews.
 Update it in the same commit as the shortcut. Close an item only when it is done: move it to Closed and say where.
 
-Started 20 Nov 2026. Sorted on 25 Nov 2026 into three groups by when each item must be done: before the firm visits (Sat 28 Nov), before a pilot, later. IDs are never reused; the next free ID is S154 (N23, Q15: N21, N22 and Q14 are taken by ADR 0017 on branch claude/clever-thompson-rh7gee). Closed items are at the end.
+Started 20 Nov 2026. Sorted on 25 Nov 2026 into three groups by when each item must be done: before the firm visits (Sat 28 Nov), before a pilot, later. IDs are never reused; the next free ID is S157 (N23, Q15: N21, N22 and Q14 are taken by ADR 0017 on branch claude/clever-thompson-rh7gee). Closed items are at the end.
 
 ## Before the firm visits (28 Nov)
 
@@ -83,6 +83,7 @@ Started 20 Nov 2026. Sorted on 25 Nov 2026 into three groups by when each item m
 | S153 | Rule coverage is the only score in `evals/paired.py` and `evals/gate.py` (25 Nov 2026). Rules exist for all 299 dev questions, but the rules and the rule verdicts come from one Opus model and judge, not yet checked against Florin. No baseline is set: `evals/gate/baseline.json` still holds the old "found" score and `gate.py check` refuses it. | `evals/paired.py`, `evals/gate.py`, `evals/golden/pooled/` | Florin checks a sample of rules and verdicts; then `gate.py baseline` on the chosen run (S151) |
 | S154 | Small-to-big passages tested offline only (`evals/experiments/P-small-to-big.md`, 25 Nov 2026): +0.10 rule coverage at 8, about twice the text. Not in the live search; cap (3,000 / 6,000 characters) and token budget not tuned. | `system/rag/` search | Build the expansion into search_regulations after the baseline (S151); try a smaller n or cap for the same text |
 | S155 | Two MCP servers (ADR 0015) run in one process behind one Gateway. The regulations server has no firm tools, but the process still reaches the firm database for keys, quotas and traces; the corpus has no separate read-only user; regulations query logs follow the firm rules (no retention decision); no trace id across the two servers; get_section and read_document (ADR 0016) not built. | `system/api/builders_api/mcp_server/`, `deploy/` | Separate process and container for regulations with its own database user; decide query-log retention; pass one trace id through both |
+| S156 | Plugin answers moved from sub-agents to skills in the main model (ADR 0019, 25 Nov 2026) without timing before or after: no API key for a test run. The `regs-search-plan` split (one to three searches) is not measured against one search, and its rules (4 to 12 words, at most three) are guesses | `plugin/skills/`, ADR 0019 | Florin tries the same questions in the app; measure the split offline on the dev set with rule coverage (planned queries, merged passages) |
 | Q4 | Is a Claude Code scheduled task reliable enough for regular inbox syncs, or do we need Haiku on the server? | ADR 0006 | – |
 | Q6 | Does Florin's employment contract allow this side work, and who owns code he writes outside work? | `requirements/business-plan.md` | – |
 | Q7 | Anthropic's liability cap and data terms for Claude Team (not confirmed) | `requirements/business-plan.md` | – |

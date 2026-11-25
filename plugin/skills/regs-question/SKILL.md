@@ -7,7 +7,7 @@ description: Use for Marcus Limited (the building firm) building questions about
 
 Read `../../shared/rules.md` first.
 
-1. Call `search_regulations` with the builder's question in plain words. Add `as_of_date` if they ask about a past date.
+1. Plan and run the search with the `regs-search-plan` skill: one to three short English searches, run together. Add `as_of_date` if they ask about a past date.
 2. Answer only from the passages returned. Quote the key words. Cite document, section, edition date and link for each point.
 3. If the passages do not answer it (or none come back), say "Our regulations library does not cover that yet" and who can help: a building control body, a structural engineer, or the HSE. **Do not search the web.**
 4. Never say work is safe or compliant. Say what the rules say and what the builder must check.

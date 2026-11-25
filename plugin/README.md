@@ -30,19 +30,21 @@ Authentication "No sign-in", header `Authorization: Bearer bl_...` (see `deploy/
 | Who we are, language, "use the workflow" | project instructions (`claude-app/PROJECT_INSTRUCTIONS.md`, about 8 lines) | always |
 | Firm: people, jobs, contacts, what is due | `get_firm_profile` tool (live from the server) | once per conversation |
 | How to do each job | skills (`skills/*/SKILL.md`), with `references/` opened only when needed | on demand |
-| Specialist work | agents on Haiku (`agents/`), given only a task JSON and their tools | per question |
+| Specialist work | done by the main model, following the task skill (ADR 0019); agents on Haiku (`agents/`) only for big jobs | per question |
 | Checks | `verify_answer` on the server (plain code) | every answer |
 | Quick actions | commands `/emails`, `/delay`, `/missing`, `/plati`, `/changes` | when typed |
 
 ## How an answer is made (contracts.v4)
 
-The `builders-workflow` skill runs every answer through fixed steps: route the question, hand it to a specialist
-sub-agent (`agents/`, on Haiku), draft from its Findings JSON, check the draft with `verify_answer` on our server
-(plain code), fix, then reply. Design: `architecture/design/agents.md`; JSON: `architecture/design/agent-contracts.md`.
+The `builders-workflow` skill runs every answer through fixed steps: route the question to a task skill, say in one
+line what it is checking, do that skill's steps itself (so the builder sees each tool call), plan regulations searches
+with `regs-search-plan`, translate with `builders-translate`, check the draft with `verify_answer` on our server
+(plain code), fix, then reply. Sub-agents (`agents/`, on Haiku) only for big jobs: more than 5 emails, or three or
+more jobs (ADR 0019: they were slow and showed nothing until done). Design: `architecture/design/agents.md`; JSON: `architecture/design/agent-contracts.md`.
 
 ## Claude app (plugin)
 
-Notes from testing in the app (20 Nov 2026): the specialist agents run only in Cowork and Claude Code; in chat, the builders-workflow skill starts a general sub-agent on Haiku with the specialist's instructions (from `agents/<name>.md`) when sub-agents are available, and otherwise does the steps itself (verify_answer still checks every answer). The plugin is on in all chats, so every skill says it is for Marcus Limited work only; turn the plugin off for personal use if needed.
+Notes from testing in the app (20 Nov 2026): the specialist agents run only in Cowork and Claude Code. 25 Nov: answers took a couple of minutes and appeared all at once, because every question went through one to three sub-agents; since ADR 0019 the main model does the work itself. The plugin is on in all chats, so every skill says it is for Marcus Limited work only; turn the plugin off for personal use if needed.
 
 
 1. `./build-plugin-zip.sh` makes `dist/builders-plugin-app.zip` (skills, agents, commands, rules; no connectors file, because the app already has BuildersMCP, BuildersRegulations, Gmail and Calendar connected).

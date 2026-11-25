@@ -7,7 +7,7 @@ rm -rf dist && mkdir -p dist/tmp
 for dir in skills/*/; do
   name=$(basename "$dir")
   mkdir -p "dist/tmp/$name"
-  cp "$dir"SKILL.md "dist/tmp/$name/"
+  cp -r "$dir". "dist/tmp/$name/"
   cp shared/rules.md "dist/tmp/$name/rules.md"
   sed -i 's#`\.\./\.\./shared/rules\.md`#`rules.md` (in this skill)#' "dist/tmp/$name/SKILL.md"
   (cd dist/tmp && zip -qr "../$name.zip" "$name")
