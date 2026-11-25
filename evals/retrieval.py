@@ -33,6 +33,7 @@ import metrics as M  # noqa: E402
 RESULTS = ROOT / "evals" / "results"
 GOLDEN = ROOT / "evals" / "golden" / "questions.jsonl"
 TITAN_USD_PER_1K = 0.0001     # London, checked 20 Nov 2026 (system/rag/embed.py)
+KEEP = int(os.environ.get("EVAL_KEEP", "5"))  # re-ranked passages kept per search (same re-rank cost); 20 for recall@10/20 and pooling
 RERANK_USD_PER_QUERY = 0.001  # Amazon Rerank, about $1 per 1,000 queries of up to 100 documents (ADR 0013; verify)
 
 
@@ -61,6 +62,7 @@ def config(schema: str, search) -> dict:
     c["rerank_with"] = os.environ.get("EVAL_RERANK_WITH", "question")
     c["lanes"] = os.environ.get("EVAL_LANES", "0")
     c["per_lane"] = int(os.environ.get("EVAL_PER_LANE", "2"))
+    c["keep"] = KEEP
     c["golden_sha"] = hashlib.sha256(GOLDEN.read_bytes()).hexdigest()[:12] if GOLDEN.exists() else None
     return c
 
@@ -95,6 +97,7 @@ def pooled(rows: list[dict], path: Path = GOLDEN) -> dict:
     return {"questions": len(scored), "with_acceptable": sum(1 for r in scored if acc.get(r["id"])),
             "recall@50": mean(lambda r: M.recall_at(ext(r), r["candidates"], 50)),
             "recall@5": mean(lambda r: M.recall_at(ext(r), r["top5"], 5)),
+            **({f"recall@{k}": mean(lambda r, k=k: M.recall_at(ext(r), r["top5"], k)) for k in (10, 20) if KEEP >= k}),
             "mrr@5": mean(lambda r: M.reciprocal_rank(ext(r), r["top5"]))}
 
 
@@ -147,7 +150,7 @@ def search_one(query: str, search, url: str, top_k: int, rerank: bool) -> tuple[
     cands = [M.section_key(r["source_id"], r["section_id"]) for r in rows]
     reranked = [[cands[i], None, rows[i]["id"]] for i in range(min(5, len(rows)))]
     if rerank and rows:
-        order = search.rerank(query, [r["embed_text"] for r in rows], 5)
+        order = search.rerank(query, [r["embed_text"] for r in rows], KEEP)
         reranked = [[cands[i], round(s, 6), rows[i]["id"]] for i, s in order]
     return cands, reranked
 
@@ -165,7 +168,7 @@ def merge(results: list[tuple[list[str], list]]) -> tuple[list[str], list]:
         for x in rr:
             if x[0] not in best or (x[1] or 0) > (best[x[0]][1] or 0):
                 best[x[0]] = x
-    return cands, sorted(best.values(), key=lambda x: -(x[1] or 0))[:5]
+    return cands, sorted(best.values(), key=lambda x: -(x[1] or 0))[:KEEP]
 
 
 def fused_search(question: str, extra: list[str], search, url: str, top_k: int, rerank: bool) -> tuple[list[str], list]:
@@ -179,7 +182,7 @@ def fused_search(question: str, extra: list[str], search, url: str, top_k: int, 
         rq = question
         if os.environ.get("EVAL_RERANK_WITH") == "all" and extra:  # E6: the agent's words help the re-rank too
             rq = question + "\n" + "\n".join(extra)
-        order = search.rerank(rq, [r["embed_text"] for r in rows], 5)
+        order = search.rerank(rq, [r["embed_text"] for r in rows], KEEP)
         reranked = [[cands[i], round(s, 6), rows[i]["id"]] for i, s in order]
     return cands, reranked
 

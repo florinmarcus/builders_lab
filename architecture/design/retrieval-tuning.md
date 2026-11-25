@@ -106,6 +106,10 @@ flowchart TB
 
 ## How the judging works
 
+Two judges, two questions. The passage judge asks "does this one passage answer it?" (finds the right material). The answer-set judge asks "could a builder get the full answer from everything this search returned?" (what the firms will feel). Only the second sees a set with the law but no guidance, or one rule of two.
+
+### Passage judge (every pooled pair)
+
 ```mermaid
 flowchart LR
     pool["Pooled pairs<br/>(question, passage)"] --> shuf["Shuffle across questions,<br/>hide which run found them,<br/>packets of 10"]
@@ -123,3 +127,24 @@ flowchart LR
 - Opus against Opus shows drift and noise. Opus against Sonnet shows the model gap. If Sonnet agrees as well as Opus agrees with itself, future pools use Sonnet.
 - If agreement is poor, packets shrink to one question per judge.
 - The pool is a test tool only. Nothing of it runs in the live search.
+
+### Answer-set judge (80 dev questions, `evals/golden/answer_set.py`)
+
+```mermaid
+flowchart LR
+    q["80 dev questions<br/>(spread over the six roles)"] --> sets
+    subgraph sets["Same size for each run: 8 passages"]
+        direction TB
+        m8["Mixed: top 8"]
+        l2["Lanes: 2 per lane"]
+        f8["Mixed + agent queries: top 8"]
+    end
+    sets --> blind["Flatten and shuffle each set,<br/>hide the run, packets of 4,<br/>never one question twice in a packet"]
+    blind --> j["Opus judge, all 240 sets<br/>2 full / 1 partly (says what is missing) / 0 none"]
+    blind --> r["10% re-check:<br/>second Opus and Sonnet"]
+    j --> sc["Share of full answers per run<br/>+ what is most often missing"]
+    r --> sc
+```
+
+- Same number of passages per run, so lanes don't win only by showing more.
+- "What is missing" tells us the fix: a missing law points at lanes, a missing second rule at the decomposer.

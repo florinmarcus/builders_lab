@@ -84,9 +84,15 @@ def summarise(rows: list[dict]) -> dict:
         "mrr@5": mean(lambda r: reciprocal_rank(r["expected"], r["top5"])),
         "ndcg@5": mean(lambda r: ndcg_at(r["expected"], r["top5"])),
     }
+    longest = max(len(r["top5"]) for r in scored)  # "top5" holds every re-ranked passage kept (EVAL_KEEP, up to 20)
+    for k in (10, 20):
+        if longest >= k:
+            out[f"recall@{k}"] = mean(lambda r, k=k: recall_at(r["expected"], r["top5"], k))
     multi = [r for r in scored if r.get("multi_rule") and len(r["expected"]) > 1]
     if multi:
         out["all@5_multi"] = round(sum(all_at(r["expected"], r["top5"]) for r in multi) / len(multi), 4)
+        if longest >= 10:
+            out["all@10_multi"] = round(sum(all_at(r["expected"], r["top5"], 10) for r in multi) / len(multi), 4)
     by_kind: dict[str, list] = {}
     for r in scored:
         by_kind.setdefault(r.get("kind", "?"), []).append(recall_at(r["expected"], r["top5"], 5))
