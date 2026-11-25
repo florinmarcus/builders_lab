@@ -220,13 +220,15 @@ def lanes_of(expected: str, keys: dict) -> list[str]:
     return sorted(hit)
 
 
-def lanes_search(query: str, search, url: str, top_k: int, rerank: bool) -> dict:
+def lanes_search(query: str, search, url: str, top_k: int, rerank: bool, extra: list[str] | None = None) -> dict:
     """ADR 0016 lanes: one embedding, then per lane its own candidates and its own re-rank (top 5 kept, so the
-    lane size can be tuned on saved rows)."""
-    vec = search.embed_question(query)
+    lane size can be tuned on saved rows). With extra (agent queries, B4): in each lane, candidates of the question
+    and of each extra query, fused by RRF, one per section, re-ranked against the ORIGINAL question (as B3, per lane)."""
+    vecs = [search.embed_question(x) for x in [query] + (extra or [])]
     out = {}
     for lane, weights in search.LANES.items():
-        rows = search.candidates(query, url=url, n=top_k, weights=weights, vector=vec)
+        lists = [search.candidates(x, url=url, n=top_k, weights=weights, vector=v) for x, v in zip([query] + (extra or []), vecs)]
+        rows = lists[0] if len(lists) == 1 else search.one_per_section(search.rrf(*lists))[:top_k]
         cands = [M.section_key(r["source_id"], r["section_id"]) for r in rows]
         rr = [[cands[i], None, rows[i]["id"]] for i in range(min(5, len(rows)))]
         if rerank and rows:
@@ -265,12 +267,16 @@ def run_one(q: dict, search, url: str, top_k: int, rerank: bool, min_score: floa
     t0 = time.time()
     if os.environ.get("EVAL_LANES") == "1":
         per = int(os.environ.get("EVAL_PER_LANE", "2"))
-        lanes = lanes_search(q["question"], search, url, top_k, rerank)
+        queries = [q["question"]]
+        reuse = os.environ.get("EVAL_QUERIES_FROM")
+        if os.environ.get("EVAL_FUSE") == "1" and reuse and saved_queries(reuse, q["id"]):  # B4: agent queries in every lane
+            queries += [x for x in saved_queries(reuse, q["id"]) if x != q["question"]]
+        lanes = lanes_search(q["question"], search, url, top_k, rerank, queries[1:])
         cands = [c for i in range(top_k) for v in lanes.values() if i < len(v["candidates"]) for c in [v["candidates"][i]]]
         top = [x for v in lanes.values() for x in v["reranked"][:per]]
         return {"id": q["id"], "role": q.get("role"), "kind": q.get("kind"), "multi_rule": q.get("multi_rule", False),
                 "question": q["question"], "expected": q.get("expected_sections", []), "candidates": cands,
-                "queries": [q["question"]], "rewrite_tokens": [0, 0], "lanes": lanes, "reranked": top,
+                "queries": queries, "rewrite_tokens": [0, 0], "lanes": lanes, "reranked": top,
                 "top5": [x[0] for x in top], "top5_chunks": [x[2] for x in top], "scores": [x[1] for x in top],
                 "latency_ms": int((time.time() - t0) * 1000)}
     queries, rw_in, rw_out = ([q["question"]], 0, 0)
