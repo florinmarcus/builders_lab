@@ -423,6 +423,11 @@ legal benchmarks, Visa, HealthBench, Mayo Clinic, Nubank, and negative results) 
 `notes/llm-judge-case-studies/case_studies.md`. Short version: narrow binary checks
 reach 85-93% agreement with experts (kappa 0.7-0.85); broad criteria kappa 0.4-0.7; almost
 nobody publishes a fixed "pass >= X%" release gate.
+UK government practice (`notes/uk-government-ai-evals/notes.md`): i.AI Consult sets the bar at
+human-human agreement (F1 0.82 vs 0.71 between reviewers) and gates CI on regression
+(tolerance max(0.05, 3 x stdev) over 3+ baseline runs), marking judge errors INVALID;
+GOV.UK Chat's judge labels each fact matched / unsupported / missing and code computes the
+scores. No UK team publishes a fixed judge pass-rate gate.
 
 | Official term | Meaning |
 |---|---|
@@ -485,6 +490,23 @@ labels (pieces 1-2).
 | **Routing by question type** | Sending each question to the checks that fit its type. |
 | **LLM jury / PoLL, majority vote** | Several judges combined by vote. |
 
+### Lessons from published UK government judge prompts
+
+*Read 25 Nov 2026 from the public repos `i-dot-ai/consult` (folder `themefinder/evals/`)
+and `alphagov/govuk-chat-evaluation`. Details in `notes/uk-government-ai-evals/notes.md`.*
+
+| # | Lesson | Where seen | Use in builders_lab |
+|---|---|---|---|
+| 1 | Their design notes list the old judge's faults (0-5 scale "too granular", no reasoning, no shuffling) and the fixes: shuffle order, binary verdicts, variance across runs, reasoning first | Consult `evals/docs/llm-judge-improvements.md` | Same fixes as our judge-design priority: evidence a real team hit the same problems |
+| 2 | Atomic tasks: one item against a candidate list, PASS or FAIL, not a whole set scored at once | Consult `prompts/binary_match.md` | One judge per criterion, one answer at a time |
+| 3 | Quote the evidence verbatim: on PASS return the exact matching items, "do not paraphrase, shorten, combine, or invent" | Consult `binary_match.md` | Grounding judge quotes exact passage text; code checks each quote exists in the retrieved passages; a missing quote makes the verdict INVALID |
+| 4 | One calibration example per verdict level, with reasoning | Consult `prompts/generation.md` (STRONG / PARTIAL / NO) | Anchored rubric: one real builders example per verdict |
+| 5 | Judge sorts facts, code does the maths: key facts go to TP (in both), FP (answer only), FN (reference only); precision and recall computed in code; three worked examples incl. "fission vs fusion" = one FP + one FN | GOV.UK Chat `factual_precision_recall/template.py` | Correctness judge sorts facts against `required_facts`; any FP on a safety topic fails the case |
+| 6 | Contradictions as a separate three-step check: extract claims from the answer, extract truths from the reference, verdict per claim | GOV.UK Chat `absence_of_factual_contradictions/template.py` | Separate contradiction check (claim decomposition) |
+| 7 | Strict output: JSON only, exact shape, schema; invalid JSON retried, then marked INVALID, never counted as a fail | Both repos (`invalid_json_retry.py`) | Validate judge JSON in code; report INVALID separately |
+| 8 | Survivorship: share of AI suggestions reviewers keep unchanged (73% in the DWP trial) as a cheap real-world quality signal | Consult evaluation report | Later, with users: share of drafts sent without edits |
+| 9 | The bar is human-human agreement, not a fixed number (F1 0.82 judge vs 0.71 between reviewers) | Consult DWP evaluation | Measure two-human agreement on part of the golden set (JC-3) and report the judge next to it |
+
 ### Criteria
 
 | # | Practice | BL | ARL |
@@ -515,6 +537,10 @@ labels (pieces 1-2).
 | JC-10 | **(priority)** Correctness judge checks a list of required facts per golden item (add a `required_facts` field) | BL | 3-4 h + labelling | JC-8 | each golden answerable item has required facts |
 | JC-11 | **(priority)** Split judges by system part (retrieval sufficiency, answer, safety) and route by question type | BL | 3 h | JC-8 | a routing table: question kind → checks |
 | JC-12 | Decide one judge vs jury per criterion: one judge + code for referenced facts and rules; jury of three for subjective, high-stakes criteria; validate whichever is chosen | BL | 2 h | JC-4 | decision per criterion recorded |
+| JC-13 | **(priority)** Quote-and-verify: judges return verbatim evidence; code checks each quote against the retrieved passages; a missing quote makes the verdict INVALID | BL | 2-3 h | JC-9 | INVALID count reported per run |
+| JC-14 | **(priority)** Correctness as fact sorting (TP / FP / FN against `required_facts`), scores computed in code; any FP on safety topics fails | BL | 3 h | JC-10 | precision and recall per answer, from code |
+| JC-15 | Shuffle passage and candidate order in every judge call; strict JSON schema with one retry, then INVALID | BL, ARL | 1-2 h | JC-8 | shuffling and schema check in the judge wrapper |
+| JC-16 | Planted judge tests: tiny cases with known verdicts (one clear pass, one clear fail per criterion) run against the real judge model in CI | BL | 2 h | JC-8 | planted cases pass before any eval run |
 
 ### ADR seed (builders_lab): "The answer judge is validated as a classifier before it gates"
 
@@ -719,6 +745,10 @@ rate's lower bound (topic 5) plus a non-inferiority check against the last relea
 
 **Sources:** thin in the LLM literature; general statistics texts on non-inferiority and
 equivalence testing; Miller 2024 for the paired interval.
+**Real example:** i.AI Consult's CI gate checks regression against a baseline from 3+ runs,
+with tolerance max(0.05, 3 x stdev), and marks judge errors INVALID
+(`notes/uk-government-ai-evals/notes.md`). GOV.UK Chat's rule: a change must improve one
+criterion without making the others worse.
 
 ### Criteria
 
@@ -737,6 +767,7 @@ equivalence testing; Miller 2024 for the paired interval.
 | NI-2 | Set a non-inferiority margin per key metric from NI-1 | BL | 1 h | NI-1 | margins written with their reason |
 | NI-3 | Gate code: block if the lower CI bound of the paired difference < −margin, per segment | BL | 3 h | PC-1, NI-2 | gate runs on each release candidate |
 | NI-4 | Keep absolute floors, on the corrected rate's lower bound | BL | 1 h | CR-1 | floors read corrected rates |
+| NI-5 | Consult-style regression gate as a first step: baseline from 3+ runs; fail if a metric drops by more than max(0.05, 3 x run-to-run stdev); judge or evaluator errors mark the run INVALID, not failed | BL | 2-3 h | NI-1 | gate in CI with INVALID kept separate |
 
 ### ADR seed (builders_lab): "Release gates test non-inferiority with a measured margin"
 
@@ -1033,6 +1064,31 @@ both contexts together beat either one (Han et al. 2025).
   tested with the 8-step fair test.
 - **Options considered:** build GraphRAG now; never use graphs; the proposal above.
 - **Consequences:** no indexing cost now; per-type reporting makes the case (or not) with data.
+
+---
+
+## What does "pass >= 85%" mean? (from the case studies)
+
+*Sources: `notes/llm-judge-case-studies/case_studies.md`, `notes/uk-government-ai-evals/notes.md`.*
+
+- **Almost nobody publishes a fixed judge pass-rate gate.** Teams with honest numbers check
+  the judge against experts first, aim for judge-human agreement close to human-human
+  agreement, and gate on "no worse than last version" or on matching an expert baseline.
+- **The definition decides the number.** Same legal system: 85% of rubric points vs 43% of
+  questions fully correct. Same judge (Visa): 83% agreement on accept/reject vs 30% on a
+  5-level scale.
+- **Realistic judge agreement:** narrow binary checks 85-93% with experts (kappa 0.7-0.85,
+  e.g. Mayo Clinic 93%); broad or subjective criteria kappa 0.4-0.7; experts often agree
+  with each other only 80-88%.
+- **UK government examples:** Consult sets the bar at human-human level; GOV.UK Chat
+  requires every case to be fully faithful and factually precise; the cross-government
+  testing framework gives example thresholds only (F1 >= 0.85, > 80% acceptable to humans,
+  < 1% prompt-injection success, agent task success >= 90%).
+- **For builders_lab:** define 85% per criterion ("share of answers passing all binary
+  checks" or "share of checks passed": say which); set stricter bars for grounding and
+  safety (any unsupported fact fails); report the judge's agreement with Florin next to
+  human-human agreement; add a regression gate (NI-5) next to any floor; read the floor on
+  the corrected rate (topic 5).
 
 ---
 
