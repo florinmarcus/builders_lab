@@ -45,10 +45,23 @@ def test_lanes_with_extra_fuse_per_lane_and_rerank_on_question():
     assert s.reranked_with == ["question", "question"]
 
 
-def test_paired_sign_test_and_compare():
+def test_paired_compare_by_document_and_holm():
     import paired as PT
-    assert PT.sign_test(0, 0) == 1.0
-    assert PT.sign_test(10, 10) == 1.0
-    assert PT.sign_test(20, 0) < 0.001
     r = PT.compare([True] * 30 + [False] * 10, [True] * 20 + [False] * 20)
-    assert r["diff"] == 0.25 and r["only_a"] == 10 and r["only_b"] == 0 and r["ci95"][0] > 0
+    assert r["diff"] == 0.25 and r["only_a"] == 10 and r["only_b"] == 0 and r["ci95"][0] > 0 and r["p"] < 0.01
+    # the same 10 gains, all from one document: no longer convincing
+    docs = ["d0"] * 10 + [f"d{i}" for i in range(1, 31)]
+    a = [True] * 10 + [True] * 20 + [False] * 10
+    b = [False] * 10 + [True] * 20 + [False] * 10
+    one = PT.compare(a, b, docs)
+    assert one["documents"] == 31 and one["p"] > 0.4
+    assert PT.compare([True] * 5, [True] * 5)["p"] == 1.0
+    assert PT.holm([0.01, 0.04, 0.03]) == [0.03, 0.06, 0.06]
+
+
+def test_found_counts_accepted_sections(monkeypatch):
+    import paired as PT
+    monkeypatch.setattr(PT, "acceptable", lambda: {"q1": ("other:s-2",)})
+    row = {"id": "q1", "expected": ["law:s-1"], "top5": ["x:a", "other:s-2"]}
+    assert PT.found(row, 8) and not PT.found(dict(row, id="q2"), 8)
+    assert PT.doc(row) == "law"

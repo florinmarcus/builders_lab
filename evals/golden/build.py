@@ -91,9 +91,9 @@ def build(index: dict | None = None) -> dict:
         if (GOLDEN / "labelled").exists() else {}
     pool_path = GOLDEN / "pooled" / "judgments.jsonl"
     acceptable: dict[str, list[str]] = {}
-    if pool_path.exists():  # pooled relevance judging (pool_judge.py): grade 2 = also answers the question
+    if pool_path.exists():  # pooled relevance judging (pool_local.py): "yes" = this passage also answers the question
         for j in read_jsonl(pool_path):
-            if j.get("grade") == 2 and j["section"] in index:
+            if j.get("verdict") == "yes" and j["section"] in index:
                 acceptable.setdefault(j["id"], []).append(j["section"])
     removed_path = GOLDEN / "removed.jsonl"
     removed = {r["id"] for r in read_jsonl(removed_path)} if removed_path.exists() else set()

@@ -30,8 +30,8 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "evals" / "golden"))
 import build as B  # noqa: E402
 sys.path.insert(0, str(ROOT / "evals"))
-from paired import sign_test  # noqa: E402
-from pool_judge import section_text  # noqa: E402
+from paired import compare as paired_compare  # noqa: E402
+from pool_local import section_text  # noqa: E402
 
 RESULTS = ROOT / "evals" / "results"
 OUT = ROOT / "evals" / "golden" / "pooled" / "answer-sets-v2.jsonl"
@@ -190,8 +190,10 @@ def compare(primary: list[dict], questions: dict[str, dict]) -> int:
         only_y = [i for i in ids if g[(i, y)] == 2 and g[(i, x)] < 2]
         up = sum(g[(i, x)] > g[(i, y)] for i in ids)
         down = sum(g[(i, x)] < g[(i, y)] for i in ids)
-        print(f"{x} vs {y} (n={len(ids)}): full answer only in {x} {len(only_x)}, only in {y} {len(only_y)}, "
-              f"p {sign_test(len(only_x), len(only_y)):.3f}; any grade better {up}, worse {down}, p {sign_test(up, down):.3f}")
+        docs = [(questions[i].get("expected_sections") or [i])[0].split(":")[0] for i in ids]
+        r = paired_compare([g[(i, x)] == 2 for i in ids], [g[(i, y)] == 2 for i in ids], docs)
+        print(f"{x} vs {y} (n={len(ids)}, {r['documents']} documents): full answer only in {x} {len(only_x)}, "
+              f"only in {y} {len(only_y)}, p {r['p']:.3f}, 95% CI {r['ci95']}; any grade better {up}, worse {down}")
     print("\nNot a full answer, by role (mixed8 / lanes2 / fused8 / lanesfused2):")
     roles = collections.defaultdict(lambda: collections.Counter())
     for (i, s), grade in g.items():

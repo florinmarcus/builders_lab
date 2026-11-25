@@ -1,7 +1,9 @@
 """Retrieval metrics (agentic-rag-lab method, research/methods/agentic-rag-lab-lessons.md section 2).
 
 Scoring uses section keys ("<source_id>:<section_id>"), never chunk text, so any chunker can be scored
-against the same labels. A question counts as found if ANY expected section is in the list.
+against the same labels. A question counts as found if ANY expected section, or any section the pool judge accepted
+for it (row "accepted", from golden "also_acceptable"; evals/experiments/L1-pooled-labels.md), is in the list.
+nDCG and all@k use the expected sections only: they grade the labelled rules.
 """
 
 from __future__ import annotations
@@ -76,18 +78,20 @@ def summarise(rows: list[dict]) -> dict:
     if not scored:
         return {"questions": 0}
     mean = lambda f: round(sum(f(r) for r in scored) / len(scored), 4)  # noqa: E731
+    ok = lambda r: list(r["expected"]) + list(r.get("accepted") or [])  # noqa: E731
     out = {
         "questions": len(scored),
-        "recall@50": mean(lambda r: recall_at(r["expected"], r["candidates"], 50)),
-        "recall@5": mean(lambda r: recall_at(r["expected"], r["top5"], 5)),
-        "recall@5_before_rerank": mean(lambda r: recall_at(r["expected"], r["candidates"], 5)),
-        "mrr@5": mean(lambda r: reciprocal_rank(r["expected"], r["top5"])),
+        "with_accepted": sum(1 for r in scored if r.get("accepted")),
+        "recall@50": mean(lambda r: recall_at(ok(r), r["candidates"], 50)),
+        "recall@5": mean(lambda r: recall_at(ok(r), r["top5"], 5)),
+        "recall@5_before_rerank": mean(lambda r: recall_at(ok(r), r["candidates"], 5)),
+        "mrr@5": mean(lambda r: reciprocal_rank(ok(r), r["top5"])),
         "ndcg@5": mean(lambda r: ndcg_at(r["expected"], r["top5"])),
     }
     longest = max(len(r["top5"]) for r in scored)  # "top5" holds every re-ranked passage kept (EVAL_KEEP, up to 20)
-    for k in (10, 20):
+    for k in (8, 10, 20):
         if longest >= k:
-            out[f"recall@{k}"] = mean(lambda r, k=k: recall_at(r["expected"], r["top5"], k))
+            out[f"recall@{k}"] = mean(lambda r, k=k: recall_at(ok(r), r["top5"], k))
     multi = [r for r in scored if r.get("multi_rule") and len(r["expected"]) > 1]
     if multi:
         out["all@5_multi"] = round(sum(all_at(r["expected"], r["top5"]) for r in multi) / len(multi), 4)
@@ -95,11 +99,11 @@ def summarise(rows: list[dict]) -> dict:
             out["all@10_multi"] = round(sum(all_at(r["expected"], r["top5"], 10) for r in multi) / len(multi), 4)
     by_kind: dict[str, list] = {}
     for r in scored:
-        by_kind.setdefault(r.get("kind", "?"), []).append(recall_at(r["expected"], r["top5"], 5))
+        by_kind.setdefault(r.get("kind", "?"), []).append(recall_at(ok(r), r["top5"], 5))
     out["recall@5_by_kind"] = {k: round(sum(v) / len(v), 4) for k, v in sorted(by_kind.items())}
     by_role: dict[str, list] = {}
     for r in scored:
-        by_role.setdefault(r.get("role", "?"), []).append(recall_at(r["expected"], r["top5"], 5))
+        by_role.setdefault(r.get("role", "?"), []).append(recall_at(ok(r), r["top5"], 5))
     out["recall@5_by_role"] = {k: round(sum(v) / len(v), 4) for k, v in sorted(by_role.items())}
     lat = sorted(r.get("latency_ms", 0) for r in scored)
     out["latency_p50_ms"] = lat[len(lat) // 2]

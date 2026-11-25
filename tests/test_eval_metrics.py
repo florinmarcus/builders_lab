@@ -96,3 +96,9 @@ def test_lane_scores_check_each_label_in_its_own_lane():
     assert s["law"]["recall@2"] == 1.0 and s["guidance"]["recall@2"] == 0.0 and s["guidance"]["recall@5"] == 1.0
     assert s["approved-document"]["questions"] == 0
     assert s["any"] == 1.0 and s["every_lane"] == 0.0
+
+
+def test_summarise_counts_accepted_sections_as_found_but_not_for_ndcg():
+    row = {"expected": ["law:s-1"], "accepted": ["guide:p-3"], "candidates": ["guide:p-3"], "top5": ["guide:p-3"]}
+    s = M.summarise([row])
+    assert s["recall@5"] == 1.0 and s["mrr@5"] == 1.0 and s["ndcg@5"] == 0.0 and s["with_accepted"] == 1

@@ -1,18 +1,22 @@
-"""Pooled relevance judging, judged locally in Claude Code (25 Nov 2026; replaces the Bedrock judge in pool_judge.py).
+"""Pooled relevance judging: which retrieved passages also answer a dev question (25 Nov 2026).
 
-The rule since ADR 0017: no model on AWS. So the judge is a Claude Code subagent, and this file only does the plain
-parts: build the pool, write judging packets, read the judgments back.
+Labels written by one labeller are narrow: a GOV.UK booklet can answer a party wall question as well as the Act the
+labeller chose. The pool is every passage in a run's top k for a dev question that does not already touch an expected
+section. A judge decides each passage with one yes/no question (POOL-JUDGE-BRIEF.md). "yes" becomes
+"also_acceptable" in questions.jsonl (build.py), and "found" counts it like an expected section.
 
-    python evals/golden/pool_local.py packets --runs B1-v2-mixed-dev B2-v2-lanes-dev --k 10 --out DIR
-    python evals/golden/pool_local.py merge --judged DIR/judged-packet-*.jsonl     # -> pooled/judgments-v2.jsonl
-    python evals/golden/pool_local.py merge --judged DIR/judged-recheck-*.jsonl --to evals/golden/pooled/recheck-v2.jsonl
+No model on AWS (ADR 0017): the judge is a Claude Code subagent. This file does the plain parts: build the pool,
+write packets, read the verdicts back.
 
-The pool: every section in any run's re-ranked top k (k=10, and every lane's top k) for a dev question with
-expected sections, that does not already touch an expected section. Holdout questions are never pooled. Packets
-hold the question, the reference answer and the section text (corpus text: they stay in the scratchpad, never in
-git). The judge grades blind (it does not know which run found a section), with the same scale as pool_judge.py:
-2 = the section itself states the answer or the rule the reference answer rests on; 1 = related or partial;
-0 = not relevant. judgments-v2.jsonl holds ids, section keys, grades and a one-sentence reason (no corpus text).
+    python evals/golden/pool_local.py packets --runs B1-v2-mixed-k20-dev-dev B3-v2-fused-k20-dev-dev --k 8 \\
+        --sample 60 --out DIR                                                 # DIR/packet-*.jsonl, DIR/recheck-*.jsonl
+    python evals/golden/pool_local.py merge --judged DIR/judged-packet-*.jsonl              # -> pooled/judgments.jsonl
+    python evals/golden/pool_local.py merge --judged DIR/judged-recheck-*.jsonl --to evals/golden/pooled/recheck.jsonl
+
+--sample N picks N dev questions at random (seeded), so a first pass measures the whole set, not just misses.
+Holdout questions are never pooled. Packets hold the question, the reference answer and the passage text (corpus
+text: they stay in the scratchpad, never in git). The judge does not know which run found a passage.
+judgments.jsonl holds ids, section keys, the verdict, a one-sentence reason and the judge name (no corpus text).
 """
 
 from __future__ import annotations
@@ -29,26 +33,44 @@ sys.path.insert(0, str(ROOT / "evals"))
 sys.path.insert(0, str(ROOT / "evals" / "golden"))
 import build as B  # noqa: E402
 import metrics as M  # noqa: E402
-from pool_judge import SYSTEM, section_text  # noqa: E402,F401  (same scale and section text as before)
 
 RESULTS = ROOT / "evals" / "results"
-OUT = ROOT / "evals" / "golden" / "pooled" / "judgments-v2.jsonl"
+OUT = ROOT / "evals" / "golden" / "pooled" / "judgments.jsonl"
+VERDICTS = ("yes", "no")
+
+
+def section_text(index: dict, key: str) -> str:
+    """A section's own text, or (for a heading) the text of its children, with its breadcrumb."""
+    s = index.get(key)
+    if not s:
+        return ""
+    text = s.get("text") or ""
+    if len(text) < 200:
+        src = key.split(":")[0]
+        kids = [v.get("text") or "" for k, v in index.items() if k.startswith(f"{src}:") and v.get("parent_id") == s["id"]]
+        text = (text + "\n" + "\n".join(kids)).strip()
+    return " > ".join(s.get("heading_path") or []) + "\n" + text
 
 
 def keys_of(row: dict, k: int) -> list[str]:
-    out = [x[0] for x in (row.get("reranked") or [])[:k]]
+    """The passages a run showed: its first k (lanes: every lane's first k)."""
+    out = list((row.get("top5") or [x[0] for x in row.get("reranked") or []])[:k])
     for lane in (row.get("lanes") or {}).values():
         out += [x[0] for x in (lane.get("reranked") or [])[:k]]
     return list(dict.fromkeys(out))
 
 
-def pool(questions: dict, runs: list[str], k: int, done: set) -> list[tuple[str, str]]:
+def dev_ids(questions: dict) -> list[str]:
+    return sorted(q for q, v in questions.items() if v.get("split") == "dev" and v.get("expected_sections"))
+
+
+def pool(questions: dict, runs: list[str], k: int, ids: set[str], done: set) -> list[tuple[str, str]]:
     pairs = []
     for run in runs:
         for line in (RESULTS / f"{run}.jsonl").read_text(encoding="utf-8").splitlines():
             r = json.loads(line)
             q = questions.get(r["id"])
-            if not q or q.get("split") != "dev" or not q.get("expected_sections"):
+            if r["id"] not in ids or not q:
                 continue
             for key in keys_of(r, k):
                 if (r["id"], key) in done or any(M.touches(e, key) for e in q["expected_sections"]):
@@ -65,54 +87,62 @@ def write(out: Path, name: str, rows: list[dict], size: int) -> None:
                 f.write(json.dumps(r, ensure_ascii=False) + "\n")
 
 
+def read_jsonl(p: Path) -> list[dict]:
+    return [json.loads(l) for l in p.read_text(encoding="utf-8").splitlines() if l.strip()] if p.exists() else []
+
+
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest="cmd", required=True)
     p = sub.add_parser("packets")
     p.add_argument("--runs", nargs="+", required=True)
-    p.add_argument("--k", type=int, default=10)
+    p.add_argument("--k", type=int, default=8)
+    p.add_argument("--sample", type=int, help="this many random dev questions (default: all dev questions)")
     p.add_argument("--out", required=True)
-    p.add_argument("--size", type=int, default=10, help="pairs per packet")
+    p.add_argument("--size", type=int, default=20, help="pairs per packet")
     p.add_argument("--recheck", type=float, default=0.10, help="share of pairs judged again, in other batches")
     p.add_argument("--seed", type=int, default=25)
     m = sub.add_parser("merge")
     m.add_argument("--judged", nargs="+", required=True)
-    m.add_argument("--to", default=str(OUT), help="judgments-v2.jsonl (primary judge) or recheck-v2.jsonl")
+    m.add_argument("--to", default=str(OUT), help="judgments.jsonl (primary judge) or recheck.jsonl")
     a = ap.parse_args(argv)
-    questions = {q["id"]: q for q in map(json.loads, (ROOT / "evals/golden/questions.jsonl").read_text(encoding="utf-8").splitlines())}
+    questions = {q["id"]: q for q in read_jsonl(ROOT / "evals/golden/questions.jsonl")}
     if a.cmd == "packets":
-        done = {(j["id"], j["section"]) for j in map(json.loads, OUT.read_text().splitlines())} if OUT.exists() else set()
-        pairs = pool(questions, a.runs, a.k, done)
+        ids = dev_ids(questions)
+        if a.sample:
+            ids = sorted(random.Random(a.seed).sample(ids, a.sample))
+        done = {(j["id"], j["section"]) for j in read_jsonl(OUT)}
+        pairs = pool(questions, a.runs, a.k, set(ids), done)
         index = B.section_index()
         out = Path(a.out)
         out.mkdir(parents=True, exist_ok=True)
-        rows = []
+        (out / "questions.txt").write_text("\n".join(ids) + "\n")
         random.Random(a.seed).shuffle(pairs)  # mixed across questions: no batch holds one question's passages in a row
-        for qid, key in pairs:
-            q = questions[qid]
-            rows.append({"id": qid, "section": key, "question": q["question"], "reference_answer": q.get("reference_answer"),
-                         "passage": section_text(index, key)[:6000]})
+        rows = [{"id": qid, "section": key, "question": questions[qid]["question"],
+                 "reference_answer": questions[qid].get("reference_answer"), "passage": section_text(index, key)[:6000]}
+                for qid, key in pairs]
         write(out, "packet", rows, a.size)
         sample = random.Random(a.seed + 1).sample(rows, round(len(rows) * a.recheck))  # reshuffled: other neighbours
         write(out, "recheck", sample, a.size)
-        print(f"re-check sample: {len(sample)} pairs")
-        print(f"{len(rows)} pairs from {len(a.runs)} runs, {len({r['id'] for r in rows})} questions, "
-              f"{(len(rows) + a.size - 1) // a.size} packets in {out}")
+        print(f"{len(rows)} pairs from {len(a.runs)} runs, {len({r['id'] for r in rows})} of {len(ids)} questions, "
+              f"{(len(rows) + a.size - 1) // a.size} packets; re-check {len(sample)} pairs; in {out}")
         return 0
     to = Path(a.to)
-    seen = {(j["id"], j["section"], j.get("judge")) for j in map(json.loads, to.read_text().splitlines())} if to.exists() else set()
-    n = 0
+    seen = {(j["id"], j["section"], j.get("judge")) for j in read_jsonl(to)}
+    n = bad = 0
     with open(to, "a", encoding="utf-8") as f:
         for path in sorted({p for g in a.judged for p in glob.glob(g)}):
-            for line in Path(path).read_text(encoding="utf-8").splitlines():
-                j = json.loads(line)
-                if j.get("grade") not in (0, 1, 2) or (j["id"], j["section"], j.get("judge")) in seen:
+            for j in read_jsonl(Path(path)):
+                if j.get("verdict") not in VERDICTS:
+                    bad += 1
+                    continue
+                if (j["id"], j["section"], j.get("judge")) in seen:
                     continue
                 seen.add((j["id"], j["section"], j.get("judge")))
-                f.write(json.dumps({"id": j["id"], "section": j["section"], "grade": j["grade"],
+                f.write(json.dumps({"id": j["id"], "section": j["section"], "verdict": j["verdict"],
                                     "reason": j.get("reason", "")[:300], "judge": j.get("judge", "claude-local")}) + "\n")
                 n += 1
-    print(f"merged {n} judgments into {to}")
+    print(f"merged {n} verdicts into {to}" + (f"; {bad} lines without a yes/no verdict skipped" if bad else ""))
     return 0
 
 

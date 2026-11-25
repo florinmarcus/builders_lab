@@ -9,7 +9,9 @@ loses a must-pass question. Dev only: the holdout is never used for tuning.
     python evals/gate.py must-pass                            # (re)pick the must-pass list from the baseline
 
 The run itself: `python evals/retrieval.py ... --split dev` (see evals/experiments/B-mixed-vs-lanes.md).
-"Found": an expected section in the first N passages (lanes: N/4 per lane). N is fixed in the baseline (8).
+"Found": as in paired.py (an expected or accepted section in the first N passages; lanes: N/4 per lane). N is fixed
+in the baseline (8). The paired test groups questions by source document. When the labels change (new pool
+verdicts), set the baseline again: its "found" was computed with the old labels.
 """
 
 from __future__ import annotations
@@ -70,7 +72,8 @@ def check(baseline: dict, new: dict[str, bool], must: list[str]) -> dict:
     old = baseline["found"]
     ids = sorted(set(old) & set(new))
     missing = sorted(set(old) - set(new))
-    r = P.compare([new[q] for q in ids], [old[q] for q in ids])
+    docs = baseline.get("docs") or {}
+    r = P.compare([new[q] for q in ids], [old[q] for q in ids], [docs.get(q, q) for q in ids])
     lost = [q for q in ids if old[q] and not new[q]]
     gained = [q for q in ids if new[q] and not old[q]]
     score_old = sum(old[q] for q in ids) / len(ids)
@@ -116,7 +119,7 @@ def main(argv: list[str] | None = None) -> int:
 
     if a.cmd == "baseline":
         base = {"run": a.run, "n": a.n, "set": datetime.date.today().isoformat(), "commit": git_head(),
-                "found": found_map(rows, a.n)}
+                "found": found_map(rows, a.n), "docs": {q: P.doc(r) for q, r in sorted(rows.items())}}
         BASELINE.write_text(json.dumps(base, indent=0) + "\n")
         hits = sum(base["found"].values())
         print(f"baseline {a.run}: found {hits}/{len(base['found'])} at {a.n} passages -> {BASELINE.relative_to(HERE.parent)}")

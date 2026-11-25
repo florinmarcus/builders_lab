@@ -29,6 +29,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "evals"))
 import metrics as M  # noqa: E402
+import paired as P  # noqa: E402
 
 RESULTS = ROOT / "evals" / "results"
 GOLDEN = ROOT / "evals" / "golden" / "questions.jsonl"
@@ -89,20 +90,12 @@ def apply_floor(reranked: list, floor: float) -> tuple[list, list, list]:
     return [r[0] for r in kept], [r[1] for r in kept], [r[2] for r in kept]
 
 
-def pooled(rows: list[dict], path: Path = GOLDEN) -> dict:
-    """Recall with the pooled labels: expected sections plus sections the pool judge graded as also answering
-    (golden questions.jsonl "also_acceptable", dev only). Strict numbers stay the headline next to these."""
-    acc = {q["id"]: q.get("also_acceptable") or [] for q in map(json.loads, path.read_text(encoding="utf-8").splitlines())}         if path.exists() else {}
-    scored = [r for r in rows if r.get("expected")]
-    if not scored:
-        return {"questions": 0}
-    ext = lambda r: r["expected"] + acc.get(r["id"], [])  # noqa: E731
-    mean = lambda f: round(sum(f(r) for r in scored) / len(scored), 4)  # noqa: E731
-    return {"questions": len(scored), "with_acceptable": sum(1 for r in scored if acc.get(r["id"])),
-            "recall@50": mean(lambda r: M.recall_at(ext(r), r["candidates"], 50)),
-            "recall@5": mean(lambda r: M.recall_at(ext(r), r["top5"], 5)),
-            **({f"recall@{k}": mean(lambda r, k=k: M.recall_at(ext(r), r["top5"], k)) for k in (10, 20) if KEEP >= k}),
-            "mrr@5": mean(lambda r: M.reciprocal_rank(ext(r), r["top5"]))}
+def with_accepted(rows: list[dict]) -> list[dict]:
+    """Attach the pool judge's accepted sections (golden "also_acceptable", dev only) so "found" has one meaning."""
+    acc = P.acceptable()
+    for r in rows:
+        r["accepted"] = list(acc.get(r["id"], ()))
+    return rows
 
 
 def rescore(name: str, split: str, floor: float) -> dict:
@@ -110,14 +103,14 @@ def rescore(name: str, split: str, floor: float) -> dict:
     rows = [json.loads(l) for l in (RESULTS / f"{name}-{split}.jsonl").read_text(encoding="utf-8").splitlines() if l.strip()]
     for r in rows:
         r["top5"], r["scores"], r["top5_chunks"] = apply_floor(r["reranked"], floor)
+    with_accepted(rows)
     empty = sum(1 for r in rows if not r["top5"])
     by_kind_empty: dict[str, list] = {}
     for r in rows:
         by_kind_empty.setdefault(r.get("kind", "?"), []).append(not r["top5"])
     return {"run": name, "floor": floor, "empty_top5": empty, "rows": len(rows),
             "empty_by_kind": {k: round(sum(v) / len(v), 3) for k, v in sorted(by_kind_empty.items())},
-            **M.summarise(rows), "in_corpus": M.summarise([r for r in rows if r.get("in_corpus")]),
-            "pooled": pooled(rows), "pooled_in_corpus": pooled([r for r in rows if r.get("in_corpus")])}
+            **M.summarise(rows), "in_corpus": M.summarise([r for r in rows if r.get("in_corpus")])}
 
 
 # E3: the plugin's regulations specialist writes the search queries (ADR 0006: the model runs in Claude, not on
@@ -380,7 +373,7 @@ def run(name: str, schema: str, split: str, pace: float, limit: int | None) -> d
                                 "run": f"{name}-{split}", "model": REWRITE_MODEL, "unit": "tokens", "in": rw_tokens[0],
                                 "out": rw_tokens[1], "cost_usd": round(rw_cost, 4), "price_note": "estimate, verify"}) + "\n")
     summary = {"run": name, "split": split, "time": datetime.datetime.now(datetime.UTC).replace(tzinfo=None).isoformat(timespec="seconds") + "Z",
-               "config": cfg, "cost_usd_this_call": round(cost, 4), **M.summarise(rows),
+               "config": cfg, "cost_usd_this_call": round(cost, 4), **M.summarise(with_accepted(rows)),
                "in_corpus": M.summarise([r for r in rows if r.get("in_corpus")])}
     if cfg["lanes"] == "1":
         summary["lanes"] = lane_scores(rows, cfg["per_lane"])
