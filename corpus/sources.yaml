@@ -1161,8 +1161,8 @@ sources:
   topics: [asbestos]
   why: The Approved Code of Practice HSE enforces against; training, NNLW, plans of work.
   status: current
-  notes: Landing page https://www.hse.gov.uk/pubns/books/l143.htm. New edition expected after SI 2026/1153; re-check monthly.
-  checked: 2026-11-19
+  notes: Landing page https://www.hse.gov.uk/pubns/books/l143.htm. New edition expected after SI 2026/1153; re-check monthly. Watch, 25 Nov 2026. HSE's consultation response on the asbestos amendments (results updated 3 Nov 2026) says L143 will be updated later this year. Not yet published; keep the 2013 edition until then. Note for us only; search answers say nothing about it.
+  checked: 2026-11-25
   parser: {module: parse_pdf}
   fetch: {method: url}
 
@@ -1228,8 +1228,8 @@ sources:
   topics: [asbestos, voids]
   why: Four-stage clearance and reoccupation certificates that councils ask for.
   status: current
-  notes: 15 MB. HSE will update it after SI 2026/1153; re-check monthly.
-  checked: 2026-11-19
+  notes: 15 MB. HSE will update it after SI 2026/1153; re-check monthly. Watch, 25 Nov 2026. HSE's consultation response (results updated 3 Nov 2026) says HSG248 will be updated later this year, including the amended regulation 20 on clearance analyst independence. Not yet published; keep the 2021 edition until then. Note for us only; search answers say nothing about it.
+  checked: 2026-11-25
   parser: {module: parse_pdf}
   fetch: {method: url}
 
@@ -1488,8 +1488,8 @@ sources:
   topics: [asbestos]
   why: Listed so we know it is gone.
   status: withdrawn
-  notes: Withdrawn, so link only (22 Nov 2026, ADR 0016 job); .htm and .pdf both 404 on 2026-11-19 and 2026-11-22 (inventory B finding 1). No raw file and no record; nothing to parse. 404 on 2026-11-19. URL built from the HSE pattern in inventory B.
-  checked: 2026-11-22
+  notes: Withdrawn, so link only (22 Nov 2026, ADR 0016 job); .htm and .pdf both 404 on 2026-11-19 and 2026-11-22 (inventory B finding 1). No raw file and no record; nothing to parse. 404 on 2026-11-19. URL built from the HSE pattern in inventory B. Gap fetch 25 Nov 2026 (S145). Still 404 and not in HSE's asbestos index.
+  checked: 2026-11-25
   fetch: {method: none}
 
 # ---------------------------------------------------------------------------
@@ -2623,8 +2623,8 @@ sources:
   topics: [electrical, standards]
   why: Referenced by AD P and the electrical safety standards; basis of EICRs and consumer unit changes.
   status: current
-  notes: In inventories A, B and D. A4 published 15 Apr 2026. Withdrawal of A2:2022+A3:2024 on 15 Oct 2026 per BSI shop page and a search snippet; not confirmed on IET page. BSI article https://knowledge.bsigroup.com/articles/bs-7671-2018-a4-2026-get-the-latest-amendment-to-the-uks-wiring-regulations.
-  checked: 2026-11-19
+  notes: In inventories A, B and D. A4 published 15 Apr 2026. Withdrawal of A2:2022+A3:2024 on 15 Oct 2026 per BSI shop page and a search snippet; not confirmed on IET page. BSI article https://knowledge.bsigroup.com/articles/bs-7671-2018-a4-2026-get-the-latest-amendment-to-the-uks-wiring-regulations. Gap fetch 25 Nov 2026 (S145). BSI page confirms A2 and A3 withdrawn 15 Oct 2026.
+  checked: 2026-11-25
   fetch: {method: none}
 
 - id: iet-onsite-guide
@@ -3869,7 +3869,8 @@ sources:
   topics: [fire, standards]
   why: Cited in AD B Vol 1; replaces national BS 476 classes.
   status: current
-  checked: 2026-11-19
+  notes: Gap fetch 25 Nov 2026 (S145). Part 3 withdrawn 15 Aug 2025; other parts not checked.
+  checked: 2026-11-25
   fetch: {method: none}
 
 - id: bs-476
@@ -3904,7 +3905,7 @@ sources:
   fetch: {method: none}
 
 - id: bs-8214
-  title: BS 8214 Timber-based fire door assemblies (installation)
+  title: "BS 8214:2026 Fire door assemblies (installation), all materials"
   publisher: BSI
   url: https://knowledge.bsigroup.com/
   kind: standard
@@ -3915,7 +3916,8 @@ sources:
   topics: [fire, standards]
   why: Fire door installation, cited in AD B Vol 1.
   status: current
-  checked: 2026-11-19
+  notes: Gap fetch 25 Nov 2026 (S145). BS 8214:2026 covers fire doors of all materials and supersedes BS 8214:2016 (timber-based), now withdrawn. BSI's history list still shows 2016 as current; the product page wins.
+  checked: 2026-11-25
   fetch: {method: none}
 
 - id: bs-5839
@@ -4200,7 +4202,8 @@ sources:
   topics: [standards]
   why: Stairs, cited in AD K.
   status: current
-  checked: 2026-11-19
+  notes: Gap fetch 25 Nov 2026 (S145). Part 3 (1985) withdrawn 31 Oct 2015; part 2 (1984) current.
+  checked: 2026-11-25
   fetch: {method: none}
 
 - id: bs-en-12056
@@ -4274,8 +4277,9 @@ sources:
   priority: 3
   topics: [sanitation, standards]
   why: Cited in AD G.
-  status: current
-  checked: 2026-11-19
+  status: withdrawn
+  notes: Gap fetch 25 Nov 2026 (S145). BSI shows BS 6700:2006+A1:2009 withdrawn 1 Aug 2012; the page names BS 8558, with BS EN 806, in its place. AD G still cites BS 6700.
+  checked: 2026-11-25
   fetch: {method: none}
 
 - id: bs-8515
@@ -4289,8 +4293,9 @@ sources:
   priority: 3
   topics: [sanitation, standards]
   why: Cited in AD G.
-  status: current
-  checked: 2026-11-19
+  status: withdrawn
+  notes: Gap fetch 25 Nov 2026 (S145). BSI shows BS 8515:2009+A1:2013 withdrawn 19 Jul 2018 and lists BS EN 16941-1:2024 (on-site non-potable water systems, rainwater) as current. AD G still cites BS 8515.
+  checked: 2026-11-25
   fetch: {method: none}
 
 - id: bs-6465
@@ -4334,8 +4339,9 @@ sources:
   priority: 3
   topics: [standards]
   why: Sound testing, cited in AD E.
-  status: current
-  checked: 2026-11-19
+  status: withdrawn
+  notes: Gap fetch 25 Nov 2026 (S145). Only parts 4 and 7 were reached; BSI shows both withdrawn. Successor not confirmed (BS EN ISO 16283? Florin checks, corpus/gaps-to-read.md).
+  checked: 2026-11-25
   fetch: {method: none}
 
 - id: pas-24

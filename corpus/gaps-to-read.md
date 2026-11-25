@@ -27,6 +27,6 @@ Read them yourself only. Do not paste text from them. Note only what they cover.
 
 ## Gone or moved
 
-- [ ] **HSE INDG289** (asbestos leaflet). Not on HSE's site any more. Is it withdrawn? If so, remove it from `sources.yaml`. https://www.hse.gov.uk/pubns/indg289.htm
+- [x] **HSE INDG289** (asbestos leaflet). Still 404 on 25 Nov 2026 and not in HSE's asbestos index. Kept in `sources.yaml` as withdrawn, link only, so we know it is gone. Only check if you see it anywhere. https://www.hse.gov.uk/pubns/indg289.htm
 - [ ] **HSE INDG223** (Managing asbestos in buildings). The English page gives 404. We only found a Welsh copy. https://www.hse.gov.uk/pubns/indg223.htm
 - [ ] **HSE INDG188** (asbestos leaflet). The English page gives 404. We only found a Welsh copy. https://www.hse.gov.uk/pubns/indg188.htm
