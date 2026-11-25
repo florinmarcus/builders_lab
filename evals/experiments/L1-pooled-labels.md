@@ -132,5 +132,23 @@ after Florin's check, together with the gate baseline (S151). Florin's 100-passa
 the judge's error rates are weighted to the v2 pool rate (17% yes).
 
 **Next, after Florin's check:** apply his rule fixes and re-judge only those questions; `human.jsonl`; true
-positive and true negative rates against him; fix or downgrade the labels in the table above (S116); rebuild
-`questions.jsonl`; set the gate baseline again.
+positive and true negative rates against him; rebuild `questions.jsonl`; set the gate baseline again.
+
+## Weak labels fixed (25 Nov, late)
+
+The nine questions in the table above were relabelled by `evals/golden/relabel.py` (log
+`evals/golden/relabel-2026-11-25.jsonl`, questions marked labels_version v4, same change in `labelled/`). The test:
+does the section, on its own, state at least one of the question's rules? Three replaced: building-control-043 now
+points to PD guide Class A text-4 (A.1(f), A.1(g), A.4 with the 42 days); site-safety-008 to L153 para 53 and the CDM
+reg 2 definition of domestic client. Seven dropped, each question keeps at least two labels: party wall s2(2),
+ADL para 10.3, CAR amendment reg 2(3), CAR reg 22(3), BR Schedule 1 J3, HFHH Act s1(4), CIS regs reg 28 (Finance
+Act 2004 Schedule 11, which holds the per-director rule, is not in the corpus). Decided by Claude; Florin checks them.
+
+Found in the first 8 with the new labels (same runs, expected sections swapped):
+
+| | B1 | B3 | B6 | B7 |
+|---|---|---|---|---|
+| Labelled section only | 0.733 | 0.700 | 0.767 | 0.783 |
+| Labelled or judged yes, v2 | 0.867 | 0.867 | 0.917 | 0.900 |
+
+At most one question moves per run.
