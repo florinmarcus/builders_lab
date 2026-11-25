@@ -4,7 +4,8 @@ The rule since ADR 0017: no model on AWS. So the judge is a Claude Code subagent
 parts: build the pool, write judging packets, read the judgments back.
 
     python evals/golden/pool_local.py packets --runs B1-v2-mixed-dev B2-v2-lanes-dev --k 10 --out DIR
-    python evals/golden/pool_local.py merge --judged DIR/judged-*.jsonl     # -> pooled/judgments-v2.jsonl
+    python evals/golden/pool_local.py merge --judged DIR/judged-packet-*.jsonl     # -> pooled/judgments-v2.jsonl
+    python evals/golden/pool_local.py merge --judged DIR/judged-recheck-*.jsonl --to evals/golden/pooled/recheck-v2.jsonl
 
 The pool: every section in any run's re-ranked top k (k=10, and every lane's top k) for a dev question with
 expected sections, that does not already touch an expected section. Holdout questions are never pooled. Packets
@@ -19,6 +20,7 @@ from __future__ import annotations
 import argparse
 import glob
 import json
+import random
 import sys
 from pathlib import Path
 
@@ -56,6 +58,13 @@ def pool(questions: dict, runs: list[str], k: int, done: set) -> list[tuple[str,
     return pairs
 
 
+def write(out: Path, name: str, rows: list[dict], size: int) -> None:
+    for i in range(0, len(rows), size):
+        with open(out / f"{name}-{i // size:03d}.jsonl", "w", encoding="utf-8") as f:
+            for r in rows[i:i + size]:
+                f.write(json.dumps(r, ensure_ascii=False) + "\n")
+
+
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -63,9 +72,12 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--runs", nargs="+", required=True)
     p.add_argument("--k", type=int, default=10)
     p.add_argument("--out", required=True)
-    p.add_argument("--size", type=int, default=40, help="pairs per packet")
+    p.add_argument("--size", type=int, default=10, help="pairs per packet")
+    p.add_argument("--recheck", type=float, default=0.10, help="share of pairs judged again, in other batches")
+    p.add_argument("--seed", type=int, default=25)
     m = sub.add_parser("merge")
     m.add_argument("--judged", nargs="+", required=True)
+    m.add_argument("--to", default=str(OUT), help="judgments-v2.jsonl (primary judge) or recheck-v2.jsonl")
     a = ap.parse_args(argv)
     questions = {q["id"]: q for q in map(json.loads, (ROOT / "evals/golden/questions.jsonl").read_text(encoding="utf-8").splitlines())}
     if a.cmd == "packets":
@@ -75,30 +87,32 @@ def main(argv: list[str] | None = None) -> int:
         out = Path(a.out)
         out.mkdir(parents=True, exist_ok=True)
         rows = []
-        for qid, key in sorted(pairs):
+        random.Random(a.seed).shuffle(pairs)  # mixed across questions: no batch holds one question's passages in a row
+        for qid, key in pairs:
             q = questions[qid]
             rows.append({"id": qid, "section": key, "question": q["question"], "reference_answer": q.get("reference_answer"),
                          "passage": section_text(index, key)[:6000]})
-        for i in range(0, len(rows), a.size):
-            with open(out / f"packet-{i // a.size:03d}.jsonl", "w", encoding="utf-8") as f:
-                for r in rows[i:i + a.size]:
-                    f.write(json.dumps(r, ensure_ascii=False) + "\n")
+        write(out, "packet", rows, a.size)
+        sample = random.Random(a.seed + 1).sample(rows, round(len(rows) * a.recheck))  # reshuffled: other neighbours
+        write(out, "recheck", sample, a.size)
+        print(f"re-check sample: {len(sample)} pairs")
         print(f"{len(rows)} pairs from {len(a.runs)} runs, {len({r['id'] for r in rows})} questions, "
               f"{(len(rows) + a.size - 1) // a.size} packets in {out}")
         return 0
-    seen = {(j["id"], j["section"]) for j in map(json.loads, OUT.read_text().splitlines())} if OUT.exists() else set()
+    to = Path(a.to)
+    seen = {(j["id"], j["section"], j.get("judge")) for j in map(json.loads, to.read_text().splitlines())} if to.exists() else set()
     n = 0
-    with open(OUT, "a", encoding="utf-8") as f:
+    with open(to, "a", encoding="utf-8") as f:
         for path in sorted({p for g in a.judged for p in glob.glob(g)}):
             for line in Path(path).read_text(encoding="utf-8").splitlines():
                 j = json.loads(line)
-                if j.get("grade") not in (0, 1, 2) or (j["id"], j["section"]) in seen:
+                if j.get("grade") not in (0, 1, 2) or (j["id"], j["section"], j.get("judge")) in seen:
                     continue
-                seen.add((j["id"], j["section"]))
+                seen.add((j["id"], j["section"], j.get("judge")))
                 f.write(json.dumps({"id": j["id"], "section": j["section"], "grade": j["grade"],
                                     "reason": j.get("reason", "")[:300], "judge": j.get("judge", "claude-local")}) + "\n")
                 n += 1
-    print(f"merged {n} judgments into {OUT.relative_to(ROOT)}")
+    print(f"merged {n} judgments into {to}")
     return 0
 
 
