@@ -3,7 +3,7 @@
 Every corner we cut goes here, so nothing is forgotten after the demo. Use it for code, architecture and security reviews.
 Update it in the same commit as the shortcut. Close an item only when it is done: move it to Closed and say where.
 
-Started 20 Nov 2026. Sorted on 25 Nov 2026 into three groups by when each item must be done: before the firm visits (Sat 28 Nov), before a pilot, later. IDs are never reused; the next free ID is S145 (N23, Q15: N21, N22 and Q14 are taken by ADR 0017 on branch claude/clever-thompson-rh7gee). Closed items are at the end.
+Started 20 Nov 2026. Sorted on 25 Nov 2026 into three groups by when each item must be done: before the firm visits (Sat 28 Nov), before a pilot, later. IDs are never reused; the next free ID is S147 (N23, Q15: N21, N22 and Q14 are taken by ADR 0017 on branch claude/clever-thompson-rh7gee). Closed items are at the end.
 
 ## Before the firm visits (28 Nov)
 
@@ -72,6 +72,8 @@ Started 20 Nov 2026. Sorted on 25 Nov 2026 into three groups by when each item m
 | S100 | No tool tells a user or Claude what the regulations library holds, what it lacks (paywalled British Standards, BS 7671, JCT, out-of-scope subjects), example questions, or how well it finds the right passage | Corpus still being cleaned; numbers worth showing only after the clean re-measure | Users cannot check coverage before relying on an answer. Planned in `evals/PLAN.md`: `about_regulations_library` after the retrieval step |
 | S101 | One MCP server holds both public regulations tools and private firm tools, behind one key and in one process | Built as one server first (ADR 0004) | A regulations bug runs next to private data; corpus and firm releases are coupled. Proposed split: ADR 0015, after the retrieval work |
 | S144 | Evals should run locally in Claude Code with Claude as answerer and judge on Florin's plan (no Bedrock model bill, no pipeline); the overnight evals used Haiku 4.5 and gpt-oss-120b on Bedrock (Renumbered 25 Nov 2026: this item was a second S88; IDs must be unique.) | `evals/` | Port `evals/judge.py` to a Claude Code run (sub-agents answer and judge) |
+| S145 | Gap catalogue: freely reachable pages about the 65 documents we do not hold (`link_only`, `restricted` in `corpus/sources.yaml`: BS 7671, British Standards, JCT, NEC, NHBC, Planning Portal...) are fetched into private storage and summarised by sub-agents, for this private prototype only. Some sites' terms bar scraping or storage (JCT, BSI, Planning Portal). | Florin's call 25 Nov 2026: learning project, not commercial | Ask each publisher for a licence before any commercial use; never commit the raw pages |
+| S146 | Some gold labels are older than the library: e.g. site-safety-062 (planning permission) is out_of_scope, but `gpdo-2015` and `pd-householder-guide` are ingested. The decomposer judge then scores right answers as wrong. | `evals/golden/questions.jsonl` | Recheck out_of_scope labels against `corpus/sources.yaml` with S116 |
 | Q4 | Is a Claude Code scheduled task reliable enough for regular inbox syncs, or do we need Haiku on the server? | ADR 0006 | – |
 | Q6 | Does Florin's employment contract allow this side work, and who owns code he writes outside work? | `requirements/business-plan.md` | – |
 | Q7 | Anthropic's liability cap and data terms for Claude Team (not confirmed) | `requirements/business-plan.md` | – |
