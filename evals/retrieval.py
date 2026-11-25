@@ -36,6 +36,7 @@ TITAN_USD_PER_1K = 0.0001     # London, checked 20 Nov 2026 (system/rag/embed.py
 LANE_KEEP = int(os.environ.get("EVAL_LANE_KEEP", "5"))  # re-ranked passages kept per lane
 KEEP = int(os.environ.get("EVAL_KEEP", "5"))  # re-ranked passages kept per search (same re-rank cost); 20 for recall@10/20 and pooling
 RERANK_USD_PER_QUERY = 0.001  # Amazon Rerank, about $1 per 1,000 queries of up to 100 documents (ADR 0013; verify)
+RERANK_USD = {"amazon.rerank-v1:0": 0.001, "cohere.rerank-v3-5:0": 0.002}  # Bedrock pricing page, 25 Nov 2026
 
 
 def reader_url() -> str:
@@ -185,6 +186,8 @@ def fused_search(question: str, extra: list[str], search, url: str, top_k: int, 
         rq = question
         if os.environ.get("EVAL_RERANK_WITH") == "all" and extra:  # E6: the agent's words help the re-rank too
             rq = question + "\n" + "\n".join(extra)
+        elif os.environ.get("EVAL_RERANK_WITH") == "plain" and extra:  # R1/B6: the agent's plain rewrite alone
+            rq = extra[0]
         order = search.rerank(rq, [r["embed_text"] for r in rows], KEEP)
         reranked = [[cands[i], round(s, 6), rows[i]["id"]] for i, s in order]
     return cands, reranked
@@ -309,12 +312,13 @@ def run_one(q: dict, search, url: str, top_k: int, rerank: bool, min_score: floa
 
 def log_cost(run: str, n_questions: int, chars: int, reranks: int) -> float:
     titan = chars / 4 / 1000 * TITAN_USD_PER_1K
-    rr = reranks * RERANK_USD_PER_QUERY
+    model = os.environ.get("RAG_RERANK_MODEL", "amazon.rerank-v1:0")
+    rr = reranks * RERANK_USD.get(model, RERANK_USD_PER_QUERY)
     with open(RESULTS / "cost.jsonl", "a", encoding="utf-8") as f:
         now = datetime.datetime.now(datetime.UTC).replace(tzinfo=None).isoformat(timespec="seconds") + "Z"
         f.write(json.dumps({"time": now, "run": run, "model": "amazon.titan-embed-text-v2:0", "unit": "input tokens (est.)",
                             "in": chars // 4, "out": 0, "cost_usd": round(titan, 4)}) + "\n")
-        f.write(json.dumps({"time": now, "run": run, "model": "amazon.rerank-v1:0", "unit": "rerank queries",
+        f.write(json.dumps({"time": now, "run": run, "model": model, "unit": "rerank queries",
                             "in": reranks, "out": 0, "cost_usd": round(rr, 4)}) + "\n")
     return titan + rr
 
