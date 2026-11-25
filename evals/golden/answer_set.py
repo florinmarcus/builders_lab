@@ -32,7 +32,8 @@ from pool_judge import section_text  # noqa: E402
 
 RESULTS = ROOT / "evals" / "results"
 OUT = ROOT / "evals" / "golden" / "pooled" / "answer-sets-v2.jsonl"
-SETS = ["mixed8=B1-v2-mixed-k20-dev-dev:top:8", "lanes2=B2-v2-lanes-dev-dev:lanes:2", "fused8=B3-v2-fused-k20-dev-dev:top:8"]
+SETS = ["mixed8=B1-v2-mixed-k20-dev-dev:top:8", "lanes2=B2-v2-lanes-dev-dev:lanes:2", "fused8=B3-v2-fused-k20-dev-dev:top:8",
+        "lanesfused2=B4-v2-lanes-fused-dev-dev:lanes:2"]
 
 
 def sample(questions: list[dict], n: int, seed: int) -> list[str]:

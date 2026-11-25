@@ -1,6 +1,6 @@
 # Regulations search: aim, two options, how we tune (25 Nov 2026)
 
-What we are building for the firm visits on 28 Nov and 5 Dec, and how we decide. Search details: [regulations-corpus.md](regulations-corpus.md#search). Lanes: [ADR 0016](../../decisions/0016-retrieval-strategy-lanes-measure-first.md) point 8. Eval runner: `evals/retrieval.py`. Pooling: `evals/golden/pool_local.py`.
+What we are building for the firm visits on 28 Nov and 5 Dec, and how we decide. Search details: [regulations-corpus.md](regulations-corpus.md#search). Lanes: [ADR 0016](../../decisions/0016-retrieval-strategy-lanes-measure-first.md) point 8. Eval runner: `evals/retrieval.py`. Pooling: `evals/golden/pool_local.py`. Runs, commands and results: [B-mixed-vs-lanes.md](../../evals/experiments/B-mixed-vs-lanes.md).
 
 ## Aim
 
@@ -88,6 +88,7 @@ flowchart TB
         B1["B1 mixed"]
         B2["B2 four lanes"]
         B3["B3 mixed + saved agent queries"]
+        B4["B4 lanes + saved agent queries"]
     end
 
     runs --> pool["Pool: every top-10 passage<br/>that is not already an expected section"]
@@ -138,9 +139,10 @@ flowchart LR
         m8["Mixed: top 8"]
         l2["Lanes: 2 per lane"]
         f8["Mixed + agent queries: top 8"]
+        lf2["Lanes + agent queries: 2 per lane"]
     end
     sets --> blind["Flatten and shuffle each set,<br/>hide the run, packets of 4,<br/>never one question twice in a packet"]
-    blind --> j["Opus judge, all 240 sets<br/>2 full / 1 partly (says what is missing) / 0 none"]
+    blind --> j["Opus judge, all 320 sets<br/>2 full / 1 partly (says what is missing) / 0 none"]
     blind --> r["10% re-check:<br/>second Opus and Sonnet"]
     j --> sc["Share of full answers per run<br/>+ what is most often missing"]
     r --> sc
