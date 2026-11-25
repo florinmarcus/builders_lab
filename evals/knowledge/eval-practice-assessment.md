@@ -423,6 +423,11 @@ legal benchmarks, Visa, HealthBench, Mayo Clinic, Nubank, and negative results) 
 `notes/llm-judge-case-studies/case_studies.md`. Short version: narrow binary checks
 reach 85-93% agreement with experts (kappa 0.7-0.85); broad criteria kappa 0.4-0.7; almost
 nobody publishes a fixed "pass >= X%" release gate.
+UK government practice (`notes/uk-government-ai-evals/notes.md`): i.AI Consult sets the bar at
+human-human agreement (F1 0.82 vs 0.71 between reviewers) and gates CI on regression
+(tolerance max(0.05, 3 x stdev) over 3+ baseline runs), marking judge errors INVALID;
+GOV.UK Chat's judge labels each fact matched / unsupported / missing and code computes the
+scores. No UK team publishes a fixed judge pass-rate gate.
 
 | Official term | Meaning |
 |---|---|
