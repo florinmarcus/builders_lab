@@ -1,0 +1,2877 @@
+{
+ "about": "Built by python -m system.rag.library from corpus/sources.yaml. Do not edit by hand.",
+ "scope": [
+  "England only: search returns rules that apply in England (UK-wide and GB-wide documents included). Wales, Scotland and Northern Ireland have their own rules, not covered.",
+  "English text only (ADR 0012, S130): translations and Romanian leaflets are not in the library.",
+  "Versions in force on or after 1 January 2025 (ADR 0016). Older editions are not held.",
+  "Text only: drawings, diagrams and photos are not read, only their captions and the text around them.",
+  "Only documents we may copy (Open Government Licence). Paid standards and contracts are listed as gaps."
+ ],
+ "known_weak_parts": [
+  "Tables in Approved Documents and guidance PDFs: a check on 23 Nov 2026 found a serious reading problem on about 1 in 8 of the pages it sampled, mostly tables. Fixes are in progress; quote tables with care.",
+  "Each search returns the best few passages only. A broad question can miss the rule it needs: split it into short searches, one per topic."
+ ],
+ "quality": "How often search finds the right passage is not measured yet (S151). Until then, answer only from the passages returned and cite them.",
+ "types": {
+  "law": "Laws and regulations",
+  "approved_document": "Approved Documents (building regulations guidance)",
+  "hse_guidance": "HSE guidance and approved codes of practice",
+  "guidance": "Government and official guidance",
+  "tax_guidance": "HMRC guidance (CIS, VAT)",
+  "standard": "British and industry standards",
+  "contract": "Standard building contracts"
+ },
+ "reasons": {
+  "paid_standard": "Paid or copyrighted standard: we may not copy it, so we hold only the link.",
+  "paid_contract": "Paid standard contract: we may not copy it, so we hold only the link.",
+  "licence_unclear": "Licence unclear or not checked yet: not copied until it is.",
+  "link_only": "Link only: the publisher's terms bar copying, or the text could not be fetched.",
+  "not_english": "Not in English: the library holds English text only.",
+  "withdrawn": "Withdrawn or out of date: listed so we know it has gone."
+ },
+ "documents": [
+  {
+   "id": "br2010",
+   "title": "The Building Regulations 2010 (SI 2010/2214)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "type": "law",
+   "url": "https://www.legislation.gov.uk/uksi/2010/2214/contents",
+   "status": "current",
+   "topics": [
+    "building-regs"
+   ]
+  },
+  {
+   "id": "br-amd-2026-fhs",
+   "title": "Building Regulations etc. (Amendment) (England) Regulations 2026 (SI 2026/335), Future Homes and Buildings Standards",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "type": "law",
+   "url": "https://www.legislation.gov.uk/uksi/2026/335/made",
+   "status": "coming",
+   "topics": [
+    "building-regs",
+    "energy"
+   ]
+  },
+  {
+   "id": "br-charges-2026",
+   "title": "Building (Local Authority Charges and Amendments Relating to Charging) (England) Regulations 2026 (SI 2026/1094)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "type": "law",
+   "url": "https://www.legislation.gov.uk/uksi/2026/1094/made",
+   "status": "current",
+   "topics": [
+    "building-regs",
+    "building-control"
+   ]
+  },
+  {
+   "id": "br-amd-2023-dutyholders",
+   "title": "Building Regulations etc. (Amendment) (England) Regulations 2023 (SI 2023/911), dutyholders and competence",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "type": "law",
+   "url": "https://www.legislation.gov.uk/uksi/2023/911/contents",
+   "status": "current",
+   "topics": [
+    "building-regs",
+    "dutyholders"
+   ]
+  },
+  {
+   "id": "hrb-procedures-2023",
+   "title": "Building (Higher-Risk Buildings Procedures) (England) Regulations 2023 (SI 2023/909)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "type": "law",
+   "url": "https://www.legislation.gov.uk/uksi/2023/909/contents",
+   "status": "current",
+   "topics": [
+    "building-regs",
+    "higher-risk-buildings"
+   ]
+  },
+  {
+   "id": "hrb-descriptions-2023",
+   "title": "Higher-Risk Buildings (Descriptions and Supplementary Provisions) Regulations 2023 (SI 2023/275)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "type": "law",
+   "url": "https://www.legislation.gov.uk/uksi/2023/275/contents",
+   "status": "current",
+   "topics": [
+    "higher-risk-buildings"
+   ]
+  },
+  {
+   "id": "hrb-management-2023",
+   "title": "Higher-Risk Buildings (Management of Safety Risks etc) (England) Regulations 2023 (SI 2023/907)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "type": "law",
+   "url": "https://www.legislation.gov.uk/uksi/2023/907/contents",
+   "status": "current",
+   "topics": [
+    "higher-risk-buildings",
+    "fire"
+   ]
+  },
+  {
+   "id": "rbca-2024",
+   "title": "Building (Registered Building Control Approvers etc.) (England) Regulations 2024 (SI 2024/110)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "type": "law",
+   "url": "https://www.legislation.gov.uk/uksi/2024/110/contents",
+   "status": "current",
+   "topics": [
+    "building-control"
+   ]
+  },
+  {
+   "id": "bsa2022",
+   "title": "Building Safety Act 2022",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "type": "law",
+   "url": "https://www.legislation.gov.uk/ukpga/2022/30/contents",
+   "status": "current",
+   "topics": [
+    "building-regs",
+    "dutyholders",
+    "higher-risk-buildings",
+    "fire"
+   ]
+  },
+  {
+   "id": "ba1984",
+   "title": "Building Act 1984",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "type": "law",
+   "url": "https://www.legislation.gov.uk/ukpga/1984/55/contents",
+   "status": "current",
+   "topics": [
+    "building-regs",
+    "building-control"
+   ]
+  },
+  {
+   "id": "fso2005",
+   "title": "Regulatory Reform (Fire Safety) Order 2005 (SI 2005/1541)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "type": "law",
+   "url": "https://www.legislation.gov.uk/uksi/2005/1541/contents",
+   "status": "current",
+   "topics": [
+    "fire",
+    "social-housing"
+   ]
+  },
+  {
+   "id": "fser2022",
+   "title": "Fire Safety (England) Regulations 2022 (SI 2022/547)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "type": "law",
+   "url": "https://www.legislation.gov.uk/uksi/2022/547/contents",
+   "status": "current",
+   "topics": [
+    "fire",
+    "social-housing"
+   ]
+  },
+  {
+   "id": "fsa2021",
+   "title": "Fire Safety Act 2021",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "type": "law",
+   "url": "https://www.legislation.gov.uk/ukpga/2021/24/contents",
+   "status": "current",
+   "topics": [
+    "fire"
+   ]
+  },
+  {
+   "id": "scoar2015",
+   "title": "Smoke and Carbon Monoxide Alarm (England) Regulations 2015 (SI 2015/1693)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "type": "law",
+   "url": "https://www.legislation.gov.uk/uksi/2015/1693/contents",
+   "status": "current",
+   "topics": [
+    "alarms",
+    "gas",
+    "social-housing",
+    "voids"
+   ]
+  },
+  {
+   "id": "scoar-amd-2022",
+   "title": "Smoke and Carbon Monoxide Alarm (Amendment) Regulations 2022 (SI 2022/707)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "type": "law",
+   "url": "https://www.legislation.gov.uk/uksi/2022/707/contents",
+   "status": "current",
+   "topics": [
+    "alarms",
+    "social-housing"
+   ]
+  },
+  {
+   "id": "bamd2018",
+   "title": "Building (Amendment) Regulations 2018 (SI 2018/1230), combustible materials ban",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "type": "law",
+   "url": "https://www.legislation.gov.uk/uksi/2018/1230/made",
+   "status": "current",
+   "topics": [
+    "building-regs",
+    "fire"
+   ]
+  },
+  {
+   "id": "ada",
+   "title": "Approved Document A - Structure (2004 edition incorporating 2004, 2010 and 2013 amendments)",
+   "publisher": "MHCLG (GOV.UK)",
+   "type": "approved_document",
+   "url": "https://www.gov.uk/government/publications/structure-approved-document-a",
+   "status": "current",
+   "topics": [
+    "building-regs",
+    "structure"
+   ]
+  },
+  {
+   "id": "adb",
+   "title": "Approved Document B - Fire safety, Volume 1 Dwellings and Volume 2 Buildings other than dwellings (2019 edition incorporating 2020, 2022, 2025 and 2026 amendments)",
+   "publisher": "MHCLG (GOV.UK)",
+   "type": "approved_document",
+   "url": "https://www.gov.uk/government/publications/fire-safety-approved-document-b",
+   "status": "current",
+   "topics": [
+    "building-regs",
+    "fire"
+   ]
+  },
+  {
+   "id": "adb-amendments",
+   "title": "Approved Document B amendment booklets (2020, 2022, Mar 2024, 2025, 2026, 2029)",
+   "publisher": "MHCLG (GOV.UK)",
+   "type": "approved_document",
+   "url": "https://www.gov.uk/government/publications/fire-safety-approved-document-b",
+   "status": "current",
+   "topics": [
+    "building-regs",
+    "fire"
+   ]
+  },
+  {
+   "id": "adb-historical",
+   "title": "Historical documents relating to Approved Document B (fire safety)",
+   "publisher": "MHCLG (GOV.UK)",
+   "type": "approved_document",
+   "url": "https://www.gov.uk/government/publications/historical-documents-relating-to-approved-document-b-fire-safety",
+   "status": "out-of-date",
+   "topics": [
+    "building-regs",
+    "fire"
+   ]
+  },
+  {
+   "id": "adb-faq",
+   "title": "Approved Document B (fire safety) frequently asked questions",
+   "publisher": "MHCLG (GOV.UK)",
+   "type": "guidance",
+   "url": "https://www.gov.uk/guidance/approved-document-b-fire-safety-frequently-asked-questions",
+   "status": "current",
+   "topics": [
+    "building-regs",
+    "fire"
+   ]
+  },
+  {
+   "id": "adc",
+   "title": "Approved Document C - Site preparation and resistance to contaminants and moisture (2004 edition incorporating 2010 and 2013 amendments)",
+   "publisher": "MHCLG (GOV.UK)",
+   "type": "approved_document",
+   "url": "https://www.gov.uk/government/publications/site-preparation-and-resistance-to-contaminates-and-moisture-approved-document-c",
+   "status": "current",
+   "topics": [
+    "building-regs",
+    "damp-mould"
+   ]
+  },
+  {
+   "id": "add",
+   "title": "Approved Document D - Toxic substances (2010 edition incorporating 2010 and 2013 amendments)",
+   "publisher": "MHCLG (GOV.UK)",
+   "type": "approved_document",
+   "url": "https://www.gov.uk/government/publications/toxic-substances-approved-document-d",
+   "status": "current",
+   "topics": [
+    "building-regs"
+   ]
+  },
+  {
+   "id": "ade",
+   "title": "Approved Document E - Resistance to the passage of sound (2003 edition incorporating 2004, 2010, 2013 and 2015 amendments)",
+   "publisher": "MHCLG (GOV.UK)",
+   "type": "approved_document",
+   "url": "https://www.gov.uk/government/publications/resistance-to-sound-approved-document-e",
+   "status": "current",
+   "topics": [
+    "building-regs"
+   ]
+  },
+  {
+   "id": "adf",
+   "title": "Approved Document F - Ventilation, Volumes 1 and 2 (2021 edition)",
+   "publisher": "MHCLG (GOV.UK)",
+   "type": "approved_document",
+   "url": "https://www.gov.uk/government/publications/ventilation-approved-document-f",
+   "status": "current",
+   "topics": [
+    "building-regs",
+    "ventilation",
+    "damp-mould"
+   ]
+  },
+  {
+   "id": "adf-2026",
+   "title": "Approved Document F (2026) Volume 1 Dwellings",
+   "publisher": "MHCLG (GOV.UK)",
+   "type": "approved_document",
+   "url": "https://www.gov.uk/government/publications/approved-document-f-2026",
+   "status": "coming",
+   "topics": [
+    "building-regs",
+    "ventilation"
+   ]
+  },
+  {
+   "id": "adg",
+   "title": "Approved Document G - Sanitation, hot water safety and water efficiency (2015 edition incorporating 2016 and 2024 amendments)",
+   "publisher": "MHCLG (GOV.UK)",
+   "type": "approved_document",
+   "url": "https://www.gov.uk/government/publications/sanitation-hot-water-safety-and-water-efficiency-approved-document-g",
+   "status": "current",
+   "topics": [
+    "building-regs",
+    "sanitation"
+   ]
+  },
+  {
+   "id": "adh",
+   "title": "Approved Document H - Drainage and waste disposal (2015 edition)",
+   "publisher": "MHCLG (GOV.UK)",
+   "type": "approved_document",
+   "url": "https://www.gov.uk/government/publications/drainage-and-waste-disposal-approved-document-h",
+   "status": "current",
+   "topics": [
+    "building-regs",
+    "drainage"
+   ]
+  },
+  {
+   "id": "adj",
+   "title": "Approved Document J - Combustion appliances and fuel storage systems (2010 edition incorporating 2010, 2013 and 2022 amendments)",
+   "publisher": "MHCLG (GOV.UK)",
+   "type": "approved_document",
+   "url": "https://www.gov.uk/government/publications/combustion-appliances-and-fuel-storage-systems-approved-document-j",
+   "status": "current",
+   "topics": [
+    "building-regs",
+    "gas",
+    "alarms"
+   ]
+  },
+  {
+   "id": "adk",
+   "title": "Approved Document K - Protection from falling, collision and impact (2013 edition)",
+   "publisher": "MHCLG (GOV.UK)",
+   "type": "approved_document",
+   "url": "https://www.gov.uk/government/publications/protection-from-falling-collision-and-impact-approved-document-k",
+   "status": "current",
+   "topics": [
+    "building-regs"
+   ]
+  },
+  {
+   "id": "adl",
+   "title": "Approved Document L - Conservation of fuel and power, Volumes 1 and 2 (2021 edition incorporating 2023 amendments)",
+   "publisher": "MHCLG (GOV.UK)",
+   "type": "approved_document",
+   "url": "https://www.gov.uk/government/publications/conservation-of-fuel-and-power-approved-document-l",
+   "status": "current",
+   "topics": [
+    "building-regs",
+    "energy"
+   ]
+  },
+  {
+   "id": "adl-2026",
+   "title": "Approved Document L: Energy and greenhouse gas emissions (2026), Volumes 1 and 2",
+   "publisher": "MHCLG (GOV.UK)",
+   "type": "approved_document",
+   "url": "https://www.gov.uk/government/publications/approved-document-l-2026",
+   "status": "coming",
+   "topics": [
+    "building-regs",
+    "energy"
+   ]
+  },
+  {
+   "id": "adm",
+   "title": "Approved Document M - Access to and use of buildings, Volume 1 Dwellings (2015 incorporating 2016 amendments) and Volume 2 Buildings other than dwellings (2015 incorporating 2020 and 2024 amendments)",
+   "publisher": "MHCLG (GOV.UK)",
+   "type": "approved_document",
+   "url": "https://www.gov.uk/government/publications/access-to-and-use-of-buildings-approved-document-m",
+   "status": "current",
+   "topics": [
+    "building-regs",
+    "accessibility"
+   ]
+  },
+  {
+   "id": "ado",
+   "title": "Approved Document O - Overheating (2021 edition)",
+   "publisher": "MHCLG (GOV.UK)",
+   "type": "approved_document",
+   "url": "https://www.gov.uk/government/publications/overheating-approved-document-o",
+   "status": "current",
+   "topics": [
+    "building-regs"
+   ]
+  },
+  {
+   "id": "adp",
+   "title": "Approved Document P - Electrical safety, dwellings (2013 edition)",
+   "publisher": "MHCLG (GOV.UK)",
+   "type": "approved_document",
+   "url": "https://www.gov.uk/government/publications/electrical-safety-approved-document-p",
+   "status": "current",
+   "topics": [
+    "building-regs",
+    "electrical"
+   ]
+  },
+  {
+   "id": "adq",
+   "title": "Approved Document Q - Security, dwellings (2015 edition)",
+   "publisher": "MHCLG (GOV.UK)",
+   "type": "approved_document",
+   "url": "https://www.gov.uk/government/publications/security-in-dwellings-approved-document-q",
+   "status": "current",
+   "topics": [
+    "building-regs"
+   ]
+  },
+  {
+   "id": "adr",
+   "title": "Approved Document R - Infrastructure for electronic communications, Volumes 1 and 2 (2022 edition)",
+   "publisher": "MHCLG (GOV.UK)",
+   "type": "approved_document",
+   "url": "https://www.gov.uk/government/publications/infrastructure-for-electronic-communications-approved-document-r",
+   "status": "current",
+   "topics": [
+    "building-regs"
+   ]
+  },
+  {
+   "id": "ads",
+   "title": "Approved Document S - Infrastructure for charging electric vehicles (2021 edition)",
+   "publisher": "MHCLG (GOV.UK)",
+   "type": "approved_document",
+   "url": "https://www.gov.uk/government/publications/infrastructure-for-charging-electric-vehicles-approved-document-s",
+   "status": "current",
+   "topics": [
+    "building-regs"
+   ]
+  },
+  {
+   "id": "adt",
+   "title": "Approved Document T - Toilet accommodation (2024 edition, revised)",
+   "publisher": "MHCLG (GOV.UK)",
+   "type": "approved_document",
+   "url": "https://www.gov.uk/government/publications/toilet-accommodation-approved-document-t",
+   "status": "current",
+   "topics": [
+    "building-regs",
+    "sanitation"
+   ]
+  },
+  {
+   "id": "ad7",
+   "title": "Approved Document 7 - Materials and workmanship (2013 edition incorporating 2018 amendments)",
+   "publisher": "MHCLG (GOV.UK)",
+   "type": "approved_document",
+   "url": "https://www.gov.uk/government/publications/material-and-workmanship-approved-document-7",
+   "status": "current",
+   "topics": [
+    "building-regs"
+   ]
+  },
+  {
+   "id": "manual-br",
+   "title": "Manual to the Building Regulations (July 2020)",
+   "publisher": "MHCLG (GOV.UK)",
+   "type": "guidance",
+   "url": "https://www.gov.uk/government/publications/manual-to-the-building-regulations",
+   "status": "out-of-date",
+   "topics": [
+    "building-regs"
+   ]
+  },
+  {
+   "id": "bsa-secondary",
+   "title": "The Building Safety Act: secondary legislation (index page)",
+   "publisher": "MHCLG (GOV.UK)",
+   "type": "guidance",
+   "url": "https://www.gov.uk/guidance/the-building-safety-act-secondary-legislation",
+   "status": "current",
+   "topics": [
+    "building-regs",
+    "higher-risk-buildings"
+   ]
+  },
+  {
+   "id": "bsr-dutyholder",
+   "title": "Design and building work: meeting building requirements (dutyholder and competence guide)",
+   "publisher": "Building Safety Regulator (GOV.UK)",
+   "type": "guidance",
+   "url": "https://www.gov.uk/guidance/design-and-building-work-meeting-building-requirements",
+   "status": "current",
+   "topics": [
+    "building-regs",
+    "dutyholders"
+   ]
+  },
+  {
+   "id": "br-approval",
+   "title": "Building regulations approval",
+   "publisher": "MHCLG (GOV.UK)",
+   "type": "guidance",
+   "url": "https://www.gov.uk/building-regulations-approval",
+   "status": "current",
+   "topics": [
+    "building-regs",
+    "building-control"
+   ]
+  },
+  {
+   "id": "cps-schemes",
+   "title": "Competent person scheme: current schemes and how schemes are authorised",
+   "publisher": "MHCLG (GOV.UK)",
+   "type": "guidance",
+   "url": "https://www.gov.uk/guidance/competent-person-scheme-current-schemes-and-how-schemes-are-authorised",
+   "status": "current",
+   "topics": [
+    "building-regs",
+    "building-control"
+   ]
+  },
+  {
+   "id": "bc-changes-2023",
+   "title": "Building control changes for higher-risk buildings and wider changes to building regulations (circular letter and Q&A)",
+   "publisher": "DLUHC (GOV.UK)",
+   "type": "guidance",
+   "url": "https://www.gov.uk/government/publications/building-control-changes-for-higher-risk-buildings-and-wider-changes-to-building-regulations",
+   "status": "current",
+   "topics": [
+    "building-regs",
+    "higher-risk-buildings",
+    "dutyholders"
+   ]
+  },
+  {
+   "id": "br-circulars",
+   "title": "Building regulations: circulars (collection, 2003 to 2026)",
+   "publisher": "MHCLG (GOV.UK)",
+   "type": "guidance",
+   "url": "https://www.gov.uk/government/collections/building-regulations-circulars",
+   "status": "current",
+   "topics": [
+    "building-regs"
+   ]
+  },
+  {
+   "id": "circ-01-2026",
+   "title": "The Future Homes and Buildings Standards: Building Circular 01/2026 (letter)",
+   "publisher": "MHCLG (GOV.UK)",
+   "type": "guidance",
+   "url": "https://www.gov.uk/government/publications/the-future-homes-and-buildings-standards-building-circular-012026/the-future-homes-and-buildings-standards-building-circular-012026-letter",
+   "status": "current",
+   "topics": [
+    "building-regs",
+    "energy"
+   ]
+  },
+  {
+   "id": "circ-01-2024",
+   "title": "Approved Document B 2024 amendments: circular letter (Circular 01/2024)",
+   "publisher": "DLUHC (GOV.UK)",
+   "type": "guidance",
+   "url": "https://www.gov.uk/government/publications/approved-document-b-2024-amendments-circular-012024/approved-document-b-2024-amendments-circular-letter",
+   "status": "current",
+   "topics": [
+    "building-regs",
+    "fire"
+   ]
+  },
+  {
+   "id": "circ-adb-2024",
+   "title": "Amendments to Approved Document B: circular and letter (Circulars 03, 04 and 05/2024)",
+   "publisher": "MHCLG (GOV.UK)",
+   "type": "guidance",
+   "url": "https://www.gov.uk/government/publications/amendments-to-approved-document-b-fire-safety-circular-and-letter",
+   "status": "current",
+   "topics": [
+    "building-regs",
+    "fire"
+   ]
+  },
+  {
+   "id": "hrb-existing",
+   "title": "Criteria for determining whether an existing building is a higher-risk building during building work",
+   "publisher": "MHCLG (GOV.UK)",
+   "type": "guidance",
+   "url": "https://www.gov.uk/guidance/criteria-for-determining-whether-an-existing-building-is-a-higher-risk-building-during-building-work",
+   "status": "current",
+   "topics": [
+    "higher-risk-buildings"
+   ]
+  },
+  {
+   "id": "bsr-hrb-approval",
+   "title": "Building control approval for higher-risk buildings",
+   "publisher": "Building Safety Regulator (GOV.UK)",
+   "type": "guidance",
+   "url": "https://www.gov.uk/guidance/building-control-approval-for-higher-risk-buildings",
+   "status": "current",
+   "topics": [
+    "higher-risk-buildings",
+    "building-control"
+   ]
+  },
+  {
+   "id": "fser-page",
+   "title": "Fire Safety (England) Regulations 2022: page with fact sheets",
+   "publisher": "Home Office (GOV.UK)",
+   "type": "guidance",
+   "url": "https://www.gov.uk/government/publications/fire-safety-england-regulations-2022",
+   "status": "current",
+   "topics": [
+    "fire",
+    "social-housing"
+   ]
+  },
+  {
+   "id": "fser-fire-doors",
+   "title": "Fire Safety (England) Regulations 2022: fire doors guidance and checklist",
+   "publisher": "MHCLG and Home Office (GOV.UK)",
+   "type": "guidance",
+   "url": "https://www.gov.uk/government/publications/fire-safety-england-regulations-2022-fire-door-guidance",
+   "status": "current",
+   "topics": [
+    "fire",
+    "social-housing",
+    "repairs"
+   ]
+  },
+  {
+   "id": "fso-s156",
+   "title": "Check your fire safety responsibilities under Section 156 of the Building Safety Act 2022",
+   "publisher": "Home Office (GOV.UK)",
+   "type": "guidance",
+   "url": "https://www.gov.uk/government/publications/check-your-fire-safety-responsibilities-under-section-156-of-the-building-safety-act-2022",
+   "status": "current",
+   "topics": [
+    "fire"
+   ]
+  },
+  {
+   "id": "fso-guidance-collection",
+   "title": "Fire safety: guidance for those with legal duties (collection)",
+   "publisher": "Home Office (GOV.UK)",
+   "type": "guidance",
+   "url": "https://www.gov.uk/government/collections/fire-safety-legislation-guidance-for-those-with-legal-duties",
+   "status": "current",
+   "topics": [
+    "fire"
+   ]
+  },
+  {
+   "id": "scoar-guidance",
+   "title": "Smoke and Carbon Monoxide Alarm (Amendment) Regulations 2022: guidance for landlords and tenants",
+   "publisher": "MHCLG (GOV.UK)",
+   "type": "guidance",
+   "url": "https://www.gov.uk/government/publications/smoke-and-carbon-monoxide-alarms-explanatory-booklet-for-landlords",
+   "status": "current",
+   "topics": [
+    "alarms",
+    "social-housing",
+    "voids"
+   ]
+  },
+  {
+   "id": "fire-flats-residents",
+   "title": "Fire safety in flats in England: a guide for residents",
+   "publisher": "MHCLG (GOV.UK)",
+   "type": "guidance",
+   "url": "https://www.gov.uk/fire-safety-flats-england-residents",
+   "status": "current",
+   "topics": [
+    "fire"
+   ]
+  },
+  {
+   "id": "car2012",
+   "title": "Control of Asbestos Regulations 2012 (SI 2012/632)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "type": "law",
+   "url": "https://www.legislation.gov.uk/uksi/2012/632/contents",
+   "status": "current",
+   "topics": [
+    "asbestos"
+   ]
+  },
+  {
+   "id": "car-amd-2026",
+   "title": "Control of Asbestos (Amendment etc.) Regulations 2026 (SI 2026/1153)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "type": "law",
+   "url": "https://www.legislation.gov.uk/uksi/2026/1153/made",
+   "status": "coming",
+   "topics": [
+    "asbestos"
+   ]
+  },
+  {
+   "id": "hse-l143",
+   "title": "L143 Managing and working with asbestos. Control of Asbestos Regulations 2012 ACoP and guidance (2nd edition, 2013)",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/pubns/priced/l143.pdf",
+   "status": "current",
+   "topics": [
+    "asbestos"
+   ]
+  },
+  {
+   "id": "hse-hsg264",
+   "title": "HSG264 Asbestos: The survey guide (2nd edition, 2012)",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/pubns/priced/hsg264.pdf",
+   "status": "current",
+   "topics": [
+    "asbestos"
+   ]
+  },
+  {
+   "id": "hse-hsg227",
+   "title": "HSG227 A comprehensive guide to managing asbestos in premises (2002)",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/pubns/priced/hsg227.pdf",
+   "status": "current",
+   "topics": [
+    "asbestos"
+   ]
+  },
+  {
+   "id": "hse-hsg247",
+   "title": "HSG247 Asbestos: The licensed contractors' guide (2006)",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/pubns/priced/hsg247.pdf",
+   "status": "current",
+   "topics": [
+    "asbestos"
+   ]
+  },
+  {
+   "id": "hse-hsg248",
+   "title": "HSG248 Asbestos: The analysts' guide (2nd edition, 2021)",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/pubns/priced/hsg248.pdf",
+   "status": "current",
+   "topics": [
+    "asbestos",
+    "voids"
+   ]
+  },
+  {
+   "id": "hse-hsg210",
+   "title": "HSG210 Asbestos essentials (4th edition, 2018)",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/pubns/books/hsg210.htm",
+   "status": "current",
+   "topics": [
+    "asbestos"
+   ]
+  },
+  {
+   "id": "hse-asbestos-essentials",
+   "title": "Asbestos essentials task sheets index (A0, EM0 to EM10, A1 to A38)",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/asbestos/essentials/index.htm",
+   "status": "current",
+   "topics": [
+    "asbestos"
+   ]
+  },
+  {
+   "id": "hse-asbestos-a0",
+   "title": "Asbestos essentials task sheet A0 (introduction)",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/pubns/guidance/a0.pdf",
+   "status": "current",
+   "topics": [
+    "asbestos"
+   ]
+  },
+  {
+   "id": "hse-asbestos-em1",
+   "title": "Asbestos essentials task sheet EM1 (accidental disturbance)",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/pubns/guidance/em1.pdf",
+   "status": "current",
+   "topics": [
+    "asbestos"
+   ]
+  },
+  {
+   "id": "hse-nnlw",
+   "title": "Notifiable non-licensed work (NNLW)",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/asbestos/licensing/notifiable-non-licensed-work.htm",
+   "status": "current",
+   "topics": [
+    "asbestos"
+   ]
+  },
+  {
+   "id": "hse-asbestos-licensing",
+   "title": "Licensable work with asbestos",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/asbestos/licensing/index.htm",
+   "status": "current",
+   "topics": [
+    "asbestos"
+   ]
+  },
+  {
+   "id": "hse-asbestos-training",
+   "title": "Asbestos information, instruction and training",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/asbestos/training.htm",
+   "status": "current",
+   "topics": [
+    "asbestos"
+   ]
+  },
+  {
+   "id": "hse-asbestos-duty",
+   "title": "Duty to manage asbestos in buildings",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/asbestos/duty/index.htm",
+   "status": "current",
+   "topics": [
+    "asbestos",
+    "social-housing"
+   ]
+  },
+  {
+   "id": "hse-asbestos-workers",
+   "title": "Asbestos - worker's guide",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/asbestos/workers.htm",
+   "status": "current",
+   "topics": [
+    "asbestos"
+   ]
+  },
+  {
+   "id": "hse-asbestos-locations",
+   "title": "Asbestos - locations of asbestos materials",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/asbestos/location-materials.htm",
+   "status": "current",
+   "topics": [
+    "asbestos"
+   ]
+  },
+  {
+   "id": "hse-ms34",
+   "title": "MS34 Medical surveillance for non-licensed work with asbestos",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/pubns/ms34.htm",
+   "status": "current",
+   "topics": [
+    "asbestos"
+   ]
+  },
+  {
+   "id": "hse-asbestos-information",
+   "title": "HSE asbestos information and publications page",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/asbestos/information.htm",
+   "status": "current",
+   "topics": [
+    "asbestos"
+   ]
+  },
+  {
+   "id": "hse-asbestos-pubns-index",
+   "title": "HSE asbestos publications index",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/pubns/asbindex.htm",
+   "status": "current",
+   "topics": [
+    "asbestos"
+   ]
+  },
+  {
+   "id": "hswa1974",
+   "title": "Health and Safety at Work etc. Act 1974",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "type": "law",
+   "url": "https://www.legislation.gov.uk/ukpga/1974/37/contents",
+   "status": "current",
+   "topics": [
+    "health-safety"
+   ]
+  },
+  {
+   "id": "mhswr1999",
+   "title": "Management of Health and Safety at Work Regulations 1999 (SI 1999/3242)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "type": "law",
+   "url": "https://www.legislation.gov.uk/uksi/1999/3242/contents",
+   "status": "current",
+   "topics": [
+    "health-safety"
+   ]
+  },
+  {
+   "id": "cdm2015",
+   "title": "Construction (Design and Management) Regulations 2015 (SI 2015/51)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "type": "law",
+   "url": "https://www.legislation.gov.uk/uksi/2015/51/contents",
+   "status": "current",
+   "topics": [
+    "cdm",
+    "health-safety"
+   ]
+  },
+  {
+   "id": "hse-l153",
+   "title": "L153 Managing health and safety in construction. CDM 2015 guidance",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/pubns/priced/l153.pdf",
+   "status": "current",
+   "topics": [
+    "cdm"
+   ]
+  },
+  {
+   "id": "hse-cdm-pages",
+   "title": "CDM 2015 web pages",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/construction/cdm/2015/index.htm",
+   "status": "current",
+   "topics": [
+    "cdm"
+   ]
+  },
+  {
+   "id": "hse-cdm-domestic-clients",
+   "title": "CDM 2015 - domestic clients",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/construction/cdm/2015/domestic-clients.htm",
+   "status": "current",
+   "topics": [
+    "cdm"
+   ]
+  },
+  {
+   "id": "hse-indg411",
+   "title": "INDG411 Need building work done? A short guide for clients on CDM 2015",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/pubns/indg411.pdf",
+   "status": "current",
+   "topics": [
+    "cdm"
+   ]
+  },
+  {
+   "id": "hse-indg344",
+   "title": "INDG344 The absolutely essential health and safety toolkit for the smaller construction contractor (rev2, 2008)",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/pubns/indg344.pdf",
+   "status": "current",
+   "topics": [
+    "health-safety"
+   ]
+  },
+  {
+   "id": "hse-cis-index",
+   "title": "HSE construction information sheets index (\"What you need to know as a busy builder\")",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/pubns/conindex.htm",
+   "status": "current",
+   "topics": [
+    "health-safety"
+   ]
+  },
+  {
+   "id": "hse-cis80",
+   "title": "CIS80 Construction phase plan (busy builder sheet)",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/pubns/cis80.pdf",
+   "status": "current",
+   "topics": [
+    "cdm"
+   ]
+  },
+  {
+   "id": "hse-cis78",
+   "title": "CIS78 Construction dust (busy builder sheet)",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/pubns/cis78.pdf",
+   "status": "current",
+   "topics": [
+    "health-safety",
+    "dust"
+   ]
+  },
+  {
+   "id": "hse-cis79",
+   "title": "CIS79 Old lead paint (busy builder sheet)",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/pubns/cis79.pdf",
+   "status": "current",
+   "topics": [
+    "health-safety"
+   ]
+  },
+  {
+   "id": "hse-cis65",
+   "title": "CIS65 Concealed services (busy builder sheet)",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/pubns/cis65.pdf",
+   "status": "current",
+   "topics": [
+    "health-safety",
+    "electrical",
+    "gas"
+   ]
+  },
+  {
+   "id": "hse-cis63",
+   "title": "CIS63 Running a small site (busy builder sheet)",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/pubns/cis63.pdf",
+   "status": "current",
+   "topics": [
+    "health-safety",
+    "cdm"
+   ]
+  },
+  {
+   "id": "hse-cis62",
+   "title": "CIS62 Welfare (busy builder sheet)",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/pubns/cis62.pdf",
+   "status": "current",
+   "topics": [
+    "health-safety",
+    "voids"
+   ]
+  },
+  {
+   "id": "hse-hsg150",
+   "title": "HSG150 Health and safety in construction (3rd edition, 2006)",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/pubns/priced/hsg150.pdf",
+   "status": "current",
+   "topics": [
+    "health-safety"
+   ]
+  },
+  {
+   "id": "wah2005",
+   "title": "Work at Height Regulations 2005 (SI 2005/735)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "type": "law",
+   "url": "https://www.legislation.gov.uk/uksi/2005/735/contents",
+   "status": "current",
+   "topics": [
+    "health-safety",
+    "work-at-height"
+   ]
+  },
+  {
+   "id": "hse-indg401",
+   "title": "INDG401 Working at height: a brief guide (rev2, 2014)",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/pubns/indg401.pdf",
+   "status": "current",
+   "topics": [
+    "work-at-height"
+   ]
+  },
+  {
+   "id": "hse-hsg33",
+   "title": "HSG33 Health and safety in roof work (5th edition, 2020)",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/pubns/priced/hsg33.pdf",
+   "status": "current",
+   "topics": [
+    "work-at-height",
+    "repairs"
+   ]
+  },
+  {
+   "id": "riddor2013",
+   "title": "Reporting of Injuries, Diseases and Dangerous Occurrences Regulations 2013 (SI 2013/1471)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "type": "law",
+   "url": "https://www.legislation.gov.uk/uksi/2013/1471/contents",
+   "status": "current",
+   "topics": [
+    "health-safety",
+    "riddor"
+   ]
+  },
+  {
+   "id": "hse-indg453",
+   "title": "INDG453 Reporting accidents and incidents at work (RIDDOR)",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/pubns/indg453.pdf",
+   "status": "current",
+   "topics": [
+    "riddor"
+   ]
+  },
+  {
+   "id": "coshh2002",
+   "title": "Control of Substances Hazardous to Health Regulations 2002 (SI 2002/2677)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "type": "law",
+   "url": "https://www.legislation.gov.uk/uksi/2002/2677/contents",
+   "status": "current",
+   "topics": [
+    "health-safety",
+    "dust"
+   ]
+  },
+  {
+   "id": "hse-l5",
+   "title": "L5 COSHH Approved Code of Practice and guidance (6th edition, 2013)",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/pubns/priced/l5.pdf",
+   "status": "current",
+   "topics": [
+    "health-safety",
+    "dust"
+   ]
+  },
+  {
+   "id": "hse-eh40",
+   "title": "EH40/2005 Workplace exposure limits",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/pubns/books/eh40.htm",
+   "status": "current",
+   "topics": [
+    "health-safety",
+    "dust"
+   ]
+  },
+  {
+   "id": "hse-indg136",
+   "title": "INDG136 Working with substances hazardous to health: a brief guide to COSHH (rev5)",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/pubns/indg136.pdf",
+   "status": "current",
+   "topics": [
+    "health-safety"
+   ]
+  },
+  {
+   "id": "hse-cis36",
+   "title": "CIS36 Construction dust (v3, 2020)",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/pubns/cis36.htm",
+   "status": "current",
+   "topics": [
+    "dust"
+   ]
+  },
+  {
+   "id": "hse-indg463",
+   "title": "INDG463 Control of exposure to silica dust (2024)",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/pubns/indg463.htm",
+   "status": "current",
+   "topics": [
+    "dust"
+   ]
+  },
+  {
+   "id": "hse-cis69",
+   "title": "CIS69 On-tool extraction (2013)",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/pubns/cis69.htm",
+   "status": "current",
+   "topics": [
+    "dust"
+   ]
+  },
+  {
+   "id": "hse-cis54",
+   "title": "CIS54 Dust control on cut-off saws",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/pubns/cis54.pdf",
+   "status": "current",
+   "topics": [
+    "dust"
+   ]
+  },
+  {
+   "id": "hse-wood-dust",
+   "title": "Wood dust",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/woodworking/wooddust.htm",
+   "status": "current",
+   "topics": [
+    "dust"
+   ]
+  },
+  {
+   "id": "noise2005",
+   "title": "Control of Noise at Work Regulations 2005 (SI 2005/1643)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "type": "law",
+   "url": "https://www.legislation.gov.uk/uksi/2005/1643/contents",
+   "status": "current",
+   "topics": [
+    "noise"
+   ]
+  },
+  {
+   "id": "hse-l108",
+   "title": "L108 Controlling noise at work (3rd edition, 2021)",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/pubns/priced/l108.pdf",
+   "status": "current",
+   "topics": [
+    "noise"
+   ]
+  },
+  {
+   "id": "vibration2005",
+   "title": "Control of Vibration at Work Regulations 2005 (SI 2005/1093)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "type": "law",
+   "url": "https://www.legislation.gov.uk/uksi/2005/1093/contents",
+   "status": "current",
+   "topics": [
+    "vibration"
+   ]
+  },
+  {
+   "id": "hse-l140",
+   "title": "L140 Hand-arm vibration (2nd edition, 2019)",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/pubns/priced/l140.pdf",
+   "status": "current",
+   "topics": [
+    "vibration"
+   ]
+  },
+  {
+   "id": "hse-indg410",
+   "title": "INDG410 Working in Great Britain from overseas",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/pubns/indg410.htm",
+   "status": "current",
+   "topics": [
+    "health-safety",
+    "migrant-workers"
+   ]
+  },
+  {
+   "id": "hse-indg450",
+   "title": "INDG450 Your health, your safety: a brief guide for workers",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/pubns/indg450.htm",
+   "status": "current",
+   "topics": [
+    "health-safety",
+    "workers"
+   ]
+  },
+  {
+   "id": "hse-cis26",
+   "title": "CIS26 Cement",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/pubns/cis26.pdf",
+   "status": "current",
+   "topics": [
+    "health-safety",
+    "cement",
+    "coshh"
+   ]
+  },
+  {
+   "id": "hse-cis59",
+   "title": "CIS59 Provision of welfare facilities during construction work",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/pubns/cis59.htm",
+   "status": "current",
+   "topics": [
+    "health-safety",
+    "welfare",
+    "cdm"
+   ]
+  },
+  {
+   "id": "hse-hsg141",
+   "title": "HSG141 Electrical safety on construction sites (2023)",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/pubns/priced/hsg141.pdf",
+   "status": "current",
+   "topics": [
+    "electrical",
+    "health-safety"
+   ]
+  },
+  {
+   "id": "hse-hsg47",
+   "title": "HSG47 Avoiding danger from underground services (3rd edition, 2014)",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/pubns/books/hsg47.htm",
+   "status": "current",
+   "topics": [
+    "health-safety"
+   ]
+  },
+  {
+   "id": "hse-l74",
+   "title": "L74 First aid at work (3rd edition, 2013, amended 2018 and 2024)",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/pubns/books/l74.htm",
+   "status": "current",
+   "topics": [
+    "first-aid"
+   ]
+  },
+  {
+   "id": "gsiur1998",
+   "title": "Gas Safety (Installation and Use) Regulations 1998 (SI 1998/2451)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "type": "law",
+   "url": "https://www.legislation.gov.uk/uksi/1998/2451/contents",
+   "status": "current",
+   "topics": [
+    "gas",
+    "social-housing",
+    "voids"
+   ]
+  },
+  {
+   "id": "hse-l56",
+   "title": "L56 Gas Safety (Installation and Use) Regulations ACoP and guidance (5th edition, 2018)",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/pubns/priced/l56.pdf",
+   "status": "current",
+   "topics": [
+    "gas"
+   ]
+  },
+  {
+   "id": "hse-indg285",
+   "title": "INDG285 Landlords: a guide to landlords' duties (gas, 2018)",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/pubns/indg285.pdf",
+   "status": "current",
+   "topics": [
+    "gas",
+    "social-housing"
+   ]
+  },
+  {
+   "id": "hse-gas-landlords",
+   "title": "Landlords' responsibility for gas safety",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/gas/landlords/index.htm",
+   "status": "current",
+   "topics": [
+    "gas",
+    "social-housing"
+   ]
+  },
+  {
+   "id": "hse-gas-domestic",
+   "title": "HSE domestic gas safety pages",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/gas/domestic/index.htm",
+   "status": "current",
+   "topics": [
+    "gas"
+   ]
+  },
+  {
+   "id": "eawr1989",
+   "title": "Electricity at Work Regulations 1989 (SI 1989/635)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "type": "law",
+   "url": "https://www.legislation.gov.uk/uksi/1989/635/contents",
+   "status": "current",
+   "topics": [
+    "electrical"
+   ]
+  },
+  {
+   "id": "hse-hsr25",
+   "title": "HSR25 The Electricity at Work Regulations 1989. Guidance (3rd edition, 2015)",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/pubns/priced/hsr25.pdf",
+   "status": "current",
+   "topics": [
+    "electrical"
+   ]
+  },
+  {
+   "id": "hse-hsg85",
+   "title": "HSG85 Electricity at work: safe working practices (3rd edition, 2013)",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/pubns/priced/hsg85.pdf",
+   "status": "current",
+   "topics": [
+    "electrical"
+   ]
+  },
+  {
+   "id": "hse-indg231",
+   "title": "INDG231 Electrical safety and you (rev1, 2012)",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/pubns/indg231.htm",
+   "status": "current",
+   "topics": [
+    "electrical"
+   ]
+  },
+  {
+   "id": "hse-indg236",
+   "title": "INDG236 Maintaining portable electric equipment (rev3, 2013)",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/pubns/indg236.htm",
+   "status": "current",
+   "topics": [
+    "electrical"
+   ]
+  },
+  {
+   "id": "ess2020",
+   "title": "Electrical Safety Standards in the Private Rented Sector and Social Rented Sector (England) Regulations 2020 (SI 2020/312)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "type": "law",
+   "url": "https://www.legislation.gov.uk/uksi/2020/312/contents",
+   "status": "current",
+   "topics": [
+    "electrical",
+    "social-housing"
+   ]
+  },
+  {
+   "id": "ess-social-2025",
+   "title": "Electrical Safety Standards in the Private Rented Sector (England) (Amendment) (Extension to the Social Rented Sector) Regulations 2025 (SI 2025/1043)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "type": "law",
+   "url": "https://www.legislation.gov.uk/uksi/2025/1043/made",
+   "status": "current",
+   "topics": [
+    "electrical",
+    "social-housing"
+   ]
+  },
+  {
+   "id": "ess-amd-2026",
+   "title": "Electrical Safety Standards in the PRS and Social Rented Sector (England) (Amendment) Regulations 2026 (SI 2026/1196)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "type": "law",
+   "url": "https://www.legislation.gov.uk/uksi/2026/1196/made",
+   "status": "current",
+   "topics": [
+    "electrical",
+    "social-housing"
+   ]
+  },
+  {
+   "id": "ess-guidance",
+   "title": "Electrical safety standards in the private and social rented sectors guidance",
+   "publisher": "MHCLG (GOV.UK)",
+   "type": "guidance",
+   "url": "https://www.gov.uk/government/publications/electrical-safety-standards-in-the-private-and-social-rented-sectors-guidance",
+   "status": "current",
+   "topics": [
+    "electrical",
+    "social-housing"
+   ]
+  },
+  {
+   "id": "awaab-regs-2025",
+   "title": "Hazards in Social Housing (Prescribed Requirements) (England) Regulations 2025 (SI 2025/1042), \"Awaab's Law\"",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "type": "law",
+   "url": "https://www.legislation.gov.uk/uksi/2025/1042/contents",
+   "status": "current",
+   "topics": [
+    "awaab",
+    "damp-mould",
+    "social-housing",
+    "repairs"
+   ]
+  },
+  {
+   "id": "awaab-amd-2026",
+   "title": "Hazards in Social Housing (Prescribed Requirements) (England) (Amendment) Regulations 2026 (SI 2026/1195), Phase 2",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "type": "law",
+   "url": "https://www.legislation.gov.uk/uksi/2026/1195/contents",
+   "status": "coming",
+   "topics": [
+    "awaab",
+    "social-housing",
+    "repairs"
+   ]
+  },
+  {
+   "id": "awaab-consolidated",
+   "title": "Awaab's Law Regulations as they apply from 30 November 2026 (consolidated PDF)",
+   "publisher": "MHCLG (GOV.UK)",
+   "type": "guidance",
+   "url": "https://www.gov.uk/government/publications/awaabs-law-regulations",
+   "status": "coming",
+   "topics": [
+    "awaab",
+    "social-housing"
+   ]
+  },
+  {
+   "id": "awaab-guidance-phase1",
+   "title": "Awaab's Law Phase 1: guidance for social landlords - timeframes for repairs in the social rented sector",
+   "publisher": "MHCLG (GOV.UK)",
+   "type": "guidance",
+   "url": "https://www.gov.uk/government/publications/awaabs-law-guidance-for-social-landlords",
+   "status": "current",
+   "topics": [
+    "awaab",
+    "damp-mould",
+    "social-housing",
+    "repairs"
+   ]
+  },
+  {
+   "id": "awaab-guidance-phase2",
+   "title": "Awaab's Law Phase 2: guidance for social landlords",
+   "publisher": "MHCLG (GOV.UK)",
+   "type": "guidance",
+   "url": "https://www.gov.uk/government/publications/awaabs-law-phase-2-guidance-for-social-housing-landlords",
+   "status": "current",
+   "topics": [
+    "awaab",
+    "social-housing",
+    "repairs"
+   ]
+  },
+  {
+   "id": "awaab-triage-phase2",
+   "title": "Awaab's Law Phase 2: guidance to support triaging of hazards",
+   "publisher": "MHCLG (GOV.UK)",
+   "type": "guidance",
+   "url": "https://www.gov.uk/government/publications/awaabs-law-phase-2-hazards-guidance-for-social-landlords",
+   "status": "current",
+   "topics": [
+    "awaab",
+    "social-housing",
+    "repairs"
+   ]
+  },
+  {
+   "id": "awaab-tenants",
+   "title": "Awaab's Law: guidance for tenants in social housing",
+   "publisher": "MHCLG (GOV.UK)",
+   "type": "guidance",
+   "url": "https://www.gov.uk/government/publications/awaabs-law-guidance-for-tenants-in-social-housing",
+   "status": "current",
+   "topics": [
+    "awaab",
+    "social-housing"
+   ]
+  },
+  {
+   "id": "awaab-collection",
+   "title": "Awaab's Law in the social rented sector (collection)",
+   "publisher": "MHCLG (GOV.UK)",
+   "type": "guidance",
+   "url": "https://www.gov.uk/government/collections/awaabs-law-in-the-social-rented-sector",
+   "status": "current",
+   "topics": [
+    "awaab"
+   ]
+  },
+  {
+   "id": "damp-mould-health",
+   "title": "Damp and mould: understanding and addressing the health risks for rented housing providers",
+   "publisher": "MHCLG, DHSC and UKHSA (GOV.UK)",
+   "type": "guidance",
+   "url": "https://www.gov.uk/government/publications/damp-and-mould-understanding-and-addressing-the-health-risks-for-rented-housing-providers",
+   "status": "current",
+   "topics": [
+    "damp-mould",
+    "social-housing"
+   ]
+  },
+  {
+   "id": "decent-home-2006",
+   "title": "A decent home: definition and guidance for implementation (June 2006 update)",
+   "publisher": "DCLG (now MHCLG) (GOV.UK)",
+   "type": "guidance",
+   "url": "https://www.gov.uk/government/publications/a-decent-home-definition-and-guidance",
+   "status": "current",
+   "topics": [
+    "decent-homes",
+    "social-housing"
+   ]
+  },
+  {
+   "id": "decent-homes-new",
+   "title": "The New Decent Homes Standard: policy statement",
+   "publisher": "MHCLG (GOV.UK)",
+   "type": "guidance",
+   "url": "https://www.gov.uk/government/consultations/consultation-on-a-reformed-decent-homes-standard-for-social-and-privately-rented-homes/outcome/the-new-decent-homes-standard-policy-statement",
+   "status": "current",
+   "topics": [
+    "decent-homes",
+    "social-housing"
+   ]
+  },
+  {
+   "id": "housing-act-2004-p1",
+   "title": "Housing Act 2004, Part 1 (HHSRS and enforcement)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "type": "law",
+   "url": "https://www.legislation.gov.uk/ukpga/2004/34/part/1",
+   "status": "current",
+   "topics": [
+    "hhsrs",
+    "social-housing"
+   ]
+  },
+  {
+   "id": "hhsrs-regs-2005",
+   "title": "Housing Health and Safety Rating System (England) Regulations 2005 (SI 2005/3208)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "type": "law",
+   "url": "https://www.legislation.gov.uk/uksi/2005/3208/contents",
+   "status": "current",
+   "topics": [
+    "hhsrs"
+   ]
+  },
+  {
+   "id": "hhsrs-amd-2026",
+   "title": "Housing Health and Safety Rating System (England) (Amendment) Regulations 2026 (SI 2026/571)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "type": "law",
+   "url": "https://www.legislation.gov.uk/uksi/2026/571/contents",
+   "status": "current",
+   "topics": [
+    "hhsrs"
+   ]
+  },
+  {
+   "id": "hhsrs-operating",
+   "title": "HHSRS operating guidance, Parts 1 to 3",
+   "publisher": "MHCLG (GOV.UK)",
+   "type": "guidance",
+   "url": "https://www.gov.uk/government/publications/housing-health-and-safety-rating-system-hhsrs-operating-guidance",
+   "status": "current",
+   "topics": [
+    "hhsrs"
+   ]
+  },
+  {
+   "id": "hhsrs-enforcement",
+   "title": "HHSRS enforcement guidance",
+   "publisher": "MHCLG (GOV.UK)",
+   "type": "guidance",
+   "url": "https://www.gov.uk/government/publications/housing-health-and-safety-rating-system-hhsrs-enforcement-guidance",
+   "status": "current",
+   "topics": [
+    "hhsrs"
+   ]
+  },
+  {
+   "id": "hhsrs-landlords",
+   "title": "Landlord and agent guide to the HHSRS",
+   "publisher": "MHCLG (GOV.UK)",
+   "type": "guidance",
+   "url": "https://www.gov.uk/government/publications/housing-health-and-safety-rating-system-guidance-for-landlords-and-property-related-professionals",
+   "status": "current",
+   "topics": [
+    "hhsrs"
+   ]
+  },
+  {
+   "id": "lta1985-s11",
+   "title": "Landlord and Tenant Act 1985, section 11 (repairing obligations)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "type": "law",
+   "url": "https://www.legislation.gov.uk/ukpga/1985/70/section/11",
+   "status": "current",
+   "topics": [
+    "repairs",
+    "social-housing"
+   ]
+  },
+  {
+   "id": "hfhh-act-2018",
+   "title": "Homes (Fitness for Human Habitation) Act 2018",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "type": "law",
+   "url": "https://www.legislation.gov.uk/ukpga/2018/34/contents",
+   "status": "current",
+   "topics": [
+    "repairs",
+    "social-housing"
+   ]
+  },
+  {
+   "id": "hfhh-guides",
+   "title": "Homes (Fitness for Human Habitation) Act 2018: guides for landlords, tenants and local authorities",
+   "publisher": "MHCLG (GOV.UK)",
+   "type": "guidance",
+   "url": "https://www.gov.uk/government/publications/homes-fitness-for-human-habitation-act-2018",
+   "status": "current",
+   "topics": [
+    "repairs"
+   ]
+  },
+  {
+   "id": "shra2023",
+   "title": "Social Housing (Regulation) Act 2023",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "type": "law",
+   "url": "https://www.legislation.gov.uk/ukpga/2023/36/contents",
+   "status": "current",
+   "topics": [
+    "social-housing",
+    "awaab"
+   ]
+  },
+  {
+   "id": "rsh-safety-quality",
+   "title": "RSH Safety and Quality Standard",
+   "publisher": "Regulator of Social Housing (GOV.UK)",
+   "type": "guidance",
+   "url": "https://www.gov.uk/government/publications/safety-and-quality-standard",
+   "status": "current",
+   "topics": [
+    "social-housing",
+    "repairs"
+   ]
+  },
+  {
+   "id": "rsh-code-of-practice",
+   "title": "RSH Consumer Standards Code of Practice",
+   "publisher": "Regulator of Social Housing (GOV.UK)",
+   "type": "guidance",
+   "url": "https://www.gov.uk/government/publications/consumer-standards-code-of-practice",
+   "status": "current",
+   "topics": [
+    "social-housing"
+   ]
+  },
+  {
+   "id": "rsh-competence-conduct",
+   "title": "RSH Competence and Conduct Standard",
+   "publisher": "Regulator of Social Housing (GOV.UK)",
+   "type": "guidance",
+   "url": "https://www.gov.uk/government/publications/competence-and-conduct-standard",
+   "status": "current",
+   "topics": [
+    "social-housing"
+   ]
+  },
+  {
+   "id": "rra2025",
+   "title": "Renters' Rights Act 2025 (c.26)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "type": "law",
+   "url": "https://www.legislation.gov.uk/ukpga/2025/26/contents",
+   "status": "current",
+   "topics": [
+    "awaab",
+    "decent-homes"
+   ]
+  },
+  {
+   "id": "procurement-act-2023",
+   "title": "Procurement Act 2023 (c.54)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "type": "law",
+   "url": "https://www.legislation.gov.uk/ukpga/2023/54/contents",
+   "status": "current",
+   "topics": [
+    "procurement"
+   ]
+  },
+  {
+   "id": "procurement-regs-2024",
+   "title": "Procurement Regulations 2024 (SI 2024/692)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "type": "law",
+   "url": "https://www.legislation.gov.uk/uksi/2024/692/contents",
+   "status": "current",
+   "topics": [
+    "procurement"
+   ]
+  },
+  {
+   "id": "procurement-thresholds-2025",
+   "title": "Procurement Act 2023 (Threshold Amounts) (Amendment) Regulations 2025 (SI 2025/1200)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "type": "law",
+   "url": "https://www.legislation.gov.uk/uksi/2025/1200/made",
+   "status": "current",
+   "topics": [
+    "procurement"
+   ]
+  },
+  {
+   "id": "ppn-023-2026",
+   "title": "PPN 023: 2026 Threshold Amounts",
+   "publisher": "Cabinet Office (GOV.UK)",
+   "type": "guidance",
+   "url": "https://www.gov.uk/government/publications/ppn-023-2026-threshold-amounts/ppn-023-2026-threshold-amounts-html",
+   "status": "current",
+   "topics": [
+    "procurement"
+   ]
+  },
+  {
+   "id": "below-threshold-guidance",
+   "title": "Guidance: Below-Threshold Contracts",
+   "publisher": "Cabinet Office (GOV.UK)",
+   "type": "guidance",
+   "url": "https://www.gov.uk/government/publications/procurement-act-2023-guidance-documents-define-phase/guidance-below-threshold-contracts-html",
+   "status": "current",
+   "topics": [
+    "procurement"
+   ]
+  },
+  {
+   "id": "reserving-below-threshold",
+   "title": "Guidance on reserving competitions for below-threshold contracts (England local authorities)",
+   "publisher": "MHCLG (GOV.UK)",
+   "type": "guidance",
+   "url": "https://www.gov.uk/government/publications/reserving-competitions-for-below-threshold-contracts/guidance-on-reserving-competitions-for-below-threshold-contracts",
+   "status": "current",
+   "topics": [
+    "procurement"
+   ]
+  },
+  {
+   "id": "lg-exclusion-order-2026",
+   "title": "Local Government (Exclusion of Non-commercial Considerations) (England) Order 2026 (SI 2026/94)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "type": "law",
+   "url": "https://www.legislation.gov.uk/uksi/2026/94/made",
+   "status": "current",
+   "topics": [
+    "procurement"
+   ]
+  },
+  {
+   "id": "procurement-supplier-guide",
+   "title": "The Procurement Act 2023: a short guide for suppliers",
+   "publisher": "Cabinet Office (GOV.UK)",
+   "type": "guidance",
+   "url": "https://www.gov.uk/government/publications/procurement-act-2023-short-guides/the-procurement-act-2023-a-short-guide-for-suppliers-html",
+   "status": "current",
+   "topics": [
+    "procurement"
+   ]
+  },
+  {
+   "id": "supplier-information",
+   "title": "Information and guidance for suppliers (collection)",
+   "publisher": "Government Commercial Function (GOV.UK)",
+   "type": "guidance",
+   "url": "https://www.gov.uk/government/collections/information-and-guidance-for-suppliers",
+   "status": "current",
+   "topics": [
+    "procurement"
+   ]
+  },
+  {
+   "id": "sme-hub",
+   "title": "Small and Medium Business Hub",
+   "publisher": "Cabinet Office (GOV.UK)",
+   "type": "guidance",
+   "url": "https://www.gov.uk/openforbusiness",
+   "status": "current",
+   "topics": [
+    "procurement"
+   ]
+  },
+  {
+   "id": "payments-compliance-notices",
+   "title": "Guidance: payments compliance notices",
+   "publisher": "Cabinet Office (GOV.UK)",
+   "type": "guidance",
+   "url": "https://www.gov.uk/government/publications/procurement-act-2023-guidance-documents-manage-phase/guidance-payments-compliance-notices-html",
+   "status": "current",
+   "topics": [
+    "procurement"
+   ]
+  },
+  {
+   "id": "hmrc-cis-340",
+   "title": "Construction Industry Scheme: a guide for contractors and subcontractors (CIS 340)",
+   "publisher": "HMRC (GOV.UK)",
+   "type": "tax_guidance",
+   "url": "https://www.gov.uk/government/publications/construction-industry-scheme-cis-340",
+   "status": "current",
+   "topics": [
+    "cis"
+   ]
+  },
+  {
+   "id": "govuk-cis-contractor",
+   "title": "What you must do as a CIS contractor",
+   "publisher": "HMRC (GOV.UK)",
+   "type": "tax_guidance",
+   "url": "https://www.gov.uk/what-you-must-do-as-a-cis-contractor",
+   "status": "current",
+   "topics": [
+    "cis"
+   ]
+  },
+  {
+   "id": "govuk-cis-subcontractor",
+   "title": "What you must do as a CIS subcontractor",
+   "publisher": "HMRC (GOV.UK)",
+   "type": "tax_guidance",
+   "url": "https://www.gov.uk/what-you-must-do-as-a-cis-subcontractor",
+   "status": "current",
+   "topics": [
+    "cis"
+   ]
+  },
+  {
+   "id": "fa2004-cis",
+   "title": "Finance Act 2004, Part 3, Chapter 3 \"Construction industry scheme\" (ss 57 to 77)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "type": "law",
+   "url": "https://www.legislation.gov.uk/ukpga/2004/12/part/3/chapter/3",
+   "status": "current",
+   "topics": [
+    "cis"
+   ]
+  },
+  {
+   "id": "cis-regs-2005",
+   "title": "The Income Tax (Construction Industry Scheme) Regulations 2005 (SI 2005/2045)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "type": "law",
+   "url": "https://www.legislation.gov.uk/uksi/2005/2045/contents",
+   "status": "current",
+   "topics": [
+    "cis"
+   ]
+  },
+  {
+   "id": "cis-amd-2026",
+   "title": "The Income Tax (Construction Industry Scheme) (Amendment) Regulations 2026 (SI 2026/289)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "type": "law",
+   "url": "https://www.legislation.gov.uk/uksi/2026/289/contents/made",
+   "status": "current",
+   "topics": [
+    "cis"
+   ]
+  },
+  {
+   "id": "hmrc-cis-fraud-2026",
+   "title": "Tackling Construction Industry Scheme fraud (policy paper)",
+   "publisher": "HMRC (GOV.UK)",
+   "type": "tax_guidance",
+   "url": "https://www.gov.uk/government/publications/construction-industry-scheme-tackling-fraud/tackling-construction-industry-scheme-fraud",
+   "status": "current",
+   "topics": [
+    "cis"
+   ]
+  },
+  {
+   "id": "hmrc-cis-simplify-2026",
+   "title": "Simplification and administrative improvements to the Construction Industry Scheme (policy paper)",
+   "publisher": "HMRC (GOV.UK)",
+   "type": "tax_guidance",
+   "url": "https://www.gov.uk/government/publications/simplifying-and-improving-construction-industry-scheme-administration/simplification-and-administrative-improvements-to-the-construction-industry-scheme",
+   "status": "current",
+   "topics": [
+    "cis"
+   ]
+  },
+  {
+   "id": "hmrc-cis-consult-2026",
+   "title": "CIS proposed simplification and administrative amendments (consultation)",
+   "publisher": "HMRC (GOV.UK)",
+   "type": "tax_guidance",
+   "url": "https://www.gov.uk/government/consultations/construction-industry-scheme-proposed-simplification-and-administrative-amendments",
+   "status": "current",
+   "topics": [
+    "cis"
+   ]
+  },
+  {
+   "id": "vat-drc-guide",
+   "title": "Check when you must use the VAT domestic reverse charge for building and construction services",
+   "publisher": "HMRC (GOV.UK)",
+   "type": "tax_guidance",
+   "url": "https://www.gov.uk/guidance/vat-domestic-reverse-charge-for-building-and-construction-services",
+   "status": "current",
+   "topics": [
+    "vat"
+   ]
+  },
+  {
+   "id": "hmrc-vatrevcon",
+   "title": "VAT Reverse Charge for Building and Construction Services Manual (VATREVCON)",
+   "publisher": "HMRC (GOV.UK)",
+   "type": "tax_guidance",
+   "url": "https://www.gov.uk/hmrc-internal-manuals/vat-reverse-charge-for-building-and-construction-services-manual",
+   "status": "current",
+   "topics": [
+    "vat"
+   ]
+  },
+  {
+   "id": "vat-notice-708",
+   "title": "Buildings and construction (VAT Notice 708)",
+   "publisher": "HMRC (GOV.UK)",
+   "type": "tax_guidance",
+   "url": "https://www.gov.uk/guidance/buildings-and-construction-vat-notice-708",
+   "status": "current",
+   "topics": [
+    "vat"
+   ]
+  },
+  {
+   "id": "vat-s55a-order-2019",
+   "title": "The Value Added Tax (Section 55A) (Specified Services and Excepted Supplies) Order 2019 (SI 2019/892)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "type": "law",
+   "url": "https://www.legislation.gov.uk/uksi/2019/892/contents",
+   "status": "current",
+   "topics": [
+    "vat"
+   ]
+  },
+  {
+   "id": "party-wall-act-1996",
+   "title": "Party Wall etc. Act 1996 (c. 40)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "type": "law",
+   "url": "https://www.legislation.gov.uk/ukpga/1996/40/contents",
+   "status": "current",
+   "topics": [
+    "party-wall"
+   ]
+  },
+  {
+   "id": "party-wall-booklet",
+   "title": "The Party Wall etc Act 1996: explanatory booklet",
+   "publisher": "MHCLG (GOV.UK)",
+   "type": "guidance",
+   "url": "https://www.gov.uk/government/publications/preventing-and-resolving-disputes-in-relation-to-party-walls/the-party-wall-etc-act-1996-explanatory-booklet",
+   "status": "current",
+   "topics": [
+    "party-wall"
+   ]
+  },
+  {
+   "id": "party-wall-guidance",
+   "title": "Preventing and resolving disputes in relation to party walls (guidance page)",
+   "publisher": "MHCLG (GOV.UK)",
+   "type": "guidance",
+   "url": "https://www.gov.uk/guidance/party-wall-etc-act-1996-guidance",
+   "status": "current",
+   "topics": [
+    "party-wall"
+   ]
+  },
+  {
+   "id": "gpdo-2015",
+   "title": "Town and Country Planning (General Permitted Development) (England) Order 2015 (SI 2015/596)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "type": "law",
+   "url": "https://www.legislation.gov.uk/uksi/2015/596/contents",
+   "status": "current",
+   "topics": [
+    "planning"
+   ]
+  },
+  {
+   "id": "pd-householder-guide",
+   "title": "Permitted development rights for householders: technical guidance",
+   "publisher": "MHCLG (GOV.UK)",
+   "type": "guidance",
+   "url": "https://www.gov.uk/government/publications/permitted-development-rights-for-householders-technical-guidance",
+   "status": "current",
+   "topics": [
+    "planning"
+   ]
+  },
+  {
+   "id": "hgcra1996-p2",
+   "title": "Housing Grants, Construction and Regeneration Act 1996, Part II (Construction Contracts)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "type": "law",
+   "url": "https://www.legislation.gov.uk/ukpga/1996/53/part/II",
+   "status": "current",
+   "topics": [
+    "payment",
+    "contracts",
+    "adjudication"
+   ]
+  },
+  {
+   "id": "scheme-cc-1998",
+   "title": "The Scheme for Construction Contracts (England and Wales) Regulations 1998 (SI 1998/649)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "type": "law",
+   "url": "https://www.legislation.gov.uk/uksi/1998/649/contents",
+   "status": "current",
+   "topics": [
+    "payment",
+    "contracts",
+    "adjudication"
+   ]
+  }
+ ],
+ "not_held": [
+  {
+   "id": "bs-5250",
+   "title": "BS 5250:2021 Management of moisture in buildings. Code of practice",
+   "publisher": "BSI",
+   "type": "standard",
+   "url": "https://knowledge.bsigroup.com/products/management-of-moisture-in-buildings-code-of-practice-1",
+   "reason": "paid_standard",
+   "why_it_matters": "Condensation and moisture code cited in AD L; central to damp and mould work."
+  },
+  {
+   "id": "bs-7671",
+   "title": "BS 7671:2018+A4:2026 IET Wiring Regulations",
+   "publisher": "IET / BSI",
+   "type": "standard",
+   "url": "https://electrical.theiet.org/amendment-4-updates-to-18th-edition",
+   "reason": "paid_standard",
+   "why_it_matters": "Referenced by AD P and the electrical safety standards; basis of EICRs and consumer unit changes."
+  },
+  {
+   "id": "bs-5250-preview",
+   "title": "BS 5250:2021 free preview PDF (cover, copyright page and contents list)",
+   "publisher": "BSI",
+   "type": "standard",
+   "url": "https://middleware.accord.bsigroup.com/pdf-preview?path=Preview%2F000000000030442568.pdf",
+   "reason": "paid_standard",
+   "why_it_matters": "Clause numbers and titles let answers point to the right BS 5250 clause."
+  },
+  {
+   "id": "bs-5839",
+   "title": "BS 5839-1 and -6 Fire detection and fire alarm systems for buildings",
+   "publisher": "BSI",
+   "type": "standard",
+   "url": "https://knowledge.bsigroup.com/",
+   "reason": "paid_standard",
+   "why_it_matters": "Fire alarms in dwellings (-6) and other buildings (-1), cited in AD B."
+  },
+  {
+   "id": "bs-8214",
+   "title": "BS 8214:2026 Fire door assemblies (installation), all materials",
+   "publisher": "BSI",
+   "type": "standard",
+   "url": "https://knowledge.bsigroup.com/",
+   "reason": "paid_standard",
+   "why_it_matters": "Fire door installation, cited in AD B Vol 1."
+  },
+  {
+   "id": "bs-en-13501",
+   "title": "BS EN 13501-1 to -5 Fire classification of construction products and building elements",
+   "publisher": "BSI",
+   "type": "standard",
+   "url": "https://knowledge.bsigroup.com/",
+   "reason": "paid_standard",
+   "why_it_matters": "Cited in AD B Vol 1; replaces national BS 476 classes."
+  },
+  {
+   "id": "bs-en-1634",
+   "title": "BS EN 1634-1 and -3 Fire resistance and smoke control tests for door and shutter assemblies",
+   "publisher": "BSI",
+   "type": "standard",
+   "url": "https://knowledge.bsigroup.com/",
+   "reason": "paid_standard",
+   "why_it_matters": "Fire and smoke door tests cited in AD B Vol 1."
+  },
+  {
+   "id": "bs-en-50291-1",
+   "title": "BS EN 50291-1 Carbon monoxide alarms for domestic premises",
+   "publisher": "BSI",
+   "type": "standard",
+   "url": "https://knowledge.bsigroup.com/",
+   "reason": "paid_standard",
+   "why_it_matters": "CO alarms, cited in AD J."
+  },
+  {
+   "id": "bs-en-iso-13788",
+   "title": "BS EN ISO 13788 Hygrothermal performance of building components (condensation risk)",
+   "publisher": "BSI",
+   "type": "standard",
+   "url": "https://knowledge.bsigroup.com/",
+   "reason": "paid_standard",
+   "why_it_matters": "Condensation calculation, cited in AD L Vol 1 2021."
+  },
+  {
+   "id": "iet-model-forms",
+   "title": "IET Model Forms for BS 7671 (EIC, Minor Works, EICR)",
+   "publisher": "IET",
+   "type": "standard",
+   "url": "https://electrical.theiet.org/bs-7671-18th-edition-wiring-regulations/model-forms/",
+   "reason": "paid_standard",
+   "why_it_matters": "Explain certificate fields only."
+  },
+  {
+   "id": "igem-up-1b",
+   "title": "IGEM/UP/1B Edition 4 Tightness testing and direct purging of small installations",
+   "publisher": "IGEM",
+   "type": "standard",
+   "url": "https://www.igem.org.uk/resource/igem-up-1b-edition-4-tightness-testing-and-direct-purging-of-small-liquefied-petroleum-gas-air-ng-and-lpg-installations.html",
+   "reason": "paid_standard",
+   "why_it_matters": "Gas tightness test after capping or reconnecting; referenced by gas engineers."
+  },
+  {
+   "id": "pas-2035",
+   "title": "PAS 2035:2023 Retrofitting dwellings for improved energy efficiency",
+   "publisher": "BSI",
+   "type": "standard",
+   "url": "https://knowledge.bsigroup.com/products/retrofitting-dwellings-for-improved-energy-efficiency-specification-and-guidance-4",
+   "reason": "paid_standard",
+   "why_it_matters": "Retrofit jobs (ECO4, Warm Homes, SHDF)."
+  },
+  {
+   "id": "bs-10621",
+   "title": "BS 10621 Thief resistant dual-mode lock assemblies",
+   "publisher": "BSI",
+   "type": "standard",
+   "url": "https://knowledge.bsigroup.com/",
+   "reason": "paid_standard",
+   "why_it_matters": "Locks, cited in AD Q."
+  },
+  {
+   "id": "bs-3621",
+   "title": "BS 3621 Thief resistant lock assemblies (key egress)",
+   "publisher": "BSI",
+   "type": "standard",
+   "url": "https://knowledge.bsigroup.com/",
+   "reason": "paid_standard",
+   "why_it_matters": "Locks, cited in AD Q."
+  },
+  {
+   "id": "bs-476",
+   "title": "BS 476 Fire tests on building materials and structures (incl. Part 22)",
+   "publisher": "BSI",
+   "type": "standard",
+   "url": "https://knowledge.bsigroup.com/",
+   "reason": "paid_standard",
+   "why_it_matters": "Old national fire tests still in pre-2029 AD B text."
+  },
+  {
+   "id": "bs-5395",
+   "title": "BS 5395-2 and -3 Stairs",
+   "publisher": "BSI",
+   "type": "standard",
+   "url": "https://knowledge.bsigroup.com/",
+   "reason": "paid_standard",
+   "why_it_matters": "Stairs, cited in AD K."
+  },
+  {
+   "id": "bs-5410-1",
+   "title": "BS 5410-1 Oil firing installations",
+   "publisher": "BSI",
+   "type": "standard",
+   "url": "https://knowledge.bsigroup.com/",
+   "reason": "paid_standard",
+   "why_it_matters": "Oil appliances, cited in AD J."
+  },
+  {
+   "id": "bs-5440-1",
+   "title": "BS 5440-1 Flueing and ventilation for gas appliances (flues)",
+   "publisher": "BSI",
+   "type": "standard",
+   "url": "https://knowledge.bsigroup.com/",
+   "reason": "paid_standard",
+   "why_it_matters": "Flues for gas appliances, cited in AD J."
+  },
+  {
+   "id": "bs-5925",
+   "title": "BS 5925 Ventilation principles and designing for natural ventilation",
+   "publisher": "BSI",
+   "type": "standard",
+   "url": "https://knowledge.bsigroup.com/",
+   "reason": "paid_standard",
+   "why_it_matters": "Cited in AD F Vol 1."
+  },
+  {
+   "id": "bs-6180",
+   "title": "BS 6180 Barriers in and about buildings",
+   "publisher": "BSI",
+   "type": "standard",
+   "url": "https://knowledge.bsigroup.com/",
+   "reason": "paid_standard",
+   "why_it_matters": "Barriers and balustrades, cited in AD K."
+  },
+  {
+   "id": "bs-6206",
+   "title": "BS 6206 Impact performance requirements for flat safety glass",
+   "publisher": "BSI",
+   "type": "standard",
+   "url": "https://knowledge.bsigroup.com/",
+   "reason": "paid_standard",
+   "why_it_matters": "Glazing, cited in AD K."
+  },
+  {
+   "id": "bs-6465",
+   "title": "BS 6465-1, -2 and -3 Sanitary installations",
+   "publisher": "BSI",
+   "type": "standard",
+   "url": "https://knowledge.bsigroup.com/",
+   "reason": "paid_standard",
+   "why_it_matters": "Cited in AD G."
+  },
+  {
+   "id": "bs-6891",
+   "title": "BS 6891:2015+A1:2019 Low pressure gas pipework up to 35 mm",
+   "publisher": "BSI",
+   "type": "standard",
+   "url": "https://knowledge.bsigroup.com/products/specification-for-the-installation-and-maintenance-of-low-pressure-gas-installation-pipework-of-up-to-35-mm-r1-sup-1-sup-sub-4-sub-on-premises",
+   "reason": "paid_standard",
+   "why_it_matters": "Domestic gas pipework reference."
+  },
+  {
+   "id": "bs-7273",
+   "title": "BS 7273 Operation of fire protection measures (e.g. door release)",
+   "publisher": "BSI",
+   "type": "standard",
+   "url": "https://knowledge.bsigroup.com/",
+   "reason": "paid_standard",
+   "why_it_matters": "Door release and actuation, cited in AD B Vol 1."
+  },
+  {
+   "id": "bs-8621",
+   "title": "BS 8621 Thief resistant lock assemblies (keyless egress)",
+   "publisher": "BSI",
+   "type": "standard",
+   "url": "https://knowledge.bsigroup.com/",
+   "reason": "paid_standard",
+   "why_it_matters": "Locks, cited in AD Q."
+  },
+  {
+   "id": "bs-9251",
+   "title": "BS 9251 Fire sprinkler systems for domestic and residential occupancies",
+   "publisher": "BSI",
+   "type": "standard",
+   "url": "https://knowledge.bsigroup.com/",
+   "reason": "paid_standard",
+   "why_it_matters": "Sprinklers, cited in AD B Vol 1."
+  },
+  {
+   "id": "bs-9991",
+   "title": "BS 9991 Fire safety in the design, management and use of residential buildings",
+   "publisher": "BSI",
+   "type": "standard",
+   "url": "https://knowledge.bsigroup.com/",
+   "reason": "paid_standard",
+   "why_it_matters": "Fire design code cited in AD B Vol 1."
+  },
+  {
+   "id": "bs-9999",
+   "title": "BS 9999 Fire safety in the design, management and use of buildings",
+   "publisher": "BSI",
+   "type": "standard",
+   "url": "https://knowledge.bsigroup.com/",
+   "reason": "paid_standard",
+   "why_it_matters": "Fire design code cited in AD B Vol 1."
+  },
+  {
+   "id": "bs-en-12056",
+   "title": "BS EN 12056 Gravity drainage systems inside buildings",
+   "publisher": "BSI",
+   "type": "standard",
+   "url": "https://knowledge.bsigroup.com/",
+   "reason": "paid_standard",
+   "why_it_matters": "Cited in AD H."
+  },
+  {
+   "id": "bs-en-12600",
+   "title": "BS EN 12600 Glass in building - pendulum impact test",
+   "publisher": "BSI",
+   "type": "standard",
+   "url": "https://knowledge.bsigroup.com/",
+   "reason": "paid_standard",
+   "why_it_matters": "Safety glazing, cited in AD K."
+  },
+  {
+   "id": "bs-en-1295",
+   "title": "BS EN 1295 Structural design of buried pipelines",
+   "publisher": "BSI",
+   "type": "standard",
+   "url": "https://knowledge.bsigroup.com/",
+   "reason": "paid_standard",
+   "why_it_matters": "Cited in AD H."
+  },
+  {
+   "id": "bs-en-13141",
+   "title": "BS EN 13141 series Ventilation for buildings - performance testing of components",
+   "publisher": "BSI",
+   "type": "standard",
+   "url": "https://knowledge.bsigroup.com/",
+   "reason": "paid_standard",
+   "why_it_matters": "Ventilation products, cited in AD F Vol 1."
+  },
+  {
+   "id": "bs-en-1443",
+   "title": "BS EN 1443 Chimneys - general requirements",
+   "publisher": "BSI",
+   "type": "standard",
+   "url": "https://knowledge.bsigroup.com/",
+   "reason": "paid_standard",
+   "why_it_matters": "Chimneys, cited in AD J."
+  },
+  {
+   "id": "bs-en-15287-1",
+   "title": "BS EN 15287-1 Chimneys - design, installation and commissioning (non-room-sealed appliances)",
+   "publisher": "BSI",
+   "type": "standard",
+   "url": "https://knowledge.bsigroup.com/",
+   "reason": "paid_standard",
+   "why_it_matters": "Chimneys, cited in AD J."
+  },
+  {
+   "id": "bs-en-1610",
+   "title": "BS EN 1610 Construction and testing of drains and sewers",
+   "publisher": "BSI",
+   "type": "standard",
+   "url": "https://knowledge.bsigroup.com/",
+   "reason": "paid_standard",
+   "why_it_matters": "Cited in AD H."
+  },
+  {
+   "id": "bs-en-16798-1",
+   "title": "BS EN 16798-1 Energy performance of buildings - ventilation (indoor environment input parameters)",
+   "publisher": "BSI",
+   "type": "standard",
+   "url": "https://knowledge.bsigroup.com/",
+   "reason": "paid_standard",
+   "why_it_matters": "Cited in AD F Vol 1."
+  },
+  {
+   "id": "bs-en-1856",
+   "title": "BS EN 1856-1 and -2 Chimneys - metal chimneys and flue liners",
+   "publisher": "BSI",
+   "type": "standard",
+   "url": "https://knowledge.bsigroup.com/",
+   "reason": "paid_standard",
+   "why_it_matters": "Flues, cited in AD J."
+  },
+  {
+   "id": "bs-en-752",
+   "title": "BS EN 752 Drain and sewer systems outside buildings",
+   "publisher": "BSI",
+   "type": "standard",
+   "url": "https://knowledge.bsigroup.com/",
+   "reason": "paid_standard",
+   "why_it_matters": "Cited in AD H."
+  },
+  {
+   "id": "bs-en-iso-717",
+   "title": "BS EN ISO 717-1 and -2 Rating of sound insulation in buildings",
+   "publisher": "BSI",
+   "type": "standard",
+   "url": "https://knowledge.bsigroup.com/",
+   "reason": "paid_standard",
+   "why_it_matters": "Sound testing, cited in AD E."
+  },
+  {
+   "id": "iet-onsite-guide",
+   "title": "IET On-Site Guide and Guidance Notes",
+   "publisher": "IET",
+   "type": "standard",
+   "url": "https://electrical.theiet.org/bs-7671/",
+   "reason": "paid_standard",
+   "why_it_matters": "Electricians use it daily for small jobs."
+  },
+  {
+   "id": "nhbc-standards",
+   "title": "NHBC Standards",
+   "publisher": "NHBC",
+   "type": "standard",
+   "url": "https://www.nhbc.co.uk/terms-of-use",
+   "reason": "paid_standard",
+   "why_it_matters": "Free to read online; widely used technical standard for new homes."
+  },
+  {
+   "id": "pas-2030",
+   "title": "PAS 2030:2023 Installation of energy efficiency measures in existing dwellings",
+   "publisher": "BSI",
+   "type": "standard",
+   "url": "https://shop-checkout.bsigroup.com/products/installation-of-energy-efficiency-measures-in-existing-dwellings-specification-18",
+   "reason": "paid_standard",
+   "why_it_matters": "Installer requirements for energy efficiency measures."
+  },
+  {
+   "id": "pas-24",
+   "title": "PAS 24 Enhanced security performance for doors and windows",
+   "publisher": "BSI",
+   "type": "standard",
+   "url": "https://knowledge.bsigroup.com/",
+   "reason": "paid_standard",
+   "why_it_matters": "Doors and windows, cited in AD Q."
+  },
+  {
+   "id": "jct-mw-2024",
+   "title": "JCT Minor Works Building Contract 2024",
+   "publisher": "The Joint Contracts Tribunal",
+   "type": "contract",
+   "url": "https://www.jctltd.co.uk/product/minor-works-building-contract-2024",
+   "reason": "paid_contract",
+   "why_it_matters": "Common small works contract; answers can cite clause numbers."
+  },
+  {
+   "id": "m3nhf-sor",
+   "title": "M3NHF Schedule of Rates (Responsive Maintenance and Void Property Works; Planned Maintenance)",
+   "publisher": "M3 Housing Ltd / Rand Associates",
+   "type": "contract",
+   "url": "https://www.m3h.co.uk",
+   "reason": "paid_contract",
+   "why_it_matters": "SOR codes appear on works orders; store code structure and links only."
+  },
+  {
+   "id": "jct-mw-2024-contents",
+   "title": "JCT Minor Works Building Contract 2024 contents PDF",
+   "publisher": "The Joint Contracts Tribunal",
+   "type": "contract",
+   "url": "https://www.jctltd.co.uk/docs/MW-2024.pdf",
+   "reason": "paid_contract",
+   "why_it_matters": "Clause numbers and headings (e.g. 4.2 CIS) for pointing users to the right clause."
+  },
+  {
+   "id": "nec-contracts",
+   "title": "NEC contracts (NEC4, incl. Term Service)",
+   "publisher": "Thomas Telford Ltd (NEC)",
+   "type": "contract",
+   "url": "https://www.neccontract.com/copyright",
+   "reason": "paid_contract",
+   "why_it_matters": "Used by some councils for repairs and voids; link only."
+  },
+  {
+   "id": "fire-pbbf",
+   "title": "Fire safety in purpose-built blocks of flats",
+   "publisher": "Home Office (GOV.UK), originally LGA 2011",
+   "type": "guidance",
+   "url": "https://www.gov.uk/government/publications/fire-safety-in-purpose-built-blocks-of-flats",
+   "reason": "licence_unclear",
+   "why_it_matters": "Compartmentation guide widely used by housing officers in council blocks."
+  },
+  {
+   "id": "hse-car-consultation",
+   "title": "HSE consultation outcome: legislative and guidance proposals for CAR 2012",
+   "publisher": "HSE (Citizen Space)",
+   "type": "hse_guidance",
+   "url": "https://consultations.hse.gov.uk/hse/proposals-control-of-asbestos-regs-2012/",
+   "reason": "licence_unclear",
+   "why_it_matters": "Says which asbestos guidance (L143, HSG248) will soon change."
+  },
+  {
+   "id": "ukgwa",
+   "title": "UK Government Web Archive (old copies of gov.uk pages)",
+   "publisher": "The National Archives",
+   "type": "guidance",
+   "url": "https://webarchive.nationalarchives.gov.uk/",
+   "reason": "licence_unclear",
+   "why_it_matters": "Only known source of old gov.uk text (older ADs, CIS 340, Notice 708)."
+  },
+  {
+   "id": "fa2026-cis",
+   "title": "Finance Act 2026 (CIS sections 220 to 222)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "type": "law",
+   "url": "https://www.legislation.gov.uk/",
+   "reason": "link_only",
+   "why_it_matters": "Legal basis of the CIS fraud measures."
+  },
+  {
+   "id": "ombudsman-chc",
+   "title": "Housing Ombudsman Complaint Handling Code (2024)",
+   "publisher": "Housing Ombudsman Service",
+   "type": "guidance",
+   "url": "https://www.housing-ombudsman.org.uk/landlords-info/complaint-handling-code/",
+   "reason": "link_only",
+   "why_it_matters": "Complaint timelines drive repair urgency."
+  },
+  {
+   "id": "ombudsman-damp-mould",
+   "title": "Housing Ombudsman Spotlight on damp and mould (2021, follow-up 2023) and related guidance",
+   "publisher": "Housing Ombudsman Service",
+   "type": "guidance",
+   "url": "https://www.housing-ombudsman.org.uk/centre-for-learning/key-topics/damp-and-mould/",
+   "reason": "link_only",
+   "why_it_matters": "Shows what landlord failure looks like (leaks, repeat visits, record keeping)."
+  },
+  {
+   "id": "icaew-budget-2026-vat",
+   "title": "Autumn Budget 2026 VAT changes (ICAEW summary)",
+   "publisher": "ICAEW",
+   "type": "tax_guidance",
+   "url": "https://www.icaew.com/insights/tax-news/2026/oct-2026/budget-nine-key-vat-changes-announced",
+   "reason": "link_only",
+   "why_it_matters": "Watch list; none of the nine changes touch the construction DRC or CIS."
+  },
+  {
+   "id": "gas-safe-bulletins",
+   "title": "Gas Safe Register technical bulletins (e.g. TB 159, TB 014(B))",
+   "publisher": "Gas Safe Register",
+   "type": "guidance",
+   "url": "https://www.gassaferegister.co.uk/",
+   "reason": "link_only",
+   "why_it_matters": "Gas engineers' working rules."
+  },
+  {
+   "id": "planning-portal",
+   "title": "Planning Portal (England and Wales) guides",
+   "publisher": "PortalPlanQuest Ltd",
+   "type": "guidance",
+   "url": "https://www.planningportal.co.uk/services/terms-and-disclaimer/terms-and-conditions",
+   "reason": "link_only",
+   "why_it_matters": "Do-you-need-permission guides; link only."
+  },
+  {
+   "id": "trustmark-documents",
+   "title": "TrustMark Code of Conduct, Customer Charter, Framework Operating Requirements and retrofit guides",
+   "publisher": "TrustMark",
+   "type": "guidance",
+   "url": "https://trustmark.org.uk/business/documents",
+   "reason": "link_only",
+   "why_it_matters": "What customers can expect on retrofit and insulation jobs; summarise and link."
+  },
+  {
+   "id": "hse-romanian",
+   "title": "HSE Romanian-language page",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/languages/romanian.htm",
+   "reason": "not_english",
+   "why_it_matters": "Only official Romanian health and safety text we found."
+  },
+  {
+   "id": "hse-indg344-ro",
+   "title": "INDG344 small construction contractor toolkit (Romanian)",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/pubns/romanian/indg344.pdf",
+   "reason": "not_english",
+   "why_it_matters": "Official Romanian text for our users."
+  },
+  {
+   "id": "hse-ro-indg410",
+   "title": "INDG410 Working in Great Britain from overseas (Romanian)",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/pubns/romanian/indg410-romanian.pdf",
+   "reason": "not_english",
+   "why_it_matters": "Romanian guide for workers new to GB."
+  },
+  {
+   "id": "hse-ro-indg450",
+   "title": "INDG450 Your health, your safety (Romanian)",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/pubns/romanian/indg450-romanian.pdf",
+   "reason": "not_english",
+   "why_it_matters": "Romanian basic worker guide."
+  },
+  {
+   "id": "hse-ro-watch-your-step",
+   "title": "Watch your step - construction (Romanian)",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/pubns/romanian/watch-your-step-construction.pdf",
+   "reason": "not_english",
+   "why_it_matters": "Romanian construction safety leaflet."
+  },
+  {
+   "id": "hse-ro-cis26",
+   "title": "CIS26 Cement (Romanian)",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/pubns/romanian/cis26.pdf",
+   "reason": "not_english",
+   "why_it_matters": "Romanian sheet on cement hazards."
+  },
+  {
+   "id": "hse-ro-cis59",
+   "title": "CIS59 Welfare (Romanian, 2010)",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/pubns/cis59r.htm",
+   "reason": "not_english",
+   "why_it_matters": "Romanian sheet on site welfare."
+  },
+  {
+   "id": "hse-ro-migrant-workers",
+   "title": "HSE migrant workers pages (Romanian, worker)",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/migrantworkers/languages/romanian/worker/",
+   "reason": "not_english",
+   "why_it_matters": "Romanian pages for migrant workers."
+  },
+  {
+   "id": "hse-ro-law",
+   "title": "Health and safety law leaflet (Romanian)",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/pubns/romanian/law-romanian.pdf",
+   "reason": "not_english",
+   "why_it_matters": "Romanian version of the law leaflet; link only."
+  },
+  {
+   "id": "bs-6700",
+   "title": "BS 6700 Water supply within buildings",
+   "publisher": "BSI",
+   "type": "standard",
+   "url": "https://knowledge.bsigroup.com/",
+   "reason": "withdrawn",
+   "why_it_matters": "Cited in AD G."
+  },
+  {
+   "id": "bs-8515",
+   "title": "BS 8515 Rainwater harvesting systems",
+   "publisher": "BSI",
+   "type": "standard",
+   "url": "https://knowledge.bsigroup.com/",
+   "reason": "withdrawn",
+   "why_it_matters": "Cited in AD G."
+  },
+  {
+   "id": "bs-en-iso-140",
+   "title": "BS EN ISO 140 series Measurement of sound insulation",
+   "publisher": "BSI",
+   "type": "standard",
+   "url": "https://knowledge.bsigroup.com/",
+   "reason": "withdrawn",
+   "why_it_matters": "Sound testing, cited in AD E."
+  },
+  {
+   "id": "hse-indg188",
+   "title": "INDG188 (asbestos leaflet)",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/pubns/indg188.htm",
+   "reason": "withdrawn",
+   "why_it_matters": "Listed so we know it is gone."
+  },
+  {
+   "id": "hse-indg223",
+   "title": "INDG223 Managing asbestos in buildings (leaflet)",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/pubns/indg223.htm",
+   "reason": "withdrawn",
+   "why_it_matters": "Listed so we know it is gone; HSE now uses web pages and Asbestos essentials."
+  },
+  {
+   "id": "hse-indg289",
+   "title": "INDG289 (asbestos leaflet)",
+   "publisher": "HSE",
+   "type": "hse_guidance",
+   "url": "https://www.hse.gov.uk/pubns/indg289.htm",
+   "reason": "withdrawn",
+   "why_it_matters": "Listed so we know it is gone."
+  },
+  {
+   "id": "ad-merged-2024",
+   "title": "The merged Approved Documents (Oct 2024 edition)",
+   "publisher": "MHCLG (GOV.UK)",
+   "type": "approved_document",
+   "url": "https://www.gov.uk/guidance/building-regulations-and-approved-documents-index",
+   "reason": "withdrawn",
+   "why_it_matters": "Listed for completeness. Stale, so the single Approved Documents are used instead."
+  }
+ ]
+}

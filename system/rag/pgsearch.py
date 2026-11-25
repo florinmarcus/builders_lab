@@ -305,3 +305,40 @@ def search_lanes(question: str, as_of_date: datetime.date | None = None, country
             raise
         raise SearchError(f"regulations search failed: {type(e).__name__}") from e
     return got
+
+
+ABOUT_SOURCES = """
+SELECT source_id, max(source_title) AS title, max(legal_weight) AS legal_weight, count(*) AS passages,
+       count(DISTINCT version_id) AS versions,
+       max(edition_date) FILTER (WHERE valid_from IS NULL OR valid_from <= %(d)s) AS edition_date,
+       max(valid_from) FILTER (WHERE valid_from > %(d)s) AS next_from,
+       (array_agg(url ORDER BY (valid_from IS NULL OR valid_from <= %(d)s) DESC, edition_date DESC NULLS LAST))[1] AS url
+FROM {schema}.chunks
+WHERE valid_to IS NULL OR valid_to >= %(d)s
+GROUP BY source_id
+ORDER BY source_id
+"""
+
+
+def about(url: str | None = None, schema: str | None = None, today: datetime.date | None = None) -> dict:
+    """What the loaded library holds, for the about_regulations_library tool (S100): when it was loaded, how many
+    passages, and per document its title, legal weight, latest edition in force today, a newer version that starts
+    later (next_from), and its link. Versions that ended before today are left out."""
+    import psycopg
+    from psycopg.rows import dict_row
+
+    c = cfg()
+    s = _schema(schema or c["schema"])
+    d = today or datetime.date.today()
+    with psycopg.connect(url or c["url"], connect_timeout=5, row_factory=dict_row) as conn:
+        st = conn.execute(f"SELECT schema_version, chunk_count, loaded_at FROM {s}.stats "
+                          "ORDER BY loaded_at DESC NULLS LAST LIMIT 1").fetchone() or {}
+        rows = conn.execute(ABOUT_SOURCES.replace("{schema}", s), {"d": d}).fetchall()
+    loaded = st.get("loaded_at")
+    iso = lambda v: v.isoformat() if hasattr(v, "isoformat") else v  # noqa: E731
+    return {
+        "loaded_at": loaded.isoformat() if loaded else None,
+        "schema_version": st.get("schema_version"),
+        "passages": st.get("chunk_count"),
+        "sources": [{**r, "edition_date": iso(r["edition_date"]), "next_from": iso(r["next_from"])} for r in rows],
+    }

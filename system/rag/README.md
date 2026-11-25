@@ -27,6 +27,20 @@ def search(question: str, as_of_date: datetime.date | None = None) -> list[dict]
 
 Passages missing a required key are dropped by the server.
 
+## What the library holds: `rag.about()` (25 Nov 2026, S100)
+
+```python
+rag.about() -> {"loaded_at", "schema_version", "passages",
+                "sources": [{"source_id", "title", "legal_weight", "passages", "versions",
+                             "edition_date", "next_from", "url"}]}
+```
+
+Read from `corpus.stats` and `corpus.chunks` (versions that ended before today left out). The server's
+`about_regulations_library` tool merges it with `regulations_fallback/library.json`: publisher, type, topics, the
+documents we do not hold and why, scope and weak parts. Rebuild that file after any change to `corpus/sources.yaml`
+or to the scope lines in `system/rag/library.py`: `python -m system.rag.library` (`tests/test_library.py` fails
+when it is stale). Exported with `search`, under the same two settings.
+
 ## Errors
 
 - Raise any exception on failure. If it has `retryable = True` (throttling, timeouts, 5xx), the server retries with backoff and jitter; otherwise it reports a clear error to the user.

@@ -29,7 +29,7 @@ Split into two MCP servers. Both come from the same codebase and run on the same
 
 | Server | Tools | Data | Access |
 |---|---|---|---|
-| **Regulations** (public knowledge) | `search_regulations`, `get_section`, `read_document` (ADR 0016), `lookup_terms`, later `about_regulations_library` | corpus (read-only database user), glossary | firm keys only; no open access (Florin, 22 Nov: we demo to firms, so nothing needs to be open) |
+| **Regulations** (public knowledge) | `search_regulations`, `get_section`, `read_document` (ADR 0016), `lookup_terms`, `about_regulations_library` (built 25 Nov 2026) | corpus (read-only database user), glossary | firm keys only; no open access (Florin, 22 Nov: we demo to firms, so nothing needs to be open) |
 | **Firm** (private) | `get_firm_profile`, `lookup_terms` (also here, Florin 22 Nov), `list_jobs`, `get_job`, `get_job_timeline`, `search_job_documents`, `list_missing_items`, `get_payment_dates`, `sync_inbox`, `save_facts`, `verify_answer` | firm database | per-firm key, every query filtered by firm (ADR 0007, unchanged) |
 
 Rules:

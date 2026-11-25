@@ -66,6 +66,7 @@ Two servers in one process (ADR 0015): **firm** at `/mcp/<secret>`, **regulation
 | `save_facts` | firm | writes job, document types and facts after server checks | 1 |
 | `verify_answer` | firm | read-only checks on a draft answer (agent contracts) | all |
 | `lookup_terms` | both | Romanian <-> English glossary lookup (ADR 0012) | all (Romanian) |
+| `about_regulations_library` | regulations | corpus stats and documents (live) + `regulations_fallback/library.json` (built from `corpus/sources.yaml` by `python -m system.rag.library`) | "what does the library cover?", empty searches (S100) |
 | `get_firm_profile` | firm | live firm context: people, jobs, contacts, due in 14 days | start of every conversation |
 | `get_job_timeline` | firm | emails received and sent, documents, dated facts, upcoming | delays, "what have I sent" |
 

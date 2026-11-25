@@ -42,6 +42,7 @@ Firm server at `/mcp/<secret>`, regulations server at `/mcp/<secret>/regulations
 | `save_facts` | firm | 1: record job, document types and facts for one email (server-checked) |
 | `verify_answer` | firm | all: deterministic checks on a draft answer (`architecture/design/agent-contracts.md`) |
 | `lookup_terms` | both | Romanian questions: glossary lookup (`terminology/`, ADR 0012) |
+| `about_regulations_library` | regulations | what the library holds: version loaded, documents by type, gaps and why, quality (S100). `part`: summary, contents, gaps |
 | `get_firm_profile` | firm | start of a conversation: who we are, jobs, contacts, what is due |
 | `get_job_timeline` | firm | delays, "what have I sent?": everything on a job in date order |
 

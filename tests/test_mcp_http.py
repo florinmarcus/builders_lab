@@ -19,7 +19,7 @@ from builders_api.mcp_server.server import build_app
 SECRET = "test-path-secret-0123456789"
 FIRM_TOOLS = {"list_jobs", "get_job", "list_missing_items", "search_job_documents", "get_payment_dates", "sync_inbox",
               "save_facts", "verify_answer", "lookup_terms", "get_job_timeline", "get_firm_profile"}
-REGULATIONS_TOOLS = {"search_regulations", "lookup_terms"}
+REGULATIONS_TOOLS = {"search_regulations", "lookup_terms", "about_regulations_library"}
 
 
 @pytest.fixture()

@@ -19,7 +19,7 @@ flowchart TB
     end
     subgraph server["Our MCP servers (plain code)"]
         tools["firm tools"]
-        regs["search_regulations,<br/>lookup_terms"]
+        regs["search_regulations,<br/>lookup_terms,<br/>about_regulations_library"]
         guard["verify_answer"]
     end
     main --> tools

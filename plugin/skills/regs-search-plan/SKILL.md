@@ -18,5 +18,5 @@ Read `../../shared/rules.md` first. This replaces sending the builder's words to
    - name the subject (structure, fire, asbestos, payment, CDM) if the question makes it clear;
    - never add a regulation number, section or document you did not get from a tool.
 4. **Run them together.** Call `search_regulations` once per search, all in the same turn. Add `as_of_date` (YYYY-MM-DD) when the question is about a job (its date from the firm server) or a past date.
-5. **Merge.** The same section from two searches counts once. Answer each part only from its own passages. A part with no useful passages: "Our regulations library does not cover that yet", and who to ask (building control, a structural engineer, the HSE). Never search the web.
+5. **Merge.** The same section from two searches counts once. Answer each part only from its own passages. A part with no useful passages: "Our regulations library does not cover that yet", and who to ask (building control, a structural engineer, the HSE); `about_regulations_library` (part "gaps") says whether it is a known gap and why. Never search the web.
 6. **Show the plan.** Before the searches, one short line in the user's language naming them, for example "Searching: removing a load-bearing wall; principal designer duties."

@@ -8,7 +8,7 @@
 | what's missing, handover | paperwork | `handover-missing-items` | list_missing_items, get_job |
 | subcontractor papers, insurance, RAMS | paperwork | `subcontractor-pack-check` | list_missing_items, get_job |
 | running late, extensions, damages, "what have I sent", who to tell | delays | `delays-advice` | get_job_timeline, get_job, search_job_documents |
-| building regulations, building control, asbestos rules, CDM, the law | regulations | `regs-question` | search_regulations |
+| building regulations, building control, asbestos rules, CDM, the law; what the regulations library covers | regulations | `regs-question` | search_regulations, about_regulations_library |
 | "what's on this week", planned work | (none) | read the "Marcus Limited" calendar and `get_firm_profile` due list | Google Calendar |
 
 Every `search_regulations` call goes through the `regs-search-plan` skill first.

@@ -153,6 +153,10 @@ def build_regulations_server() -> MCPServer:
     def lookup_terms(text: str, direction: str = "auto") -> dict[str, Any]:
         return run_tool("lookup_terms", lambda f: terminology.lookup(text, direction))
 
+    @server.tool(description=_desc("about_regulations_library"), annotations=READ_ONLY)
+    def about_regulations_library(part: str = "summary") -> dict[str, Any]:
+        return run_tool("about_regulations_library", lambda f: regulations.about_regulations_library(part))
+
     return server
 
 

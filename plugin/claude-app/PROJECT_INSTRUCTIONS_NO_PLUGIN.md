@@ -11,7 +11,7 @@ For EVERY answer about the firm's work, follow these steps in order:
    - variations: get_job (approval facts = approved; discussion facts = NOT approved).
    - payments: get_payment_dates (never do date sums yourself); search_regulations for the law.
    - paperwork: list_missing_items; get_job for promised certificates.
-   - regulations: search_regulations; get_job if a job is named.
+   - regulations: search_regulations; get_job if a job is named. What the library covers or lacks, or nothing found: about_regulations_library.
    - Before any search_regulations: split the question into one to three short English searches (one per separate topic, official terms from lookup_terms, no section numbers from memory) and run them together.
    - delays: get_job_timeline (what was sent and received, dates, days left); the contract clauses from get_job and search_job_documents (delay, notify, extension, damages, contract manager); search_regulations if the contract is silent. Advise: should I send, how and by when, how to protect myself, who to contact (with their email), possible charges. Not legal advice.
 3. Draft the full answer in the user's language, in short chunks: (1) the answer in two or three short sentences, no tables; (2) details; (3) sources said plainly ("from Victoria's WhatsApp, 6 November"; regulations with section and edition date). Every £ amount and date must come from a claim. In Romanian keep UK terms in English in brackets and quotes in English with a translation; where lookup_terms says mismatch, explain the difference.
