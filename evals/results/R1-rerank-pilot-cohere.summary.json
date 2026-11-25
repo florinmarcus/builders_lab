@@ -1,0 +1,53 @@
+{
+ "model": "cohere.rerank-v3-5:0",
+ "per_group": 10,
+ "seed": 7,
+ "questions": 30,
+ "same_candidates": 28,
+ "calls": 120,
+ "cost_usd": 0.24,
+ "variants": {
+  "base": {
+   "found_in_8": 19,
+   "median_rank": 4.5,
+   "by_group": {
+    "good": 10,
+    "middle": 7,
+    "bad": 2
+   }
+  },
+  "plain": {
+   "found_in_8": 25,
+   "median_rank": 4.5,
+   "by_group": {
+    "good": 10,
+    "middle": 9,
+    "bad": 6
+   },
+   "vs_base_better": 11,
+   "vs_base_worse": 6
+  },
+  "title": {
+   "found_in_8": 18,
+   "median_rank": 5.0,
+   "by_group": {
+    "good": 10,
+    "middle": 7,
+    "bad": 1
+   },
+   "vs_base_better": 5,
+   "vs_base_worse": 7
+  },
+  "plain+title": {
+   "found_in_8": 24,
+   "median_rank": 4.5,
+   "by_group": {
+    "good": 10,
+    "middle": 9,
+    "bad": 5
+   },
+   "vs_base_better": 12,
+   "vs_base_worse": 7
+  }
+ }
+}

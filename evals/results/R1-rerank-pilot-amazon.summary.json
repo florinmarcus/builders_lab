@@ -1,0 +1,53 @@
+{
+ "model": "amazon.rerank-v1:0",
+ "per_group": 10,
+ "seed": 7,
+ "questions": 30,
+ "same_candidates": 27,
+ "calls": 120,
+ "cost_usd": 0.12,
+ "variants": {
+  "base": {
+   "found_in_8": 20,
+   "median_rank": 5.0,
+   "by_group": {
+    "good": 10,
+    "middle": 10,
+    "bad": 0
+   }
+  },
+  "plain": {
+   "found_in_8": 20,
+   "median_rank": 3.0,
+   "by_group": {
+    "good": 10,
+    "middle": 7,
+    "bad": 3
+   },
+   "vs_base_better": 15,
+   "vs_base_worse": 5
+  },
+  "title": {
+   "found_in_8": 20,
+   "median_rank": 5.0,
+   "by_group": {
+    "good": 10,
+    "middle": 9,
+    "bad": 1
+   },
+   "vs_base_better": 10,
+   "vs_base_worse": 8
+  },
+  "plain+title": {
+   "found_in_8": 23,
+   "median_rank": 4.0,
+   "by_group": {
+    "good": 10,
+    "middle": 7,
+    "bad": 6
+   },
+   "vs_base_better": 13,
+   "vs_base_worse": 9
+  }
+ }
+}
