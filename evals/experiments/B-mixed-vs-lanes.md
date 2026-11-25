@@ -20,10 +20,15 @@ Fair comparison: 8 passages each (mixed top 8; lanes 2 per lane). For lanes, "fo
 
 | | B1 mixed | B2 lanes | B3 mixed + agent | B4 lanes + agent |
 |---|---|---|---|---|
-| Found in 8 passages | 0.756 | 0.696 | 0.776 | pending |
+| Found in 8 passages | 0.756 | 0.696 | 0.776 | 0.709 |
+| Found in 20 passages (lanes: 5 each) | 0.836 | 0.836 | 0.873 | 0.873 |
 | Recall@5 | 0.699 | | 0.712 | |
 | Recall@10 | 0.773 | | 0.803 | |
 | Recall@20 | 0.836 | | 0.873 | |
-| Latency p50 | 1.3 s | | 2.5 s | |
+| Latency p50 | 1.3 s | 3.8 s | 2.5 s | 5.4 s |
+
+At 20 passages mixed and lanes tie, but on different questions: 16 (B1/B2) and 17 (B3/B4) found only by one side, each way.
+
+B4 per lane, top 2 (B2 in brackets): law 0.54 (0.51), Approved Documents 0.46 (0.52), ACoP 0.60 (0.58), guidance 0.55 (0.55). Agent queries lift law's top 50 from 0.75 to 0.85.
 
 Still to come: the answer-set judge (can a builder get the full answer from the 8 passages?) on 80 questions.

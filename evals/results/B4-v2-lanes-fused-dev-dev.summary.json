@@ -1,0 +1,103 @@
+{
+ "run": "B4-v2-lanes-fused-dev",
+ "split": "dev",
+ "time": "2026-11-25T12:00:13Z",
+ "config": {
+  "embed_region": "eu-west-2",
+  "embed_model": "amazon.titan-embed-text-v2:0",
+  "rerank": true,
+  "rerank_region": "eu-central-1",
+  "rerank_model": "amazon.rerank-v1:0",
+  "top_k": 50,
+  "min_score": 0.0,
+  "schema": "corpus_v2",
+  "hybrid": "0",
+  "codes_weight": 2.0,
+  "rewrite": "0",
+  "queries_from": "E3-rewrite",
+  "fuse": "1",
+  "rerank_with": "question",
+  "lanes": "1",
+  "per_lane": 2,
+  "keep": 5,
+  "golden_sha": "49174d8ea638"
+ },
+ "cost_usd_this_call": 1.371,
+ "questions": 299,
+ "recall@50": 0.8829,
+ "recall@5": 0.4515,
+ "recall@5_before_rerank": 0.5318,
+ "mrr@5": 0.3186,
+ "ndcg@5": 0.1777,
+ "all@5_multi": 0.0038,
+ "recall@5_by_kind": {
+  "answerable": 0.4772,
+  "negative": 0.3659,
+  "underspecified": 0.2941
+ },
+ "recall@5_by_role": {
+  "asbestos": 0.5778,
+  "building-control": 0.5439,
+  "fire-safety": 0.5217,
+  "housing-repairs": 0.2553,
+  "money": 0.3077,
+  "site-safety": 0.5
+ },
+ "latency_p50_ms": 5375,
+ "latency_p95_ms": 6445,
+ "in_corpus": {
+  "questions": 299,
+  "recall@50": 0.8829,
+  "recall@5": 0.4515,
+  "recall@5_before_rerank": 0.5318,
+  "mrr@5": 0.3186,
+  "ndcg@5": 0.1777,
+  "all@5_multi": 0.0038,
+  "recall@5_by_kind": {
+   "answerable": 0.4772,
+   "negative": 0.3659,
+   "underspecified": 0.2941
+  },
+  "recall@5_by_role": {
+   "asbestos": 0.5778,
+   "building-control": 0.5439,
+   "fire-safety": 0.5217,
+   "housing-repairs": 0.2553,
+   "money": 0.3077,
+   "site-safety": 0.5
+  },
+  "latency_p50_ms": 5375,
+  "latency_p95_ms": 6445
+ },
+ "lanes": {
+  "questions": 299,
+  "per_lane": 2,
+  "law": {
+   "questions": 186,
+   "recall@2": 0.543,
+   "recall@5": 0.6935,
+   "recall@50": 0.8548
+  },
+  "approved-document": {
+   "questions": 52,
+   "recall@2": 0.4615,
+   "recall@5": 0.7115,
+   "recall@50": 0.8846
+  },
+  "acop": {
+   "questions": 43,
+   "recall@2": 0.6047,
+   "recall@5": 0.6744,
+   "recall@50": 0.907
+  },
+  "guidance": {
+   "questions": 216,
+   "recall@2": 0.5463,
+   "recall@5": 0.7222,
+   "recall@50": 0.8796
+  },
+  "any": 0.709,
+  "every_lane": 0.408
+ },
+ "note": "lanes run: top-level recall@5 counts only the first 5 of the lanes' lists together; use lanes.any and the per-lane numbers"
+}
