@@ -1,0 +1,78 @@
+{
+ "run": "B3-v2-fused-k20-dev",
+ "split": "dev",
+ "time": "2026-11-25T10:57:41Z",
+ "config": {
+  "embed_region": "eu-west-2",
+  "embed_model": "amazon.titan-embed-text-v2:0",
+  "rerank": true,
+  "rerank_region": "eu-central-1",
+  "rerank_model": "amazon.rerank-v1:0",
+  "top_k": 50,
+  "min_score": 0.0,
+  "schema": "corpus_v2",
+  "hybrid": "0",
+  "codes_weight": 2.0,
+  "rewrite": "0",
+  "queries_from": "E3-rewrite",
+  "fuse": "1",
+  "rerank_with": "question",
+  "lanes": "0",
+  "per_lane": 2,
+  "keep": 20,
+  "golden_sha": "49174d8ea638"
+ },
+ "cost_usd_this_call": 0.345,
+ "questions": 299,
+ "recall@50": 0.9097,
+ "recall@5": 0.7124,
+ "recall@5_before_rerank": 0.6254,
+ "mrr@5": 0.5006,
+ "ndcg@5": 0.3362,
+ "recall@10": 0.8027,
+ "recall@20": 0.8729,
+ "all@5_multi": 0.0423,
+ "all@10_multi": 0.0923,
+ "recall@5_by_kind": {
+  "answerable": 0.7261,
+  "negative": 0.7317,
+  "underspecified": 0.4706
+ },
+ "recall@5_by_role": {
+  "asbestos": 0.7556,
+  "building-control": 0.6491,
+  "fire-safety": 0.7609,
+  "housing-repairs": 0.7021,
+  "money": 0.7115,
+  "site-safety": 0.7115
+ },
+ "latency_p50_ms": 2490,
+ "latency_p95_ms": 3173,
+ "in_corpus": {
+  "questions": 299,
+  "recall@50": 0.9097,
+  "recall@5": 0.7124,
+  "recall@5_before_rerank": 0.6254,
+  "mrr@5": 0.5006,
+  "ndcg@5": 0.3362,
+  "recall@10": 0.8027,
+  "recall@20": 0.8729,
+  "all@5_multi": 0.0423,
+  "all@10_multi": 0.0923,
+  "recall@5_by_kind": {
+   "answerable": 0.7261,
+   "negative": 0.7317,
+   "underspecified": 0.4706
+  },
+  "recall@5_by_role": {
+   "asbestos": 0.7556,
+   "building-control": 0.6491,
+   "fire-safety": 0.7609,
+   "housing-repairs": 0.7021,
+   "money": 0.7115,
+   "site-safety": 0.7115
+  },
+  "latency_p50_ms": 2490,
+  "latency_p95_ms": 3173
+ }
+}
