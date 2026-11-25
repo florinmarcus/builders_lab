@@ -50,3 +50,26 @@ than they will on the full set. Next: full dev runs, B3 with the plain re-rank q
 against B3, with the gate.
 
 Cost: 120 calls each, $0.12 (Amazon) and $0.24 (Cohere), plus a few query embeddings.
+
+## Full dev: the pilot gain does not hold
+
+B3 with the re-rank query set to the plain rewrite, all 299 dev questions. Switches: B3 + `EVAL_RERANK_WITH=plain`
+(code 3514665); B7 adds `RAG_RERANK_MODEL=cohere.rerank-v3-5:0`.
+
+| | B3 (question, Amazon) | B6 (plain, Amazon) | B7 (plain, Cohere) |
+|---|---|---|---|
+| Found in 8 passages | 0.776 | 0.783 | 0.773 |
+| Recall@5 | 0.712 | 0.716 | 0.669 |
+| Recall@20 | 0.873 | 0.873 | 0.873 |
+| Latency p50 | 2.5 s | 2.4 s | 2.0 s |
+
+Paired at 8 against B3: B6 18 vs 16, p 0.86; B7 22 vs 23, p 1.0. B7 vs B6: 12 vs 15, p 0.70. No difference: the
+plain rewrite and Cohere swap which questions are found, they do not find more. Gate against B1: both fail on
+must-pass questions (B6: fire-safety-001, housing-repairs-010; B7: those and money-032).
+
+Why the pilot looked better: the bad group was picked because B3 ranked them badly, so almost any change moves
+some of them up (regression to the mean), while the losses fall on questions outside the sample. A pilot should
+pick questions at random, or count losses on the whole set.
+
+**Conclusion:** keep B3's re-rank (the question, Amazon). Changing the re-rank query or model does not help.
+Cost: B6 $0.35, B7 $0.69.

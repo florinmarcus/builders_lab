@@ -12,6 +12,8 @@ One line per run: what it is, the code commit, the command. All runs: `CORPUS_RE
 | B3 | Mixed + saved agent queries, fused (RRF), re-ranked on the question | `EVAL_FUSE=1 EVAL_QUERIES_FROM=E3-rewrite EVAL_KEEP=20` | 1c3e36d |
 | B4 | Lanes + the same agent queries, fused per lane, re-ranked on the question | `EVAL_LANES=1 EVAL_FUSE=1 EVAL_QUERIES_FROM=E3-rewrite` | 85d83da |
 | B5 | As B4, 8 kept per lane, then the best 8 by re-rank score over all lanes (no slots) | B4 + `EVAL_LANE_MERGE=score EVAL_LANE_KEEP=8 EVAL_KEEP=20` | dfe8805 |
+| B6 | As B3, re-ranked on the agent's plain rewrite (see [R1](R1-rerank-pilot.md)) | B3 + `EVAL_RERANK_WITH=plain` | 3514665 |
+| B7 | As B6, Cohere Rerank 3.5 | B6 + `RAG_RERANK_MODEL=cohere.rerank-v3-5:0` | 3514665 |
 
 Agent queries: saved from E3 (Haiku 4.5 simulating the specialist, see [E3-E5](E3-E5-agent-queries.md)). They carry no lane tag, so B4 sends every query to every lane. A version with one query per lane needs new queries (later, if B4 helps).
 
