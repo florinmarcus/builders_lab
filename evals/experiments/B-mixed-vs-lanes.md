@@ -11,6 +11,7 @@ One line per run: what it is, the code commit, the command. All runs: `CORPUS_RE
 | B2 | Four lanes by legal weight, the question as asked | `EVAL_LANES=1` | 437dd7f |
 | B3 | Mixed + saved agent queries, fused (RRF), re-ranked on the question | `EVAL_FUSE=1 EVAL_QUERIES_FROM=E3-rewrite EVAL_KEEP=20` | 1c3e36d |
 | B4 | Lanes + the same agent queries, fused per lane, re-ranked on the question | `EVAL_LANES=1 EVAL_FUSE=1 EVAL_QUERIES_FROM=E3-rewrite` | 85d83da |
+| B5 | As B4, 8 kept per lane, then the best 8 by re-rank score over all lanes (no slots) | B4 + `EVAL_LANE_MERGE=score EVAL_LANE_KEEP=8 EVAL_KEEP=20` | dfe8805 |
 
 Agent queries: saved from E3 (Haiku 4.5 simulating the specialist, see [E3-E5](E3-E5-agent-queries.md)). They carry no lane tag, so B4 sends every query to every lane. A version with one query per lane needs new queries (later, if B4 helps).
 
@@ -80,6 +81,25 @@ money (7 of 13, mixed 4).
 What is still missing in B3 (15 of 80 not full): nearly always the second part of the question, such as an
 exception, a threshold or a follow-on rule (the £30,000 notice threshold, the 50% renovation trigger, the
 domestic-client CDM duty). Two are parse gaps: a diagram with no text (stair headroom) and an edition question.
+
+## B5: lanes merged by re-rank score instead of slots
+
+Florin's idea: search per lane, but let the re-ranker pick the best 8 over all lanes. The re-ranker scores each
+passage against the question alone (scores for the same passage match B4 to 4 digits), so scores compare across lanes.
+RRF across lanes was also tried on saved rows: it behaves like 2 slots per lane (0.709), so it is dropped.
+
+| | B3 mixed + agent | B5 lanes + agent, by score |
+|---|---|---|
+| Found in 8 passages | 0.776 | 0.773 |
+| Recall@20 | 0.873 | 0.903 |
+| Latency p50 | 2.5 s | 5.4 s |
+
+Paired at 8: B5 vs B3 5 vs 6, p 1.0 (no difference); B5 vs B1 14 vs 9, p 0.41. Gate against B1: fails on the same
+2 must-pass questions as B3. At 20 passages B5 finds more (0.903).
+
+Cap per lane (on B5's saved rows; a lane may give at most c of the 8, then by score): c=2 0.709, c=3 0.783,
+**c=4 0.816** (27 vs 15 against B3, p 0.09), c=5 0.813, c=6 0.806, c=8 0.773. A soft cap helps, hard slots hurt.
+Not proven (p 0.09), and c was picked on the same dev rows, so it needs the holdout before anyone trusts it.
 
 **Conclusion:** keep mixed search. Agent queries never made a set worse and helped 5; keep them (B3) if the
 must-pass check is clean. Lanes are dropped for the 8-passage answer.
