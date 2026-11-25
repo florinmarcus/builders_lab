@@ -1,9 +1,19 @@
-"""Pooled relevance judging: which retrieved passages also answer a dev question (25 Nov 2026).
+"""Pooled relevance judging: which retrieved passages also answer a dev question (25 Nov 2026, brief v2).
 
 Labels written by one labeller are narrow: a GOV.UK booklet can answer a party wall question as well as the Act the
 labeller chose. The pool is every passage in a run's top k for a dev question that does not already touch an expected
-section. A judge decides each passage with one yes/no question (POOL-JUDGE-BRIEF.md). "yes" becomes
-"also_acceptable" in questions.jsonl (build.py), and "found" counts it like an expected section.
+section. A judge decides each passage against the question's stored scope and rules (pooled/rules.jsonl, written once
+per question with RULES-BRIEF.md): scope first, then each rule yes/no with a word-for-word quote, then the verdict
+(POOL-JUDGE-BRIEF.md). "yes" becomes "also_acceptable" in questions.jsonl (build.py), and "found" counts it like an
+expected section.
+
+Checks in code (merge), after the published UK government judges (evals/knowledge/notes/uk-government-ai-evals/):
+- every packet holds two planted lines with a known verdict (a labelled section, high confidence: yes; a section
+  labelled for a question from another role: no). A packet that gets one wrong is not merged;
+- every "yes" rule must quote the passage word for word (spacing, quote marks and dashes aside); a verdict that is
+  not "scope_match yes and at least one rule yes with a found quote" is INVALID. INVALID lines are never counted as
+  yes or no: they go to DIR/invalid-*.jsonl, to be judged again;
+- a judged file that does not match its packet line by line is INVALID as a whole.
 
 No model on AWS (ADR 0017): the judge is a Claude Code subagent. This file does the plain parts: build the pool,
 write packets, read the verdicts back.
@@ -13,10 +23,13 @@ write packets, read the verdicts back.
     python evals/golden/pool_local.py merge --judged DIR/judged-packet-*.jsonl              # -> pooled/judgments.jsonl
     python evals/golden/pool_local.py merge --judged DIR/judged-recheck-*.jsonl --to evals/golden/pooled/recheck.jsonl
 
+A judged file DIR/judged-<name>.jsonl is checked against DIR/<name>.jsonl (the packet) and DIR/planted.json.
+
 --sample N picks N dev questions at random (seeded), so a first pass measures the whole set, not just misses.
 Holdout questions are never pooled. Packets hold the question, the reference answer and the passage text (corpus
 text: they stay in the scratchpad, never in git). The judge does not know which run found a passage.
-judgments.jsonl holds ids, section keys, the verdict, a one-sentence reason and the judge name (no corpus text).
+judgments.jsonl holds ids, section keys, the verdict, the rules stated, the scope check, a one-sentence reason and
+the judge name. Quotes are checked and dropped: no corpus text in git.
 """
 
 from __future__ import annotations
@@ -25,6 +38,7 @@ import argparse
 import glob
 import json
 import random
+import re
 import sys
 from pathlib import Path
 
@@ -36,7 +50,41 @@ import metrics as M  # noqa: E402
 
 RESULTS = ROOT / "evals" / "results"
 OUT = ROOT / "evals" / "golden" / "pooled" / "judgments.jsonl"
+RULES = ROOT / "evals" / "golden" / "pooled" / "rules.jsonl"
 VERDICTS = ("yes", "no")
+_SAME = str.maketrans({"\u2018": "'", "\u2019": "'", "\u201c": '"', "\u201d": '"', "\u2013": "-", "\u2014": "-",
+                       "\u00a0": " "})
+
+
+def norm(text: str) -> str:
+    """Text for the quote check: spacing, curly quotes and dashes do not count."""
+    return re.sub(r"\s+", " ", (text or "").translate(_SAME)).strip().lower()
+
+
+def check_line(j: dict, packet_row: dict, planted: str | None) -> str | None:
+    """Why a judged line is INVALID, or None. planted: the known verdict of a planted line."""
+    if (j.get("id"), j.get("section")) != (packet_row["id"], packet_row["section"]):
+        return "line does not match its packet"
+    if j.get("verdict") not in VERDICTS or j.get("scope_match") not in VERDICTS:
+        return "verdict or scope_match not yes/no"
+    rules = j.get("rules")
+    if not isinstance(rules, list) or len(rules) != len(packet_row["rules"]):
+        return "one entry per rule expected"
+    passage = norm(packet_row["passage"])
+    stated = []
+    for r in rules:
+        if not isinstance(r, dict) or r.get("states") not in VERDICTS:
+            return "rule entry without states yes/no"
+        if r["states"] == "yes":
+            q = norm(r.get("quote", ""))
+            if len(q) < 10 or q not in passage:
+                return f"quote for rule {r.get('n')} not found in the passage"
+            stated.append(r.get("n"))
+    if j["verdict"] != ("yes" if j["scope_match"] == "yes" and stated else "no"):
+        return "verdict does not follow from scope_match and rules"
+    if planted and j["verdict"] != planted:
+        return f"planted line judged {j['verdict']}, known {planted}"
+    return None
 
 
 def section_text(index: dict, key: str) -> str:
@@ -118,33 +166,101 @@ def main(argv: list[str] | None = None) -> int:
         out.mkdir(parents=True, exist_ok=True)
         (out / "questions.txt").write_text("\n".join(ids) + "\n")
         random.Random(a.seed).shuffle(pairs)  # mixed across questions: no batch holds one question's passages in a row
-        rows = [{"id": qid, "section": key, "question": questions[qid]["question"],
-                 "reference_answer": questions[qid].get("reference_answer"), "passage": section_text(index, key)[:6000]}
-                for qid, key in pairs]
-        write(out, "packet", rows, a.size)
+        rules = {r["id"]: r for r in read_jsonl(RULES)}
+        missing = sorted({q for q, _ in pairs} - set(rules))
+        if missing:
+            sys.exit(f"no rules for {len(missing)} questions (write them with RULES-BRIEF.md first): {missing[:5]}")
+
+        def row(qid: str, key: str) -> dict:
+            return {"id": qid, "section": key, "question": questions[qid]["question"],
+                    "question_scope": rules[qid]["scope"], "rules": rules[qid]["rules"],
+                    "passage": section_text(index, key)[:6000]}
+
+        rows = [row(qid, key) for qid, key in pairs]
         sample = random.Random(a.seed + 1).sample(rows, round(len(rows) * a.recheck))  # reshuffled: other neighbours
-        write(out, "recheck", sample, a.size)
+        rng = random.Random(a.seed + 2)
+        planted: dict[str, str] = {}
+
+        real = set(pairs)
+
+        def plant(chunk: list[dict]) -> list[dict]:
+            """Two lines with a known verdict, at random places: a high-confidence labelled section (yes) and a
+            section labelled for a question from another role (no). Never a pair that is judged for real, never a
+            section with almost no text."""
+            def pick_yes():
+                while True:
+                    q = rng.choice([q for q in ids if q in rules and questions[q].get("label_confidence") == "high"])
+                    k = rng.choice(questions[q]["expected_sections"])
+                    if (q, k) not in real and len(section_text(index, k)) >= 300:
+                        return q, k
+
+            def pick_no():
+                while True:
+                    q = rng.choice([q for q in ids if q in rules])
+                    o = rng.choice([x for x in questions if questions[x].get("role") != questions[q].get("role")
+                                    and questions[x].get("expected_sections")])
+                    k = rng.choice(questions[o]["expected_sections"])
+                    if (q, k) not in real and k not in questions[q].get("expected_sections", []) \
+                            and k not in questions[q].get("also_acceptable", []):
+                        return q, k
+
+            chunk = list(chunk)
+            for (q, k), v in ((pick_yes(), "yes"), (pick_no(), "no")):
+                planted[f"{q}|{k}"] = v
+                chunk.insert(rng.randrange(len(chunk) + 1), row(q, k))
+            return chunk
+
+        for name, rs in (("packet", rows), ("recheck", sample)):
+            write(out, name, [r for i in range(0, len(rs), a.size) for r in plant(rs[i:i + a.size])], a.size + 2)
+        (out / "planted.json").write_text(json.dumps(planted, indent=0))
         print(f"{len(rows)} pairs from {len(a.runs)} runs, {len({r['id'] for r in rows})} of {len(ids)} questions, "
-              f"{(len(rows) + a.size - 1) // a.size} packets; re-check {len(sample)} pairs; in {out}")
+              f"{(len(rows) + a.size - 1) // a.size} packets of {a.size} + 2 planted; re-check {len(sample)} pairs; in {out}")
         return 0
     to = Path(a.to)
     seen = {(j["id"], j["section"], j.get("judge")) for j in read_jsonl(to)}
-    n = bad = 0
+    n = 0
+    report: dict[str, list] = {"invalid_lines": [], "failed_packets": []}
     with open(to, "a", encoding="utf-8") as f:
         for path in sorted({p for g in a.judged for p in glob.glob(g)}):
-            for j in read_jsonl(Path(path)):
-                if j.get("verdict") not in VERDICTS:
-                    bad += 1
+            path = Path(path)
+            packet = read_jsonl(path.with_name(path.name.removeprefix("judged-")))
+            planted = json.loads((path.parent / "planted.json").read_text()) if (path.parent / "planted.json").exists() else {}
+            judged = read_jsonl(path)
+            if len(judged) != len(packet):
+                report["failed_packets"].append((path.name, f"{len(judged)} lines for {len(packet)}"))
+                continue
+            why = [check_line(j, p, planted.get(f"{p['id']}|{p['section']}")) for j, p in zip(judged, packet)]
+            bad_plant = [w for w, p in zip(why, packet) if f"{p['id']}|{p['section']}" in planted and w]
+            if bad_plant:
+                report["failed_packets"].append((path.name, bad_plant[0]))
+                continue
+            invalid = []
+            for j, p, w in zip(judged, packet, why):
+                if f"{p['id']}|{p['section']}" in planted:
                     continue
-                if (j["id"], j["section"], j.get("judge")) in seen:
+                if w:
+                    invalid.append(p)
+                    report["invalid_lines"].append((path.name, p["id"], p["section"], w))
                     continue
-                seen.add((j["id"], j["section"], j.get("judge")))
+                key = (j["id"], j["section"], j.get("judge"))
+                if key in seen:
+                    continue
+                seen.add(key)
                 f.write(json.dumps({"id": j["id"], "section": j["section"], "verdict": j["verdict"],
-                                    "reason": j.get("reason", "")[:300], "judge": j.get("judge", "claude-local")}) + "\n")
+                                    "scope_match": j["scope_match"],
+                                    "rules_stated": [r.get("n") for r in j["rules"] if r["states"] == "yes"],
+                                    "passage_scope": (j.get("passage_scope") or "")[:200],
+                                    "reason": (j.get("reason") or "")[:300], "judge": j.get("judge", "claude-local")}) + "\n")
                 n += 1
-    print(f"merged {n} verdicts into {to}" + (f"; {bad} lines without a yes/no verdict skipped" if bad else ""))
+            if invalid:
+                with open(path.parent / f"invalid-{path.name.removeprefix('judged-')}", "w", encoding="utf-8") as g:
+                    for p in invalid:
+                        g.write(json.dumps(p, ensure_ascii=False) + "\n")
+    print(f"merged {n} verdicts into {to}; {len(report['invalid_lines'])} INVALID lines; "
+          f"{len(report['failed_packets'])} packets failed")
+    for x in report["failed_packets"] + report["invalid_lines"]:
+        print("  ", *x)
     return 0
-
 
 if __name__ == "__main__":
     sys.exit(main())
