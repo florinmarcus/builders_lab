@@ -1,11 +1,15 @@
 # Requirements
 
-Built from `research/`. Start with:
+Built from `research/`. Status: `status.md`. Start with:
 
 - `users.md`: who uses it (personas).
 - `use-cases.md`: what they do with it, linked to pain points.
 - `scope.md`: in and out of scope for the first version.
 - `non-functional.md`: cost limits, languages, privacy, devices.
+
+## Open questions (moved from AGENTS.md, 26 Nov 2026)
+
+- Romanian answers: when, and for which users (ADR 0001)?
 
 ## Answered questions (moved from AGENTS.md, 20 Nov 2026)
 
