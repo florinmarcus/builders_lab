@@ -19,12 +19,12 @@ branch into main only when its work is finished and its tests pass, because ever
 | If you are... | Read |
 |---|---|
 | Starting any work | this file, `requirements/parking-lot.md`, `architecture/ARCHITECTURE.md` |
-| Changing a server tool or the service layer | `architecture/design/server.md`, `system/api/README.md` |
+| Changing a server tool or the service layer | `architecture/design/runtime/design.md`, `system/api/README.md` |
 | Adding or changing an MCP tool | `.claude/skills/add-mcp-tool/SKILL.md` (runbook) |
-| Changing agents, skills or answer flow | `architecture/design/agents.md`, `architecture/design/agent-contracts.md`, `plugin/README.md` |
+| Changing agents, skills or answer flow | `architecture/design/runtime/design.md`, `plugin/README.md` |
 | Changing JSON passed between agents | `system/api/builders_api/contracts.py` (source of truth), then the design doc |
 | Changing the database | `architecture/design/data/design.md`, then `system/api/builders_api/db/migrations/` (add a file, never edit one) |
-| Changing security | `decisions/0007-mcp-server-security.md`, `architecture/design/server.md` |
+| Changing security | `decisions/0007-mcp-server-security.md`, `architecture/design/runtime/flows/tool-call.md` |
 | Deploying, upgrading, keys, kill switch | `deploy/README.md`, `decisions/0009-...md` |
 | Mock data, demo emails, Gmail demo | `system/data/mock/README.md`, `decisions/0005-...md` |
 | Regulations corpus or search | `system/rag/README.md` (contract), `corpus/README.md`, `.claude/skills/corpus-document/` |
@@ -54,7 +54,7 @@ No local Postgres? Any throwaway Postgres 16 works; CI starts one (`.github/work
 1. Tests pass (`pytest -q`) and `python -m builders_api.versions` passes.
 2. Prompt, server instruction or tool description changed: add a new `.vN.md`, run `--lock`. Never edit a locked file.
 3. Schema changed: add a new migration file. Never edit an applied one.
-4. New or renamed tool: service function, `versions/tools/<name>.v1.md`, registration in `mcp_server/server.py`, the tool-name set in `tests/test_mcp_http.py`, the specialist in `plugin/agents/` and skill that use it, tool tables in `architecture/design/server.md` and `system/api/README.md`. Then reconnect the connector in the Claude app.
+4. New or renamed tool: service function, `versions/tools/<name>.v1.md`, registration in `mcp_server/server.py`, the tool-name set in `tests/test_mcp_http.py`, the specialist in `plugin/agents/` and skill that use it, the tool table in `system/api/README.md`. Then reconnect the connector in the Claude app.
 5. Agent JSON changed: change `contracts.py`, bump the contract version, keep the examples in `plugin/agents/*.md` valid (`tests/test_contracts.py` checks them).
 6. Diagrams in `architecture/` updated in the same commit.
 7. Every shortcut goes into `requirements/parking-lot.md` with a new, unique ID.
@@ -88,7 +88,7 @@ research/       domain, pain points, market, costs, sources
 requirements/   prototype.md (what we build), parking-lot.md (gaps and shortcuts)
 presentation/   the deck and its notes
 decisions/      ADRs
-architecture/   ARCHITECTURE.md, design/ (server, agents, agent contracts, corpus), sequences/
+architecture/   ARCHITECTURE.md, design/ (runtime, data, corpus; each with flows/)
 corpus/         regulations corpus records (raw files in S3, not git)
 plugin/         the Builders Claude plugin: skills, agents, shared rules, connectors, Claude app instructions
 deploy/         CloudFormation, Docker Compose, install/upgrade/rollback scripts, IAM policy

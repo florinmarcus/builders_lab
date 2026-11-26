@@ -1,4 +1,4 @@
-"""verify_answer: deterministic checks on a drafted answer (architecture/design/agent-contracts.md).
+"""verify_answer: deterministic checks on a drafted answer (architecture/design/runtime/design.md).
 
 Plain code, no model (ADR 0006). Read-only: never changes data.
 """

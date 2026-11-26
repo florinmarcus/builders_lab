@@ -1,6 +1,6 @@
 """Agent contracts: the JSON passed between the main agent, specialists and verify_answer.
 
-This file is the source of truth (architecture/design/agent-contracts.md explains it).
+This file is the source of truth (architecture/design/runtime/design.md explains it).
 Changing a model here means a new CONTRACT_VERSION, a regenerated schema file and valid agent examples:
   python -m builders_api.contracts --write     # writes plugin/shared/contracts.schema.json
 tests/test_contracts.py checks the schema file is current and the examples in plugin/ are valid.

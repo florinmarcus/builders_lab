@@ -1,6 +1,6 @@
 # Deploy: server set-up, upgrades, rollback
 
-Everything to run the MCP server on AWS, repeatably. Decision: ADR 0009. Picture: [architecture/design/server.md](../architecture/design/server.md).
+Everything to run the MCP server on AWS, repeatably. Decision: ADR 0009. Picture: [runtime design](../architecture/design/runtime/design.md#6-deployment).
 
 | File | What it does |
 |---|---|

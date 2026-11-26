@@ -40,7 +40,7 @@ Firm server at `/mcp/<secret>`, regulations server at `/mcp/<secret>/regulations
 | `get_payment_dates` | firm | 7: payment notice deadlines |
 | `sync_inbox` | firm | 1: fetch new email from the mail source, store, file by job, hand over emails needing facts |
 | `save_facts` | firm | 1: record job, document types and facts for one email (server-checked) |
-| `verify_answer` | firm | all: deterministic checks on a draft answer (`architecture/design/agent-contracts.md`) |
+| `verify_answer` | firm | all: deterministic checks on a draft answer (`architecture/design/runtime/design.md`, contracts) |
 | `lookup_terms` | both | Romanian questions: glossary lookup (`terminology/`, ADR 0012) |
 | `about_regulations_library` | regulations | what the library holds: version loaded, documents by type, gaps and why, quality (S100). `part`: summary, contents, gaps |
 | `get_firm_profile` | firm | start of a conversation: who we are, jobs, contacts, what is due |

@@ -40,7 +40,7 @@ The `builders-workflow` skill runs every answer through fixed steps: route the q
 line what it is checking, do that skill's steps itself (so the builder sees each tool call), plan regulations searches
 with `regs-search-plan`, translate with `builders-translate`, check the draft with `verify_answer` on our server
 (plain code), fix, then reply. Sub-agents (`agents/`, on Haiku) only for big jobs: more than 5 emails, or three or
-more jobs (ADR 0019: they were slow and showed nothing until done). Design: `architecture/design/agents.md`; JSON: `architecture/design/agent-contracts.md`.
+more jobs (ADR 0019: they were slow and showed nothing until done). Design: `architecture/design/runtime/design.md` (plugin runtime, contracts).
 
 ## Claude app (plugin)
 
