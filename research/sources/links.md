@@ -1311,3 +1311,21 @@ File: `research/reports/UK legislation MCP servers.md` and the notes in `researc
 - https://github.com/jameel230/ncc-mcp-server
 - https://glama.ai/mcp/servers/CSOAI-ORG/construction-iso-19650-mcp
 - https://github.com/rubenkruiper/IRReC
+
+## WhatsApp (26 Nov 2026, `research/integrations/whatsapp.md`)
+
+- https://developers.facebook.com/documentation/business-messaging/whatsapp/get-started
+- https://developers.facebook.com/documentation/business-messaging/whatsapp/business-phone-numbers/phone-numbers
+- https://openai.com/index/chatgpt-whatsapp-transition/
+- https://techradar.com/ai-platforms-assistants/meta-will-ban-rival-ai-chatbots-from-whatsapp
+- https://respond.io/blog/whatsapp-general-purpose-chatbots-ban
+- https://respond.io/help/whatsapp/whatsapp-cloud-api
+- https://www.eesel.ai/blog/whatsapp-claude-connector
+- https://composio.dev/content/whatsapp-mcp-connect-your-ai-to-whatsapp-without-the-risky-bridge
+- https://www.enrichlabs.ai/blog/whatsapp-mcp
+- https://docs.expertflow.com/cx/4.5/meta-whatsapp-cloud-api-configuration-deployment-g
+- https://www.wati.io/en/blog/test-whatsapp-message-sends-safely/
+- https://support.wati.io/en/articles/11462440-meta-business-verification-step-by-step-guide
+- https://docs.360dialog.com/docs/waba-management/meta-business-verification
+- https://menuthere.com/en-gb/whatsapp-business-api-pricing-uk
+- https://blueticks.co/blog/whatsapp-business-api-pricing-2026
