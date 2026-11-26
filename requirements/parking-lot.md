@@ -3,7 +3,7 @@
 Every corner we cut goes here, so nothing is forgotten after the demo. Use it for code, architecture and security reviews.
 Update it in the same commit as the shortcut. Close an item only when it is done: move it to Closed and say where.
 
-Started 20 Nov 2026. Sorted on 25 Nov 2026 into three groups by when each item must be done: before the firm visits (Sat 28 Nov), before a pilot, later. IDs are never reused; the next free IDs are S162, N23 and Q15. Closed items are at the end.
+Started 20 Nov 2026. Sorted on 25 Nov 2026 into three groups by when each item must be done: before the firm visits (Sat 28 Nov), before a pilot, later. IDs are never reused; the next free IDs are S164, N23 and Q15. Closed items are at the end.
 
 ## Before the firm visits (28 Nov)
 
@@ -187,6 +187,8 @@ Started 20 Nov 2026. Sorted on 25 Nov 2026 into three groups by when each item m
 | Q12 | SI numbers for CDM 2015, the Control of Asbestos Regulations 2012 and the Scheme for Construction Contracts in the MCP report came from memory; only the Building Regulations 2010 (SI 2010/2214) was tested live | `research/reports/UK legislation MCP servers.md` | – |
 | Q13 | Watch the GDS and National Archives "AI-ready legal data" Alpha (June 2026) and i.AI Lex: if an official, supported legislation MCP server appears, consider using it for legislation lookups instead of our own fetch (it will not cover Approved Documents) | `research/reports/UK legislation MCP servers.md` | – |
 | Q14 | May a Claude Team seat be used only by automation (a firm "robot" running cloud scheduled tasks, fired by our server)? No source allows or forbids it; the usage policy bans routing requests through consumer subscriptions. Ask Anthropic sales in writing before the pilot relies on it | ADR 0017 | – |
+| S162 | No visual trace of a call (Florin, 26 Nov 2026): we cannot follow one question through its tool calls as a tree, the way Braintrust or Langfuse show it. Our `traces` table has one row per tool call, not linked (S9), no OpenTelemetry (S10), and Claude's own steps are not visible to our server (S15). Traffic monitoring (Datadog and the like) is not needed before go-live | `system/api/builders_api/tracing.py`, `evals/answer_run.py` (keeps search trace ids per answer) | Pick a free, self-hosted viewer that reads OpenTelemetry (Langfuse or Arize Phoenix), send spans from the MCP server with one id per conversation; for eval runs, show each answer with its searches and passages. Compare cost and effort first |
+| S163 | Diagrams are Mermaid only (ADR 0020). Florin wants to study the C4 model and a diagrams-as-code DSL (for example Structurizr DSL) and see where it fits our architecture docs, maybe replacing Mermaid for the system views (26 Nov 2026) | `architecture/` | Study C4 (context, container, component); try one view of our two servers in Structurizr DSL next to the Mermaid one; decide with an ADR |
 
 ## Closed
 
