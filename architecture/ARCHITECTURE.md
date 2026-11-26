@@ -1,8 +1,8 @@
 # Architecture
 
-Builders Lab: an AI assistant that works where a builder's work already is. High level only. Details: [designs](#map).
-
-Updated 20 Nov 2026. Solid lines = built. Dashed lines = planned.
+Builders Lab: an AI assistant for UK building firms. Claude, on the user's own plan, does the thinking. Our MCP
+servers hold the firm's data, the regulations library and the checks. High level only; details are in the
+[designs](#4-map). Updated 26 Nov 2026. Solid lines = built. Dashed lines = planned or optional.
 
 ## 1. Who talks to what
 
@@ -11,83 +11,69 @@ flowchart LR
     builder(["Builder<br/>(phone or web)"])
     dev(["Florin and testers"])
 
-    subgraph claude["Claude (the agents live here, ADR 0006)"]
-        app["Claude app"]
-        code["Claude Code<br/>harness, subagents,<br/>scheduled sync"]
-        plugin["Builders plugin<br/>skills + shared rules"]
+    subgraph claude["Claude, on the user's plan (ADR 0006)"]
+        app["Claude app or Claude Code"]
+        plugin["Builders plugin<br/>skills, agents, rules"]
     end
 
-    subgraph ours["Our system (AWS, London)"]
-        mcp["Firm MCP server<br/>/mcp/&lt;secret&gt;"]
-        regs["Regulations MCP server<br/>/mcp/&lt;secret&gt;/regulations"]
-        db[("Postgres<br/>firm data")]
-        rag["Regulations search<br/>(corpus-db)"]
+    subgraph aws["Our system: one server, AWS London (ADR 0009)"]
+        firm["Firm server<br/>/mcp/&lt;secret&gt;"]
+        regs["Regulations server<br/>/mcp/&lt;secret&gt;/regulations"]
+        fdb[("firm Postgres")]
+        cdb[("corpus-db")]
     end
 
-    gmail["Gmail"]
-    xero["Xero"]
+    others["Claude's own connectors<br/>Gmail, Calendar, Xero"]
 
     builder --> app
-    plugin -.-> app
-    plugin --> code
-    dev --> code
-    app -->|"Gmail connector"| gmail
-    app -->|"Xero connector"| xero
-    app -->|"firm connector<br/>API key"| mcp
-    app -->|"regulations connector<br/>same key"| regs
-    code -->|"same two connectors"| mcp
-    code --> regs
-    mcp --> db
-    regs --> rag
-    mcp -.->|"verify_answer checks quotes<br/>(shared code, ADR 0015)"| rag
-    mcp -.->|"Gmail API (sync)"| gmail
+    dev --> app
+    plugin --> app
+    app -->|"firm connector, API key"| firm
+    app -->|"regulations connector, same key"| regs
+    app -.->|"with the user's yes"| others
+    firm --> fdb
+    regs --> cdb
 ```
 
-## 2. Where things run
+- **Two servers, one process** (ADR 0015). The regulations server holds public text only and cannot reach firm data.
+- **Mock data only.** The firm is "Marcus Limited" (`system/data/mock/`).
 
-```mermaid
-flowchart TB
-    subgraph gh["GitHub"]
-        repo["Repo: code, docs, deploy scripts"]
-        ci["Actions pipeline"]
-    end
-
-    subgraph aws["AWS eu-west-2 (live since 20 Nov 2026; ADR 0009)"]
-        subgraph ec2["EC2 server (Docker)"]
-            caddy["Caddy<br/>HTTPS"] --> app["MCP process<br/>firm + regulations servers"] --> pg[("Postgres")]
-        end
-        ssm["Parameter Store<br/>secrets"]
-        backup["Backups"]
-        bedrock["Bedrock<br/>embedder, re-ranker<br/>(corpus only)"]
-        s3["S3<br/>corpus files"]
-    end
-
-    repo --> ci
-    ci -.->|"OIDC, no stored keys"| ec2
-    app -.-> ssm
-    pg -.-> backup
-    app -.-> bedrock
-    app -.-> s3
-```
-
-## 3. Where the intelligence is
+## 2. Where the intelligence is
 
 ```mermaid
 flowchart LR
     q["Question or<br/>new emails"] --> claude["Claude<br/>(user's plan)"]
-    claude -->|"reads, extracts,<br/>writes drafts"| tools["Our tools"]
-    tools -->|"facts, search,<br/>date sums"| claude
-    tools --> code["Plain code:<br/>no chat model<br/>on our server"]
+    claude -->|"reads, extracts,<br/>searches, drafts"| tools["Our tools"]
+    tools -->|"facts, passages,<br/>date sums, checks"| claude
+    tools --> code["Plain code only:<br/>no chat model on our server"]
+    code -.->|"text search only"| bed["Bedrock<br/>embed (London), re-rank"]
 ```
 
-## Map
+- **No model on our server** (ADR 0006). The server runs queries, date sums and checks. `verify_answer` checks
+  each answer against the sources in plain code before Claude replies.
+- **Bedrock** only turns search text into vectors and re-ranks passages. It never writes an answer.
 
-| Level | Document |
+## 3. The agents
+
+All agents are Claude, on the user's plan or on a developer's machine. None runs on our server.
+
+| Agent | Where | Job | Details |
+|---|---|---|---|
+| Main model + `builders-workflow` skill | Claude app, Claude Code | routes the question, runs the task skill, checks, replies in short spoken chunks | [runtime design](design/runtime/design.md) |
+| Task skills | plugin | emails, approved changes, payments, missing items, delays, regulations | [plugin/README.md](../plugin/README.md) |
+| `builders-translate` skill | plugin | Romanian in, English to the tools, Romanian out (ADR 0012) | [runtime design](design/runtime/design.md) |
+| Haiku sub-agents | plugin | big jobs only: more than 5 emails or three or more jobs (ADR 0019) | `plugin/agents/` |
+| Corpus checkers | Claude Code, developer machine | check tables, figures and unclear parses; saved as fixes (ADR 0010) | [ingest design](design/ingest/design.md) |
+| Judges | Claude Code, developer machine | judge passages and answers, blind | [eval design](design/eval/design.md) |
+
+## 4. Map
+
+| Design | What it covers |
 |---|---|
-| Design | [Data: where data lives, regulations and firm tables](design/data/design.md) |
-| Design | [Runtime: plugin, servers, contracts, guardrails, deployment](design/runtime/design.md) and its [flows](design/runtime/flows/) |
-| Design | [Ingest: harvest, parse, checks, chunk, load](design/ingest/design.md) and its [flows](design/ingest/flows/) |
-| Design | [Evals: golden set, metrics, judges, gate, mixed vs lanes](design/eval/design.md) |
-| Plugin | [Builders plugin: skills + connectors](../plugin/README.md) (ADR 0011) |
-| Decisions | [ADRs](../decisions/) |
-| Gaps | [Parking lot](../requirements/parking-lot.md) |
+| [Runtime](design/runtime/design.md) and [flows](design/runtime/flows/) | the plugin, the two servers, tools, guardrails, deploy and upgrade |
+| [Data](design/data/design.md) | where every kind of data lives; firm tables and the regulations library |
+| [Ingest](design/ingest/design.md) and [flows](design/ingest/flows/) | harvest, parse, checks, chunk, embed, load |
+| [Evals](design/eval/design.md) and [flows](design/eval/flows/) | golden set, metrics, judges, the gate, mixed vs lanes |
+
+Also: [decisions (ADRs)](../decisions/), [gaps and shortcuts](../requirements/parking-lot.md),
+[deploy](../deploy/README.md), [tool list](../system/api/README.md).
