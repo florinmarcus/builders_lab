@@ -3,7 +3,7 @@
 Every corner we cut goes here, so nothing is forgotten after the demo. Use it for code, architecture and security reviews.
 Update it in the same commit as the shortcut. Close an item only when it is done: move it to Closed and say where.
 
-Started 20 Nov 2026. Sorted on 25 Nov 2026 into three groups by when each item must be done: before the firm visits (Sat 28 Nov), before a pilot, later. IDs are never reused; the next free IDs are S160, N23 and Q15. Closed items are at the end.
+Started 20 Nov 2026. Sorted on 25 Nov 2026 into three groups by when each item must be done: before the firm visits (Sat 28 Nov), before a pilot, later. IDs are never reused; the next free IDs are S161, N23 and Q15. Closed items are at the end.
 
 ## Before the firm visits (28 Nov)
 
@@ -74,7 +74,7 @@ Started 20 Nov 2026. Sorted on 25 Nov 2026 into three groups by when each item m
 | S101 | One MCP server holds both public regulations tools and private firm tools, behind one key and in one process | Built as one server first (ADR 0004) | A regulations bug runs next to private data; corpus and firm releases are coupled. Proposed split: ADR 0015, after the retrieval work |
 | S144 | Evals should run locally in Claude Code with Claude as answerer and judge on Florin's plan (no Bedrock model bill, no pipeline); the overnight evals used Haiku 4.5 and gpt-oss-120b on Bedrock (Renumbered 25 Nov 2026: this item was a second S88; IDs must be unique.) | `evals/` | Port `evals/judge.py` to a Claude Code run (sub-agents answer and judge) |
 | S145 | Gap catalogue: freely reachable pages about the 65 documents we do not hold (`link_only`, `restricted` in `corpus/sources.yaml`: BS 7671, British Standards, JCT, NEC, NHBC, Planning Portal...) are fetched into private storage and summarised by sub-agents, for this private prototype only. Some sites' terms bar scraping or storage (JCT, BSI, Planning Portal). | Florin's call 25 Nov 2026: learning project, not commercial | Ask each publisher for a licence before any commercial use; never commit the raw pages |
-| S146 | Some gold labels are older than the library: e.g. site-safety-062 (planning permission) is out_of_scope, but `gpdo-2015` and `pd-householder-guide` are ingested. The decomposer judge then scores right answers as wrong. | `evals/golden/questions.jsonl` | Recheck out_of_scope labels against `corpus/sources.yaml` with S116 |
+| S146 | Some gold labels were older than the library. Dev done 26 Nov 2026 (`evals/golden/rescope.py`, log `rescope-2026-11-26.jsonl`, labels_version v5, agreed by Florin): all 39 dev out_of_scope questions checked against `corpus/sources.yaml` and live search; site-safety-062 and housing-repairs-059 are now answerable (GPDO Class A), fire-safety-066 and asbestos-065 stay out of scope with reworded answers; 35 unchanged. The new reference answers and rules were written by Claude from the parsed guide. Holdout out_of_scope questions not checked | `evals/golden/` | Florin checks the 4 answers with the calibration; check the holdout once, before its milestone run |
 | S147 | Edition changes are notes in `corpus/sources.yaml` only (`status`, `notes`, "Watch" lines for L143 and HSG248, 25 Nov 2026). Nothing checks HSE or BSI for a new edition, and search answers say nothing about a coming change. Fix: a monthly re-check (by hand or a scheduled job) and a rule for when a watched document is replaced. |
 | S148 | The decomposer's library list is built from `corpus/sources.yaml` (`evals/experiments/decomposer/library.py`), but five "never held" items (prices, insurance, worker cards, manufacturers' instructions, other nations) are kept by hand, and the fixed judge (`judge-v1.md`) keeps its own older not-held line. | `evals/experiments/decomposer/` | When the prompt is locked, build the server instruction and the judge's line from the same code |
 | S149 | Outside citations ("to BS 5839", "manufacturer's instructions") are found and sorted into list, mention or binding by wording only (`evals/experiments/library-map/build.py`); checked by hand on 40 citations, binding right about 9 in 10. Search results don't yet say "the detail is in a document we don't hold". | `evals/experiments/library-map/`, M1 | Add an outside-reference field to search results, built at chunking; check precision on a bigger sample |
@@ -94,6 +94,7 @@ Started 20 Nov 2026. Sorted on 25 Nov 2026 into three groups by when each item m
 | Q9 | Does Claude's Microsoft 365 connector read Outlook mail? | `requirements/business-plan.md` | – |
 | Q10 | Companies House registration fee and ICO data protection fee (from memory) | `requirements/business-plan.md` | – |
 | Q11 | Real quotes: cyber insurance, professional indemnity, accountant | `requirements/business-plan.md` | – |
+| S160 | The answer judge's system under test uses Sonnet 5.5 as the answer model (Florin, 26 Nov 2026), on the assumption that most builders' Claude runs Sonnet. Not checked with any builder | `evals/` answer judge (PLAN step 3) | Ask the firms which Claude model and plan they use; re-run the baseline if it differs |
 
 ## Later
 

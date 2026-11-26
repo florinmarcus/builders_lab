@@ -10,7 +10,7 @@ Owner: Florin. Status report: [REPORT-2026-11-21.md](REPORT-2026-11-21.md). Each
 |---|---|
 | 1. Miss analysis | done: [experiments/L1-miss-analysis.md](experiments/L1-miss-analysis.md) |
 | 2. Experiments driven by step 1 | **in progress**: out-of-date sources removed (V1, no significant change); next, the embedded chunk text |
-| 3. Local judge | on hold until retrieval is strong |
+| 3. Local judge | **started 26 Nov**: design agreed (below); reference answers cleaned (S146); next, the first Sonnet run on dev |
 | 4. Multi-turn scenarios | on hold |
 | 5. Traces and logs | on hold |
 
@@ -218,16 +218,30 @@ Pick the fixes from step 1's counts, biggest first. Possible fixes:
 
 ## Step 3: local LLM judge in Claude Code
 
-- Port `evals/judge.py` so the answers and the judging run in Claude Code headless (`claude -p`).
-- No Bedrock models.
-- **Answers:** run the real flow: the plugin, the router, the specialist, then `verify_answer`.
-- **Judges:** two Claude models. Measure how often they agree (Cohen's kappa). Disagreements go to a person.
-- **Calibration:** Florin, or a builder, reads about 50 judged answers. Report how often the judge agrees with the
-  person.
-- **Criteria:** the same as now (correctness, grounding, completeness, each 1-5 with the reason first). Add:
-  - source cited correctly (document, section, edition date)
-  - safety rules kept (asbestos, approvals, drafts only)
-  - language: Romanian answers keep the UK terms
+**Design agreed with Florin, 26 Nov 2026** (replaces the earlier draft: real plugin flow, 1-5 scores).
+
+- **System under test:** search plus a fixed answer model, not the plugin. Sonnet 5.5 answers with
+  `search_regulations` and `lookup_terms` on the live regulations server only (agent B of C1, re-run with Sonnet).
+  Sonnet is an assumption about what builders run (S160). The plugin and the firm server are demo work.
+- **Criteria, pass or fail each, reason first:** correct (nothing contradicts the reference answer or the rules);
+  grounded (every claim backed by a cited passage); complete (states the question's rules, `pooled/rules.jsonl`);
+  right behaviour for the kind (corrects a false premise, says "not in the library" when out of scope, asks back
+  when vague); no serious error. An answer passes only if all five pass.
+- **Out of scope follows the server rule:** a correct answer from memory is a fail (replaces the C1 rule of 26 Nov).
+- **Judge chosen by Florin's labels:** candidates Opus 5.5, Fable 5.2, maybe Haiku 5.5 (not Sonnet: it answers).
+  Pick on catch rate of Florin's fails and kappa, then noise (flip rate between two runs on the whole dev set), then
+  cost.
+
+Order (each step needs Florin's yes):
+1. ~~System under test and criteria~~ (26 Nov).
+2. ~~Clean the reference answers (S146)~~ (26 Nov, dev).
+3. One Sonnet run on dev; keep the answers in the scratchpad (not git).
+4. Florin labels 60-100 answers pass or fail per criterion with a reason, oversampling likely fails. Split the
+   labels: a few for judge examples, half to tune the judge prompt, the rest to test it once.
+5. Judge v1; each candidate judges the labelled answers twice: agreement with Florin, and noise.
+6. Freeze the judge. Baseline: Sonnet 3 runs on dev, judged once each, majority vote per question; store it. Add
+   an answer check to the gate (must-pass, floor, McNemar on the votes).
+7. Holdout once, at the milestone.
 
 ## Step 4: multi-turn scenarios
 

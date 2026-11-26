@@ -94,6 +94,6 @@ Mixed documents (L143, HSG248) are split by section: ACoP parts go to the approv
 
 - Calibration: Florin or a builder reads about 50 judged items; agreement with the judge is reported.
 - Multi-turn scenarios (follow-ups, corrections, a safety push), PLAN.md step 4.
-- Answers through the full plugin flow (router, skill, `verify_answer`) as the thing judged.
+- The answer judge of ADR 0021 (search plus Sonnet, pass or fail per criterion, judge chosen by Florin's labels): designed 26 Nov 2026, not run yet. The plugin flow is not the thing judged.
 - `evals/judge.py` is the first answer judge (Bedrock answer model and judge, 21 Nov 2026). It breaks the "no model
   on AWS" rule above and is not used for new runs; PLAN.md step 3 ports it to Claude Code.

@@ -28,5 +28,6 @@ figures belong in the designs, not here.
 | [0018](0018-parse-profiles-per-document-family.md) | Parse profiles per document family | proposed | – |
 | [0019](0019-main-model-does-the-work-skills-not-sub-agents.md) | The main model does the work; skills, not sub-agents | accepted, built | – |
 | [0020](0020-docs-structure-one-source-of-truth.md) | Docs structure, one source of truth | accepted | – |
+| [0021](0021-answer-judge-design.md) | Answer judge: search plus Sonnet, pass or fail per criterion, judge chosen by human labels | accepted | – |
 
 Next free number: 0021.

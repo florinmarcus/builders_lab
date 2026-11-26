@@ -40,6 +40,7 @@ goes into main only when its work is finished, its tests pass and Florin says ye
 
 Plan and step status: [evals/PLAN.md](../evals/PLAN.md). Rule coverage is the main score since 25 Nov 2026; no
 baseline is set yet (S151, S153).
+Answer judge: design agreed 26 Nov 2026 (ADR 0021); reference answers cleaned (S146); next, the first Sonnet run on dev.
 
 ## Next, in order
 
