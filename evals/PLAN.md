@@ -235,7 +235,9 @@ Pick the fixes from step 1's counts, biggest first. Possible fixes:
 Order (each step needs Florin's yes):
 1. ~~System under test and criteria~~ (26 Nov).
 2. ~~Clean the reference answers (S146)~~ (26 Nov, dev).
-3. One Sonnet run on dev; keep the answers in the scratchpad (not git).
+3. One Sonnet run on dev; keep the answers in the scratchpad (not git). `evals/answer_run.py`, brief
+   `evals/answers/ANSWER-BRIEF.md`. First try 26 Nov stopped at 17 of 342 (demo firm's daily limit); runs now use
+   the eval key and connector (S161), 4 helpers at a time.
 4. Florin labels 60-100 answers pass or fail per criterion with a reason, oversampling likely fails. Split the
    labels: a few for judge examples, half to tune the judge prompt, the rest to test it once.
 5. Judge v1; each candidate judges the labelled answers twice: agreement with Florin, and noise.

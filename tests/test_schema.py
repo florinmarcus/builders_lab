@@ -85,3 +85,13 @@ def test_trace_and_quota_rows(conn):
             "insert into quota_limits (firm_id, metric, daily_limit) values (%s, 'made_up_metric', 1)",
             (firm,),
         )
+
+
+def test_evals_firm_has_its_own_tool_call_limit(conn):
+    """Migration 0004: the evals firm exists, holds no data, and has 5,000 tool calls a day (S161)."""
+    row = conn.execute(
+        """select f.name, q.daily_limit from firms f
+           join quota_limits q on q.firm_id = f.id and q.metric = 'tool_calls' where f.slug = 'evals'"""
+    ).fetchone()
+    assert row is not None and float(row[1]) == 5000
+    assert conn.execute("select count(*) from jobs j join firms f on f.id = j.firm_id where f.slug = 'evals'").fetchone()[0] == 0

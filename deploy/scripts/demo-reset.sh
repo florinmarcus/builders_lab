@@ -22,10 +22,11 @@ dc exec -T db pg_dump -U builders_owner -d builders --data-only -t api_keys -t s
 
 dc stop app
 dc exec -T db pg_restore -U builders_owner -d builders --clean --if-exists < "$BASELINE"
+# Migrations first: a key kept from now may belong to a firm newer than the baseline (the evals firm, 0004).
+dc run --rm --no-deps app python -m builders_api.db.migrate   # re-apply migrations newer than the baseline
 dc exec -T db psql -q -U builders_owner -d builders -c "truncate api_keys, server_flags"
 dc exec -T db psql -q -U builders_owner -d builders < "$keep"
 rm -f "$keep"
-dc run --rm --no-deps app python -m builders_api.db.migrate   # re-apply migrations newer than the baseline
 dc start app
 for _ in $(seq 1 30); do dc exec -T app python -m builders_api.healthcheck >/dev/null 2>&1 && break; sleep 2; done
 

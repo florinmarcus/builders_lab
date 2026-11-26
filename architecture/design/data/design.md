@@ -127,6 +127,8 @@ erDiagram
 - **Server data:** `api_keys` (ADR 0007), `traces` (one row per tool call), `versions` (which prompt or tool text
   was live), `quota_limits` and `quota_usage`, `gmail_sync_state`, `server_flags` (kill switch),
   `schema_migrations`.
+- **Firms:** the demo firm (Marcus Limited, slug `oakline`) and `evals` (migration 0004), which holds no data and
+  exists so eval runs have their own key and daily limit (5,000 tool calls; demo firm 500).
 - **Facts carry their proof.** Every fact links to an email or attachment and keeps the exact quote. `save_facts`
   checks the quote is in the source before saving (ADR 0006).
 - **Planned:** workflow run records, so tools can refuse steps out of order (ADR 0017, parking lot N21).

@@ -174,6 +174,22 @@ dc exec -T app python -m builders_api.admin kill on     # stop all requests with
 dc exec -T app python -m builders_api.admin kill off
 ```
 
+## Eval key (26 Nov 2026, S161)
+
+Answer evals call the live regulations server many times (a full run is about 500 searches). They use their own
+firm, `evals` (migration 0004: no firm data, 5,000 tool calls a day), so they never use up the demo firm's 500.
+Make the key once, after the deploy that carries migration 0004:
+
+```
+cd /opt/builders-lab/repo/deploy && source scripts/common.sh
+dc exec -T app python -m builders_api.admin keys create --firm evals --label "Evals" --expires 2027-01-31
+```
+
+Save it in Parameter Store as `/builders-lab/prod/handover/evals_api_key` (SecureString), never in chat or Git. In
+claude.ai, add a second connector with this key for the regulations address (for example "Builders Regulations
+Evals"); answer helpers use only that connector. `demo-reset.sh` keeps the key: it now runs migrations before it
+restores the keys.
+
 ## What was tested where (20 Nov 2026)
 
 | Part | Tested |

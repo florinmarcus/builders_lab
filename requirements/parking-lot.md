@@ -3,7 +3,7 @@
 Every corner we cut goes here, so nothing is forgotten after the demo. Use it for code, architecture and security reviews.
 Update it in the same commit as the shortcut. Close an item only when it is done: move it to Closed and say where.
 
-Started 20 Nov 2026. Sorted on 25 Nov 2026 into three groups by when each item must be done: before the firm visits (Sat 28 Nov), before a pilot, later. IDs are never reused; the next free IDs are S161, N23 and Q15. Closed items are at the end.
+Started 20 Nov 2026. Sorted on 25 Nov 2026 into three groups by when each item must be done: before the firm visits (Sat 28 Nov), before a pilot, later. IDs are never reused; the next free IDs are S162, N23 and Q15. Closed items are at the end.
 
 ## Before the firm visits (28 Nov)
 
@@ -95,6 +95,7 @@ Started 20 Nov 2026. Sorted on 25 Nov 2026 into three groups by when each item m
 | Q10 | Companies House registration fee and ICO data protection fee (from memory) | `requirements/business-plan.md` | – |
 | Q11 | Real quotes: cyber insurance, professional indemnity, accountant | `requirements/business-plan.md` | – |
 | S160 | The answer judge's system under test uses Sonnet 5.5 as the answer model (Florin, 26 Nov 2026), on the assumption that most builders' Claude runs Sonnet. Not checked with any builder | `evals/` answer judge (PLAN step 3) | Ask the firms which Claude model and plan they use; re-run the baseline if it differs |
+| S161 | Eval runs share the live server with the demo. Since 26 Nov 2026 they have their own firm and key (`evals`, migration 0004, 5,000 tool calls a day; `deploy/README.md`, "Eval key"), but they still load the same server: 11 helpers at once gave upstream errors on 26 Nov, so runs use 4 at a time. The first answer run stopped at 17 of 342 when the demo firm's 500-call limit ran out | `deploy/`, `evals/answer_run.py` | Make the key and the second connector (Florin); after the firm visits, consider a separate eval server or off-peak runs |
 
 ## Later
 
