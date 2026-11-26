@@ -1,6 +1,8 @@
 """C1: Opus from memory (no tools) against Opus with the live regulations connector (25 Nov 2026).
 
     python evals/closed_book.py sample  --n 60 --out DIR   # stratified dev sample, batches for the answer agents
+    python evals/closed_book.py sample  --all --keep OLD/sample.json --out DIR   # whole dev set; batches only for
+                                                                                # questions not answered in OLD
     python evals/closed_book.py packets --out DIR          # blind judge packets (answers shuffled as X / Y)
     python evals/closed_book.py score   --out DIR          # unblind, score, paired test -> DIR/summary.json
 
@@ -31,16 +33,21 @@ def load(path: Path) -> list[dict]:
     return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
 
 
-def sample(n: int, out: Path) -> None:
+def sample(n: int, out: Path, whole: bool = False, keep: Path | None = None) -> None:
     qs = [q for q in load(GOLDEN) if q["split"] == "dev"]
     rnd = random.Random(SEED)
-    picked = []
-    for kind, share in MIX.items():
-        pool = sorted((q for q in qs if q["kind"] == kind), key=lambda q: q["id"])
-        picked += rnd.sample(pool, round(n * share))
+    kept = json.loads(keep.read_text()) if keep else []
+    if whole:
+        picked = sorted((q for q in qs if q["id"] not in kept), key=lambda q: q["id"])
+    else:
+        picked = []
+        for kind, share in MIX.items():
+            pool = sorted((q for q in qs if q["kind"] == kind), key=lambda q: q["id"])
+            picked += rnd.sample(pool, round(n * share))
     rnd.shuffle(picked)
     out.mkdir(parents=True, exist_ok=True)
-    (out / "sample.json").write_text(json.dumps([q["id"] for q in picked], indent=1))
+    # kept questions were answered in an earlier run: copy their answers-*.json into DIR; no new batches for them
+    (out / "sample.json").write_text(json.dumps(kept + [q["id"] for q in picked], indent=1))
     for i in range(0, len(picked), BATCH):
         batch = [{"id": q["id"], "question": q["question"]} for q in picked[i:i + BATCH]]
         (out / f"batch-{i // BATCH + 1:02d}.json").write_text(json.dumps(batch, indent=1, ensure_ascii=False))
@@ -122,15 +129,29 @@ def score(out: Path) -> None:
                 "wrong_claims": sum(r["wrong_claims"] for r in rs),
                 "made_up_sources": sum(r["made_up_source"] for r in rs)}
 
-    pairs = [p for p in by.values() if "A" in p and "B" in p]
-    only_a = sum(p["A"]["pass"] and not p["B"]["pass"] for p in pairs)
-    only_b = sum(p["B"]["pass"] and not p["A"]["pass"] for p in pairs)
-    summary = {"questions": len(pairs),
+    def paired(kinds: set[str]) -> dict:
+        pairs = [p for p in by.values() if "A" in p and "B" in p and p["A"]["kind"] in kinds]
+        only_a = sum(p["A"]["pass"] and not p["B"]["pass"] for p in pairs)
+        only_b = sum(p["B"]["pass"] and not p["A"]["pass"] for p in pairs)
+        return {"questions": len(pairs), "only_A": only_a, "only_B": only_b,
+                "both": sum(p["A"]["pass"] and p["B"]["pass"] for p in pairs),
+                "neither": sum(not p["A"]["pass"] and not p["B"]["pass"] for p in pairs),
+                "mcnemar_p": round(mcnemar(only_a, only_b), 4)}
+
+    def core(agent: str) -> dict:
+        # headline without out_of_scope: those questions are outside our library, where memory may be right
+        rs = [r for r in rows if r["agent"] == agent and r["kind"] != "out_of_scope"]
+        return {"n": len(rs), "pass": round(sum(r["pass"] for r in rs) / len(rs), 2),
+                "correctness": round(sum(r["correctness"] for r in rs) / len(rs), 2),
+                "wrong_claims": sum(r["wrong_claims"] for r in rs),
+                "serious_errors": sum(r["serious_error"] for r in rs)}
+
+    summary = {"questions": len(by),
                "A_memory": stats("A"), "B_connector": stats("B"),
+               "core_A": core("A"), "core_B": core("B"),
                "by_kind": {k: {"A": stats("A", k), "B": stats("B", k)} for k in MIX if any(r["kind"] == k for r in rows)},
-               "paired_pass": {"only_A": only_a, "only_B": only_b, "both": sum(p["A"]["pass"] and p["B"]["pass"]
-                                                                                for p in pairs),
-                               "mcnemar_p": round(mcnemar(only_a, only_b), 4)}}
+               "paired_pass": paired(set(MIX)),
+               "paired_pass_core": paired(set(MIX) - {"out_of_scope"})}
     (out / "rows.jsonl").write_text("".join(json.dumps(r) + "\n" for r in rows))
     (out / "summary.json").write_text(json.dumps(summary, indent=1))
     print(json.dumps(summary, indent=1))
@@ -140,9 +161,11 @@ def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("step", choices=["sample", "packets", "score"])
     ap.add_argument("--n", type=int, default=60)
+    ap.add_argument("--all", action="store_true", help="every dev question, not a sample")
+    ap.add_argument("--keep", type=Path, help="sample.json of an earlier run whose answers are reused")
     ap.add_argument("--out", type=Path, required=True)
     args = ap.parse_args()
-    {"sample": lambda: sample(args.n, args.out), "packets": lambda: packets(args.out),
+    {"sample": lambda: sample(args.n, args.out, args.all, args.keep), "packets": lambda: packets(args.out),
      "score": lambda: score(args.out)}[args.step]()
     return 0
 
