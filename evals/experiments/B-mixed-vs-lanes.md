@@ -1,7 +1,7 @@
 # B1 to B4: mixed search or lanes, with and without agent queries
 
 **Date:** 25 Nov 2026. **Split:** dev, 299 questions with expected sections, golden sha 49174d8ea638.
-**Corpus:** corpus_v2 (local copy of the live index). **Plan:** [retrieval-tuning.md](../../architecture/design/retrieval-tuning.md).
+**Corpus:** corpus_v2 (local copy of the live index). **Plan:** [eval design](../../architecture/design/eval/design.md).
 
 One line per run: what it is, the code commit, the command. All runs: `CORPUS_READER_URL=<local> python evals/retrieval.py --schema corpus_v2 --split dev --run <name>` plus the switches below. Results files: `evals/results/<name>-dev.jsonl` and `.summary.json`.
 

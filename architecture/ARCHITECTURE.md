@@ -87,7 +87,7 @@ flowchart LR
 | Design | [Data: where data lives, regulations and firm tables](design/data/design.md) |
 | Design | [Runtime: plugin, servers, contracts, guardrails, deployment](design/runtime/design.md) and its [flows](design/runtime/flows/) |
 | Design | [Ingest: harvest, parse, checks, chunk, load](design/ingest/design.md) and its [flows](design/ingest/flows/) |
-| Design | [Regulations search: aim, mixed vs lanes, tuning loop](design/retrieval-tuning.md) |
+| Design | [Evals: golden set, metrics, judges, gate, mixed vs lanes](design/eval/design.md) |
 | Plugin | [Builders plugin: skills + connectors](../plugin/README.md) (ADR 0011) |
 | Decisions | [ADRs](../decisions/) |
 | Gaps | [Parking lot](../requirements/parking-lot.md) |

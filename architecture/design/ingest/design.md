@@ -110,7 +110,7 @@ Headings give no chunks; they are the breadcrumb. Chunk field rules:
 ## 8. Not built yet
 
 - `get_section(section_id)` and `read_document`: the full text of a passage's section (N15, ADR 0016).
-- Lanes by legal weight: `pgsearch.search_lanes()` is built, not live ([retrieval-tuning.md](../retrieval-tuning.md)).
+- Lanes by legal weight: `pgsearch.search_lanes()` is built, not live ([eval design](../eval/design.md#6-what-we-are-deciding-now-mixed-or-lanes-adr-0016)).
 - Optional passage keys for the server (`section_id`, `applies_to`, `legal_weight`, `printed_page`, `image_url`):
   to agree in the contract, [system/rag/README.md](../../../system/rag/README.md).
 - Figure images are not served to answers yet.
