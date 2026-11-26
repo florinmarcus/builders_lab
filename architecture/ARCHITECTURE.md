@@ -84,6 +84,7 @@ flowchart LR
 
 | Level | Document |
 |---|---|
+| Design | [Data: where data lives, regulations and firm tables](design/data/design.md) |
 | Design | [Server: MCP, security, data, deployment](design/server.md) |
 | Design | [Agents: who does what, the flow, guardrails](design/agents.md) |
 | Design | [Agent contracts: JSON in, JSON out, verify step](design/agent-contracts.md) |

@@ -23,7 +23,7 @@ branch into main only when its work is finished and its tests pass, because ever
 | Adding or changing an MCP tool | `.claude/skills/add-mcp-tool/SKILL.md` (runbook) |
 | Changing agents, skills or answer flow | `architecture/design/agents.md`, `architecture/design/agent-contracts.md`, `plugin/README.md` |
 | Changing JSON passed between agents | `system/api/builders_api/contracts.py` (source of truth), then the design doc |
-| Changing the database | `system/api/builders_api/db/migrations/` (add a file, never edit one) |
+| Changing the database | `architecture/design/data/design.md`, then `system/api/builders_api/db/migrations/` (add a file, never edit one) |
 | Changing security | `decisions/0007-mcp-server-security.md`, `architecture/design/server.md` |
 | Deploying, upgrading, keys, kill switch | `deploy/README.md`, `decisions/0009-...md` |
 | Mock data, demo emails, Gmail demo | `system/data/mock/README.md`, `decisions/0005-...md` |

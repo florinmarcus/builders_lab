@@ -70,83 +70,9 @@ Two servers in one process (ADR 0015): **firm** at `/mcp/<secret>`, **regulation
 | `get_firm_profile` | firm | live firm context: people, jobs, contacts, due in 14 days | start of every conversation |
 | `get_job_timeline` | firm | emails received and sent, documents, dated facts, upcoming | delays, "what have I sent" |
 
-## Data (database state)
+## Data
 
-```mermaid
-erDiagram
-    firms ||--o{ staff : employs
-    firms ||--o{ clients : has
-    firms ||--o{ jobs : runs
-    clients ||--o{ jobs : orders
-    job_types ||--o{ jobs : "type of"
-    job_types ||--o{ required_items : needs
-    jobs ||--o{ contract_terms : "paid under"
-    firms ||--o{ emails : receives
-    jobs |o--o{ emails : "filed to"
-    emails ||--o{ attachments : carries
-    jobs |o--o{ attachments : "filed to"
-    attachments |o--o{ contract_terms : "source of"
-    emails |o--o{ facts : "source of"
-    attachments |o--o{ facts : "source of"
-    jobs |o--o{ facts : about
-    firms ||--o{ api_keys : holds
-    firms ||--o{ quota_limits : "limited by"
-    firms ||--o{ quota_usage : uses
-    firms ||--o| gmail_sync_state : "synced to"
-    firms |o--o{ traces : "logged for"
-    versions |o--o{ traces : "version used"
-
-    firms { uuid id PK
-        text slug UK
-        text name }
-    jobs { uuid id PK
-        text ref UK "per firm"
-        text job_type_code FK
-        date target_date
-        text_arr match_terms }
-    emails { uuid id PK
-        text gmail_message_id UK "per firm"
-        timestamptz sent_at
-        uuid job_id FK
-        text ingest_status
-        tsvector search }
-    attachments { uuid id PK
-        text document_type
-        date document_date
-        date expires_on
-        tsvector search }
-    facts { uuid id PK
-        text fact_type
-        text quote "exact words"
-        jsonb value
-        text prompt_version }
-    contract_terms { uuid id PK
-        text party "main or subcontract"
-        int due_day_of_month
-        int final_date_days_after_due
-        int pay_less_days_before_final }
-    required_items { text code
-        text_arr satisfied_by }
-    api_keys { uuid id PK
-        text key_prefix UK
-        text key_hash "HMAC, never the key"
-        date expires_on
-        timestamptz revoked_at }
-    traces { bigint id PK
-        uuid trace_id
-        text kind "tool or model"
-        text version_id FK
-        numeric cost_usd
-        jsonb sources }
-    versions { text id PK
-        text kind
-        text sha256 }
-    quota_usage { text metric
-        date day
-        numeric used }
-```
-
-Also: `schema_migrations` (applied files and hashes), `server_flags` (kill switch).
+Tables and stores: [data design](data/design.md).
 
 ## Deployment (ADR 0009; code in `deploy/`, live since 20 Nov 2026)
 

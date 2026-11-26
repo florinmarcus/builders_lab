@@ -473,42 +473,13 @@ A model answer can vary between runs, so every model fix is saved in `corpus/fix
 
 ## Data model
 
-```mermaid
-erDiagram
-    SOURCE ||--o{ VERSION : "has"
-    VERSION ||--o{ SECTION : "parsed into"
-    SECTION ||--o{ SECTION : "parent of"
-    SECTION ||--o{ CHUNK : "split into"
-    SECTION ||--o{ FIGURE : "has"
-    SECTION ||--o{ TABLE : "has"
-    TABLE ||--o{ CHUNK : "whole + row sentences"
-    FIGURE ||--o| CHUNK : "caption + description"
-    VERSION ||--o{ DEFINITION : "defines"
-    CHUNK }o--o{ DEFINITION : "uses (own marks)"
-    CHUNK ||--o{ REFERENCE : "cites"
-    REFERENCE }o--o| SECTION : "points to"
-    SECTION ||--o{ AMENDMENT : "changed by"
-    VERSION ||--o{ FIX : "model fixes"
+What is stored, in files and in the database: [data design](data/design.md#2-regulations-library). The rules
+behind the chunk fields:
 
-    SOURCE { string id "br2010, adb, hse-hsg264" string kind "legislation, approved-document, hse-guidance" string legal_weight "law, statutory-guidance, approved-code, guidance" string licence string mode }
-    VERSION { string version_id date valid_from date valid_to string sha256 }
-    SECTION { string id "reg-7, B1, adb-2.5" string parent_id string heading_path "breadcrumb" string printed_page string applies_to "E, W, E+W" date valid_from date valid_to text full_text }
-    CHUNK { string id string section_id "parent section" string chunk_type "clause, paragraph, requirement, table-row, figure, change-note" string source_id string kind string legal_weight string version_id date valid_from date valid_to string applies_to string heading_path "breadcrumb" string printed_page string url text text text embed_text "breadcrumb + text" vector embedding tsvector keywords "codes like 7.6.3 kept whole" }
-    REFERENCE { string from_chunk string to_section "empty if unresolved" string words "requirement B1" boolean resolved }
-    DEFINITION { string term string text string scope "own document only" }
-    FIGURE { string number string title string labels string description string image_path }
-    TABLE { string number string grid_json }
-    AMENDMENT { string by "SI number" date date string note }
-    FIX { string file_sha256 string page string kind string result }
-```
-
-- **Two links between chunks and sections.** A section is *split into* its own chunks (one to many). A chunk *cites* other sections through REFERENCE (many to many). REFERENCE keeps the original words and whether code resolved them, so unresolved references are easy to list.
 - **Filter fields are copied onto every chunk**, so search filters without joins.
 - **The breadcrumb goes into the embedded text** (`embed_text`), for example "Building Regulations › Part B › B1 Means of warning and escape › ...". A short paragraph alone often does not say what it is about.
-- **Keyword search from the start.** Each chunk has a Postgres full-text column, so hybrid search can be added later without re-loading. Codes like "7.6.3", "B1" and "M4(1)" must stay whole.
+- **Codes stay whole.** "7.6.3", "B1" and "M4(1)" are kept as one keyword (`codes_tsv`).
 - **`kind` and `legal_weight`** come from `corpus/sources.yaml`. Answers must say "the law requires" (law) or "the guidance says" (approved documents are statutory guidance; HSE approved codes of practice such as L143 have special legal standing; other HSE documents are guidance).
-- **AMENDMENT** comes from the legislation's change notes: which later law changed a clause, and when.
-- **FIX** is a saved model correction, one per file and page.
 
 ## Chunk units
 
