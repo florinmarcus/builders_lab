@@ -1,6 +1,7 @@
 # 0009: One EC2 server, set up by CloudFormation and scripts, upgraded by GitHub Actions
 
 Date: 20 Nov 2026. Status: accepted. Changes ADR 0003 (EC2, not Lightsail; London, not Frankfurt).
+Changed by: 0015 (both servers on the same machine and deploy).
 
 ## Context
 

@@ -1,6 +1,7 @@
 # 0007: MCP server security: API keys now, OAuth next, hardening from day one
 
 Date: 20 Nov 2026. Status: accepted.
+Changed by: 0015 (one key for both servers).
 
 ## Context
 

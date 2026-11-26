@@ -1,6 +1,7 @@
 # 0010: Parsing: library first, model checks and fills gaps, chunk by document structure
 
 Date: 20 Nov 2026. Status: accepted for the parser pilot. Design and diagrams: `architecture/design/regulations-corpus.md`.
+Changed by: 0013 (hybrid search).
 
 ## Context
 

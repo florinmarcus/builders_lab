@@ -1,6 +1,7 @@
 # 0004: Customer data as structured records, shared regulations in a vector store, MCP as the interface
 
 Date: 19 Nov 2026. Status: accepted.
+Changed by: 0015 (two MCP servers, not one).
 
 ## Context
 

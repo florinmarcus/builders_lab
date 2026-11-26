@@ -1,6 +1,7 @@
 # 0006: Agents live in Claude; extraction done by Claude through our MCP server
 
 Date: 20 Nov 2026. Status: accepted for the demo and the pilot.
+Changed by: 0011 and 0019 (distribution is the Builders plugin; the main model does the work, sub-agents only for big jobs) and 0017 (workflow control on our server).
 
 ## Context
 

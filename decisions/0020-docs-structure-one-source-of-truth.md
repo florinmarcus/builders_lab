@@ -1,6 +1,6 @@
 # 0020: Docs structure: one overview, four designs, one source of truth
 
-Date: 26 Nov 2026. Status: proposed (Florin, 26 Nov 2026).
+Date: 26 Nov 2026. Status: accepted (Florin, 26 Nov 2026).
 
 ## Context
 

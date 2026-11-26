@@ -1,6 +1,7 @@
 # 0008: Regulations corpus: versioned harvesting, raw files in S3, restricted documents for the prototype
 
 Date: 19 Nov 2026. Status: accepted.
+Changed by: 0016 (only versions in force from 1 January 2025).
 
 ## Context
 

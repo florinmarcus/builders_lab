@@ -1,6 +1,7 @@
 # 0011: Package builders_lab as a Claude plugin (connectors + skills)
 
 Date: 20 Nov 2026. Status: accepted.
+Changed by: 0015 (two connectors) and 0019 (skills run in the main model). The Claude app zip has no connectors file; the shared rules live in `plugin/shared/rules.md` (0020).
 
 ## Context
 

@@ -1,6 +1,7 @@
 # 0013: Regulations search is hybrid: vectors and BM25 keywords, top 50 each, merged, re-ranked to 5
 
 Date: 20 Nov 2026. Status: accepted. Changes the "Search" part of ADR 0010 and `architecture/design/regulations-corpus.md` ("vector now; keyword and re-rank after evals").
+Changed by: 0014 (corpus on the London server) and 0016 (four lanes, measure first).
 
 ## Context
 

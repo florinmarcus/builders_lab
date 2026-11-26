@@ -1,6 +1,7 @@
 # 0003: AWS with existing Bedrock access, one small server for the pilot
 
 Date: 7 Nov 2026. Status: accepted for the pilot. Prices to be checked (backlog).
+Changed by: 0009 (one EC2 server in London, not Frankfurt or Lightsail) and 0007 (API keys, not a username and password).
 
 ## Context
 

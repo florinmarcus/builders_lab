@@ -1,6 +1,7 @@
 # 0001: Romanian chat over English sources
 
 Date: 7 Nov 2026. Status: accepted (to be confirmed by evals).
+Changed by: 0012 (lookup_terms glossary, not a model call, for the English search terms) and 0019 (translation as the builders-translate skill).
 
 ## Context
 

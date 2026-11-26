@@ -3,7 +3,7 @@
 Every corner we cut goes here, so nothing is forgotten after the demo. Use it for code, architecture and security reviews.
 Update it in the same commit as the shortcut. Close an item only when it is done: move it to Closed and say where.
 
-Started 20 Nov 2026. Sorted on 25 Nov 2026 into three groups by when each item must be done: before the firm visits (Sat 28 Nov), before a pilot, later. IDs are never reused; the next free ID is S159 (N23, Q15: N21, N22 and Q14 are taken by ADR 0017 on branch claude/clever-thompson-rh7gee). Closed items are at the end.
+Started 20 Nov 2026. Sorted on 25 Nov 2026 into three groups by when each item must be done: before the firm visits (Sat 28 Nov), before a pilot, later. IDs are never reused; the next free IDs are S160, N23 and Q15. Closed items are at the end.
 
 ## Before the firm visits (28 Nov)
 
@@ -32,6 +32,8 @@ Started 20 Nov 2026. Sorted on 25 Nov 2026 into three groups by when each item m
 | N18 | Replace the demo Gmail tool with Claude's own Gmail and Microsoft 365 connectors for real firms (ADR 0014) | Demo uses our own inbox | Real firms would need a Google security review |
 | N19 | Excel export of a firm's data, then deletion within 30 days, confirmed in writing (pilot agreement; see N11) | Not needed for mock data | Promise in the pilot agreement we cannot keep |
 | N20 | Pilot agreement with DPA, our terms with the 12-month cap, and a setup help sheet for the partner | Business plan agreed 21 Nov 2026 | No pilot can start |
+| N21 | Workflow run records on the server: steps done and left, tools refuse out of order (e.g. no draft before `verify_answer` passes), first for the new-emails workflow (ADR 0017) | Decided 25 Nov 2026, not built | Step control depends on Claude following skills, with no hard stop |
+| N22 | Robot seat on a Team plan running Claude Code cloud scheduled tasks hourly, with hooks in those sessions (ADR 0017) | Pilot fetches live; waits for Anthropic's answer (Q14) or slow live answers | Slow first answers when email piles up; no background filing |
 | S1 | Tools use a small seed loaded straight into Postgres, not ingested email | `system/data/mock/db_seed.sql` | Replace with ingestion (N3, N4) |
 | S4 | Payment dates count calendar days. To check: the Construction Act may exclude bank holidays, Christmas Day and Good Friday from periods of days (s116, not yet read) | `service/payments.py` | Read s116; add UK bank holidays if needed |
 | S5 | Contract payment terms are invented mock values | seed data | Real terms come from the contract document |
@@ -86,7 +88,7 @@ Started 20 Nov 2026. Sorted on 25 Nov 2026 into three groups by when each item m
 | S157 | `about_regulations_library` has no example questions and no measured quality ("not measured yet", S151). Its scope and weak-parts lines are kept by hand in `system/rag/library.py` (dated 23 to 25 Nov 2026), and gap reasons are worked out from `sources.yaml` fields, so "paid standard" also covers a few free-but-copyrighted items (IET forms, PAS 2035). Documents planned but not loaded show as "listed but not loaded" without saying which are still being cleaned | `system/rag/library.py` | After the baseline (S151): add recall numbers and tested example questions; a `gap_reason` field in `sources.yaml` where the worked-out reason is wrong |
 | S158 | C1 (memory vs connector, `evals/experiments/C1-memory-vs-connector.md`) ran on all 342 dev questions on 26 Nov 2026, but with an Opus judge (same model as both agents), not checked by a person; helpers answered 15 questions at a time | `evals/closed_book.py` | Florin spot-reads some of the 68 disagreements; a second judge family if Bedrock access allows |
 | S159 | In C1 the connector agent answered 3 out-of-scope questions from memory and got 2 badly wrong (planning limits, asbestos UN numbers), against the server rule to say the library does not cover it. Most of its 13 in-scope losses to memory were retrieval misses (the passage exists but was not found), the rest reading errors | `versions/server/regulations.v*.md`, retrieval | Out-of-scope rule sharpened in server text regulations.v3 and the regs-question skill (26 Nov, not yet re-measured); use the missed questions in the baseline and ADR 0016 retrieval work |
-| Q4 | Is a Claude Code scheduled task reliable enough for regular inbox syncs, or do we need Haiku on the server? | ADR 0006 | – |
+| Q4 | Is a Claude Code scheduled task reliable enough for regular inbox syncs, or do we need Haiku on the server? 24 Nov 2026: still a research preview, tied to one account; pilot fetches live instead (ADR 0017) | ADR 0006 | – |
 | Q6 | Does Florin's employment contract allow this side work, and who owns code he writes outside work? | `requirements/business-plan.md` | – |
 | Q7 | Anthropic's liability cap and data terms for Claude Team (not confirmed) | `requirements/business-plan.md` | – |
 | Q9 | Does Claude's Microsoft 365 connector read Outlook mail? | `requirements/business-plan.md` | – |
@@ -177,11 +179,12 @@ Started 20 Nov 2026. Sorted on 25 Nov 2026 into three groups by when each item m
 | S140 | Corpus scoreboard (24 Nov 2026): `python -m system.rag.semcheck scoreboard --write` adds a dated line to `evals/experiments/data/corpus-scoreboard.jsonl` (per family and for the corpus: share of units and of words with a serious finding, lost or garbled text vs wrong place vs tables, 95% ranges, judge noise). Baseline 24 Nov: about 5.9% of the corpus text (4.6 to 8.3%). Shortcuts: the corpus range adds the family ranges (wide, not a joint interval); the word rate counts a whole unit's words when it has one serious finding; it measures the same sample we fix against | Built for the big picture across rounds | The number flatters us until the frozen audit sample (S141) exists |
 | S141 | Frozen audit sample: about 300 pages drawn once (fixed seed), across families and weighted by volume, never fixed against, judged once per round with the same judge, read by the scoreboard as its own line | After the firm visits | Until then the scoreboard measures pages we also fix, so progress looks better than it is |
 | Q1 | Can a Claude app connector send a header API key and use OAuth at the same time? | ADR 0007 | – |
-| Q2 | Does the Claude app have hooks? None found (20 Nov 2026) | `research/hosting-costs/connector-auth-options.md` | – |
+| Q2 | Does the Claude app have hooks? None found (20 Nov 2026). 24 Nov 2026: hooks run only where Claude Code runs (terminal, desktop, cloud sessions), not in the phone app; ADR 0017 puts hard control on the server | `research/hosting-costs/connector-auth-options.md` | – |
 | Q3 | Can a connector reach files on an iPhone? | `research/backlog.md` item 12 | – |
 | Q8 | ChatGPT Business and Enterprise prices from OpenAI's own page (third-party figures so far) | `requirements/business-plan.md` | – |
 | Q12 | SI numbers for CDM 2015, the Control of Asbestos Regulations 2012 and the Scheme for Construction Contracts in the MCP report came from memory; only the Building Regulations 2010 (SI 2010/2214) was tested live | `research/reports/UK legislation MCP servers.md` | – |
 | Q13 | Watch the GDS and National Archives "AI-ready legal data" Alpha (June 2026) and i.AI Lex: if an official, supported legislation MCP server appears, consider using it for legislation lookups instead of our own fetch (it will not cover Approved Documents) | `research/reports/UK legislation MCP servers.md` | – |
+| Q14 | May a Claude Team seat be used only by automation (a firm "robot" running cloud scheduled tasks, fired by our server)? No source allows or forbids it; the usage policy bans routing requests through consumer subscriptions. Ask Anthropic sales in writing before the pilot relies on it | ADR 0017 | – |
 
 ## Closed
 

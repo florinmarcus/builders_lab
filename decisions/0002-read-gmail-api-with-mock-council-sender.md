@@ -1,6 +1,7 @@
 # 0002: Read Gmail through the API, with a mock council sender
 
 Date: 7 Nov 2026. Status: accepted for the pilot. Inbox and sender parts replaced for the demo by ADR 0005.
+Changed by: 0005 (the demo inbox) and 0014 (real firms use Claude's own email connectors).
 
 ## Context
 
