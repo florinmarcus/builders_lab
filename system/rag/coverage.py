@@ -138,7 +138,7 @@ CACHE_VERSION = 2  # 2: ruled tables read from the deduplicated page too
 PDF = "application/pdf"
 
 # Thresholds, chosen from the first run over every PDF tree (22 Nov 2026; distribution in the report's --verbose
-# output and in architecture/design/regulations-corpus.md).
+# output and in architecture/design/ingest/checks/coverage.md).
 MIN_IMAGE_SHARE = 0.01     # images under 1% of the page area are ignored (bullets, icons, specks)
 PAGE_MIN_WORDS = 40        # a page is judged only with this many raw words left after the reasons
 PAGE_EMPTY = 0.10          # ... and flagged when the tree holds under 10% of them: the page was lost

@@ -2,7 +2,7 @@
 
     python -m system.rag.parse_guide --source fso-guidance-collection
 
-Design: architecture/design/regulations-corpus.md, ADR 0010. The guides share one template, unlike the HSE guides
+Design: architecture/design/ingest/design.md, ADR 0010. The guides share one template, unlike the HSE guides
 that parse_pdf reads (numbered paragraphs, captions below photos):
 
 - Parts ("Part 1 Fire risk assessment"), then Steps (Part 1, a white "STEP 1 ..." banner) or Sections (Part 2,

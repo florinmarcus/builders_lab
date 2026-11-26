@@ -2,7 +2,7 @@
 
     python -m system.rag.parse_flats --source fso-guidance-collection
 
-Design: architecture/design/regulations-corpus.md, ADR 0010. The guide has its own layout, unlike the 2006 fire
+Design: architecture/design/ingest/design.md, ADR 0010. The guide has its own layout, unlike the 2006 fire
 risk assessment guides (parse_guide) and the HSE guides (parse_pdf):
 
 - One column of Arial 12pt. Front matter (a preface panel, Foreword, Contents, Acknowledgements), an Introduction,

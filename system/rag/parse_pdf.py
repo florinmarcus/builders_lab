@@ -2,7 +2,7 @@
 
     python -m system.rag.parse_pdf --source hse-hsg264
 
-Design: architecture/design/regulations-corpus.md, ADR 0010. Two layers:
+Design: architecture/design/ingest/design.md, ADR 0010. Two layers:
 
 - read_pdf(path): the PDF as plain data: lines (page, top, x0, font, size, text, words with x0),
   filled rectangles (colour boxes) and images. pdfplumber (MIT licence); no PyMuPDF (AGPL).

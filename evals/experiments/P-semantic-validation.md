@@ -11,8 +11,8 @@ says? A model reads the source next to the tree and names differences.
 
 ## Method
 
-Tool: `system/rag/semcheck.py` (design: [regulations-corpus.md](../../architecture/design/regulations-corpus.md),
-"Semantic check"). Model: Fable 5.2 only, headless Claude Code, 6 packets a batch, 4 to 8 batches at a time.
+Tool: `system/rag/semcheck.py` (design: [semantic check](../../architecture/design/ingest/checks/semantic.md)).
+Model: Fable 5.2 only, headless Claude Code, 6 packets a batch, 4 to 8 batches at a time.
 
 - PDF: one page. The page image against the page's tree content in reading order.
 - Web page: one part of a page, cut at headings. The visible text (dropped text named) against the tree sections.

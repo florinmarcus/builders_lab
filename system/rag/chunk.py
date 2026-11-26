@@ -1,4 +1,4 @@
-"""Turn parsed document trees into search chunks (ADR 0010, design: architecture/design/regulations-corpus.md).
+"""Turn parsed document trees into search chunks (ADR 0010, design: architecture/design/ingest/design.md).
 
     python -m system.rag.chunk                       # every parsed tree under corpus/parsed/
     python -m system.rag.chunk --source adb          # one source

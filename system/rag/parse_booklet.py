@@ -2,7 +2,7 @@
 
     python -m system.rag.parse_booklet --source fso-guidance-collection
 
-Design: architecture/design/regulations-corpus.md, ADR 0010. Four files of fso-guidance-collection share one
+Design: architecture/design/ingest/design.md, ADR 0010. Four files of fso-guidance-collection share one
 template: "Check your fire safety responsibilities under Section 156 of the Building Safety Act 2022", "... under
 the Fire Safety (England) Regulations 2022", "A Guide to making your small block of flats safe from fire" and
 "... small paying-guest-accommodation safe from fire".

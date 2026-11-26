@@ -1,7 +1,7 @@
 # Flow: search the regulations
 
 A regulations question to cited passages. Up: [runtime design](../design.md).
-How the index is built: [regulations corpus](../../regulations-corpus.md). Search contract: `system/rag/README.md`.
+How the index is built: [ingest design](../../ingest/design.md). Search contract: `system/rag/README.md`.
 
 ```mermaid
 flowchart TB

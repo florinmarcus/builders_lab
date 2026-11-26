@@ -102,7 +102,7 @@ Started 20 Nov 2026. Sorted on 25 Nov 2026 into three groups by when each item m
 | N6 | OAuth login (Cognito) as the second auth layer (ADR 0007) | API keys first for the demo | One shared secret per firm |
 | N12 | Machine-readable "AI-generated" marker (design rule 2) | Text notice only for now | Needed if we serve EU users (Art 50) |
 | N14 | Evening summary, RAMS module, WhatsApp channel (prototype priorities 2 and 3) | After priority 1 | – |
-| N15 | `get_section` (design: `architecture/design/regulations-corpus.md`, ADRs 0010, 0013 and 0016). Parser, chunker and hybrid search are live on the London server (S88, S76, 25 Nov 2026 check); `get_section` and `read_document` are not built | ADR 0016 retrieval work | Answers cannot open the full section a passage comes from |
+| N15 | `get_section` (design: `architecture/design/ingest/design.md`, ADRs 0010, 0013 and 0016). Parser, chunker and hybrid search are live on the London server (S88, S76, 25 Nov 2026 check); `get_section` and `read_document` are not built | ADR 0016 retrieval work | Answers cannot open the full section a passage comes from |
 | N16 | Text fingerprint for PDFs, so byte-only changes are not new versions (ADR 0008 update) | Comes with the parser, which extracts PDF text anyway | A re-saved PDF would look like a new edition |
 | S7 | Rate limiter is in memory, per process; resets on restart | `mcp_server/ratelimit.py` | Fine for one server; use Redis or the database if we scale out |
 | S8 | Default daily quotas picked by us (500 tool calls, 200 documents, $2 model spend) | `quotas.py`, seed | Set per plan |

@@ -3,7 +3,7 @@
     python -m system.rag.parse_legislation --source br2010 --current
     python -m system.rag.parse_legislation --source br2010 --since 2026-01-01
 
-Design: architecture/design/regulations-corpus.md, ADR 0010. The tree is written to
+Design: architecture/design/ingest/design.md, ADR 0010. The tree is written to
 corpus/parsed/<source_id>/<version_id>.json (not in git; rebuilt from raw files).
 
 Tree:

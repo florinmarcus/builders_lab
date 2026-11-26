@@ -48,7 +48,7 @@ Remaining causes are listed in the report (S128); decide whether chunking waits 
 
 **Flow per document family, parse to vectors (status 22 Nov night).** Green: done. Amber: in progress.
 Grey: not started. Each parser's own diagram is in
-[regulations-corpus.md](../architecture/design/regulations-corpus.md).
+[ingest design](../architecture/design/ingest/design.md#3-parsers).
 
 ```mermaid
 flowchart LR

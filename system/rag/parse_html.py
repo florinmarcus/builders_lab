@@ -2,7 +2,7 @@
 
     python -m system.rag.parse_html --source hmrc-cis-340
 
-Design: architecture/design/regulations-corpus.md, ADR 0010. The tree has the same shape as the one
+Design: architecture/design/ingest/design.md, ADR 0010. The tree has the same shape as the one
 from parse_pdf, so system/rag/chunk.py works on it unchanged.
 
 Two kinds of page:

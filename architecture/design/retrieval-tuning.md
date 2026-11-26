@@ -1,6 +1,6 @@
 # Regulations search: aim, two options, how we tune (25 Nov 2026)
 
-What we are building for the firm visits on 28 Nov and 5 Dec, and how we decide. Search details: [regulations-corpus.md](regulations-corpus.md#search). Lanes: [ADR 0016](../../decisions/0016-retrieval-strategy-lanes-measure-first.md) point 8. Eval runner: `evals/retrieval.py`. Pooling: `evals/golden/pool_local.py`. Runs, commands and results: [B-mixed-vs-lanes.md](../../evals/experiments/B-mixed-vs-lanes.md).
+What we are building for the firm visits on 28 Nov and 5 Dec, and how we decide. Search details: [search flow](runtime/flows/search-regulations.md). Lanes: [ADR 0016](../../decisions/0016-retrieval-strategy-lanes-measure-first.md) point 8. Eval runner: `evals/retrieval.py`. Pooling: `evals/golden/pool_local.py`. Runs, commands and results: [B-mixed-vs-lanes.md](../../evals/experiments/B-mixed-vs-lanes.md).
 
 ## Aim
 

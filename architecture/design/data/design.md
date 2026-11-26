@@ -55,7 +55,7 @@ Parameter Store. The regulations server has no connection to the firm database (
 ## 2. Regulations library
 
 One document goes from catalogue to searchable chunk. Each step's output is rebuilt from the step before, so only
-the catalogue, the fixes and the raw files need keeping. How each step works: [regulations corpus](../regulations-corpus.md).
+the catalogue, the fixes and the raw files need keeping. How each step works: [ingest design](../ingest/design.md).
 
 ```mermaid
 erDiagram

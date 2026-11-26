@@ -5,7 +5,7 @@ description: Parse one regulations corpus document (legislation XML or guidance 
 
 # Parse a corpus document
 
-Same steps, same order, for every document. Design: `architecture/design/regulations-corpus.md`, ADR 0010. Run everything from the repo root.
+Same steps, same order, for every document. Design: `architecture/design/ingest/design.md`, ADR 0010. Run everything from the repo root.
 
 Never edit `corpus/fixes/*.json` by hand. Fixes come from `checks save`. A bulk change to saved fixes is a script, and its reason is added to each fix it touches.
 
@@ -148,7 +148,7 @@ load the corpus database, `deploy/rds/`). Add the new document's `parser:` entry
 
 - Any shortcut or known flaw goes into `requirements/parking-lot.md`.
 - Gaps found in the source go under "Known gaps" in `corpus/README.md`.
-- If the parser or the check rules changed, update `architecture/design/regulations-corpus.md`.
+- If the parser or the check rules changed, update the matching file under `architecture/design/ingest/` (parsers/ or checks/).
 - Commit to `main` with the counts in the message: sections by type, fixes saved, checks open (should be 0). Then push.
 
 ## Doing saved fixes again

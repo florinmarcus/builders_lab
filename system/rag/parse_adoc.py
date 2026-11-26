@@ -2,7 +2,7 @@
 
     python -m system.rag.parse_adoc --source adb --part approved-document-b-fire-safety-volume-1-dwellings
 
-Design: architecture/design/regulations-corpus.md, ADR 0010. Same tree format as parse_pdf (HSE guides), so
+Design: architecture/design/ingest/design.md, ADR 0010. Same tree format as parse_pdf (HSE guides), so
 the model-check step (system/rag/checks.py), saved fixes and image cutting are shared. The layout of the
 2019-style Approved Documents is regular, so most decisions come from fonts, sizes and colours:
 

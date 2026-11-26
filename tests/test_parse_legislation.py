@@ -1,4 +1,4 @@
-"""Tests for the legislation XML parser (ADR 0010, design: architecture/design/regulations-corpus.md)."""
+"""Tests for the legislation XML parser (ADR 0010, design: architecture/design/ingest/design.md)."""
 
 import json
 import re
