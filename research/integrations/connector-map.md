@@ -70,6 +70,7 @@ Scenarios 1, 4 and 6 use the prototype's moments 2, 3 and 6. Scenarios 2, 3 and 
 ## 4. Not verified
 
 - What software Robert's or FDT use. Their sites name none. Ask them.
+  - Update 27 Nov 2026: one design-and-build owner answered in writing (`research/interviews/builder-2.md`): Microsoft 365 Outlook, Dropbox, Excel and Monday.com, WhatsApp, no accounts software. Monday.com is not in the table above yet.
 - Which tools Romanian-run UK firms use: Gmail or Outlook, Xero or Sage, Houzz Pro or nothing. Ask the room on 21 Nov.
 - Microsoft 365 connector is read-only: all listed tools are search, but the page does not say so outright.
 - Google Drive and Calendar connectors: maker and write support not confirmed.
