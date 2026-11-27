@@ -6,11 +6,17 @@ import datetime as dt
 import uuid
 from typing import Any
 
+from builders_api.errors import ValidationError
 from builders_api.service import jobs
 
+LANGUAGES = ("en", "ro")
 
-def show_today(firm: uuid.UUID, now: dt.datetime | None = None) -> dict[str, Any]:
-    """Jobs with days to their target date and the emails of the last 7 days, newest first."""
+
+def show_today(firm: uuid.UUID, language: str = "en", now: dt.datetime | None = None) -> dict[str, Any]:
+    """Jobs with days to their target date and the emails of the last 7 days, newest first.
+    `language` sets the card's labels and button questions (en or ro); the data stays as stored."""
+    if language not in LANGUAGES:
+        raise ValidationError("language must be en or ro.")
     now = now or dt.datetime.now(dt.timezone.utc)
     today = now.date()
     listed = jobs.list_jobs(firm, since_days=7, now=now)
@@ -28,6 +34,7 @@ def show_today(firm: uuid.UUID, now: dt.datetime | None = None) -> dict[str, Any
     out.sort(key=lambda j: (j["days_left"] is None, j["days_left"] if j["days_left"] is not None else 0))
     return {
         "today": today.isoformat(),
+        "language": language,
         "jobs": out,
         "emails_7_days": sum(j["email_count_7_days"] for j in out) + len(listed["recent_emails_not_linked_to_a_job"]),
         "recent_emails_not_linked_to_a_job": listed["recent_emails_not_linked_to_a_job"][:3],

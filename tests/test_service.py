@@ -113,3 +113,10 @@ def test_show_today_lists_jobs_by_days_left(firm):
     assert riv["days_left"] == 0 and riv["due"] is True
     assert all(len(j["recent_emails"]) <= 3 for j in out["jobs"])
     assert out["emails_7_days"] == sum(j["email_count_7_days"] for j in out["jobs"])
+
+
+def test_show_today_language(firm):
+    from builders_api.service import today
+    assert today.show_today(firm, "ro")["language"] == "ro"
+    with pytest.raises(ValidationError):
+        today.show_today(firm, "fr")

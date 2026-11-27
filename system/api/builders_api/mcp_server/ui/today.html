@@ -61,42 +61,57 @@ const send=m=>window.parent.postMessage({jsonrpc:"2.0",...m},"*");
 const request=(method,params)=>new Promise((ok,fail)=>{const id=nextId++;pending[id]={ok,fail};send({id,method,params})});
 const notify=(method,params)=>send({method,params});
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-const fmt=d=>new Date(d+"T12:00:00Z").toLocaleDateString("en-GB",{day:"numeric",month:"short"});
-const ACTS=[["What's missing?","What is still missing before {ref} can be handed over?"],
-            ["Running late?","I'm running late on {ref}. What should I do?"],
-            ["Draft a reply","Draft a reply to the latest email on {ref}."]];
+const fmt=d=>new Date(d+"T12:00:00Z").toLocaleDateString(L.locale,{day:"numeric",month:"short"});
+const T={
+ en:{locale:"en-GB",today:"Today, ",loading:"Loading jobs…",mail:"Check new emails",mailQ:"Check my emails",
+  jobs:n=>n===1?"1 job":n+" jobs",due:n=>n+" due",emails:n=>n===1?"1 email this week":n+" emails this week",
+  dToday:"today",dOver:"overdue",days:n=>n===1?"1 day":n+" days",duePill:"Due",status:{active:"active"},finish:"finish ",
+  none:"No emails this week.",asking:"Asking Claude…",fail:"Could not send. Type it in the chat: ",
+  acts:[["What's missing?","What is still missing before {ref} can be handed over?"],
+        ["Running late?","I'm running late on {ref}. What should I do?"],
+        ["Draft a reply","Draft a reply to the latest email on {ref}."]]},
+ ro:{locale:"ro-RO",today:"Azi, ",loading:"Se încarcă lucrările…",mail:"Verifică emailurile noi",mailQ:"Verifică-mi emailurile",
+  jobs:n=>n===1?"1 lucrare":n+" lucrări",due:n=>n+" la termen",emails:n=>n===1?"1 email săptămâna asta":n+" emailuri săptămâna asta",
+  dToday:"azi",dOver:"termen depășit",days:n=>n===1?"1 zi":n+" zile",duePill:"Termen",status:{active:"în lucru"},finish:"termen ",
+  none:"Niciun email săptămâna asta.",asking:"Îl întreb pe Claude…",fail:"Nu am putut trimite. Scrie în chat: ",
+  acts:[["Ce lipsește?","Ce mai lipsește până la predare (handover) pentru {ref}?"],
+        ["Întârziere?","Sunt în întârziere la {ref}. Ce fac?"],
+        ["Răspuns la email","Scrie un răspuns la ultimul email de la {ref}."]]}};
+let L=T.en;
 
 function setTheme(t){if(t==="dark"||t==="light")document.documentElement.dataset.theme=t}
 function resize(){notify("ui/notifications/size-changed",{width:document.documentElement.scrollWidth,height:document.documentElement.scrollHeight})}
 function ask(text){
-  document.getElementById("msg").textContent="Asking Claude…";
+  document.getElementById("msg").textContent=L.asking;
   request("ui/message",{role:"user",content:[{type:"text",text}]})
     .then(()=>{document.getElementById("msg").textContent=""})
-    .catch(()=>{document.getElementById("msg").textContent="Could not send. Type it in the chat: "+text});
+    .catch(()=>{document.getElementById("msg").textContent=L.fail+text});
 }
 function render(d){
+  L=T[d.language]||T.en;document.documentElement.lang=d.language==="ro"?"ro":"en";
+  document.getElementById("mail").textContent=L.mail;
   const jobs=d.jobs||[];
-  document.getElementById("title").textContent="Today, "+new Date(d.today+"T12:00:00Z").toLocaleDateString("en-GB",{weekday:"long",day:"numeric",month:"long"});
+  document.getElementById("title").textContent=L.today+new Date(d.today+"T12:00:00Z").toLocaleDateString(L.locale,{weekday:"long",day:"numeric",month:"long"});
   const due=jobs.filter(j=>j.due).length;
-  document.getElementById("sub").textContent=`${jobs.length} jobs · ${due} due · ${d.emails_7_days} email${d.emails_7_days===1?"":"s"} this week`;
+  document.getElementById("sub").textContent=`${L.jobs(jobs.length)} · ${L.due(due)} · ${L.emails(d.emails_7_days)}`;
   const dated=jobs.filter(j=>j.target_date);
   if(dated.length){
     const t0=new Date(d.today).getTime(),days=dated.map(j=>j.days_left),max=Math.max(14,...days)+3;
     document.getElementById("prog").innerHTML=dated.map(j=>{
       const w=Math.max(4,Math.min(68,(Math.max(0,j.days_left)+1)/max*68));
-      return `<div class="row"><span class="ref">${esc(j.ref)}</span><div class="lane"><div class="b${j.due?" due":""}" style="left:0;width:${w}%"><em style="right:auto;left:calc(100% + 6px)">${esc(fmt(j.target_date))}${j.days_left>0?` · ${j.days_left} days`:j.days_left===0?" · today":" · overdue"}</em></div></div></div>`}).join("");
+      return `<div class="row"><span class="ref">${esc(j.ref)}</span><div class="lane"><div class="b${j.due?" due":""}" style="left:0;width:${w}%"><em style="right:auto;left:calc(100% + 6px)">${esc(fmt(j.target_date))}${j.days_left>0?" · "+L.days(j.days_left):j.days_left===0?" · "+L.dToday:" · "+L.dOver}</em></div></div></div>`}).join("");
   }else{document.getElementById("prog").hidden=true}
   document.getElementById("cards").innerHTML=jobs.map(j=>{
     const mails=(j.recent_emails||[]).map(e=>`<li>${esc(e.subject)} <small>· ${esc(e.from)}, ${esc(fmt(e.date))}</small></li>`).join("");
-    const pill=j.due?`<span class="pill y">Due</span>`:`<span class="pill">${esc(j.status)}</span>`;
+    const pill=j.due?`<span class="pill y">${esc(L.duePill)}</span>`:`<span class="pill">${esc(L.status[j.status]||j.status)}</span>`;
     return `<article class="card${j.due?" hot":""}"><div class="chead"><h3>${esc(j.title)}</h3>${pill}</div>
-      <p class="meta">${esc(j.ref)} · ${esc(j.client)}${j.target_date?" · finish "+esc(fmt(j.target_date)):""}</p>
-      ${mails?`<ul>${mails}</ul>`:`<p class="none">No emails this week.</p>`}
-      <div class="acts">${ACTS.map(([label,q])=>`<button class="act" type="button" data-q="${esc(q.replace("{ref}",j.ref+" ("+j.title+")"))}">${esc(label)}</button>`).join("")}</div></article>`}).join("");
+      <p class="meta">${esc(j.ref)} · ${esc(j.client)}${j.target_date?" · "+esc(L.finish)+esc(fmt(j.target_date)):""}</p>
+      ${mails?`<ul>${mails}</ul>`:`<p class="none">${esc(L.none)}</p>`}
+      <div class="acts">${L.acts.map(([label,q])=>`<button class="act" type="button" data-q="${esc(q.replace("{ref}",j.ref+" ("+j.title+")"))}">${esc(label)}</button>`).join("")}</div></article>`}).join("");
   resize();
 }
 document.getElementById("cards").addEventListener("click",e=>{const b=e.target.closest(".act");if(b)ask(b.dataset.q)});
-document.getElementById("mail").addEventListener("click",()=>ask("Check my emails"));
+document.getElementById("mail").addEventListener("click",()=>ask(L.mailQ));
 window.addEventListener("message",ev=>{
   const m=ev.data;if(!m||m.jsonrpc!=="2.0")return;
   if(m.id!==undefined&&pending[m.id]){const p=pending[m.id];delete pending[m.id];m.error?p.fail(m.error):p.ok(m.result);return}

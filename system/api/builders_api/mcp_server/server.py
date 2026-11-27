@@ -197,8 +197,8 @@ def build_server() -> MCPServer:
     apps = Apps()  # MCP Apps: tools that open a card in the chat; plain data for other clients
 
     @apps.tool(resource_uri=TODAY_UI, name="show_today", description=_desc("show_today"), annotations=READ_ONLY)
-    def show_today() -> dict[str, Any]:
-        return run_tool("show_today", lambda f: today.show_today(f))
+    def show_today(language: str = "en") -> dict[str, Any]:
+        return run_tool("show_today", lambda f: today.show_today(f, language))
 
     apps.add_html_resource(TODAY_UI, (UI_DIR / "today.html").read_text(encoding="utf-8"),
                            name="today", title="Today", description="Today's jobs, finish dates and emails")
