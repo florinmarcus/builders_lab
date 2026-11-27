@@ -164,6 +164,33 @@ def build_regulations_server() -> MCPServer:
     return server
 
 
+def client_instructions(firm: uuid.UUID) -> str | None:
+    """The firm's own client file (versions/server/client_<slug>.vN.md), or None if it has none."""
+    with connection() as conn:
+        row = conn.execute("select slug from firms where id = %s", (firm,)).fetchone()
+    if not row:
+        return None
+    try:
+        return versions.get("server_instructions", f"client_{row['slug']}").text
+    except KeyError:
+        return None
+
+
+def _per_firm_instructions(server: MCPServer, base: str) -> None:
+    """Send each firm its client file with the server instructions, chosen by the caller's key.
+
+    The Gateway sets the caller before the MCP layer; in stateless HTTP every initialize runs inside that
+    request, so the instructions are read per firm. Without a key or a client file: the shared text only."""
+    low = server._lowlevel_server
+
+    def current(_self) -> str:
+        caller = security.current_caller.get()
+        extra = client_instructions(caller.firm_id) if caller else None
+        return base + "\n\n" + extra if extra else base
+
+    low.__class__ = type("FirmInstructionsServer", (type(low),), {"instructions": property(current, lambda _s, _v: None)})
+
+
 def build_server() -> MCPServer:
     """The firm server: one firm's data, every query filtered by the caller's firm."""
     text, version = _instructions("firm")
@@ -182,6 +209,7 @@ def build_server() -> MCPServer:
         version=version,
         extensions=[apps],
     )
+    _per_firm_instructions(server, text)
     desc = _desc
 
     @server.tool(description=desc("get_firm_profile"), annotations=READ_ONLY)

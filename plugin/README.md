@@ -28,6 +28,7 @@ Authentication "No sign-in", header `Authorization: Bearer bl_...` (see `deploy/
 | Layer | Where | Loaded |
 |---|---|---|
 | Who we are, language, "use the workflow" | project instructions (`claude-app/PROJECT_INSTRUCTIONS.md`, about 8 lines) | always |
+| Client file: the firm's tools, habits, preferences | our server sends it with the connector instructions, chosen by the key (`system/api/builders_api/versions/server/client_<slug>.vN.md`) | every session, every device |
 | Firm: people, jobs, contacts, what is due | `get_firm_profile` tool (live from the server) | once per conversation |
 | How to do each job | skills (`skills/*/SKILL.md`), with `references/` opened only when needed | on demand |
 | Specialist work | done by the main model, following the task skill (ADR 0019); agents on Haiku (`agents/`) only for big jobs | per question |

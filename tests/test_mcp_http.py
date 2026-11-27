@@ -144,3 +144,22 @@ def test_show_today_opens_a_card(server, conn):
     assert page.contents[0].mime_type == "text/html;profile=mcp-app"
     assert "ui/initialize" in page.contents[0].text
     assert {j["ref"] for j in out["jobs"]} == {"ELM-22", "KWY-4", "RIV-12"}
+
+
+def test_each_firm_gets_its_client_file(server, conn):
+    """One client file per firm (versions/server/client_<slug>.vN.md), sent with the instructions by key."""
+    def instructions(slug: str) -> str:
+        key = create_key(slug, "test", dt.date.today() + dt.timedelta(days=60))
+        body = {"jsonrpc": "2.0", "id": 1, "method": "initialize",
+                "params": {"protocolVersion": "2025-06-18", "capabilities": {},
+                           "clientInfo": {"name": "t", "version": "1"}}}
+        headers = {"Authorization": f"Bearer {key}", "Accept": "application/json, text/event-stream"}
+        with httpx.Client() as h:
+            r = h.post(server["url"], json=body, headers=headers)
+        assert r.status_code == 200
+        return r.json()["result"]["instructions"]
+
+    oak = instructions("oakline")
+    assert "Cite every fact" in oak and "Tools the firm uses" in oak
+    other = instructions("evals")  # a firm with no client file: shared rules only
+    assert "Cite every fact" in other and "Tools the firm uses" not in other
