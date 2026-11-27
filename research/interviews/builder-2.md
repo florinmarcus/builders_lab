@@ -32,7 +32,8 @@ Confirmed by the firm: they want help with the **take-off** (quantity take-off):
 - Detailed sets: mostly extraction from the written dimensions and specification; every line cites its drawing.
 - Vague sets: a conversation with the builder; the assistant asks about what is missing and writes every assumption on the result.
 - Evals: their old jobs (architect PDFs in, their final take-off or quote out), detailed and vague ones.
-- Still to ask: name of their output document (take-off, bill of quantities, estimate); own rates or supplier prices; two old jobs to start.
+- Their output document is called a take-off.
+- Still to ask: own rates or supplier prices; two old jobs to start.
 
 ## Visit checklist (27 Nov 2026)
 
