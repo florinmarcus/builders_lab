@@ -24,6 +24,16 @@ Written questions from Florin, answered in writing by the owner before a site vi
 - WhatsApp and email with clients fit the "client said yes on WhatsApp" variations scenario.
 - H&S paperwork sits with an outside adviser, so RAMS checks may matter less to him in-house.
 
+## First use case: take-off (visit, 27 Nov 2026)
+
+Confirmed by the firm: they want help with the **take-off** (quantity take-off): list items and quantities from the architect's documents, then price them.
+
+- Input: architect's PDFs (drawings, sometimes a specification). Quality varies: some architects send detailed sets, others vague ones with little or no specification.
+- Detailed sets: mostly extraction from the written dimensions and specification; every line cites its drawing.
+- Vague sets: a conversation with the builder; the assistant asks about what is missing and writes every assumption on the result.
+- Evals: their old jobs (architect PDFs in, their final take-off or quote out), detailed and vague ones.
+- Still to ask: name of their output document (take-off, bill of quantities, estimate); own rates or supplier prices; two old jobs to start.
+
 ## Visit checklist (27 Nov 2026)
 
 - Who is the Microsoft 365 admin?
