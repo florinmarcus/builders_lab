@@ -1,5 +1,7 @@
 # Builder 2: how a job flows (first draft, 27 Nov 2026)
 
+![Job flow](builder-2-flow.png)
+
 Draft to check with the owner. Solid boxes: tools he named in writing (`builder-2.md`). Dashed boxes: our guesses, to confirm. The order of steps is a guess from typical design-and-build firms (`research/research_notes/Builder tools and integrations/design_and_build_firms.md`).
 
 ```mermaid
