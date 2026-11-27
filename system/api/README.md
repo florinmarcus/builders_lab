@@ -45,6 +45,7 @@ Firm server at `/mcp/<secret>`, regulations server at `/mcp/<secret>/regulations
 | `about_regulations_library` | regulations | what the library holds: version loaded, documents by type, gaps and why, quality (S100). `part`: summary, contents, gaps |
 | `get_firm_profile` | firm | start of a conversation: who we are, jobs, contacts, what is due |
 | `get_job_timeline` | firm | delays, "what have I sent?": everything on a job in date order |
+| `show_today` | firm | "show me today": jobs by days left, due jobs, emails of the last 7 days; opens a card in the chat (MCP Apps, `mcp_server/ui/today.html`), plain data elsewhere |
 
 ## Security (ADR 0007)
 

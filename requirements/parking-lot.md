@@ -3,7 +3,7 @@
 Every corner we cut goes here, so nothing is forgotten after the demo. Use it for code, architecture and security reviews.
 Update it in the same commit as the shortcut. Close an item only when it is done: move it to Closed and say where.
 
-Started 20 Nov 2026. Sorted on 25 Nov 2026 into three groups by when each item must be done: before the firm visits (Sat 28 Nov), before a pilot, later. IDs are never reused; the next free IDs are S164, N24 and Q15. Closed items are at the end.
+Started 20 Nov 2026. Sorted on 25 Nov 2026 into three groups by when each item must be done: before the firm visits (Sat 28 Nov), before a pilot, later. IDs are never reused; the next free IDs are S165, N24 and Q15. Closed items are at the end.
 
 ## Before the firm visits (28 Nov)
 
@@ -25,6 +25,7 @@ Started 20 Nov 2026. Sorted on 25 Nov 2026 into three groups by when each item m
 
 | # | Item | Where or why | Next step or risk |
 |---|---|---|---|
+| S164 | `show_today` card (MCP Apps) written by hand against the protocol (2026-01-26) with no SDK script; tested only with a fake host, not yet in the Claude app or phone. Buttons send a question into the chat (`ui/message`); they do not call tools directly. No regulations switch on the card yet (N23) | `system/api/builders_api/mcp_server/ui/today.html` | Try in the Claude app and phone after deploy; if the phone shows text only, the tool still returns data |
 | N23 | Regulations switch per firm (ADR 0022): field on the firm record, in `get_firm_profile`, a tool to set it, a `verify_answer` check when off. Not built | Florin wants the choice; must work on the phone, so not a hook | Until built, regulations are always on |
 | N8 | Backups copied off the server's account and region (now: daily dumps on the disk + daily disk snapshots in the same region) | Pilot | Region or account loss loses data |
 | N9 | Evals and the Claude Code mini harness (subagents, hooks, LLM judge) | Out of scope for Saturday | No measure of answer quality |

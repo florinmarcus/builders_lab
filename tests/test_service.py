@@ -101,3 +101,15 @@ def test_regulations_fallback_returns_nothing_for_unrelated_questions(seeded):
     assert regulations.search_regulations("VAT domestic reverse charge for subcontractors")["passages"] == []
     hits = regulations.search_regulations("what happens if I miss a pay less notice")["passages"]
     assert hits and hits[0]["section"].startswith("s111")
+
+
+def test_show_today_lists_jobs_by_days_left(firm):
+    from builders_api.service import today
+    out = today.show_today(firm, now=dt.datetime(2026, 11, 27, 9, tzinfo=dt.timezone.utc))
+    assert out["today"] == "2026-11-27"
+    refs = [j["ref"] for j in out["jobs"]]
+    assert refs[0] == "RIV-12" and set(refs) == {"ELM-22", "KWY-4", "RIV-12"}
+    riv = out["jobs"][0]
+    assert riv["days_left"] == 0 and riv["due"] is True
+    assert all(len(j["recent_emails"]) <= 3 for j in out["jobs"])
+    assert out["emails_7_days"] == sum(j["email_count_7_days"] for j in out["jobs"])

@@ -18,7 +18,7 @@ from builders_api.mcp_server.server import build_app
 
 SECRET = "test-path-secret-0123456789"
 FIRM_TOOLS = {"list_jobs", "get_job", "list_missing_items", "search_job_documents", "get_payment_dates", "sync_inbox",
-              "save_facts", "verify_answer", "lookup_terms", "get_job_timeline", "get_firm_profile"}
+              "save_facts", "verify_answer", "lookup_terms", "get_job_timeline", "get_firm_profile", "show_today"}
 REGULATIONS_TOOLS = {"search_regulations", "lookup_terms", "about_regulations_library"}
 
 
@@ -124,3 +124,23 @@ def test_regulations_server_same_key(server, conn):
         assert h.post(server["regs"] + "/x", json={}).status_code == 404
     rows = conn.execute("select name, status from traces order by id").fetchall()
     assert [tuple(r) for r in rows] == [("lookup_terms", "ok")]
+
+
+def test_show_today_opens_a_card(server, conn):
+    """MCP Apps: show_today points at a ui:// resource that the server serves as an mcp-app page."""
+    key = create_key("oakline", "test", dt.date.today() + dt.timedelta(days=60))
+
+    async def run():
+        from mcp.client.streamable_http import create_mcp_http_client, streamable_http_client
+        async with create_mcp_http_client(headers={"Authorization": f"Bearer {key}"}) as client:
+            async with mcp.Client(streamable_http_client(server["url"], http_client=client)) as c:
+                tool = next(t for t in (await c.list_tools()).tools if t.name == "show_today")
+                uri = tool.meta["ui"]["resourceUri"]
+                page = await c.read_resource(uri)
+                return uri, page, _payload(await c.call_tool("show_today", {}))
+
+    uri, page, out = anyio.run(run)
+    assert uri == "ui://builders/today.html"
+    assert page.contents[0].mime_type == "text/html;profile=mcp-app"
+    assert "ui/initialize" in page.contents[0].text
+    assert {j["ref"] for j in out["jobs"]} == {"ELM-22", "KWY-4", "RIV-12"}
