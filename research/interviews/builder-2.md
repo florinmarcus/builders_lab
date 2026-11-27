@@ -24,6 +24,23 @@ Written questions from Florin, answered in writing by the owner before a site vi
 - WhatsApp and email with clients fit the "client said yes on WhatsApp" variations scenario.
 - H&S paperwork sits with an outside adviser, so RAMS checks may matter less to him in-house.
 
+## Visit checklist (27 Nov 2026)
+
+- Who is the Microsoft 365 admin?
+- Are contracts, quotes and old RAMS in Dropbox?
+- Who gets his RAMS, and who sends him theirs?
+- What does the H&S adviser send, and where does it go?
+- Who does invoices and payment applications, and in what?
+- Monday.com:
+  - One row: what columns?
+  - Linked to Dropbox?
+  - Sends emails or reminders?
+  - Tried its AI?
+- WhatsApp approvals from clients: where are they written down?
+- What takes him the most time each week?
+- A couple of old documents, names removed?
+- Show the today card.
+
 ## Follow-up questions (for the visit)
 
 - Who holds the Microsoft 365 admin account?
