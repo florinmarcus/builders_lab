@@ -31,6 +31,7 @@ Written questions from Florin, answered in writing by the owner before a site vi
 - Who gets his RAMS, and who sends him theirs?
 - What does the H&S adviser send, and where does it go?
 - Who does invoices and payment applications, and in what?
+- How does he price a job (quote from drawings: Excel, rates, suppliers)?
 - Monday.com:
   - One row: what columns?
   - Linked to Dropbox?
