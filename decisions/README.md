@@ -30,5 +30,6 @@ figures belong in the designs, not here.
 | [0020](0020-docs-structure-one-source-of-truth.md) | Docs structure, one source of truth | accepted | – |
 | [0021](0021-answer-judge-design.md) | Answer judge: search plus Sonnet, pass or fail per criterion, judge chosen by human labels | accepted | – |
 | [0022](0022-regulations-switch-per-firm.md) | Regulations switch per firm, saved and enforced on the server | accepted, not built | – |
+| [0023](0023-split-public-regulations-and-private-builders.md) | Split: public regulations project, private builders project, two servers | proposed | – |
 
 Next free number: 0021.
