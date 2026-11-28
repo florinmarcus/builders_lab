@@ -1,7 +1,7 @@
 # HTTPS in front of the MCP server. Certificates from Let's Encrypt (TLS_DIRECTIVE = your email),
 # or Caddy's own local certificate for testing (TLS_DIRECTIVE = internal).
-# Logs: JSON on stdout (shipped to CloudWatch on the server). The MCP path secret and key headers
-# are masked in every log line, including errors from the reverse proxy.
+# Logs: JSON on stdout (shipped to CloudWatch on the server). The MCP path secret (also under /planning) and key
+# headers are masked in every log line, including errors from the reverse proxy.
 {
 	admin off
 	log default {
@@ -9,7 +9,7 @@
 		format filter {
 			wrap json
 			fields {
-				request>uri regexp ^/mcp/[^/?]+ /mcp/<path-secret>
+				request>uri regexp ^(/planning)?/mcp/[^/?]+ ${1}/mcp/<path-secret>
 				request>headers>Authorization delete
 				request>headers>X-Api-Key delete
 			}
@@ -33,11 +33,17 @@
 		format filter {
 			wrap json
 			fields {
-				request>uri regexp ^/mcp/[^/?]+ /mcp/<path-secret>
+				request>uri regexp ^(/planning)?/mcp/[^/?]+ ${1}/mcp/<path-secret>
 				request>headers>Authorization delete
 				request>headers>X-Api-Key delete
 			}
 		}
 	}
-	reverse_proxy app:8000
+	# planning-harvest MCP server (its own project on this server, ADR 0024): /planning/mcp/<key> -> planning-mcp:8090
+	handle_path /planning/* {
+		reverse_proxy planning-mcp:8090
+	}
+	handle {
+		reverse_proxy app:8000
+	}
 }
