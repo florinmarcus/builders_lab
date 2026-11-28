@@ -88,6 +88,11 @@ aws iam attach-user-policy --user-name <deploy user> \
 - Always preview a stack update as a change set and check that nothing says Replacement: True. Take a backup first (`scripts/backup.sh <label>`).
 - To upgrade the OS on purpose: back up, lift the stack policy for `Server`, set a new `ImageId`, restore data if needed.
 
+## Shared server: planning-harvest (28 Nov 2026)
+
+- The server also runs planning-harvest (its ADR 0012): own checkout `/opt/planning-harvest`, own compose project, own database. Builders Lab containers are not touched.
+- Only change here: the server role may read and write `/planning-harvest/${Environment}/*` in Parameter Store (its GitHub token, its database password). Statement `OwnSettingsAndSecrets` in `server.yaml`.
+
 ## Run a command on the server
 
 No SSH. Use Session Manager:

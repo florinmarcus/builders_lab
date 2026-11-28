@@ -122,7 +122,9 @@ Resources:
               - Sid: OwnSettingsAndSecrets
                 Effect: Allow
                 Action: [ssm:GetParameter, ssm:GetParameters, ssm:GetParametersByPath, ssm:PutParameter]
-                Resource: !Sub "arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:parameter/builders-lab/${Environment}/*"
+                Resource:
+                  - !Sub "arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:parameter/builders-lab/${Environment}/*"
+                  - !Sub "arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:parameter/planning-harvest/${Environment}/*"   # planning-harvest ADR 0012
               - Sid: SecureStringsWithDefaultKey
                 Effect: Allow
                 Action: [kms:Decrypt, kms:Encrypt]
