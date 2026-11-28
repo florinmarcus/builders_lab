@@ -199,3 +199,8 @@ restores the keys.
 | `cloudformation/server.yaml` | Yes, in AWS (third attempt; two permission fixes) |
 | `install.sh`, `env-from-ssm.sh` | Yes, on the real server (one bug fixed: log lines mixed into secrets) |
 | `ci-deploy.yml` | Test job yes; deploy job switched on 20 Nov 2026 (repository variables set) |
+
+## planning-harvest behind this Caddy (ADR 0024)
+
+`/planning/*` goes to the `planning-mcp` container of the separate planning-harvest project (its `deploy/README.md`).
+After a Caddyfile change: `docker compose -p builders-lab restart caddy` (S166).

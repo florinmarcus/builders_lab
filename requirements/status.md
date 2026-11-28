@@ -14,6 +14,7 @@ goes into main only when its work is finished, its tests pass and Florin says ye
 
 - Two MCP servers on AWS London behind the same API keys (ADR 0015): firm data at `/mcp/<secret>` (12 tools; `show_today` opens a card in the chat; each firm gets its own client file with the instructions; both on the branch until merged) and
   regulations at `/mcp/<secret>/regulations` (3 tools). Tool list: `system/api/README.md`. Deploy: `deploy/README.md`.
+- The same gateway also serves the separate planning-harvest MCP server at `/planning/mcp/<key>` (ADR 0024).
 - Mock firm "Marcus Limited" (`system/data/mock/`), ingestion of demo email, plain-code answer checks
   (`verify_answer`).
 - Regulations search on the London server since 24 Nov 2026: `corpus-db` container, 58,032 chunks from 197 sources,
